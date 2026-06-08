@@ -46,20 +46,51 @@ const SIDES = {
   neutral: { label: 'Neutral', color: '#aab0b8' },
 };
 
-function classify(foreignPo) {
-  if (!foreignPo) return 'neutral';
-  const s = String(foreignPo).toLowerCase();
+// The source `Foreign_Po` field is inconsistent over time (e.g. "Belligerent"
+// in 1939, blank in some months), so for the major powers we assert their side
+// from the known alliance timeline. `null` here means "defer to Foreign_Po".
+function coreSide(name, d) {
+  switch (name) {
+    case 'Germany':
+      return 'axis';
+    case 'Italy':
+      return d < 19400610 ? 'neutral' : d < 19430908 ? 'axis' : 'allied';
+    case 'Soviet Union':
+      return d < 19410622 ? 'neutral' : 'allied';
+    case 'Hungary':
+      return d < 19401120 ? 'neutral' : 'axis';
+    case 'Romania':
+      return d < 19401123 ? 'neutral' : d < 19440823 ? 'axis' : 'allied';
+    case 'Bulgaria':
+      return d < 19410301 ? 'neutral' : d < 19440908 ? 'axis' : 'allied';
+    case 'Slovakia':
+      return d < 19390314 ? 'neutral' : 'axis';
+    case 'Finland':
+      return d >= 19410625 && d < 19440919 ? 'axis' : 'neutral';
+    case 'Vichy France':
+      return d < 19421111 ? 'axis' : 'neutral';
+    case 'United Kingdom':
+      return d < 19390903 ? 'neutral' : 'allied';
+    case 'France':
+      return d < 19390903 ? 'neutral' : d < 19400625 ? 'allied' : null; // occupied after -> Foreign_Po
+    default:
+      return null;
+  }
+}
+
+/** Resolve a feature to a side: occupation first, then the core timeline, then the raw label. */
+function sideFor(name, foreignPo, d) {
+  const s = (foreignPo == null ? '' : String(foreignPo)).toLowerCase();
   if (s.includes('occupied') || s.includes('protectorate')) return 'occupied';
+  const core = coreSide(name, d);
+  if (core) return core;
   if (s.startsWith('alli')) return 'allied';
   if (s.includes('axis')) return 'axis';
   return 'neutral';
 }
 
-// Known source error: Italy is tagged "Allies" before its Sept 1943 armistice.
-function correctSide(name, side, startNum) {
-  if (name === 'Italy' && startNum >= 19400600 && startNum < 19430900) return 'axis';
-  return side;
-}
+const isBlank = (v) => v == null || String(v).trim() === '' || /^null$/i.test(String(v));
+const SKIP_NULL_RATIO = 0.8; // months where most statuses are blank are data gaps
 
 const reproject = (n) => (typeof n[0] === 'number' ? proj4(SRC_PROJ, 'EPSG:4326', n) : n.map(reproject));
 
@@ -108,12 +139,13 @@ rmSync(OUT_DIR, { recursive: true, force: true });
 mkdirSync(OUT_DIR, { recursive: true });
 
 const months = [];
-for (let i = 0; i < files.length; i++) {
-  const entry = files[i];
+const skipped = [];
+for (const entry of files) {
   const base = `${SRC_DIR}/${entry.file.replace(/\.shp$/, '')}`;
   const source = await open(`${base}.shp`, `${base}.dbf`);
 
   const features = [];
+  let blank = 0;
   while (true) {
     const r = await source.read();
     if (r.done) break;
@@ -122,8 +154,8 @@ for (let i = 0; i < files.length; i++) {
     f.geometry.coordinates = reproject(f.geometry.coordinates);
     const geometry = prune(f.geometry);
     if (!geometry) continue;
-    let side = classify(f.properties.Foreign_Po);
-    side = correctSide(f.properties.Name, side, entry.startNum);
+    if (isBlank(f.properties.Foreign_Po)) blank++;
+    const side = sideFor(f.properties.Name, f.properties.Foreign_Po, entry.startNum);
     features.push({
       type: 'Feature',
       properties: { name: f.properties.Name, side, color: SIDES[side].color },
@@ -131,15 +163,25 @@ for (let i = 0; i < files.length; i++) {
     });
   }
 
+  // Skip data-gap months (mostly blank statuses); the previous month carries over.
+  if (!features.length || blank / features.length > SKIP_NULL_RATIO) {
+    skipped.push(entry.monthKey);
+    continue;
+  }
+
   let topo = simplify(presimplify(topology({ control: { type: 'FeatureCollection', features } })), SIMPLIFY_WEIGHT);
   topo = quantize(topo, QUANTIZATION);
 
   const fileName = `${entry.monthKey}.json`;
   writeFileSync(`${OUT_DIR}/${fileName}`, JSON.stringify(topo));
-
-  const end = i + 1 < files.length ? files[i + 1].startNum : 99999999;
-  months.push({ month: entry.monthKey, start: entry.startNum, end, file: fileName });
+  months.push({ month: entry.monthKey, start: entry.startNum, file: fileName });
 }
+
+// Each kept month is valid until the next kept month (last one to +infinity).
+months.forEach((m, i) => {
+  m.end = i + 1 < months.length ? months[i + 1].start : 99999999;
+});
+if (skipped.length) console.log(`Skipped ${skipped.length} gap months: ${skipped.join(', ')}`);
 
 const index = {
   layer: 'control',
