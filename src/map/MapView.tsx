@@ -7,6 +7,7 @@ import { useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import { useStore } from '../store';
 import { addBordersLayer, updateBordersDate } from '../layers/borders';
+import { addControlLayer, updateControlDate } from '../layers/control';
 
 // Keyless, CORS-enabled vector basemap. Swappable in later milestones (e.g. a
 // period-correct style or a georeferenced historical raster).
@@ -48,7 +49,9 @@ export function MapView() {
     map.on('moveend', onMoveEnd);
 
     map.on('load', async () => {
-      await addBordersLayer(map, useStore.getState().date);
+      const d = useStore.getState().date;
+      await addBordersLayer(map, d);
+      await addControlLayer(map, d);
       readyRef.current = true;
     });
 
@@ -60,10 +63,13 @@ export function MapView() {
     };
   }, []);
 
-  // Re-filter borders whenever the date changes.
+  // Update layers whenever the date changes.
   useEffect(() => {
     const map = mapRef.current;
-    if (map && readyRef.current) updateBordersDate(map, date);
+    if (map && readyRef.current) {
+      updateBordersDate(map, date);
+      void updateControlDate(map, date);
+    }
   }, [date]);
 
   return <div ref={containerRef} className="map" />;

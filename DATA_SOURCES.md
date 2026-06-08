@@ -13,8 +13,9 @@ non-commercial and copyleft (GPL-3.0) terms.
 
 | Source | Granularity | Format / License | Notes |
 |---|---|---|---|
-| [Stanford Spatial History Project](https://web.stanford.edu/group/spatialhistory/) — WWII territorial changes | **Monthly** (Apr 1938–Nov 1944) | Shapefile / academic, non-commercial | **Primary frontline source.** Original download via web.archive.org. Interpolate monthly → daily. |
+| [Stanford Spatial History Project](https://web.stanford.edu/group/spatialhistory/) — European Borders WWII — **in use (M2)** | **Monthly** (Feb 1938–May 1945) | Shapefile (Europe Albers / ED50) / academic, non-commercial | **Control layer source.** Download via [Internet Archive snapshot](http://web.archive.org/web/20130521002915/http://www.stanford.edu/group/spatialhistory/Publications/HolocaustGeographies/EuropeanBorders_WWII.zip). Reprojected to WGS84, simplified, → per-month TopoJSON by `data/pipeline/build-control.mjs`. **Caveat:** tracks *administrative/territorial* control (occupation→liberation), not the fluid operational front — the East is ~static 1941–43. Occasional source errors (Italy pre-Sept-1943 corrected to Axis in the ETL). |
 | ArcGIS "European Borders World War II" (1938, 1942) items | Year snapshots | Shapefile | Cross-check / fallback. |
+| [federicodassereto/European-WWII-visualization](https://github.com/federicodassereto/European-World-War-II-Events-visualuzation) | Monthly (1938–1945) | TopoJSON / no license | **Rejected:** full-war coverage with clean Axis/Allied/Neutral status, but geometry is in lost pixel/projection space (drawn via `d3.geoPath()` with no projection) → not georeferenceable. |
 
 ## Borders (sovereign / de jure)
 

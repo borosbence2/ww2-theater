@@ -1,0 +1,557 @@
+{
+  "layer": "control",
+  "object": "control",
+  "source": "Stanford Spatial History Project — European Borders WWII",
+  "license": "Academic / non-commercial",
+  "generated": "2026-06-08",
+  "granularity": "monthly (nearest-keyframe; daily interpolation is future work)",
+  "sides": {
+    "axis": {
+      "label": "Axis",
+      "color": "#b5402f"
+    },
+    "occupied": {
+      "label": "Axis-occupied",
+      "color": "#e0a08c"
+    },
+    "allied": {
+      "label": "Allied",
+      "color": "#2f6fb0"
+    },
+    "neutral": {
+      "label": "Neutral",
+      "color": "#aab0b8"
+    }
+  },
+  "months": [
+    {
+      "month": "1938-02",
+      "start": 19380201,
+      "end": 19380301,
+      "file": "1938-02.json"
+    },
+    {
+      "month": "1938-03",
+      "start": 19380301,
+      "end": 19380401,
+      "file": "1938-03.json"
+    },
+    {
+      "month": "1938-04",
+      "start": 19380401,
+      "end": 19380501,
+      "file": "1938-04.json"
+    },
+    {
+      "month": "1938-05",
+      "start": 19380501,
+      "end": 19380601,
+      "file": "1938-05.json"
+    },
+    {
+      "month": "1938-06",
+      "start": 19380601,
+      "end": 19380701,
+      "file": "1938-06.json"
+    },
+    {
+      "month": "1938-07",
+      "start": 19380701,
+      "end": 19380801,
+      "file": "1938-07.json"
+    },
+    {
+      "month": "1938-08",
+      "start": 19380801,
+      "end": 19380901,
+      "file": "1938-08.json"
+    },
+    {
+      "month": "1938-09",
+      "start": 19380901,
+      "end": 19381001,
+      "file": "1938-09.json"
+    },
+    {
+      "month": "1938-10",
+      "start": 19381001,
+      "end": 19381101,
+      "file": "1938-10.json"
+    },
+    {
+      "month": "1938-11",
+      "start": 19381101,
+      "end": 19381201,
+      "file": "1938-11.json"
+    },
+    {
+      "month": "1938-12",
+      "start": 19381201,
+      "end": 19390101,
+      "file": "1938-12.json"
+    },
+    {
+      "month": "1939-01",
+      "start": 19390101,
+      "end": 19390201,
+      "file": "1939-01.json"
+    },
+    {
+      "month": "1939-02",
+      "start": 19390201,
+      "end": 19390301,
+      "file": "1939-02.json"
+    },
+    {
+      "month": "1939-03",
+      "start": 19390301,
+      "end": 19390401,
+      "file": "1939-03.json"
+    },
+    {
+      "month": "1939-04",
+      "start": 19390401,
+      "end": 19390501,
+      "file": "1939-04.json"
+    },
+    {
+      "month": "1939-05",
+      "start": 19390501,
+      "end": 19390601,
+      "file": "1939-05.json"
+    },
+    {
+      "month": "1939-06",
+      "start": 19390601,
+      "end": 19390701,
+      "file": "1939-06.json"
+    },
+    {
+      "month": "1939-07",
+      "start": 19390701,
+      "end": 19390801,
+      "file": "1939-07.json"
+    },
+    {
+      "month": "1939-08",
+      "start": 19390801,
+      "end": 19390901,
+      "file": "1939-08.json"
+    },
+    {
+      "month": "1939-09",
+      "start": 19390901,
+      "end": 19391001,
+      "file": "1939-09.json"
+    },
+    {
+      "month": "1939-10",
+      "start": 19391001,
+      "end": 19391101,
+      "file": "1939-10.json"
+    },
+    {
+      "month": "1939-11",
+      "start": 19391101,
+      "end": 19391201,
+      "file": "1939-11.json"
+    },
+    {
+      "month": "1939-12",
+      "start": 19391201,
+      "end": 19400101,
+      "file": "1939-12.json"
+    },
+    {
+      "month": "1940-01",
+      "start": 19400101,
+      "end": 19400201,
+      "file": "1940-01.json"
+    },
+    {
+      "month": "1940-02",
+      "start": 19400201,
+      "end": 19400301,
+      "file": "1940-02.json"
+    },
+    {
+      "month": "1940-03",
+      "start": 19400301,
+      "end": 19400401,
+      "file": "1940-03.json"
+    },
+    {
+      "month": "1940-04",
+      "start": 19400401,
+      "end": 19400501,
+      "file": "1940-04.json"
+    },
+    {
+      "month": "1940-05",
+      "start": 19400501,
+      "end": 19400601,
+      "file": "1940-05.json"
+    },
+    {
+      "month": "1940-06",
+      "start": 19400601,
+      "end": 19400701,
+      "file": "1940-06.json"
+    },
+    {
+      "month": "1940-07",
+      "start": 19400701,
+      "end": 19400801,
+      "file": "1940-07.json"
+    },
+    {
+      "month": "1940-08",
+      "start": 19400801,
+      "end": 19400901,
+      "file": "1940-08.json"
+    },
+    {
+      "month": "1940-09",
+      "start": 19400901,
+      "end": 19401001,
+      "file": "1940-09.json"
+    },
+    {
+      "month": "1940-10",
+      "start": 19401001,
+      "end": 19401101,
+      "file": "1940-10.json"
+    },
+    {
+      "month": "1940-11",
+      "start": 19401101,
+      "end": 19401201,
+      "file": "1940-11.json"
+    },
+    {
+      "month": "1940-12",
+      "start": 19401201,
+      "end": 19410101,
+      "file": "1940-12.json"
+    },
+    {
+      "month": "1941-01",
+      "start": 19410101,
+      "end": 19410201,
+      "file": "1941-01.json"
+    },
+    {
+      "month": "1941-02",
+      "start": 19410201,
+      "end": 19410301,
+      "file": "1941-02.json"
+    },
+    {
+      "month": "1941-03",
+      "start": 19410301,
+      "end": 19410401,
+      "file": "1941-03.json"
+    },
+    {
+      "month": "1941-04",
+      "start": 19410401,
+      "end": 19410501,
+      "file": "1941-04.json"
+    },
+    {
+      "month": "1941-05",
+      "start": 19410501,
+      "end": 19410601,
+      "file": "1941-05.json"
+    },
+    {
+      "month": "1941-06",
+      "start": 19410601,
+      "end": 19410701,
+      "file": "1941-06.json"
+    },
+    {
+      "month": "1941-07",
+      "start": 19410701,
+      "end": 19410801,
+      "file": "1941-07.json"
+    },
+    {
+      "month": "1941-08",
+      "start": 19410801,
+      "end": 19410901,
+      "file": "1941-08.json"
+    },
+    {
+      "month": "1941-09",
+      "start": 19410901,
+      "end": 19411001,
+      "file": "1941-09.json"
+    },
+    {
+      "month": "1941-10",
+      "start": 19411001,
+      "end": 19411101,
+      "file": "1941-10.json"
+    },
+    {
+      "month": "1941-11",
+      "start": 19411101,
+      "end": 19411201,
+      "file": "1941-11.json"
+    },
+    {
+      "month": "1941-12",
+      "start": 19411201,
+      "end": 19420101,
+      "file": "1941-12.json"
+    },
+    {
+      "month": "1942-01",
+      "start": 19420101,
+      "end": 19420201,
+      "file": "1942-01.json"
+    },
+    {
+      "month": "1942-02",
+      "start": 19420201,
+      "end": 19420301,
+      "file": "1942-02.json"
+    },
+    {
+      "month": "1942-03",
+      "start": 19420301,
+      "end": 19420401,
+      "file": "1942-03.json"
+    },
+    {
+      "month": "1942-04",
+      "start": 19420401,
+      "end": 19420501,
+      "file": "1942-04.json"
+    },
+    {
+      "month": "1942-05",
+      "start": 19420501,
+      "end": 19420601,
+      "file": "1942-05.json"
+    },
+    {
+      "month": "1942-06",
+      "start": 19420601,
+      "end": 19420701,
+      "file": "1942-06.json"
+    },
+    {
+      "month": "1942-07",
+      "start": 19420701,
+      "end": 19420801,
+      "file": "1942-07.json"
+    },
+    {
+      "month": "1942-08",
+      "start": 19420801,
+      "end": 19420901,
+      "file": "1942-08.json"
+    },
+    {
+      "month": "1942-09",
+      "start": 19420901,
+      "end": 19421001,
+      "file": "1942-09.json"
+    },
+    {
+      "month": "1942-10",
+      "start": 19421001,
+      "end": 19421101,
+      "file": "1942-10.json"
+    },
+    {
+      "month": "1942-11",
+      "start": 19421101,
+      "end": 19421201,
+      "file": "1942-11.json"
+    },
+    {
+      "month": "1942-12",
+      "start": 19421201,
+      "end": 19430101,
+      "file": "1942-12.json"
+    },
+    {
+      "month": "1943-01",
+      "start": 19430101,
+      "end": 19430201,
+      "file": "1943-01.json"
+    },
+    {
+      "month": "1943-02",
+      "start": 19430201,
+      "end": 19430301,
+      "file": "1943-02.json"
+    },
+    {
+      "month": "1943-03",
+      "start": 19430301,
+      "end": 19430401,
+      "file": "1943-03.json"
+    },
+    {
+      "month": "1943-04",
+      "start": 19430401,
+      "end": 19430501,
+      "file": "1943-04.json"
+    },
+    {
+      "month": "1943-05",
+      "start": 19430501,
+      "end": 19430601,
+      "file": "1943-05.json"
+    },
+    {
+      "month": "1943-06",
+      "start": 19430601,
+      "end": 19430701,
+      "file": "1943-06.json"
+    },
+    {
+      "month": "1943-07",
+      "start": 19430701,
+      "end": 19430801,
+      "file": "1943-07.json"
+    },
+    {
+      "month": "1943-08",
+      "start": 19430801,
+      "end": 19430901,
+      "file": "1943-08.json"
+    },
+    {
+      "month": "1943-09",
+      "start": 19430901,
+      "end": 19431001,
+      "file": "1943-09.json"
+    },
+    {
+      "month": "1943-10",
+      "start": 19431001,
+      "end": 19431101,
+      "file": "1943-10.json"
+    },
+    {
+      "month": "1943-11",
+      "start": 19431101,
+      "end": 19431201,
+      "file": "1943-11.json"
+    },
+    {
+      "month": "1943-12",
+      "start": 19431201,
+      "end": 19440101,
+      "file": "1943-12.json"
+    },
+    {
+      "month": "1944-01",
+      "start": 19440101,
+      "end": 19440201,
+      "file": "1944-01.json"
+    },
+    {
+      "month": "1944-02",
+      "start": 19440201,
+      "end": 19440301,
+      "file": "1944-02.json"
+    },
+    {
+      "month": "1944-03",
+      "start": 19440301,
+      "end": 19440401,
+      "file": "1944-03.json"
+    },
+    {
+      "month": "1944-04",
+      "start": 19440401,
+      "end": 19440501,
+      "file": "1944-04.json"
+    },
+    {
+      "month": "1944-05",
+      "start": 19440501,
+      "end": 19440601,
+      "file": "1944-05.json"
+    },
+    {
+      "month": "1944-06",
+      "start": 19440601,
+      "end": 19440701,
+      "file": "1944-06.json"
+    },
+    {
+      "month": "1944-07",
+      "start": 19440701,
+      "end": 19440801,
+      "file": "1944-07.json"
+    },
+    {
+      "month": "1944-08",
+      "start": 19440801,
+      "end": 19440901,
+      "file": "1944-08.json"
+    },
+    {
+      "month": "1944-09",
+      "start": 19440901,
+      "end": 19441001,
+      "file": "1944-09.json"
+    },
+    {
+      "month": "1944-10",
+      "start": 19441001,
+      "end": 19441101,
+      "file": "1944-10.json"
+    },
+    {
+      "month": "1944-11",
+      "start": 19441101,
+      "end": 19441201,
+      "file": "1944-11.json"
+    },
+    {
+      "month": "1944-12",
+      "start": 19441201,
+      "end": 19450101,
+      "file": "1944-12.json"
+    },
+    {
+      "month": "1945-01",
+      "start": 19450101,
+      "end": 19450201,
+      "file": "1945-01.json"
+    },
+    {
+      "month": "1945-02",
+      "start": 19450201,
+      "end": 19450301,
+      "file": "1945-02.json"
+    },
+    {
+      "month": "1945-03",
+      "start": 19450301,
+      "end": 19450401,
+      "file": "1945-03.json"
+    },
+    {
+      "month": "1945-04",
+      "start": 19450401,
+      "end": 19450501,
+      "file": "1945-04.json"
+    },
+    {
+      "month": "1945-05",
+      "start": 19450501,
+      "end": 99999999,
+      "file": "1945-05.json"
+    }
+  ],
+  "note": "Territorial control by administration type, reprojected from Europe Albers/ED50 to WGS84, simplified, tiny islands dropped. Source has occasional errors; Italy pre-Sept-1943 corrected to Axis. Late-war boundaries are approximate."
+}

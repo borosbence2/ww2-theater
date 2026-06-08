@@ -24,11 +24,22 @@ the end of M3.
 - Future: exact event-dating already supported by the data; swap basemap to a
   period style; geometry simplification for size (M6).
 
-## M2 — Frontlines & territorial control (headline)
-- [ ] ETL: ingest Stanford Spatial History monthly territorial-control polygons
-- [ ] Render Axis / Allied / neutral control fills + the front line
-- [ ] v1: snap to nearest monthly keyframe; v1.1: daily vertex interpolation
-- [ ] Spot-check vs reference maps (Stalingrad ~Nov 1942, Bulge ~Dec 1944, Berlin ~Apr 1945)
+## M2 — Territorial control (headline) ✅
+- [x] ETL (`data/pipeline/build-control.mjs`): Stanford monthly shapefiles →
+      reproject (Europe Albers/ED50 → WGS84) → drop tiny islands →
+      topology-aware simplify → quantize → per-month **TopoJSON** by side
+      (`public/data/control/`, 88 months Feb 1938–May 1945, ~3.5 MB total)
+- [x] Render control fills by side (Axis / Axis-occupied / Allied / Neutral),
+      decoded client-side, beneath the political outlines/labels — `src/layers/control.ts`
+- [x] Load the month covering the current date; swap on month-boundary crossing,
+      cached (nearest-keyframe). M1 political fill hidden in favor of control.
+- [x] Verified the tide: Axis-controlled area rises 1939→1941, falls 1944→1945.
+- **Limitations (documented):** source tracks *administrative/territorial* control,
+  not the fluid operational front — the East is ~static 1941–43 (no Stalingrad
+  salient); late-war boundaries approximate; a few source errors (Italy pre-Sept-1943
+  corrected). Monthly keyframes only (no daily interpolation yet).
+- Future: daily interpolation between keyframes; a distinct front-line stroke
+  (dissolve Axis vs Allied control, draw the shared boundary).
 
 ## M3 — Cities
 - [ ] ETL: GeoNames + `historical-basemaps` places, period-filtered

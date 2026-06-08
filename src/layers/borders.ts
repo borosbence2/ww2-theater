@@ -45,7 +45,9 @@ export async function addBordersLayer(map: MapLibreMap, date: string): Promise<v
     filter,
     paint: {
       'fill-color': ['get', 'color'],
-      'fill-opacity': 0.35,
+      // Hidden in favor of the M2 control fill (de facto control is the focus).
+      // Kept as a layer so a future "political view" toggle (M6) can re-enable it.
+      'fill-opacity': 0,
     },
   });
 
