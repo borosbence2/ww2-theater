@@ -60,3 +60,12 @@ export function formatLong(iso: string): string {
   const [y, m, d] = iso.split('-').map(Number);
   return `${d} ${MONTHS[m - 1]} ${y}`;
 }
+
+/**
+ * Encode an ISO date as a sortable `YYYYMMDD` integer (e.g. 19390901), used for
+ * fast validity-interval filtering of date-stamped map features.
+ */
+export function dateToNum(iso: string): number {
+  const [y, m, d] = iso.split('-').map(Number);
+  return y * 10000 + m * 100 + d;
+}

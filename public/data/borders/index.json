@@ -1,0 +1,12 @@
+{
+  "layer": "borders",
+  "source": "CShapes 2.0 (ETH ICR) — de jure sovereign borders",
+  "license": "Academic / non-commercial",
+  "generated": "2026-06-08",
+  "window": [
+    19380101,
+    19470101
+  ],
+  "featureCount": 69,
+  "note": "Exact-dated sovereign borders. Filter by start <= date < end. De facto wartime occupation is handled by the control layer (M2)."
+}

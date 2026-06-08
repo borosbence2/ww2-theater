@@ -1,10 +1,12 @@
-// MapLibre GL map centered on the European theater. For M0 this renders a muted
-// basemap and reports viewport changes into the store; historical layers
-// (borders, frontlines, cities) are added in later milestones.
+// MapLibre GL map centered on the European theater. Renders the muted basemap,
+// the date-filtered borders layer (M1), and reports viewport changes to the
+// store. Further historical layers (control, cities, ...) are added in later
+// milestones.
 
 import { useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import { useStore } from '../store';
+import { addBordersLayer, updateBordersDate } from '../layers/borders';
 
 // Keyless, CORS-enabled vector basemap. Swappable in later milestones (e.g. a
 // period-correct style or a georeferenced historical raster).
@@ -13,7 +15,10 @@ const BASEMAP_STYLE = 'https://tiles.openfreemap.org/styles/positron';
 export function MapView() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
+  const readyRef = useRef(false);
+  const date = useStore((s) => s.date);
 
+  // Create the map once.
   useEffect(() => {
     if (!containerRef.current) return;
 
@@ -42,12 +47,24 @@ export function MapView() {
     };
     map.on('moveend', onMoveEnd);
 
+    map.on('load', async () => {
+      await addBordersLayer(map, useStore.getState().date);
+      readyRef.current = true;
+    });
+
     return () => {
+      readyRef.current = false;
       map.off('moveend', onMoveEnd);
       map.remove();
       mapRef.current = null;
     };
   }, []);
+
+  // Re-filter borders whenever the date changes.
+  useEffect(() => {
+    const map = mapRef.current;
+    if (map && readyRef.current) updateBordersDate(map, date);
+  }, [date]);
 
   return <div ref={containerRef} className="map" />;
 }

@@ -6,8 +6,9 @@ anywhere in Europe. The goal is a strategic overview first — frontlines, borde
 and cities — with operational detail (divisions, railways, roads) layered in over
 time.
 
-> **Status: M0 — skeleton.** Map shell + date/time machine (slider, play/pause)
-> with shareable deep-link URLs. Historical data layers are not wired up yet; see
+> **Status: M1 — temporal borders.** Map shell + date/time machine (slider,
+> play/pause) with shareable deep-link URLs, plus **country borders that change
+> as you scrub the date** (CShapes 2.0, exact-dated). See
 > [MILESTONES.md](./MILESTONES.md) for the roadmap.
 
 ## Stack
@@ -27,6 +28,18 @@ npm run dev      # http://localhost:5173
 npm run build    # type-check + production build to dist/
 npm run preview  # serve the production build
 ```
+
+## Regenerating data
+
+Processed layers in `public/data/` are committed, so the app runs without any ETL
+step. To rebuild the borders layer from source:
+
+```bash
+curl -o data/raw/CShapes-2.0.geojson https://icr.ethz.ch/data/cshapes/CShapes-2.0.geojson
+node data/pipeline/build-borders.mjs
+```
+
+Raw downloads live in `data/raw/` (gitignored).
 
 ## Deep links
 
@@ -52,7 +65,7 @@ between sparse keyframes — not literally sourced per day. See
 | Milestone | Scope |
 |---|---|
 | **M0** ✅ | Map shell, date slider, play/pause, URL deep-links |
-| M1 | Temporal country borders (change with the date) |
+| **M1** ✅ | Temporal country borders (change with the date) — CShapes 2.0 |
 | M2 | Frontlines + territorial control (the headline feature) |
 | M3 | Cities (population-styled, capitals, labels) |
 | M4 | Railways (1940) + roads (approximate) |

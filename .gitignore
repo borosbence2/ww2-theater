@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Raw ETL source downloads (large; re-fetch then run data/pipeline scripts).
+# Processed outputs in public/data/ ARE committed so the app works without ETL.
+/data/raw/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

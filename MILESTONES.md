@@ -10,12 +10,19 @@ the end of M3.
 - [x] Play / pause / step controls with adjustable speed (days per second)
 - [x] Viewport + date synced to the URL (shareable deep links)
 
-## M1 — Temporal borders
-- [ ] ETL: ingest CShapes 2.0 + `historical-basemaps` → normalized GeoJSON with
-      `start`/`end` validity dates
-- [ ] Render period-correct country borders that change as the date moves
-- [ ] Validity-interval filtering keyed on the current date
-- [ ] Verify against known dates (Sept 1939 Poland partition, mid-1940 France)
+## M1 — Temporal borders ✅
+- [x] ETL (`data/pipeline/build-borders.mjs`): CShapes 2.0 global GeoJSON →
+      windowed to 1938–1946, exact `start`/`end` validity as `YYYYMMDD` ints,
+      per-country color, reduced coordinate precision (`public/data/borders/`)
+- [x] Render country borders (fill + outline + labels) via MapLibre
+- [x] Validity-interval filtering by date as a MapLibre filter expression
+      (`start <= date < end`), updated on scrub/playback — `src/layers/borders.ts`
+- [x] Verified change points: Danzig gone after Sept 1939, Baltic states absorbed
+      1940, Germany → GDR/GFR in 1945
+- Known limitation: CShapes is **de jure** sovereignty, so wartime occupation of
+  Poland/Austria/Czechoslovakia isn't shown — that's the job of the M2 control layer.
+- Future: exact event-dating already supported by the data; swap basemap to a
+  period style; geometry simplification for size (M6).
 
 ## M2 — Frontlines & territorial control (headline)
 - [ ] ETL: ingest Stanford Spatial History monthly territorial-control polygons

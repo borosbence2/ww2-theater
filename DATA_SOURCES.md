@@ -20,7 +20,7 @@ non-commercial and copyleft (GPL-3.0) terms.
 
 | Source | Granularity | Format / License | Notes |
 |---|---|---|---|
-| [CShapes 2.0](https://icr.ethz.ch/data/cshapes/) (ETH ICR) | Exact change dates, 1886–2019 | Shapefile + R pkg / academic, non-commercial | Country borders with precise dates. Distinct from military frontlines. |
+| [CShapes 2.0](https://icr.ethz.ch/data/cshapes/) (ETH ICR) — **in use (M1)** | Exact change dates, 1886–2019 | GeoJSON / academic, non-commercial | Country borders with precise dates; tiles cleanly at any date. Global file windowed to 1938–1946 by `data/pipeline/build-borders.mjs`. De jure sovereignty — distinct from military frontlines. |
 | [aourednik/historical-basemaps](https://github.com/aourednik/historical-basemaps) | Annual snapshots (incl. 1938, 1945) | GeoJSON / **GPL-3.0** | Period borders + `places.geojson` cities. Copyleft — note for distribution. |
 
 ## Cities
