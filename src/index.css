@@ -1,0 +1,145 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --bg: #0b0e13;
+  --panel: rgba(18, 22, 30, 0.82);
+  --panel-border: rgba(255, 255, 255, 0.12);
+  --text: #e9edf3;
+  --muted: #9aa6b6;
+  --accent: #c9a227; /* muted brass */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+}
+
+.app {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+}
+
+/* Title overlay (top-left) */
+.title-overlay {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.title-overlay h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.title-overlay p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Bottom timeline bar */
+.timebar {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(880px, calc(100% - 24px));
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.timebar-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.timebar button {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  font-size: 14px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.timebar button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.timebar button.play {
+  background: rgba(201, 162, 39, 0.18);
+  border-color: rgba(201, 162, 39, 0.5);
+}
+
+.timebar button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.timebar-slider {
+  flex: 1;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.timebar-date {
+  min-width: 150px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.timebar-speed {
+  height: 32px;
+  padding: 0 6px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* MapLibre control tweaks for the dark theme */
+.maplibregl-ctrl-attrib {
+  font-size: 10px;
+}
