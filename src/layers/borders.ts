@@ -10,11 +10,14 @@ import type {
 import { dateToNum } from '../time/dates';
 
 const SOURCE_ID = 'borders';
+const LABELS_SOURCE_ID = 'borders-labels';
 const FILL_ID = 'borders-fill';
 const LINE_ID = 'borders-line';
 const LABEL_ID = 'borders-label';
 
-const DATA_URL = `${import.meta.env.BASE_URL}data/borders/cshapes-europe-ww2.geojson`;
+const BASE = import.meta.env.BASE_URL;
+const DATA_URL = `${BASE}data/borders/cshapes-europe-ww2.geojson`;
+const LABELS_URL = `${BASE}data/borders/cshapes-europe-ww2-labels.geojson`;
 
 /** Features valid on `date`: start <= date < end (end is exclusive). */
 function dateFilter(date: string): FilterSpecification {
@@ -28,13 +31,18 @@ function dateFilter(date: string): FilterSpecification {
 
 /** Add the borders source + fill/outline/label layers. Call after style load. */
 export async function addBordersLayer(map: MapLibreMap, date: string): Promise<void> {
-  const data = await fetch(DATA_URL).then((r) => r.json());
+  const [data, labelData] = await Promise.all([
+    fetch(DATA_URL).then((r) => r.json()),
+    fetch(LABELS_URL).then((r) => r.json()),
+  ]);
 
   map.addSource(SOURCE_ID, {
     type: 'geojson',
     data,
     attribution: 'Borders: CShapes 2.0 (ETH ICR)',
   });
+  // Separate point source: one label anchor per country (no per-island repeats).
+  map.addSource(LABELS_SOURCE_ID, { type: 'geojson', data: labelData });
 
   const filter = dateFilter(date);
 
@@ -65,19 +73,24 @@ export async function addBordersLayer(map: MapLibreMap, date: string): Promise<v
   map.addLayer({
     id: LABEL_ID,
     type: 'symbol',
-    source: SOURCE_ID,
+    source: LABELS_SOURCE_ID,
     filter,
     layout: {
       'text-field': ['get', 'name'],
-      'text-size': ['interpolate', ['linear'], ['zoom'], 3, 10, 6, 14],
+      'text-size': ['interpolate', ['linear'], ['zoom'], 3, 9, 6, 13],
       'text-transform': 'uppercase',
-      'text-letter-spacing': 0.05,
-      'text-max-width': 8,
+      'text-letter-spacing': 0.08,
+      'text-max-width': 7,
+      // Country names are context; let city labels win ties, and don't crowd.
+      'symbol-sort-key': 1,
+      'text-padding': 6,
     },
     paint: {
-      'text-color': '#1a1f29',
-      'text-halo-color': 'rgba(255,255,255,0.7)',
+      'text-color': '#3a4150',
+      'text-halo-color': 'rgba(255,255,255,0.65)',
       'text-halo-width': 1.2,
+      // Country names are context when zoomed out; fade as cities take over.
+      'text-opacity': ['interpolate', ['linear'], ['zoom'], 3, 1, 6, 0.35],
     },
   });
 }

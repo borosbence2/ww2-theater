@@ -6,12 +6,12 @@ anywhere in Europe. The goal is a strategic overview first — frontlines, borde
 and cities — with operational detail (divisions, railways, roads) layered in over
 time.
 
-> **Status: M2 — territorial control.** Map shell + date/time machine (slider,
-> play/pause) with shareable deep-link URLs; **country borders** that change with
-> the date (CShapes 2.0); and **territorial control by side** — Axis /
-> Axis-occupied / Allied / Neutral — that shifts month by month so you can watch
-> the Axis tide rise and recede (Stanford, monthly). See
-> [MILESTONES.md](./MILESTONES.md) for the roadmap and data caveats.
+> **Status: M3 — cities.** Map shell + date/time machine (slider, play/pause)
+> with shareable deep-link URLs; **country borders** that change with the date
+> (CShapes 2.0); **territorial control by side** — Axis / Axis-occupied / Allied
+> / Neutral — shifting month by month (Stanford); and **cities** with capitals
+> emphasized and zoom-dependent labels, using WWII-era names (Natural Earth).
+> See [MILESTONES.md](./MILESTONES.md) for the roadmap and data caveats.
 
 ## Stack
 
@@ -44,6 +44,10 @@ node data/pipeline/build-borders.mjs
 # Control (M2) — Stanford European Borders WWII (Internet Archive snapshot),
 # unzip to data/raw/stanford_ww2/EuropeanBorders_WWII/, then:
 node data/pipeline/build-control.mjs
+
+# Cities (M3) — Natural Earth populated places
+curl -o data/raw/ne_10m_populated_places.geojson https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_populated_places.geojson
+node data/pipeline/build-cities.mjs
 ```
 
 Raw downloads live in `data/raw/` (gitignored). The control ETL uses dev-only
@@ -75,7 +79,7 @@ between sparse keyframes — not literally sourced per day. See
 | **M0** ✅ | Map shell, date slider, play/pause, URL deep-links |
 | **M1** ✅ | Temporal country borders (change with the date) — CShapes 2.0 |
 | **M2** ✅ | Territorial control by side, monthly (Axis tide) — Stanford |
-| M3 | Cities (population-styled, capitals, labels) |
+| **M3** ✅ | Cities (capitals, population-styled, WWII names) — Natural Earth |
 | M4 | Railways (1940) + roads (approximate) |
 | M5 | Divisions / order of battle (hardest; data-scarce) |
 | M6 | Polish: legend, layer toggles, battle bookmarks, perf, mobile |

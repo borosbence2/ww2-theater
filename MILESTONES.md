@@ -41,9 +41,18 @@ the end of M3.
 - Future: daily interpolation between keyframes; a distinct front-line stroke
   (dissolve Axis vs Allied control, draw the shared boundary).
 
-## M3 — Cities
-- [ ] ETL: GeoNames + `historical-basemaps` places, period-filtered
-- [ ] Population-styled markers, capitals, zoom-dependent label density
+## M3 — Cities ✅
+- [x] ETL (`data/pipeline/build-cities.mjs`): Natural Earth populated places →
+      Europe-filtered GeoJSON with capital flag, population, scalerank, plus
+      WWII-era name overrides (Stalingrad, Leningrad, Königsberg, Danzig,
+      Breslau, …) — `public/data/cities/cities.geojson` (1004 cities, 61 capitals)
+- [x] Render dots + labels (`src/layers/cities.ts`): capitals emphasized
+      (red dot, ring, larger label); dot radius scales with zoom × importance;
+      labels collision-managed via `symbol-sort-key` for zoom-dependent density
+- [x] Fixed country-label repetition: the borders ETL now emits one label
+      anchor per country (centroid of largest polygon); country names fade as
+      cities take over on zoom-in
+- Future: period-filter cities (founding/rename dates) beyond the name overrides.
 
 ## M4 — Railways & roads
 - [ ] ETL: Morillas-Torné 1940 railways

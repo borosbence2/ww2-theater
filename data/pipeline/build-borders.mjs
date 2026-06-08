@@ -16,6 +16,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 const RAW = 'data/raw/CShapes-2.0.geojson';
 const OUT_DIR = 'public/data/borders';
 const OUT_GEOJSON = `${OUT_DIR}/cshapes-europe-ww2.geojson`;
+const OUT_LABELS = `${OUT_DIR}/cshapes-europe-ww2-labels.geojson`;
 const OUT_INDEX = `${OUT_DIR}/index.json`;
 
 // Timeline window (inclusive start, exclusive end) as YYYYMMDD integers.
@@ -48,6 +49,41 @@ function hslToHex(h, s, l) {
       .padStart(2, '0');
   };
   return `#${f(0)}${f(8)}${f(4)}`;
+}
+
+/** Signed area of a closed ring (shoelace). */
+function ringArea(r) {
+  let a = 0;
+  for (let i = 0, n = r.length - 1; i < n; i++) a += r[i][0] * r[i + 1][1] - r[i + 1][0] * r[i][1];
+  return a / 2;
+}
+
+/** Area-weighted centroid of a ring; falls back to the first vertex if degenerate. */
+function ringCentroid(r) {
+  let x = 0, y = 0, a = 0;
+  for (let i = 0, n = r.length - 1; i < n; i++) {
+    const cross = r[i][0] * r[i + 1][1] - r[i + 1][0] * r[i][1];
+    a += cross;
+    x += (r[i][0] + r[i + 1][0]) * cross;
+    y += (r[i][1] + r[i + 1][1]) * cross;
+  }
+  a *= 0.5;
+  if (Math.abs(a) < 1e-9) return r[0];
+  return [Number((x / (6 * a)).toFixed(3)), Number((y / (6 * a)).toFixed(3))];
+}
+
+/** A single label anchor for a feature: centroid of its largest outer ring. */
+function labelPoint(geom) {
+  let ring = null;
+  if (geom.type === 'Polygon') ring = geom.coordinates[0];
+  else if (geom.type === 'MultiPolygon') {
+    let best = -1;
+    for (const poly of geom.coordinates) {
+      const area = Math.abs(ringArea(poly[0]));
+      if (area > best) { best = area; ring = poly[0]; }
+    }
+  }
+  return ring ? ringCentroid(ring) : null;
 }
 
 /** Round every coordinate in a geometry to COORD_PRECISION decimals, in place. */
@@ -100,8 +136,25 @@ for (const f of gj.features) {
 
 const fc = { type: 'FeatureCollection', features: out };
 
+// One label anchor per feature so country names don't repeat per island/part.
+const labels = {
+  type: 'FeatureCollection',
+  features: out
+    .map((f) => {
+      const pt = labelPoint(f.geometry);
+      if (!pt) return null;
+      return {
+        type: 'Feature',
+        properties: { name: f.properties.name, start: f.properties.start, end: f.properties.end },
+        geometry: { type: 'Point', coordinates: pt },
+      };
+    })
+    .filter(Boolean),
+};
+
 mkdirSync(OUT_DIR, { recursive: true });
 writeFileSync(OUT_GEOJSON, JSON.stringify(fc));
+writeFileSync(OUT_LABELS, JSON.stringify(labels));
 
 const index = {
   layer: 'borders',
@@ -116,4 +169,5 @@ writeFileSync(OUT_INDEX, JSON.stringify(index, null, 2));
 
 const bytes = Buffer.byteLength(JSON.stringify(fc));
 console.log(`Wrote ${out.length} features -> ${OUT_GEOJSON} (${(bytes / 1024).toFixed(0)} kB)`);
+console.log(`Wrote ${labels.features.length} label points -> ${OUT_LABELS}`);
 console.log(`Wrote manifest -> ${OUT_INDEX}`);

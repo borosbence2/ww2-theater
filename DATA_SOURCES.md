@@ -28,9 +28,9 @@ non-commercial and copyleft (GPL-3.0) terms.
 
 | Source | Granularity | Format / License | Notes |
 |---|---|---|---|
-| [GeoNames](https://www.geonames.org/) | Modern + population | CC BY 4.0 | Base city list + populations. |
-| Natural Earth populated places | Modern | Public domain | Lightweight fallback. |
-| `historical-basemaps` `places.geojson` | `inhabitedSince`/`Until` | GPL-3.0 | Period filtering of settlements. |
+| [Natural Earth populated places](https://github.com/nvkelso/natural-earth-vector) (`ne_10m`) — **in use (M3)** | Modern + population | GeoJSON / Public domain | Europe-filtered with capital flag, `POP_MAX`, `SCALERANK` (zoom density) by `data/pipeline/build-cities.mjs`. WWII-era name overrides applied (Stalingrad, Leningrad, Königsberg, Danzig, Breslau, …). |
+| [GeoNames](https://www.geonames.org/) | Modern + population | CC BY 4.0 | Alternative with richer population data. |
+| `historical-basemaps` `places.geojson` | `inhabitedSince`/`Until` | GPL-3.0 | Option for period-filtering settlements (founding/rename). |
 
 ## Railways & roads
 

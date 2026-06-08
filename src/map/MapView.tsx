@@ -8,6 +8,7 @@ import maplibregl from 'maplibre-gl';
 import { useStore } from '../store';
 import { addBordersLayer, updateBordersDate } from '../layers/borders';
 import { addControlLayer, updateControlDate } from '../layers/control';
+import { addCitiesLayer } from '../layers/cities';
 
 // Keyless, CORS-enabled vector basemap. Swappable in later milestones (e.g. a
 // period-correct style or a georeferenced historical raster).
@@ -52,6 +53,7 @@ export function MapView() {
       const d = useStore.getState().date;
       await addBordersLayer(map, d);
       await addControlLayer(map, d);
+      await addCitiesLayer(map);
       readyRef.current = true;
     });
 
