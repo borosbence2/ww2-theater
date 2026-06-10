@@ -119,7 +119,8 @@ between sparse keyframes — not literally sourced per day. See
 | **Phase 2** ✅ | Unit path/follow mode (`?track=1`), 445 Wikidata battle markers shown while ongoing, battle search/panel/deep links |
 | **Phase 3.1** ✅ | 949 division scaffolds imported from Wikidata — every German/Soviet division searchable with an honest "not mapped yet" page (986 units total) |
 | Phase 3 (rest) | Campaign position passes (Barbarossa → Kursk → Bagration → Berlin); Western/Italian fronts; importer pass 2 (ru labels, missing famous units, corps/armies, subordination) |
-| Phase 4 | People (federated archive search + "find their unit" wizard), sub-division drill-down showcase |
+| **Phase 4.1** ✅ | People panel: federated archive search (11 archives, side-filtered, `?person=` deep links) + find-their-unit wizard closing the person → unit → map loop |
+| Phase 4 (rest) | Sub-division drill-down showcase, notable-commander stubs |
 | Phase 5 | Strength/equipment records, pocket↔unit links, front sector segmentation |
 | Phase 6 | Perf (PMTiles), mobile, public deploy; community-contribution decision gate |
 

@@ -5,17 +5,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { foldText, loadCities, searchCities, type City } from '../data/cities';
-import {
-  loadUnitIndex,
-  loadUnitTracks,
-  positionOn,
-  searchUnits,
-  type UnitIndexEntry,
-} from '../data/units';
+import { loadUnitIndex, searchUnits, type UnitIndexEntry } from '../data/units';
 import { loadBattles, searchBattles, type Battle } from '../data/battles';
-import { dateToNum } from '../time/dates';
-import { getMap } from '../map/mapRef';
-import { useStore } from '../store';
+import { selectBattle, selectCity, selectUnit } from './actions';
 
 type Result =
   | { kind: 'city'; city: City }
@@ -26,7 +18,6 @@ const labelOf = (r: Result) =>
   r.kind === 'city' ? r.city.name : r.kind === 'unit' ? r.unit.label : r.battle.name;
 
 export function Omnibox() {
-  const setSelection = useStore((s) => s.setSelection);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<Result[]>([]);
   const [open, setOpen] = useState(false);
@@ -73,37 +64,10 @@ export function Omnibox() {
 
   const select = async (r: Result) => {
     setOpen(false);
-    const map = getMap();
-    if (r.kind === 'city') {
-      setSelection({ kind: 'city', id: r.city.name });
-      setQuery(r.city.name);
-      map?.flyTo({ center: [r.city.lng, r.city.lat], zoom: Math.max(map.getZoom(), 5.5) });
-      return;
-    }
-    if (r.kind === 'battle') {
-      setSelection({ kind: 'battle', id: r.battle.id });
-      setQuery(r.battle.name);
-      // Jump the timeline into the battle if we're outside it.
-      const { date, setDate } = useStore.getState();
-      const d = dateToNum(date);
-      if (d < r.battle.startNum || d > r.battle.endNum) setDate(r.battle.start);
-      map?.flyTo({ center: [r.battle.lon, r.battle.lat], zoom: Math.max(map.getZoom(), 5.5) });
-      return;
-    }
-    setSelection({ kind: 'unit', id: r.unit.id });
-    setQuery(r.unit.label);
-    if (!r.unit.hasPositions) return;
-    const track = (await loadUnitTracks()).find((t) => t.id === r.unit.id);
-    if (!track) return;
-    const { date, setDate } = useStore.getState();
-    let when = date;
-    if (!positionOn(track, date, dateToNum(date))) {
-      // Jump the timeline to the unit's first mapped day.
-      when = track.keyframes[0].date;
-      setDate(when);
-    }
-    const at = positionOn(track, when, dateToNum(when));
-    if (at) map?.flyTo({ center: at, zoom: Math.max(map.getZoom(), 6.3) });
+    setQuery(labelOf(r));
+    if (r.kind === 'city') selectCity(r.city);
+    else if (r.kind === 'battle') selectBattle(r.battle);
+    else await selectUnit(r.unit);
   };
 
   const onKeyDown = (e: React.KeyboardEvent) => {

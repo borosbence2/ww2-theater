@@ -260,6 +260,28 @@ is clickable and deep-linkable.
   Großdeutschland — add by-QID include list); corps/armies not yet imported;
   subordination (P749/P361) not yet extracted.
 
+## Phase 4.1 — People: federated archive search + find-their-unit ✅
+"Everyone who fought is findable", delivered honestly: no personal records
+hosted, ever.
+- [x] **People panel** (`src/ui/PeoplePanel.tsx`, People button by the
+      omnibox): a name fans out as prefilled query links to 11 archives —
+      Pamyat Naroda, OBD Memorial, Podvig Naroda (Soviet), Volksbund
+      (German), NARA AAD, ABMC (US), CWGC (Commonwealth), TracesOfWar,
+      Find A Grave, Fold3/Ancestry (labeled as paywalled) — filterable by
+      side. Where an archive's query format is unstable we link its search
+      page instead of guessing parameters.
+- [x] **Find-their-unit wizard**: the archive record names the unit; typing
+      it here resolves against all 986 units (aliases included — "305th
+      Infantry" finds 305. Infanterie-Division) and selecting flies to its
+      mapped position / opens its page. This closes the loop the plan
+      promised: person → archive → unit → daily path on the map.
+- [x] `?person=Name` deep links (panel open + query restored).
+- [x] Shared select-and-go actions extracted from the omnibox
+      (`src/ui/actions.ts`) — used by both search surfaces.
+- Verified: 31/31 smoke checks.
+- Future (Phase 4 rest): sub-division drill-down showcase; curated
+  notable-commander stubs on unit pages.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

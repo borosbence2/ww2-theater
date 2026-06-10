@@ -151,6 +151,26 @@ const importedPanel = await page.locator('.detail-panel').textContent();
 check('imported division panel opens (12th SS)', /Hitlerjugend/.test(importedPanel ?? ''));
 check('scaffold marked not mapped + auto-imported', /Not mapped yet/.test(importedPanel ?? '') && /Auto-imported from Wikidata/.test(importedPanel ?? ''));
 
+// People panel (Phase 4.1): archive links prefill with the name; the wizard
+// resolves a unit; ?person= deep-links.
+await page.locator('.people-button').click();
+await page.waitForSelector('.people-panel', { timeout: 10000 });
+await page.fill('.people-panel input[aria-label="Person name"]', 'Ivanov');
+await page.waitForTimeout(1300);
+const cwgcHref = await page
+  .locator('.people-archives a', { hasText: 'CWGC' })
+  .getAttribute('href');
+check(`CWGC link prefilled (${cwgcHref?.slice(0, 70)})`, /Surname=Ivanov/.test(cwgcHref ?? ''));
+check('URL has ?person=Ivanov', page.url().includes('person=Ivanov'));
+// Alias search: the English form resolves to the curated German label.
+await page.fill('.people-panel input[aria-label="Unit name"]', '305th Infantry');
+await page.waitForTimeout(800);
+await page.locator('.people-panel .date-link', { hasText: '305. Infanterie' }).first().click();
+await page.waitForTimeout(1500);
+const wizardPanel = await page.locator('.detail-panel').textContent();
+check('wizard resolves 305. Infanterie-Division (curated)', /305\. Infanterie-Division/.test(wizardPanel ?? ''));
+await page.screenshot({ path: `${SHOTS}/ww2-people.png` });
+
 const realErrors = errors.filter((e) => !/WebGL|GPU|swiftshader|Failed to load resource/i.test(e));
 check(`no console/page errors (${errors.length} total, ${realErrors.length} relevant)`, realErrors.length === 0);
 if (realErrors.length) console.log(realErrors.join('\n'));

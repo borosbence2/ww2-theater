@@ -13,6 +13,8 @@ export interface UrlState {
   selection?: Selection;
   /** `?track=1`: show the selected unit's route. */
   trackPath?: boolean;
+  /** `?person=Name`: open the People panel with this query ('' = just open). */
+  personQuery?: string;
 }
 
 /** Parse the current URL query string into partial app state. */
@@ -50,6 +52,9 @@ export function readUrl(): UrlState {
   else if (city) out.selection = { kind: 'city', id: city };
   if (p.get('track') === '1') out.trackPath = true;
 
+  const person = p.get('person');
+  if (person !== null) out.personQuery = person;
+
   return out;
 }
 
@@ -60,6 +65,7 @@ export function writeUrl(
   hiddenLayers: string[],
   selection: Selection | null,
   trackPath = false,
+  personQuery: string | null = null,
 ): void {
   const p = new URLSearchParams();
   p.set('date', date);
@@ -78,5 +84,6 @@ export function writeUrl(
     if (trackPath) p.set('track', '1');
   }
   if (selection?.kind === 'battle') p.set('battle', selection.id);
+  if (personQuery !== null) p.set('person', personQuery);
   window.history.replaceState(null, '', `?${p.toString()}`);
 }

@@ -16,8 +16,9 @@ export function useUrlSync(): void {
       timer = undefined;
       if (!pending) return;
       pending = false;
-      const { date, viewport, hiddenLayers, selection, trackPath } = useStore.getState();
-      writeUrl(date, viewport, hiddenLayers, selection, trackPath);
+      const { date, viewport, hiddenLayers, selection, trackPath, peopleOpen, personQuery } =
+        useStore.getState();
+      writeUrl(date, viewport, hiddenLayers, selection, trackPath, peopleOpen ? personQuery : null);
     };
 
     const schedule = () => {
@@ -27,7 +28,14 @@ export function useUrlSync(): void {
 
     // Write once on mount, then on every relevant change.
     const s0 = useStore.getState();
-    writeUrl(s0.date, s0.viewport, s0.hiddenLayers, s0.selection, s0.trackPath);
+    writeUrl(
+      s0.date,
+      s0.viewport,
+      s0.hiddenLayers,
+      s0.selection,
+      s0.trackPath,
+      s0.peopleOpen ? s0.personQuery : null,
+    );
     const unsub = useStore.subscribe(schedule);
 
     return () => {

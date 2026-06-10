@@ -34,6 +34,9 @@ interface AppState {
   trackPath: boolean;
   /** Pin the camera to the selected unit while the date changes. */
   follow: boolean;
+  /** People panel (Phase 4): open state + the searched name (?person=). */
+  peopleOpen: boolean;
+  personQuery: string;
 
   setDate: (iso: string) => void;
   stepDays: (n: number) => void;
@@ -45,6 +48,8 @@ interface AppState {
   setSelection: (selection: Selection | null) => void;
   setTrackPath: (trackPath: boolean) => void;
   setFollow: (follow: boolean) => void;
+  setPeopleOpen: (peopleOpen: boolean) => void;
+  setPersonQuery: (personQuery: string) => void;
 }
 
 const url = readUrl();
@@ -58,6 +63,8 @@ export const useStore = create<AppState>((set, get) => ({
   selection: url.selection ?? null,
   trackPath: (url.trackPath ?? false) && url.selection?.kind === 'unit',
   follow: false,
+  peopleOpen: url.personQuery !== undefined,
+  personQuery: url.personQuery ?? '',
 
   setDate: (iso) => set({ date: clampDate(iso) }),
 
@@ -90,4 +97,6 @@ export const useStore = create<AppState>((set, get) => ({
 
   setTrackPath: (trackPath) => set({ trackPath }),
   setFollow: (follow) => set({ follow }),
+  setPeopleOpen: (peopleOpen) => set({ peopleOpen }),
+  setPersonQuery: (personQuery) => set({ personQuery }),
 }));
