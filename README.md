@@ -3,8 +3,10 @@
 An interactive web map that visualizes the **European theater of WWII (1939–1945)
 day by day**. Set or scrub a date and watch the situation change; pan and zoom
 anywhere in Europe. The goal is a strategic overview first — frontlines, borders,
-and cities — with operational detail (divisions, railways, roads) layered in over
-time.
+and cities — then the fighting formations themselves: **searchable divisions on
+the map**, drill-down to lower echelons where the record supports it, and every
+individual soldier *findable* through his unit plus federated external archives.
+The full target design and phased roadmap live in [REWRITE_PLAN.md](./REWRITE_PLAN.md).
 
 > **Status: front v2 — pockets, sieges, daily city control.** Map shell +
 > date/time machine (slider, play/pause) with shareable deep-link URLs;
@@ -94,6 +96,13 @@ between sparse keyframes — not literally sourced per day. See
 | **M2** ✅ | Territorial control by side, monthly (Axis tide) — Stanford |
 | **M3** ✅ | Cities (capitals, population-styled, WWII names) — Natural Earth |
 | **M3.5** ✅ | Front v2: pockets/sieges, daily city control, validation loop, keyframe editor |
-| M4 | Railways (1940) + roads (approximate) |
-| M5 | Divisions / order of battle (hardest; data-scarce) |
-| M6 | Polish: legend, layer toggles, battle bookmarks, perf, mobile |
+| **Phase 0** ✅ | Foundations refactor: shared ETL lib, layer registry + toggles + legend, search + detail panel (cities), selection deep links |
+| Phase 1 | Temporal unit model + Stalingrad division showcase (vertical slice) |
+| Phase 2 | Unit search index, follow/path mode, Wikidata battle markers |
+| Phase 3 | Breadth: all German/Soviet divisions findable; campaign position passes; Western/Italian fronts |
+| Phase 4 | People (federated archive search + "find their unit" wizard), sub-division drill-down showcase |
+| Phase 5 | Strength/equipment records, pocket↔unit links, front sector segmentation |
+| Phase 6 | Perf (PMTiles), mobile, public deploy; community-contribution decision gate |
+
+Old M4 (railways/roads) is deprioritized below the unit work; old M5/M6 are
+superseded by the phases above. Details: [REWRITE_PLAN.md](./REWRITE_PLAN.md).

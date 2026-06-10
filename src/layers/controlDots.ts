@@ -9,29 +9,19 @@
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 import type { Feature, FeatureCollection } from 'geojson';
 import { dateToNum, diffDays } from '../time/dates';
+import { loadCityControl, type ControlCity } from '../data/cities';
 
 const SOURCE_ID = 'control-dots';
 const DOT_ID = 'control-dots-circle';
-const DATA_URL = `${import.meta.env.BASE_URL}data/cities/control.json`;
+
+/** All MapLibre layer ids, for registry visibility toggling. */
+export const CONTROL_DOTS_LAYER_IDS = [DOT_ID];
 
 /** Days a capture/liberation stays highlighted during playback. */
 const HIGHLIGHT_DAYS = 3;
 
 const AXIS_COLOR = '#b5402f';
 const SOVIET_COLOR = '#2f6fb0';
-
-interface ControlChange {
-  date: string;
-  side: 'axis' | 'soviet';
-}
-
-interface ControlCity {
-  name: string;
-  lon: number;
-  lat: number;
-  init: 'axis' | 'soviet';
-  changes: ControlChange[];
-}
 
 let cities: ControlCity[] = [];
 
@@ -62,8 +52,7 @@ function collectionFor(dateISO: string): FeatureCollection {
 
 /** Add the control-dot halos beneath the city dots. */
 export async function addControlDotsLayer(map: MapLibreMap, date: string): Promise<void> {
-  const data = await fetch(DATA_URL).then((r) => r.json());
-  cities = data.cities;
+  cities = await loadCityControl();
 
   map.addSource(SOURCE_ID, {
     type: 'geojson',

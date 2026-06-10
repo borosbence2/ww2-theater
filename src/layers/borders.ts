@@ -15,6 +15,9 @@ const FILL_ID = 'borders-fill';
 const LINE_ID = 'borders-line';
 const LABEL_ID = 'borders-label';
 
+/** All MapLibre layer ids, for registry visibility toggling. */
+export const BORDERS_LAYER_IDS = [FILL_ID, LINE_ID, LABEL_ID];
+
 const BASE = import.meta.env.BASE_URL;
 const DATA_URL = `${BASE}data/borders/cshapes-europe-ww2.geojson`;
 const LABELS_URL = `${BASE}data/borders/cshapes-europe-ww2-labels.geojson`;

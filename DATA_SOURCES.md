@@ -44,12 +44,28 @@ non-commercial and copyleft (GPL-3.0) terms.
 | [OpenStreetMap](https://www.openstreetmap.org/) (modern) | n/a | ODbL | Roads as a clearly-labeled modern approximation. |
 | [David Rumsey Map Collection](https://www.davidrumsey.com/) | n/a | Mixed | Georeferenced WWII-era raster basemaps for realism. |
 
-## Divisions / order of battle (M5 — hardest)
+## Divisions / order of battle (REWRITE_PLAN Phases 1–3 — hardest)
 
 | Source | Granularity | Format / License | Notes |
 |---|---|---|---|
-| [Niehorster](http://niehorster.org/) | Unit org & OOB | HTML + PDF / CC | Canonical and comprehensive, but **not geodata** — needs extraction + georeferencing. |
-| [Wikidata](https://www.wikidata.org/) battles | Event points (coords + dates) | CC0 | Battle markers / timeline bookmarks. |
+| [Niehorster](http://niehorster.org/) | Unit org & OOB | HTML + PDF / CC | Canonical and comprehensive, but **not geodata** — needs extraction + georeferencing. Primary scaffold source for unit identity/subordination (Phase 3 importer). |
+| [Pamyat Naroda](https://pamyat-naroda.ru/) (Память народа) | Unit combat paths, often daily; scanned operational documents/maps | Web archive / Russian MoD | The richest Eastern-Front source: per-unit combat journals and daily situation maps. Reference for authoring Soviet (and mirrored German) position keyframes; also the person-search archive for Soviet records. |
+| [Wikidata](https://www.wikidata.org/) | Units (QIDs, commanders, lifecycle) + battles (coords + dates) | CC0 | Cross-reference IDs on unit records; battle markers (Phase 2); commander stubs (Phase 4). |
+| Lexikon der Wehrmacht / Feldgrau / TracesOfWar unit pages | Per-unit histories | Web / mixed | External-link targets on unit detail pages; reference for German unit lifecycles. |
+| Jentz *Panzertruppen*, divisional histories | Strength returns at dates | Books | Source for `strength` records (Phase 5); cite per record in `sources.json`. |
+
+## People (Phase 4 — federated link-out, never hosted)
+
+| Archive | Covers | Access | Notes |
+|---|---|---|---|
+| [Pamyat Naroda](https://pamyat-naroda.ru/heroes/) | Soviet personnel, awards, route of service | Name-query URL | Names the soldier's unit → unit lookup in-app. |
+| [OBD Memorial](https://obd-memorial.ru/) | Soviet fallen & missing | Name-query URL | |
+| [NARA AAD — WWII Army Enlistment](https://aad.archives.gov/aad/) | ~9M US enlistment records | Name-query URL | Public domain. |
+| [ABMC](https://www.abmc.gov/database-search) | US burials/memorials abroad | Name-query URL | |
+| [CWGC](https://www.cwgc.org/find-records/find-war-dead/) | Commonwealth war dead | Name-query URL | |
+| [Volksbund Gräbersuche](https://www.volksbund.de/erinnern-gedenken/graebersuche-online) | German war graves | Name-query URL | |
+| [TracesOfWar persons](https://www.tracesofwar.com/persons/) | Mixed, biographical | Name-query URL | |
+| Fold3 / Ancestry | US + mixed service records | Name-query URL (**paywalled** — label as such) | |
 
 ## Basemap
 

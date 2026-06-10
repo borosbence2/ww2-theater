@@ -1,20 +1,18 @@
-// MapLibre GL map centered on the European theater. Renders the muted basemap,
-// the date-filtered borders layer (M1), and reports viewport changes to the
-// store. Further historical layers (control, cities, ...) are added in later
-// milestones.
+// MapLibre GL map centered on the European theater. Adds every registered
+// historical layer (see ../layers/registry), applies user visibility toggles,
+// handles click-to-select on city dots, and reports viewport changes to the
+// store. The map instance is exposed via ./mapRef so the omnibox/panel can
+// fly the camera.
 
 import { useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import { useStore } from '../store';
-import { addBordersLayer, updateBordersDate } from '../layers/borders';
-import { addFrontLayer, updateFrontDate } from '../layers/front';
-import { addCitiesLayer } from '../layers/cities';
-import { addControlDotsLayer, updateControlDotsDate } from '../layers/controlDots';
+import { LAYERS, applyVisibility } from '../layers/registry';
+import { CITY_DOT_LAYER_ID } from '../layers/cities';
+import { loadCities } from '../data/cities';
+import { setMap } from './mapRef';
 import { EDIT_MODE } from '../edit/mode';
 import { addEditLayers } from '../edit/editLayer';
-// NOTE: the Stanford control fills (../layers/control) are disabled for now —
-// they track administrative occupation, which conflicts with the accurate
-// curated front line. To be reworked into front-consistent fills.
 
 // Keyless, CORS-enabled vector basemap. Swappable in later milestones (e.g. a
 // period-correct style or a georeferenced historical raster).
@@ -25,6 +23,7 @@ export function MapView() {
   const mapRef = useRef<maplibregl.Map | null>(null);
   const readyRef = useRef(false);
   const date = useStore((s) => s.date);
+  const hiddenLayers = useStore((s) => s.hiddenLayers);
 
   // Create the map once.
   useEffect(() => {
@@ -41,6 +40,7 @@ export function MapView() {
       attributionControl: { compact: true },
     });
     mapRef.current = map;
+    setMap(map);
 
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
     map.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
@@ -56,18 +56,43 @@ export function MapView() {
     map.on('moveend', onMoveEnd);
 
     map.on('load', async () => {
-      const d = useStore.getState().date;
-      await addBordersLayer(map, d);
-      await addFrontLayer(map, d);
-      await addCitiesLayer(map);
-      await addControlDotsLayer(map, d);
-      if (EDIT_MODE) addEditLayers(map);
+      const state = useStore.getState();
+      for (const def of LAYERS) await def.add(map, state.date);
+      applyVisibility(map, state.hiddenLayers);
+
+      if (EDIT_MODE) {
+        addEditLayers(map);
+      } else {
+        // Click a city dot to select it; click empty map to clear.
+        map.on('click', (e) => {
+          if (!map.getLayer(CITY_DOT_LAYER_ID)) return;
+          const hits = map.queryRenderedFeatures(e.point, { layers: [CITY_DOT_LAYER_ID] });
+          const name = hits[0]?.properties?.name as string | undefined;
+          useStore.getState().setSelection(name ? { kind: 'city', id: name } : null);
+        });
+        map.on('mouseenter', CITY_DOT_LAYER_ID, () => {
+          map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', CITY_DOT_LAYER_ID, () => {
+          map.getCanvas().style.cursor = '';
+        });
+      }
       readyRef.current = true;
+
+      // A deep-linked selection should be in view on arrival.
+      const sel = useStore.getState().selection;
+      if (sel?.kind === 'city') {
+        const city = (await loadCities()).find((c) => c.name === sel.id);
+        if (city) {
+          map.flyTo({ center: [city.lng, city.lat], zoom: Math.max(map.getZoom(), 5.5) });
+        }
+      }
     });
 
     return () => {
       readyRef.current = false;
       map.off('moveend', onMoveEnd);
+      setMap(null);
       map.remove();
       mapRef.current = null;
     };
@@ -77,11 +102,15 @@ export function MapView() {
   useEffect(() => {
     const map = mapRef.current;
     if (map && readyRef.current) {
-      updateBordersDate(map, date);
-      updateFrontDate(map, date);
-      updateControlDotsDate(map, date);
+      for (const def of LAYERS) def.updateDate?.(map, date);
     }
   }, [date]);
+
+  // Apply visibility whenever toggles change.
+  useEffect(() => {
+    const map = mapRef.current;
+    if (map && readyRef.current) applyVisibility(map, hiddenLayers);
+  }, [hiddenLayers]);
 
   return <div ref={containerRef} className="map" />;
 }

@@ -21,6 +21,18 @@ const CASING_ID = 'front-casing';
 const LINE_ID = 'front-line';
 const DATA_URL = `${import.meta.env.BASE_URL}data/front/eastern-keyframes.json`;
 
+/** All MapLibre layer ids, for registry visibility toggling. */
+export const FRONT_LAYER_IDS = [
+  BAND_AXIS_ID,
+  BAND_SOVIET_ID,
+  POCKET_FILL_ID,
+  POCKET_CASING_ID,
+  POCKET_LINE_ID,
+  SIEGE_LINE_ID,
+  CASING_ID,
+  LINE_ID,
+];
+
 /** Side colors, matching the control palette (Axis red, Soviet/Allied blue). */
 const AXIS_COLOR = '#b5402f';
 const SOVIET_COLOR = '#2f6fb0';

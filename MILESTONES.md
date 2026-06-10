@@ -3,6 +3,13 @@
 Living progress log. Strategic-overview-first: a genuinely usable app exists by
 the end of M3.
 
+> **Direction change (June 2026):** the project is now a unit-centric atlas —
+> divisions on the map, searchable, with people reachable via unit linkage to
+> external archives. [REWRITE_PLAN.md](./REWRITE_PLAN.md) holds the target
+> architecture and Phases 0–6, which supersede M4–M6 below (M4 railways is
+> deprioritized; M5 is absorbed into Phases 1–5; M6 split into Phases 0 and 6).
+> Progress on the phases is logged here, after M3.5.
+
 ## M0 — Skeleton ✅
 - [x] Vite + React + TypeScript project
 - [x] MapLibre map centered on the European theater (keyless basemap)
@@ -115,18 +122,51 @@ tooling to author keyframes fast.
   of the Stalingrad pocket), Demyansk/Korsun/Königsberg features, densified
   keyframes for Barbarossa/Uranus/Bagration at near-daily resolution.
 
-## M4 — Railways & roads
+## Phase 0 — Foundations refactor (REWRITE_PLAN) ✅
+Groundwork for units: shared pipeline code, a layer registry with user-facing
+toggles + legend, a search/selection UI shell, and selection deep links —
+no new historical data.
+- [x] 0.1 Shared ETL lib (`data/pipeline/lib/`): date math (`dates.mjs`),
+      resampling/ring alignment + point-vs-front geometry (`geometry.mjs`),
+      keyframe interpolation (`interpolate.mjs`). `build-fronts.mjs` rebuilt on
+      it; output verified byte-identical.
+- [x] 0.2 Layer registry (`src/layers/registry.ts`): each layer declares id,
+      label, legend swatches, and its MapLibre layer ids; visibility toggles in
+      the store, persisted to the URL as `?layers=` (omitted when default).
+      Toggle + legend panel (`src/ui/LayerPanel.tsx`), collapsible, top-left.
+- [x] 0.3 App shell: omnibox city search (`src/ui/Omnibox.tsx`, diacritic-folded
+      substring match over the Natural Earth set, ranked by importance) and a
+      collapsible right-hand detail panel (`src/ui/DetailPanel.tsx`). City
+      detail: country, capital badge, population, and — for curated cities —
+      the holder on the current date plus the full documented capture/
+      liberation history (clickable dates that jump the timeline).
+- [x] 0.4 Selection state in the store (`selection`), synced to the URL
+      (`?city=Stalingrad`) for shareable deep links; city dots clickable on the
+      map; search/URL selection flies the camera to the city.
+- Notes: city data now loads once through `src/data/cities.ts` (shared by the
+  layer, the omnibox, and the panel); the map instance is exposed via
+  `src/map/mapRef.ts` so UI components can fly the camera. These are the same
+  seams Phase 1 unit search/selection will use.
+- Verified end-to-end with a headless-Chrome smoke script
+  (`scripts/smoke-ui.mjs`, Playwright via `NODE_PATH`): search → select →
+  history-date jump → layer toggle → deep-link round-trips, plus screenshots.
+- Bug found by the smoke test and fixed: `Number(null) === 0`, so `readUrl()`
+  read absent `z/lat/lng` params as a (0,0,z0) viewport — every clean visit
+  (no query string) started over the Gulf of Guinea instead of Europe.
+
+## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)
 - [ ] Layer toggles + legend
 
-## M5 — Divisions / order of battle (hardest)
+## M5 — Divisions / order of battle (superseded by REWRITE_PLAN Phases 1–5)
 - [ ] Extract Niehorster OOB + Wikidata battles
 - [ ] Unit markers (NATO symbology) per date via deck.gl
 - [ ] Revisit data strategy — daily division geodata likely needs some authoring
 
-## M6 — Polish
-- [ ] Layer toggles, legend, basemap switch (modern ↔ historical raster)
+## M6 — Polish (split into REWRITE_PLAN Phases 0 and 6)
+- [x] Layer toggles + legend (done in Phase 0)
+- [ ] Basemap switch (modern ↔ historical raster)
 - [ ] Timeline with major-battle bookmarks
 - [ ] PMTiles performance pass
 - [ ] Mobile + cross-browser

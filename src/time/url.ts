@@ -2,11 +2,15 @@
 // Kept free of any store import so it can be used during store initialization.
 
 import { clampDate, isValidDate } from './dates';
-import type { Viewport } from '../store';
+import { ALL_LAYER_IDS } from '../layers/registry';
+import type { Selection, Viewport } from '../store';
 
 export interface UrlState {
   date?: string;
   viewport?: Partial<Viewport>;
+  /** Registry ids hidden by the user (derived from the visible `layers=` list). */
+  hiddenLayers?: string[];
+  selection?: Selection;
 }
 
 /** Parse the current URL query string into partial app state. */
@@ -17,20 +21,38 @@ export function readUrl(): UrlState {
   const date = p.get('date');
   if (isValidDate(date)) out.date = clampDate(date);
 
-  const lng = Number(p.get('lng'));
-  const lat = Number(p.get('lat'));
-  const zoom = Number(p.get('z'));
+  // NOT Number(p.get(...)): Number(null) is 0, which would read absent params
+  // as a (0,0,z0) viewport and start every clean visit in the Gulf of Guinea.
+  const num = (v: string | null) => (v === null || v.trim() === '' ? NaN : Number(v));
+  const lng = num(p.get('lng'));
+  const lat = num(p.get('lat'));
+  const zoom = num(p.get('z'));
   const vp: Partial<Viewport> = {};
   if (Number.isFinite(lng)) vp.lng = lng;
   if (Number.isFinite(lat)) vp.lat = lat;
   if (Number.isFinite(zoom)) vp.zoom = zoom;
   if (Object.keys(vp).length) out.viewport = vp;
 
+  // `layers=` lists the VISIBLE layers ("none" = all off); absent = all on.
+  const layers = p.get('layers');
+  if (layers !== null) {
+    const visible = layers === 'none' ? [] : layers.split(',');
+    out.hiddenLayers = ALL_LAYER_IDS.filter((id) => !visible.includes(id));
+  }
+
+  const city = p.get('city');
+  if (city) out.selection = { kind: 'city', id: city };
+
   return out;
 }
 
 /** Serialize app state into the URL via history.replaceState (no navigation). */
-export function writeUrl(date: string, viewport: Viewport): void {
+export function writeUrl(
+  date: string,
+  viewport: Viewport,
+  hiddenLayers: string[],
+  selection: Selection | null,
+): void {
   const p = new URLSearchParams();
   p.set('date', date);
   // Preserve the dev keyframe-editor switch across rewrites.
@@ -38,5 +60,10 @@ export function writeUrl(date: string, viewport: Viewport): void {
   p.set('z', viewport.zoom.toFixed(2));
   p.set('lat', viewport.lat.toFixed(4));
   p.set('lng', viewport.lng.toFixed(4));
+  if (hiddenLayers.length) {
+    const visible = ALL_LAYER_IDS.filter((id) => !hiddenLayers.includes(id));
+    p.set('layers', visible.length ? visible.join(',') : 'none');
+  }
+  if (selection?.kind === 'city') p.set('city', selection.id);
   window.history.replaceState(null, '', `?${p.toString()}`);
 }

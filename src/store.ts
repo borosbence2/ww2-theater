@@ -1,5 +1,6 @@
-// Global app state (Zustand). Holds the current date, playback state, and the
-// map viewport. Initialized from the URL so deep links restore date + position.
+// Global app state (Zustand). Holds the current date, playback state, the map
+// viewport, layer visibility, and the current selection. Initialized from the
+// URL so deep links restore date + position + layers + selection.
 
 import { create } from 'zustand';
 import { DEFAULT_DATE, TIMELINE_END, addDays, clampDate, diffDays } from './time/dates';
@@ -10,6 +11,9 @@ export interface Viewport {
   lat: number;
   zoom: number;
 }
+
+/** What is selected in the UI (detail panel + deep link). Units join in Phase 1. */
+export type Selection = { kind: 'city'; id: string };
 
 /** Default view: centered on central Europe, whole-theater zoom. */
 const DEFAULT_VIEWPORT: Viewport = { lng: 15, lat: 50, zoom: 4 };
@@ -23,6 +27,9 @@ interface AppState {
   /** Simulated days advanced per real second while playing. */
   speed: number;
   viewport: Viewport;
+  /** Registry ids of layers the user switched off (default: none). */
+  hiddenLayers: string[];
+  selection: Selection | null;
 
   setDate: (iso: string) => void;
   stepDays: (n: number) => void;
@@ -30,6 +37,8 @@ interface AppState {
   togglePlay: () => void;
   setSpeed: (speed: number) => void;
   setViewport: (viewport: Viewport) => void;
+  toggleLayer: (id: string) => void;
+  setSelection: (selection: Selection | null) => void;
 }
 
 const url = readUrl();
@@ -39,6 +48,8 @@ export const useStore = create<AppState>((set, get) => ({
   playing: false,
   speed: SPEEDS[1],
   viewport: { ...DEFAULT_VIEWPORT, ...url.viewport },
+  hiddenLayers: url.hiddenLayers ?? [],
+  selection: url.selection ?? null,
 
   setDate: (iso) => set({ date: clampDate(iso) }),
 
@@ -53,4 +64,13 @@ export const useStore = create<AppState>((set, get) => ({
   togglePlay: () => set((s) => ({ playing: !s.playing })),
   setSpeed: (speed) => set({ speed }),
   setViewport: (viewport) => set({ viewport }),
+
+  toggleLayer: (id) =>
+    set((s) => ({
+      hiddenLayers: s.hiddenLayers.includes(id)
+        ? s.hiddenLayers.filter((x) => x !== id)
+        : [...s.hiddenLayers, id],
+    })),
+
+  setSelection: (selection) => set({ selection }),
 }));

@@ -5,16 +5,21 @@
 // names are applied in the ETL.
 
 import type { ExpressionSpecification, Map as MapLibreMap } from 'maplibre-gl';
+import { loadCitiesGeoJSON } from '../data/cities';
 
 const SOURCE_ID = 'cities';
 const DOT_ID = 'cities-dot';
 const LABEL_ID = 'cities-label';
-const DATA_URL = `${import.meta.env.BASE_URL}data/cities/cities.geojson`;
+
+/** Dot layer id, used by MapView for click-to-select and hover cursor. */
+export const CITY_DOT_LAYER_ID = DOT_ID;
+/** All MapLibre layer ids, for registry visibility toggling. */
+export const CITIES_LAYER_IDS = [DOT_ID, LABEL_ID];
 
 const isCapital: ExpressionSpecification = ['==', ['get', 'capital'], 1];
 
 export async function addCitiesLayer(map: MapLibreMap): Promise<void> {
-  const data = await fetch(DATA_URL).then((r) => r.json());
+  const data = await loadCitiesGeoJSON();
   map.addSource(SOURCE_ID, { type: 'geojson', data, attribution: 'Cities: Natural Earth' });
 
   map.addLayer({
