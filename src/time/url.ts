@@ -33,6 +33,8 @@ export function readUrl(): UrlState {
 export function writeUrl(date: string, viewport: Viewport): void {
   const p = new URLSearchParams();
   p.set('date', date);
+  // Preserve the dev keyframe-editor switch across rewrites.
+  if (new URLSearchParams(window.location.search).has('edit')) p.set('edit', '1');
   p.set('z', viewport.zoom.toFixed(2));
   p.set('lat', viewport.lat.toFixed(4));
   p.set('lng', viewport.lng.toFixed(4));

@@ -139,6 +139,83 @@ body {
   cursor: pointer;
 }
 
+/* Dev keyframe editor panel (?edit) */
+.edit-panel {
+  position: absolute;
+  top: 12px;
+  right: 52px;
+  z-index: 10;
+  width: 300px;
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+}
+
+.edit-panel h2 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.edit-panel p {
+  margin: 0 0 8px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.edit-panel code {
+  font-size: 10px;
+}
+
+.edit-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.edit-actions button {
+  height: 26px;
+  padding: 0 10px;
+  font-size: 12px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--panel-border);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.edit-actions button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.edit-actions button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.edit-count {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.edit-panel textarea {
+  width: 100%;
+  resize: vertical;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 10px;
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--panel-border);
+  border-radius: 7px;
+  padding: 6px;
+}
+
 /* MapLibre control tweaks for the dark theme */
 .maplibregl-ctrl-attrib {
   font-size: 10px;

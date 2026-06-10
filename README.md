@@ -6,12 +6,20 @@ anywhere in Europe. The goal is a strategic overview first — frontlines, borde
 and cities — with operational detail (divisions, railways, roads) layered in over
 time.
 
-> **Status: M3 — cities.** Map shell + date/time machine (slider, play/pause)
-> with shareable deep-link URLs; **country borders** that change with the date
-> (CShapes 2.0); **territorial control by side** — Axis / Axis-occupied / Allied
-> / Neutral — shifting month by month (Stanford); and **cities** with capitals
-> emphasized and zoom-dependent labels, using WWII-era names (Natural Earth).
-> See [MILESTONES.md](./MILESTONES.md) for the roadmap and data caveats.
+> **Status: front v2 — pockets, sieges, daily city control.** Map shell +
+> date/time machine (slider, play/pause) with shareable deep-link URLs;
+> **country borders** that change with the date (CShapes 2.0); a **multi-feature
+> front**: the connected main line (interpolated between ~26 authored keyframes,
+> Barbarossa to Berlin) plus **encirclement pockets and sieges** as independent
+> dated features (Kiev, Stalingrad, Courland, Budapest, Breslau, Leningrad),
+> with side tint bands (Axis west / Soviet east); **city control dots** that
+> flip on exact documented capture/liberation dates; and **cities** with
+> capitals emphasized, WWII-era names (Natural Earth). The fronts ETL
+> cross-checks the drawn front against the settlement-control timeline for
+> every day of the war, and a built-in **keyframe editor** (`?edit`) makes
+> densifying toward daily resolution fast. The Stanford control-fill layer
+> remains disabled (administrative ≠ operational front). See
+> [MILESTONES.md](./MILESTONES.md) for the roadmap and data caveats.
 
 ## Stack
 
@@ -41,13 +49,18 @@ step. To rebuild from source:
 curl -o data/raw/CShapes-2.0.geojson https://icr.ethz.ch/data/cshapes/CShapes-2.0.geojson
 node data/pipeline/build-borders.mjs
 
-# Control (M2) — Stanford European Borders WWII (Internet Archive snapshot),
-# unzip to data/raw/stanford_ww2/EuropeanBorders_WWII/, then:
-node data/pipeline/build-control.mjs
+# Front (main line + pockets/sieges) — authored features
+# (edit data/curated/eastern-front.json, or trace in-app with ?edit and paste)
+# Also validates every city in city-control.json against the front, daily.
+node data/pipeline/build-fronts.mjs
 
 # Cities (M3) — Natural Earth populated places
 curl -o data/raw/ne_10m_populated_places.geojson https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_populated_places.geojson
 node data/pipeline/build-cities.mjs
+
+# Control fills (currently disabled in the app) — Stanford European Borders WWII
+# (Internet Archive snapshot), unzip to data/raw/stanford_ww2/..., then:
+node data/pipeline/build-control.mjs
 ```
 
 Raw downloads live in `data/raw/` (gitignored). The control ETL uses dev-only
@@ -80,6 +93,7 @@ between sparse keyframes — not literally sourced per day. See
 | **M1** ✅ | Temporal country borders (change with the date) — CShapes 2.0 |
 | **M2** ✅ | Territorial control by side, monthly (Axis tide) — Stanford |
 | **M3** ✅ | Cities (capitals, population-styled, WWII names) — Natural Earth |
+| **M3.5** ✅ | Front v2: pockets/sieges, daily city control, validation loop, keyframe editor |
 | M4 | Railways (1940) + roads (approximate) |
 | M5 | Divisions / order of battle (hardest; data-scarce) |
 | M6 | Polish: legend, layer toggles, battle bookmarks, perf, mobile |

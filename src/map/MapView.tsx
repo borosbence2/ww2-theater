@@ -7,8 +7,14 @@ import { useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import { useStore } from '../store';
 import { addBordersLayer, updateBordersDate } from '../layers/borders';
-import { addControlLayer, updateControlDate } from '../layers/control';
+import { addFrontLayer, updateFrontDate } from '../layers/front';
 import { addCitiesLayer } from '../layers/cities';
+import { addControlDotsLayer, updateControlDotsDate } from '../layers/controlDots';
+import { EDIT_MODE } from '../edit/mode';
+import { addEditLayers } from '../edit/editLayer';
+// NOTE: the Stanford control fills (../layers/control) are disabled for now —
+// they track administrative occupation, which conflicts with the accurate
+// curated front line. To be reworked into front-consistent fills.
 
 // Keyless, CORS-enabled vector basemap. Swappable in later milestones (e.g. a
 // period-correct style or a georeferenced historical raster).
@@ -52,8 +58,10 @@ export function MapView() {
     map.on('load', async () => {
       const d = useStore.getState().date;
       await addBordersLayer(map, d);
-      await addControlLayer(map, d);
+      await addFrontLayer(map, d);
       await addCitiesLayer(map);
+      await addControlDotsLayer(map, d);
+      if (EDIT_MODE) addEditLayers(map);
       readyRef.current = true;
     });
 
@@ -70,7 +78,8 @@ export function MapView() {
     const map = mapRef.current;
     if (map && readyRef.current) {
       updateBordersDate(map, date);
-      void updateControlDate(map, date);
+      updateFrontDate(map, date);
+      updateControlDotsDate(map, date);
     }
   }, [date]);
 
