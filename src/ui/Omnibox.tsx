@@ -12,13 +12,18 @@ import {
   searchUnits,
   type UnitIndexEntry,
 } from '../data/units';
+import { loadBattles, searchBattles, type Battle } from '../data/battles';
 import { dateToNum } from '../time/dates';
 import { getMap } from '../map/mapRef';
 import { useStore } from '../store';
 
 type Result =
   | { kind: 'city'; city: City }
-  | { kind: 'unit'; unit: UnitIndexEntry };
+  | { kind: 'unit'; unit: UnitIndexEntry }
+  | { kind: 'battle'; battle: Battle };
+
+const labelOf = (r: Result) =>
+  r.kind === 'city' ? r.city.name : r.kind === 'unit' ? r.unit.label : r.battle.name;
 
 export function Omnibox() {
   const setSelection = useStore((s) => s.setSelection);
@@ -35,20 +40,19 @@ export function Omnibox() {
       setOpen(false);
       return;
     }
-    Promise.all([loadCities(), loadUnitIndex()]).then(([cities, units]) => {
+    Promise.all([loadCities(), loadUnitIndex(), loadBattles()]).then(([cities, units, battles]) => {
       if (!alive) return;
-      // Rank across kinds: prefix matches first; cities win ties (typing
-      // "Stalingrad" should find the city above the Stalingrad Front HQ).
+      // Rank across kinds: prefix matches first; on ties cities, then units,
+      // then battles (typing "Stalingrad" finds the city above the Front HQ
+      // above the battle).
       const q = foldText(query.trim());
       const prefix = (name: string) => (foldText(name).startsWith(q) ? 0 : 1);
+      const kindRank = { city: 0, unit: 1, battle: 2 } as const;
       const hits: Result[] = [
         ...searchUnits(units, query, 5).map((unit) => ({ kind: 'unit' as const, unit })),
-        ...searchCities(cities, query, 5).map((city) => ({ kind: 'city' as const, city })),
-      ].sort((a, b) => {
-        const sa = prefix(a.kind === 'city' ? a.city.name : a.unit.label);
-        const sb = prefix(b.kind === 'city' ? b.city.name : b.unit.label);
-        return sa - sb || (a.kind === 'city' ? 0 : 1) - (b.kind === 'city' ? 0 : 1);
-      });
+        ...searchCities(cities, query, 4).map((city) => ({ kind: 'city' as const, city })),
+        ...searchBattles(battles, query, 4).map((battle) => ({ kind: 'battle' as const, battle })),
+      ].sort((a, b) => prefix(labelOf(a)) - prefix(labelOf(b)) || kindRank[a.kind] - kindRank[b.kind]);
       setResults(hits);
       setActive(0);
       setOpen(hits.length > 0);
@@ -74,6 +78,16 @@ export function Omnibox() {
       setSelection({ kind: 'city', id: r.city.name });
       setQuery(r.city.name);
       map?.flyTo({ center: [r.city.lng, r.city.lat], zoom: Math.max(map.getZoom(), 5.5) });
+      return;
+    }
+    if (r.kind === 'battle') {
+      setSelection({ kind: 'battle', id: r.battle.id });
+      setQuery(r.battle.name);
+      // Jump the timeline into the battle if we're outside it.
+      const { date, setDate } = useStore.getState();
+      const d = dateToNum(date);
+      if (d < r.battle.startNum || d > r.battle.endNum) setDate(r.battle.start);
+      map?.flyTo({ center: [r.battle.lon, r.battle.lat], zoom: Math.max(map.getZoom(), 5.5) });
       return;
     }
     setSelection({ kind: 'unit', id: r.unit.id });
@@ -121,7 +135,12 @@ export function Omnibox() {
       {open && (
         <ul className="omnibox-results">
           {results.map((r, i) => {
-            const key = r.kind === 'city' ? `c|${r.city.name}|${r.city.lng}` : `u|${r.unit.id}`;
+            const key =
+              r.kind === 'city'
+                ? `c|${r.city.name}|${r.city.lng}`
+                : r.kind === 'unit'
+                  ? `u|${r.unit.id}`
+                  : `b|${r.battle.id}`;
             return (
               <li
                 key={key}
@@ -141,7 +160,7 @@ export function Omnibox() {
                       {r.city.country}
                     </span>
                   </>
-                ) : (
+                ) : r.kind === 'unit' ? (
                   <>
                     <span>
                       <span className={`unit-chip side-${r.unit.side}`}>{r.unit.echelon}</span>
@@ -151,6 +170,14 @@ export function Omnibox() {
                       {r.unit.country}
                       {r.unit.hasPositions ? '' : ' · not mapped yet'}
                     </span>
+                  </>
+                ) : (
+                  <>
+                    <span>
+                      <span className="unit-chip battle-chip">battle</span>
+                      {r.battle.name}
+                    </span>
+                    <span className="omnibox-meta">{r.battle.start.slice(0, 4)}</span>
                   </>
                 )}
               </li>

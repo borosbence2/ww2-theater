@@ -14,6 +14,7 @@ import { loadUnitDetail } from '../data/units';
 import { formatLong } from '../time/dates';
 import { useStore } from '../store';
 import { UnitPanel } from './UnitPanel';
+import { BattlePanel } from './BattlePanel';
 
 const SIDE_LABEL = { axis: 'Axis', soviet: 'Soviet' } as const;
 
@@ -116,6 +117,8 @@ export function DetailPanel() {
       </button>
       {selection.kind === 'city' ? (
         <CityDetail name={selection.id} />
+      ) : selection.kind === 'battle' ? (
+        <BattlePanel id={selection.id} />
       ) : (
         <>
           <UnitTitle id={selection.id} />

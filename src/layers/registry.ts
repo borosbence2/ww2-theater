@@ -12,6 +12,7 @@ import { FRONT_LAYER_IDS, addFrontLayer, updateFrontDate } from './front';
 import { CITIES_LAYER_IDS, addCitiesLayer } from './cities';
 import { CONTROL_DOTS_LAYER_IDS, addControlDotsLayer, updateControlDotsDate } from './controlDots';
 import { UNITS_LAYER_IDS, addUnitsLayer, updateUnitsDate } from './units';
+import { BATTLES_LAYER_IDS, addBattlesLayer, updateBattlesDate } from './battles';
 
 export interface LegendItem {
   /** Swatch shape: line | dash | fill | dot. */
@@ -78,6 +79,14 @@ export const LAYERS: LayerDef[] = [
     ],
     add: addCitiesLayer,
     mapLayerIds: CITIES_LAYER_IDS,
+  },
+  {
+    id: 'battles',
+    label: 'Battles',
+    legend: [{ shape: 'dot', color: '#3d3325', label: 'Ongoing battle (Wikidata)' }],
+    add: addBattlesLayer,
+    updateDate: updateBattlesDate,
+    mapLayerIds: BATTLES_LAYER_IDS,
   },
   {
     id: 'units',

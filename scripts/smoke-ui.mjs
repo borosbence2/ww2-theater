@@ -115,6 +115,42 @@ const gdPanel = await page.locator('.detail-panel').textContent();
 check('13th Guards panel opens with 62nd Army parent', /62nd Army/.test(gdPanel ?? ''));
 await page.screenshot({ path: `${SHOTS}/ww2-13guards.png` });
 
+// Path mode (Phase 2): select 6. Armee again, toggle Show path -> ?track=1.
+await page.fill('.omnibox input', '6. Armee');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.unit-controls', { timeout: 10000 });
+await page.locator('.unit-controls label', { hasText: 'Show path' }).locator('input').click();
+await page.waitForTimeout(1300);
+check('path toggle writes ?track=1', page.url().includes('track=1'));
+await page.screenshot({ path: `${SHOTS}/ww2-path.png` });
+await page.locator('.unit-controls label', { hasText: 'Show path' }).locator('input').click();
+await page.waitForTimeout(1300);
+check('path toggle off clears ?track=', !page.url().includes('track=1'));
+
+// Battles (Phase 2): search jumps the timeline into the battle and deep-links.
+await page.fill('.omnibox input', 'Battle of Kursk');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForTimeout(1500);
+const battlePanel = await page.locator('.detail-panel').textContent();
+check('Kursk panel shows ongoing status', /Battle of Kursk/.test(battlePanel ?? '') && /ongoing|begun|over/.test(battlePanel ?? ''));
+check('Kursk panel links Wikipedia', (await page.locator('.detail-panel a', { hasText: 'Wikipedia' }).count()) > 0);
+check('URL has ?battle=', page.url().includes('battle=Q'));
+const kurskDate = (await page.locator('.timebar-date').textContent()) ?? '';
+check(`timeline jumped to Kursk (${kurskDate.trim()})`, /1943/.test(kurskDate));
+await page.screenshot({ path: `${SHOTS}/ww2-battle.png` });
+
+// Imported scaffolds (Phase 3): any Wikidata division is findable with an
+// honest "not mapped yet" page.
+await page.fill('.omnibox input', 'Hitlerjugend');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForTimeout(1500);
+const importedPanel = await page.locator('.detail-panel').textContent();
+check('imported division panel opens (12th SS)', /Hitlerjugend/.test(importedPanel ?? ''));
+check('scaffold marked not mapped + auto-imported', /Not mapped yet/.test(importedPanel ?? '') && /Auto-imported from Wikidata/.test(importedPanel ?? ''));
+
 const realErrors = errors.filter((e) => !/WebGL|GPU|swiftshader|Failed to load resource/i.test(e));
 check(`no console/page errors (${errors.length} total, ${realErrors.length} relevant)`, realErrors.length === 0);
 if (realErrors.length) console.log(realErrors.join('\n'));

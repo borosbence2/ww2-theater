@@ -205,6 +205,61 @@ is clickable and deep-linkable.
   Romanian armies + LVII. Panzerkorps (Winter Storm spearhead), pre-1942
   positions for the armies, front densification for the worklist clusters.
 
+## Phase 2 — Follow the unit; battle markers (REWRITE_PLAN) ✅ (core)
+- [x] 2.3 **Unit path mode** (`src/layers/unitPath.ts`): "Show path" on any
+      mapped unit draws its full route — per-segment lines (dashed for
+      rail/gap jumps), a solid "traveled so far" overlay split at the current
+      date's interpolated position, keyframe dots with dates on zoom.
+      Persisted as `?track=1` (deep-linkable). "Follow" pins the camera to
+      the unit while scrubbing/playing (`map.easeTo` per date change).
+      Both modes clear when the selection leaves the unit.
+- [x] 2.4 **Battle markers** (`data/pipeline/build-battles.mjs` +
+      `src/layers/battles.ts`): Wikidata SPARQL (battles/sieges/military
+      operations, P31/P279* trees, started 1938–45, with coordinates; the
+      P607-conflict route was a dead end — that set is ships/cemeteries).
+      445 battles in the European theater after bbox/date/label filtering.
+      Crossed-swords canvas icon; markers appear while ongoing (MapLibre
+      filter over `YYYYMMDD` ints, cheap during playback) and linger faded
+      3 days after the end. Clickable → battle panel (dates, status on the
+      current date, Wikipedia/Wikidata links); searchable in the omnibox
+      (selecting jumps the timeline into the battle); `?battle=QID` deep
+      links. Raw SPARQL result cached in `data/raw/` (gitignored).
+- [x] 2.1/2.2 were effectively delivered in Phase 1 (client-side index
+      search; select→jump→fly); revisit a prebuilt minisearch index only
+      when the unit count makes the simple scorer slow.
+- Verified: 26/26 smoke checks incl. path toggle URL round-trip and Kursk
+  search jumping the timeline to 5 July 1943.
+- Remaining Phase 2 polish: unit↔battle links (P710 participants),
+  battle-bookmark ticks on the timeline slider.
+
+## Phase 3.1 — Division scaffolds: every division findable ✅ (importer v1)
+- [x] **Importer** (`data/pipeline/import-divisions.mjs`): Wikidata division
+      items for Nazi Germany + USSR (P31/P279* division tree, per-country
+      P17) → **949 identity scaffolds** (428 German, 521 Soviet) in one
+      reviewable file (`data/curated/units/imported-divisions.json`):
+      readable slug ids, type/branch derived from names (Waffen-SS,
+      Luftwaffe-field detection), native-language aliases, coarse lifecycle
+      (P571/P576; Wikidata "unknown value" genid URIs guarded), WW2-window
+      filter (drops 50 post-war Soviet divisions), QID/alias dedupe against
+      curated files (curated always wins; 9 skipped).
+- [x] **ETL merge** (`build-units.mjs`): scaffolds join the index and detail
+      output (positions empty → searchable, honest "not mapped yet" +
+      auto-imported notice in the panel). **986 units total.**
+- [x] **Sharded detail files**: per-unit files do not scale past ~1k units —
+      Vite's dev public-file cache silently served only the first ~42 and
+      fell back to index.html for the rest (found by the smoke test). Details
+      now ship as 16 hash-bucketed shards (~45 KB each), kinder to git and
+      static hosts too; `loadUnitDetail` resolves via the mirrored hash.
+- [x] MapLibre resource-error filter: missing OpenFreeMap glyph-range 404s no
+      longer pollute the console (real errors still log).
+- Verified: 28/28 smoke checks (incl. imported-division search → honest
+  scaffold page).
+- Known importer gaps (next pass): 602 items skipped for having no English
+  label (mostly Soviet — add ru-label fallback); some famous formations are
+  missing from Wikidata's division class tree (e.g. Leibstandarte,
+  Großdeutschland — add by-QID include list); corps/armies not yet imported;
+  subordination (P749/P361) not yet extracted.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

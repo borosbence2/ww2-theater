@@ -60,7 +60,14 @@ export interface UnitDetail {
 
 let indexPromise: Promise<UnitIndexEntry[]> | null = null;
 let tracksPromise: Promise<UnitTrack[]> | null = null;
-const detailCache = new Map<string, Promise<UnitDetail>>();
+const shardCache = new Map<string, Promise<Record<string, UnitDetail>>>();
+
+/** djb2 % 16 — mirrored by data/pipeline/build-units.mjs (keep in sync). */
+function shardOf(id: string): string {
+  let h = 5381;
+  for (let i = 0; i < id.length; i++) h = ((h * 33) ^ id.charCodeAt(i)) >>> 0;
+  return (h % 16).toString().padStart(2, '0');
+}
 
 export function loadUnitIndex(): Promise<UnitIndexEntry[]> {
   if (!indexPromise) {
@@ -81,15 +88,20 @@ export function loadUnitTracks(): Promise<UnitTrack[]> {
 }
 
 export function loadUnitDetail(id: string): Promise<UnitDetail> {
-  let p = detailCache.get(id);
+  const shard = shardOf(id);
+  let p = shardCache.get(shard);
   if (!p) {
-    p = fetch(`${BASE}data/units/unit/${id}.json`).then((r) => {
-      if (!r.ok) throw new Error(`unknown unit ${id}`);
+    p = fetch(`${BASE}data/units/detail/${shard}.json`).then((r) => {
+      if (!r.ok) throw new Error(`missing detail shard ${shard}`);
       return r.json();
     });
-    detailCache.set(id, p);
+    shardCache.set(shard, p);
   }
-  return p;
+  return p.then((records) => {
+    const detail = records[id];
+    if (!detail) throw new Error(`unknown unit ${id}`);
+    return detail;
+  });
 }
 
 /** Prefix matches first, then substring, over label + aliases. */

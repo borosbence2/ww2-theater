@@ -11,6 +11,8 @@ export interface UrlState {
   /** Registry ids hidden by the user (derived from the visible `layers=` list). */
   hiddenLayers?: string[];
   selection?: Selection;
+  /** `?track=1`: show the selected unit's route. */
+  trackPath?: boolean;
 }
 
 /** Parse the current URL query string into partial app state. */
@@ -42,8 +44,11 @@ export function readUrl(): UrlState {
 
   const unit = p.get('unit');
   const city = p.get('city');
+  const battle = p.get('battle');
   if (unit) out.selection = { kind: 'unit', id: unit };
+  else if (battle) out.selection = { kind: 'battle', id: battle };
   else if (city) out.selection = { kind: 'city', id: city };
+  if (p.get('track') === '1') out.trackPath = true;
 
   return out;
 }
@@ -54,6 +59,7 @@ export function writeUrl(
   viewport: Viewport,
   hiddenLayers: string[],
   selection: Selection | null,
+  trackPath = false,
 ): void {
   const p = new URLSearchParams();
   p.set('date', date);
@@ -67,6 +73,10 @@ export function writeUrl(
     p.set('layers', visible.length ? visible.join(',') : 'none');
   }
   if (selection?.kind === 'city') p.set('city', selection.id);
-  if (selection?.kind === 'unit') p.set('unit', selection.id);
+  if (selection?.kind === 'unit') {
+    p.set('unit', selection.id);
+    if (trackPath) p.set('track', '1');
+  }
+  if (selection?.kind === 'battle') p.set('battle', selection.id);
   window.history.replaceState(null, '', `?${p.toString()}`);
 }

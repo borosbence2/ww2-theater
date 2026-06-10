@@ -13,7 +13,7 @@ export interface Viewport {
 }
 
 /** What is selected in the UI (detail panel + deep link). */
-export type Selection = { kind: 'city' | 'unit'; id: string };
+export type Selection = { kind: 'city' | 'unit' | 'battle'; id: string };
 
 /** Default view: centered on central Europe, whole-theater zoom. */
 const DEFAULT_VIEWPORT: Viewport = { lng: 15, lat: 50, zoom: 4 };
@@ -30,6 +30,10 @@ interface AppState {
   /** Registry ids of layers the user switched off (default: none). */
   hiddenLayers: string[];
   selection: Selection | null;
+  /** Show the selected unit's full route (Phase 2 path mode). */
+  trackPath: boolean;
+  /** Pin the camera to the selected unit while the date changes. */
+  follow: boolean;
 
   setDate: (iso: string) => void;
   stepDays: (n: number) => void;
@@ -39,6 +43,8 @@ interface AppState {
   setViewport: (viewport: Viewport) => void;
   toggleLayer: (id: string) => void;
   setSelection: (selection: Selection | null) => void;
+  setTrackPath: (trackPath: boolean) => void;
+  setFollow: (follow: boolean) => void;
 }
 
 const url = readUrl();
@@ -50,6 +56,8 @@ export const useStore = create<AppState>((set, get) => ({
   viewport: { ...DEFAULT_VIEWPORT, ...url.viewport },
   hiddenLayers: url.hiddenLayers ?? [],
   selection: url.selection ?? null,
+  trackPath: (url.trackPath ?? false) && url.selection?.kind === 'unit',
+  follow: false,
 
   setDate: (iso) => set({ date: clampDate(iso) }),
 
@@ -72,5 +80,14 @@ export const useStore = create<AppState>((set, get) => ({
         : [...s.hiddenLayers, id],
     })),
 
-  setSelection: (selection) => set({ selection }),
+  setSelection: (selection) =>
+    set((s) => {
+      // Path/follow are per-unit modes; switching away from the unit clears them.
+      const sameUnit =
+        selection?.kind === 'unit' && s.selection?.kind === 'unit' && selection.id === s.selection.id;
+      return sameUnit ? { selection } : { selection, trackPath: false, follow: false };
+    }),
+
+  setTrackPath: (trackPath) => set({ trackPath }),
+  setFollow: (follow) => set({ follow }),
 }));

@@ -435,6 +435,28 @@ body {
   color: var(--muted);
 }
 
+.unit-controls {
+  display: flex;
+  gap: 14px;
+  margin: 10px 0 2px;
+}
+
+.unit-controls label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.unit-controls input {
+  accent-color: var(--accent);
+}
+
+.battle-chip {
+  background: rgba(61, 51, 37, 0.85);
+}
+
 .date-link.muted {
   color: var(--muted);
   text-decoration: none;

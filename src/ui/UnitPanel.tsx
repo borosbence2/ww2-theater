@@ -25,6 +25,10 @@ export function UnitPanel({ id }: { id: string }) {
   const date = useStore((s) => s.date);
   const setDate = useStore((s) => s.setDate);
   const setSelection = useStore((s) => s.setSelection);
+  const trackPath = useStore((s) => s.trackPath);
+  const setTrackPath = useStore((s) => s.setTrackPath);
+  const follow = useStore((s) => s.follow);
+  const setFollow = useStore((s) => s.setFollow);
 
   const [unit, setUnit] = useState<UnitDetail | null>(null);
   const [missing, setMissing] = useState(false);
@@ -68,6 +72,23 @@ export function UnitPanel({ id }: { id: string }) {
         {formatLong(life.from)} — {lifeEnd.to ? formatLong(lifeEnd.to) : 'war end'}
         {lifeEnd.end && <span className="unit-end"> · {lifeEnd.end}</span>}
       </p>
+
+      {unit.positions.length > 0 && (
+        <div className="unit-controls">
+          <label>
+            <input
+              type="checkbox"
+              checked={trackPath}
+              onChange={(e) => setTrackPath(e.target.checked)}
+            />
+            Show path
+          </label>
+          <label>
+            <input type="checkbox" checked={follow} onChange={(e) => setFollow(e.target.checked)} />
+            Follow
+          </label>
+        </div>
+      )}
 
       {!exists && (
         <p className="detail-note">

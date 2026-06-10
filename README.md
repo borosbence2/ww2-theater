@@ -56,9 +56,23 @@ node data/pipeline/build-borders.mjs
 # Also validates every city in city-control.json against the front, daily.
 node data/pipeline/build-fronts.mjs
 
-# Units (Phase 1) — curated order of battle + positions (Stalingrad pilot)
+# Division scaffolds (Phase 3) — Wikidata division items for DE + SU
+# (fetch both SPARQL results into data/raw/wikidata-divisions-{de,su}.json,
+#  same endpoint/UA as the battles query; see import-divisions.mjs header)
+node data/pipeline/import-divisions.mjs
+
+# Units (Phase 1) — curated order of battle + positions (Stalingrad pilot),
+# merged with the imported scaffolds (curated files win).
 # Validates every positioned unit against the front, daily (run fronts first).
 node data/pipeline/build-units.mjs
+
+# Battles (Phase 2) — Wikidata battles/sieges/operations, 1938-45, with coords
+curl -G "https://query.wikidata.org/sparql" \
+  --data-urlencode "format=json" \
+  --data-urlencode 'query=SELECT DISTINCT ?item ?itemLabel ?coord ?start ?end ?article WHERE { VALUES ?cls { wd:Q178561 wd:Q188055 wd:Q645883 } ?item wdt:P31/wdt:P279* ?cls; wdt:P625 ?coord; wdt:P580 ?start. FILTER(YEAR(?start) >= 1938 && YEAR(?start) <= 1945) OPTIONAL { ?item wdt:P582 ?end } OPTIONAL { ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> } SERVICE wikibase:label { bd:serviceParam wikibase:language "en". } }' \
+  -H "Accept: application/sparql-results+json" \
+  -o data/raw/wikidata-ww2-battles.json
+node data/pipeline/build-battles.mjs
 
 # Cities (M3) — Natural Earth populated places
 curl -o data/raw/ne_10m_populated_places.geojson https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_populated_places.geojson
@@ -102,8 +116,9 @@ between sparse keyframes — not literally sourced per day. See
 | **M3.5** ✅ | Front v2: pockets/sieges, daily city control, validation loop, keyframe editor |
 | **Phase 0** ✅ | Foundations refactor: shared ETL lib, layer registry + toggles + legend, search + detail panel (cities), selection deep links |
 | **Phase 1** ✅ | Temporal unit model + Stalingrad showcase: 37 units (6. Armee OOB + Uranus pincers), unit-vs-front validation loop, map symbols with echelon-zoom ladder, unit search/panel/deep links |
-| Phase 2 | Unit search index, follow/path mode, Wikidata battle markers |
-| Phase 3 | Breadth: all German/Soviet divisions findable; campaign position passes; Western/Italian fronts |
+| **Phase 2** ✅ | Unit path/follow mode (`?track=1`), 445 Wikidata battle markers shown while ongoing, battle search/panel/deep links |
+| **Phase 3.1** ✅ | 949 division scaffolds imported from Wikidata — every German/Soviet division searchable with an honest "not mapped yet" page (986 units total) |
+| Phase 3 (rest) | Campaign position passes (Barbarossa → Kursk → Bagration → Berlin); Western/Italian fronts; importer pass 2 (ru labels, missing famous units, corps/armies, subordination) |
 | Phase 4 | People (federated archive search + "find their unit" wizard), sub-division drill-down showcase |
 | Phase 5 | Strength/equipment records, pocket↔unit links, front sector segmentation |
 | Phase 6 | Perf (PMTiles), mobile, public deploy; community-contribution decision gate |

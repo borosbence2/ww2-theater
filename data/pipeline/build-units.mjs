@@ -8,10 +8,13 @@
 // build-fronts.mjs.
 //
 // Input : data/curated/units/{country}/*.json, data/curated/units/sources.json
+//         data/curated/units/imported-divisions.json (optional scaffolds)
 //         public/data/front/eastern-keyframes.json  (run build-fronts first)
 // Output: public/data/units/index.json
 //         public/data/units/tracks/eastern.json
-//         public/data/units/unit/{id}.json
+//         public/data/units/detail/{00..15}.json  (sharded by id hash — one
+//         file per unit does not scale past ~1k units: git noise, request
+//         storms, and Vite's public-file cache silently drops the overflow)
 //
 // Run: node data/pipeline/build-units.mjs
 
@@ -57,6 +60,24 @@ for (const dir of readdirSync(UNITS_DIR, { withFileTypes: true })) {
     if (units.has(u.id)) err(u.id, 'duplicate id');
     units.set(u.id, u);
   }
+}
+
+// Imported scaffolds (import-divisions.mjs): identity-only, curated files win.
+let importedCount = 0;
+try {
+  const imported = JSON.parse(readFileSync(join(UNITS_DIR, 'imported-divisions.json'), 'utf8'));
+  for (const u of imported.units) {
+    if (units.has(u.id)) continue;
+    // Defensive: a same-day inception/dissolution would violate the interval
+    // contract; treat it as an open end.
+    for (const e of u.existence ?? []) {
+      if (e.to && e.to <= e.from) delete e.to;
+    }
+    units.set(u.id, u);
+    importedCount++;
+  }
+} catch {
+  console.log('No imported-divisions.json — building from curated files only.');
 }
 
 for (const u of units.values()) {
@@ -240,7 +261,15 @@ if (!runs.size) {
 
 rmSync(OUT_DIR, { recursive: true, force: true });
 mkdirSync(join(OUT_DIR, 'tracks'), { recursive: true });
-mkdirSync(join(OUT_DIR, 'unit'), { recursive: true });
+mkdirSync(join(OUT_DIR, 'detail'), { recursive: true });
+
+/** djb2 % 16 — mirrored by src/data/units.ts (keep in sync). */
+const SHARDS = 16;
+function shardOf(id) {
+  let h = 5381;
+  for (let i = 0; i < id.length; i++) h = ((h * 33) ^ id.charCodeAt(i)) >>> 0;
+  return (h % SHARDS).toString().padStart(2, '0');
+}
 
 const latestName = (u) => u.names[u.names.length - 1].name;
 const labelOf = (id) => (units.has(id) ? latestName(units.get(id)) : id);
@@ -280,32 +309,36 @@ const tracks = positioned
   .sort((a, b) => a.id.localeCompare(b.id));
 writeFileSync(join(OUT_DIR, 'tracks', 'eastern.json'), JSON.stringify({ units: tracks }));
 
+const shards = new Map();
 for (const u of units.values()) {
   const usedSources = [...new Set((u.positions ?? []).map((p) => p.source).filter(Boolean))];
-  writeFileSync(
-    join(OUT_DIR, 'unit', `${u.id}.json`),
-    JSON.stringify({
-      id: u.id,
-      country: u.country,
-      side: u.side,
-      branch: u.branch,
-      echelon: u.echelon,
-      type: u.type,
-      short: u.short,
-      names: u.names,
-      existence: u.existence,
-      parents: (u.parents ?? []).map((p) => ({ ...p, to: p.to ?? null, label: labelOf(p.unit) })),
-      children: (childrenOf.get(u.id) ?? []).map((c) => ({ ...c, label: labelOf(c.unit) })),
-      positions: (u.positions ?? []).map((p) => ({ ...p, confidence: p.confidence ?? 'approximate' })),
-      positionsTo: u.positionsTo ?? null,
-      links: u.links ?? {},
-      sources: usedSources.map((s) => ({ id: s, ...(sourcesReg[s] ?? {}) })),
-      notes: u.notes ?? null,
-    }),
-  );
+  const detail = {
+    id: u.id,
+    country: u.country,
+    side: u.side,
+    branch: u.branch,
+    echelon: u.echelon,
+    type: u.type,
+    short: u.short,
+    names: u.names,
+    existence: u.existence,
+    parents: (u.parents ?? []).map((p) => ({ ...p, to: p.to ?? null, label: labelOf(p.unit) })),
+    children: (childrenOf.get(u.id) ?? []).map((c) => ({ ...c, label: labelOf(c.unit) })),
+    positions: (u.positions ?? []).map((p) => ({ ...p, confidence: p.confidence ?? 'approximate' })),
+    positionsTo: u.positionsTo ?? null,
+    links: u.links ?? {},
+    sources: usedSources.map((s) => ({ id: s, ...(sourcesReg[s] ?? {}) })),
+    notes: u.notes ?? null,
+  };
+  const shard = shardOf(u.id);
+  if (!shards.has(shard)) shards.set(shard, {});
+  shards.get(shard)[u.id] = detail;
+}
+for (const [shard, records] of shards) {
+  writeFileSync(join(OUT_DIR, 'detail', `${shard}.json`), JSON.stringify(records));
 }
 
 console.log(
-  `Wrote ${index.length} units (${tracks.length} with tracks) -> ${OUT_DIR}/ ` +
-    `(index, tracks/eastern, ${index.length} detail files)`,
+  `Wrote ${index.length} units (${tracks.length} with tracks, ${importedCount} imported scaffolds) ` +
+    `-> ${OUT_DIR}/ (index, tracks/eastern, ${shards.size} detail shards)`,
 );
