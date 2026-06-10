@@ -56,6 +56,10 @@ node data/pipeline/build-borders.mjs
 # Also validates every city in city-control.json against the front, daily.
 node data/pipeline/build-fronts.mjs
 
+# Units (Phase 1) — curated order of battle + positions (Stalingrad pilot)
+# Validates every positioned unit against the front, daily (run fronts first).
+node data/pipeline/build-units.mjs
+
 # Cities (M3) — Natural Earth populated places
 curl -o data/raw/ne_10m_populated_places.geojson https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_populated_places.geojson
 node data/pipeline/build-cities.mjs
@@ -97,7 +101,7 @@ between sparse keyframes — not literally sourced per day. See
 | **M3** ✅ | Cities (capitals, population-styled, WWII names) — Natural Earth |
 | **M3.5** ✅ | Front v2: pockets/sieges, daily city control, validation loop, keyframe editor |
 | **Phase 0** ✅ | Foundations refactor: shared ETL lib, layer registry + toggles + legend, search + detail panel (cities), selection deep links |
-| Phase 1 | Temporal unit model + Stalingrad division showcase (vertical slice) |
+| **Phase 1** ✅ | Temporal unit model + Stalingrad showcase: 37 units (6. Armee OOB + Uranus pincers), unit-vs-front validation loop, map symbols with echelon-zoom ladder, unit search/panel/deep links |
 | Phase 2 | Unit search index, follow/path mode, Wikidata battle markers |
 | Phase 3 | Breadth: all German/Soviet divisions findable; campaign position passes; Western/Italian fronts |
 | Phase 4 | People (federated archive search + "find their unit" wizard), sub-division drill-down showcase |

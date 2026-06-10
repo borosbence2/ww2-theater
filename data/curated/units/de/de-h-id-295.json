@@ -1,0 +1,94 @@
+{
+  "id": "de-h-id-295",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "295. ID",
+  "names": [
+    {
+      "from": "1940-02-10",
+      "name": "295. Infanterie-Division",
+      "aliases": [
+        "295th Infantry Division"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1940-02-10",
+      "to": "1943-02-02",
+      "end": "destroyed (Stalingrad)"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1942-06-28",
+      "to": "1943-02-02",
+      "unit": "de-h-ak-51"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-06-28",
+      "at": [
+        37.62,
+        49.73
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1942-07-20",
+      "at": [
+        41.62,
+        49.13
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1942-08-23",
+      "at": [
+        43.02,
+        48.83
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1942-09-13",
+      "at": [
+        44.37,
+        48.73
+      ],
+      "source": "glantz-house-stalingrad",
+      "label": "Mamayev Kurgan flank"
+    },
+    {
+      "date": "1942-10-15",
+      "at": [
+        44.52,
+        48.77
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1942-11-23",
+      "at": [
+        44.52,
+        48.78
+      ],
+      "source": "niehorster-aok6-19421119"
+    },
+    {
+      "date": "1943-01-31",
+      "at": [
+        44.52,
+        48.73
+      ],
+      "source": "glantz-house-stalingrad"
+    }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/295._Infanterie-Division"
+  },
+  "notes": "Pilot: corps assignment held constant over the pilot window; positions derived from the corps sector (approximate)."
+}

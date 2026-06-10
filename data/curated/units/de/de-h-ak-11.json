@@ -1,0 +1,32 @@
+{
+  "id": "de-h-ak-11",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "corps",
+  "type": "hq",
+  "short": "XI. AK",
+  "names": [
+    { "from": "1939-09-01", "name": "XI. Armeekorps", "aliases": ["XI Army Corps", "11th Army Corps"] }
+  ],
+  "existence": [
+    { "from": "1939-09-01", "to": "1943-02-02", "end": "destroyed (Stalingrad; northern group surrendered last)" }
+  ],
+  "parents": [
+    { "from": "1942-06-28", "to": "1943-02-02", "unit": "de-h-armee-6" }
+  ],
+  "positions": [
+    { "date": "1942-06-28", "at": [37.0, 50.0], "source": "niehorster-aok6-19421119" },
+    { "date": "1942-07-20", "at": [41.0, 49.7], "source": "glantz-house-stalingrad" },
+    { "date": "1942-08-23", "at": [42.5, 49.3], "label": "Don bend flank", "source": "glantz-house-stalingrad" },
+    { "date": "1942-09-13", "at": [42.9, 49.35], "label": "Don bend flank at Kletskaya", "source": "glantz-house-stalingrad" },
+    { "date": "1942-11-19", "at": [43.3, 49.2], "label": "Uranus eve on the Don flank", "source": "glantz-house-stalingrad" },
+    { "date": "1942-11-23", "at": [44.0, 49.1], "label": "Kessel north sector", "source": "niehorster-aok6-19421119", "confidence": "documented" },
+    { "date": "1943-01-10", "at": [44.2, 49.0], "source": "glantz-house-stalingrad" },
+    { "date": "1943-01-31", "at": [44.45, 48.85], "label": "Tractor works pocket (held to 2 Feb)", "source": "glantz-house-stalingrad", "confidence": "documented" }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/XI_Army_Corps_(Wehrmacht)",
+    "lexikon-der-wehrmacht": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Korps/XIKorps.htm"
+  },
+  "notes": "Pilot coverage: Case Blue to the surrender."
+}

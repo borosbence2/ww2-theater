@@ -40,8 +40,10 @@ export function readUrl(): UrlState {
     out.hiddenLayers = ALL_LAYER_IDS.filter((id) => !visible.includes(id));
   }
 
+  const unit = p.get('unit');
   const city = p.get('city');
-  if (city) out.selection = { kind: 'city', id: city };
+  if (unit) out.selection = { kind: 'unit', id: unit };
+  else if (city) out.selection = { kind: 'city', id: city };
 
   return out;
 }
@@ -65,5 +67,6 @@ export function writeUrl(
     p.set('layers', visible.length ? visible.join(',') : 'none');
   }
   if (selection?.kind === 'city') p.set('city', selection.id);
+  if (selection?.kind === 'unit') p.set('unit', selection.id);
   window.history.replaceState(null, '', `?${p.toString()}`);
 }

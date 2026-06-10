@@ -1,0 +1,93 @@
+{
+  "id": "de-h-id-3-mot",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "motorized",
+  "short": "3. mot",
+  "names": [
+    {
+      "from": "1940-10-01",
+      "name": "3. Infanterie-Division (mot.)",
+      "aliases": [
+        "3rd Motorized Infantry Division"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1940-10-01",
+      "to": "1943-02-02",
+      "end": "destroyed (Stalingrad)"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1942-06-28",
+      "to": "1943-02-02",
+      "unit": "de-h-pzk-14"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-06-28",
+      "at": [
+        37.7,
+        50.05
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1942-07-20",
+      "at": [
+        41.9,
+        49.4
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1942-08-23",
+      "at": [
+        42.75,
+        49.05
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1942-09-13",
+      "at": [
+        44.15,
+        48.92
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1942-11-23",
+      "at": [
+        44.5,
+        49
+      ],
+      "source": "niehorster-aok6-19421119"
+    },
+    {
+      "date": "1943-01-10",
+      "at": [
+        44.3,
+        48.9
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1943-01-31",
+      "at": [
+        44.3,
+        48.75
+      ],
+      "source": "glantz-house-stalingrad"
+    }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/3._Infanterie-Division_(mot.)"
+  },
+  "notes": "Pilot: corps assignment held constant over the pilot window; positions derived from the corps sector (approximate)."
+}

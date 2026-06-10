@@ -1,16 +1,29 @@
-// Omnibox search (Phase 0.3). Searches cities for now; Phase 2 extends the
-// same box to units and battles via the prebuilt index. Selecting a result
-// sets the store selection (deep-linkable) and flies the camera there.
+// Omnibox search (Phase 0.3, units added in Phase 1). One field over cities
+// and the unit index; battles join in Phase 2. Selecting a result sets the
+// store selection (deep-linkable) and flies the camera; selecting a unit
+// outside the current date's track jumps the timeline into its lifespan.
 
 import { useEffect, useRef, useState } from 'react';
-import { loadCities, searchCities, type City } from '../data/cities';
+import { foldText, loadCities, searchCities, type City } from '../data/cities';
+import {
+  loadUnitIndex,
+  loadUnitTracks,
+  positionOn,
+  searchUnits,
+  type UnitIndexEntry,
+} from '../data/units';
+import { dateToNum } from '../time/dates';
 import { getMap } from '../map/mapRef';
 import { useStore } from '../store';
+
+type Result =
+  | { kind: 'city'; city: City }
+  | { kind: 'unit'; unit: UnitIndexEntry };
 
 export function Omnibox() {
   const setSelection = useStore((s) => s.setSelection);
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<City[]>([]);
+  const [results, setResults] = useState<Result[]>([]);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const boxRef = useRef<HTMLDivElement>(null);
@@ -22,9 +35,20 @@ export function Omnibox() {
       setOpen(false);
       return;
     }
-    loadCities().then((cities) => {
+    Promise.all([loadCities(), loadUnitIndex()]).then(([cities, units]) => {
       if (!alive) return;
-      const hits = searchCities(cities, query);
+      // Rank across kinds: prefix matches first; cities win ties (typing
+      // "Stalingrad" should find the city above the Stalingrad Front HQ).
+      const q = foldText(query.trim());
+      const prefix = (name: string) => (foldText(name).startsWith(q) ? 0 : 1);
+      const hits: Result[] = [
+        ...searchUnits(units, query, 5).map((unit) => ({ kind: 'unit' as const, unit })),
+        ...searchCities(cities, query, 5).map((city) => ({ kind: 'city' as const, city })),
+      ].sort((a, b) => {
+        const sa = prefix(a.kind === 'city' ? a.city.name : a.unit.label);
+        const sb = prefix(b.kind === 'city' ? b.city.name : b.unit.label);
+        return sa - sb || (a.kind === 'city' ? 0 : 1) - (b.kind === 'city' ? 0 : 1);
+      });
       setResults(hits);
       setActive(0);
       setOpen(hits.length > 0);
@@ -43,12 +67,29 @@ export function Omnibox() {
     return () => window.removeEventListener('mousedown', onDown);
   }, []);
 
-  const select = (city: City) => {
-    setSelection({ kind: 'city', id: city.name });
-    setQuery(city.name);
+  const select = async (r: Result) => {
     setOpen(false);
     const map = getMap();
-    map?.flyTo({ center: [city.lng, city.lat], zoom: Math.max(map.getZoom(), 5.5) });
+    if (r.kind === 'city') {
+      setSelection({ kind: 'city', id: r.city.name });
+      setQuery(r.city.name);
+      map?.flyTo({ center: [r.city.lng, r.city.lat], zoom: Math.max(map.getZoom(), 5.5) });
+      return;
+    }
+    setSelection({ kind: 'unit', id: r.unit.id });
+    setQuery(r.unit.label);
+    if (!r.unit.hasPositions) return;
+    const track = (await loadUnitTracks()).find((t) => t.id === r.unit.id);
+    if (!track) return;
+    const { date, setDate } = useStore.getState();
+    let when = date;
+    if (!positionOn(track, date, dateToNum(date))) {
+      // Jump the timeline to the unit's first mapped day.
+      when = track.keyframes[0].date;
+      setDate(when);
+    }
+    const at = positionOn(track, when, dateToNum(when));
+    if (at) map?.flyTo({ center: at, zoom: Math.max(map.getZoom(), 6.3) });
   };
 
   const onKeyDown = (e: React.KeyboardEvent) => {
@@ -60,7 +101,7 @@ export function Omnibox() {
       e.preventDefault();
       setActive((a) => Math.max(a - 1, 0));
     } else if (e.key === 'Enter' && results[active]) {
-      select(results[active]);
+      void select(results[active]);
     } else if (e.key === 'Escape') {
       setOpen(false);
     }
@@ -70,7 +111,7 @@ export function Omnibox() {
     <div className="omnibox" ref={boxRef}>
       <input
         type="search"
-        placeholder="Search cities…"
+        placeholder="Search units & cities…"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onFocus={() => setOpen(results.length > 0)}
@@ -79,24 +120,42 @@ export function Omnibox() {
       />
       {open && (
         <ul className="omnibox-results">
-          {results.map((city, i) => (
-            <li
-              key={`${city.name}|${city.lng}`}
-              className={i === active ? 'active' : undefined}
-              onMouseEnter={() => setActive(i)}
-              // mousedown, not click: fires before the input's blur
-              onMouseDown={(e) => {
-                e.preventDefault();
-                select(city);
-              }}
-            >
-              <span>{city.name}</span>
-              <span className="omnibox-meta">
-                {city.capital ? 'capital · ' : ''}
-                {city.country}
-              </span>
-            </li>
-          ))}
+          {results.map((r, i) => {
+            const key = r.kind === 'city' ? `c|${r.city.name}|${r.city.lng}` : `u|${r.unit.id}`;
+            return (
+              <li
+                key={key}
+                className={i === active ? 'active' : undefined}
+                onMouseEnter={() => setActive(i)}
+                // mousedown, not click: fires before the input's blur
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  void select(r);
+                }}
+              >
+                {r.kind === 'city' ? (
+                  <>
+                    <span>{r.city.name}</span>
+                    <span className="omnibox-meta">
+                      {r.city.capital ? 'capital · ' : ''}
+                      {r.city.country}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span>
+                      <span className={`unit-chip side-${r.unit.side}`}>{r.unit.echelon}</span>
+                      {r.unit.label}
+                    </span>
+                    <span className="omnibox-meta">
+                      {r.unit.country}
+                      {r.unit.hasPositions ? '' : ' · not mapped yet'}
+                    </span>
+                  </>
+                )}
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>

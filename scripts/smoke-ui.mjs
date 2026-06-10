@@ -76,9 +76,44 @@ check(`layers param after hiding front: ${layersParam}`, layersParam !== null &&
 await page.screenshot({ path: `${SHOTS}/ww2-front-off.png` });
 
 // Close the panel; ?city= should disappear.
-await page.locator('.detail-panel header button').click();
+await page.locator('.detail-close').click();
 await page.waitForTimeout(1200);
 check('closing panel clears ?city=', !page.url().includes('city='));
+
+// Unit search (Phase 1): selecting a unit jumps the timeline into its
+// lifespan, opens the unit panel, and deep-links via ?unit=.
+await page.fill('.omnibox input', '6. Armee');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1800); // detail fetch + flyTo + URL throttle
+const unitPanel = await page.locator('.detail-panel').textContent();
+check('unit panel shows 6. Armee', /6\. Armee/.test(unitPanel ?? ''));
+check('unit panel shows chain of command (Heeresgruppe B)', /Heeresgruppe B/.test(unitPanel ?? ''));
+check('URL has ?unit=de-h-armee-6', page.url().includes('unit=de-h-armee-6'));
+const tbDate = (await page.locator('.timebar-date').textContent()) ?? '';
+check(`timeline jumped into unit lifespan (${tbDate.trim()})`, /194[23]/.test(tbDate));
+await page.screenshot({ path: `${SHOTS}/ww2-unit.png` });
+
+// Navigate the OOB: the parent link selects Heeresgruppe B (unmapped scaffold).
+await page
+  .locator('.detail-history', { hasText: 'Chain of command' })
+  .locator('button')
+  .first()
+  .click();
+await page.waitForTimeout(1000);
+const hgrPanel = await page.locator('.detail-panel').textContent();
+check('parent navigation opens Heeresgruppe B', /Heeresgruppe B/.test(hgrPanel ?? ''));
+check('scaffold shows not-mapped note', /Not mapped yet/.test(hgrPanel ?? ''));
+
+// Soviet side reachable too: 13th Guards via its English alias.
+await page.fill('.omnibox input', '13th Guards');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForTimeout(1500);
+const gdPanel = await page.locator('.detail-panel').textContent();
+check('13th Guards panel opens with 62nd Army parent', /62nd Army/.test(gdPanel ?? ''));
+await page.screenshot({ path: `${SHOTS}/ww2-13guards.png` });
 
 const realErrors = errors.filter((e) => !/WebGL|GPU|swiftshader|Failed to load resource/i.test(e));
 check(`no console/page errors (${errors.length} total, ${realErrors.length} relevant)`, realErrors.length === 0);

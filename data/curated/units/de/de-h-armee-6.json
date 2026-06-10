@@ -1,0 +1,33 @@
+{
+  "id": "de-h-armee-6",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "hq",
+  "short": "6. Armee",
+  "names": [
+    { "from": "1939-10-10", "name": "6. Armee", "aliases": ["6th Army", "Sixth Army", "AOK 6"] }
+  ],
+  "existence": [
+    { "from": "1939-10-10", "to": "1943-02-02", "end": "destroyed (surrendered at Stalingrad)" }
+  ],
+  "parents": [
+    { "from": "1942-07-09", "to": "1943-02-02", "unit": "de-h-hgr-b" }
+  ],
+  "positions": [
+    { "date": "1942-06-28", "at": [37.5, 49.9], "label": "Case Blue begins east of Kharkov", "source": "glantz-house-stalingrad", "confidence": "documented" },
+    { "date": "1942-07-20", "at": [41.5, 49.3], "label": "Into the Don bend", "source": "glantz-house-stalingrad" },
+    { "date": "1942-08-23", "at": [42.9, 48.9], "label": "Don crossings at Vertyachy", "source": "glantz-house-stalingrad", "confidence": "documented" },
+    { "date": "1942-09-13", "at": [44.3, 48.75], "label": "HQ Gumrak; city assault begins", "source": "glantz-house-stalingrad", "confidence": "documented" },
+    { "date": "1942-11-23", "at": [44.35, 48.9], "label": "Encircled in the Kessel", "source": "glantz-house-stalingrad", "confidence": "documented" },
+    { "date": "1943-01-10", "at": [44.3, 48.8], "label": "Operation Ring begins", "source": "glantz-house-stalingrad" },
+    { "date": "1943-01-31", "at": [44.52, 48.71], "label": "HQ Univermag; Paulus surrenders", "source": "glantz-house-stalingrad", "confidence": "documented" }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/6th_Army_(Wehrmacht)",
+    "wikidata": "Q156621",
+    "niehorster": "http://niehorster.org/011_germany/42-11-19/army_06.html",
+    "lexikon-der-wehrmacht": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/6Armee.htm"
+  },
+  "notes": "Pilot coverage: Case Blue to the surrender. Pre-1942 positions not yet authored. The reformed 6. Armee (Mar 1943) is a separate incarnation, not yet authored."
+}

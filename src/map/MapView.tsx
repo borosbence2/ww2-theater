@@ -9,7 +9,10 @@ import maplibregl from 'maplibre-gl';
 import { useStore } from '../store';
 import { LAYERS, applyVisibility } from '../layers/registry';
 import { CITY_DOT_LAYER_ID } from '../layers/cities';
+import { UNITS_HIT_LAYER_IDS } from '../layers/units';
 import { loadCities } from '../data/cities';
+import { dateToNum } from '../time/dates';
+import { loadUnitTracks, positionOn } from '../data/units';
 import { setMap } from './mapRef';
 import { EDIT_MODE } from '../edit/mode';
 import { addEditLayers } from '../edit/editLayer';
@@ -63,19 +66,28 @@ export function MapView() {
       if (EDIT_MODE) {
         addEditLayers(map);
       } else {
-        // Click a city dot to select it; click empty map to clear.
+        // Click a unit symbol or city dot to select it; empty map clears.
+        const hitLayers = () =>
+          [...UNITS_HIT_LAYER_IDS, CITY_DOT_LAYER_ID].filter((id) => map.getLayer(id));
         map.on('click', (e) => {
-          if (!map.getLayer(CITY_DOT_LAYER_ID)) return;
-          const hits = map.queryRenderedFeatures(e.point, { layers: [CITY_DOT_LAYER_ID] });
-          const name = hits[0]?.properties?.name as string | undefined;
-          useStore.getState().setSelection(name ? { kind: 'city', id: name } : null);
+          const hits = map.queryRenderedFeatures(e.point, { layers: hitLayers() });
+          const top = hits.find((h) => UNITS_HIT_LAYER_IDS.includes(h.layer.id)) ?? hits[0];
+          const { setSelection } = useStore.getState();
+          if (!top) setSelection(null);
+          else if (UNITS_HIT_LAYER_IDS.includes(top.layer.id)) {
+            setSelection({ kind: 'unit', id: top.properties.id as string });
+          } else {
+            setSelection({ kind: 'city', id: top.properties.name as string });
+          }
         });
-        map.on('mouseenter', CITY_DOT_LAYER_ID, () => {
-          map.getCanvas().style.cursor = 'pointer';
-        });
-        map.on('mouseleave', CITY_DOT_LAYER_ID, () => {
-          map.getCanvas().style.cursor = '';
-        });
+        for (const id of [...UNITS_HIT_LAYER_IDS, CITY_DOT_LAYER_ID]) {
+          map.on('mouseenter', id, () => {
+            map.getCanvas().style.cursor = 'pointer';
+          });
+          map.on('mouseleave', id, () => {
+            map.getCanvas().style.cursor = '';
+          });
+        }
       }
       readyRef.current = true;
 
@@ -86,6 +98,11 @@ export function MapView() {
         if (city) {
           map.flyTo({ center: [city.lng, city.lat], zoom: Math.max(map.getZoom(), 5.5) });
         }
+      } else if (sel?.kind === 'unit') {
+        const track = (await loadUnitTracks()).find((t) => t.id === sel.id);
+        const d = useStore.getState().date;
+        const at = track ? positionOn(track, d, dateToNum(d)) : null;
+        if (at) map.flyTo({ center: at, zoom: Math.max(map.getZoom(), 6) });
       }
     });
 

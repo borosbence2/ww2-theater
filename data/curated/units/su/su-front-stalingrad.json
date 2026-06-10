@@ -1,0 +1,32 @@
+{
+  "id": "su-front-stalingrad",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "front",
+  "type": "hq",
+  "short": "Stalingrad F.",
+  "names": [
+    {
+      "from": "1942-07-12",
+      "name": "Stalingrad Front",
+      "aliases": [
+        "Сталинградский фронт",
+        "Stalingradskiy front"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-07-12",
+      "to": "1943-01-01",
+      "end": "renamed Southern Front"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Stalingrad_Front",
+    "pamyat-naroda": "https://pamyat-naroda.ru/"
+  },
+  "notes": "Scaffold (no positions yet). The Aug–Sep 1942 Stalingrad/Southeastern Front reshuffle is simplified to a single front for the pilot."
+}

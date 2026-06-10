@@ -1,0 +1,32 @@
+{
+  "id": "su-front-southwestern",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "front",
+  "type": "hq",
+  "short": "SW Front",
+  "names": [
+    {
+      "from": "1942-10-22",
+      "name": "Southwestern Front",
+      "aliases": [
+        "Юго-Западный фронт",
+        "Yugo-Zapadny front"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-10-22",
+      "to": "1943-10-20",
+      "end": "redesignated 3rd Ukrainian Front"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Southwestern_Front_(Soviet_Union)",
+    "pamyat-naroda": "https://pamyat-naroda.ru/"
+  },
+  "notes": "Scaffold (no positions yet). Second formation; northern pincer of Uranus."
+}

@@ -1,0 +1,77 @@
+{
+  "id": "su-tank-army-5",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "army",
+  "type": "armoured",
+  "short": "5 TA",
+  "names": [
+    {
+      "from": "1942-06-01",
+      "name": "5th Tank Army",
+      "aliases": [
+        "5-я танковая армия",
+        "5 TA"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-06-01",
+      "to": "1943-04-20",
+      "end": "disbanded (HQ to Southwestern Front reserve)"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1942-10-22",
+      "to": "1943-04-20",
+      "unit": "su-front-southwestern"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-11-19",
+      "at": [
+        42.7,
+        49.6
+      ],
+      "label": "Uranus: breakout from the Serafimovich bridgehead",
+      "source": "glantz-house-stalingrad",
+      "confidence": "documented"
+    },
+    {
+      "date": "1942-11-23",
+      "at": [
+        43.6,
+        48.75
+      ],
+      "label": "Pincers meet at Kalach",
+      "source": "glantz-house-stalingrad",
+      "confidence": "documented"
+    },
+    {
+      "date": "1942-12-15",
+      "at": [
+        42.8,
+        48.5
+      ],
+      "label": "Chir front",
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1943-01-20",
+      "at": [
+        41.5,
+        48.4
+      ],
+      "source": "glantz-house-stalingrad"
+    }
+  ],
+  "positionsTo": "1943-02-15",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/5th_Tank_Army_(Soviet_Union)",
+    "pamyat-naroda": "https://pamyat-naroda.ru/"
+  },
+  "notes": "Second formation. Northern pincer of Operation Uranus."
+}

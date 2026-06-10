@@ -384,21 +384,17 @@ body {
   backdrop-filter: blur(6px);
 }
 
-.detail-panel header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
-}
-
 .detail-panel h2 {
   margin: 0;
+  padding-right: 24px;
   font-size: 16px;
   font-weight: 600;
 }
 
-.detail-panel header button {
-  flex: none;
+.detail-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
   width: 24px;
   height: 24px;
   font-size: 15px;
@@ -410,9 +406,44 @@ body {
   cursor: pointer;
 }
 
-.detail-panel header button:hover {
+.detail-close:hover {
   color: var(--text);
   background: rgba(255, 255, 255, 0.08);
+}
+
+.unit-chip {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.unit-chip.side-axis {
+  background: rgba(181, 64, 47, 0.85);
+}
+
+.unit-chip.side-soviet {
+  background: rgba(47, 111, 176, 0.85);
+}
+
+.unit-end {
+  color: var(--muted);
+}
+
+.date-link.muted {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.detail-history a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .detail-meta {

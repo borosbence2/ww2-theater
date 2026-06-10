@@ -1,0 +1,103 @@
+{
+  "id": "su-army-62",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "army",
+  "type": "hq",
+  "short": "62 A",
+  "names": [
+    {
+      "from": "1942-07-10",
+      "name": "62nd Army",
+      "aliases": [
+        "62-я армия",
+        "62A",
+        "Chuikov army"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-07-10",
+      "to": "1943-04-16",
+      "end": "redesignated 8th Guards Army"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1942-07-12",
+      "to": "1943-01-01",
+      "unit": "su-front-stalingrad"
+    },
+    {
+      "from": "1943-01-01",
+      "to": "1943-02-15",
+      "unit": "su-front-don"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-07-17",
+      "at": [
+        42.8,
+        48.9
+      ],
+      "label": "First clashes in the Don bend",
+      "source": "glantz-house-stalingrad",
+      "confidence": "documented"
+    },
+    {
+      "date": "1942-08-23",
+      "at": [
+        44.2,
+        48.7
+      ],
+      "label": "Falling back on the city",
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1942-09-13",
+      "at": [
+        44.62,
+        48.73
+      ],
+      "label": "Backs to the Volga; Chuikov takes command",
+      "source": "glantz-house-stalingrad",
+      "confidence": "documented"
+    },
+    {
+      "date": "1942-11-23",
+      "at": [
+        44.7,
+        48.74
+      ],
+      "label": "Holding the river strip inside the ring",
+      "source": "glantz-house-stalingrad",
+      "confidence": "documented"
+    },
+    {
+      "date": "1943-01-15",
+      "at": [
+        44.72,
+        48.75
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1943-02-02",
+      "at": [
+        44.6,
+        48.72
+      ],
+      "label": "City cleared",
+      "source": "glantz-house-stalingrad",
+      "confidence": "documented"
+    }
+  ],
+  "positionsTo": "1943-03-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/62nd_Army_(Soviet_Union)",
+    "pamyat-naroda": "https://pamyat-naroda.ru/"
+  },
+  "notes": "Pilot coverage: Don bend to the city victory. Held the west-bank strip through the siege."
+}

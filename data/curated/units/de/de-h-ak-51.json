@@ -1,0 +1,31 @@
+{
+  "id": "de-h-ak-51",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "corps",
+  "type": "hq",
+  "short": "LI. AK",
+  "names": [
+    { "from": "1940-08-01", "name": "LI. Armeekorps", "aliases": ["LI Army Corps", "51st Army Corps", "Seydlitz corps"] }
+  ],
+  "existence": [
+    { "from": "1940-08-01", "to": "1943-02-02", "end": "destroyed (Stalingrad)" }
+  ],
+  "parents": [
+    { "from": "1942-06-28", "to": "1943-02-02", "unit": "de-h-armee-6" }
+  ],
+  "positions": [
+    { "date": "1942-06-28", "at": [37.6, 49.7], "source": "niehorster-aok6-19421119" },
+    { "date": "1942-07-20", "at": [41.6, 49.1], "source": "glantz-house-stalingrad" },
+    { "date": "1942-08-23", "at": [43.0, 48.8], "source": "glantz-house-stalingrad" },
+    { "date": "1942-09-13", "at": [44.35, 48.7], "label": "Main assault into the city", "source": "glantz-house-stalingrad", "confidence": "documented" },
+    { "date": "1942-10-15", "at": [44.5, 48.74], "label": "Factory district fighting", "source": "glantz-house-stalingrad", "confidence": "documented" },
+    { "date": "1942-11-23", "at": [44.5, 48.75], "label": "Kessel east (city) sector", "source": "niehorster-aok6-19421119" },
+    { "date": "1943-01-31", "at": [44.5, 48.7], "label": "Surrendered with Paulus (southern group)", "source": "glantz-house-stalingrad", "confidence": "documented" }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/LI_Army_Corps_(Wehrmacht)",
+    "lexikon-der-wehrmacht": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Korps/LIKorps.htm"
+  },
+  "notes": "Pilot coverage: Case Blue to the surrender. Commanded by Seydlitz-Kurzbach during the city fighting."
+}

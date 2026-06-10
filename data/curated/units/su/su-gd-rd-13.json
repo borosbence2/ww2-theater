@@ -1,0 +1,64 @@
+{
+  "id": "su-gd-rd-13",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "13 Gv",
+  "names": [
+    {
+      "from": "1942-01-19",
+      "name": "13th Guards Rifle Division",
+      "aliases": [
+        "13-я гвардейская стрелковая дивизия",
+        "13th Guards Rifle Div."
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-01-19"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1942-09-15",
+      "to": "1943-03-01",
+      "unit": "su-army-62"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-09-15",
+      "at": [
+        44.58,
+        48.72
+      ],
+      "label": "Crossed the Volga into the burning city (Rodimtsev)",
+      "source": "glantz-house-stalingrad",
+      "confidence": "documented"
+    },
+    {
+      "date": "1942-11-23",
+      "at": [
+        44.6,
+        48.72
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1943-01-31",
+      "at": [
+        44.58,
+        48.72
+      ],
+      "source": "glantz-house-stalingrad"
+    }
+  ],
+  "positionsTo": "1943-03-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/13th_Guards_Rifle_Division",
+    "pamyat-naroda": "https://pamyat-naroda.ru/"
+  },
+  "notes": "Converted from the 87th Rifle Division. Famous for the 14–15 Sep crossing and the central landing stage. Pilot: city positions schematic (west-bank strip); the division held a narrow riverside sector inside the drawn pocket ring, so side checks report it as contested."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "de-h-hgr-b",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army-group",
+  "type": "hq",
+  "short": "HGr B",
+  "names": [
+    { "from": "1942-07-09", "name": "Heeresgruppe B", "aliases": ["Army Group B"] }
+  ],
+  "existence": [
+    { "from": "1942-07-09", "to": "1943-02-09", "end": "absorbed into Heeresgruppe Süd" }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Army_Group_B",
+    "wikidata": "Q707519"
+  },
+  "notes": "Scaffold for the Stalingrad pilot: identity and subordination only, no authored positions yet. The 1944-45 western Heeresgruppe B is a separate incarnation (not yet authored)."
+}

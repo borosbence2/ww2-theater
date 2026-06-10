@@ -12,8 +12,8 @@ export interface Viewport {
   zoom: number;
 }
 
-/** What is selected in the UI (detail panel + deep link). Units join in Phase 1. */
-export type Selection = { kind: 'city'; id: string };
+/** What is selected in the UI (detail panel + deep link). */
+export type Selection = { kind: 'city' | 'unit'; id: string };
 
 /** Default view: centered on central Europe, whole-theater zoom. */
 const DEFAULT_VIEWPORT: Viewport = { lng: 15, lat: 50, zoom: 4 };

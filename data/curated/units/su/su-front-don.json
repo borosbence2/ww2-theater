@@ -1,0 +1,32 @@
+{
+  "id": "su-front-don",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "front",
+  "type": "hq",
+  "short": "Don F.",
+  "names": [
+    {
+      "from": "1942-09-28",
+      "name": "Don Front",
+      "aliases": [
+        "Донской фронт",
+        "Donskoy front"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-09-28",
+      "to": "1943-02-15",
+      "end": "redesignated Central Front"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Don_Front",
+    "pamyat-naroda": "https://pamyat-naroda.ru/"
+  },
+  "notes": "Scaffold (no positions yet). Rokossovsky; conducted Operation Ring."
+}

@@ -11,6 +11,7 @@ import { BORDERS_LAYER_IDS, addBordersLayer, updateBordersDate } from './borders
 import { FRONT_LAYER_IDS, addFrontLayer, updateFrontDate } from './front';
 import { CITIES_LAYER_IDS, addCitiesLayer } from './cities';
 import { CONTROL_DOTS_LAYER_IDS, addControlDotsLayer, updateControlDotsDate } from './controlDots';
+import { UNITS_LAYER_IDS, addUnitsLayer, updateUnitsDate } from './units';
 
 export interface LegendItem {
   /** Swatch shape: line | dash | fill | dot. */
@@ -77,6 +78,17 @@ export const LAYERS: LayerDef[] = [
     ],
     add: addCitiesLayer,
     mapLayerIds: CITIES_LAYER_IDS,
+  },
+  {
+    id: 'units',
+    label: 'Military units',
+    legend: [
+      { shape: 'fill', color: AXIS_COLOR, label: 'German formation (zoom for corps/divisions)' },
+      { shape: 'fill', color: SOVIET_COLOR, label: 'Soviet formation' },
+    ],
+    add: addUnitsLayer,
+    updateDate: updateUnitsDate,
+    mapLayerIds: UNITS_LAYER_IDS,
   },
 ];
 

@@ -1,0 +1,31 @@
+{
+  "id": "de-h-pzk-14",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "corps",
+  "type": "armoured",
+  "short": "XIV. Pz.K",
+  "names": [
+    { "from": "1940-06-01", "name": "XIV. Panzerkorps", "aliases": ["XIV Panzer Corps", "14th Panzer Corps"] }
+  ],
+  "existence": [
+    { "from": "1940-06-01", "to": "1943-02-02", "end": "destroyed (Stalingrad)" }
+  ],
+  "parents": [
+    { "from": "1942-06-28", "to": "1943-02-02", "unit": "de-h-armee-6" }
+  ],
+  "positions": [
+    { "date": "1942-06-28", "at": [37.8, 49.95], "source": "niehorster-aok6-19421119" },
+    { "date": "1942-07-20", "at": [42.0, 49.3], "label": "Spearhead in the Don bend", "source": "glantz-house-stalingrad" },
+    { "date": "1942-08-23", "at": [42.85, 48.95], "label": "Breakthrough toward the Volga corridor", "source": "glantz-house-stalingrad", "confidence": "documented" },
+    { "date": "1942-09-13", "at": [44.25, 48.82], "label": "Northern city edge", "source": "glantz-house-stalingrad", "confidence": "documented" },
+    { "date": "1942-11-23", "at": [44.6, 48.9], "label": "Kessel northeast sector", "source": "niehorster-aok6-19421119" },
+    { "date": "1943-01-10", "at": [44.4, 48.8], "source": "glantz-house-stalingrad" },
+    { "date": "1943-01-31", "at": [44.4, 48.65], "source": "glantz-house-stalingrad" }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/XIV_Panzer_Corps_(Wehrmacht)",
+    "lexikon-der-wehrmacht": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Korps/XIVKorps.htm"
+  },
+  "notes": "Pilot coverage: Case Blue to the surrender. The reformed XIV. Panzerkorps (Italy 1943) is a separate incarnation, not yet authored."
+}

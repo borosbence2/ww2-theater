@@ -1,0 +1,95 @@
+{
+  "id": "de-h-pz-div-16",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "armoured",
+  "short": "16. Pz",
+  "names": [
+    {
+      "from": "1940-11-01",
+      "name": "16. Panzer-Division",
+      "aliases": [
+        "16th Panzer Division"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1940-11-01",
+      "to": "1943-02-02",
+      "end": "destroyed (Stalingrad)"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1942-06-28",
+      "to": "1943-02-02",
+      "unit": "de-h-pzk-14"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-06-28",
+      "at": [
+        37.9,
+        50.02
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1942-07-20",
+      "at": [
+        42.1,
+        49.37
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1942-08-23",
+      "at": [
+        42.95,
+        49.02
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1942-09-13",
+      "at": [
+        44.55,
+        48.82
+      ],
+      "source": "glantz-house-stalingrad",
+      "label": "On the Volga at Rynok since 23 Aug (front keyframe lacks the corridor)",
+      "confidence": "documented"
+    },
+    {
+      "date": "1942-11-23",
+      "at": [
+        44.7,
+        48.97
+      ],
+      "source": "niehorster-aok6-19421119"
+    },
+    {
+      "date": "1943-01-10",
+      "at": [
+        44.5,
+        48.87
+      ],
+      "source": "glantz-house-stalingrad"
+    },
+    {
+      "date": "1943-01-31",
+      "at": [
+        44.5,
+        48.72
+      ],
+      "source": "glantz-house-stalingrad"
+    }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/16._Panzer-Division"
+  },
+  "notes": "Reached the Volga at Rynok on 23 Aug 1942 — deliberately kept at its documented spot so the unit-vs-front worklist flags the missing corridor salient in the front keyframes. Reformed Mar 1943 — separate incarnation, not yet authored. Pilot: corps assignment held constant over the pilot window; positions derived from the corps sector (approximate)."
+}

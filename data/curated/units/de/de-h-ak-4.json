@@ -1,0 +1,32 @@
+{
+  "id": "de-h-ak-4",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "corps",
+  "type": "hq",
+  "short": "IV. AK",
+  "names": [
+    { "from": "1939-09-01", "name": "IV. Armeekorps", "aliases": ["IV Army Corps", "4th Army Corps"] }
+  ],
+  "existence": [
+    { "from": "1939-09-01", "to": "1943-02-02", "end": "destroyed (Stalingrad)" }
+  ],
+  "parents": [
+    { "from": "1942-06-28", "to": "1942-11-22", "unit": "de-h-pzarmee-4" },
+    { "from": "1942-11-22", "to": "1943-02-02", "unit": "de-h-armee-6" }
+  ],
+  "positions": [
+    { "date": "1942-06-28", "at": [38.3, 50.8], "source": "glantz-house-stalingrad" },
+    { "date": "1942-07-25", "at": [40.3, 47.85], "label": "South wing toward the lower Don", "source": "glantz-house-stalingrad" },
+    { "date": "1942-08-20", "at": [43.2, 47.9], "source": "glantz-house-stalingrad" },
+    { "date": "1942-09-13", "at": [44.4, 48.55], "label": "Southern suburbs", "source": "glantz-house-stalingrad" },
+    { "date": "1942-11-23", "at": [44.2, 48.45], "label": "Kessel south sector; passed to 6. Armee", "source": "niehorster-aok6-19421119", "confidence": "documented" },
+    { "date": "1943-01-10", "at": [44.2, 48.5], "source": "glantz-house-stalingrad" },
+    { "date": "1943-01-31", "at": [44.45, 48.62], "source": "glantz-house-stalingrad" }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/IV_Army_Corps_(Wehrmacht)",
+    "lexikon-der-wehrmacht": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Korps/IVKorps.htm"
+  },
+  "notes": "Demonstrates a temporal parent change: advanced under 4. Panzerarmee, encircled under 6. Armee (subordination switched as the Kessel formed)."
+}

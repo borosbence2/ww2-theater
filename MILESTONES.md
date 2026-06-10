@@ -154,6 +154,57 @@ no new historical data.
   read absent `z/lat/lng` params as a (0,0,z0) viewport — every clean visit
   (no query string) started over the Gulf of Guinea instead of Europe.
 
+## Phase 1 — Temporal unit model + Stalingrad showcase (REWRITE_PLAN) ✅ (v1)
+The vertical slice through the whole unit architecture: schema → curated data
+→ ETL with validation → map symbols → search → detail panel. Scrub Jun 1942 →
+Feb 1943 and watch 6. Armee advance into the Kessel and die; every formation
+is clickable and deep-linkable.
+- [x] 1.1 **Schema + sources**: `data/curated/units/schema.md` (temporal
+      names/existence/parents/positions, `[from, to)` intervals, confidence +
+      `move` semantics — rail/gap segments hold-then-jump, never glide) and
+      `sources.json` (position keyframes cite source ids).
+- [x] 1.3 **Pilot dataset, 37 units** (`data/curated/units/{de,su}/`):
+      Heeresgruppe B → 6. Armee + 4. Panzerarmee → 5 corps (incl. IV. AK's
+      documented mid-battle parent switch from 4. PzA to 6. Armee) → 16
+      German divisions; Soviet side: 3 fronts (scaffolds), 62nd/64th Armies,
+      5th Tank Army + 51st Army (the Uranus pincers), and six 62nd Army
+      divisions in the city (13th/37th/39th Guards, 95th, 284th, 308th).
+      33 units have position tracks (~190 keyframes); scaffolds are
+      searchable with an honest "not mapped yet" page.
+- [x] 1.2 **ETL** (`data/pipeline/build-units.mjs`, on the shared lib):
+      schema/referential validation, movement-speed plausibility, and the
+      **unit-vs-front side check** — every positioned unit, every day, must
+      sit on its own side of the interpolated front (pocket rings override;
+      ≤25 km of the line / ≤30 km of a ring counts as contested, not wrong).
+      Emits `public/data/units/`: search index, per-theater tracks, 37 unit
+      detail files (with resolved parent/children labels + citations).
+- [x] **The loop already drove a front fix**: the Nov 20–22 mismatch cluster
+      (every Kessel unit "soviet-side" before the pocket existed) exposed that
+      the line should hold at the city until the ring closes — added the
+      `1942-11-22` main-front keyframe ("flanks pierced, line still holds").
+      Worklist went from 227 unit-days/24 units to **105/11**, all of it the
+      two known schematic gaps, kept deliberately as the live worklist:
+      the August Don-bend pause and the **Rynok corridor** (16. Pz is pinned
+      to its documented Volga position so the missing salient stays visible),
+      plus two single Uranus-corridor days.
+- [x] 1.4 **Units layer** (`src/layers/units.ts`): staff-map symbols generated
+      on canvas (side-colored frame, cross/ellipse branch marks, XX/XXX/XXXX
+      echelon ticks), echelon↔zoom ladder (armies always, corps z≥5.4,
+      divisions z≥6.2), date interpolation with hold-then-jump, approximate
+      segments slightly transparent. Clickable; registered with toggles/legend.
+- [x] 1.5 **Search + panel + deep links**: omnibox searches units (aliases,
+      transliterations; cities win ranking ties — found by the smoke test
+      when "Stalingrad" returned the Front HQ above the city), selecting jumps
+      the timeline into the unit's lifespan and flies to it; `?unit=` URLs;
+      unit panel shows period name, lifecycle + fate, chain of command at the
+      date, full subordination intervals, subordinate units, labeled position
+      keyframes (clickable dates), external archives, citations.
+- Verified: 20/20 smoke checks (`scripts/smoke-ui.mjs`) including OOB
+  navigation (6. Armee → Heeresgruppe B) and Soviet alias search.
+- Remaining for Phase 1 polish: editor unit-authoring mode (`?edit`),
+  Romanian armies + LVII. Panzerkorps (Winter Storm spearhead), pre-1942
+  positions for the armies, front densification for the worklist clusters.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

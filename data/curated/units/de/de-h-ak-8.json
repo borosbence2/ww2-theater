@@ -1,0 +1,31 @@
+{
+  "id": "de-h-ak-8",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "corps",
+  "type": "hq",
+  "short": "VIII. AK",
+  "names": [
+    { "from": "1939-09-01", "name": "VIII. Armeekorps", "aliases": ["VIII Army Corps", "8th Army Corps"] }
+  ],
+  "existence": [
+    { "from": "1939-09-01", "to": "1943-02-02", "end": "destroyed (Stalingrad)" }
+  ],
+  "parents": [
+    { "from": "1942-06-28", "to": "1943-02-02", "unit": "de-h-armee-6" }
+  ],
+  "positions": [
+    { "date": "1942-06-28", "at": [37.3, 50.1], "source": "niehorster-aok6-19421119" },
+    { "date": "1942-07-20", "at": [41.2, 49.5], "source": "glantz-house-stalingrad" },
+    { "date": "1942-08-23", "at": [42.7, 49.1], "source": "glantz-house-stalingrad" },
+    { "date": "1942-09-13", "at": [43.85, 48.9], "label": "Northwest flank of the city", "source": "glantz-house-stalingrad" },
+    { "date": "1942-11-23", "at": [44.0, 48.95], "label": "Kessel northwest sector", "source": "niehorster-aok6-19421119", "confidence": "documented" },
+    { "date": "1943-01-10", "at": [43.95, 48.85], "source": "glantz-house-stalingrad" },
+    { "date": "1943-01-31", "at": [44.35, 48.75], "source": "glantz-house-stalingrad" }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/VIII_Army_Corps_(Wehrmacht)",
+    "lexikon-der-wehrmacht": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Korps/VIIIKorps.htm"
+  },
+  "notes": "Pilot coverage: Case Blue to the surrender."
+}
