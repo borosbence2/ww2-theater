@@ -34,6 +34,8 @@ export interface UnitTrack {
   side: 'axis' | 'soviet';
   echelon: string;
   type: string;
+  /** Parent unit ids — sub-division units render only when one is in focus. */
+  parentIds: string[];
   /** YYYYMMDD: first day the track no longer renders. */
   trackTo: number;
   keyframes: UnitTrackKeyframe[];
@@ -51,6 +53,7 @@ export interface UnitDetail {
   existence: { from: string; to?: string; end?: string }[];
   parents: { from: string; to: string | null; unit: string; label: string }[];
   children: { from: string; to: string | null; unit: string; label: string }[];
+  commanders: { from: string; to: string | null; name: string; link?: string }[];
   positions: { date: string; at: [number, number]; label?: string; source?: string; confidence: string }[];
   positionsTo: string | null;
   links: Record<string, string>;

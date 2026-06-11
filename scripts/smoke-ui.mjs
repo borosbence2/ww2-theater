@@ -90,6 +90,7 @@ await page.waitForTimeout(1800); // detail fetch + flyTo + URL throttle
 const unitPanel = await page.locator('.detail-panel').textContent();
 check('unit panel shows 6. Armee', /6\. Armee/.test(unitPanel ?? ''));
 check('unit panel shows chain of command (Heeresgruppe B)', /Heeresgruppe B/.test(unitPanel ?? ''));
+check('unit panel lists Paulus in command (Phase 4.3)', /Friedrich Paulus/.test(unitPanel ?? ''));
 check('URL has ?unit=de-h-armee-6', page.url().includes('unit=de-h-armee-6'));
 const tbDate = (await page.locator('.timebar-date').textContent()) ?? '';
 check(`timeline jumped into unit lifespan (${tbDate.trim()})`, /194[23]/.test(tbDate));
@@ -170,6 +171,24 @@ await page.waitForTimeout(1500);
 const wizardPanel = await page.locator('.detail-panel').textContent();
 check('wizard resolves 305. Infanterie-Division (curated)', /305\. Infanterie-Division/.test(wizardPanel ?? ''));
 await page.screenshot({ path: `${SHOTS}/ww2-people.png` });
+
+// Drill-down (Phase 4.2): the division's regiments appear as children and
+// are selectable; sub-division markers render only around the selection.
+await page.fill('.omnibox input', '13th Guards Rifle Division');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1500);
+const divPanel = await page.locator('.detail-panel').textContent();
+check('13th Guards lists Rodimtsev as commander', /Rodimtsev/.test(divPanel ?? ''));
+check('13th Guards lists its regiments as children', /42nd Guards Rifle Regiment/.test(divPanel ?? ''));
+await page.locator('.detail-panel .date-link', { hasText: '42nd Guards Rifle Regiment' }).first().click();
+await page.waitForTimeout(1500);
+const rrPanel = await page.locator('.detail-panel').textContent();
+check('regiment panel opens with 13th Guards parent', /13th Guards Rifle Division/.test(rrPanel ?? ''));
+check("regiment shows Pavlov's House keyframe", /Pavlov/.test(rrPanel ?? ''));
+check('URL has ?unit=su-gd-rr-42', page.url().includes('unit=su-gd-rr-42'));
+await page.screenshot({ path: `${SHOTS}/ww2-regiment.png` });
 
 const realErrors = errors.filter((e) => !/WebGL|GPU|swiftshader|Failed to load resource/i.test(e));
 check(`no console/page errors (${errors.length} total, ${realErrors.length} relevant)`, realErrors.length === 0);

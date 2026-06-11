@@ -279,8 +279,23 @@ hosted, ever.
 - [x] Shared select-and-go actions extracted from the omnibox
       (`src/ui/actions.ts`) — used by both search surfaces.
 - Verified: 31/31 smoke checks.
-- Future (Phase 4 rest): sub-division drill-down showcase; curated
-  notable-commander stubs on unit pages.
+
+## Phase 4.2 + 4.3 — Drill-down showcase + commanders ✅ (Phase 4 complete)
+- [x] 4.2 **Tier-2 drill-down**: 13th Guards' three rifle regiments authored
+      (34th/39th/42nd Guards Rifle Regiments — central landing stage,
+      Mamayev slopes, Pavlov's House sector). Sub-division echelons
+      (brigade/regiment/battalion, NATO marks X/III/II) render **only while
+      their parent or themselves is selected**, from z≈7 — progressive
+      disclosure, the map never soups. Tracks carry `parentIds`; the units
+      layer gets a focus setter driven by the selection.
+- [x] 4.3 **Commanders** (`commanders[]` in the schema, validated by the
+      ETL): authored for all 16 curated formations with succession intervals
+      (Reichenau→Paulus, Bock→Weichs, Wietersheim→Hube,
+      Kolpakchi→Lopatin→Chuikov, Timoshenko→Gordov→Yeryomenko, …) and
+      biography links. Unit panel shows the list with the in-command-on-
+      this-date entry highlighted.
+- Verified: 36/36 smoke checks (drill-down click-through 13th Guards →
+  42nd GRR with Pavlov's House keyframe; Paulus/Rodimtsev in panels).
 
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways

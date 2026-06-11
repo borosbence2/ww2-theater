@@ -35,6 +35,26 @@
       "unit": "su-front-don"
     }
   ],
+  "commanders": [
+    {
+      "from": "1942-07-10",
+      "to": "1942-08-08",
+      "name": "Vladimir Kolpakchi",
+      "link": "https://en.wikipedia.org/wiki/Vladimir_Kolpakchi"
+    },
+    {
+      "from": "1942-08-08",
+      "to": "1942-09-12",
+      "name": "Anton Lopatin",
+      "link": "https://en.wikipedia.org/wiki/Anton_Lopatin"
+    },
+    {
+      "from": "1942-09-12",
+      "to": "1943-04-16",
+      "name": "Vasily Chuikov",
+      "link": "https://en.wikipedia.org/wiki/Vasily_Chuikov"
+    }
+  ],
   "positions": [
     {
       "date": "1942-07-17",

@@ -462,6 +462,10 @@ body {
   background: rgba(120, 100, 40, 0.85);
 }
 
+.commander-active {
+  font-weight: 600;
+}
+
 /* People button (right of the omnibox) + panel */
 .people-button {
   position: absolute;

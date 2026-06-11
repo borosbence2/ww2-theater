@@ -24,6 +24,9 @@
     { "date": "1943-01-10", "at": [44.2, 49.0], "source": "glantz-house-stalingrad" },
     { "date": "1943-01-31", "at": [44.45, 48.85], "label": "Tractor works pocket (held to 2 Feb)", "source": "glantz-house-stalingrad", "confidence": "documented" }
   ],
+  "commanders": [
+    { "from": "1942-06-01", "to": "1943-02-02", "name": "Karl Strecker", "link": "https://en.wikipedia.org/wiki/Karl_Strecker" }
+  ],
   "links": {
     "wikipedia.en": "https://en.wikipedia.org/wiki/XI_Army_Corps_(Wehrmacht)",
     "lexikon-der-wehrmacht": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Korps/XIKorps.htm"

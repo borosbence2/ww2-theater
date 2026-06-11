@@ -35,6 +35,20 @@
       "unit": "su-front-don"
     }
   ],
+  "commanders": [
+    {
+      "from": "1942-07-10",
+      "to": "1942-08-04",
+      "name": "Vasily Gordov",
+      "link": "https://en.wikipedia.org/wiki/Vasily_Gordov"
+    },
+    {
+      "from": "1942-08-04",
+      "to": "1943-04-16",
+      "name": "Mikhail Shumilov",
+      "link": "https://en.wikipedia.org/wiki/Mikhail_Shumilov"
+    }
+  ],
   "positions": [
     {
       "date": "1942-07-25",

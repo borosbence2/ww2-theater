@@ -23,6 +23,14 @@
     }
   ],
   "parents": [],
+  "commanders": [
+    {
+      "from": "1942-09-28",
+      "to": "1943-02-15",
+      "name": "Konstantin Rokossovsky",
+      "link": "https://en.wikipedia.org/wiki/Konstantin_Rokossovsky"
+    }
+  ],
   "positions": [],
   "links": {
     "wikipedia.en": "https://en.wikipedia.org/wiki/Don_Front",

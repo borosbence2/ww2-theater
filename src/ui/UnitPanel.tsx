@@ -99,6 +99,32 @@ export function UnitPanel({ id }: { id: string }) {
         </p>
       )}
 
+      {unit.commanders.length > 0 && (
+        <section className="detail-history">
+          <h3>Commanders</h3>
+          <ul>
+            {unit.commanders.map((c) => {
+              const active = dateToNum(c.from) <= d && (!c.to || d < dateToNum(c.to));
+              return (
+                <li key={`${c.name}|${c.from}`} className={active ? 'commander-active' : undefined}>
+                  {c.link ? (
+                    <a href={c.link} target="_blank" rel="noreferrer">
+                      {c.name}
+                    </a>
+                  ) : (
+                    c.name
+                  )}{' '}
+                  <span className="omnibox-meta">
+                    {formatLong(c.from)} — {c.to ? formatLong(c.to) : 'open'}
+                    {active && ' · in command'}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
+
       {parentNow && (
         <section className="detail-history">
           <h3>Chain of command on {formatLong(date)}</h3>

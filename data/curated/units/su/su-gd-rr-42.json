@@ -1,0 +1,32 @@
+{
+  "id": "su-gd-rr-42",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "regiment",
+  "type": "infantry",
+  "short": "42 GvRR",
+  "names": [
+    {
+      "from": "1942-01-19",
+      "name": "42nd Guards Rifle Regiment",
+      "aliases": ["42-й гвардейский стрелковый полк", "Yelin regiment"]
+    }
+  ],
+  "existence": [{ "from": "1942-01-19" }],
+  "parents": [{ "from": "1942-09-15", "to": "1943-03-01", "unit": "su-gd-rd-13" }],
+  "commanders": [
+    { "from": "1942-09-15", "name": "Ivan Yelin" }
+  ],
+  "positions": [
+    { "date": "1942-09-15", "at": [44.575, 48.715], "label": "Night crossing; central landing stage and the station", "source": "glantz-house-stalingrad", "confidence": "documented" },
+    { "date": "1942-10-01", "at": [44.572, 48.717], "label": "Pavlov's House sector (its 3rd Battalion garrison)", "source": "glantz-house-stalingrad", "confidence": "documented" },
+    { "date": "1942-11-23", "at": [44.578, 48.716], "source": "glantz-house-stalingrad" },
+    { "date": "1943-01-31", "at": [44.573, 48.714], "source": "glantz-house-stalingrad" }
+  ],
+  "positionsTo": "1943-03-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Pavlov%27s_House",
+    "pamyat-naroda": "https://pamyat-naroda.ru/"
+  },
+  "notes": "Tier-2 drill-down showcase: regiment-level positions exist only for reconstructed famous fights. City-block positions schematic (west-bank strip inside the drawn pocket ring, so side checks report contested)."
+}

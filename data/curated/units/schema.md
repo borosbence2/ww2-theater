@@ -38,6 +38,16 @@ check needs the built front keyframes).
     outside that window.
 - `positionsTo` — optional ISO date: stop rendering/validating positions here
   even though the unit lives on (use when coverage ends, e.g. pilot scope).
+- `commanders[]` — `{from, to?, name, link?}` (link = biography URL). Shown in
+  the unit panel with the active commander highlighted for the current date.
+
+## Sub-division units (Tier 2 drill-down)
+
+Echelons below division (`brigade | regiment | battalion`) are progressive
+disclosure: they render on the map only while their parent (or the unit
+itself) is the current selection, from zoom ~7. Author them only for
+showcase fights where the record supports it — war-wide coverage is
+explicitly not a goal.
 
 ## Other
 

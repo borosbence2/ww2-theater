@@ -101,6 +101,12 @@ for (const u of units.values()) {
     if (!ISO.test(p.from) || (p.to && !ISO.test(p.to))) err(id, `bad parent interval ${JSON.stringify(p)}`);
   }
 
+  for (const c of u.commanders ?? []) {
+    if (!c.name || !ISO.test(c.from) || (c.to && !ISO.test(c.to))) {
+      err(id, `bad commander entry ${JSON.stringify(c)}`);
+    }
+  }
+
   const existFrom = dateNum(u.existence[0].from);
   const existTo = u.existence[u.existence.length - 1].to
     ? dateNum(u.existence[u.existence.length - 1].to)
@@ -297,6 +303,8 @@ const tracks = positioned
     side: u.side,
     echelon: u.echelon,
     type: u.type,
+    // Sub-division units render only when a related unit is selected.
+    parentIds: [...new Set((u.parents ?? []).map((p) => p.unit))],
     trackTo: u._trackTo,
     keyframes: u.positions.map((p) => ({
       date: p.date,
@@ -324,6 +332,7 @@ for (const u of units.values()) {
     existence: u.existence,
     parents: (u.parents ?? []).map((p) => ({ ...p, to: p.to ?? null, label: labelOf(p.unit) })),
     children: (childrenOf.get(u.id) ?? []).map((c) => ({ ...c, label: labelOf(c.unit) })),
+    commanders: (u.commanders ?? []).map((c) => ({ ...c, to: c.to ?? null })),
     positions: (u.positions ?? []).map((p) => ({ ...p, confidence: p.confidence ?? 'approximate' })),
     positionsTo: u.positionsTo ?? null,
     links: u.links ?? {},

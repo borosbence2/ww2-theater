@@ -23,6 +23,14 @@
     }
   ],
   "parents": [],
+  "commanders": [
+    {
+      "from": "1942-10-22",
+      "to": "1943-03-28",
+      "name": "Nikolai Vatutin",
+      "link": "https://en.wikipedia.org/wiki/Nikolai_Vatutin"
+    }
+  ],
   "positions": [],
   "links": {
     "wikipedia.en": "https://en.wikipedia.org/wiki/Southwestern_Front_(Soviet_Union)",

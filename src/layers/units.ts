@@ -18,24 +18,38 @@ const SOURCE_ID = 'units';
 const ARMY_ID = 'units-army';
 const CORPS_ID = 'units-corps';
 const DIVISION_ID = 'units-division';
+const SUB_ID = 'units-sub';
 
 /** All MapLibre layer ids, for registry visibility toggling. */
-export const UNITS_LAYER_IDS = [ARMY_ID, CORPS_ID, DIVISION_ID];
+export const UNITS_LAYER_IDS = [ARMY_ID, CORPS_ID, DIVISION_ID, SUB_ID];
 /** Click/hover targets for MapView. */
 export const UNITS_HIT_LAYER_IDS = UNITS_LAYER_IDS;
 
 const SIDE_COLOR = { axis: '#b5402f', soviet: '#2f6fb0' } as const;
 const ECH_MARK: Record<string, string> = {
+  battalion: 'II',
+  regiment: 'III',
+  brigade: 'X',
   division: 'XX',
   corps: 'XXX',
   army: 'XXXX',
   front: 'XXXXX',
   'army-group': 'XXXXX',
 };
-const ECH_GROUP = (echelon: string): 'army' | 'corps' | 'division' =>
-  echelon === 'corps' ? 'corps' : ['army', 'front', 'army-group'].includes(echelon) ? 'army' : 'division';
+type EchGroup = 'army' | 'corps' | 'division' | 'sub';
+const ECH_GROUP = (echelon: string): EchGroup =>
+  ['battalion', 'regiment', 'brigade'].includes(echelon)
+    ? 'sub'
+    : echelon === 'corps'
+      ? 'corps'
+      : ['army', 'front', 'army-group'].includes(echelon)
+        ? 'army'
+        : 'division';
 
 let tracks: UnitTrack[] = [];
+/** Selected unit id: sub-division units render only for themselves/children
+ *  of the focus (progressive disclosure — Tier 2 drill-down). */
+let focusId: string | null = null;
 
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
@@ -100,6 +114,12 @@ function collectionFor(dateISO: string): FeatureCollection {
   const d = dateToNum(dateISO);
   const out: Feature[] = [];
   for (const t of tracks) {
+    if (
+      ECH_GROUP(t.echelon) === 'sub' &&
+      !(focusId !== null && (t.id === focusId || t.parentIds.includes(focusId)))
+    ) {
+      continue;
+    }
     const at = positionOn(t, dateISO, d);
     if (!at) continue;
     out.push({
@@ -164,6 +184,7 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
   addEchelonLayer(map, ARMY_ID, 'army', 3);
   addEchelonLayer(map, CORPS_ID, 'corps', 5.4);
   addEchelonLayer(map, DIVISION_ID, 'division', 6.2);
+  addEchelonLayer(map, SUB_ID, 'sub', 6.8);
 }
 
 /** Re-interpolate unit positions to the given date. */
@@ -171,4 +192,11 @@ export function updateUnitsDate(map: MapLibreMap, date: string): void {
   const src = map.getSource(SOURCE_ID) as GeoJSONSource | undefined;
   if (!src) return;
   src.setData(collectionFor(date));
+}
+
+/** Set the drill-down focus (selected unit) and refresh. */
+export function updateUnitsFocus(map: MapLibreMap, unitId: string | null, date: string): void {
+  if (focusId === unitId) return;
+  focusId = unitId;
+  updateUnitsDate(map, date);
 }

@@ -9,7 +9,7 @@ import maplibregl from 'maplibre-gl';
 import { useStore } from '../store';
 import { LAYERS, applyVisibility } from '../layers/registry';
 import { CITY_DOT_LAYER_ID } from '../layers/cities';
-import { UNITS_HIT_LAYER_IDS } from '../layers/units';
+import { UNITS_HIT_LAYER_IDS, updateUnitsFocus } from '../layers/units';
 import { BATTLES_HIT_LAYER_ID } from '../layers/battles';
 import { addUnitPathLayers, updateUnitPath } from '../layers/unitPath';
 import { loadCities } from '../data/cities';
@@ -155,6 +155,13 @@ export function MapView() {
     const map = mapRef.current;
     if (map && readyRef.current) applyVisibility(map, hiddenLayers);
   }, [hiddenLayers]);
+
+  // Drill-down: sub-division units render only around the selected unit.
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !readyRef.current) return;
+    updateUnitsFocus(map, selection?.kind === 'unit' ? selection.id : null, date);
+  }, [selection, date]);
 
   // Path mode: draw the selected unit's route while tracking is on.
   useEffect(() => {

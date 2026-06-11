@@ -1,0 +1,28 @@
+{
+  "id": "su-gd-rr-34",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "regiment",
+  "type": "infantry",
+  "short": "34 GvRR",
+  "names": [
+    {
+      "from": "1942-01-19",
+      "name": "34th Guards Rifle Regiment",
+      "aliases": ["34-й гвардейский стрелковый полк"]
+    }
+  ],
+  "existence": [{ "from": "1942-01-19" }],
+  "parents": [{ "from": "1942-09-15", "to": "1943-03-01", "unit": "su-gd-rd-13" }],
+  "positions": [
+    { "date": "1942-09-15", "at": [44.585, 48.705], "label": "Southern flank of the division's river strip", "source": "glantz-house-stalingrad" },
+    { "date": "1942-11-23", "at": [44.59, 48.707], "source": "glantz-house-stalingrad" },
+    { "date": "1943-01-31", "at": [44.586, 48.705], "source": "glantz-house-stalingrad" }
+  ],
+  "positionsTo": "1943-03-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/13th_Guards_Rifle_Division",
+    "pamyat-naroda": "https://pamyat-naroda.ru/"
+  },
+  "notes": "Tier-2 drill-down showcase. City-block positions schematic; see 42nd Guards Rifle Regiment note."
+}

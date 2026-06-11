@@ -29,6 +29,14 @@
       "unit": "su-front-southwestern"
     }
   ],
+  "commanders": [
+    {
+      "from": "1942-11-01",
+      "to": "1943-04-20",
+      "name": "Prokofy Romanenko",
+      "link": "https://en.wikipedia.org/wiki/Prokofy_Romanenko"
+    }
+  ],
   "positions": [
     {
       "date": "1942-11-19",

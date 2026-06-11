@@ -23,6 +23,10 @@
     { "date": "1943-01-10", "at": [44.3, 48.8], "label": "Operation Ring begins", "source": "glantz-house-stalingrad" },
     { "date": "1943-01-31", "at": [44.52, 48.71], "label": "HQ Univermag; Paulus surrenders", "source": "glantz-house-stalingrad", "confidence": "documented" }
   ],
+  "commanders": [
+    { "from": "1939-10-10", "to": "1942-01-05", "name": "Walther von Reichenau", "link": "https://en.wikipedia.org/wiki/Walther_von_Reichenau" },
+    { "from": "1942-01-05", "to": "1943-02-02", "name": "Friedrich Paulus", "link": "https://en.wikipedia.org/wiki/Friedrich_Paulus" }
+  ],
   "links": {
     "wikipedia.en": "https://en.wikipedia.org/wiki/6th_Army_(Wehrmacht)",
     "wikidata": "Q156621",

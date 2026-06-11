@@ -27,6 +27,14 @@
       "unit": "su-front-stalingrad"
     }
   ],
+  "commanders": [
+    {
+      "from": "1942-10-01",
+      "to": "1943-02-15",
+      "name": "Nikolai Trufanov",
+      "link": "https://en.wikipedia.org/wiki/Nikolai_Trufanov"
+    }
+  ],
   "positions": [
     {
       "date": "1942-11-19",

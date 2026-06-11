@@ -13,6 +13,10 @@
   ],
   "parents": [],
   "positions": [],
+  "commanders": [
+    { "from": "1942-07-09", "to": "1942-07-15", "name": "Fedor von Bock", "link": "https://en.wikipedia.org/wiki/Fedor_von_Bock" },
+    { "from": "1942-07-15", "to": "1943-02-09", "name": "Maximilian von Weichs", "link": "https://en.wikipedia.org/wiki/Maximilian_von_Weichs" }
+  ],
   "links": {
     "wikipedia.en": "https://en.wikipedia.org/wiki/Army_Group_B",
     "wikidata": "Q707519"

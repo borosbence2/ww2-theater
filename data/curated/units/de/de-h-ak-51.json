@@ -23,6 +23,9 @@
     { "date": "1942-11-23", "at": [44.5, 48.75], "label": "Kessel east (city) sector", "source": "niehorster-aok6-19421119" },
     { "date": "1943-01-31", "at": [44.5, 48.7], "label": "Surrendered with Paulus (southern group)", "source": "glantz-house-stalingrad", "confidence": "documented" }
   ],
+  "commanders": [
+    { "from": "1942-05-08", "to": "1943-02-02", "name": "Walther von Seydlitz-Kurzbach", "link": "https://en.wikipedia.org/wiki/Walther_von_Seydlitz-Kurzbach" }
+  ],
   "links": {
     "wikipedia.en": "https://en.wikipedia.org/wiki/LI_Army_Corps_(Wehrmacht)",
     "lexikon-der-wehrmacht": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Korps/LIKorps.htm"

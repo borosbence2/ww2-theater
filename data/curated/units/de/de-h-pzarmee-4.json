@@ -25,6 +25,9 @@
     { "date": "1943-01-20", "at": [39.9, 47.2], "label": "Falling back toward Rostov", "source": "glantz-house-stalingrad" }
   ],
   "positionsTo": "1943-02-05",
+  "commanders": [
+    { "from": "1942-06-01", "to": "1943-11-10", "name": "Hermann Hoth", "link": "https://en.wikipedia.org/wiki/Hermann_Hoth" }
+  ],
   "links": {
     "wikipedia.en": "https://en.wikipedia.org/wiki/4th_Panzer_Army",
     "wikidata": "Q15823",

@@ -27,6 +27,13 @@
       "unit": "su-army-62"
     }
   ],
+  "commanders": [
+    {
+      "from": "1942-01-19",
+      "name": "Alexander Rodimtsev",
+      "link": "https://en.wikipedia.org/wiki/Alexander_Rodimtsev"
+    }
+  ],
   "positions": [
     {
       "date": "1942-09-15",
