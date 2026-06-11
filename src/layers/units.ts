@@ -97,8 +97,9 @@ function pointAt(line: [number, number][], f: number, side: 'axis' | 'soviet', e
   const dx = b[0] - a[0];
   const dy = b[1] - a[1];
   const len = Math.hypot(dx, dy) || 1;
-  // Line runs N->S; right of travel is west (Axis side), left is east.
-  const off = (ech === 'division' ? 0.12 : 0.3) * (side === 'axis' ? 1 : -1);
+  // Line runs N->S. (-dy, dx) is the LEFT of travel = east = Soviet side;
+  // Axis offsets the other way (right of travel = west).
+  const off = (ech === 'division' ? 0.12 : 0.3) * (side === 'axis' ? -1 : 1);
   return [line[i][0] + (-dy / len) * off, line[i][1] + (dx / len) * off];
 }
 

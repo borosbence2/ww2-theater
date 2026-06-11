@@ -358,6 +358,11 @@ tracks overriding seamlessly.
       **803 derived units** total (+82 German divisions placed).
 - Verified: 43/43 smoke checks; Kursk-eve at division zoom shows hollow
   German divisions west of the line facing Soviet divisions east of it.
+- Post-verification fix (user-spotted): the derived-position offset used
+  the left-of-travel normal, putting both sides on the wrong bank —
+  `(-dy, dx)` on a N→S line points east/Soviet; Axis must offset the
+  other way (right of travel = west, same convention as the front tint
+  bands). One sign flip in `pointAt` (`src/layers/units.ts`).
 - Remaining: ~66 harvest misses + 34 identity gaps (Wikidata lacks some
   numbered IDs) on the worklist; Waffen-SS family lists; Armeeabteilungen
   mapped to null (off-front) for now.
