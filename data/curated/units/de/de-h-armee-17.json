@@ -1,0 +1,29 @@
+{
+  "id": "de-h-armee-17",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "hq",
+  "short": "17. Armee",
+  "names": [
+    {
+      "from": "1939-09-01",
+      "name": "17. Armee",
+      "aliases": [
+        "17th Army",
+        "AOK 17"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1939-09-01"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/17th_Army_(Wehrmacht)"
+  },
+  "notes": " Identity scaffold for the Eastern Front sector simulation; positions derive from authored army sectors (no divisional OOB yet — SCALE_PLAN S2)."
+}

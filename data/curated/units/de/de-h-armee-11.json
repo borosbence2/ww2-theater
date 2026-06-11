@@ -1,0 +1,31 @@
+{
+  "id": "de-h-armee-11",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "hq",
+  "short": "11. Armee",
+  "names": [
+    {
+      "from": "1939-09-01",
+      "name": "11. Armee",
+      "aliases": [
+        "11th Army",
+        "AOK 11"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1939-09-01",
+      "to": "1942-11-21",
+      "end": "HQ converted to Heeresgruppe Don"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/11th_Army_(Wehrmacht)"
+  },
+  "notes": "Crimea/Sevastopol 1941-42. Identity scaffold for the Eastern Front sector simulation; positions derive from authored army sectors (no divisional OOB yet — SCALE_PLAN S2)."
+}

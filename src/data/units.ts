@@ -18,6 +18,8 @@ export interface UnitIndexEntry {
   from: string;
   to: string | null;
   hasPositions: boolean;
+  /** Daily position derivable from front sector + monthly OOB. */
+  hasDerived: boolean;
 }
 
 export interface UnitTrackKeyframe {
@@ -56,13 +58,31 @@ export interface UnitDetail {
   commanders: { from: string; to: string | null; name: string; link?: string }[];
   positions: { date: string; at: [number, number]; label?: string; source?: string; confidence: string }[];
   positionsTo: string | null;
+  derived: boolean;
   links: Record<string, string>;
   sources: { id: string; citation?: string; url?: string }[];
   notes: string | null;
 }
 
+export interface DerivedSeg {
+  /** YYYYMMDD after which the segment stops rendering. */
+  end: number;
+  /** [startNum, fraction along the front line] keyframes, ascending. */
+  kfs: [number, number][];
+}
+
+export interface DerivedUnit {
+  id: string;
+  short: string;
+  side: 'axis' | 'soviet';
+  echelon: string;
+  type: string;
+  segs: DerivedSeg[];
+}
+
 let indexPromise: Promise<UnitIndexEntry[]> | null = null;
 let tracksPromise: Promise<UnitTrack[]> | null = null;
+let derivedPromise: Promise<DerivedUnit[]> | null = null;
 const shardCache = new Map<string, Promise<Record<string, UnitDetail>>>();
 
 /** djb2 % 16 — mirrored by data/pipeline/build-units.mjs (keep in sync). */
@@ -88,6 +108,42 @@ export function loadUnitTracks(): Promise<UnitTrack[]> {
       .then((d) => d.units);
   }
   return tracksPromise;
+}
+
+export function loadDerivedUnits(): Promise<DerivedUnit[]> {
+  if (!derivedPromise) {
+    derivedPromise = fetch(`${BASE}data/units/derived/eastern.json`)
+      .then((r) => (r.ok ? r.json() : { units: [] }))
+      .then((d) => d.units);
+  }
+  return derivedPromise;
+}
+
+/**
+ * Fraction along the front for a derived unit on a date, or null when outside
+ * every segment. Fractions lerp between monthly keyframes unless the jump is
+ * large (front re-assignment) — then hold-and-jump, like rail moves.
+ */
+export function derivedFractionOn(unit: DerivedUnit, dateISO: string, d: number): number | null {
+  for (const seg of unit.segs) {
+    if (d < seg.kfs[0][0] || d > seg.end) continue;
+    const kfs = seg.kfs;
+    let i = 0;
+    while (i < kfs.length - 1 && kfs[i + 1][0] <= d) i++;
+    const [s0, f0] = kfs[i];
+    const k1 = kfs[Math.min(i + 1, kfs.length - 1)];
+    if (k1[0] <= s0) return f0;
+    if (Math.abs(k1[1] - f0) > 0.12) return f0; // big jump: hold, don't glide
+    const span = diffDays(numToDate(s0), numToDate(k1[0]));
+    const t = span > 0 ? diffDays(numToDate(s0), dateISO) / span : 0;
+    return f0 + (k1[1] - f0) * Math.max(0, Math.min(1, t));
+  }
+  return null;
+}
+
+function numToDate(n: number): string {
+  const s = String(n);
+  return `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}`;
 }
 
 export function loadUnitDetail(id: string): Promise<UnitDetail> {

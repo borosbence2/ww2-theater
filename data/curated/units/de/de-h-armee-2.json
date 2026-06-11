@@ -1,0 +1,29 @@
+{
+  "id": "de-h-armee-2",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "hq",
+  "short": "2. Armee",
+  "names": [
+    {
+      "from": "1939-09-01",
+      "name": "2. Armee",
+      "aliases": [
+        "2th Army",
+        "AOK 2"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1939-09-01"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/2th_Army_(Wehrmacht)"
+  },
+  "notes": " Identity scaffold for the Eastern Front sector simulation; positions derive from authored army sectors (no divisional OOB yet — SCALE_PLAN S2)."
+}

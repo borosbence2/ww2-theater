@@ -202,6 +202,12 @@ export function UnitPanel({ id }: { id: string }) {
                 ))}
             </ul>
           </>
+        ) : unit.derived ? (
+          <p className="detail-note">
+            Position <strong>derived daily</strong> from the front line and the
+            monthly order of battle (Боевой состав Советской Армии / authored
+            army sectors) — not individually documented. Shown hollow on the map.
+          </p>
         ) : (
           <p className="detail-note">
             Not mapped yet — identity and subordination only. Sources below tell the story.

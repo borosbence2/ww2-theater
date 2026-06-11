@@ -1,0 +1,36 @@
+{
+  "id": "de-h-pzarmee-2",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "armoured",
+  "short": "2. Pz.Armee",
+  "names": [
+    {
+      "from": "1940-11-16",
+      "name": "Panzergruppe 2",
+      "aliases": [
+        "2th Panzer Group"
+      ]
+    },
+    {
+      "from": "1942-01-01",
+      "name": "2. Panzerarmee",
+      "aliases": [
+        "2th Panzer Army",
+        "PzAOK 2"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1940-11-16"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/2nd_Panzer_Army"
+  },
+  "notes": "Identity scaffold for the Eastern Front sector simulation (renamed from Panzergruppe, Jan 1942)."
+}

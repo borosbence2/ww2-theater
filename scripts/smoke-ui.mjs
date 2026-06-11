@@ -190,6 +190,25 @@ check("regiment shows Pavlov's House keyframe", /Pavlov/.test(rrPanel ?? ''));
 check('URL has ?unit=su-gd-rr-42', page.url().includes('unit=su-gd-rr-42'));
 await page.screenshot({ path: `${SHOTS}/ww2-regiment.png` });
 
+// Eastern Front simulation (SCALE_PLAN S1+S3): an OOB-derived unit is
+// searchable, jumps into its lifespan, and explains its derived position.
+await page.fill('.omnibox input', '5th Shock Army');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1800);
+const shockPanel = await page.locator('.detail-panel').textContent();
+check('5th Shock Army panel opens (OOB-created unit)', /5th Shock Army/.test(shockPanel ?? ''));
+check('panel explains derived position', /derived daily/.test(shockPanel ?? ''));
+check('panel shows an OOB chain of command (front)', /Front/.test(shockPanel ?? ''));
+
+// Full-front view at Kursk: derived markers render along the whole line.
+await page.goto(`${BASE}/?date=1943-07-04&z=5.6&lat=52.2&lng=35.8`, { waitUntil: 'domcontentloaded' });
+await page.waitForSelector('.timebar', { timeout: 15000 });
+await page.waitForTimeout(5000);
+await page.screenshot({ path: `${SHOTS}/ww2-eastern-sim.png` });
+check('eastern-sim screenshot taken', true);
+
 const realErrors = errors.filter((e) => !/WebGL|GPU|swiftshader|Failed to load resource/i.test(e));
 check(`no console/page errors (${errors.length} total, ${realErrors.length} relevant)`, realErrors.length === 0);
 if (realErrors.length) console.log(realErrors.join('\n'));

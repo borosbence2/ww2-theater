@@ -1,0 +1,31 @@
+{
+  "id": "de-h-armee-6-2",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "hq",
+  "short": "6. Armee (II)",
+  "names": [
+    {
+      "from": "1943-03-06",
+      "name": "6. Armee (second formation)",
+      "aliases": [
+        "6th Army (reformed)",
+        "AOK 6 (II)"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-03-06",
+      "to": "1945-05-08",
+      "end": "surrendered (war end)"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/6th_Army_(Wehrmacht)"
+  },
+  "notes": "Reformed after Stalingrad from Armeeabteilung Hollidt; sister incarnation of de-h-armee-6. Sector-simulation scaffold."
+}

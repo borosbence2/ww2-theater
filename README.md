@@ -120,8 +120,11 @@ between sparse keyframes — not literally sourced per day. See
 | **Phase 3.1** ✅ | 949 division scaffolds imported from Wikidata — every German/Soviet division searchable with an honest "not mapped yet" page (986 units total) |
 | Phase 3 (rest) | Campaign position passes (Barbarossa → Kursk → Bagration → Berlin); Western/Italian fronts; importer pass 2 (ru labels, missing famous units, corps/armies, subordination) |
 | **Phase 4** ✅ | People panel (federated archive search + find-their-unit wizard, `?person=`), Tier-2 drill-down (13th Guards' regiments, selection-gated), commander successions on all curated formations |
+| **Eastern sim v1** ✅ | SCALE_PLAN S1+S3: Boevoi sostav monthly OOB (17.3k assignments), authored army sectors, 721 units at daily sector-derived positions (hollow icons) riding the front from Barbarossa to Berlin |
 | Phase 5 | Strength/equipment records, pocket↔unit links, front sector segmentation |
 | Phase 6 | Perf (PMTiles), mobile, public deploy; community-contribution decision gate |
 
 Old M4 (railways/roads) is deprioritized below the unit work; old M5/M6 are
 superseded by the phases above. Details: [REWRITE_PLAN.md](./REWRITE_PLAN.md).
+Scaling to *every* formation of the war (OOB-first ingestion, sector-derived
+positions, perf budgets): [SCALE_PLAN.md](./SCALE_PLAN.md).

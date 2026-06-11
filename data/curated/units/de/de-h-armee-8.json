@@ -1,0 +1,30 @@
+{
+  "id": "de-h-armee-8",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "hq",
+  "short": "8. Armee",
+  "names": [
+    {
+      "from": "1943-08-22",
+      "name": "8. Armee",
+      "aliases": [
+        "8th Army",
+        "AOK 8",
+        "Armeeabteilung Kempf"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-08-22"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/8th_Army_(Wehrmacht)"
+  },
+  "notes": "Second formation (from Armeeabteilung Kempf, Aug 1943); the 1939 8. Armee is a separate incarnation, not yet authored. Sector-simulation scaffold."
+}

@@ -1,0 +1,36 @@
+{
+  "id": "de-h-pzarmee-1",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "armoured",
+  "short": "1. Pz.Armee",
+  "names": [
+    {
+      "from": "1940-11-16",
+      "name": "Panzergruppe 1",
+      "aliases": [
+        "1th Panzer Group"
+      ]
+    },
+    {
+      "from": "1942-01-01",
+      "name": "1. Panzerarmee",
+      "aliases": [
+        "1th Panzer Army",
+        "PzAOK 1"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1940-11-16"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/1st_Panzer_Army"
+  },
+  "notes": "Identity scaffold for the Eastern Front sector simulation (renamed from Panzergruppe, Jan 1942)."
+}

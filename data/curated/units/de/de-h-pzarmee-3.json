@@ -1,0 +1,36 @@
+{
+  "id": "de-h-pzarmee-3",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "armoured",
+  "short": "3. Pz.Armee",
+  "names": [
+    {
+      "from": "1941-01-15",
+      "name": "Panzergruppe 3",
+      "aliases": [
+        "3th Panzer Group"
+      ]
+    },
+    {
+      "from": "1942-01-01",
+      "name": "3. Panzerarmee",
+      "aliases": [
+        "3th Panzer Army",
+        "PzAOK 3"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-01-15"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/3rd_Panzer_Army"
+  },
+  "notes": "Identity scaffold for the Eastern Front sector simulation (renamed from Panzergruppe, Jan 1942)."
+}

@@ -311,6 +311,11 @@ Armies + the Operation Uranus fronts at army level (divisions for 62nd Army).
 - **Exit:** type "13th Guards" → jump to Stalingrad, follow it through the war
   segment, open Rodimtsev's division page, click through to Pamyat Naroda.
 
+> **2026-06 update:** Phase 3's breadth strategy is superseded by
+> [SCALE_PLAN.md](./SCALE_PLAN.md) (OOB-first ingestion + sector-derived
+> positions), which scales to every formation of the war without hand-
+> authoring thousands of tracks. 3.1 (scaffold importer) shipped as designed.
+
 ### Phase 3 — Breadth: every division *findable*, positions per campaign
 
 Two parallel workstreams from here on: **(a)** unit data, **(b)** new theater

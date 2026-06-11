@@ -132,7 +132,7 @@ export function Omnibox() {
                     </span>
                     <span className="omnibox-meta">
                       {r.unit.country}
-                      {r.unit.hasPositions ? '' : ' · not mapped yet'}
+                      {r.unit.hasPositions || r.unit.hasDerived ? '' : ' · not mapped yet'}
                     </span>
                   </>
                 ) : (

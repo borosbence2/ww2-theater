@@ -11,8 +11,17 @@
 
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 import type { Feature, FeatureCollection } from 'geojson';
-import { dateToNum } from '../time/dates';
-import { confidenceOn, loadUnitTracks, positionOn, type UnitTrack } from '../data/units';
+import { dateToNum, diffDays } from '../time/dates';
+import {
+  confidenceOn,
+  derivedFractionOn,
+  loadDerivedUnits,
+  loadUnitTracks,
+  positionOn,
+  type DerivedUnit,
+  type UnitTrack,
+} from '../data/units';
+import { getFrontFeatures, type FrontFeature } from './front';
 
 const SOURCE_ID = 'units';
 const ARMY_ID = 'units-army';
@@ -47,13 +56,78 @@ const ECH_GROUP = (echelon: string): EchGroup =>
         : 'division';
 
 let tracks: UnitTrack[] = [];
+let derivedUnits: DerivedUnit[] = [];
+const trackIds = new Set<string>();
 /** Selected unit id: sub-division units render only for themselves/children
  *  of the focus (progressive disclosure — Tier 2 drill-down). */
 let focusId: string | null = null;
 
+// --- Derived positions: fraction along the daily interpolated main front ---
+
+/** Interpolated main-front coords for a date (mirrors front.ts internals). */
+function mainFrontLine(dateISO: string, d: number): [number, number][] | null {
+  const main = getFrontFeatures().find((f: FrontFeature) => f.kind === 'front');
+  if (!main || d < main.fromNum || d >= main.toNum) return null;
+  const kfs = main.keyframes;
+  if (d <= kfs[0].start) return kfs[0].coords;
+  const last = kfs[kfs.length - 1];
+  if (d >= last.start) return last.coords;
+  let k0 = kfs[0];
+  let k1 = kfs[1];
+  for (let i = 0; i < kfs.length - 1; i++) {
+    if (d >= kfs[i].start && d < kfs[i + 1].start) {
+      k0 = kfs[i];
+      k1 = kfs[i + 1];
+      break;
+    }
+  }
+  const span = diffDays(k0.date, k1.date);
+  const t = span > 0 ? diffDays(k0.date, dateISO) / span : 0;
+  return k0.coords.map(([x, y], i) => {
+    const [qx, qy] = k1.coords[i];
+    return [x + (qx - x) * t, y + (qy - y) * t] as [number, number];
+  });
+}
+
+/** Point at fraction f, offset perpendicular to the line toward `side`. */
+function pointAt(line: [number, number][], f: number, side: 'axis' | 'soviet', ech: string): [number, number] {
+  const i = Math.max(0, Math.min(line.length - 1, Math.round(f * (line.length - 1))));
+  const a = line[Math.max(0, i - 2)];
+  const b = line[Math.min(line.length - 1, i + 2)];
+  const dx = b[0] - a[0];
+  const dy = b[1] - a[1];
+  const len = Math.hypot(dx, dy) || 1;
+  // Line runs N->S; right of travel is west (Axis side), left is east.
+  const off = (ech === 'division' ? 0.12 : 0.3) * (side === 'axis' ? 1 : -1);
+  return [line[i][0] + (-dy / len) * off, line[i][1] + (dx / len) * off];
+}
+
+/** Position of any unit (curated track first, then derived) on a date. */
+export function getUnitPositionOn(id: string, dateISO: string): [number, number] | null {
+  const d = dateToNum(dateISO);
+  const track = tracks.find((t) => t.id === id);
+  if (track) {
+    const at = positionOn(track, dateISO, d);
+    if (at) return at;
+  }
+  const du = derivedUnits.find((u) => u.id === id);
+  if (!du) return null;
+  const f = derivedFractionOn(du, dateISO, d);
+  const line = f !== null ? mainFrontLine(dateISO, d) : null;
+  return line ? pointAt(line, f!, du.side, ECH_GROUP(du.echelon)) : null;
+}
+
+/** First renderable date of a derived unit (for search jump-in). */
+export function firstDerivedDate(id: string): string | null {
+  const du = derivedUnits.find((u) => u.id === id);
+  if (!du?.segs.length) return null;
+  const s = String(du.segs[0].kfs[0][0]);
+  return `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}`;
+}
+
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
-function makeIcon(side: 'axis' | 'soviet', type: string, mark: string): ImageData {
+function makeIcon(side: 'axis' | 'soviet', type: string, mark: string, hollow = false): ImageData {
   const PR = 2;
   const W = 48;
   const H = 42;
@@ -69,11 +143,14 @@ function makeIcon(side: 'axis' | 'soviet', type: string, mark: string): ImageDat
   const w = 38;
   const h = 24;
 
-  ctx.fillStyle = 'rgba(252, 252, 250, 0.94)';
+  // Hollow + dashed frame = derived position (sector + OOB, not documented).
+  ctx.fillStyle = hollow ? 'rgba(252, 252, 250, 0.55)' : 'rgba(252, 252, 250, 0.94)';
   ctx.strokeStyle = color;
   ctx.lineWidth = 2;
   ctx.fillRect(x, y, w, h);
+  if (hollow) ctx.setLineDash([4, 3]);
   ctx.strokeRect(x, y, w, h);
+  ctx.setLineDash([]);
 
   ctx.lineWidth = 1.6;
   if (type === 'infantry' || type === 'motorized') {
@@ -105,8 +182,8 @@ function makeIcon(side: 'axis' | 'soviet', type: string, mark: string): ImageDat
   return ctx.getImageData(0, 0, W * PR, H * PR);
 }
 
-function iconId(side: string, type: string, mark: string): string {
-  return `u-${side}-${type}-${mark}`;
+function iconId(side: string, type: string, mark: string, hollow = false): string {
+  return `u-${side}-${type}-${mark}${hollow ? '-d' : ''}`;
 }
 
 function collectionFor(dateISO: string): FeatureCollection {
@@ -133,6 +210,32 @@ function collectionFor(dateISO: string): FeatureCollection {
       },
       geometry: { type: 'Point', coordinates: at },
     });
+  }
+
+  // Derived units ride the daily front line at their sector fraction.
+  const line = mainFrontLine(dateISO, d);
+  if (line) {
+    for (const du of derivedUnits) {
+      // A curated track wins whenever it is active on this date.
+      if (trackIds.has(du.id)) {
+        const t = tracks.find((x) => x.id === du.id)!;
+        if (positionOn(t, dateISO, d)) continue;
+      }
+      const f = derivedFractionOn(du, dateISO, d);
+      if (f === null) continue;
+      const ech = ECH_GROUP(du.echelon);
+      out.push({
+        type: 'Feature',
+        properties: {
+          id: du.id,
+          short: du.short,
+          icon: iconId(du.side, du.type, ECH_MARK[du.echelon] ?? 'XX', true),
+          ech,
+          approx: false,
+        },
+        geometry: { type: 'Point', coordinates: pointAt(line, f, du.side, ech) },
+      });
+    }
   }
   return { type: 'FeatureCollection', features: out };
 }
@@ -166,14 +269,21 @@ function addEchelonLayer(map: MapLibreMap, id: string, ech: string, minzoom: num
 }
 
 export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<void> {
-  tracks = await loadUnitTracks();
+  [tracks, derivedUnits] = await Promise.all([loadUnitTracks(), loadDerivedUnits()]);
+  trackIds.clear();
+  for (const t of tracks) trackIds.add(t.id);
 
-  // One generated icon per (side, type, echelon-mark) combination in use.
-  const combos = new Set(tracks.map((t) => `${t.side}|${t.type}|${ECH_MARK[t.echelon] ?? 'XX'}`));
+  // One generated icon per (side, type, echelon-mark[, derived]) in use.
+  const combos = new Set([
+    ...tracks.map((t) => `${t.side}|${t.type}|${ECH_MARK[t.echelon] ?? 'XX'}|0`),
+    ...derivedUnits.map((u) => `${u.side}|${u.type}|${ECH_MARK[u.echelon] ?? 'XX'}|1`),
+  ]);
   for (const combo of combos) {
-    const [side, type, mark] = combo.split('|') as ['axis' | 'soviet', string, string];
-    const id = iconId(side, type, mark);
-    if (!map.hasImage(id)) map.addImage(id, makeIcon(side, type, mark), { pixelRatio: 2 });
+    const [side, type, mark, hollow] = combo.split('|') as ['axis' | 'soviet', string, string, string];
+    const id = iconId(side, type, mark, hollow === '1');
+    if (!map.hasImage(id)) {
+      map.addImage(id, makeIcon(side, type, mark, hollow === '1'), { pixelRatio: 2 });
+    }
   }
 
   map.addSource(SOURCE_ID, {

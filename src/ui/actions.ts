@@ -27,17 +27,35 @@ export function selectBattle(battle: Battle): void {
 export async function selectUnit(unit: UnitIndexEntry): Promise<void> {
   const { setSelection } = useStore.getState();
   setSelection({ kind: 'unit', id: unit.id });
-  if (!unit.hasPositions) return;
-  const track = (await loadUnitTracks()).find((t) => t.id === unit.id);
-  if (!track) return;
-  const { date, setDate } = useStore.getState();
-  let when = date;
-  if (!positionOn(track, date, dateToNum(date))) {
-    // Jump the timeline to the unit's first mapped day.
-    when = track.keyframes[0].date;
-    setDate(when);
-  }
-  const at = positionOn(track, when, dateToNum(when));
   const map = getMap();
-  if (at) map?.flyTo({ center: at, zoom: Math.max(map.getZoom(), 6.3) });
+
+  if (unit.hasPositions) {
+    const track = (await loadUnitTracks()).find((t) => t.id === unit.id);
+    if (!track) return;
+    const { date, setDate } = useStore.getState();
+    let when = date;
+    if (!positionOn(track, date, dateToNum(date))) {
+      // Jump the timeline to the unit's first mapped day.
+      when = track.keyframes[0].date;
+      setDate(when);
+    }
+    const at = positionOn(track, when, dateToNum(when));
+    if (at) map?.flyTo({ center: at, zoom: Math.max(map.getZoom(), 6.3) });
+    return;
+  }
+
+  if (unit.hasDerived) {
+    // Sector-derived: resolve via the units layer's front-line state.
+    const { firstDerivedDate, getUnitPositionOn } = await import('../layers/units');
+    const { date, setDate } = useStore.getState();
+    let when = date;
+    if (!getUnitPositionOn(unit.id, when)) {
+      const first = firstDerivedDate(unit.id);
+      if (!first) return;
+      when = first;
+      setDate(when);
+    }
+    const at = getUnitPositionOn(unit.id, when);
+    if (at) map?.flyTo({ center: at, zoom: Math.max(map.getZoom(), 6) });
+  }
 }

@@ -52,7 +52,7 @@ const sourcesReg = JSON.parse(readFileSync(join(UNITS_DIR, 'sources.json'), 'utf
 
 const units = new Map();
 for (const dir of readdirSync(UNITS_DIR, { withFileTypes: true })) {
-  if (!dir.isDirectory()) continue;
+  if (!dir.isDirectory() || dir.name === 'oob') continue;
   for (const file of readdirSync(join(UNITS_DIR, dir.name))) {
     if (!file.endsWith('.json')) continue;
     const u = JSON.parse(readFileSync(join(UNITS_DIR, dir.name, file), 'utf8'));
@@ -60,6 +60,19 @@ for (const dir of readdirSync(UNITS_DIR, { withFileTypes: true })) {
     if (units.has(u.id)) err(u.id, 'duplicate id');
     units.set(u.id, u);
   }
+}
+
+// OOB skeletons (import-bs.mjs): fronts/armies/divisions discovered in the
+// monthly Boevoi sostav listings. Loaded before the Wikidata scaffolds so the
+// better (Russian-sourced) identity wins on id collisions.
+let oob = null;
+try {
+  oob = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'su-monthly.json'), 'utf8'));
+  for (const u of oob.units) {
+    if (!units.has(u.id)) units.set(u.id, u);
+  }
+} catch {
+  console.log('No oob/su-monthly.json — skipping OOB merge and derivation.');
 }
 
 // Imported scaffolds (import-divisions.mjs): identity-only, curated files win.
@@ -80,13 +93,58 @@ try {
   console.log('No imported-divisions.json — building from curated files only.');
 }
 
+// Temporal parents from the monthly OOB: each month's assignment holds until
+// the next month's listing. Curated parents always win (units that came from
+// the per-country directories with hand-authored subordination keep it).
+const MONTH_END = '1945-05-11';
+const monthlyRosters = []; // [{date, nextDate, entries}] for the derivation step
+if (oob) {
+  const curatedParentIds = new Set(
+    [...units.values()].filter((u) => !u.imported && (u.parents ?? []).length).map((u) => u.id),
+  );
+  const timeline = new Map(); // unit -> [{from, to, parent}]
+  const months = oob.months.filter((m) => m.entries.length);
+  for (let i = 0; i < months.length; i++) {
+    const from = months[i].date;
+    const to = months[i + 1]?.date ?? MONTH_END;
+    monthlyRosters.push({ date: from, nextDate: to, entries: months[i].entries });
+    const seen = new Set();
+    for (const e of months[i].entries) {
+      const put = (child, parent) => {
+        if (!parent || !child || child === parent || seen.has(child)) return;
+        seen.add(child); // first listing wins within a month
+        if (!timeline.has(child)) timeline.set(child, []);
+        timeline.get(child).push({ from, to, parent });
+      };
+      if (e.army && e.front) put(e.army, e.front);
+      for (const d of e.divisions) put(d, e.army ?? e.front);
+    }
+  }
+  let applied = 0;
+  for (const [id, list] of timeline) {
+    const u = units.get(id);
+    if (!u || curatedParentIds.has(id)) continue;
+    const merged = [];
+    for (const iv of list) {
+      const last = merged[merged.length - 1];
+      if (last && last.parent === iv.parent && last.to === iv.from) last.to = iv.to;
+      else merged.push({ ...iv });
+    }
+    u.parents = merged.map((iv) => ({ from: iv.from, to: iv.to, unit: iv.parent }));
+    applied++;
+  }
+  console.log(`OOB: subordination applied to ${applied} units over ${monthlyRosters.length} months`);
+}
+
 for (const u of units.values()) {
   const id = u.id;
+  if (!u.names?.length || !u.existence?.length) {
+    err(id, `missing names/existence (echelon=${u.echelon}, keys=${Object.keys(u).join(',')})`);
+    continue;
+  }
   if (!ECHELONS.includes(u.echelon)) err(id, `bad echelon "${u.echelon}"`);
   if (!TYPES.includes(u.type)) err(id, `bad type "${u.type}"`);
   if (!u.short) err(id, 'missing short label');
-  if (!u.names?.length) err(id, 'missing names');
-  if (!u.existence?.length) err(id, 'missing existence');
   for (const n of u.names ?? []) if (!ISO.test(n.from) || !n.name) err(id, `bad names entry ${JSON.stringify(n)}`);
   for (const e of u.existence ?? []) {
     if (!ISO.test(e.from) || (e.to && !ISO.test(e.to))) err(id, `bad existence entry ${JSON.stringify(e)}`);
@@ -263,11 +321,184 @@ if (!runs.size) {
 }
 
 // ---------------------------------------------------------------------------
+// Sector-derived positions (SCALE_PLAN S3). For every month: project sector
+// boundary anchors onto that month's interpolated front line -> fraction
+// spans; fronts' spans subdivide among their armies (roster order), army
+// slices among their divisions. Output is FRACTION keyframes — the client
+// resolves them against the daily front geometry, so derived units ride the
+// moving line instead of lagging at monthly anchors.
+
+const derived = new Map(); // unit id -> [{startNum, date, f}]
+let sectors = null;
+try {
+  sectors = JSON.parse(readFileSync('data/curated/sectors/eastern.json', 'utf8'));
+} catch {
+  console.log('No sectors/eastern.json — skipping derivation.');
+}
+
+if (sectors && monthlyRosters.length) {
+  const sKfs = sectors.keyframes;
+
+  const fractionOf = (line, pt) => {
+    let best = 0;
+    let bestD = Infinity;
+    for (let i = 0; i < line.length; i++) {
+      const dx = (line[i][0] - pt[0]) * Math.cos((pt[1] * Math.PI) / 180);
+      const dy = line[i][1] - pt[1];
+      const d2 = dx * dx + dy * dy;
+      if (d2 < bestD) {
+        bestD = d2;
+        best = i;
+      }
+    }
+    return best / (line.length - 1);
+  };
+
+  /** Entry spans for one sector keyframe projected on `line` (monotonic). */
+  function spansAt(kf, side, line) {
+    const entries = kf[side] ?? [];
+    const bounds = entries.map((e) => (e.to ? fractionOf(line, e.to) : null));
+    // Even-split null runs between fixed bounds; clamp monotonic.
+    let prev = 0;
+    for (let i = 0; i < bounds.length; i++) {
+      if (bounds[i] !== null) {
+        bounds[i] = Math.max(bounds[i], prev + 0.005);
+        prev = bounds[i];
+        continue;
+      }
+      let j = i;
+      while (j < bounds.length && bounds[j] === null) j++;
+      const next = j < bounds.length ? Math.max(bounds[j], prev + 0.005) : 1;
+      const run = j - i + (j < bounds.length ? 1 : 0);
+      const step = (next - prev) / (run || 1);
+      for (let k = i; k < j; k++) bounds[k] = prev + step * (k - i + 1);
+      prev = bounds[j - 1];
+      i = j - 1;
+    }
+    const spans = new Map();
+    let f0 = 0;
+    entries.forEach((e, i) => {
+      spans.set(e.unit, [f0, Math.min(bounds[i] ?? 1, 1)]);
+      f0 = bounds[i] ?? 1;
+    });
+    return spans;
+  }
+
+  const isCuratedActive = (u, dNum) => {
+    if (!u?.positions?.length) return false;
+    return dNum >= dateNum(u.positions[0].date) && dNum < u._trackTo;
+  };
+  const existsAt = (u, dNum) =>
+    u && dNum >= u._existFrom && dNum < u._existTo;
+
+  const push = (id, date, f) => {
+    const u = units.get(id);
+    const dNum = dateNum(date);
+    if (!existsAt(u, dNum) || isCuratedActive(u, dNum)) return;
+    if (!derived.has(id)) derived.set(id, []);
+    derived.get(id).push({ startNum: dNum, date, f: Number(f.toFixed(4)) });
+  };
+
+  for (const month of monthlyRosters) {
+    const line = coordsFor(main, month.date);
+    if (!line) continue;
+    // Bracketing sector keyframes; per-unit time-lerped spans.
+    let k0 = sKfs[0];
+    let k1 = sKfs[sKfs.length - 1];
+    for (let i = 0; i < sKfs.length; i++) {
+      if (dateNum(sKfs[i].date) <= dateNum(month.date)) k0 = sKfs[i];
+      if (dateNum(sKfs[i].date) > dateNum(month.date)) {
+        k1 = sKfs[i];
+        break;
+      }
+    }
+    const span0 = { su: spansAt(k0, 'su', line), de: spansAt(k0, 'de', line) };
+    const span1 = { su: spansAt(k1, 'su', line), de: spansAt(k1, 'de', line) };
+    const tSpan = Math.max(0, Math.min(1,
+      diffDays(k0.date, month.date) / Math.max(1, diffDays(k0.date, k1.date)),
+    ));
+    const spanFor = (side, id) => {
+      const a = span0[side].get(id);
+      const b = span1[side].get(id);
+      if (a && b) return [a[0] + (b[0] - a[0]) * tSpan, a[1] + (b[1] - a[1]) * tSpan];
+      return tSpan < 0.5 ? (a ?? b) : (b ?? a);
+    };
+
+    // German armies: sector midpoints.
+    for (const e of [...(k0.de ?? []), ...(k1.de ?? [])]) {
+      const span = spanFor('de', e.unit);
+      if (span) push(e.unit, month.date, (span[0] + span[1]) / 2);
+    }
+
+    // Soviet: front span -> armies (roster order) -> divisions.
+    const byFront = new Map();
+    for (const e of month.entries) {
+      if (!e.front) continue;
+      if (!byFront.has(e.front)) byFront.set(e.front, []);
+      byFront.get(e.front).push(e);
+    }
+    for (const [frontId, entries] of byFront) {
+      const span = spanFor('su', frontId);
+      if (!span) continue; // reserve / off-line front: list-only
+      push(frontId, month.date, (span[0] + span[1]) / 2);
+      const groups = entries.filter((e) => e.divisions.length);
+      const A = groups.length;
+      if (!A) continue;
+      const width = span[1] - span[0];
+      groups.forEach((g, a) => {
+        const a0 = span[0] + (width * a) / A;
+        const a1 = span[0] + (width * (a + 1)) / A;
+        if (g.army) push(g.army, month.date, (a0 + a1) / 2);
+        const seen = new Set();
+        const divs = g.divisions.filter((d) => !seen.has(d) && seen.add(d));
+        divs.forEach((d, j) => push(d, month.date, a0 + ((a1 - a0) * (j + 0.5)) / divs.length));
+      });
+    }
+  }
+  console.log(`Derived fraction tracks for ${derived.size} units`);
+}
+
+// ---------------------------------------------------------------------------
 // Emit artifacts
 
 rmSync(OUT_DIR, { recursive: true, force: true });
 mkdirSync(join(OUT_DIR, 'tracks'), { recursive: true });
 mkdirSync(join(OUT_DIR, 'detail'), { recursive: true });
+mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
+
+// Derived file: per unit, segments of monthly fraction keyframes (a >40-day
+// gap starts a new segment; each segment stays renderable ~35 days past its
+// last keyframe). The client maps fractions onto the daily front line.
+{
+  const out = [];
+  for (const [id, kfs] of derived) {
+    const u = units.get(id);
+    kfs.sort((a, b) => a.startNum - b.startNum);
+    const segs = [];
+    let cur = null;
+    for (const kf of kfs) {
+      if (!cur || diffDays(cur.lastDate, kf.date) > 40) {
+        cur = { kfs: [], lastDate: kf.date };
+        segs.push(cur);
+      }
+      cur.kfs.push([kf.startNum, kf.f]);
+      cur.lastDate = kf.date;
+    }
+    out.push({
+      id,
+      short: u.short,
+      side: u.side,
+      echelon: u.echelon,
+      type: u.type,
+      segs: segs.map((s) => ({ end: dateNum(addDays(s.lastDate, 35)), kfs: s.kfs })),
+    });
+  }
+  writeFileSync(
+    join(OUT_DIR, 'derived', 'eastern.json'),
+    JSON.stringify({ units: out.sort((a, b) => a.id.localeCompare(b.id)) }),
+  );
+  console.log(`Wrote ${out.length} derived units -> ${OUT_DIR}/derived/eastern.json`);
+}
 
 /** djb2 % 16 — mirrored by src/data/units.ts (keep in sync). */
 const SHARDS = 16;
@@ -292,6 +523,7 @@ const index = [...units.values()]
     from: u.existence[0].from,
     to: u.existence[u.existence.length - 1].to ?? null,
     hasPositions: Boolean(u.positions?.length),
+    hasDerived: derived.has(u.id),
   }))
   .sort((a, b) => a.id.localeCompare(b.id));
 writeFileSync(join(OUT_DIR, 'index.json'), JSON.stringify({ units: index }));
@@ -335,6 +567,7 @@ for (const u of units.values()) {
     commanders: (u.commanders ?? []).map((c) => ({ ...c, to: c.to ?? null })),
     positions: (u.positions ?? []).map((p) => ({ ...p, confidence: p.confidence ?? 'approximate' })),
     positionsTo: u.positionsTo ?? null,
+    derived: derived.has(u.id),
     links: u.links ?? {},
     sources: usedSources.map((s) => ({ id: s, ...(sourcesReg[s] ?? {}) })),
     notes: u.notes ?? null,

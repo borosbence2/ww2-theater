@@ -297,6 +297,49 @@ hosted, ever.
 - Verified: 36/36 smoke checks (drill-down click-through 13th Guards →
   42nd GRR with Pavlov's House keyframe; Paulus/Rodimtsev in panels).
 
+## Eastern Front simulation v1 (SCALE_PLAN S1+S3, EASTERN_SIM_PLAN) ✅
+Barbarossa → Berlin with the whole front populated: every Soviet rifle/
+guards/cavalry division of every sector-assigned front at a daily derived
+position, both sides' armies arrayed along the line, curated Stalingrad
+tracks overriding seamlessly.
+- [x] **Boevoi sostav ingestion** (`fetch-bs.mjs` + `import-bs.mjs`): all 48
+      monthly "Боевой состав Советской Армии" pages (teatrskazka
+      transcription via Wayback `id_` snapshots — live site blocks curl, the
+      narod mirror is a JS shell), cp1251, rule-based parsing with
+      right-to-left type propagation ("54 и 59 гв., 243 сд"), corps-paren
+      unwrapping, skip-type poisoning (bare numbers left of skipped brigade
+      groups must not inherit a stale division type). **17,317
+      division-month assignments**, 361 OOB-discovered unit skeletons
+      (recovering most of the ru-only divisions Wikidata import dropped).
+      Gotcha for posterity: never NFD-fold Russian — й decomposes.
+- [x] **OOB subordination**: monthly parents applied to 725 units (armies →
+      fronts, divisions → armies), curated parents win; chains visible in
+      every unit panel.
+- [x] **Sector tables** (`data/curated/sectors/eastern.json`): 11 keyframes
+      1941-07 → 1945-04, N→S front/army entries with boundary anchor points
+      projected onto the daily line by the ETL (anchors survive front
+      movement; null anchors split evenly). German armies scaffolded
+      (2,4,8(II),9,11,16,17,18, Pz 1–3, 6(II)); Panzergruppe 4 lifecycle
+      extended back to 1941.
+- [x] **Derivation engine** (`build-units.mjs`): per month, front span →
+      army slices (roster order) → division fractions; emits **721 derived
+      units** as fraction keyframes (`derived/eastern.json`). The client
+      resolves fractions against the daily interpolated front, so derived
+      units ride the moving line; big fraction jumps hold-then-jump.
+      Curated positions always win; derived skips validation (front-
+      consistent by construction).
+- [x] **Honest rendering**: hollow dashed icons for derived positions,
+      panel disclaimer naming both inputs, search/People labels show
+      "derived" instead of "not mapped".
+- Totals: **1,362 units** (36 curated tracks, 721 derived, rest scaffolds).
+- Verified: 40/40 smoke checks; Kursk screenshot shows both sides arrayed
+  along the bulge.
+- Known v1 limits (see EASTERN_SIM_PLAN): German divisional OOB pending
+  (S2 — armies only for now), army order within fronts = source listing
+  order, sectors coarse at 11 keyframes, tank/mech corps + brigades not
+  yet parsed, single identity per division number (formation ordinals
+  later).
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

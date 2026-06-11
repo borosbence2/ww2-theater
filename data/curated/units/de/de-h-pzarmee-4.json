@@ -6,10 +6,11 @@
   "type": "hq",
   "short": "4. Pz.Armee",
   "names": [
+    { "from": "1941-02-17", "name": "Panzergruppe 4", "aliases": ["4th Panzer Group"] },
     { "from": "1942-01-01", "name": "4. Panzerarmee", "aliases": ["4th Panzer Army", "Panzerarmee 4", "PzAOK 4"] }
   ],
   "existence": [
-    { "from": "1942-01-01", "to": "1945-05-08", "end": "surrendered (war end)" }
+    { "from": "1941-02-17", "to": "1945-05-08", "end": "surrendered (war end)" }
   ],
   "parents": [
     { "from": "1942-07-09", "to": "1943-02-09", "unit": "de-h-hgr-b" }

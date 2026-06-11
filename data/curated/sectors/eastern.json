@@ -1,0 +1,285 @@
+{
+  "note": "Army/front sectors along the Eastern Front main line, N->S. Each entry's 'to' is a coarse boundary ANCHOR (lon,lat near the historical inter-formation boundary); the ETL converts anchors to fractions along the interpolated front polyline of that date. 'to': null = evenly split the span down to the next anchored boundary (or the line's south end for the last entry). Soviet entries are FRONTS (armies and divisions subdivide the span by the monthly Boevoi sostav roster); German entries are ARMIES (divisional OOB pending, SCALE_PLAN S2). Curated-positioned units (6. Armee, 4. Panzerarmee through Feb 43, Stalingrad armies) are intentionally absent here. Schematic-but-grounded, traced against the US Army semimonthly atlas; refine with the worklist.",
+  "keyframes": [
+    {
+      "date": "1941-07-01",
+      "su": [
+        { "unit": "su-front-northwestern", "to": [28.0, 55.4] },
+        { "unit": "su-front-western", "to": [27.0, 51.8] },
+        { "unit": "su-front-southwestern", "to": [27.8, 47.9] },
+        { "unit": "su-front-southern", "to": null }
+      ],
+      "de": [
+        { "unit": "de-h-armee-18", "to": [25.0, 57.2] },
+        { "unit": "de-h-armee-16", "to": [27.2, 55.6] },
+        { "unit": "de-h-pzarmee-4", "to": [28.0, 55.4] },
+        { "unit": "de-h-pzarmee-3", "to": [28.5, 54.8] },
+        { "unit": "de-h-armee-9", "to": [29.0, 53.8] },
+        { "unit": "de-h-armee-4", "to": [28.5, 52.8] },
+        { "unit": "de-h-pzarmee-2", "to": [27.0, 51.8] },
+        { "unit": "de-h-armee-6", "to": [28.5, 50.2] },
+        { "unit": "de-h-armee-17", "to": [28.2, 48.8] },
+        { "unit": "de-h-pzarmee-1", "to": [27.8, 47.9] },
+        { "unit": "de-h-armee-11", "to": null }
+      ]
+    },
+    {
+      "date": "1941-10-01",
+      "su": [
+        { "unit": "su-front-leningrad", "to": [30.5, 59.0] },
+        { "unit": "su-front-northwestern", "to": [31.5, 56.8] },
+        { "unit": "su-front-western", "to": [34.8, 53.6] },
+        { "unit": "su-front-bryansk", "to": [34.2, 50.8] },
+        { "unit": "su-front-southwestern", "to": [35.5, 48.4] },
+        { "unit": "su-front-southern", "to": null }
+      ],
+      "de": [
+        { "unit": "de-h-armee-18", "to": [30.5, 59.0] },
+        { "unit": "de-h-armee-16", "to": [31.5, 56.8] },
+        { "unit": "de-h-pzarmee-3", "to": [33.0, 55.8] },
+        { "unit": "de-h-armee-9", "to": [34.5, 55.0] },
+        { "unit": "de-h-armee-4", "to": [34.8, 53.6] },
+        { "unit": "de-h-pzarmee-2", "to": [34.2, 50.8] },
+        { "unit": "de-h-armee-6", "to": [35.2, 49.4] },
+        { "unit": "de-h-armee-17", "to": [35.5, 48.4] },
+        { "unit": "de-h-pzarmee-1", "to": null }
+      ]
+    },
+    {
+      "date": "1942-01-01",
+      "su": [
+        { "unit": "su-front-leningrad", "to": [31.0, 59.2] },
+        { "unit": "su-front-volkhov", "to": [31.3, 58.2] },
+        { "unit": "su-front-northwestern", "to": [32.5, 56.6] },
+        { "unit": "su-front-kalinin", "to": [35.0, 55.6] },
+        { "unit": "su-front-western", "to": [35.5, 53.4] },
+        { "unit": "su-front-bryansk", "to": [35.0, 51.0] },
+        { "unit": "su-front-southwestern", "to": [37.0, 48.8] },
+        { "unit": "su-front-southern", "to": null }
+      ],
+      "de": [
+        { "unit": "de-h-armee-18", "to": [31.0, 59.2] },
+        { "unit": "de-h-armee-16", "to": [32.5, 56.6] },
+        { "unit": "de-h-pzarmee-3", "to": [33.8, 56.2] },
+        { "unit": "de-h-armee-9", "to": [35.0, 55.6] },
+        { "unit": "de-h-pzarmee-4", "to": [35.3, 54.6] },
+        { "unit": "de-h-armee-4", "to": [35.5, 53.4] },
+        { "unit": "de-h-pzarmee-2", "to": [35.2, 52.2] },
+        { "unit": "de-h-armee-2", "to": [35.0, 51.0] },
+        { "unit": "de-h-armee-6", "to": [36.8, 49.4] },
+        { "unit": "de-h-armee-17", "to": [37.5, 48.6] },
+        { "unit": "de-h-pzarmee-1", "to": null }
+      ]
+    },
+    {
+      "date": "1942-07-10",
+      "su": [
+        { "unit": "su-front-leningrad", "to": [31.0, 59.2] },
+        { "unit": "su-front-volkhov", "to": [31.3, 58.2] },
+        { "unit": "su-front-northwestern", "to": [32.5, 56.6] },
+        { "unit": "su-front-kalinin", "to": [35.0, 55.6] },
+        { "unit": "su-front-western", "to": [36.2, 52.4] },
+        { "unit": "su-front-bryansk", "to": [38.5, 51.4] },
+        { "unit": "su-front-voronezh", "to": [39.8, 50.0] },
+        { "unit": "su-front-southwestern", "to": [40.5, 48.6] },
+        { "unit": "su-front-southern", "to": null }
+      ],
+      "de": [
+        { "unit": "de-h-armee-18", "to": [31.0, 59.2] },
+        { "unit": "de-h-armee-16", "to": [32.5, 56.6] },
+        { "unit": "de-h-pzarmee-3", "to": [34.0, 56.0] },
+        { "unit": "de-h-armee-9", "to": [35.0, 55.6] },
+        { "unit": "de-h-pzarmee-4", "to": null },
+        { "unit": "de-h-armee-4", "to": [35.8, 53.4] },
+        { "unit": "de-h-pzarmee-2", "to": [36.2, 52.4] },
+        { "unit": "de-h-armee-2", "to": [39.5, 51.0] },
+        { "unit": "de-h-armee-17", "to": [40.0, 47.6] },
+        { "unit": "de-h-pzarmee-1", "to": null }
+      ]
+    },
+    {
+      "date": "1942-11-18",
+      "su": [
+        { "unit": "su-front-leningrad", "to": [31.0, 59.2] },
+        { "unit": "su-front-volkhov", "to": [31.3, 58.2] },
+        { "unit": "su-front-northwestern", "to": [32.5, 56.6] },
+        { "unit": "su-front-kalinin", "to": [34.5, 55.4] },
+        { "unit": "su-front-western", "to": [36.2, 52.4] },
+        { "unit": "su-front-bryansk", "to": [39.0, 51.2] },
+        { "unit": "su-front-voronezh", "to": [40.5, 50.2] },
+        { "unit": "su-front-southwestern", "to": [42.8, 49.4] },
+        { "unit": "su-front-don", "to": [44.3, 48.9] },
+        { "unit": "su-front-stalingrad", "to": null }
+      ],
+      "de": [
+        { "unit": "de-h-armee-18", "to": [31.0, 59.2] },
+        { "unit": "de-h-armee-16", "to": [32.5, 56.6] },
+        { "unit": "de-h-pzarmee-3", "to": [34.0, 56.0] },
+        { "unit": "de-h-armee-9", "to": [35.0, 55.2] },
+        { "unit": "de-h-pzarmee-4", "to": [35.4, 54.0] },
+        { "unit": "de-h-armee-4", "to": [35.8, 53.4] },
+        { "unit": "de-h-pzarmee-2", "to": [36.2, 52.4] },
+        { "unit": "de-h-armee-2", "to": [40.0, 51.0] },
+        { "unit": "de-h-pzarmee-1", "to": null }
+      ]
+    },
+    {
+      "date": "1943-03-15",
+      "su": [
+        { "unit": "su-front-leningrad", "to": [31.0, 59.2] },
+        { "unit": "su-front-volkhov", "to": [31.5, 58.0] },
+        { "unit": "su-front-northwestern", "to": [32.0, 56.6] },
+        { "unit": "su-front-kalinin", "to": [33.8, 55.0] },
+        { "unit": "su-front-western", "to": [35.4, 52.8] },
+        { "unit": "su-front-bryansk", "to": [36.0, 52.0] },
+        { "unit": "su-front-central", "to": [35.0, 51.0] },
+        { "unit": "su-front-voronezh", "to": [36.0, 49.8] },
+        { "unit": "su-front-southwestern", "to": [37.8, 48.4] },
+        { "unit": "su-front-southern", "to": null }
+      ],
+      "de": [
+        { "unit": "de-h-armee-18", "to": [31.0, 59.2] },
+        { "unit": "de-h-armee-16", "to": [32.0, 56.6] },
+        { "unit": "de-h-pzarmee-3", "to": [34.4, 54.4] },
+        { "unit": "de-h-armee-4", "to": [35.4, 52.8] },
+        { "unit": "de-h-armee-2", "to": [35.0, 51.0] },
+        { "unit": "de-h-pzarmee-4", "to": [36.6, 49.2] },
+        { "unit": "de-h-pzarmee-1", "to": null }
+      ]
+    },
+    {
+      "date": "1943-07-04",
+      "su": [
+        { "unit": "su-front-leningrad", "to": [31.0, 59.2] },
+        { "unit": "su-front-volkhov", "to": [31.5, 58.0] },
+        { "unit": "su-front-northwestern", "to": [32.0, 56.6] },
+        { "unit": "su-front-kalinin", "to": [33.8, 55.0] },
+        { "unit": "su-front-western", "to": [35.6, 53.2] },
+        { "unit": "su-front-bryansk", "to": [36.2, 52.6] },
+        { "unit": "su-front-central", "to": [36.6, 51.4] },
+        { "unit": "su-front-voronezh", "to": [36.4, 50.0] },
+        { "unit": "su-front-southwestern", "to": [37.8, 48.2] },
+        { "unit": "su-front-southern", "to": null }
+      ],
+      "de": [
+        { "unit": "de-h-armee-18", "to": [31.0, 59.2] },
+        { "unit": "de-h-armee-16", "to": [32.0, 56.6] },
+        { "unit": "de-h-pzarmee-3", "to": [34.4, 54.4] },
+        { "unit": "de-h-armee-4", "to": [35.6, 53.2] },
+        { "unit": "de-h-armee-9", "to": [36.2, 52.6] },
+        { "unit": "de-h-pzarmee-2", "to": [36.6, 51.4] },
+        { "unit": "de-h-armee-2", "to": [36.4, 50.6] },
+        { "unit": "de-h-pzarmee-4", "to": [36.6, 49.6] },
+        { "unit": "de-h-armee-8", "to": [37.2, 48.8] },
+        { "unit": "de-h-pzarmee-1", "to": [38.0, 48.0] },
+        { "unit": "de-h-armee-6-2", "to": null }
+      ]
+    },
+    {
+      "date": "1944-01-01",
+      "su": [
+        { "unit": "su-front-leningrad", "to": [30.0, 59.0] },
+        { "unit": "su-front-volkhov", "to": [30.5, 58.0] },
+        { "unit": "su-front-2-baltic", "to": [30.8, 56.4] },
+        { "unit": "su-front-1-baltic", "to": [31.0, 55.4] },
+        { "unit": "su-front-western", "to": [31.2, 53.8] },
+        { "unit": "su-front-belorussian", "to": [30.2, 52.0] },
+        { "unit": "su-front-1-ukrainian", "to": [29.0, 49.6] },
+        { "unit": "su-front-2-ukrainian", "to": [32.2, 48.4] },
+        { "unit": "su-front-3-ukrainian", "to": [33.6, 47.6] },
+        { "unit": "su-front-4-ukrainian", "to": null }
+      ],
+      "de": [
+        { "unit": "de-h-armee-18", "to": [30.0, 59.0] },
+        { "unit": "de-h-armee-16", "to": [30.8, 56.4] },
+        { "unit": "de-h-pzarmee-3", "to": [31.2, 54.6] },
+        { "unit": "de-h-armee-4", "to": [31.0, 53.0] },
+        { "unit": "de-h-armee-9", "to": [30.2, 52.0] },
+        { "unit": "de-h-armee-2", "to": [28.8, 51.2] },
+        { "unit": "de-h-pzarmee-4", "to": [29.4, 49.8] },
+        { "unit": "de-h-pzarmee-1", "to": [31.0, 48.8] },
+        { "unit": "de-h-armee-8", "to": [33.0, 48.0] },
+        { "unit": "de-h-armee-6-2", "to": null }
+      ]
+    },
+    {
+      "date": "1944-08-01",
+      "su": [
+        { "unit": "su-front-leningrad", "to": [26.0, 58.6] },
+        { "unit": "su-front-3-baltic", "to": [26.5, 57.4] },
+        { "unit": "su-front-2-baltic", "to": [25.5, 56.6] },
+        { "unit": "su-front-1-baltic", "to": [23.0, 55.6] },
+        { "unit": "su-front-3-belorussian", "to": [22.8, 54.4] },
+        { "unit": "su-front-2-belorussian", "to": [21.8, 53.4] },
+        { "unit": "su-front-1-belorussian", "to": [22.4, 51.6] },
+        { "unit": "su-front-1-ukrainian", "to": [22.6, 49.2] },
+        { "unit": "su-front-2-ukrainian", "to": [27.0, 47.4] },
+        { "unit": "su-front-3-ukrainian", "to": null }
+      ],
+      "de": [
+        { "unit": "de-h-armee-18", "to": [26.2, 58.0] },
+        { "unit": "de-h-armee-16", "to": [24.0, 56.4] },
+        { "unit": "de-h-pzarmee-3", "to": [22.8, 54.6] },
+        { "unit": "de-h-armee-4", "to": [22.6, 53.6] },
+        { "unit": "de-h-armee-2", "to": [22.4, 52.2] },
+        { "unit": "de-h-armee-9", "to": [21.8, 51.4] },
+        { "unit": "de-h-pzarmee-4", "to": [22.4, 50.2] },
+        { "unit": "de-h-pzarmee-1", "to": [23.6, 48.6] },
+        { "unit": "de-h-armee-8", "to": [26.4, 47.4] },
+        { "unit": "de-h-armee-6-2", "to": null }
+      ]
+    },
+    {
+      "date": "1945-01-12",
+      "su": [
+        { "unit": "su-front-leningrad", "to": [21.8, 57.2] },
+        { "unit": "su-front-2-baltic", "to": [21.5, 56.2] },
+        { "unit": "su-front-1-baltic", "to": [21.8, 55.4] },
+        { "unit": "su-front-3-belorussian", "to": [22.0, 54.2] },
+        { "unit": "su-front-2-belorussian", "to": [21.0, 52.8] },
+        { "unit": "su-front-1-belorussian", "to": [21.6, 51.0] },
+        { "unit": "su-front-1-ukrainian", "to": [20.0, 49.6] },
+        { "unit": "su-front-4-ukrainian", "to": [20.4, 48.6] },
+        { "unit": "su-front-2-ukrainian", "to": [18.6, 47.6] },
+        { "unit": "su-front-3-ukrainian", "to": null }
+      ],
+      "de": [
+        { "unit": "de-h-armee-16", "to": [21.6, 56.4] },
+        { "unit": "de-h-armee-18", "to": [21.8, 55.6] },
+        { "unit": "de-h-pzarmee-3", "to": [22.0, 54.2] },
+        { "unit": "de-h-armee-4", "to": [21.4, 53.2] },
+        { "unit": "de-h-armee-2", "to": [21.0, 52.0] },
+        { "unit": "de-h-armee-9", "to": [21.2, 50.8] },
+        { "unit": "de-h-pzarmee-4", "to": [20.2, 50.0] },
+        { "unit": "de-h-armee-17", "to": [20.4, 48.8] },
+        { "unit": "de-h-pzarmee-1", "to": [19.6, 48.2] },
+        { "unit": "de-h-armee-8", "to": [18.4, 47.4] },
+        { "unit": "de-h-armee-6-2", "to": null }
+      ]
+    },
+    {
+      "date": "1945-04-16",
+      "su": [
+        { "unit": "su-front-leningrad", "to": [21.5, 56.8] },
+        { "unit": "su-front-2-belorussian", "to": [14.6, 53.0] },
+        { "unit": "su-front-1-belorussian", "to": [14.4, 52.0] },
+        { "unit": "su-front-1-ukrainian", "to": [15.2, 50.6] },
+        { "unit": "su-front-4-ukrainian", "to": [17.4, 49.4] },
+        { "unit": "su-front-2-ukrainian", "to": [16.4, 48.2] },
+        { "unit": "su-front-3-ukrainian", "to": null }
+      ],
+      "de": [
+        { "unit": "de-h-armee-16", "to": [21.8, 56.2] },
+        { "unit": "de-h-armee-18", "to": [21.5, 56.8] },
+        { "unit": "de-h-pzarmee-3", "to": [14.5, 52.6] },
+        { "unit": "de-h-armee-9", "to": [14.6, 51.6] },
+        { "unit": "de-h-pzarmee-4", "to": [15.0, 50.8] },
+        { "unit": "de-h-armee-17", "to": [17.2, 49.6] },
+        { "unit": "de-h-pzarmee-1", "to": [17.8, 48.8] },
+        { "unit": "de-h-armee-8", "to": [16.6, 48.4] },
+        { "unit": "de-h-armee-6-2", "to": [16.4, 47.8] },
+        { "unit": "de-h-pzarmee-2", "to": null }
+      ]
+    }
+  ]
+}

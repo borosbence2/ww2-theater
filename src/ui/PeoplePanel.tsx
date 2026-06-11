@@ -201,7 +201,7 @@ export function PeoplePanel() {
                 </button>{' '}
                 <span className="omnibox-meta">
                   {u.country}
-                  {u.hasPositions ? ' · mapped' : ' · not mapped yet'}
+                  {u.hasPositions ? ' · mapped' : u.hasDerived ? ' · derived' : ' · not mapped yet'}
                 </span>
               </li>
             ))}
