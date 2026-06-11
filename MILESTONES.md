@@ -334,11 +334,33 @@ tracks overriding seamlessly.
 - Totals: **1,362 units** (36 curated tracks, 721 derived, rest scaffolds).
 - Verified: 40/40 smoke checks; Kursk screenshot shows both sides arrayed
   along the bulge.
-- Known v1 limits (see EASTERN_SIM_PLAN): German divisional OOB pending
-  (S2 — armies only for now), army order within fronts = source listing
-  order, sectors coarse at 11 keyframes, tank/mech corps + brigades not
-  yet parsed, single identity per division number (formation ordinals
-  later).
+- Known v1 limits (see EASTERN_SIM_PLAN): army order within fronts =
+  source listing order, sectors coarse at 11 keyframes, tank/mech corps +
+  brigades not yet parsed, single identity per division number (formation
+  ordinals later).
+
+## Eastern Front simulation v2 — German divisional OOB (SCALE_PLAN S2) ✅
+- [x] **Source pivot**: Niehorster's corps OOBs turned out to be GIF
+      organization charts (not parseable); **Lexikon der Wehrmacht** division
+      pages carry machine-readable monthly *Unterstellung* tables
+      (Datum | Armeekorps | Armee | Heeresgruppe | Ort) for the whole war —
+      a better source than key-date snapshots.
+- [x] `fetch-ldw.mjs`: harvested the family master lists (Infanterie-,
+      Panzer-, Gebirgs-, Kavallerie-, Grenadier-Divisionen, schnelle
+      Truppen, Sicherungs), cached 144 division content frames (gitignored;
+      polite one-time crawl). `import-ldw.mjs`: year headings are
+      `<big><big>1941</big></big>` paragraphs *between* tables; army cell
+      found by content scan (robust to rowspan shifts); 6./8. Armee
+      incarnation switching by date. **107 divisions, 2,854 assignment
+      events** → `oob/de-monthly.json`.
+- [x] `build-units.mjs`: German division parents from events (curated win);
+      monthly army rosters; divisions subdivide their army's sector span —
+      **803 derived units** total (+82 German divisions placed).
+- Verified: 43/43 smoke checks; Kursk-eve at division zoom shows hollow
+  German divisions west of the line facing Soviet divisions east of it.
+- Remaining: ~66 harvest misses + 34 identity gaps (Wikidata lacks some
+  numbered IDs) on the worklist; Waffen-SS family lists; Armeeabteilungen
+  mapped to null (off-front) for now.
 
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways

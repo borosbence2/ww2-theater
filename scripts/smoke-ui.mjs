@@ -202,6 +202,18 @@ check('5th Shock Army panel opens (OOB-created unit)', /5th Shock Army/.test(sho
 check('panel explains derived position', /derived daily/.test(shockPanel ?? ''));
 check('panel shows an OOB chain of command (front)', /Front/.test(shockPanel ?? ''));
 
+// German divisional OOB (S2): a Lexikon-derived division shows its army
+// chain and the derived-position note.
+await page.fill('.omnibox input', '110th Infantry Division');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1800);
+const dePanel = await page.locator('.detail-panel').textContent();
+check('110th ID panel opens (Lexikon OOB)', /110th Infantry Division/.test(dePanel ?? ''));
+check('110th ID shows derived note', /derived daily/.test(dePanel ?? ''));
+check('110th ID subordination lists a German army', /Armee|Army/.test(dePanel ?? ''));
+
 // Full-front view at Kursk: derived markers render along the whole line.
 await page.goto(`${BASE}/?date=1943-07-04&z=5.6&lat=52.2&lng=35.8`, { waitUntil: 'domcontentloaded' });
 await page.waitForSelector('.timebar', { timeout: 15000 });

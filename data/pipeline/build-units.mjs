@@ -75,6 +75,31 @@ try {
   console.log('No oob/su-monthly.json — skipping OOB merge and derivation.');
 }
 
+// German OOB (import-ldw.mjs): per-division army-assignment events.
+let deOob = null;
+try {
+  deOob = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'de-monthly.json'), 'utf8'));
+  for (const { id, n } of deOob.armies) {
+    if (units.has(id)) continue;
+    units.set(id, {
+      id,
+      country: 'DE',
+      branch: 'heer',
+      echelon: 'army',
+      type: 'hq',
+      short: `${n}. Armee`,
+      names: [{ from: '1939-09-01', name: `${n}. Armee`, aliases: [`${n}th Army`, `AOK ${n}`] }],
+      existence: [{ from: '1939-09-01' }],
+      parents: [],
+      positions: [],
+      links: {},
+      notes: 'OOB scaffold discovered in Lexikon der Wehrmacht Unterstellung tables.',
+    });
+  }
+} catch {
+  console.log('No oob/de-monthly.json — German divisions stay scaffold-only.');
+}
+
 // Imported scaffolds (import-divisions.mjs): identity-only, curated files win.
 let importedCount = 0;
 try {
@@ -134,6 +159,54 @@ if (oob) {
     applied++;
   }
   console.log(`OOB: subordination applied to ${applied} units over ${monthlyRosters.length} months`);
+}
+
+// German division parents + monthly rosters from assignment events.
+const deRoster = new Map(); // month date -> Map(armyId -> [{id, num}])
+if (deOob && monthlyRosters.length) {
+  const curatedParentIds = new Set(
+    [...units.values()].filter((u) => !u.imported && (u.parents ?? []).length).map((u) => u.id),
+  );
+  let applied = 0;
+  for (const div of deOob.divisions) {
+    const u = units.get(div.id);
+    if (!u) continue;
+    // Parents: each event holds until the next; null army = gap.
+    if (!curatedParentIds.has(div.id)) {
+      const parents = [];
+      for (let i = 0; i < div.events.length; i++) {
+        const [from, army] = div.events[i];
+        if (!army || !units.has(army)) continue;
+        const to = div.events[i + 1]?.[0] ?? MONTH_END;
+        const last = parents[parents.length - 1];
+        if (last && last.unit === army && last.to === from) last.to = to;
+        else parents.push({ from, to, unit: army });
+      }
+      if (parents.length) {
+        u.parents = parents;
+        applied++;
+      }
+    }
+    // Roster: latest event at or before each month-grid date.
+    const num = Number((div.label.match(/^(\d+)/) ?? [])[1] ?? 0);
+    for (const month of monthlyRosters) {
+      const md = dateNum(month.date);
+      let current = null;
+      for (const [date, army] of div.events) {
+        if (dateNum(date) <= md) current = army;
+        else break;
+      }
+      if (!current) continue;
+      if (!deRoster.has(month.date)) deRoster.set(month.date, new Map());
+      const byArmy = deRoster.get(month.date);
+      if (!byArmy.has(current)) byArmy.set(current, []);
+      byArmy.get(current).push({ id: div.id, num });
+    }
+  }
+  for (const byArmy of deRoster.values()) {
+    for (const list of byArmy.values()) list.sort((a, b) => a.num - b.num);
+  }
+  console.log(`German OOB: parents for ${applied} divisions, rosters over ${deRoster.size} months`);
 }
 
 for (const u of units.values()) {
@@ -424,10 +497,19 @@ if (sectors && monthlyRosters.length) {
       return tSpan < 0.5 ? (a ?? b) : (b ?? a);
     };
 
-    // German armies: sector midpoints.
+    // German armies: sector midpoints; their divisions (Lexikon Unterstellung
+    // rosters) subdivide the army span like Soviet divisions do army slices.
+    const deSeen = new Set();
     for (const e of [...(k0.de ?? []), ...(k1.de ?? [])]) {
+      if (deSeen.has(e.unit)) continue;
+      deSeen.add(e.unit);
       const span = spanFor('de', e.unit);
-      if (span) push(e.unit, month.date, (span[0] + span[1]) / 2);
+      if (!span) continue;
+      push(e.unit, month.date, (span[0] + span[1]) / 2);
+      const divs = deRoster.get(month.date)?.get(e.unit) ?? [];
+      divs.forEach((d, j) =>
+        push(d.id, month.date, span[0] + ((span[1] - span[0]) * (j + 0.5)) / divs.length),
+      );
     }
 
     // Soviet: front span -> armies (roster order) -> divisions.
