@@ -12,8 +12,8 @@
 // its own pocket/■ for most of the war).
 
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
-import type { FeatureCollection } from 'geojson';
-import { mainFrontLineOn } from './front';
+import type { FeatureCollection, Position } from 'geojson';
+import { mainFrontLineOn, pocketRingsOn } from './front';
 
 const SOURCE_ID = 'control-fill';
 const FILL_ID = 'control-fill-axis';
@@ -88,10 +88,23 @@ function axisPolygon(dateISO: string): FeatureCollection {
   for (let i = 1; i <= balIdx; i++) ring.push(BALTIC[i]); // west → nearest north
   ring.push(north);
 
+  // Pockets: Soviet pockets behind Axis lines (Leningrad, Sevastopol, Odessa…)
+  // are holes punched in the Axis area; Axis pockets behind Soviet lines
+  // (Stalingrad, Demyansk, Korsun, Crimea, Courland…) are red islands.
+  const pockets = pocketRingsOn(dateISO);
+  const holes: Position[][] = pockets.filter((p) => p.encircled === 'soviet').map((p) => p.ring);
+  const islands: Position[][][] = pockets
+    .filter((p) => p.encircled === 'axis')
+    .map((p) => [p.ring]);
+
   return {
     type: 'FeatureCollection',
     features: [
-      { type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [ring] } },
+      {
+        type: 'Feature',
+        properties: {},
+        geometry: { type: 'MultiPolygon', coordinates: [[ring, ...holes], ...islands] },
+      },
     ],
   };
 }

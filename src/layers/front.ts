@@ -69,6 +69,21 @@ export function mainFrontLineOn(dateISO: string): [number, number][] | null {
   return main ? coordsFor(main, dateISO, dateToNum(dateISO)) : null;
 }
 
+/** Active pockets/sieges on a date as closed rings, by encircled side — for
+ *  the control fill (Axis pockets = red islands, Soviet pockets = holes). */
+export function pocketRingsOn(
+  dateISO: string,
+): { encircled: 'axis' | 'soviet'; ring: [number, number][] }[] {
+  const d = dateToNum(dateISO);
+  const out: { encircled: 'axis' | 'soviet'; ring: [number, number][] }[] = [];
+  for (const f of features) {
+    if (!f.closed || !f.encircled) continue;
+    const coords = coordsFor(f, dateISO, d);
+    if (coords && coords.length > 2) out.push({ encircled: f.encircled, ring: [...coords, coords[0]] });
+  }
+  return out;
+}
+
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
 /** Interpolated coords of one feature, or null while it is not active.

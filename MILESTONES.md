@@ -450,10 +450,18 @@ Two long-standing gaps closed.
       a toggleable layer (bottom of the stack). Honest scope: single Axis fill
       (unfilled = Soviet/neutral); best 1941–44 coast-to-coast; the southern
       closure switches from the Black Sea coast to the rear boundary once the
-      front goes inland (1945) to avoid enclosing liberated Romania; Crimea and
-      pocket holes not cut yet.
+      front goes inland (1945) to avoid enclosing liberated Romania.
+- [x] **Pocket holes/islands in the fill** (`pocketRingsOn` → MultiPolygon):
+      Axis pockets behind Soviet lines render as red **islands** (the
+      Stalingrad cauldron sits isolated east of the main line; Demyansk,
+      Korsun, Crimea, Courland likewise); Soviet pockets/sieges behind Axis
+      lines (Leningrad, Oranienbaum, Sevastopol, Odessa) are **holes** punched
+      in the Axis area — the strategic fill now matches the pocket placements.
 - Verified: 56/56 smoke; tides screenshotted 1942→1945 (fill recedes with the
-  front); Courland/Demyansk garrisons shown inside their rings.
+  front; Stalingrad island + Leningrad hole confirmed); Courland/Demyansk
+  garrisons inside their rings.
+- v1 remainder: no per-day land clipping (the rear boundary is fixed, so
+  deep-1945 shading is schematic).
 
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
