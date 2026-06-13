@@ -489,10 +489,68 @@ if (sectors && monthlyRosters.length) {
   const existsAt = (u, dNum) =>
     u && dNum >= u._existFrom && dNum < u._existTo;
 
+  // Pocket placement (pre-pass): units trapped in a Kessel ride the pocket
+  // ring, not the main line. For each garrison pocket × roster month, expand
+  // the garrison to its OOB descendants and place each inside the ring (golden-
+  // angle spread), as ABSOLUTE keyframes. These take precedence over the
+  // main-line sector derivation for those unit-months.
+  const inPocket = new Set(); // `${id}|${date}` to skip on the main line
+  const pocketAbs = []; // { id, date, dNum, at:[lon,lat] }
+  for (const pk of pockets) {
+    if (!pk.garrison?.length) continue;
+    for (const month of monthlyRosters) {
+      const dNum = dateNum(month.date);
+      if (dNum < pk.fromNum || dNum >= pk.toNum) continue;
+      const ring = coordsFor(pk, month.date);
+      if (!ring || ring.length < 3) continue;
+      let cx = 0;
+      let cy = 0;
+      for (const [x, y] of ring) {
+        cx += x;
+        cy += y;
+      }
+      cx /= ring.length;
+      cy /= ring.length;
+      let r = 0;
+      for (const [x, y] of ring) r = Math.max(r, Math.hypot(x - cx, y - cy));
+      // Garrison + OOB descendants active this month (fixpoint over parents).
+      const garr = new Set(pk.garrison);
+      for (let pass = 0, changed = true; changed && pass < 6; pass++) {
+        changed = false;
+        for (const u of units.values()) {
+          if (garr.has(u.id)) continue;
+          const p = (u.parents ?? []).find(
+            (p) => dateNum(p.from) <= dNum && (!p.to || dNum < dateNum(p.to)),
+          );
+          if (p && garr.has(p.unit)) {
+            garr.add(u.id);
+            changed = true;
+          }
+        }
+      }
+      const list = [...garr].filter((id) => {
+        const u = units.get(id);
+        return existsAt(u, dNum) && !isCuratedActive(u, dNum);
+      });
+      list.forEach((id, i) => {
+        const ang = i * 2.399963229; // golden angle, even fill
+        const rad = 0.55 * r * Math.sqrt((i + 0.5) / list.length);
+        inPocket.add(`${id}|${month.date}`);
+        pocketAbs.push({
+          id,
+          date: month.date,
+          dNum,
+          at: [Number((cx + rad * Math.cos(ang)).toFixed(4)), Number((cy + rad * Math.sin(ang)).toFixed(4))],
+        });
+      });
+    }
+  }
+
   const push = (id, date, f) => {
     const u = units.get(id);
     const dNum = dateNum(date);
     if (!existsAt(u, dNum) || isCuratedActive(u, dNum)) return;
+    if (inPocket.has(`${id}|${date}`)) return; // placed in a pocket instead
     if (!derived.has(id)) derived.set(id, []);
     derived.get(id).push({ startNum: dNum, date, f: Number(f.toFixed(4)) });
   };
@@ -592,7 +650,16 @@ if (sectors && monthlyRosters.length) {
       });
     }
   }
-  console.log(`Derived fraction tracks for ${derived.size} units`);
+  // Add pocket placements (absolute keyframes) — precedence over main line.
+  let pocketPlaced = 0;
+  for (const p of pocketAbs) {
+    const u = units.get(p.id);
+    if (!existsAt(u, p.dNum) || isCuratedActive(u, p.dNum)) continue;
+    if (!derived.has(p.id)) derived.set(p.id, []);
+    derived.get(p.id).push({ startNum: p.dNum, date: p.date, at: p.at });
+    pocketPlaced++;
+  }
+  console.log(`Derived fraction tracks for ${derived.size} units (${pocketPlaced} pocket placements)`);
 
   // Validation: do derived positions land on their unit's own side of the
   // front? This is the project's quality engine (city-control, curated units)
@@ -619,13 +686,14 @@ if (sectors && monthlyRosters.length) {
   for (const [id, kfs] of derived) {
     const u = units.get(id);
     const ech = echGroup(u.echelon);
-    for (const { date, f } of kfs) {
-      const line = coordsFor(main, date);
+    for (const kfv of kfs) {
+      const line = coordsFor(main, kfv.date);
       if (!line) continue;
-      const [lon, lat] = pointAt(line, f, u.side, ech);
+      // Pocket placements are absolute; main-line placements resolve a fraction.
+      const [lon, lat] = kfv.at ? kfv.at : pointAt(line, kfv.f, u.side, ech);
       let drawn = null;
       for (const pf of pockets) {
-        const ring = coordsFor(pf, date);
+        const ring = coordsFor(pf, kfv.date);
         if (ring && inRing(ring, lon, lat)) {
           drawn = pf.encircled;
           break;
@@ -665,9 +733,11 @@ mkdirSync(join(OUT_DIR, 'tracks'), { recursive: true });
 mkdirSync(join(OUT_DIR, 'detail'), { recursive: true });
 mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
 
-// Derived file: per unit, segments of monthly fraction keyframes (a >40-day
-// gap starts a new segment; each segment stays renderable ~35 days past its
-// last keyframe). The client maps fractions onto the daily front line.
+// Derived file: per unit, segments of monthly keyframes (a >40-day gap, or a
+// switch between main-line and pocket placement, starts a new segment; each
+// segment renders ~35 days past its last keyframe). A keyframe is
+// [startNum, fraction] (resolve on the daily front line) or
+// [startNum, lon, lat] (absolute, inside a pocket ring).
 {
   const out = [];
   for (const [id, kfs] of derived) {
@@ -676,11 +746,12 @@ mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
     const segs = [];
     let cur = null;
     for (const kf of kfs) {
-      if (!cur || diffDays(cur.lastDate, kf.date) > 40) {
-        cur = { kfs: [], lastDate: kf.date };
+      const abs = Boolean(kf.at);
+      if (!cur || diffDays(cur.lastDate, kf.date) > 40 || cur.abs !== abs) {
+        cur = { kfs: [], lastDate: kf.date, abs };
         segs.push(cur);
       }
-      cur.kfs.push([kf.startNum, kf.f]);
+      cur.kfs.push(abs ? [kf.startNum, kf.at[0], kf.at[1]] : [kf.startNum, kf.f]);
       cur.lastDate = kf.date;
     }
     out.push({

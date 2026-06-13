@@ -284,6 +284,19 @@ await page.waitForTimeout(5000);
 await page.screenshot({ path: `${SHOTS}/ww2-eastern-sim.png` });
 check('eastern-sim screenshot taken', true);
 
+// Territorial tide fill: the layer is registered with a toggle + legend.
+check('tide fill layer in the panel', (await page.locator('.layer-row', { hasText: 'Territorial control' }).count()) === 1);
+
+// Pocket placement: encircled garrison units carry absolute (length-3)
+// keyframes that put them inside the ring instead of on the main line.
+const pocketKf = await page.evaluate(async () => {
+  const d = await (await fetch('/data/units/derived/eastern.json')).json();
+  const u = d.units.find((x) => x.id === 'de-h-armee-16'); // Courland garrison
+  if (!u) return 0;
+  return u.segs.some((s) => s.kfs.some((k) => k.length === 3)) ? 1 : 0;
+});
+check('Courland garrison has in-pocket (absolute) placement', pocketKf === 1);
+
 const realErrors = errors.filter((e) => !/WebGL|GPU|swiftshader|Failed to load resource/i.test(e));
 check(`no console/page errors (${errors.length} total, ${realErrors.length} relevant)`, realErrors.length === 0);
 if (realErrors.length) console.log(realErrors.join('\n'));

@@ -14,7 +14,7 @@ import type { Feature, FeatureCollection } from 'geojson';
 import { dateToNum, diffDays } from '../time/dates';
 import {
   confidenceOn,
-  derivedFractionOn,
+  derivedPlacementOn,
   loadDerivedUnits,
   loadUnitTracks,
   positionOn,
@@ -113,9 +113,11 @@ export function getUnitPositionOn(id: string, dateISO: string): [number, number]
   }
   const du = derivedUnits.find((u) => u.id === id);
   if (!du) return null;
-  const f = derivedFractionOn(du, dateISO, d);
-  const line = f !== null ? mainFrontLine(dateISO, d) : null;
-  return line ? pointAt(line, f!, du.side, ECH_GROUP(du.echelon)) : null;
+  const place = derivedPlacementOn(du, dateISO, d);
+  if (!place) return null;
+  if ('at' in place) return place.at; // inside a pocket ring
+  const line = mainFrontLine(dateISO, d);
+  return line ? pointAt(line, place.frac, du.side, ECH_GROUP(du.echelon)) : null;
 }
 
 const numToISO = (n: number): string => {
@@ -151,10 +153,15 @@ export function getDerivedRoute(id: string): { date: string; at: [number, number
   const ech = ECH_GROUP(du.echelon);
   const out: { date: string; at: [number, number]; jump: boolean }[] = [];
   du.segs.forEach((seg, si) => {
-    seg.kfs.forEach(([startNum, f], ki) => {
+    seg.kfs.forEach((kf, ki) => {
+      const startNum = kf[0];
       const iso = numToISO(startNum);
-      const line = mainFrontLine(iso, startNum);
-      if (line) out.push({ date: iso, at: pointAt(line, f, du.side, ech), jump: si > 0 && ki === 0 });
+      if (kf.length === 3) {
+        out.push({ date: iso, at: [kf[1], kf[2]], jump: si > 0 && ki === 0 });
+      } else {
+        const line = mainFrontLine(iso, startNum);
+        if (line) out.push({ date: iso, at: pointAt(line, kf[1], du.side, ech), jump: si > 0 && ki === 0 });
+      }
     });
   });
   return out;
@@ -247,30 +254,33 @@ function collectionFor(dateISO: string): FeatureCollection {
     });
   }
 
-  // Derived units ride the daily front line at their sector fraction.
+  // Derived units ride the daily front line at their sector fraction, or sit
+  // inside a pocket ring (absolute placement).
   const line = mainFrontLine(dateISO, d);
-  if (line) {
-    for (const du of derivedUnits) {
-      // A curated track wins whenever it is active on this date.
-      if (trackIds.has(du.id)) {
-        const t = tracks.find((x) => x.id === du.id)!;
-        if (positionOn(t, dateISO, d)) continue;
-      }
-      const f = derivedFractionOn(du, dateISO, d);
-      if (f === null) continue;
-      const ech = ECH_GROUP(du.echelon);
-      out.push({
-        type: 'Feature',
-        properties: {
-          id: du.id,
-          short: du.short,
-          icon: iconId(du.side, du.type, ECH_MARK[du.echelon] ?? 'XX', true),
-          ech,
-          approx: false,
-        },
-        geometry: { type: 'Point', coordinates: pointAt(line, f, du.side, ech) },
-      });
+  for (const du of derivedUnits) {
+    // A curated track wins whenever it is active on this date.
+    if (trackIds.has(du.id)) {
+      const t = tracks.find((x) => x.id === du.id)!;
+      if (positionOn(t, dateISO, d)) continue;
     }
+    const place = derivedPlacementOn(du, dateISO, d);
+    if (!place) continue;
+    const ech = ECH_GROUP(du.echelon);
+    let at: [number, number];
+    if ('at' in place) at = place.at;
+    else if (line) at = pointAt(line, place.frac, du.side, ech);
+    else continue;
+    out.push({
+      type: 'Feature',
+      properties: {
+        id: du.id,
+        short: du.short,
+        icon: iconId(du.side, du.type, ECH_MARK[du.echelon] ?? 'XX', true),
+        ech,
+        approx: false,
+      },
+      geometry: { type: 'Point', coordinates: at },
+    });
   }
   return { type: 'FeatureCollection', features: out };
 }

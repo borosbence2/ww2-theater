@@ -7752,6 +7752,9 @@
             ]
           ]
         }
+      ],
+      "garrison": [
+        "de-h-armee-6"
       ]
     },
     {
@@ -7800,6 +7803,10 @@
             ]
           ]
         }
+      ],
+      "garrison": [
+        "de-h-armee-16",
+        "de-h-armee-18"
       ]
     },
     {
@@ -7876,6 +7883,10 @@
             ]
           ]
         }
+      ],
+      "garrison": [
+        "de-13th-panzer-division",
+        "de-8th-ss-cavalry-division-florian-geyer"
       ]
     },
     {
@@ -8136,6 +8147,14 @@
             ]
           ]
         }
+      ],
+      "garrison": [
+        "de-12th-infantry-division",
+        "de-30th-infantry-division",
+        "de-32nd-infantry-division",
+        "de-290th-infantry-division",
+        "de-123rd-infantry-division",
+        "de-3rd-ss-panzer-division"
       ]
     },
     {
@@ -8396,6 +8415,9 @@
             ]
           ]
         }
+      ],
+      "garrison": [
+        "de-h-armee-17"
       ]
     },
     {
@@ -8462,6 +8484,13 @@
             ]
           ]
         }
+      ],
+      "garrison": [
+        "de-88th-infantry-division",
+        "de-72nd-infantry-division",
+        "de-57th-infantry-division",
+        "de-389th-infantry-division",
+        "de-5th-ss-panzer-division"
       ]
     },
     {

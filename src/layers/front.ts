@@ -62,6 +62,13 @@ export function getFrontFeatures(): FrontFeature[] {
   return features;
 }
 
+/** Interpolated main front line (N→S) on a date, or null. Shared with the
+ *  control-fill layer so it tracks the same daily line the front draws. */
+export function mainFrontLineOn(dateISO: string): [number, number][] | null {
+  const main = features.find((f) => f.kind === 'front');
+  return main ? coordsFor(main, dateISO, dateToNum(dateISO)) : null;
+}
+
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
 /** Interpolated coords of one feature, or null while it is not active.

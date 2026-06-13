@@ -92,6 +92,8 @@ const features = src.features.map((f) => {
     to: f.to ?? null,
     fromNum: dateNum(from),
     toNum: f.to ? dateNum(f.to) : OPEN_END,
+    // Units trapped in this pocket (placed inside the ring by build-units).
+    ...(f.garrison ? { garrison: f.garrison } : {}),
     keyframes,
   };
 });

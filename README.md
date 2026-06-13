@@ -22,6 +22,8 @@ The full target design and phased roadmap live in [REWRITE_PLAN.md](./REWRITE_PL
 > cities, 445 Wikidata battles), clickable (OOB chains, drill-down,
 > path/follow mode), and deep-linkable; the **People panel** fans a name out
 > to 11 national archives and resolves the found unit back onto the map.
+> A toggleable **territorial tide** shades Axis-controlled land (front →
+> coast-closed rear); encircled formations sit inside their pocket rings.
 > Validation loops check every city and every curated unit against the front
 > for every day of the war. See [MILESTONES.md](./MILESTONES.md) for details,
 > [SCALE_PLAN.md](./SCALE_PLAN.md) for where this is headed.

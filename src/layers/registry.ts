@@ -13,6 +13,7 @@ import { CITIES_LAYER_IDS, addCitiesLayer } from './cities';
 import { CONTROL_DOTS_LAYER_IDS, addControlDotsLayer, updateControlDotsDate } from './controlDots';
 import { UNITS_LAYER_IDS, addUnitsLayer, updateUnitsDate } from './units';
 import { BATTLES_LAYER_IDS, addBattlesLayer, updateBattlesDate } from './battles';
+import { CONTROL_FILL_LAYER_IDS, addControlFillLayer, updateControlFillDate } from './controlFill';
 
 export interface LegendItem {
   /** Swatch shape: line | dash | fill | dot. */
@@ -38,6 +39,14 @@ const SOVIET_COLOR = '#2f6fb0';
 
 /** Registry order is also map add order (later entries draw on top). */
 export const LAYERS: LayerDef[] = [
+  {
+    id: 'control-fill',
+    label: 'Territorial control (tide)',
+    legend: [{ shape: 'fill', color: AXIS_COLOR, label: 'Axis-controlled territory (schematic)' }],
+    add: addControlFillLayer,
+    updateDate: updateControlFillDate,
+    mapLayerIds: CONTROL_FILL_LAYER_IDS,
+  },
   {
     id: 'borders',
     label: 'Country borders',

@@ -429,6 +429,32 @@ the biggest errors, all geometry-verified (no kinks, no net regressions):
   thinly-covered theatres (Yugoslavia, Hungary, Caucasus E-W segment). The
   worklist remains the tracking mechanism for further densification.
 
+## Pocket placement + territorial tide fill ✅
+Two long-standing gaps closed.
+- [x] **Pocket placement** (`garrison` on pocket features → `build-units.mjs`):
+      units trapped in a Kessel now sit **inside the ring**, not stranded on
+      the receded main line. Garrison armies/divisions expand to their OOB
+      descendants per month and are placed by golden-angle spread inside the
+      (moving, shrinking) ring as ABSOLUTE keyframes; the derived format gained
+      `[start, lon, lat]` keyframes alongside `[start, fraction]`, resolved by
+      the client (`derivedPlacementOn`). Garrisoned: Courland (16./18. Armee —
+      these had *vanished* since they left the sector table), Crimea (17.
+      Armee), Stalingrad (6. Armee), Demyansk, Korsun, Budapest. 118 pocket
+      placements; derived side-check holds at 99.8%.
+- [x] **Territorial tide fill** (`src/layers/controlFill.ts`) — the deferred
+      M2/M3.5 "shade the controlled area" feature, finally shipped. Each day
+      the Axis-controlled land is filled between the interpolated front (east)
+      and a fixed rear boundary, **closed along authored Baltic/Black Sea
+      coasts** so the seas and neutral Sweden/Turkey are never painted — no
+      polygon-clipping library, just nearest-point coast walking. Registered as
+      a toggleable layer (bottom of the stack). Honest scope: single Axis fill
+      (unfilled = Soviet/neutral); best 1941–44 coast-to-coast; the southern
+      closure switches from the Black Sea coast to the rear boundary once the
+      front goes inland (1945) to avoid enclosing liberated Romania; Crimea and
+      pocket holes not cut yet.
+- Verified: 56/56 smoke; tides screenshotted 1942→1945 (fill recedes with the
+  front); Courland/Demyansk garrisons shown inside their rings.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

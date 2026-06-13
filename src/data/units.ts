@@ -64,11 +64,15 @@ export interface UnitDetail {
   notes: string | null;
 }
 
+/** Keyframe: [startNum, fraction] on the main line, or [startNum, lon, lat]
+ *  absolute (a unit placed inside a pocket ring). */
+export type DerivedKf = [number, number] | [number, number, number];
+
 export interface DerivedSeg {
   /** YYYYMMDD after which the segment stops rendering. */
   end: number;
-  /** [startNum, fraction along the front line] keyframes, ascending. */
-  kfs: [number, number][];
+  /** Keyframes, ascending. All in one segment share a kind (length 2 vs 3). */
+  kfs: DerivedKf[];
 }
 
 export interface DerivedUnit {
@@ -120,23 +124,35 @@ export function loadDerivedUnits(): Promise<DerivedUnit[]> {
 }
 
 /**
- * Fraction along the front for a derived unit on a date, or null when outside
- * every segment. Fractions lerp between monthly keyframes unless the jump is
- * large (front re-assignment) — then hold-and-jump, like rail moves.
+ * Derived placement of a unit on a date, or null when outside every segment:
+ *   { frac } — a fraction along the main front line (resolve with the line), or
+ *   { at }   — an absolute [lon, lat] (the unit is inside a pocket ring).
+ * Values lerp between monthly keyframes; a large fraction jump (front
+ * re-assignment) holds-and-jumps like a rail move.
  */
-export function derivedFractionOn(unit: DerivedUnit, dateISO: string, d: number): number | null {
+export function derivedPlacementOn(
+  unit: DerivedUnit,
+  dateISO: string,
+  d: number,
+): { frac: number } | { at: [number, number] } | null {
   for (const seg of unit.segs) {
     if (d < seg.kfs[0][0] || d > seg.end) continue;
     const kfs = seg.kfs;
     let i = 0;
     while (i < kfs.length - 1 && kfs[i + 1][0] <= d) i++;
-    const [s0, f0] = kfs[i];
+    const k0 = kfs[i];
     const k1 = kfs[Math.min(i + 1, kfs.length - 1)];
-    if (k1[0] <= s0) return f0;
-    if (Math.abs(k1[1] - f0) > 0.12) return f0; // big jump: hold, don't glide
-    const span = diffDays(numToDate(s0), numToDate(k1[0]));
-    const t = span > 0 ? diffDays(numToDate(s0), dateISO) / span : 0;
-    return f0 + (k1[1] - f0) * Math.max(0, Math.min(1, t));
+    const span = k1[0] > k0[0] ? diffDays(numToDate(k0[0]), numToDate(k1[0])) : 0;
+    const t = span > 0 ? Math.max(0, Math.min(1, diffDays(numToDate(k0[0]), dateISO) / span)) : 0;
+    if (k0.length === 3) {
+      const lon = k0[1] + ((k1[1] ?? k0[1]) - k0[1]) * t;
+      const lat = k0[2] + ((k1[2] ?? k0[2]) - k0[2]) * t;
+      return { at: [lon, lat] };
+    }
+    const f0 = k0[1];
+    const f1 = k1[1];
+    if (k1[0] <= k0[0] || Math.abs(f1 - f0) > 0.12) return { frac: f0 }; // hold
+    return { frac: f0 + (f1 - f0) * t };
   }
   return null;
 }
