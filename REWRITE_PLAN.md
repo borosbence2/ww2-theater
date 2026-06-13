@@ -1,5 +1,12 @@
 # Rewrite plan — from frontline viewer to unit-centric atlas
 
+> **Status 2026-06-11:** Phases 0–4 shipped (see MILESTONES.md); Phase 3's
+> breadth strategy superseded and largely delivered by
+> [SCALE_PLAN.md](./SCALE_PLAN.md) S1–S3 (Eastern Front simulation).
+> Open: Phase 5 (strength, pocket↔unit links, sector segmentation),
+> Phase 6 (perf/deploy/contributions), Western/Italian fronts, the `?edit`
+> unit-authoring mode.
+
 Target: an app where the WWII frontlines move day by day **and** the fighting
 formations are on the map — searchable, clickable, drillable down to whatever
 echelon the historical record supports, with every individual soldier *findable*

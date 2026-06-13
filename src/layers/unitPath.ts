@@ -8,6 +8,7 @@ import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 import type { Feature, FeatureCollection } from 'geojson';
 import { dateToNum } from '../time/dates';
 import { loadUnitTracks, positionOn, type UnitTrack } from '../data/units';
+import { derivedUnitSide, getDerivedRoute } from './units';
 
 const SOURCE_ID = 'unit-path';
 const ROUTE_ID = 'unit-path-route';
@@ -55,6 +56,40 @@ function pathCollection(track: UnitTrack, dateISO: string): FeatureCollection {
       type: 'Feature',
       properties: { role: 'kf', color, date: k.date, passed: k.start <= d },
       geometry: { type: 'Point', coordinates: k.at },
+    });
+  }
+  return { type: 'FeatureCollection', features: out };
+}
+
+/** Route for a derived unit: monthly sector positions resolved on the front. */
+function derivedPathCollection(
+  route: { date: string; at: [number, number]; jump: boolean }[],
+  side: 'axis' | 'soviet',
+  dateISO: string,
+): FeatureCollection {
+  const d = dateToNum(dateISO);
+  const color = SIDE_COLOR[side];
+  const out: Feature[] = [];
+  for (let i = 1; i < route.length; i++) {
+    out.push({
+      type: 'Feature',
+      properties: { role: route[i].jump ? 'route-dash' : 'route', color },
+      geometry: { type: 'LineString', coordinates: [route[i - 1].at, route[i].at] },
+    });
+  }
+  const passed = route.filter((p) => dateToNum(p.date) <= d);
+  if (passed.length > 1) {
+    out.push({
+      type: 'Feature',
+      properties: { role: 'traveled', color },
+      geometry: { type: 'LineString', coordinates: passed.map((p) => p.at) },
+    });
+  }
+  for (const p of route) {
+    out.push({
+      type: 'Feature',
+      properties: { role: 'kf', color, date: p.date, passed: dateToNum(p.date) <= d },
+      geometry: { type: 'Point', coordinates: p.at },
     });
   }
   return { type: 'FeatureCollection', features: out };
@@ -156,5 +191,15 @@ export async function updateUnitPath(
     return;
   }
   const track = (await loadUnitTracks()).find((t) => t.id === unitId);
-  src.setData(track ? pathCollection(track, date) : EMPTY);
+  if (track) {
+    src.setData(pathCollection(track, date));
+    return;
+  }
+  const side = derivedUnitSide(unitId);
+  if (side) {
+    const route = getDerivedRoute(unitId);
+    src.setData(route.length ? derivedPathCollection(route, side, date) : EMPTY);
+    return;
+  }
+  src.setData(EMPTY);
 }

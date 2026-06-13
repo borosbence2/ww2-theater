@@ -8,20 +8,23 @@ the map**, drill-down to lower echelons where the record supports it, and every
 individual soldier *findable* through his unit plus federated external archives.
 The full target design and phased roadmap live in [REWRITE_PLAN.md](./REWRITE_PLAN.md).
 
-> **Status: front v2 — pockets, sieges, daily city control.** Map shell +
-> date/time machine (slider, play/pause) with shareable deep-link URLs;
-> **country borders** that change with the date (CShapes 2.0); a **multi-feature
-> front**: the connected main line (interpolated between ~26 authored keyframes,
-> Barbarossa to Berlin) plus **encirclement pockets and sieges** as independent
-> dated features (Kiev, Stalingrad, Courland, Budapest, Breslau, Leningrad),
-> with side tint bands (Axis west / Soviet east); **city control dots** that
-> flip on exact documented capture/liberation dates; and **cities** with
-> capitals emphasized, WWII-era names (Natural Earth). The fronts ETL
-> cross-checks the drawn front against the settlement-control timeline for
-> every day of the war, and a built-in **keyframe editor** (`?edit`) makes
-> densifying toward daily resolution fast. The Stanford control-fill layer
-> remains disabled (administrative ≠ operational front). See
-> [MILESTONES.md](./MILESTONES.md) for the roadmap and data caveats.
+> **Status: the Eastern Front is simulated, Barbarossa → Berlin.** The moving
+> multi-feature front (main line, pockets, sieges, daily city control) is now
+> populated by **1,739 military units**: the curated Stalingrad showcase
+> (6. Armee's order of battle down to 13th Guards' regiments, commander
+> successions, documented position tracks), plus **1,167 units at daily
+> sector-derived positions** — every Soviet rifle/guards/cavalry division from
+> the monthly *Boevoi sostav* lists and 107 German divisions from Lexikon der
+> Wehrmacht *Unterstellung* tables, plus Soviet tank/mech corps from the
+> armored-forces column, distributed along authored army sectors
+> and riding the interpolated front (hollow icons = derived, solid =
+> documented). Everything is searchable (units by alias/transliteration,
+> cities, 445 Wikidata battles), clickable (OOB chains, drill-down,
+> path/follow mode), and deep-linkable; the **People panel** fans a name out
+> to 11 national archives and resolves the found unit back onto the map.
+> Validation loops check every city and every curated unit against the front
+> for every day of the war. See [MILESTONES.md](./MILESTONES.md) for details,
+> [SCALE_PLAN.md](./SCALE_PLAN.md) for where this is headed.
 
 ## Stack
 
@@ -120,7 +123,7 @@ between sparse keyframes — not literally sourced per day. See
 | **Phase 3.1** ✅ | 949 division scaffolds imported from Wikidata — every German/Soviet division searchable with an honest "not mapped yet" page (986 units total) |
 | Phase 3 (rest) | Campaign position passes (Barbarossa → Kursk → Bagration → Berlin); Western/Italian fronts; importer pass 2 (ru labels, missing famous units, corps/armies, subordination) |
 | **Phase 4** ✅ | People panel (federated archive search + find-their-unit wizard, `?person=`), Tier-2 drill-down (13th Guards' regiments, selection-gated), commander successions on all curated formations |
-| **Eastern sim v1+v2** ✅ | SCALE_PLAN S1–S3: Boevoi sostav monthly OOB (17.3k assignments) + Lexikon der Wehrmacht Unterstellung tables (107 German divisions, 2.9k events), authored army sectors, 803 units at daily sector-derived positions (hollow icons) riding the front from Barbarossa to Berlin |
+| **Eastern Front sim** ✅ | SCALE_PLAN S1–S3, *complete*: Boevoi sostav (22k assignments, full front→army→corps→division chains) + Lexikon der Wehrmacht (139 German divisions incl. Waffen-SS) + Romanian/Hungarian/Italian armies; 1,739 units, 1,167 at daily sector-derived positions (hollow icons), Barbarossa→Berlin. See EASTERN_SIM_PLAN.md for the definition of done. |
 | Phase 5 | Strength/equipment records, pocket↔unit links, front sector segmentation |
 | Phase 6 | Perf (PMTiles), mobile, public deploy; community-contribution decision gate |
 

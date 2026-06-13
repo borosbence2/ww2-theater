@@ -1,0 +1,29 @@
+{
+  "id": "ro-armee-3",
+  "country": "RO",
+  "branch": "armata",
+  "echelon": "army",
+  "type": "hq",
+  "short": "Rom. 3rd A",
+  "names": [
+    {
+      "from": "1941-06-22",
+      "name": "3rd Romanian Army",
+      "aliases": [
+        "Armata a 3-a română",
+        "3. rumänische Armee"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-06-22"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Third_Army_(Romania)"
+  },
+  "notes": "Axis-allied army scaffold for the Eastern sim: held the Don bend sector north of Stalingrad (Uranus broke through here, 19 Nov 1942). Divisional OOB not yet ingested."
+}

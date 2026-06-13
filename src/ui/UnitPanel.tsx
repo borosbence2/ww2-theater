@@ -73,7 +73,7 @@ export function UnitPanel({ id }: { id: string }) {
         {lifeEnd.end && <span className="unit-end"> · {lifeEnd.end}</span>}
       </p>
 
-      {unit.positions.length > 0 && (
+      {(unit.positions.length > 0 || unit.derived) && (
         <div className="unit-controls">
           <label>
             <input

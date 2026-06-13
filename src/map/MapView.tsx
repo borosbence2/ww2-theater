@@ -9,13 +9,11 @@ import maplibregl from 'maplibre-gl';
 import { useStore } from '../store';
 import { LAYERS, applyVisibility } from '../layers/registry';
 import { CITY_DOT_LAYER_ID } from '../layers/cities';
-import { UNITS_HIT_LAYER_IDS, updateUnitsFocus } from '../layers/units';
+import { UNITS_HIT_LAYER_IDS, getUnitPositionOn, updateUnitsFocus } from '../layers/units';
 import { BATTLES_HIT_LAYER_ID } from '../layers/battles';
 import { addUnitPathLayers, updateUnitPath } from '../layers/unitPath';
 import { loadCities } from '../data/cities';
 import { loadBattles } from '../data/battles';
-import { dateToNum } from '../time/dates';
-import { loadUnitTracks, positionOn } from '../data/units';
 import { setMap } from './mapRef';
 import { EDIT_MODE } from '../edit/mode';
 import { addEditLayers } from '../edit/editLayer';
@@ -121,9 +119,8 @@ export function MapView() {
           map.flyTo({ center: [city.lng, city.lat], zoom: Math.max(map.getZoom(), 5.5) });
         }
       } else if (sel?.kind === 'unit') {
-        const track = (await loadUnitTracks()).find((t) => t.id === sel.id);
-        const d = useStore.getState().date;
-        const at = track ? positionOn(track, d, dateToNum(d)) : null;
+        // Curated or sector-derived (units layer holds this date's geometry).
+        const at = getUnitPositionOn(sel.id, useStore.getState().date);
         if (at) map.flyTo({ center: at, zoom: Math.max(map.getZoom(), 6) });
       } else if (sel?.kind === 'battle') {
         const battle = (await loadBattles()).find((b) => b.id === sel.id);
@@ -171,20 +168,14 @@ export function MapView() {
     void updateUnitPath(map, unitId, date);
   }, [selection, trackPath, date]);
 
-  // Follow mode: keep the camera on the unit as the date moves.
+  // Follow mode: keep the camera on the unit as the date moves. Works for
+  // curated tracks and sector-derived units alike (getUnitPositionOn covers
+  // both); the units layer must already hold this date's front geometry.
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !readyRef.current || !follow || selection?.kind !== 'unit') return;
-    let cancelled = false;
-    void loadUnitTracks().then((tracks) => {
-      if (cancelled) return;
-      const track = tracks.find((t) => t.id === selection.id);
-      const at = track ? positionOn(track, date, dateToNum(date)) : null;
-      if (at) map.easeTo({ center: at, duration: 180 });
-    });
-    return () => {
-      cancelled = true;
-    };
+    const at = getUnitPositionOn(selection.id, date);
+    if (at) map.easeTo({ center: at, duration: 180 });
   }, [follow, selection, date]);
 
   return <div ref={containerRef} className="map" />;

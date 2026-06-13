@@ -7,6 +7,13 @@
   "short": "8. Armee",
   "names": [
     {
+      "from": "1943-02-01",
+      "name": "Armeeabteilung Kempf",
+      "aliases": [
+        "Army Detachment Kempf"
+      ]
+    },
+    {
       "from": "1943-08-22",
       "name": "8. Armee",
       "aliases": [
@@ -18,7 +25,7 @@
   ],
   "existence": [
     {
-      "from": "1943-08-22"
+      "from": "1943-02-01"
     }
   ],
   "parents": [],

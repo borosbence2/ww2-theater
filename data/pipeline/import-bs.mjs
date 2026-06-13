@@ -104,6 +104,7 @@ const DIV_TYPES = {
   'вдд': ['Airborne', 'infantry', 'airborne-division'],
   'мд': ['Motorized', 'motorized', 'motorized-division'],
   'мсд': ['Motor Rifle', 'motorized', 'motor-rifle-division'],
+  'тд': ['Tank', 'armoured', 'tank-division'],
 };
 /** Tokens that are deliberately out of v1 scope (no report noise). */
 const SKIP_TOKEN = /(бр|полк|УР|опаб|опулб|обс|орб|зап\.|б\/н|пд|тк|мк|ск|кк|оск|армии|остал|часть|части|погран|ОН|мкк|ид|управлен|дн|ад|бад|иад)/;
@@ -181,17 +182,58 @@ function divisionUnit(n, guards, abbr) {
   });
 }
 
-/** Expand a rifle/cavalry cell into division unit ids. */
+const RIFLE_CORPS = {
+  'ск': ['Rifle Corps', 'rifle-corps', 'infantry'],
+  'кк': ['Cavalry Corps', 'cavalry-corps', 'cavalry'],
+};
+
+function rifleCorpsUnit(n, guards, abbr) {
+  const [en, slugPart, type] = RIFLE_CORPS[abbr];
+  const id = `su-${ORD(n)}${guards ? '-guards' : ''}-${slugPart}`;
+  return createUnit(id, {
+    kind: 'corps',
+    name: `${ORD(n)} ${guards ? 'Guards ' : ''}${en}`,
+    ru: `${n} ${guards ? 'гв. ' : ''}${abbr}`,
+    type,
+  });
+}
+
+/**
+ * Expand a rifle/cavalry cell into { divisions, corps } where corps are
+ * `{unit, divisions}` — the full chain front -> army -> corps -> division.
+ */
 function parseDivisions(cellRaw, report) {
   const cell = cellRaw
     .replace(/<[^>]+>/g, ' ')
     .replace(/&[a-z]+;/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
-  if (!cell || cell === '–' || cell === '-') return [];
+  if (!cell || cell === '–' || cell === '-') return { divisions: [], corps: [] };
 
-  // Unwrap corps parentheses: their contents join the army-level list (v1).
-  let flat = cell.replace(/\(([^()]*)\)/g, ', $1, ');
+  // Extract corps with their parenthesized members first:
+  // "7 гв. ск (5 гв. сд, 112 сбр)" -> corps unit + members parsed inside.
+  const corps = [];
+  let rest = cell.replace(
+    /(\d+)\s*(гв\.?\s*)?(ск|кк)\s*\(([^()]*)\)/g,
+    (_, n, gv, abbr, inner) => {
+      const unit = rifleCorpsUnit(Number(n), Boolean(gv), abbr);
+      corps.push({ unit, divisions: parseList(inner, report) });
+      return ', ';
+    },
+  );
+  // Bare corps without listed members: "14 ск" (members listed elsewhere).
+  rest = rest.replace(/(^|, ?)(\d+)\s*(гв\.?\s*)?(ск|кк)(?=,|$| )/g, (_, pre, n, gv, abbr) => {
+    corps.push({ unit: rifleCorpsUnit(Number(n), Boolean(gv), abbr), divisions: [] });
+    return pre;
+  });
+
+  return { divisions: parseList(rest, report), corps };
+}
+
+/** Token list -> division ids (right-to-left type propagation). */
+function parseList(raw, report) {
+  // Remaining (non-corps) parentheses unwrap into the flat list.
+  let flat = raw.replace(/\(([^()]*)\)/g, ', $1, ');
   flat = flat.replace(/ и /g, ', ');
 
   const out = [];
@@ -237,6 +279,70 @@ function parseDivisions(cellRaw, report) {
   return out.reverse();
 }
 
+const ARMOR_CORPS = {
+  'тк': ['Tank Corps', 'tank-corps', 'armoured'],
+  'мк': ['Mechanized Corps', 'mechanized-corps', 'motorized'],
+};
+// No \b after Cyrillic — JS word boundaries are ASCII-only; use substrings/$.
+const ARMOR_SKIP = /(бр|тп$|отп|сап|отб|обб|одн|дн$|мдн|полк|бронепоезд|бепо|мцп|мцб|батал|рота|завод|УР|б\/н|зенап|аап|пап$|иптап|мп$)/;
+
+/** Expand the armored-forces cell: tank/mech CORPS + 1941 tank divisions. */
+function parseArmor(cellRaw, report) {
+  const cell = cellRaw
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-z]+;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!cell || cell === '–' || cell === '-') return [];
+  let flat = cell.replace(/\(([^()]*)\)/g, ', $1, ').replace(/ и /g, ', ');
+
+  const out = [];
+  const tokens = flat.split(',').map((t) => t.trim()).filter(Boolean);
+  let cur = null; // {kind:'corps'|'div', abbr, guards}
+  for (let i = tokens.length - 1; i >= 0; i--) {
+    const tok = tokens[i];
+    let m = tok.match(/^(\d+) (гв\.? )?(тк|мк)$/);
+    if (m) {
+      cur = { kind: 'corps', abbr: m[3], guards: Boolean(m[2]) };
+      out.push(armorCorpsUnit(Number(m[1]), cur.guards, cur.abbr));
+      continue;
+    }
+    m = tok.match(/^(\d+) (гв\.? )?(тд|мд)$/);
+    if (m) {
+      cur = { kind: 'div', abbr: m[3], guards: Boolean(m[2]) };
+      out.push(divisionUnit(Number(m[1]), cur.guards, cur.abbr));
+      continue;
+    }
+    m = tok.match(/^(\d+)( гв\.?)?$/);
+    if (m) {
+      if (!cur) continue; // left of a skipped group: dropped, never mis-typed
+      const guards = Boolean(m[2]) || cur.guards;
+      out.push(
+        cur.kind === 'corps'
+          ? armorCorpsUnit(Number(m[1]), guards, cur.abbr)
+          : divisionUnit(Number(m[1]), guards, cur.abbr),
+      );
+      continue;
+    }
+    cur = null;
+    if (!ARMOR_SKIP.test(tok) && !/^[–-]$/.test(tok)) {
+      report.set(`ARMOR? ${tok}`, (report.get(`ARMOR? ${tok}`) ?? 0) + 1);
+    }
+  }
+  return out.reverse();
+}
+
+function armorCorpsUnit(n, guards, abbr) {
+  const [en, slugPart, type] = ARMOR_CORPS[abbr];
+  const id = `su-${ORD(n)}${guards ? '-guards' : ''}-${slugPart}`;
+  return createUnit(id, {
+    kind: 'corps',
+    name: `${ORD(n)} ${guards ? 'Guards ' : ''}${en}`,
+    ru: `${n} ${guards ? 'гв. ' : ''}${abbr}`,
+    type,
+  });
+}
+
 function parseMonth(file) {
   const html = decoder.decode(readFileSync(join(RAW_DIR, file)));
   const date = `${file.slice(0, 4)}-${file.slice(4, 6)}-${file.slice(6, 8)}`;
@@ -278,14 +384,18 @@ function parseMonth(file) {
     }
     if (army === null) continue;
 
-    const divisions = parseDivisions(cells[1], stats.unresolvedTokens);
-    if (!divisions.length && army === 'FRONT_DIRECT') continue;
+    const { divisions, corps } = parseDivisions(cells[1], stats.unresolvedTokens);
+    const armor = cells[3] ? parseArmor(cells[3], stats.unresolvedTokens) : [];
+    if (!divisions.length && !corps.length && !armor.length && army === 'FRONT_DIRECT') continue;
     entries.push({
       front,
       army: army === 'FRONT_DIRECT' ? null : army,
       divisions,
+      corps,
+      armor,
     });
-    stats.assignments += divisions.length;
+    stats.assignments +=
+      divisions.length + armor.length + corps.reduce((s, c) => s + 1 + c.divisions.length, 0);
   }
   stats.months++;
   return { date, entries };

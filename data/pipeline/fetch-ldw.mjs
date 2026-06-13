@@ -21,6 +21,8 @@ const INDEXES = [
   'Grenadierdivisionen/Gliederung-R.htm',
   'SchnelleTruppen-R.htm',
   'SichDiv/Index-R.htm',
+  'SS-Divisionen/Gliederung-R.htm',
+  'GebirgsdivisionenSS/Gliederung-R.htm',
 ];
 
 mkdirSync(RAW, { recursive: true });
@@ -50,6 +52,17 @@ const known = new Set();
   }
 }
 
+// Name-based pages (the early SS divisions that became 1.-6. SS): not
+// reachable through any parseable master list; seeded explicitly.
+const SEED = [
+  ['SS-Divisionen/SSDivLSSAH-R.htm', 'SS-Division Leibstandarte SS Adolf Hitler'],
+  ['SS-Divisionen/SSDivReich-R.htm', 'SS-Division Das Reich'],
+  ['SS-Divisionen/SSDivTK-R.htm', 'SS-Division Totenkopf'],
+  ['SS-Divisionen/SSDivPolizei-R.htm', 'SS-Polizei-Division'],
+  ['SS-Divisionen/SSDivWiking-R.htm', 'SS-Division Wiking'],
+  ['GebirgsdivisionenSS/6GebDSS-R.htm', 'SS-Gebirgs-Division Nord'],
+];
+
 (async () => {
   // 1. Harvest division links from the category indexes.
   const targets = new Map(); // file name -> {url, label}
@@ -74,7 +87,11 @@ const known = new Set();
       if (!targets.has(file)) targets.set(file, { url: content, label });
     }
   }
-  console.log(`Harvested ${targets.size} division pages from ${INDEXES.length} indexes`);
+  for (const [path, label] of SEED) {
+    const file = path.split('/').pop();
+    if (!targets.has(file)) targets.set(file, { url: BASE + path, label });
+  }
+  console.log(`Harvested ${targets.size} division pages from ${INDEXES.length} indexes + ${SEED.length} seeds`);
 
   // 2. Fetch each content frame (cached).
   let fetched = 0;

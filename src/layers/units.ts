@@ -118,12 +118,46 @@ export function getUnitPositionOn(id: string, dateISO: string): [number, number]
   return line ? pointAt(line, f!, du.side, ECH_GROUP(du.echelon)) : null;
 }
 
+const numToISO = (n: number): string => {
+  const s = String(n);
+  return `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}`;
+};
+
 /** First renderable date of a derived unit (for search jump-in). */
 export function firstDerivedDate(id: string): string | null {
   const du = derivedUnits.find((u) => u.id === id);
   if (!du?.segs.length) return null;
-  const s = String(du.segs[0].kfs[0][0]);
-  return `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}`;
+  return numToISO(du.segs[0].kfs[0][0]);
+}
+
+/** Side of a derived unit, or null if it has no derived track. */
+export function derivedUnitSide(id: string): 'axis' | 'soviet' | null {
+  return derivedUnits.find((u) => u.id === id)?.side ?? null;
+}
+
+/** Has this unit a sector-derived track (vs a curated one)? */
+export function isDerivedUnit(id: string): boolean {
+  return derivedUnits.some((u) => u.id === id);
+}
+
+/**
+ * Monthly route of a derived unit: each segment keyframe's fraction resolved
+ * against that month's front line. A gap between segments (front reassignment)
+ * is a dashed jump, like a rail move. Returns [] for non-derived units.
+ */
+export function getDerivedRoute(id: string): { date: string; at: [number, number]; jump: boolean }[] {
+  const du = derivedUnits.find((u) => u.id === id);
+  if (!du) return [];
+  const ech = ECH_GROUP(du.echelon);
+  const out: { date: string; at: [number, number]; jump: boolean }[] = [];
+  du.segs.forEach((seg, si) => {
+    seg.kfs.forEach(([startNum, f], ki) => {
+      const iso = numToISO(startNum);
+      const line = mainFrontLine(iso, startNum);
+      if (line) out.push({ date: iso, at: pointAt(line, f, du.side, ech), jump: si > 0 && ki === 0 });
+    });
+  });
+  return out;
 }
 
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };

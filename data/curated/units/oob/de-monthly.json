@@ -59,20 +59,881 @@
    "n": 12
   },
   {
-   "id": "de-h-armee-5",
-   "n": 5
+   "id": "de-h-armee-10",
+   "n": 10
   },
   {
    "id": "de-h-armee-14",
    "n": 14
   },
   {
-   "id": "de-h-armee-10",
-   "n": 10
+   "id": "de-h-armee-5",
+   "n": 5
   },
   {
    "id": "de-h-armee-25",
    "n": 25
+  }
+ ],
+ "armeeabteilungen": [],
+ "created": [
+  {
+   "id": "de-127th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "127. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "127th Infantry Division",
+     "aliases": [
+      "127. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-133rd-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "133. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "133rd Infantry Division",
+     "aliases": [
+      "133. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-181st-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "181. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "181st Infantry Division",
+     "aliases": [
+      "181. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-18th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "18. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "18th Infantry Division",
+     "aliases": [
+      "18. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-199th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "199. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "199th Infantry Division",
+     "aliases": [
+      "199. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-210th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "210. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "210th Infantry Division",
+     "aliases": [
+      "210. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-221st-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "221. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "221st Infantry Division",
+     "aliases": [
+      "221. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-22nd-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "22. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "22nd Infantry Division",
+     "aliases": [
+      "22. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-242nd-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "242. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "242nd Infantry Division",
+     "aliases": [
+      "242. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-243rd-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "243. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "243rd Infantry Division",
+     "aliases": [
+      "243. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-244th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "244. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "244th Infantry Division",
+     "aliases": [
+      "244. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-250th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "250. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "250th Infantry Division",
+     "aliases": [
+      "250. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-25th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "25. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "25th Infantry Division",
+     "aliases": [
+      "25. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-2nd-cavalry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "cavalry",
+   "short": "2. Cav",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "2nd Cavalry Division",
+     "aliases": [
+      "2. Kavallerie-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-311th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "311. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "311th Infantry Division",
+     "aliases": [
+      "311. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-331st-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "331. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "331st Infantry Division",
+     "aliases": [
+      "331. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-357th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "357. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "357th Infantry Division",
+     "aliases": [
+      "357. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-362nd-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "362. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "362nd Infantry Division",
+     "aliases": [
+      "362. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-367th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "367. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "367th Infantry Division",
+     "aliases": [
+      "367. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-372nd-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "372. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "372nd Infantry Division",
+     "aliases": [
+      "372. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-59th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "59. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "59th Infantry Division",
+     "aliases": [
+      "59. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-6th-ss-mountain-division",
+   "country": "DE",
+   "branch": "waffen-ss",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "6. SS ",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "6th SS Mountain Division",
+     "aliases": [
+      "SS-Gebirgs-Division Nord"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-707th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "707. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "707th Infantry Division",
+     "aliases": [
+      "707. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-708th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "708. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "708th Infantry Division",
+     "aliases": [
+      "708. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-711th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "711. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "711th Infantry Division",
+     "aliases": [
+      "711. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-715th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "715. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "715th Infantry Division",
+     "aliases": [
+      "715. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-716th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "716. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "716th Infantry Division",
+     "aliases": [
+      "716. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-84th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "84. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "84th Infantry Division",
+     "aliases": [
+      "84. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-85th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "85. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "85th Infantry Division",
+     "aliases": [
+      "85. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-4th-ss-panzergrenadier-division",
+   "country": "DE",
+   "branch": "waffen-ss",
+   "echelon": "division",
+   "type": "motorized",
+   "short": "4. SS ",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "4th SS Panzergrenadier Division",
+     "aliases": [
+      "SS-Polizei-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-2nd-ss-panzer-division",
+   "country": "DE",
+   "branch": "waffen-ss",
+   "echelon": "division",
+   "type": "armoured",
+   "short": "2. SS ",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "2nd SS Panzer Division",
+     "aliases": [
+      "SS-Division Das Reich"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-3rd-ss-panzer-division",
+   "country": "DE",
+   "branch": "waffen-ss",
+   "echelon": "division",
+   "type": "armoured",
+   "short": "3. SS ",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "3rd SS Panzer Division",
+     "aliases": [
+      "SS-Division Totenkopf"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-5th-ss-panzer-division",
+   "country": "DE",
+   "branch": "waffen-ss",
+   "echelon": "division",
+   "type": "armoured",
+   "short": "5. SS ",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "5th SS Panzer Division",
+     "aliases": [
+      "SS-Division Wiking"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
   }
  ],
  "divisions": [
@@ -561,6 +1422,76 @@
    ]
   },
   {
+   "id": "de-127th-infantry-division",
+   "label": "127. Infanteriedivision",
+   "events": [
+    [
+     "1940-11-04",
+     "de-h-armee-2"
+    ],
+    [
+     "1941-06-28",
+     null
+    ],
+    [
+     "1941-07-25",
+     "de-h-armee-6"
+    ],
+    [
+     "1941-09-28",
+     null
+    ],
+    [
+     "1941-10-17",
+     "de-h-armee-11"
+    ],
+    [
+     "1942-09-03",
+     "de-h-armee-18"
+    ],
+    [
+     "1942-09-06",
+     "de-h-armee-11"
+    ],
+    [
+     "1942-10-19",
+     "de-h-armee-18"
+    ],
+    [
+     "1943-11-14",
+     null
+    ],
+    [
+     "1943-11-19",
+     "de-h-armee-16"
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-18"
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-16"
+    ],
+    [
+     "1944-11-01",
+     "de-h-armee-18"
+    ],
+    [
+     "1944-12-01",
+     "de-h-armee-16"
+    ],
+    [
+     "1945-01-01",
+     "de-h-armee-18"
+    ],
+    [
+     "1945-06-01",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-129th-infantry-division",
    "label": "129. Infanteriedivision",
    "events": [
@@ -634,6 +1565,68 @@
     ],
     [
      "1945-04-01",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-133rd-infantry-division",
+   "label": "133. Infanteriedivision",
+   "events": [
+    [
+     "1940-11-01",
+     "de-h-armee-2"
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-4"
+    ],
+    [
+     "1941-08-15",
+     "de-h-armee-2"
+    ],
+    [
+     "1941-09-21",
+     "de-h-armee-6"
+    ],
+    [
+     "1941-10-03",
+     "de-h-armee-2"
+    ],
+    [
+     "1941-10-26",
+     null
+    ],
+    [
+     "1941-12-17",
+     "de-h-armee-2"
+    ],
+    [
+     "1941-12-20",
+     null
+    ],
+    [
+     "1941-12-28",
+     "de-h-armee-2"
+    ],
+    [
+     "1942-01-09",
+     null
+    ],
+    [
+     "1943-08-12",
+     "de-h-armee-9"
+    ],
+    [
+     "1943-11-01",
+     "de-h-armee-2"
+    ],
+    [
+     "1943-12-01",
+     "de-h-armee-9"
+    ],
+    [
+     "1944-07-01",
      null
     ]
    ]
@@ -891,6 +1884,82 @@
    ]
   },
   {
+   "id": "de-181st-infantry-division",
+   "label": "181. Infanteriedivision",
+   "events": [
+    [
+     "1939-12-01",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-18th-infantry-division",
+   "label": "18. Infanteriedivision",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-10"
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-14"
+    ],
+    [
+     "1939-10-23",
+     "de-h-armee-10"
+    ],
+    [
+     "1939-10-25",
+     "de-h-armee-6"
+    ],
+    [
+     "1940-05-28",
+     "de-h-armee-18"
+    ],
+    [
+     "1940-06-05",
+     "de-h-armee-4"
+    ],
+    [
+     "1940-06-06",
+     "de-h-armee-6"
+    ],
+    [
+     "1940-07-07",
+     null
+    ],
+    [
+     "1940-07-24",
+     "de-h-armee-2"
+    ],
+    [
+     "1940-09-14",
+     null
+    ],
+    [
+     "1940-11-01",
+     "de-h-armee-11"
+    ],
+    [
+     "1941-04-15",
+     "de-h-pzarmee-3"
+    ],
+    [
+     "1941-08-22",
+     "de-h-armee-18"
+    ],
+    [
+     "1941-10-11",
+     "de-h-armee-16"
+    ],
+    [
+     "1943-05-20",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-198th-infantry-division",
    "label": "198. Infanteriedivision",
    "events": [
@@ -1049,6 +2118,16 @@
    ]
   },
   {
+   "id": "de-199th-infantry-division",
+   "label": "199. Infanteriedivision",
+   "events": [
+    [
+     "1940-11-01",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-205th-infantry-division",
    "label": "205. Infanteriedivision",
    "events": [
@@ -1136,6 +2215,16 @@
     ],
     [
      "1943-03-22",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-210th-infantry-division",
+   "label": "210. Infanteriedivision",
+   "events": [
+    [
+     "1942-09-01",
      null
     ]
    ]
@@ -1547,6 +2636,24 @@
    ]
   },
   {
+   "id": "de-221st-infantry-division",
+   "label": "221. Infanteriedivision",
+   "events": [
+    [
+     "1939-09-01",
+     null
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-7"
+    ],
+    [
+     "1940-07-01",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-225th-infantry-division",
    "label": "225. Infanteriedivision",
    "events": [
@@ -1709,6 +2816,56 @@
    ]
   },
   {
+   "id": "de-22nd-infantry-division",
+   "label": "22. Infanteriedivision",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-5"
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-1"
+    ],
+    [
+     "1939-12-01",
+     null
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-9"
+    ],
+    [
+     "1940-08-01",
+     "de-h-armee-16"
+    ],
+    [
+     "1940-09-01",
+     null
+    ],
+    [
+     "1940-11-01",
+     "de-h-armee-16"
+    ],
+    [
+     "1940-12-15",
+     null
+    ],
+    [
+     "1941-06-22",
+     "de-h-armee-11"
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-12"
+    ],
+    [
+     "1943-03-01",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-239th-infantry-division",
    "label": "239. Infanteriedivision",
    "events": [
@@ -1739,6 +2896,60 @@
     [
      "1941-10-05",
      "de-h-armee-6"
+    ]
+   ]
+  },
+  {
+   "id": "de-242nd-infantry-division",
+   "label": "242. Infanteriedivision",
+   "events": [
+    [
+     "1943-07-18",
+     null
+    ],
+    [
+     "1943-08-08",
+     "de-h-armee-15"
+    ],
+    [
+     "1943-10-05",
+     "de-h-armee-19"
+    ],
+    [
+     "1944-08-01",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-243rd-infantry-division",
+   "label": "243. Infanteriedivision",
+   "events": [
+    [
+     "1943-08-01",
+     null
+    ],
+    [
+     "1943-10-01",
+     "de-h-armee-7"
+    ]
+   ]
+  },
+  {
+   "id": "de-244th-infantry-division",
+   "label": "244. Infanteriedivision",
+   "events": [
+    [
+     "1943-10-01",
+     null
+    ],
+    [
+     "1943-11-01",
+     "de-h-armee-15"
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-19"
     ]
    ]
   },
@@ -1799,6 +3010,36 @@
     [
      "1943-09-26",
      null
+    ]
+   ]
+  },
+  {
+   "id": "de-250th-infantry-division",
+   "label": "250. Infanteriedivision",
+   "events": [
+    [
+     "1941-09-01",
+     "de-h-armee-9"
+    ],
+    [
+     "1941-10-01",
+     null
+    ],
+    [
+     "1941-11-01",
+     "de-h-armee-16"
+    ],
+    [
+     "1942-03-01",
+     "de-h-armee-18"
+    ],
+    [
+     "1942-10-01",
+     "de-h-armee-11"
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-18"
     ]
    ]
   },
@@ -2294,6 +3535,68 @@
     ],
     [
      "1944-08-01",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-25th-infantry-division",
+   "label": "25. Infanteriedivision",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-1"
+    ],
+    [
+     "1939-12-01",
+     null
+    ],
+    [
+     "1940-05-01",
+     "de-h-armee-12"
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-9"
+    ],
+    [
+     "1940-07-12",
+     "de-h-armee-2"
+    ],
+    [
+     "1940-09-01",
+     null
+    ],
+    [
+     "1940-10-03",
+     "de-h-armee-2"
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-11"
+    ],
+    [
+     "1941-06-03",
+     "de-h-pzarmee-1"
+    ],
+    [
+     "1941-07-12",
+     "de-h-armee-6"
+    ],
+    [
+     "1941-07-18",
+     "de-h-pzarmee-1"
+    ],
+    [
+     "1941-07-23",
+     "de-h-armee-6"
+    ],
+    [
+     "1941-07-24",
+     "de-h-pzarmee-1"
+    ],
+    [
+     "1941-09-14",
      null
     ]
    ]
@@ -3117,6 +4420,52 @@
    ]
   },
   {
+   "id": "de-2nd-ss-panzer-division",
+   "label": "SS-Division Das Reich",
+   "events": [
+    [
+     "1941-03-01",
+     "de-h-armee-1"
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-12"
+    ],
+    [
+     "1941-05-01",
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-pzarmee-2"
+    ],
+    [
+     "1941-08-20",
+     null
+    ],
+    [
+     "1941-09-01",
+     "de-h-pzarmee-2"
+    ],
+    [
+     "1941-09-25",
+     "de-h-pzarmee-4"
+    ],
+    [
+     "1942-01-01",
+     null
+    ],
+    [
+     "1942-02-01",
+     "de-h-armee-9"
+    ],
+    [
+     "1942-08-12",
+     "de-h-armee-15"
+    ]
+   ]
+  },
+  {
    "id": "de-304th-infantry-division",
    "label": "304. Infanteriedivision",
    "events": [
@@ -3251,6 +4600,16 @@
    ]
   },
   {
+   "id": "de-311th-infantry-division",
+   "label": "311. Infanteriedivision",
+   "events": [
+    [
+     "1939-11-01",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-319th-infantry-division",
    "label": "319. Infanteriedivision",
    "events": [
@@ -3381,6 +4740,44 @@
     [
      "1942-11-01",
      null
+    ]
+   ]
+  },
+  {
+   "id": "de-331st-infantry-division",
+   "label": "331. Infanteriedivision",
+   "events": [
+    [
+     "1941-12-15",
+     null
+    ],
+    [
+     "1942-03-20",
+     "de-h-armee-4"
+    ],
+    [
+     "1943-01-01",
+     null
+    ],
+    [
+     "1943-05-01",
+     "de-h-armee-16"
+    ],
+    [
+     "1944-03-01",
+     null
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-15"
+    ],
+    [
+     "1944-08-01",
+     null
+    ],
+    [
+     "1944-09-01",
+     "de-h-armee-15"
     ]
    ]
   },
@@ -3661,6 +5058,78 @@
    ]
   },
   {
+   "id": "de-357th-infantry-division",
+   "label": "357. Infanteriedivision",
+   "events": [
+    [
+     "1943-11-11",
+     null
+    ],
+    [
+     "1944-11-26",
+     "de-h-armee-6-2"
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-8"
+    ]
+   ]
+  },
+  {
+   "id": "de-362nd-infantry-division",
+   "label": "362. Infanteriedivision",
+   "events": [
+    [
+     "1943-11-15",
+     null
+    ],
+    [
+     "1943-12-01",
+     "de-h-armee-14"
+    ],
+    [
+     "1944-11-01",
+     "de-h-armee-10"
+    ]
+   ]
+  },
+  {
+   "id": "de-367th-infantry-division",
+   "label": "367. Infanteriedivision",
+   "events": [
+    [
+     "1943-11-15",
+     null
+    ],
+    [
+     "1944-07-06",
+     "de-h-armee-2"
+    ],
+    [
+     "1944-09-16",
+     "de-h-armee-4"
+    ],
+    [
+     "1945-02-01",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-372nd-infantry-division",
+   "label": "372. Infanteriedivision",
+   "events": [
+    [
+     "1940-03-01",
+     null
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-18"
+    ]
+   ]
+  },
+  {
    "id": "de-38th-infantry-division",
    "label": "38. Infanteriedivision",
    "events": [
@@ -3679,6 +5148,56 @@
     [
      "1943-04-01",
      null
+    ]
+   ]
+  },
+  {
+   "id": "de-3rd-ss-panzer-division",
+   "label": "SS-Division Totenkopf",
+   "events": [
+    [
+     "1939-12-01",
+     null
+    ],
+    [
+     "1940-01-28",
+     "de-h-armee-2"
+    ],
+    [
+     "1940-05-12",
+     null
+    ],
+    [
+     "1940-05-17",
+     "de-h-armee-4"
+    ],
+    [
+     "1940-05-20",
+     "de-h-armee-6"
+    ],
+    [
+     "1940-05-28",
+     "de-h-armee-2"
+    ],
+    [
+     "1940-06-09",
+     "de-h-armee-6"
+    ],
+    [
+     "1940-06-20",
+     "de-h-armee-2"
+    ],
+    [
+     "1940-08-28",
+     "de-h-armee-7"
+    ],
+    [
+     "1941-06-01",
+     null
+    ],
+    [
+     "1941-07-28",
+     "de-h-armee-16"
     ]
    ]
   },
@@ -3827,6 +5346,56 @@
     [
      "1945-05-01",
      null
+    ]
+   ]
+  },
+  {
+   "id": "de-4th-ss-panzergrenadier-division",
+   "label": "SS-Polizei-Division",
+   "events": [
+    [
+     "1939-10-01",
+     null
+    ],
+    [
+     "1940-01-01",
+     "de-h-armee-7"
+    ],
+    [
+     "1940-05-01",
+     null
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-12"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-1"
+    ],
+    [
+     "1940-08-01",
+     "de-h-armee-2"
+    ],
+    [
+     "1940-11-01",
+     "de-h-armee-1"
+    ],
+    [
+     "1941-07-01",
+     null
+    ],
+    [
+     "1941-10-01",
+     "de-h-armee-18"
+    ],
+    [
+     "1942-10-01",
+     "de-h-armee-11"
+    ],
+    [
+     "1942-11-01",
+     "de-h-armee-18"
     ]
    ]
   },
@@ -4030,6 +5599,42 @@
     ],
     [
      "1944-10-01",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-59th-infantry-division",
+   "label": "59. Infanteriedivision",
+   "events": [
+    [
+     "1944-08-01",
+     "de-h-armee-15"
+    ]
+   ]
+  },
+  {
+   "id": "de-5th-ss-panzer-division",
+   "label": "SS-Division Wiking",
+   "events": [
+    [
+     "1941-01-01",
+     null
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-11"
+    ],
+    [
+     "1941-05-01",
+     null
+    ],
+    [
+     "1942-09-01",
+     "de-h-armee-17"
+    ],
+    [
+     "1942-10-01",
      null
     ]
    ]
@@ -4301,6 +5906,102 @@
    ]
   },
   {
+   "id": "de-6th-ss-mountain-division",
+   "label": "SS-Gebirgs-Division Nord",
+   "events": [
+    [
+     "1942-01-01",
+     null
+    ],
+    [
+     "1945-01-01",
+     "de-h-armee-1"
+    ],
+    [
+     "1945-04-01",
+     "de-h-armee-7"
+    ]
+   ]
+  },
+  {
+   "id": "de-707th-infantry-division",
+   "label": "707. Infanteriedivision",
+   "events": [
+    [
+     "1941-05-01",
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-9"
+    ],
+    [
+     "1944-07-01",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-708th-infantry-division",
+   "label": "708. Infanteriedivision",
+   "events": [
+    [
+     "1941-05-01",
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-7"
+    ],
+    [
+     "1942-06-01",
+     "de-h-armee-1"
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-7"
+    ]
+   ]
+  },
+  {
+   "id": "de-711th-infantry-division",
+   "label": "711. Infanteriedivision",
+   "events": [
+    [
+     "1941-05-01",
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-15"
+    ],
+    [
+     "1944-07-01",
+     null
+    ],
+    [
+     "1944-09-01",
+     "de-h-armee-15"
+    ],
+    [
+     "1945-01-01",
+     null
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-6-2"
+    ],
+    [
+     "1945-04-01",
+     "de-h-armee-8"
+    ],
+    [
+     "1945-05-01",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-712th-infantry-division",
    "label": "712. Infanteriedivision",
    "events": [
@@ -4357,6 +6058,70 @@
     [
      "1943-03-01",
      null
+    ]
+   ]
+  },
+  {
+   "id": "de-715th-infantry-division",
+   "label": "715. Infanteriedivision",
+   "events": [
+    [
+     "1941-05-01",
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-7"
+    ],
+    [
+     "1942-06-01",
+     "de-h-armee-1"
+    ],
+    [
+     "1943-07-01",
+     null
+    ],
+    [
+     "1943-08-28",
+     "de-h-armee-19"
+    ],
+    [
+     "1944-02-01",
+     "de-h-armee-14"
+    ],
+    [
+     "1944-06-01",
+     null
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-10"
+    ],
+    [
+     "1945-03-01",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-716th-infantry-division",
+   "label": "716. Infanteriedivision",
+   "events": [
+    [
+     "1941-05-01",
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-15"
+    ],
+    [
+     "1942-06-01",
+     "de-h-armee-7"
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-19"
     ]
    ]
   },
@@ -4786,6 +6551,46 @@
     ],
     [
      "1945-04-01",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-84th-infantry-division",
+   "label": "84. Infanteriedivision",
+   "events": [
+    [
+     "1944-02-01",
+     "de-h-armee-15"
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-7"
+    ],
+    [
+     "1944-09-01",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-85th-infantry-division",
+   "label": "85. Infanteriedivision",
+   "events": [
+    [
+     "1944-02-01",
+     "de-h-armee-15"
+    ],
+    [
+     "1944-08-01",
+     null
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-15"
+    ],
+    [
+     "1945-02-01",
      null
     ]
    ]

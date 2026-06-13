@@ -1,5 +1,42 @@
 # Eastern Front full simulation — increment plan
 
+> **Status 2026-06-11: COMPLETE (v1 + v2 + v3).** The Eastern Front is
+> considered finished against the definition of done below. 1,739 units;
+> 1,167 at daily sector-derived positions; full front→army→corps→division
+> chains both sides; 16 sector keyframes Barbarossa→Berlin.
+
+## Definition of done (Eastern Front)
+
+Met:
+1. **Both sides, all echelons.** Soviet fronts/armies/rifle+cavalry+tank+mech
+   corps/divisions from the monthly *Boevoi sostav* (22,022 assignments);
+   German armies + 139 divisions (incl. Waffen-SS) from Lexikon der Wehrmacht
+   *Unterstellung* tables (3,357 events); Romanian 3rd/4th, Hungarian 2nd,
+   Italian 8th armies on the Don flank.
+2. **Every day populated** Jun 1941 → May 1945: scrub to any date and both
+   sides' formations stand along the interpolated front at sector-derived
+   positions (hollow = derived, solid = curated Stalingrad showcase).
+3. **Real chains of command** at every date (division ← corps ← army ←
+   front/army-group), navigable in the panel, sourced not hand-typed.
+4. **Honest provenance**: derived positions visibly distinct + disclaimed;
+   curated tracks override; validation loop still green for curated units.
+5. Verified: 50/50 smoke checks.
+
+Deliberately out of scope (documented, not gaps):
+- **Finland / the Arctic front** — the main front polyline doesn't extend
+  north of Leningrad, so no sector exists to place those units on.
+- **Brigades and below** — showcase-only by the SCALE_PLAN sub-division rule.
+- **Courland pocket sectors** (Oct 1944+) — 16./18. Armee sit inside the
+  pocket feature, off the main line; pocket-relative sectors are future work,
+  so those two armies drop from the sector table there (still searchable).
+- **Formation ordinals** — a re-formed division (2nd/3rd formation) shares one
+  identity; the reconciliation registry (SCALE_PLAN §4) is future work.
+- **Position accuracy** is schematic (army order = source listing order,
+  16 sector keyframes); the design goal is "the right units in the right
+  sector on the right day", not survey-grade placement.
+
+Original v1/v2 notes follow.
+
 Goal: scrub Barbarossa → Berlin and see the **whole Eastern Front populated**:
 every Soviet division at a daily position derived from its front sector and
 the monthly order of battle, both sides' armies arrayed along the line, the

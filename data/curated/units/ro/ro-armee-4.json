@@ -1,0 +1,29 @@
+{
+  "id": "ro-armee-4",
+  "country": "RO",
+  "branch": "armata",
+  "echelon": "army",
+  "type": "hq",
+  "short": "Rom. 4th A",
+  "names": [
+    {
+      "from": "1941-06-22",
+      "name": "4th Romanian Army",
+      "aliases": [
+        "Armata a 4-a română",
+        "4. rumänische Armee"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-06-22"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Fourth_Army_(Romania)"
+  },
+  "notes": "Axis-allied army scaffold: the lakes sector south of Stalingrad (southern Uranus pincer broke through here, 20 Nov 1942). Divisional OOB not yet ingested."
+}

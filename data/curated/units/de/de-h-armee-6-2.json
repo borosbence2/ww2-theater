@@ -7,6 +7,13 @@
   "short": "6. Armee (II)",
   "names": [
     {
+      "from": "1942-11-27",
+      "name": "Armeeabteilung Hollidt",
+      "aliases": [
+        "Army Detachment Hollidt"
+      ]
+    },
+    {
       "from": "1943-03-06",
       "name": "6. Armee (second formation)",
       "aliases": [
@@ -17,7 +24,7 @@
   ],
   "existence": [
     {
-      "from": "1943-03-06",
+      "from": "1942-11-27",
       "to": "1945-05-08",
       "end": "surrendered (war end)"
     }

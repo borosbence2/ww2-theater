@@ -107,8 +107,9 @@ const hgrPanel = await page.locator('.detail-panel').textContent();
 check('parent navigation opens Heeresgruppe B', /Heeresgruppe B/.test(hgrPanel ?? ''));
 check('scaffold shows not-mapped note', /Not mapped yet/.test(hgrPanel ?? ''));
 
-// Soviet side reachable too: 13th Guards via its English alias.
-await page.fill('.omnibox input', '13th Guards');
+// Soviet side reachable too. (Use the full name: with corps + cavalry now
+// indexed, bare "13th Guards" is legitimately ambiguous.)
+await page.fill('.omnibox input', '13th Guards Rifle Division');
 await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
 await page.keyboard.press('Enter');
 await page.waitForTimeout(1500);
@@ -201,6 +202,68 @@ const shockPanel = await page.locator('.detail-panel').textContent();
 check('5th Shock Army panel opens (OOB-created unit)', /5th Shock Army/.test(shockPanel ?? ''));
 check('panel explains derived position', /derived daily/.test(shockPanel ?? ''));
 check('panel shows an OOB chain of command (front)', /Front/.test(shockPanel ?? ''));
+
+// Soviet armored formations: tank/mech corps from the boevoi sostav armored
+// column are findable with chains + derived positions.
+await page.fill('.omnibox input', '2nd Guards Tank Corps');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1800);
+const tcPanel = await page.locator('.detail-panel').textContent();
+check('2nd Guards Tank Corps panel opens', /2nd Guards Tank Corps/.test(tcPanel ?? ''));
+check('tank corps shows derived note + subordination', /derived daily/.test(tcPanel ?? '') && /Subordination/.test(tcPanel ?? ''));
+
+// Path/follow work for sector-derived units (armies), not just curated.
+await page.fill('.omnibox input', '5th Shock Army');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.unit-controls', { timeout: 10000 });
+check('derived army shows path/follow controls', (await page.locator('.unit-controls').count()) === 1);
+await page.locator('.unit-controls label', { hasText: 'Show path' }).locator('input').click();
+await page.waitForTimeout(1300);
+check('derived army path writes ?track=1', page.url().includes('track=1'));
+// Data-level: the derived army has a multi-point monthly route to draw.
+const derivedRoute = await page.evaluate(async () => {
+  const r = await fetch('/data/units/derived/eastern.json');
+  const d = await r.json();
+  const u = d.units.find((x) => x.id === 'su-shock-army-5');
+  return u ? u.segs.reduce((n, s) => n + s.kfs.length, 0) : 0;
+});
+check(`derived army has a route (${derivedRoute} keyframes)`, derivedRoute >= 2);
+await page.locator('.unit-controls label', { hasText: 'Follow' }).locator('input').click();
+await page.waitForTimeout(800);
+check('derived army follow toggles on', (await page.locator('.unit-controls label', { hasText: 'Follow' }).locator('input').isChecked()));
+await page.screenshot({ path: `${SHOTS}/ww2-army-path.png` });
+await page.locator('.detail-close').click();
+await page.waitForTimeout(800);
+
+// Rifle corps echelon: full front->army->corps->division chain.
+await page.fill('.omnibox input', '11th Guards Rifle Corps');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1800);
+const corpsPanel = await page.locator('.detail-panel').textContent();
+check('rifle corps panel opens (OOB)', /11th Guards Rifle Corps/.test(corpsPanel ?? ''));
+check('rifle corps shows an Army parent', /Army/.test(corpsPanel ?? ''));
+
+// Axis-allied army scaffold (Don flank at Stalingrad).
+await page.fill('.omnibox input', '3rd Romanian Army');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1500);
+const roPanel = await page.locator('.detail-panel').textContent();
+check('Romanian 3rd Army panel opens', /3rd Romanian Army/.test(roPanel ?? ''));
+
+// Waffen-SS division (LdW identity).
+await page.fill('.omnibox input', 'Das Reich');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForTimeout(1500);
+const ssPanel = await page.locator('.detail-panel').textContent();
+check('SS Das Reich resolves to 2nd SS Panzer Division', /2nd SS Panzer Division/.test(ssPanel ?? ''));
 
 // German divisional OOB (S2): a Lexikon-derived division shows its army
 // chain and the derived-position note.

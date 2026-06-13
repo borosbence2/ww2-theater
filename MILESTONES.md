@@ -367,6 +367,48 @@ tracks overriding seamlessly.
   numbered IDs) on the worklist; Waffen-SS family lists; Armeeabteilungen
   mapped to null (off-front) for now.
 
+## Eastern Front simulation v2.1 — Soviet armored formations ✅
+- [x] Boevoi sostav **armored column** parsed (`parseArmor`): tank/mech
+      CORPS (тк/мк, guards variants) + 1941 tank divisions (тд), with the
+      same right-to-left propagation and skip-poisoning. +1,094 assignments
+      (18,411 total), 147 new corps/division skeletons; 1,519 units, **960
+      derived** (+157). Corps render at the corps zoom band with XXX marks.
+- [x] Gotcha for posterity: JS `` is ASCII-only — `сап` never matches
+      after Cyrillic; use `$` anchors or substrings.
+- Remaining: rifle corps (ск) as intermediate echelon, brigades, separate
+  armies' rosters (front=null), formation ordinals.
+
+## Eastern Front simulation v3 — COMPLETE ✅
+The Eastern Front is finished against the definition of done in
+EASTERN_SIM_PLAN.md. 1,739 units, 1,167 at daily derived positions.
+- [x] **Rifle/cavalry corps echelon** (ск/кк): parsed with their member
+      divisions, giving full front→army→corps→division chains. Corps occupy
+      sector frontage weighted by member count; loose divisions get one slot.
+      22,022 SU assignments; 261 corps, 119 armies, 1,324 divisions, 31 fronts.
+- [x] **German identity gaps closed**: Lexikon pages our Wikidata import
+      lacked now *create* the unit (139 divisions parsed, was 107);
+      Armeeabteilungen Hollidt→6.Armee(II) and Kempf→8.Armee mapped to their
+      lineages, others scaffolded.
+- [x] **Waffen-SS divisions**: SS master lists crawled + the six name-only
+      early-SS pages (LSSAH/Das Reich/Totenkopf/Polizei/Wiking/Nord) seeded
+      and identity-mapped to 1.–6. SS; SS classes keyed separately from Heer.
+- [x] **Axis-allied armies**: Romanian 3rd/4th, Hungarian 2nd, Italian 8th
+      scaffolded and placed on the Don flank at Stalingrad (where Uranus and
+      Little Saturn broke through).
+- [x] **Sectors densified** 11→16 keyframes (added Dec 41 Moscow, Sep 42 full
+      Don flank, Sep 43 Dnieper, Apr 44 spring, Dec 44).
+- [x] Search ranking: divisions now outrank corps for bare-number queries
+      ("13th Guards" → the division).
+- Verified: 50/50 smoke checks.
+- Out of scope (documented): Finland/Arctic (front polyline doesn't reach),
+  brigades, Courland pocket sectors, formation ordinals.
+- [x] **Fix: path/follow for derived units** (was a regression — the controls
+      were gated on curated `positions`, so the OOB armies/divisions, which
+      have none, couldn't be followed). UnitPanel shows the controls when a
+      unit is derived; follow uses the derived-aware `getUnitPositionOn`; path
+      mode draws the monthly sector route (`getDerivedRoute`, dashed across
+      front-reassignment gaps). 54/54 smoke checks.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

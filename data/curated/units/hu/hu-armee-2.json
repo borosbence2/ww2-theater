@@ -1,0 +1,31 @@
+{
+  "id": "hu-armee-2",
+  "country": "HU",
+  "branch": "honvedseg",
+  "echelon": "army",
+  "type": "hq",
+  "short": "Hung. 2nd A",
+  "names": [
+    {
+      "from": "1942-04-11",
+      "name": "2nd Hungarian Army",
+      "aliases": [
+        "Magyar 2. hadsereg",
+        "2. ungarische Armee"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-04-11",
+      "to": "1943-04-30",
+      "end": "destroyed on the Don (Jan 1943), remnants withdrawn"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Hungarian_Second_Army"
+  },
+  "notes": "Axis-allied army scaffold: the Don sector at Voronezh; annihilated in the Ostrogozhsk–Rossosh offensive, Jan 1943. Divisional OOB not yet ingested."
+}

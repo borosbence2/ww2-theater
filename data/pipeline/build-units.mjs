@@ -79,6 +79,26 @@ try {
 let deOob = null;
 try {
   deOob = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'de-monthly.json'), 'utf8'));
+  for (const u of deOob.created ?? []) {
+    if (!units.has(u.id)) units.set(u.id, u);
+  }
+  for (const { id, name } of deOob.armeeabteilungen ?? []) {
+    if (units.has(id)) continue;
+    units.set(id, {
+      id,
+      country: 'DE',
+      branch: 'heer',
+      echelon: 'army',
+      type: 'hq',
+      short: name.replace('Armeeabteilung', 'A.Abt.'),
+      names: [{ from: '1939-09-01', name, aliases: [name.replace('Armeeabteilung', 'Army Detachment')] }],
+      existence: [{ from: '1939-09-01' }],
+      parents: [],
+      positions: [],
+      links: {},
+      notes: 'Army-level detachment (Armeeabteilung) discovered in Lexikon der Wehrmacht Unterstellung tables; no authored sector yet (subordination only). Lifecycle dates coarse.',
+    });
+  }
   for (const { id, n } of deOob.armies) {
     if (units.has(id)) continue;
     units.set(id, {
@@ -143,6 +163,11 @@ if (oob) {
       };
       if (e.army && e.front) put(e.army, e.front);
       for (const d of e.divisions) put(d, e.army ?? e.front);
+      for (const d of e.armor ?? []) put(d, e.army ?? e.front);
+      for (const c of e.corps ?? []) {
+        put(c.unit, e.army ?? e.front);
+        for (const d of c.divisions) put(d, c.unit);
+      }
     }
   }
   let applied = 0;
@@ -523,7 +548,9 @@ if (sectors && monthlyRosters.length) {
       const span = spanFor('su', frontId);
       if (!span) continue; // reserve / off-line front: list-only
       push(frontId, month.date, (span[0] + span[1]) / 2);
-      const groups = entries.filter((e) => e.divisions.length);
+      const groups = entries.filter(
+        (e) => e.divisions.length + (e.armor?.length ?? 0) + (e.corps?.length ?? 0) > 0,
+      );
       const A = groups.length;
       if (!A) continue;
       const width = span[1] - span[0];
@@ -531,9 +558,37 @@ if (sectors && monthlyRosters.length) {
         const a0 = span[0] + (width * a) / A;
         const a1 = span[0] + (width * (a + 1)) / A;
         if (g.army) push(g.army, month.date, (a0 + a1) / 2);
+
+        // Weighted sub-slices: a corps occupies frontage proportional to its
+        // member count; loose divisions/armor get one slot each. The corps
+        // marker sits at its slice center, members spread inside it.
         const seen = new Set();
-        const divs = g.divisions.filter((d) => !seen.has(d) && seen.add(d));
-        divs.forEach((d, j) => push(d, month.date, a0 + ((a1 - a0) * (j + 0.5)) / divs.length));
+        const fresh = (d) => !seen.has(d) && seen.add(d);
+        const slots = [];
+        for (const c of g.corps ?? []) {
+          if (!fresh(c.unit)) continue;
+          const members = c.divisions.filter(fresh);
+          slots.push({ weight: Math.max(1, members.length), corps: c.unit, members });
+        }
+        for (const d of [...g.divisions, ...(g.armor ?? [])]) {
+          if (fresh(d)) slots.push({ weight: 1, unit: d });
+        }
+        const totalW = slots.reduce((s, x) => s + x.weight, 0);
+        if (!totalW) return;
+        let cursor = a0;
+        const armyWidth = a1 - a0;
+        for (const slot of slots) {
+          const w = (armyWidth * slot.weight) / totalW;
+          if (slot.unit) {
+            push(slot.unit, month.date, cursor + w / 2);
+          } else {
+            push(slot.corps, month.date, cursor + w / 2);
+            slot.members.forEach((d, j) =>
+              push(d, month.date, cursor + (w * (j + 0.5)) / slot.members.length),
+            );
+          }
+          cursor += w;
+        }
       });
     }
   }

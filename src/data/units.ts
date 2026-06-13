@@ -178,7 +178,9 @@ export function searchUnits(index: UnitIndexEntry[], query: string, limit = 6): 
     if (best >= 0) scored.push({ u, score: best });
   }
   // Echelon seniority breaks ties so armies surface above divisions.
-  const rank: Record<string, number> = { 'army-group': 0, front: 0, army: 1, corps: 2, division: 3 };
+  // Divisions outrank corps: a bare number ("13th Guards") most often means
+  // the division. Armies/fronts still win (a search for "6. Armee" wants it).
+  const rank: Record<string, number> = { 'army-group': 0, front: 0, army: 1, division: 2, corps: 3 };
   scored.sort((a, b) => a.score - b.score || (rank[a.u.echelon] ?? 4) - (rank[b.u.echelon] ?? 4));
   return scored.slice(0, limit).map((s) => s.u);
 }

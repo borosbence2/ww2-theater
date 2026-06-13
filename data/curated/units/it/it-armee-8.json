@@ -1,0 +1,32 @@
+{
+  "id": "it-armee-8",
+  "country": "IT",
+  "branch": "regio-esercito",
+  "echelon": "army",
+  "type": "hq",
+  "short": "Ital. 8th A",
+  "names": [
+    {
+      "from": "1942-07-01",
+      "name": "8th Italian Army (ARMIR)",
+      "aliases": [
+        "8ª Armata",
+        "ARMIR",
+        "8. italienische Armee"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-07-01",
+      "to": "1943-04-01",
+      "end": "destroyed on the Don (Little Saturn / Ostrogozhsk), withdrawn"
+    }
+  ],
+  "parents": [],
+  "positions": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Italian_Army_in_Russia"
+  },
+  "notes": "Axis-allied army scaffold: the middle Don sector; crushed by Operation Little Saturn, Dec 1942. Divisional OOB not yet ingested."
+}
