@@ -593,6 +593,68 @@ if (sectors && monthlyRosters.length) {
     }
   }
   console.log(`Derived fraction tracks for ${derived.size} units`);
+
+  // Validation: do derived positions land on their unit's own side of the
+  // front? This is the project's quality engine (city-control, curated units)
+  // now applied to the 1k+ derived units. Reported, not fatal — the schematic
+  // N->S sector model is weakest where the line runs E-W (Caucasus 1942) or
+  // hugs a pocket. Replicates the client's pointAt so it checks the actually
+  // rendered location, not just the fraction.
+  const echGroup = (e) =>
+    ['army', 'front', 'army-group'].includes(e) ? 'army' : e === 'division' ? 'division' : e === 'corps' ? 'corps' : 'sub';
+  const pointAt = (line, f, side, ech) => {
+    const i = Math.max(0, Math.min(line.length - 1, Math.round(f * (line.length - 1))));
+    const a = line[Math.max(0, i - 2)];
+    const b = line[Math.min(line.length - 1, i + 2)];
+    const dx = b[0] - a[0];
+    const dy = b[1] - a[1];
+    const len = Math.hypot(dx, dy) || 1;
+    const off = (ech === 'division' ? 0.12 : 0.3) * (side === 'axis' ? -1 : 1);
+    return [line[i][0] + (-dy / len) * off, line[i][1] + (dx / len) * off];
+  };
+  const TOL = 30; // km past the line before a wrong side counts (sector slop)
+  let checked = 0;
+  let wrong = 0;
+  const wrongByUnit = new Map();
+  for (const [id, kfs] of derived) {
+    const u = units.get(id);
+    const ech = echGroup(u.echelon);
+    for (const { date, f } of kfs) {
+      const line = coordsFor(main, date);
+      if (!line) continue;
+      const [lon, lat] = pointAt(line, f, u.side, ech);
+      let drawn = null;
+      for (const pf of pockets) {
+        const ring = coordsFor(pf, date);
+        if (ring && inRing(ring, lon, lat)) {
+          drawn = pf.encircled;
+          break;
+        }
+      }
+      if (!drawn) drawn = inRing(axisPolygon(line), lon, lat) ? 'axis' : 'soviet';
+      checked++;
+      if (drawn !== u.side && kmFromFront(line, lon, lat) > TOL) {
+        wrong++;
+        wrongByUnit.set(id, (wrongByUnit.get(id) ?? 0) + 1);
+      }
+    }
+  }
+  const pct = checked ? ((100 * (checked - wrong)) / checked).toFixed(1) : '100';
+  console.log(
+    `Derived side-check: ${pct}% of ${checked} unit-months on the correct side ` +
+      `(${wrong} wrong across ${wrongByUnit.size} units).`,
+  );
+  for (const [id, n] of [...wrongByUnit.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12)) {
+    console.log(`  ✗ ${id}: ${n} months wrong-side`);
+  }
+  // Regression guard: a healthy schematic model sits ~99.9%; the residual is
+  // mobile formations in deep operations + the Caucasus E-W segment. A gross
+  // drop means a real bug (e.g. the axis/soviet offset sign flip) — fail hard.
+  const FLOOR = 95;
+  if (checked && Number(pct) < FLOOR) {
+    console.error(`✗ Derived side-check ${pct}% below ${FLOOR}% floor — placement regression.`);
+    process.exit(1);
+  }
 }
 
 // ---------------------------------------------------------------------------

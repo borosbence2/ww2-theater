@@ -409,6 +409,26 @@ EASTERN_SIM_PLAN.md. 1,739 units, 1,167 at daily derived positions.
       mode draws the monthly sector route (`getDerivedRoute`, dashed across
       front-reassignment gaps). 54/54 smoke checks.
 
+## Front-line accuracy pass (city-side worklist) ✅
+Drove the front's own validation loop (every city checked against the drawn
+line every day) down from **1,502 → 1,355 wrong city-days** (~10%), targeting
+the biggest errors, all geometry-verified (no kinks, no net regressions):
+- **Fast-advance gaps filled with keyframes** the linear interpolation lagged
+  through: 1944-08-19 (lull before Jassy-Kishinev — fixed Chisinau, the single
+  worst at 205 km × 17 d), 1941-10-07 (Typhoon: Orel/Bryansk), 1943-07-30
+  (Kursk salient restored before Rumyantsev — fixed Belgorod 30 d), 1943-12-08
+  (Dnieper line held — fixed Cherkassy 37 d).
+- **Salient/coast geometry fixed**: 1941-10-15 southern tail now bulges along
+  the Azov coast (Mariupol/Taganrog) instead of cutting straight to Perekop;
+  the 1944 Rovno-Lutsk salient bulged west (fixed Rovno's 48-day error);
+  Konotop nudged east in the Kiev-pocket keyframes.
+- Front grew 66 → 70 main keyframes. Downstream re-verified: derived
+  side-check still 99.9%, curated unit worklist unchanged, 54/54 smoke.
+- Inherent limits (not chased): deep narrow panzer thrusts a single schematic
+  line can't show without a spike (Daugavpils, 26 Jun 1941, 300 km dash);
+  thinly-covered theatres (Yugoslavia, Hungary, Caucasus E-W segment). The
+  worklist remains the tracking mechanism for further densification.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

@@ -20,7 +20,16 @@ Met:
    front/army-group), navigable in the panel, sourced not hand-typed.
 4. **Honest provenance**: derived positions visibly distinct + disclaimed;
    curated tracks override; validation loop still green for curated units.
-5. Verified: 50/50 smoke checks.
+5. **Derived positions validated**: the side-check (the project's quality
+   engine) now covers derived units too — **99.9% of 23,854 unit-months land
+   on the correct side of the front**. A 95% floor in `build-units.mjs` fails
+   the build on a placement regression (the class of bug the axis/soviet
+   offset sign-flip was). The residual 0.1% (32 unit-months, 21 units) is
+   inherent to the schematic N→S sector model: mobile formations (cavalry/
+   mechanized/tank corps) in deep breakthrough operations that are genuinely
+   ahead of or behind the line, plus 51st Army on the Caucasus E-W segment —
+   not chased with hacks.
+6. Verified: 54/54 smoke checks.
 
 Deliberately out of scope (documented, not gaps):
 - **Finland / the Arctic front** — the main front polyline doesn't extend
