@@ -107,6 +107,19 @@ function mainFrontLine(dateISO: string, d: number): [number, number][] | null {
   });
 }
 
+// Rear depth per echelon (degrees off the line): divisions hold the line,
+// brigades just behind, then corps HQ, army HQ, and front/army-group in the
+// deep rear — so at high zoom the echelons read as staff-map depth layers
+// instead of one overlapping row. Mirrored by build-units.mjs' side check.
+const ECH_DEPTH: Record<string, number> = {
+  division: 0.12,
+  brigade: 0.2,
+  sub: 0.12,
+  corps: 0.36,
+  army: 0.62,
+  top: 1.25,
+};
+
 /** Point at fraction f, offset perpendicular to the line toward `side`. */
 function pointAt(line: [number, number][], f: number, side: 'axis' | 'soviet', ech: string): [number, number] {
   const i = Math.max(0, Math.min(line.length - 1, Math.round(f * (line.length - 1))));
@@ -117,7 +130,7 @@ function pointAt(line: [number, number][], f: number, side: 'axis' | 'soviet', e
   const len = Math.hypot(dx, dy) || 1;
   // Line runs N->S. (-dy, dx) is the LEFT of travel = east = Soviet side;
   // Axis offsets the other way (right of travel = west).
-  const off = (ech === 'division' ? 0.12 : 0.3) * (side === 'axis' ? -1 : 1);
+  const off = (ECH_DEPTH[ech] ?? 0.3) * (side === 'axis' ? -1 : 1);
   return [line[i][0] + (-dy / len) * off, line[i][1] + (dx / len) * off];
 }
 

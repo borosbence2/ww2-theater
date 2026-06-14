@@ -116,6 +116,23 @@ try {
       notes: 'OOB scaffold discovered in Lexikon der Wehrmacht Unterstellung tables.',
     });
   }
+  for (const { id, name, en } of deOob.armyGroups ?? []) {
+    if (units.has(id)) continue; // de-h-hgr-b is curated
+    units.set(id, {
+      id,
+      country: 'DE',
+      branch: 'heer',
+      echelon: 'army-group',
+      type: 'hq',
+      short: name.replace('Heeresgruppe', 'HGr'),
+      names: [{ from: '1939-09-01', name, aliases: [en] }],
+      existence: [{ from: '1939-09-01' }],
+      parents: [],
+      positions: [],
+      links: {},
+      notes: 'Army group from Lexikon der Wehrmacht Unterstellung tables; position derived from its armies. Lifecycle dates coarse.',
+    });
+  }
 } catch {
   console.log('No oob/de-monthly.json — German divisions stay scaffold-only.');
 }
@@ -255,6 +272,8 @@ if (oob) {
 
 // German division parents + monthly rosters from assignment events.
 const deRoster = new Map(); // month date -> Map(armyId -> [{id, num}])
+const deArmyHgr = new Map(); // month date -> Map(armyId -> dominant hgr id)
+const hgrVotes = new Map(); // `${month}|${army}` -> Map(hgr -> count)
 if (deOob && monthlyRosters.length) {
   const curatedParentIds = new Set(
     [...units.values()].filter((u) => !u.imported && (u.parents ?? []).length).map((u) => u.id),
@@ -284,21 +303,68 @@ if (deOob && monthlyRosters.length) {
     for (const month of monthlyRosters) {
       const md = dateNum(month.date);
       let current = null;
-      for (const [date, army] of div.events) {
-        if (dateNum(date) <= md) current = army;
-        else break;
+      let curHgr = null;
+      for (const [date, army, hgr] of div.events) {
+        if (dateNum(date) <= md) {
+          current = army;
+          curHgr = hgr;
+        } else break;
       }
       if (!current) continue;
       if (!deRoster.has(month.date)) deRoster.set(month.date, new Map());
       const byArmy = deRoster.get(month.date);
       if (!byArmy.has(current)) byArmy.set(current, []);
       byArmy.get(current).push({ id: div.id, num });
+      // Vote this army's army-group for the month (dominant among its divisions).
+      if (curHgr) {
+        const key = `${month.date}|${current}`;
+        const v = hgrVotes.get(key) ?? new Map();
+        v.set(curHgr, (v.get(curHgr) ?? 0) + 1);
+        hgrVotes.set(key, v);
+      }
     }
   }
   for (const byArmy of deRoster.values()) {
     for (const list of byArmy.values()) list.sort((a, b) => a.num - b.num);
   }
-  console.log(`German OOB: parents for ${applied} divisions, rosters over ${deRoster.size} months`);
+
+  // Resolve dominant army-group per (month, army), then set army -> army-group
+  // parents (merge consecutive) for armies without curated parents.
+  const armyHgrSeq = new Map(); // armyId -> [{date, hgr}]
+  for (const [key, v] of hgrVotes) {
+    const [date, army] = key.split('|');
+    let best = null;
+    let bestN = 0;
+    for (const [hgr, n] of v) if (n > bestN) ((bestN = n), (best = hgr));
+    if (!deArmyHgr.has(date)) deArmyHgr.set(date, new Map());
+    deArmyHgr.get(date).set(army, best);
+    if (!armyHgrSeq.has(army)) armyHgrSeq.set(army, []);
+    armyHgrSeq.get(army).push({ date, hgr: best });
+  }
+  let agParents = 0;
+  for (const [army, seq] of armyHgrSeq) {
+    const u = units.get(army);
+    if (!u || curatedParentIds.has(army)) continue;
+    seq.sort((a, b) => (a.date < b.date ? -1 : 1));
+    const parents = [];
+    for (const { date, hgr } of seq) {
+      if (!units.has(hgr)) continue;
+      const last = parents[parents.length - 1];
+      if (last && last.unit === hgr) last.to = MONTH_END;
+      else {
+        if (last) last.to = date;
+        parents.push({ from: date, to: MONTH_END, unit: hgr });
+      }
+    }
+    if (parents.length) {
+      u.parents = parents;
+      agParents++;
+    }
+  }
+  console.log(
+    `German OOB: parents for ${applied} divisions, rosters over ${deRoster.size} months, ` +
+      `${agParents} armies -> army groups`,
+  );
 }
 
 for (const u of units.values()) {
@@ -670,16 +736,33 @@ if (sectors && monthlyRosters.length) {
     // German armies: sector midpoints; their divisions (Lexikon Unterstellung
     // rosters) subdivide the army span like Soviet divisions do army slices.
     const deSeen = new Set();
+    const armyFrac = new Map(); // armyId -> midpoint fraction (for army-group avg)
     for (const e of [...(k0.de ?? []), ...(k1.de ?? [])]) {
       if (deSeen.has(e.unit)) continue;
       deSeen.add(e.unit);
       const span = spanFor('de', e.unit);
       if (!span) continue;
-      push(e.unit, month.date, (span[0] + span[1]) / 2);
+      const mid = (span[0] + span[1]) / 2;
+      armyFrac.set(e.unit, mid);
+      push(e.unit, month.date, mid);
       const divs = deRoster.get(month.date)?.get(e.unit) ?? [];
       divs.forEach((d, j) =>
         push(d.id, month.date, span[0] + ((span[1] - span[0]) * (j + 0.5)) / divs.length),
       );
+    }
+    // German army groups: average of their armies' sector fractions this month.
+    const hgrMembers = new Map(); // hgrId -> [fraction]
+    const monthHgr = deArmyHgr.get(month.date);
+    if (monthHgr) {
+      for (const [army, frac] of armyFrac) {
+        const hgr = monthHgr.get(army);
+        if (!hgr) continue;
+        if (!hgrMembers.has(hgr)) hgrMembers.set(hgr, []);
+        hgrMembers.get(hgr).push(frac);
+      }
+      for (const [hgr, fracs] of hgrMembers) {
+        push(hgr, month.date, fracs.reduce((s, f) => s + f, 0) / fracs.length);
+      }
     }
 
     // Soviet: front span -> armies (roster order) -> divisions.
@@ -754,8 +837,16 @@ if (sectors && monthlyRosters.length) {
   // N->S sector model is weakest where the line runs E-W (Caucasus 1942) or
   // hugs a pocket. Replicates the client's pointAt so it checks the actually
   // rendered location, not just the fraction.
+  // Mirror src/layers/units.ts ECH_GROUP + ECH_DEPTH so the check validates
+  // the actually-rendered position (per-echelon rear depth).
   const echGroup = (e) =>
-    ['army', 'front', 'army-group'].includes(e) ? 'army' : e === 'division' ? 'division' : e === 'corps' ? 'corps' : 'sub';
+    ['front', 'army-group'].includes(e) ? 'top'
+      : e === 'army' ? 'army'
+      : e === 'corps' ? 'corps'
+      : e === 'brigade' ? 'brigade'
+      : e === 'division' ? 'division'
+      : 'sub';
+  const DEPTH = { division: 0.12, brigade: 0.2, sub: 0.12, corps: 0.36, army: 0.62, top: 1.25 };
   const pointAt = (line, f, side, ech) => {
     const i = Math.max(0, Math.min(line.length - 1, Math.round(f * (line.length - 1))));
     const a = line[Math.max(0, i - 2)];
@@ -763,7 +854,7 @@ if (sectors && monthlyRosters.length) {
     const dx = b[0] - a[0];
     const dy = b[1] - a[1];
     const len = Math.hypot(dx, dy) || 1;
-    const off = (ech === 'division' ? 0.12 : 0.3) * (side === 'axis' ? -1 : 1);
+    const off = (DEPTH[ech] ?? 0.3) * (side === 'axis' ? -1 : 1);
     return [line[i][0] + (-dy / len) * off, line[i][1] + (dx / len) * off];
   };
   const TOL = 30; // km past the line before a wrong side counts (sector slop)

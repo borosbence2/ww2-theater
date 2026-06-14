@@ -116,6 +116,33 @@ function armyId(cell, year) {
   return null; // OKH, BdE, z.Vfg., blank
 }
 
+// Heeresgruppe column -> army-group unit id. Eastern Front groups only;
+// western (C, D, G, Oberrhein, H) and Balkan (E, F) are skipped.
+const HGR = {
+  nord: ['de-h-hgr-nord', 'Heeresgruppe Nord', 'Army Group North'],
+  mitte: ['de-h-hgr-mitte', 'Heeresgruppe Mitte', 'Army Group Centre'],
+  süd: ['de-h-hgr-sued', 'Heeresgruppe Süd', 'Army Group South'],
+  sud: ['de-h-hgr-sued', 'Heeresgruppe Süd', 'Army Group South'],
+  a: ['de-h-hgr-a', 'Heeresgruppe A', 'Army Group A'],
+  b: ['de-h-hgr-b', 'Heeresgruppe B', 'Army Group B'],
+  don: ['de-h-hgr-don', 'Heeresgruppe Don', 'Army Group Don'],
+  nordukraine: ['de-h-hgr-nordukraine', 'Heeresgruppe Nordukraine', 'Army Group North Ukraine'],
+  'nord-ukraine': ['de-h-hgr-nordukraine', 'Heeresgruppe Nordukraine', 'Army Group North Ukraine'],
+  südukraine: ['de-h-hgr-suedukraine', 'Heeresgruppe Südukraine', 'Army Group South Ukraine'],
+  sudukraine: ['de-h-hgr-suedukraine', 'Heeresgruppe Südukraine', 'Army Group South Ukraine'],
+  kurland: ['de-h-hgr-kurland', 'Heeresgruppe Kurland', 'Army Group Courland'],
+  weichsel: ['de-h-hgr-weichsel', 'Heeresgruppe Weichsel', 'Army Group Vistula'],
+  ostmark: ['de-h-hgr-ostmark', 'Heeresgruppe Ostmark', 'Army Group Ostmark'],
+};
+const hgrScaffolds = new Map();
+function hgrId(cell) {
+  const key = (cell ?? '').replace(/\(.*/, '').replace(/\s+/g, ' ').trim().toLowerCase();
+  const hit = HGR[key];
+  if (!hit) return null;
+  if (!hgrScaffolds.has(hit[0])) hgrScaffolds.set(hit[0], { id: hit[0], name: hit[1], en: hit[2] });
+  return hit[0];
+}
+
 // ---------------------------------------------------------------------------
 
 const index = existsSync(join(RAW, '_index.json'))
@@ -226,19 +253,22 @@ for (const file of readdirSync(RAW)) {
     report.rows++;
     const day = dm[1] ? Number(dm[1]) : 1;
     const month = MONTHS[dm[2].toLowerCase()];
-    const armyCell = cells.slice(1).find((c) => ARMY_RE.test(c));
-    const aid = armyCell ? armyId(armyCell, year) : null;
+    const armyIdx = cells.findIndex((c, i) => i >= 1 && ARMY_RE.test(c));
+    const aid = armyIdx >= 0 ? armyId(cells[armyIdx], year) : null;
     if (!aid) report.noArmy++;
+    // Heeresgruppe is the cell after the army (Datum|Korps|Armee|HGr|Ort).
+    const hid = armyIdx >= 0 ? hgrId(cells[armyIdx + 1]) : null;
     const date = `${year}-${String(month).padStart(2, '0')}-${String(Math.min(day, 28)).padStart(2, '0')}`;
-    events.push([date, aid]);
+    events.push([date, aid, hid]);
     report.events++;
   }
   if (events.length) {
-    // Dedupe consecutive same-army events, keep chronological order.
+    // Dedupe consecutive events with the same (army, army-group).
     events.sort((a, b) => (a[0] < b[0] ? -1 : 1));
     const merged = [];
     for (const e of events) {
-      if (merged.length && merged[merged.length - 1][1] === e[1]) continue;
+      const last = merged[merged.length - 1];
+      if (last && last[1] === e[1] && last[2] === e[2]) continue;
       merged.push(e);
     }
     divisions.push({ id, label, events: merged });
@@ -253,6 +283,7 @@ writeFileSync(
       note: 'German division -> army assignment events parsed from Lexikon der Wehrmacht Unterstellung tables (fetch-ldw.mjs). Events hold until the next event; null army = off-front/OKH reserve/unparsed (division hidden from sector derivation).',
       source: 'https://www.lexikon-der-wehrmacht.de/ (cited; identity + assignment facts only)',
       armies: [...armyScaffolds.entries()].map(([id, n]) => ({ id, n })),
+      armyGroups: [...hgrScaffolds.values()],
       armeeabteilungen: [...aabtScaffolds.entries()].map(([id, name]) => ({ id, name })),
       created: [...createdUnits.values()],
       divisions: divisions.sort((a, b) => a.id.localeCompare(b.id)),

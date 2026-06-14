@@ -523,6 +523,27 @@ shows ~one-to-two echelons at a time.
   units + derived top-tier positions.
 - Verified: 59/59 smoke; screenshotted z3.7→z7.2.
 
+## German army groups + echelon depth separation ✅
+Completes the zoom ladder's top tier and declutters high zoom.
+- [x] **German army groups** from the Lexikon Unterstellung *Heeresgruppe*
+      column (`import-ldw.mjs` now captures it: division events are
+      [date, army, HGr]). 11 army groups (Nord/Mitte/Süd/A/B/Don/
+      Nord-+Südukraine/Kurland/Weichsel/Ostmark); `build-units` votes each
+      army's dominant HGr per month → army→army-group parents (17 armies),
+      and derives the AG position as the average of its armies' sector
+      fractions (top tier, deep rear). The zoomed-out view is now symmetric
+      (German army groups west, Soviet fronts east) instead of Soviet-only.
+- [x] **Echelon depth separation** (`ECH_DEPTH` in `src/layers/units.ts`,
+      mirrored in the ETL side-check): each echelon sits at its own rearward
+      offset from the line — divisions 0.12°, brigades 0.20°, corps 0.36°,
+      army HQ 0.62°, front/army-group 1.25°. At high zoom the echelons read
+      as staff-map depth layers instead of one overlapping row.
+- Side-check 99.6% across 1,569 derived units; 60→61 smoke checks (HGr B is
+  now a derived army group, not an unmapped scaffold).
+- Remaining: German army-group lifecycle dates are coarse (one open interval);
+  HGr renames (e.g. Süd→A/B, Süd→Nordukraine) are modelled as distinct groups,
+  not a temporal rename chain.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

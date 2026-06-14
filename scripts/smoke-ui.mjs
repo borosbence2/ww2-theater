@@ -105,7 +105,8 @@ await page
 await page.waitForTimeout(1000);
 const hgrPanel = await page.locator('.detail-panel').textContent();
 check('parent navigation opens Heeresgruppe B', /Heeresgruppe B/.test(hgrPanel ?? ''));
-check('scaffold shows not-mapped note', /Not mapped yet/.test(hgrPanel ?? ''));
+// HGr B is now a derived army group (top tier), not an unmapped scaffold.
+check('army group shows a derived position', /derived daily/.test(hgrPanel ?? ''));
 
 // Soviet side reachable too. (Use the full name: with corps + cavalry now
 // indexed, bare "13th Guards" is legitimately ambiguous.)
@@ -295,6 +296,21 @@ await page.waitForTimeout(1500);
 const bdePanel = await page.locator('.detail-panel').textContent();
 check('1st Guards Tank Brigade panel opens', /1st Guards Tank Brigade/.test(bdePanel ?? ''));
 check('tank brigade is derived (chain of command)', /derived daily/.test(bdePanel ?? '') && /(Army|Front|Corps)/.test(bdePanel ?? ''));
+
+// German army groups (top tier, derived from the Lexikon Heeresgruppe column):
+// searchable, and present in the derived set so the zoomed-out view is symmetric.
+await page.fill('.omnibox input', 'Heeresgruppe Mitte');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1500);
+const agPanel = await page.locator('.detail-panel').textContent();
+check('Heeresgruppe Mitte panel opens', /Heeresgruppe Mitte/.test(agPanel ?? ''));
+const agDerived = await page.evaluate(async () => {
+  const d = await (await fetch('/data/units/derived/eastern.json')).json();
+  return d.units.filter((u) => u.echelon === 'army-group').length;
+});
+check(`German army groups derived (${agDerived})`, agDerived >= 5);
 
 // Territorial tide fill: the layer is registered with a toggle + legend.
 check('tide fill layer in the panel', (await page.locator('.layer-row', { hasText: 'Territorial control' }).count()) === 1);
