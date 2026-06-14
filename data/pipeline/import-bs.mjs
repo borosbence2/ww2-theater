@@ -283,54 +283,17 @@ const ARMOR_CORPS = {
   'тк': ['Tank Corps', 'tank-corps', 'armoured'],
   'мк': ['Mechanized Corps', 'mechanized-corps', 'motorized'],
 };
+// Tank/mech/motor-rifle BRIGADES — the Red Army's operational armour before the
+// tank corps/armies formed (independent under armies in 1941-42, or components
+// of a tank/mech corps later). Infantry brigades (сбр/лыжбр/морская) stay out
+// of scope (rifle divisions cover infantry).
+const ARMOR_BRIGADES = {
+  'тбр': ['Tank Brigade', 'tank-brigade', 'armoured'],
+  'мбр': ['Mechanized Brigade', 'mechanized-brigade', 'motorized'],
+  'мсбр': ['Motor Rifle Brigade', 'motor-rifle-brigade', 'motorized'],
+};
 // No \b after Cyrillic — JS word boundaries are ASCII-only; use substrings/$.
-const ARMOR_SKIP = /(бр|тп$|отп|сап|отб|обб|одн|дн$|мдн|полк|бронепоезд|бепо|мцп|мцб|батал|рота|завод|УР|б\/н|зенап|аап|пап$|иптап|мп$)/;
-
-/** Expand the armored-forces cell: tank/mech CORPS + 1941 tank divisions. */
-function parseArmor(cellRaw, report) {
-  const cell = cellRaw
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&[a-z]+;/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-  if (!cell || cell === '–' || cell === '-') return [];
-  let flat = cell.replace(/\(([^()]*)\)/g, ', $1, ').replace(/ и /g, ', ');
-
-  const out = [];
-  const tokens = flat.split(',').map((t) => t.trim()).filter(Boolean);
-  let cur = null; // {kind:'corps'|'div', abbr, guards}
-  for (let i = tokens.length - 1; i >= 0; i--) {
-    const tok = tokens[i];
-    let m = tok.match(/^(\d+) (гв\.? )?(тк|мк)$/);
-    if (m) {
-      cur = { kind: 'corps', abbr: m[3], guards: Boolean(m[2]) };
-      out.push(armorCorpsUnit(Number(m[1]), cur.guards, cur.abbr));
-      continue;
-    }
-    m = tok.match(/^(\d+) (гв\.? )?(тд|мд)$/);
-    if (m) {
-      cur = { kind: 'div', abbr: m[3], guards: Boolean(m[2]) };
-      out.push(divisionUnit(Number(m[1]), cur.guards, cur.abbr));
-      continue;
-    }
-    m = tok.match(/^(\d+)( гв\.?)?$/);
-    if (m) {
-      if (!cur) continue; // left of a skipped group: dropped, never mis-typed
-      const guards = Boolean(m[2]) || cur.guards;
-      out.push(
-        cur.kind === 'corps'
-          ? armorCorpsUnit(Number(m[1]), guards, cur.abbr)
-          : divisionUnit(Number(m[1]), guards, cur.abbr),
-      );
-      continue;
-    }
-    cur = null;
-    if (!ARMOR_SKIP.test(tok) && !/^[–-]$/.test(tok)) {
-      report.set(`ARMOR? ${tok}`, (report.get(`ARMOR? ${tok}`) ?? 0) + 1);
-    }
-  }
-  return out.reverse();
-}
+const ARMOR_SKIP = /(сбр|лыжбр|истр|тп$|отп|сап|отб|обб|одн|дн$|мдн|полк|бронепоезд|бепо|мцп|мцб|батал|рота|завод|УР|б\/н|зенап|аап|пап$|иптап|мп$)/;
 
 function armorCorpsUnit(n, guards, abbr) {
   const [en, slugPart, type] = ARMOR_CORPS[abbr];
@@ -341,6 +304,74 @@ function armorCorpsUnit(n, guards, abbr) {
     ru: `${n} ${guards ? 'гв. ' : ''}${abbr}`,
     type,
   });
+}
+
+function brigadeUnit(n, guards, abbr) {
+  const [en, slugPart, type] = ARMOR_BRIGADES[abbr];
+  const id = `su-${ORD(n)}${guards ? '-guards' : ''}-${slugPart}`;
+  return createUnit(id, {
+    kind: 'brigade',
+    name: `${ORD(n)} ${guards ? 'Guards ' : ''}${en}`,
+    ru: `${n} ${guards ? 'гв. ' : ''}${abbr}`,
+    type,
+  });
+}
+
+/** Tank/mech division + tank/mech/motor-rifle brigade tokens (right-to-left
+ *  type propagation), for both the army-level list and a corps' members. */
+function parseArmorList(raw, report) {
+  let flat = raw.replace(/\(([^()]*)\)/g, ', $1, ').replace(/ и /g, ', ');
+  const out = [];
+  const tokens = flat.split(',').map((t) => t.trim()).filter(Boolean);
+  let cur = null; // { make, abbr, guards }
+  for (let i = tokens.length - 1; i >= 0; i--) {
+    const tok = tokens[i];
+    let m = tok.match(/^(\d+) (гв\.? )?(тд|мд)$/);
+    if (m) {
+      cur = { make: divisionUnit, abbr: m[3], guards: Boolean(m[2]) };
+      out.push(divisionUnit(Number(m[1]), cur.guards, cur.abbr));
+      continue;
+    }
+    m = tok.match(/^(\d+) (гв\.? )?(тбр|мсбр|мбр)$/);
+    if (m) {
+      cur = { make: brigadeUnit, abbr: m[3], guards: Boolean(m[2]) };
+      out.push(brigadeUnit(Number(m[1]), cur.guards, cur.abbr));
+      continue;
+    }
+    m = tok.match(/^(\d+)( гв\.?)?$/);
+    if (m) {
+      if (!cur) continue; // left of a skipped group: dropped, never mis-typed
+      out.push(cur.make(Number(m[1]), Boolean(m[2]) || cur.guards, cur.abbr));
+      continue;
+    }
+    cur = null;
+    if (!ARMOR_SKIP.test(tok) && !/^[–-]$/.test(tok)) {
+      report.set(`ARMOR? ${tok}`, (report.get(`ARMOR? ${tok}`) ?? 0) + 1);
+    }
+  }
+  return out.reverse();
+}
+
+/** Armoured cell -> { loose: [ids], corps: [{unit, divisions}] } — tank/mech
+ *  corps with their brigade/division members, plus independent armour. */
+function parseArmor(cellRaw, report) {
+  const cell = cellRaw
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-z]+;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!cell || cell === '–' || cell === '-') return { loose: [], corps: [] };
+
+  const corps = [];
+  let rest = cell.replace(/(\d+)\s*(гв\.?\s*)?(тк|мк)\s*\(([^()]*)\)/g, (_, n, gv, abbr, inner) => {
+    corps.push({ unit: armorCorpsUnit(Number(n), Boolean(gv), abbr), divisions: parseArmorList(inner, report) });
+    return ', ';
+  });
+  rest = rest.replace(/(^|, ?)(\d+)\s*(гв\.?\s*)?(тк|мк)(?=,|$| )/g, (_, pre, n, gv, abbr) => {
+    corps.push({ unit: armorCorpsUnit(Number(n), Boolean(gv), abbr), divisions: [] });
+    return pre;
+  });
+  return { loose: parseArmorList(rest, report), corps };
 }
 
 function parseMonth(file) {
@@ -385,17 +416,18 @@ function parseMonth(file) {
     if (army === null) continue;
 
     const { divisions, corps } = parseDivisions(cells[1], stats.unresolvedTokens);
-    const armor = cells[3] ? parseArmor(cells[3], stats.unresolvedTokens) : [];
-    if (!divisions.length && !corps.length && !armor.length && army === 'FRONT_DIRECT') continue;
+    const armor = cells[3] ? parseArmor(cells[3], stats.unresolvedTokens) : { loose: [], corps: [] };
+    const allCorps = [...corps, ...armor.corps];
+    if (!divisions.length && !allCorps.length && !armor.loose.length && army === 'FRONT_DIRECT') continue;
     entries.push({
       front,
       army: army === 'FRONT_DIRECT' ? null : army,
       divisions,
-      corps,
-      armor,
+      corps: allCorps,
+      armor: armor.loose,
     });
     stats.assignments +=
-      divisions.length + armor.length + corps.reduce((s, c) => s + 1 + c.divisions.length, 0);
+      divisions.length + armor.loose.length + allCorps.reduce((s, c) => s + 1 + c.divisions.length, 0);
   }
   stats.months++;
   return { date, entries };

@@ -285,6 +285,17 @@ await page.waitForTimeout(5000);
 await page.screenshot({ path: `${SHOTS}/ww2-eastern-sim.png` });
 check('eastern-sim screenshot taken', true);
 
+// Armoured brigades (the 1941-42 armour gap): independent tank brigades from
+// the boevoi sostav are searchable + derived.
+await page.fill('.omnibox input', '1st Guards Tank Brigade');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1500);
+const bdePanel = await page.locator('.detail-panel').textContent();
+check('1st Guards Tank Brigade panel opens', /1st Guards Tank Brigade/.test(bdePanel ?? ''));
+check('tank brigade is derived (chain of command)', /derived daily/.test(bdePanel ?? '') && /(Army|Front|Corps)/.test(bdePanel ?? ''));
+
 // Territorial tide fill: the layer is registered with a toggle + legend.
 check('tide fill layer in the panel', (await page.locator('.layer-row', { hasText: 'Territorial control' }).count()) === 1);
 

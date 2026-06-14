@@ -485,6 +485,23 @@ Two data-foundation items.
 - Verified: 57/57 smoke (incl. registry dedup search-alias + commanders on a
   derived division); side-check 99.8%.
 
+## Armoured brigades — the 1941-42 armour gap ✅
+Before the tank corps/armies formed, the Red Army's operational armour was the
+independent tank brigade — previously skipped, so early-war Soviet armour was
+absent from the map. Now parsed from the boevoi sostav armoured column.
+- [x] `import-bs.mjs`: `parseArmor` refactored to extract tank/mech CORPS with
+      their members, plus independent armour; tank (тбр), mechanized (мбр) and
+      motor-rifle (мсбр) BRIGADES are real units now (echelon `brigade`).
+      Infantry brigades (сбр/лыжбр/морская) stay out of scope — rifle divisions
+      cover infantry. 27,314 SU assignments (was 22k); +~1,090 skeletons.
+- [x] 398 brigades; e.g. **1st Guards Tank Brigade** (Katukov) searchable and
+      derived. Brigades flow through the existing corps/sector derivation.
+- [x] Render: new `brigade` echelon tier (X mark) at z≥6.8 — always-on like
+      divisions, distinct from the focus-gated regiment/battalion `sub` tier
+      (now z≥7.0). Side-check 99.7% (1,560 derived units).
+- Verified: 59/59 smoke; tank brigades shown alongside divisions on the Moscow
+  front, Nov 1941.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

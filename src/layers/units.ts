@@ -27,10 +27,11 @@ const SOURCE_ID = 'units';
 const ARMY_ID = 'units-army';
 const CORPS_ID = 'units-corps';
 const DIVISION_ID = 'units-division';
+const BRIGADE_ID = 'units-brigade';
 const SUB_ID = 'units-sub';
 
 /** All MapLibre layer ids, for registry visibility toggling. */
-export const UNITS_LAYER_IDS = [ARMY_ID, CORPS_ID, DIVISION_ID, SUB_ID];
+export const UNITS_LAYER_IDS = [ARMY_ID, CORPS_ID, DIVISION_ID, BRIGADE_ID, SUB_ID];
 /** Click/hover targets for MapView. */
 export const UNITS_HIT_LAYER_IDS = UNITS_LAYER_IDS;
 
@@ -45,15 +46,17 @@ const ECH_MARK: Record<string, string> = {
   front: 'XXXXX',
   'army-group': 'XXXXX',
 };
-type EchGroup = 'army' | 'corps' | 'division' | 'sub';
+type EchGroup = 'army' | 'corps' | 'division' | 'brigade' | 'sub';
 const ECH_GROUP = (echelon: string): EchGroup =>
-  ['battalion', 'regiment', 'brigade'].includes(echelon)
-    ? 'sub'
-    : echelon === 'corps'
-      ? 'corps'
-      : ['army', 'front', 'army-group'].includes(echelon)
-        ? 'army'
-        : 'division';
+  ['battalion', 'regiment'].includes(echelon)
+    ? 'sub' // focus-gated: only when a parent is selected
+    : echelon === 'brigade'
+      ? 'brigade' // independent armour: deepest always-on tier
+      : echelon === 'corps'
+        ? 'corps'
+        : ['army', 'front', 'army-group'].includes(echelon)
+          ? 'army'
+          : 'division';
 
 let tracks: UnitTrack[] = [];
 let derivedUnits: DerivedUnit[] = [];
@@ -339,7 +342,8 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
   addEchelonLayer(map, ARMY_ID, 'army', 3);
   addEchelonLayer(map, CORPS_ID, 'corps', 5.4);
   addEchelonLayer(map, DIVISION_ID, 'division', 6.2);
-  addEchelonLayer(map, SUB_ID, 'sub', 6.8);
+  addEchelonLayer(map, BRIGADE_ID, 'brigade', 6.8);
+  addEchelonLayer(map, SUB_ID, 'sub', 7.0);
 }
 
 /** Re-interpolate unit positions to the given date. */
