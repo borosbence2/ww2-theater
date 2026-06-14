@@ -24,6 +24,7 @@ import {
 import { getFrontFeatures, type FrontFeature } from './front';
 
 const SOURCE_ID = 'units';
+const TOP_ID = 'units-top';
 const ARMY_ID = 'units-army';
 const CORPS_ID = 'units-corps';
 const DIVISION_ID = 'units-division';
@@ -31,7 +32,7 @@ const BRIGADE_ID = 'units-brigade';
 const SUB_ID = 'units-sub';
 
 /** All MapLibre layer ids, for registry visibility toggling. */
-export const UNITS_LAYER_IDS = [ARMY_ID, CORPS_ID, DIVISION_ID, BRIGADE_ID, SUB_ID];
+export const UNITS_LAYER_IDS = [TOP_ID, ARMY_ID, CORPS_ID, DIVISION_ID, BRIGADE_ID, SUB_ID];
 /** Click/hover targets for MapView. */
 export const UNITS_HIT_LAYER_IDS = UNITS_LAYER_IDS;
 
@@ -46,17 +47,31 @@ const ECH_MARK: Record<string, string> = {
   front: 'XXXXX',
   'army-group': 'XXXXX',
 };
-type EchGroup = 'army' | 'corps' | 'division' | 'brigade' | 'sub';
+type EchGroup = 'top' | 'army' | 'corps' | 'division' | 'brigade' | 'sub';
 const ECH_GROUP = (echelon: string): EchGroup =>
   ['battalion', 'regiment'].includes(echelon)
     ? 'sub' // focus-gated: only when a parent is selected
     : echelon === 'brigade'
-      ? 'brigade' // independent armour: deepest always-on tier
+      ? 'brigade'
       : echelon === 'corps'
         ? 'corps'
-        : ['army', 'front', 'army-group'].includes(echelon)
+        : echelon === 'army'
           ? 'army'
-          : 'division';
+          : ['front', 'army-group'].includes(echelon)
+            ? 'top' // army groups + fronts: the zoomed-out tier
+            : 'division';
+
+// Each tier shows in a zoom WINDOW [min, max): senior echelons appear when
+// zoomed out and drop off as you zoom into their children, so the map shows
+// roughly one-to-two echelons at a time instead of all of them at once.
+const ZOOM_WINDOW: Record<EchGroup, [number, number]> = {
+  top: [3, 4.8], // army groups / fronts
+  army: [4.2, 6.2],
+  corps: [5.3, 7.2],
+  division: [6.2, 24],
+  brigade: [6.9, 24],
+  sub: [7.2, 24], // regiments/battalions (also focus-gated)
+};
 
 let tracks: UnitTrack[] = [];
 let derivedUnits: DerivedUnit[] = [];
@@ -288,16 +303,19 @@ function collectionFor(dateISO: string): FeatureCollection {
   return { type: 'FeatureCollection', features: out };
 }
 
-function addEchelonLayer(map: MapLibreMap, id: string, ech: string, minzoom: number): void {
+function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
+  const [minzoom, maxzoom] = ZOOM_WINDOW[ech];
   map.addLayer({
     id,
     type: 'symbol',
     source: SOURCE_ID,
     minzoom,
+    maxzoom,
     filter: ['==', ['get', 'ech'], ech],
     layout: {
       'icon-image': ['get', 'icon'],
-      'icon-size': ['interpolate', ['linear'], ['zoom'], 4, 0.72, 8, 1.05],
+      // Legible even at the zoomed-out top tier (z≈3.5).
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.82, 6, 0.9, 8, 1.05],
       'icon-allow-overlap': true,
       'text-field': ['get', 'short'],
       'text-size': 10,
@@ -339,11 +357,13 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
     data: collectionFor(date),
     attribution: 'Units: curated (Stalingrad pilot, approximate)',
   });
-  addEchelonLayer(map, ARMY_ID, 'army', 3);
-  addEchelonLayer(map, CORPS_ID, 'corps', 5.4);
-  addEchelonLayer(map, DIVISION_ID, 'division', 6.2);
-  addEchelonLayer(map, BRIGADE_ID, 'brigade', 6.8);
-  addEchelonLayer(map, SUB_ID, 'sub', 7.0);
+  // Senior tiers first so juniors draw on top where windows overlap.
+  addEchelonLayer(map, TOP_ID, 'top');
+  addEchelonLayer(map, ARMY_ID, 'army');
+  addEchelonLayer(map, CORPS_ID, 'corps');
+  addEchelonLayer(map, DIVISION_ID, 'division');
+  addEchelonLayer(map, BRIGADE_ID, 'brigade');
+  addEchelonLayer(map, SUB_ID, 'sub');
 }
 
 /** Re-interpolate unit positions to the given date. */

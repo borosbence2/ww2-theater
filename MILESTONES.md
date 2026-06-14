@@ -502,6 +502,27 @@ absent from the map. Now parsed from the boevoi sostav armoured column.
 - Verified: 59/59 smoke; tank brigades shown alongside divisions on the Moscow
   front, Nov 1941.
 
+## Echelon zoom ladder — declutter by zoom ✅
+With the whole order of battle on the map, zooming out stacked every echelon
+at once. Each tier now renders in a zoom WINDOW [min,max): senior formations
+appear zoomed out and drop off as you zoom into their children, so the map
+shows ~one-to-two echelons at a time.
+- [x] `src/layers/units.ts`: `ECH_GROUP` split army-groups/fronts into a `top`
+      tier (was lumped with armies); `ZOOM_WINDOW` per tier — top 3–4.8,
+      army 4.2–6.2, corps 5.3–7.2, division 6.2+, brigade 6.9+, sub
+      (regiment/battalion, focus-gated) 7.2+. `addEchelonLayer` takes min+max.
+- [x] Low-zoom icon size bumped so the top tier is legible at z≈3.5.
+- Reads: z3.5 fronts/army groups only → z5 armies → z6.4 corps+divisions →
+      z7+ brigades, regiments on selection. Default view (z4) sits in the
+      front+army overlap, so both sides show at normal zoom; the German side
+      only thins at deep zoom-out.
+- Known gap (flagged): German **army groups** (Nord/Mitte/Süd/A/B/…) aren't
+  created as units yet, so the very-zoomed-out German top tier is sparse
+  (only the curated Heeresgruppe B, 1942–43). Soviet fronts populate it.
+  Next step: parse the LdW Unterstellung Heeresgruppe column → army-group
+  units + derived top-tier positions.
+- Verified: 59/59 smoke; screenshotted z3.7→z7.2.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)
