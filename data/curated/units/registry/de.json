@@ -1,0 +1,25 @@
+{
+  "note": "Reconciliation registry (SCALE_PLAN §4) — German. 'merge' folds duplicate unit records into a canonical id: the dupe's names become aliases and every OOB/parent reference is redirected, then the dupe is dropped. 'incarnations' documents formation ordinals (a designation reused after destruction/reformation maps to distinct ids by date range; the units already exist separately). Hand-verified — heuristic detection (number+class collisions, roster gaps) only SUGGESTS candidates and over-predicts (e.g. Guards != line number, 43% of SU divisions have a refit gap), so entries here are reviewed individually.",
+  "merge": {
+    "de-h-id-113": ["de-113th-infantry-division"],
+    "de-h-id-295": ["de-295th-infantry-division"],
+    "de-h-id-297": ["de-297th-infantry-division"],
+    "de-h-id-29-mot": ["de-29th-infantry-division"],
+    "de-h-id-305": ["de-305th-infantry-division"],
+    "de-h-id-384": ["de-384th-infantry-division"],
+    "de-h-id-389": ["de-389th-infantry-division"],
+    "de-h-id-3-mot": ["de-3rd-infantry-division"],
+    "de-h-id-60-mot": ["de-60th-infantry-division"],
+    "de-h-id-71": ["de-71st-infantry-division"],
+    "de-h-id-76": ["de-76th-infantry-division"]
+  },
+  "incarnations": {
+    "6. Armee": [
+      { "id": "de-h-armee-6", "from": "1939-10-10", "to": "1943-02-02", "note": "destroyed at Stalingrad" },
+      { "id": "de-h-armee-6-2", "from": "1943-03-06", "note": "reformed from Armeeabteilung Hollidt" }
+    ],
+    "8. Armee": [
+      { "id": "de-h-armee-8", "from": "1943-02-01", "note": "from Armeeabteilung Kempf (the 1939 8. Armee is not yet a separate incarnation)" }
+    ]
+  }
+}

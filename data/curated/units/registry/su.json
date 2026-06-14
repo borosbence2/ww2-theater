@@ -1,0 +1,5 @@
+{
+  "note": "Reconciliation registry (SCALE_PLAN §4) — Soviet. See de.json. Soviet formation ordinals are extensive (the 2nd Rifle Division had four formations, the 18th five — Wikidata encodes each as a same-name QID item with its own dates) but splitting the boevoi-sostav active entity per formation needs an authoritative reformation source: the active-army gap signal over-predicts (271/626 divisions show a >=4-month gap, mostly refit not reformation), so it is NOT auto-applied. Candidates are listed in reports/registry-su.txt for curation. Guards divisions are separately numbered and must NOT be merged with the line division of the same number.",
+  "merge": {},
+  "incarnations": {}
+}

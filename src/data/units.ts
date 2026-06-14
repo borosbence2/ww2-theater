@@ -55,7 +55,7 @@ export interface UnitDetail {
   existence: { from: string; to?: string; end?: string }[];
   parents: { from: string; to: string | null; unit: string; label: string }[];
   children: { from: string; to: string | null; unit: string; label: string }[];
-  commanders: { from: string; to: string | null; name: string; link?: string }[];
+  commanders: { from: string | null; to: string | null; name: string; link?: string; source?: string }[];
   positions: { date: string; at: [number, number]; label?: string; source?: string; confidence: string }[];
   positionsTo: string | null;
   derived: boolean;

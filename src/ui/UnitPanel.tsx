@@ -104,9 +104,10 @@ export function UnitPanel({ id }: { id: string }) {
           <h3>Commanders</h3>
           <ul>
             {unit.commanders.map((c) => {
-              const active = dateToNum(c.from) <= d && (!c.to || d < dateToNum(c.to));
+              // Wikidata commanders may be undated; only dated spans can be "active".
+              const active = c.from ? dateToNum(c.from) <= d && (!c.to || d < dateToNum(c.to)) : false;
               return (
-                <li key={`${c.name}|${c.from}`} className={active ? 'commander-active' : undefined}>
+                <li key={`${c.name}|${c.from ?? '?'}`} className={active ? 'commander-active' : undefined}>
                   {c.link ? (
                     <a href={c.link} target="_blank" rel="noreferrer">
                       {c.name}
@@ -115,7 +116,7 @@ export function UnitPanel({ id }: { id: string }) {
                     c.name
                   )}{' '}
                   <span className="omnibox-meta">
-                    {formatLong(c.from)} — {c.to ? formatLong(c.to) : 'open'}
+                    {c.from ? `${formatLong(c.from)} — ${c.to ? formatLong(c.to) : 'open'}` : 'dates unknown'}
                     {active && ' · in command'}
                   </span>
                 </li>

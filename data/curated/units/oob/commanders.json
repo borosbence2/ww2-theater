@@ -1,0 +1,4528 @@
+{
+ "note": "Unit commanders from Wikidata P598 (commander of), keyed by unit QID. Attached by build-units to units without curated commanders.",
+ "source": "Wikidata (CC0)",
+ "commanders": {
+  "Q165546": [
+   {
+    "name": "Peter Hansen",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Karl Burk",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Carl Friedrich von Pückler-Burghauss",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Carl_Friedrich_von_P%C3%BCckler-Burghauss"
+   }
+  ],
+  "Q219265": [
+   {
+    "name": "Zoltán Pisky",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029114": [
+   {
+    "name": "Andrey Bondarev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4031227": [
+   {
+    "name": "Anatoly Andreyev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q16625079": [
+   {
+    "name": "Aleksandr Belov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Anton Vladychanskii",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032154": [
+   {
+    "name": "Mikhail Bogdanov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Fyodor Makarov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032617": [
+   {
+    "name": "Filipp Alyabushev",
+    "from": "1941-03-13",
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Filipp_Alyabushev"
+   },
+   {
+    "name": "Semyon Petrovich Zybin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18234618": [
+   {
+    "name": "Ivan Ivanov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030374": [
+   {
+    "name": "Afanasy Lapshov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Aleksey Vlasenko",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Aleksey_Vlasenko"
+   }
+  ],
+  "Q3744501": [
+   {
+    "name": "Johan Lombak",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Artur Saueselg",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "August Feldman",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q3387188": [
+   {
+    "name": "Aleksandr Naumov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q16159796": [
+   {
+    "name": "Yakov Tonkonogov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18234850": [
+   {
+    "name": "Stepan Khanamiryan",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028859": [
+   {
+    "name": "Andrei Mischenko",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Nikolay Garnich",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Filipp Cherokmanov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Filipp_Cherokmanov"
+   }
+  ],
+  "Q28602530": [
+   {
+    "name": "Anatoly Losev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Pyotr Berestov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Pyotr_Berestov"
+   }
+  ],
+  "Q13050567": [
+   {
+    "name": "Vasiliy Maslov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18234567": [
+   {
+    "name": "Nikolai Telegin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028762": [
+   {
+    "name": "Boris Antonov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Silverst Barmotin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028029": [
+   {
+    "name": "Vladimir Malinnikov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029123": [
+   {
+    "name": "Yakov Yeryomenko",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4031635": [
+   {
+    "name": "Mikhail Erokhin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030467": [
+   {
+    "name": "Ivan Govorov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q2565936": [
+   {
+    "name": "Hervé Gobilliard",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q16056789": [
+   {
+    "name": "Sergey Demidov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Ivan Golubev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Andrey Andreyev",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Andrey_Matveyevich_Andreyev"
+   }
+  ],
+  "Q233763": [
+   {
+    "name": "Fritz Bayerlein",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Fritz_Bayerlein"
+   }
+  ],
+  "Q244697": [
+   {
+    "name": "Wilhelm Berlin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Wilhelm_Berlin"
+   }
+  ],
+  "Q165289": [
+   {
+    "name": "Ehrenfried-Oskar Boege",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ehrenfried-Oskar_Boege"
+   }
+  ],
+  "Q259787": [
+   {
+    "name": "Rudolf Konrad",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Rudolf_Konrad"
+   }
+  ],
+  "Q225723": [
+   {
+    "name": "Gustav Krukenberg",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gustav_Krukenberg"
+   },
+   {
+    "name": "Edgar Puaud",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Edgar_Puaud"
+   }
+  ],
+  "Q273846": [
+   {
+    "name": "Walther Lucht",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Walther_Lucht"
+   }
+  ],
+  "Q696944": [
+   {
+    "name": "Hyazinth Graf Strachwitz von Gross-Zauche und Camminetz",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hyacinth_Graf_Strachwitz"
+   },
+   {
+    "name": "Walter Hörnlein",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Walter_H%C3%B6rnlein"
+   }
+  ],
+  "Q228043": [
+   {
+    "name": "Richard Schulze-Kossens",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Richard_Schulze-Kossens"
+   }
+  ],
+  "Q221551": [
+   {
+    "name": "Bronislav Kaminski",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Bronislav_Kaminski"
+   }
+  ],
+  "Q196704": [
+   {
+    "name": "Carl Anders",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Carl_Anders"
+   }
+  ],
+  "Q219482": [
+   {
+    "name": "Erich Straube",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Erich_Straube"
+   }
+  ],
+  "Q694212": [
+   {
+    "name": "Friedrich Sixt",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Friedrich_Sixt"
+   },
+   {
+    "name": "Walter Jost",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Walter_Jost"
+   }
+  ],
+  "Q248116": [
+   {
+    "name": "Günther Krappe",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/G%C3%BCnther_Krappe"
+   }
+  ],
+  "Q268720": [
+   {
+    "name": "Hans Traut",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hans_Traut"
+   },
+   {
+    "name": "Paul Völckers",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Paul_V%C3%B6lckers"
+   }
+  ],
+  "Q16486369": [
+   {
+    "name": "Fyodor Kolchuk",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Fyodor_Kolchuk"
+   }
+  ],
+  "Q4029071": [
+   {
+    "name": "Grigory Kotov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Grigory_Kotov"
+   }
+  ],
+  "Q4029600": [
+   {
+    "name": "Konstantin Kulikov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Konstantin_Kulikov"
+   },
+   {
+    "name": "Vasily Shatilov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Vasily_Shatilov"
+   }
+  ],
+  "Q4030129": [
+   {
+    "name": "Feofan Parkhomenko",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Feofan_Parkhomenko"
+   }
+  ],
+  "Q188099": [
+   {
+    "name": "Yevhen Pobihushchyi",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Yevhen_Pobihushchyi-Ren"
+   }
+  ],
+  "Q4030971": [
+   {
+    "name": "Nikolay Nikitin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Nikolay_Aleksandrovich_Nikitin"
+   }
+  ],
+  "Q2064528": [
+   {
+    "name": "Andrey Bondarev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Yevgeny Stepanovich Alyokhin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Andrey Andreyev",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Andrey_Matveyevich_Andreyev"
+   },
+   {
+    "name": "Vladimir Kirpichnikov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Vladimir_Kirpichnikov_(general)"
+   }
+  ],
+  "Q4031530": [
+   {
+    "name": "Pavel Bogdanov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Georgy Bondar",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Georgy_Bondar"
+   }
+  ],
+  "Q160133": [
+   {
+    "name": "Kurt Brasack",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Heinz Lammerding",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Heinz_Lammerding"
+   },
+   {
+    "name": "Georg Keppler",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Georg_Keppler"
+   },
+   {
+    "name": "Herbert-Ernst Vahl",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Herbert-Ernst_Vahl"
+   },
+   {
+    "name": "Karl Kreutz",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Karl_Kreutz"
+   },
+   {
+    "name": "Christian Tychsen",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Christian_Tychsen_(Waffen-SS)"
+   },
+   {
+    "name": "Rudolf Lehmann",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Rudolf_Lehmann_(SS_officer)"
+   },
+   {
+    "name": "Werner Ostendorff",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Werner_Ostendorff"
+   }
+  ],
+  "Q4029317": [
+   {
+    "name": "Mikhail Andryushchenko",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Sergey Goryachev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q2275953": [
+   {
+    "name": "Boris Arshintsev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Viktor Abolins",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Yuri Viktorovich Kuznetsov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Yuri_Viktorovich_Kuznetsov"
+   }
+  ],
+  "Q23002704": [
+   {
+    "name": "Pyotr Alekseyevich Belik",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Gavriil Vasilenko",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q1195465": [
+   {
+    "name": "Nikolay Belyayev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Nikolay Loginov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q16484814": [
+   {
+    "name": "Ivan Vasilyev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030412": [
+   {
+    "name": "Pavel Volosatykh",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030985": [
+   {
+    "name": "Vasily Glazkov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Vasiliy Maslov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Grigoriy Smolin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Ivan Nikitich Konev",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ivan_Nikitich_Konev"
+   }
+  ],
+  "Q4030951": [
+   {
+    "name": "Iosif Gubarevich",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q12062143": [
+   {
+    "name": "Ivan Gusev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Leonid Vasilevsky",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029149": [
+   {
+    "name": "Yerofey Dobrovolsky",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028871": [
+   {
+    "name": "Fyodor Zakharov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030060": [
+   {
+    "name": "Gavriil Zdanovich",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028639": [
+   {
+    "name": "Aleksandr Zotov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Fyodor Komarov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "V. P. Nikitin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Pavel Potapov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029875": [
+   {
+    "name": "Vladimir Komarov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Adam Turchinskiy",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Alexander Chaiko",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Aleksandr_Chayko"
+   }
+  ],
+  "Q25747": [
+   {
+    "name": "Ivan Nikitich Kononov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q21195525": [
+   {
+    "name": "Nikolay Kuznetsov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Ivan Kozhedub",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ivan_Kozhedub"
+   }
+  ],
+  "Q4031753": [
+   {
+    "name": "Aleksandr Naumov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Filipp Konovalov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Pavel Lazarev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029174": [
+   {
+    "name": "Aleksey Negoda",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030571": [
+   {
+    "name": "Nikolay Ryakin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029302": [
+   {
+    "name": "Artur Saueselg",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Alfrēds Kalniņš",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Władysław Korczyc",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Vladislav_Korchits"
+   },
+   {
+    "name": "Jaan Kruus",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Jaan_Kruus"
+   }
+  ],
+  "Q18234855": [
+   {
+    "name": "Sergei Prokofevich Timoshkov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4031107": [
+   {
+    "name": "Sergei Prokofevich Timoshkov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Vasiliy Naydyonov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032575": [
+   {
+    "name": "Pavel Buniashin",
+    "from": "1943-05-18",
+    "to": "1945-01-01",
+    "link": null
+   },
+   {
+    "name": "Pyotr Fomenko",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q7485534": [
+   {
+    "name": "Stanisław Zaikowski",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030882": [
+   {
+    "name": "Stanisław Zaikowski",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032284": [
+   {
+    "name": "Valter Valli",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Nikolay Belyayev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Akseli Anttila",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Akseli_Anttila"
+   }
+  ],
+  "Q4030533": [
+   {
+    "name": "Baderko Alexander",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q48941887": [
+   {
+    "name": "Fyodor Borisov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q16159815": [
+   {
+    "name": "Mitrofan Zaikin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q7485540": [
+   {
+    "name": "Aleksey Kubasov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "V. P. Nikitin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Nikolay Garnich",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18235033": [
+   {
+    "name": "Yefim Marchenko",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18634794": [
+   {
+    "name": "Ivan Podgornyy",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q16484232": [
+   {
+    "name": "Mikhail Sakhno",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q209957": [
+   {
+    "name": "Bernhard Wintzer",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030228": [
+   {
+    "name": "Sergey Goryachev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Grigory Khakhanyan",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Grigory_Khakhanyan"
+   }
+  ],
+  "Q4031108": [
+   {
+    "name": "Ivan Arkhipov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Mikhail Smirnov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mikhail_Nikolayevich_Smirnov_(general)"
+   }
+  ],
+  "Q4030425": [
+   {
+    "name": "Semyon Borshchyov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q23002673": [
+   {
+    "name": "Aleksandr Osipov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4031044": [
+   {
+    "name": "Ivan Golubev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Ivan Sidorovich Lazarenko",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ivan_Sidorovich_Lazarenko"
+   }
+  ],
+  "Q158277": [
+   {
+    "name": "Hugo Kraas",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hugo_Kraas"
+   },
+   {
+    "name": "Kurt Meyer",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Kurt_Meyer"
+   },
+   {
+    "name": "Fritz Witt",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Fritz_Witt"
+   }
+  ],
+  "Q269662": [
+   {
+    "name": "Karl Strecker",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Karl_Strecker"
+   }
+  ],
+  "Q264046": [
+   {
+    "name": "Bruno Bieler",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Bruno_Bieler"
+   }
+  ],
+  "Q213010": [
+   {
+    "name": "Hermann Foertsch",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hermann_Foertsch"
+   }
+  ],
+  "Q227705": [
+   {
+    "name": "Hermann Niehoff",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hermann_Niehoff"
+   }
+  ],
+  "Q163385": [
+   {
+    "name": "Maximilian von Weichs",
+    "from": "1935-10-01",
+    "to": "1937-09-30",
+    "link": "https://en.wikipedia.org/wiki/Maximilian_von_Weichs"
+   },
+   {
+    "name": "Rudolf Schmidt",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Rudolf_Schmidt"
+   }
+  ],
+  "Q215711": [
+   {
+    "name": "Nikolaus von Vormann",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Nikolaus_von_Vormann"
+   }
+  ],
+  "Q224245": [
+   {
+    "name": "Hermann Flörke",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hermann_Fl%C3%B6rke"
+   },
+   {
+    "name": "Gerhard Berthold",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gerhard_Berthold"
+   },
+   {
+    "name": "Ernst König",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ernst_K%C3%B6nig"
+   }
+  ],
+  "Q21195582": [
+   {
+    "name": "Vasily Glazunov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Vasily_Glazunov"
+   }
+  ],
+  "Q210842": [
+   {
+    "name": "Mauritz von Wiktorin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mauritz_von_Wiktorin"
+   }
+  ],
+  "Q127413": [
+   {
+    "name": "Hermann-Bernhard Ramcke",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hermann-Bernhard_Ramcke"
+   }
+  ],
+  "Q200285": [
+   {
+    "name": "Heinrich Petersen",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Heinrich_Petersen_(SS_officer)"
+   },
+   {
+    "name": "Wilhelm Trabandt",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Wilhelm_Trabandt"
+   }
+  ],
+  "Q4031042": [
+   {
+    "name": "Fyodor Ostashenko",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Fyodor_Ostashenko"
+   }
+  ],
+  "Q4028104": [
+   {
+    "name": "Viktor Baranov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Viktor_Ilyich_Baranov"
+   }
+  ],
+  "Q16161111": [
+   {
+    "name": "Gaspar Voskanyan",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gaspar_Voskanyan"
+   }
+  ],
+  "Q21195488": [
+   {
+    "name": "Aleksandr Karasyov (pilot)",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Aleksandr_Karasyov_(pilot)"
+   }
+  ],
+  "Q4030560": [
+   {
+    "name": "Valerian Dzabakhidze",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q65041383": [
+   {
+    "name": "Nikolai Skutelnik",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030519": [
+   {
+    "name": "Vladimir Azin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032049": [
+   {
+    "name": "Anatoly Andreyev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Simon Zakyan",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Valerian Dzabakhidze",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032335": [
+   {
+    "name": "Dmitry Bakanov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032236": [
+   {
+    "name": "Aleksandr Nikolayevich Bakhtin",
+    "from": "1920-12-13",
+    "to": "1921-08-01",
+    "link": null
+   }
+  ],
+  "Q55650067": [
+   {
+    "name": "Grigory Belov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Minigali Shaymuratov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Minigali_Shaymuratov"
+   }
+  ],
+  "Q4030937": [
+   {
+    "name": "Gavriil Vasilenko",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Teodor Kulakov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Teodor_Kulakov"
+   }
+  ],
+  "Q4031071": [
+   {
+    "name": "Pyotr Davydov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Aleksandr Gusarov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q16056777": [
+   {
+    "name": "Pyotr Davydov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Mikhail Iosifovich Glinsky",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mikhail_Iosifovich_Glinsky"
+   }
+  ],
+  "Q4030521": [
+   {
+    "name": "Sergey Danilov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q21195110": [
+   {
+    "name": "Viktor Ivanov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q55650063": [
+   {
+    "name": "Grigoriy Koblov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4031446": [
+   {
+    "name": "Anatoly Krasnov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Andrei Mischenko",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Ivan Moshlyak",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ivan_Moshlyak"
+   }
+  ],
+  "Q4032345": [
+   {
+    "name": "Fyodor Makovetskiy",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q7485377": [
+   {
+    "name": "Dmitry Malkov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18234664": [
+   {
+    "name": "Hadji-Umar Mamsurov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Pyotr Zubov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030201": [
+   {
+    "name": "Vladimir Martsinkevich",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028695": [
+   {
+    "name": "Andrei Zinovevich Naumov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q225166": [
+   {
+    "name": "Joachim Richter",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029159": [
+   {
+    "name": "Dmitry Seleznyov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Matvey Kononenko",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Matvey_Kononenko"
+   }
+  ],
+  "Q15722302": [
+   {
+    "name": "Ivan Skugarev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Vladimir Borisov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Vladimir_Borisov"
+   }
+  ],
+  "Q4030837": [
+   {
+    "name": "Sergei Prokofevich Timoshkov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q16159752": [
+   {
+    "name": "Aleksandr Pastrevich",
+    "from": "1939-09-07",
+    "to": "1939-12-25",
+    "link": null
+   },
+   {
+    "name": "Alexander Khadeyev",
+    "from": "1939-12-25",
+    "to": "1940-04-15",
+    "link": null
+   },
+   {
+    "name": "Yakov Ishchenko",
+    "from": "1940-04-15",
+    "to": "1941-09-25",
+    "link": null
+   },
+   {
+    "name": "Pavel Yagunov",
+    "from": "1941-09-25",
+    "to": "1942-03-01",
+    "link": null
+   },
+   {
+    "name": "Ivan Lyudnikov",
+    "from": "1942-05-28",
+    "to": "1943-01-31",
+    "link": "https://en.wikipedia.org/wiki/Ivan_Lyudnikov"
+   }
+  ],
+  "Q16160525": [
+   {
+    "name": "Viktor Georgiyevich Chernov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Aleksandr Ilyin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q2026505": [
+   {
+    "name": "Stiepan Żydek",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Vladimir Kuznetsov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Luka Basanets",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Luka_Basanets"
+   }
+  ],
+  "Q4030018": [
+   {
+    "name": "Jānis Veikins",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18234441": [
+   {
+    "name": "Aleksandr Utin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028184": [
+   {
+    "name": "Vasily Andreevich Leshchinin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032639": [
+   {
+    "name": "Vladimir Stenin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Mikhail Seryugin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mikhail_Seryugin"
+   }
+  ],
+  "Q4030189": [
+   {
+    "name": "Vladimir Zyuvanov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Nikolay Shkodunovich",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Nikolay_Shkodunovich"
+   }
+  ],
+  "Q18234909": [
+   {
+    "name": "Mikhail Danilov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18234793": [
+   {
+    "name": "Mikhail Isayev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4031136": [
+   {
+    "name": "Simon Zakyan",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Ivan Lyudnikov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ivan_Lyudnikov"
+   },
+   {
+    "name": "Hmayak Babayan",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hmayak_Babayan"
+   }
+  ],
+  "Q4031987": [
+   {
+    "name": "Vassily Revyakin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Markis Salikhov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q21195401": [
+   {
+    "name": "Aleksandr Osipov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029424": [
+   {
+    "name": "Pavel Lazarev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18634774": [
+   {
+    "name": "Nikolay Maslennikov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Nikolay Nikitin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Nikolay_Aleksandrovich_Nikitin"
+   }
+  ],
+  "Q4028151": [
+   {
+    "name": "Aleksandr Korochkin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032716": [
+   {
+    "name": "Platon Chernyayev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q270763": [
+   {
+    "name": "Hermann Fegelein",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hermann_Fegelein"
+   },
+   {
+    "name": "Joachim Rumohr",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Joachim_Rumohr"
+   },
+   {
+    "name": "Bruno Streckenbach",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Bruno_Streckenbach"
+   }
+  ],
+  "Q165541": [
+   {
+    "name": "Johannes Frießner",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Johannes_Frie%C3%9Fner"
+   }
+  ],
+  "Q270756": [
+   {
+    "name": "Erich Brandenberger",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Erich_Brandenberger"
+   },
+   {
+    "name": "Adolf-Friedrich Kuntzen",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Adolf-Friedrich_Kuntzen"
+   },
+   {
+    "name": "Werner Hühner",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Werner_H%C3%BChner"
+   }
+  ],
+  "Q163496": [
+   {
+    "name": "Friedrich-Wilhelm Krüger",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Friedrich-Wilhelm_Kr%C3%BCger"
+   },
+   {
+    "name": "Franz Schreiber",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Franz_Schreiber"
+   }
+  ],
+  "Q215722": [
+   {
+    "name": "Jürgen Wagner",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/J%C3%BCrgen_Wagner"
+   }
+  ],
+  "Q275718": [
+   {
+    "name": "Alfred Ritter von Hubicki",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Alfred_Ritter_von_Hubicki"
+   },
+   {
+    "name": "Harald Freiherr von Elverfeldt",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Harald_Freiherr_von_Elverfeldt"
+   }
+  ],
+  "Q697087": [
+   {
+    "name": "Joachim von Kortzfleisch",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Joachim_von_Kortzfleisch"
+   },
+   {
+    "name": "Walther Schroth",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Walther_Schroth"
+   }
+  ],
+  "Q166372": [
+   {
+    "name": "Wolfgang Erdmann",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Wolfgang_Erdmann"
+   }
+  ],
+  "Q562438": [
+   {
+    "name": "Gustav Schmidt",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gustav_Schmidt_(general)"
+   },
+   {
+    "name": "Otto von Knobelsdorff",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Otto_von_Knobelsdorff"
+   }
+  ],
+  "Q2662606": [
+   {
+    "name": "Heinrich Trettner",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Heinrich_Trettner"
+   }
+  ],
+  "Q4642290": [
+   {
+    "name": "Nikolay Pukhov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Nikolai_Pukhov"
+   }
+  ],
+  "Q163605": [
+   {
+    "name": "Martin Berg",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Martin_Berg"
+   }
+  ],
+  "Q213379": [
+   {
+    "name": "Karl Böttcher",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Karl_B%C3%B6ttcher"
+   },
+   {
+    "name": "Hans Freiherr von Funck",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hans_von_Funck"
+   }
+  ],
+  "Q275914": [
+   {
+    "name": "Heinrich von Behr",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Heinrich_Baron_von_Behr"
+   },
+   {
+    "name": "Ernst-Günther Baade",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ernst-G%C3%BCnther_Baade"
+   },
+   {
+    "name": "Hermann Schulte-Heuthaus",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hermann_Schulte-Heuthaus"
+   }
+  ],
+  "Q425795": [
+   {
+    "name": "Walter Jost",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Walter_Jost"
+   }
+  ],
+  "Q21195456": [
+   {
+    "name": "Filipp Agaltsov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Filipp_Agaltsov"
+   }
+  ],
+  "Q24936348": [
+   {
+    "name": "Kanamat Botashev",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Kanamat_Botashev"
+   }
+  ],
+  "Q170787": [
+   {
+    "name": "Gerhard von Schwerin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gerhard_von_Schwerin"
+   }
+  ],
+  "Q219711": [
+   {
+    "name": "Michael Lippert",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Michael_Lippert"
+   }
+  ],
+  "Q201371": [
+   {
+    "name": "Walter Model",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Walter_Model"
+   }
+  ],
+  "Q4028588": [
+   {
+    "name": "Filipp Alyabushev",
+    "from": "1939-12-01",
+    "to": "1940-02-25",
+    "link": "https://en.wikipedia.org/wiki/Filipp_Alyabushev"
+   }
+  ],
+  "Q18234808": [
+   {
+    "name": "Pyotr Berestov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Pyotr_Berestov"
+   },
+   {
+    "name": "Fyodor Petrovich Korol",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Fyodor_Korol"
+   }
+  ],
+  "Q4028331": [
+   {
+    "name": "Pyotr Georgyevich Novikov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Pyotr_Georgyevich_Novikov"
+   }
+  ],
+  "Q1762931": [
+   {
+    "name": "Georg von Döhren",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q2025669": [
+   {
+    "name": "Aleksandr Batiunia",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Viktor Ivanovich Polosukhin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030850": [
+   {
+    "name": "Ivan Aliyev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Aleksey Zaytsev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030888": [
+   {
+    "name": "Ivan Antyufeev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032282": [
+   {
+    "name": "Nikolay Babakhin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "G. A. Inozemt͡sev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Ivan Sivakov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ivan_Sivakov"
+   }
+  ],
+  "Q767056": [
+   {
+    "name": "Aleksandr Nikolayevich Bakhtin",
+    "from": "1920-08-04",
+    "to": "1920-09-24",
+    "link": null
+   },
+   {
+    "name": "Ivan Semyonovich Kutyakov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Petr Tkalun",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Vasily Chapayev",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Vasily_Chapayev"
+   },
+   {
+    "name": "Trofim Kolomiets",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Trofim_Kolomiets"
+   },
+   {
+    "name": "Gaspar Voskanyan",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gaspar_Voskanyan"
+   }
+  ],
+  "Q4031381": [
+   {
+    "name": "Detlavs Brantkalns",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Jānis Veikins",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Alfrēds Kalniņš",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028729": [
+   {
+    "name": "Mikhail Zashibalov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q58183444": [
+   {
+    "name": "Askanaz Karapetyan",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q21164938": [
+   {
+    "name": "Fyodor Makovetskiy",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028293": [
+   {
+    "name": "Alexei Pervushin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q12782571": [
+   {
+    "name": "Ivan Skugarev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Mikhail Seryugin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mikhail_Seryugin"
+   },
+   {
+    "name": "Mikhail Borisoviсh Anashkin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mikhail_Anashkin"
+   },
+   {
+    "name": "Aleksey Baksov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Aleksei_Baksov"
+   }
+  ],
+  "Q4028737": [
+   {
+    "name": "Fyodor Smekhotvorov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028716": [
+   {
+    "name": "Ivan Solovyov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Andrei Mischenko",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030287": [
+   {
+    "name": "Terenty Umansky",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Stepan Ivanov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030993": [
+   {
+    "name": "Ivan Dashichev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Fyodor Borisov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030070": [
+   {
+    "name": "Mykhailo Biloskurskyi",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q21195321": [
+   {
+    "name": "Mykhailo Biloskurskyi",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Yurii Boryskin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Filipp Alyabushev",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Filipp_Alyabushev"
+   }
+  ],
+  "Q2365683": [
+   {
+    "name": "Vladas Motieka",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Feliksas Baltušis-Žemaitis",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Feliksas_Baltu%C5%A1is-%C5%BDemaitis"
+   }
+  ],
+  "Q28650625": [
+   {
+    "name": "Yusif Abdullayev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q21195305": [
+   {
+    "name": "Semyon Grigorievich Getman",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030958": [
+   {
+    "name": "Iosif Zubarev",
+    "from": "1943-08-21",
+    "to": "1944-01-10",
+    "link": null
+   },
+   {
+    "name": "Sargis Martirosyan",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Sarkis_Martirosyan"
+   }
+  ],
+  "Q4028070": [
+   {
+    "name": "Dmitry Parovatkin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Vassily Revyakin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Grigory Kulik",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Grigory_Kulik"
+   },
+   {
+    "name": "Leonid Petrovsky",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Leonid_Petrovsky"
+   },
+   {
+    "name": "Alexander Lizyukov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Alexander_Lizyukov"
+   }
+  ],
+  "Q18395127": [
+   {
+    "name": "Vladimir Gusev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q30601898": [
+   {
+    "name": "Vladimir Kuznetsov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q213808": [
+   {
+    "name": "Kurt Himer",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Gustav Gihr",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gustav_Gihr"
+   }
+  ],
+  "Q4031331": [
+   {
+    "name": "Andrey Volkov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Alexey Tereshkov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Alexey_Tereshkov"
+   }
+  ],
+  "Q55650121": [
+   {
+    "name": "Leonid Lozanovich",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030369": [
+   {
+    "name": "Stepan Ivanov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Viktor Urbanovich",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Viktor_Urbanovich"
+   }
+  ],
+  "Q240404": [
+   {
+    "name": "Kurt Domansky",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Paul Betz",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Paul_Betz"
+   },
+   {
+    "name": "Friedrich Sixt",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Friedrich_Sixt"
+   }
+  ],
+  "Q4030961": [
+   {
+    "name": "Ivan Zaikin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028581": [
+   {
+    "name": "Aleksandr Korochkin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q260811": [
+   {
+    "name": "Erwin Rommel",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Erwin_Rommel"
+   },
+   {
+    "name": "Hasso von Manteuffel",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hasso_von_Manteuffel"
+   },
+   {
+    "name": "Adelbert Schulz",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Adelbert_Schulz"
+   },
+   {
+    "name": "Karl Mauss",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Karl_Mauss"
+   },
+   {
+    "name": "Gerhard Schmidhuber",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gerhard_Schmidhuber"
+   },
+   {
+    "name": "Hans Freiherr von Funck",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hans_von_Funck"
+   }
+  ],
+  "Q4030890": [
+   {
+    "name": "Dzhokhar Dudayev",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Dzhokhar_Dudayev"
+   }
+  ],
+  "Q194495": [
+   {
+    "name": "Gotthard Heinrici",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gotthard_Heinrici"
+   }
+  ],
+  "Q163809": [
+   {
+    "name": "Karl Pfeffer-Wildenbruch",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Karl_Pfeffer-Wildenbruch"
+   },
+   {
+    "name": "Alfred Wünnenberg",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Alfred_W%C3%BCnnenberg"
+   },
+   {
+    "name": "Jürgen Wagner",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/J%C3%BCrgen_Wagner"
+   },
+   {
+    "name": "Otto Binge",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Otto_Binge"
+   }
+  ],
+  "Q724184": [
+   {
+    "name": "Erick-Oskar Hansen",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Erik_Hansen_(general)"
+   }
+  ],
+  "Q558756": [
+   {
+    "name": "Werner Mummert",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Werner_Mummert"
+   }
+  ],
+  "Q220658": [
+   {
+    "name": "Léon Degrelle",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/L%C3%A9on_Degrelle"
+   }
+  ],
+  "Q225148": [
+   {
+    "name": "Nikolaus von Falkenhorst",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Nikolaus_von_Falkenhorst"
+   },
+   {
+    "name": "Hans Boeckh-Behrens",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hans_Boeckh-Behrens"
+   },
+   {
+    "name": "Wilhelm Bohnstedt",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Wilhelm_Bohnstedt"
+   }
+  ],
+  "Q34991": [
+   {
+    "name": "Hans-Jürgen von Arnim",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hans-J%C3%BCrgen_von_Arnim"
+   },
+   {
+    "name": "Wilhelm Ritter von Thoma",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Wilhelm_Ritter_von_Thoma"
+   },
+   {
+    "name": "Rudolf Demme",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Rudolf_Demme"
+   }
+  ],
+  "Q231032": [
+   {
+    "name": "Georg-Hans Reinhardt",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Georg-Hans_Reinhardt"
+   },
+   {
+    "name": "Clemens Betzel",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Clemens_Betzel"
+   },
+   {
+    "name": "Heinrich Eberbach",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Heinrich_Eberbach"
+   },
+   {
+    "name": "Dietrich von Saucken",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Dietrich_von_Saucken"
+   },
+   {
+    "name": "Willibald Freiherr von Langermann und Erlencamp",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Willibald_von_Langermann_und_Erlencamp"
+   }
+  ],
+  "Q21195005": [
+   {
+    "name": "Hryhorii Kravchenko",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Grigory_Kravchenko"
+   }
+  ],
+  "Q212752": [
+   {
+    "name": "Martin Berg",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Martin_Berg"
+   }
+  ],
+  "Q226910": [
+   {
+    "name": "Georg Lindemann",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Georg_Lindemann"
+   }
+  ],
+  "Q214192": [
+   {
+    "name": "Adolf Strauss",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Adolf_Strauss_(general)"
+   },
+   {
+    "name": "Josias von Heeringen",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Josias_von_Heeringen"
+   }
+  ],
+  "Q4029279": [
+   {
+    "name": "Karp Sviridov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Karp_Sviridov"
+   }
+  ],
+  "Q259809": [
+   {
+    "name": "Fritz-Georg von Rappard",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Fritz-Georg_von_Rappard"
+   },
+   {
+    "name": "Gustav Gihr",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gustav_Gihr"
+   },
+   {
+    "name": "Eugen Ott",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Eugen_Ott_(general)"
+   }
+  ],
+  "Q261838": [
+   {
+    "name": "Gustav Gihr",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gustav_Gihr"
+   }
+  ],
+  "Q187318": [
+   {
+    "name": "Muhammad Azam khan WATTOO",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Azam_Khan_(general)"
+   }
+  ],
+  "Q4031976": [
+   {
+    "name": "Fyodor Ostashenko",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Fyodor_Ostashenko"
+   },
+   {
+    "name": "Leonid Petrovsky",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Leonid_Petrovsky"
+   }
+  ],
+  "Q4028598": [
+   {
+    "name": "Mikhail Seryugin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mikhail_Seryugin"
+   }
+  ],
+  "Q214479": [
+   {
+    "name": "Wilhelm von Apell",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Wilhelm_von_Apell"
+   }
+  ],
+  "Q565633": [
+   {
+    "name": "Willibald Borowietz",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Willibald_Borowietz"
+   }
+  ],
+  "Q218785": [
+   {
+    "name": "Friedrich Wiese",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Friedrich_Wiese"
+   },
+   {
+    "name": "Johannes de Boer",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Johannes_de_Boer"
+   },
+   {
+    "name": "Walter Weiß",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Walter_Wei%C3%9F"
+   }
+  ],
+  "Q226107": [
+   {
+    "name": "Kurt Pflieger",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Kurt_Pflieger"
+   }
+  ],
+  "Q223860": [
+   {
+    "name": "Otto Elfeldt",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Otto_Elfeldt"
+   }
+  ],
+  "Q30891283": [
+   {
+    "name": "Sargis Martirosyan",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Sarkis_Martirosyan"
+   }
+  ],
+  "Q4030354": [
+   {
+    "name": "Ivan Gorbachyov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ivan_Sergeyevich_Gorbachyov"
+   }
+  ],
+  "Q4031854": [
+   {
+    "name": "Dmitry Zherebin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Dmitry_Zherebin"
+   }
+  ],
+  "Q194885": [
+   {
+    "name": "Max Simon",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Max_Simon"
+   }
+  ],
+  "Q19932092": [
+   {
+    "name": "Aleksandr Belyayev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Konstantin Tsvetkov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030468": [
+   {
+    "name": "Ivan Fiodorov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18234994": [
+   {
+    "name": "Nikolay Batyuk",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029283": [
+   {
+    "name": "Minzakir Absalamov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q16158828": [
+   {
+    "name": "Hristofor Alaverdov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029411": [
+   {
+    "name": "Pavel Bibikov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q216957": [
+   {
+    "name": "Adolf Wagner",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4031670": [
+   {
+    "name": "Vasily Vasilyev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Sergey Goryachev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Yuri Vladimirovich Novoselsky",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Yury_Novoselsky"
+   }
+  ],
+  "Q4028798": [
+   {
+    "name": "Mikhail Vlasov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Aleksandr Kiselyov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028839": [
+   {
+    "name": "Ivan Gerasimov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q2470360": [
+   {
+    "name": "Lev Gorelov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Vladimir Krayev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Vladimir Shamanov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Vladimir_Shamanov"
+   },
+   {
+    "name": "Nikolai Ignatow",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Nikolai_Ignatov_(general)"
+   },
+   {
+    "name": "Viktor Astapov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Viktor_Astapov"
+   }
+  ],
+  "Q4031839": [
+   {
+    "name": "Mikhail Zavadovsky",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18398511": [
+   {
+    "name": "Fyodor Vasilyevich Kamkov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q205283": [
+   {
+    "name": "Nikolajs Katiševs",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Andrejs Freimanis",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Hinrich Schuldt",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hinrich_Schuldt"
+   },
+   {
+    "name": "Alfrēds Riekstiņš",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Alfr%C4%93ds_Rieksti%C5%86%C5%A1"
+   },
+   {
+    "name": "Voldemārs Reinholds",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Voldem%C4%81rs_Reinholds"
+   },
+   {
+    "name": "Kārlis Sensbergs",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/K%C4%81rlis_Sensbergs"
+   }
+  ],
+  "Q4028797": [
+   {
+    "name": "Fyodor Korotkov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Filipp Alyabushev",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Filipp_Alyabushev"
+   },
+   {
+    "name": "Philipp Gorelenko",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Filipp_Gorelenko"
+   }
+  ],
+  "Q3415577": [
+   {
+    "name": "Fyodor Kuzmin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Aleksandr Maksimov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Gaspar Voskanyan",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gaspar_Voskanyan"
+   },
+   {
+    "name": "Grigory Stelmakh",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Grigory_Stelmakh"
+   }
+  ],
+  "Q7361728": [
+   {
+    "name": "Dmitry Kupriyanov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Sergey Goryachev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Mikhail Grishin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Maksim Antoniuk",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Maksim_Antoniuk"
+   },
+   {
+    "name": "Andrei Sazontov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Andrei_Sazontov"
+   }
+  ],
+  "Q18234982": [
+   {
+    "name": "Dmitry Seleznyov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Max Reyter",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Max_Reyter"
+   },
+   {
+    "name": "Aleksandr Akimov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Alexander_Akimov_(general)"
+   }
+  ],
+  "Q4029512": [
+   {
+    "name": "Konstantin Skorobogatkin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Pavel Alimov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030804": [
+   {
+    "name": "Grigorij Łaźko",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q19844102": [
+   {
+    "name": "Yusif Abdullayev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Dmitry Gordeyev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q55650130": [
+   {
+    "name": "Vladimir Stenin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Yuri Konstantinovich Novozhilov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028743": [
+   {
+    "name": "Vasiliy Trudolyubov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Mikhail Mesheryakov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mikhail_Meshcheryakov"
+   }
+  ],
+  "Q18235057": [
+   {
+    "name": "Sergey Kuznetsov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q21195444": [
+   {
+    "name": "Valentin Dodonov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Vasily Dzhugashvili",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Vasily_Stalin"
+   }
+  ],
+  "Q21195480": [
+   {
+    "name": "Taras Kavalyow",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030251": [
+   {
+    "name": "Timofei Vasilevich Lebedev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030363": [
+   {
+    "name": "Pyotr Zhivalev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Pavel Batitsky",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Pavel_Batitsky"
+   }
+  ],
+  "Q7485660": [
+   {
+    "name": "Vasiliy Kalinin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18234897": [
+   {
+    "name": "Nikoloz Kaladze",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q217468": [
+   {
+    "name": "Erich-Heinrich Clößner",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Erich-Heinrich_Cl%C3%B6%C3%9Fner"
+   },
+   {
+    "name": "Arnold Burmeister",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Arnold_Burmeister"
+   }
+  ],
+  "Q127424": [
+   {
+    "name": "Richard Heidrich",
+    "from": "1943-05-01",
+    "to": "1944-11-16",
+    "link": "https://en.wikipedia.org/wiki/Richard_Heidrich"
+   },
+   {
+    "name": "Hans Korte",
+    "from": "1944-01-04",
+    "to": "1944-02-21",
+    "link": "https://en.wikipedia.org/wiki/Hans_Korte_(general)"
+   },
+   {
+    "name": "Karl-Lothar Schulz",
+    "from": "1944-11-18",
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Karl-Lothar_Schulz"
+   },
+   {
+    "name": "Alfred Schlemm",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Alfred_Schlemm"
+   },
+   {
+    "name": "Walter Koch",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Walter_Koch_(paratrooper)"
+   }
+  ],
+  "Q216732": [
+   {
+    "name": "Kurt Versock",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Kurt_Versock"
+   }
+  ],
+  "Q4032787": [
+   {
+    "name": "Andrey Vlasov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Andrey_Vlasov"
+   }
+  ],
+  "Q160776": [
+   {
+    "name": "August Schmidhuber",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/August_Schmidhuber"
+   }
+  ],
+  "Q160765": [
+   {
+    "name": "August Schmidhuber",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/August_Schmidhuber"
+   },
+   {
+    "name": "Otto Kumm",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Otto_Kumm"
+   }
+  ],
+  "Q4030394": [
+   {
+    "name": "Heinrich Eiche",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Genrich_Eiche"
+   },
+   {
+    "name": "Pavel Kuznetsov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Pavel_Grigoryevich_Kuznetsov"
+   },
+   {
+    "name": "Eduards Liepiņš",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Eduard_Lepin"
+   },
+   {
+    "name": "Mikhail Matiyasevich",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mikhail_Matiyasevich"
+   }
+  ],
+  "Q4032301": [
+   {
+    "name": "Pavle Abramidze",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Pavle_Abramidze"
+   }
+  ],
+  "Q218989": [
+   {
+    "name": "Arnold Freiherr von Biegeleben",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Arnold_Freiherr_von_Biegeleben"
+   },
+   {
+    "name": "Horst Großmann",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Horst_Gro%C3%9Fmann"
+   }
+  ],
+  "Q197622": [
+   {
+    "name": "Georg Bochmann",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Georg_Bochmann"
+   },
+   {
+    "name": "Eduard Deisenhofer",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Eduard_Deisenhofer"
+   },
+   {
+    "name": "Fritz Klingenberg",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Fritz_Klingenberg"
+   },
+   {
+    "name": "Otto Baum",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Otto_Baum"
+   }
+  ],
+  "Q164114": [
+   {
+    "name": "Hans Traut",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hans_Traut"
+   }
+  ],
+  "Q219709": [
+   {
+    "name": "Hans Tröger",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hans_Tr%C3%B6ger"
+   }
+  ],
+  "Q196067": [
+   {
+    "name": "Walter von Boltenstern",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Walter_von_Boltenstern"
+   }
+  ],
+  "Q226532": [
+   {
+    "name": "Johann-Georg Richert",
+    "from": "1943-01-01",
+    "to": "1945-01-01",
+    "link": "https://en.wikipedia.org/wiki/Johann-Georg_Richert"
+   },
+   {
+    "name": "Gustav Gihr",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gustav_Gihr"
+   }
+  ],
+  "Q165242": [
+   {
+    "name": "Johann Schwerdfeger",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Johann_Schwerdfeger"
+   }
+  ],
+  "Q215956": [
+   {
+    "name": "Max Fremerey",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Max_Fremerey"
+   }
+  ],
+  "Q4031248": [
+   {
+    "name": "Maksim Antoniuk",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Maksim_Antoniuk"
+   },
+   {
+    "name": "Ivan Rosly",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ivan_Rosly"
+   }
+  ],
+  "Q240033": [
+   {
+    "name": "Joachim Lemelsen",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Joachim_Lemelsen"
+   }
+  ],
+  "Q175523": [
+   {
+    "name": "Traugott Herr",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Traugott_Herr"
+   },
+   {
+    "name": "Franz Bäke",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Franz_B%C3%A4ke"
+   }
+  ],
+  "Q4030075": [
+   {
+    "name": "Sergey Gorshkov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Sergey_Gorshkov_(general)"
+   }
+  ],
+  "Q4028751": [
+   {
+    "name": "Ivan Grishin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ivan_Grishin"
+   }
+  ],
+  "Q4028917": [
+   {
+    "name": "Mikhail Sangursky",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mikhail_Sangursky"
+   }
+  ],
+  "Q4029284": [
+   {
+    "name": "Dmitry Fesenko",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Dmitry_Fesenko"
+   }
+  ],
+  "Q234844": [
+   {
+    "name": "Fritz Schlieper",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Fritz_Schlieper"
+   },
+   {
+    "name": "Gustav Gihr",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gustav_Gihr"
+   }
+  ],
+  "Q152494": [
+   {
+    "name": "Kurt Student",
+    "from": "1938-09-01",
+    "to": "1940-05-16",
+    "link": "https://en.wikipedia.org/wiki/Kurt_Student"
+   },
+   {
+    "name": "Richard Putzier",
+    "from": "1940-05-16",
+    "to": "1941-01-21",
+    "link": null
+   },
+   {
+    "name": "Wilhelm Süßmann",
+    "from": "1941-01-21",
+    "to": "1941-05-20",
+    "link": "https://en.wikipedia.org/wiki/Wilhelm_S%C3%BCssmann"
+   },
+   {
+    "name": "Alfred Sturm",
+    "from": "1941-05-20",
+    "to": "1941-05-30",
+    "link": "https://en.wikipedia.org/wiki/Alfred_Sturm"
+   },
+   {
+    "name": "Erich Petersen",
+    "from": "1941-06-01",
+    "to": "1942-08-01",
+    "link": "https://en.wikipedia.org/wiki/Erich_Petersen"
+   },
+   {
+    "name": "Richard Heidrich",
+    "from": "1942-08-01",
+    "to": "1943-05-01",
+    "link": "https://en.wikipedia.org/wiki/Richard_Heidrich"
+   }
+  ],
+  "Q4031006": [
+   {
+    "name": "Dmitry Alekseyev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030536": [
+   {
+    "name": "Ivan Alfyorov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Aleksandr Berezin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q12782852": [
+   {
+    "name": "Georgy Anisimov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Ivan Gorbachyov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4031818": [
+   {
+    "name": "Vasily Vasilyev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029226": [
+   {
+    "name": "Grigory Vekhin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18634796": [
+   {
+    "name": "Viktor Glebov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032091": [
+   {
+    "name": "Mikhail Glukhov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Pyotr Koshevoy",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Pyotr_Koshevoy"
+   }
+  ],
+  "Q16056775": [
+   {
+    "name": "Yefim Zybin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q21195570": [
+   {
+    "name": "Ivan Presnyakov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030303": [
+   {
+    "name": "Vladimir Rodionov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Władysław Korczyc",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Vladislav_Korchits"
+   }
+  ],
+  "Q4028169": [
+   {
+    "name": "Aleksandar Saraev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029453": [
+   {
+    "name": "Aleksandr Starunin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Nikolay Artemenko",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Grigory Lyaskin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Timofei Vasilevich Lebedev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Pavel Potapov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032539": [
+   {
+    "name": "Semyon Mikhailovich Kondrusev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4031509": [
+   {
+    "name": "Filipp Matykin",
+    "from": "1942-04-17",
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Gaspar Voskanyan",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gaspar_Voskanyan"
+   }
+  ],
+  "Q21195146": [
+   {
+    "name": "Aleksey Kubasov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4031334": [
+   {
+    "name": "Vasiliy Maslov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Tarlan Aliyarbayov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Tarlan_Aliyarbayov"
+   }
+  ],
+  "Q65174952": [
+   {
+    "name": "Semyon Borshchyov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q18234811": [
+   {
+    "name": "Nikolay Maslennikov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q19906659": [
+   {
+    "name": "Andrian Ilyin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029282": [
+   {
+    "name": "Pyotr Zhivalev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030966": [
+   {
+    "name": "Pyotr Zhivalev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028987": [
+   {
+    "name": "Platon Chernyayev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q12783123": [
+   {
+    "name": "Valerian Dzabakhidze",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029088": [
+   {
+    "name": "Nikoloz Kaladze",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q159522": [
+   {
+    "name": "Theodor Eicke",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Theodor_Eicke"
+   },
+   {
+    "name": "Hermann Prieß",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hermann_Priess"
+   },
+   {
+    "name": "Max Simon",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Max_Simon"
+   },
+   {
+    "name": "Hellmuth Becker",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hellmuth_Becker_(SS_officer)"
+   },
+   {
+    "name": "Karl Ullrich",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Karl_Ullrich"
+   }
+  ],
+  "Q169423": [
+   {
+    "name": "Herbert von Böckmann",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Herbert_von_B%C3%B6ckmann"
+   }
+  ],
+  "Q223203": [
+   {
+    "name": "Hans Kreysing",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hans_Kreysing"
+   },
+   {
+    "name": "Julius Ringel",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Julius_Ringel"
+   },
+   {
+    "name": "Eduard Dietl",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Eduard_Dietl"
+   }
+  ],
+  "Q223651": [
+   {
+    "name": "Otto Barth",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Otto_Barth_(general)"
+   },
+   {
+    "name": "Kurt von Tippelskirch",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Kurt_von_Tippelskirch"
+   }
+  ],
+  "Q156170": [
+   {
+    "name": "Artur Phleps",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Artur_Phleps"
+   },
+   {
+    "name": "Herbert Otto Gille",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Herbert_Gille"
+   },
+   {
+    "name": "Fritz Darges",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Fritz_Darges"
+   },
+   {
+    "name": "Johannes-Rudolf Mühlenkamp",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Johannes-Rudolf_M%C3%BChlenkamp"
+   }
+  ],
+  "Q171780": [
+   {
+    "name": "Rudolf Bamler",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Rudolf_Bamler"
+   },
+   {
+    "name": "Walther von Seydlitz-Kurzbach",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Walther_von_Seydlitz-Kurzbach"
+   },
+   {
+    "name": "Wilhelm Lorenz",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Wilhelm_Lorenz"
+   }
+  ],
+  "Q169932": [
+   {
+    "name": "Ludwig Crüwell",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ludwig_Cr%C3%BCwell"
+   },
+   {
+    "name": "Dietrich von Choltitz",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Dietrich_von_Choltitz"
+   },
+   {
+    "name": "Walter Scheller",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Walter_Scheller"
+   },
+   {
+    "name": "Günther Angern",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/G%C3%BCnther_Angern"
+   }
+  ],
+  "Q141482": [
+   {
+    "name": "Desiderius Hampel",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Desiderius_Hampel"
+   }
+  ],
+  "Q626001": [
+   {
+    "name": "Walter Wessel",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Walter_Wessel"
+   },
+   {
+    "name": "Erpo Freiherr von Bodenhausen",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Erpo_Freiherr_von_Bodenhausen"
+   },
+   {
+    "name": "Horst von Usedom",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Horst_von_Usedom"
+   }
+  ],
+  "Q4030587": [
+   {
+    "name": "Gleb Baklanov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gleb_Baklanov"
+   }
+  ],
+  "Q4028182": [
+   {
+    "name": "Arkadii Nikolaevich Ermakov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Arkady_Yermakov"
+   }
+  ],
+  "Q9135119": [
+   {
+    "name": "Ivan Zakharkin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ivan_Zakharkin"
+   },
+   {
+    "name": "Afanasy Gryaznov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Afanasy_Gryaznov"
+   }
+  ],
+  "Q169945": [
+   {
+    "name": "Joachim Ziegler",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Joachim_Ziegler"
+   }
+  ],
+  "Q4031118": [
+   {
+    "name": "Sergei Bunyachenko",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Sergei_Bunyachenko"
+   }
+  ],
+  "Q4032695": [
+   {
+    "name": "Baurzhan Momyshuly",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Bauyrzhan_Momyshuly"
+   }
+  ],
+  "Q244124": [
+   {
+    "name": "Edmund Blaurock",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Edmund_Blaurock"
+   },
+   {
+    "name": "Karl von Oven",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Karl_von_Oven"
+   }
+  ],
+  "Q16495691": [
+   {
+    "name": "Max Reyter",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Max_Reyter"
+   }
+  ],
+  "Q220357": [
+   {
+    "name": "Ernst König",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ernst_K%C3%B6nig"
+   },
+   {
+    "name": "Hans Speth",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Hans_Speth"
+   },
+   {
+    "name": "Johann Sinnhuber",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Johann_Sinnhuber"
+   }
+  ],
+  "Q682797": [
+   {
+    "name": "Hanns-Horst von Necker",
+    "from": "1944-10-01",
+    "to": "1945-02-08",
+    "link": "https://en.wikipedia.org/wiki/Hanns-Horst_von_Necker"
+   }
+  ],
+  "Q4029933": [
+   {
+    "name": "Ivan Lyudnikov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ivan_Lyudnikov"
+   }
+  ],
+  "Q4028826": [
+   {
+    "name": "Mikhail Pronin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mikhail_Pronin"
+   }
+  ],
+  "Q4029185": [
+   {
+    "name": "Mikhail Timofeyevich Romanov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mikhail_Timofeyevich_Romanov"
+   }
+  ],
+  "Q4028421": [
+   {
+    "name": "Karp Sviridov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Karp_Sviridov"
+   }
+  ],
+  "Q170016": [
+   {
+    "name": "Gustav Gihr",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Gustav_Gihr"
+   }
+  ],
+  "Q4032628": [
+   {
+    "name": "Andrey Zelentsov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Pavel Yegorov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Vladimir Solovyov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029683": [
+   {
+    "name": "Dmitry Averin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Viktor Zholudev",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Viktor_Zholudev"
+   }
+  ],
+  "Q18395176": [
+   {
+    "name": "Pyotr Aleksandrov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Georgy Latyshev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Nikolay Maslennikov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q16485447": [
+   {
+    "name": "Pyotr Aleksandrov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q276270": [
+   {
+    "name": "Zynovii Aleksieiev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4028835": [
+   {
+    "name": "Fyodor Volkov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030919": [
+   {
+    "name": "Vasily Malyshkin",
+    "from": "1927-06-01",
+    "to": "1936-12-01",
+    "link": "https://en.wikipedia.org/wiki/Vasily_Malyshkin"
+   },
+   {
+    "name": "Mikhail Gerasimov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Fyodor Zuyev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Trifon Shevaldin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Trifon_Shevaldin"
+   }
+  ],
+  "Q3415570": [
+   {
+    "name": "Pavel Yegorov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Mark Tkachyov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Nikolai Trushkin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032227": [
+   {
+    "name": "Fyodor Vasilyevich Kamkov",
+    "from": "1937-07-01",
+    "to": "1940-06-04",
+    "link": null
+   },
+   {
+    "name": "Pavel Alexeyevich Belov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Pavel_Belov"
+   },
+   {
+    "name": "Yelisey Goryachev",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Yelisey_Goryachev"
+   }
+  ],
+  "Q1133044": [
+   {
+    "name": "Askanaz Karapetyan",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Nver Safaryan",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Simon Zakyan",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030867": [
+   {
+    "name": "Grigory Kovalyov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4032128": [
+   {
+    "name": "Konstantin Komissarov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029307": [
+   {
+    "name": "Andrejs Krustiņš",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Leonid Vasilevsky",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4643529": [
+   {
+    "name": "Hayk Martirosyan",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4029222": [
+   {
+    "name": "Vladimir Martsinkevich",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4031418": [
+   {
+    "name": "Petr Tkalun",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Mykola Shchors",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mykola_Shchors"
+   }
+  ],
+  "Q4031075": [
+   {
+    "name": "Mykhailo Biloskurskyi",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4031287": [
+   {
+    "name": "Hacıbaba Məmməd oğlu Zeynalov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Yusif Abdullayev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Tarlan Aliyarbayov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Tarlan_Aliyarbayov"
+   },
+   {
+    "name": "Ali Nagi Huseynov",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Ali_Nagi_Huseynov"
+   }
+  ],
+  "Q4031101": [
+   {
+    "name": "Yusif Abdullayev",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q28650626": [
+   {
+    "name": "Yusif Abdullayev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Vassily Revyakin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q48941818": [
+   {
+    "name": "Alexander Yepanchin",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030520": [
+   {
+    "name": "Ivan Kravtsov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030366": [
+   {
+    "name": "Sergey Goryachev",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Stepan Ivanov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030920": [
+   {
+    "name": "Vladimir Gusev",
+    "from": "1943-01-01",
+    "to": "1945-01-01",
+    "link": null
+   }
+  ],
+  "Q4031031": [
+   {
+    "name": "Ivan Arkhipov",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Mikhail Yenshin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mikhail_Yenshin"
+   }
+  ],
+  "Q4030568": [
+   {
+    "name": "Nikolai Trushkin",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Vasiliy Zayonchkovskiy",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q21195334": [
+   {
+    "name": "Petr Kuchma",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q235395": [
+   {
+    "name": "Kurt Himer",
+    "from": null,
+    "to": null,
+    "link": null
+   },
+   {
+    "name": "Arthur Hauffe",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Arthur_Hauffe"
+   }
+  ],
+  "Q4031036": [
+   {
+    "name": "Ivan Vorobyov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4030969": [
+   {
+    "name": "Markian Pogrebnyak",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q4031983": [
+   {
+    "name": "Markis Salikhov",
+    "from": null,
+    "to": null,
+    "link": null
+   }
+  ],
+  "Q244382": [
+   {
+    "name": "Anton Dostler",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Anton_Dostler"
+   },
+   {
+    "name": "Otto Fretter-Pico",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Otto_Fretter-Pico"
+   }
+  ],
+  "Q4029889": [
+   {
+    "name": "Semyon Krivoshein",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Semyon_Krivoshein"
+   }
+  ],
+  "Q234858": [
+   {
+    "name": "Martin Unrein",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Martin_Unrein"
+   }
+  ],
+  "Q265919": [
+   {
+    "name": "Helmuth Beukemann",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Helmuth_Beukemann"
+   },
+   {
+    "name": "Lothar Berger",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Lothar_Berger"
+   }
+  ],
+  "Q2808147": [
+   {
+    "name": "Max Fremerey",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Max_Fremerey"
+   }
+  ],
+  "Q2030553": [
+   {
+    "name": "Vasily Malyshkin",
+    "from": "1935-05-01",
+    "to": "1936-12-01",
+    "link": "https://en.wikipedia.org/wiki/Vasily_Malyshkin"
+   }
+  ],
+  "Q4030554": [
+   {
+    "name": "Mikhail Seryugin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Mikhail_Seryugin"
+   }
+  ],
+  "Q4032598": [
+   {
+    "name": "Aleksandr Bondovsky",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Aleksandr_Bondovsky"
+   },
+   {
+    "name": "Stepan Povetkin",
+    "from": null,
+    "to": null,
+    "link": "https://en.wikipedia.org/wiki/Stepan_Povetkin"
+   }
+  ]
+ }
+}

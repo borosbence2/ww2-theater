@@ -52,7 +52,7 @@ const sourcesReg = JSON.parse(readFileSync(join(UNITS_DIR, 'sources.json'), 'utf
 
 const units = new Map();
 for (const dir of readdirSync(UNITS_DIR, { withFileTypes: true })) {
-  if (!dir.isDirectory() || dir.name === 'oob') continue;
+  if (!dir.isDirectory() || dir.name === 'oob' || dir.name === 'registry') continue;
   for (const file of readdirSync(join(UNITS_DIR, dir.name))) {
     if (!file.endsWith('.json')) continue;
     const u = JSON.parse(readFileSync(join(UNITS_DIR, dir.name, file), 'utf8'));
@@ -136,6 +136,73 @@ try {
   }
 } catch {
   console.log('No imported-divisions.json — building from curated files only.');
+}
+
+// ---------------------------------------------------------------------------
+// Reconciliation registry (SCALE_PLAN §4): fold curated `merge` duplicates
+// into their canonical id (names → aliases) and redirect every reference, so
+// search/derivation see one unit. Validate `incarnations` (formation ordinals).
+const redirect = new Map(); // dupe id -> canonical id
+for (const cc of ['de', 'su', 'ro', 'hu', 'it']) {
+  let reg;
+  try {
+    reg = JSON.parse(readFileSync(join(UNITS_DIR, 'registry', `${cc}.json`), 'utf8'));
+  } catch {
+    continue;
+  }
+  for (const [canonical, dupes] of Object.entries(reg.merge ?? {})) {
+    const canon = units.get(canonical);
+    if (!canon) {
+      warn('registry', `merge canonical "${canonical}" not found`);
+      continue;
+    }
+    const names = canon.names[canon.names.length - 1];
+    for (const dupeId of dupes) {
+      redirect.set(dupeId, canonical);
+      const dupe = units.get(dupeId);
+      if (dupe) {
+        names.aliases = [
+          ...new Set([
+            ...(names.aliases ?? []),
+            ...dupe.names.flatMap((n) => [n.name, ...(n.aliases ?? [])]),
+          ]),
+        ];
+        units.delete(dupeId);
+      }
+    }
+  }
+  for (const [desig, incs] of Object.entries(reg.incarnations ?? {})) {
+    for (const inc of incs) {
+      if (!units.has(inc.id)) err('registry', `incarnation "${desig}" → missing unit ${inc.id}`);
+    }
+  }
+}
+const canon = (id) => redirect.get(id) ?? id;
+if (redirect.size) {
+  // Redirect references: curated parents, and the OOB structures consumed below.
+  for (const u of units.values()) {
+    for (const p of u.parents ?? []) p.unit = canon(p.unit);
+  }
+  if (oob) {
+    for (const m of oob.months) {
+      for (const e of m.entries) {
+        if (e.army) e.army = canon(e.army);
+        e.divisions = e.divisions.map(canon);
+        e.armor = (e.armor ?? []).map(canon);
+        for (const c of e.corps ?? []) {
+          c.unit = canon(c.unit);
+          c.divisions = c.divisions.map(canon);
+        }
+      }
+    }
+  }
+  if (deOob) {
+    for (const div of deOob.divisions) {
+      div.id = canon(div.id);
+      for (const ev of div.events) ev[1] = ev[1] && canon(ev[1]);
+    }
+  }
+  console.log(`Registry: folded ${redirect.size} duplicate unit(s) into canonical ids`);
 }
 
 // Temporal parents from the monthly OOB: each month's assignment holds until
@@ -296,6 +363,26 @@ for (const u of units.values()) {
     }
     prev = { d, at: pos.at, date: pos.date };
   }
+}
+
+// Wikidata commanders (fetch-commanders.mjs, keyed by QID): attach to units
+// that have none authored. Curated commander successions always win. These may
+// be undated (Wikidata often lacks term qualifiers), so they bypass the ISO
+// validation above and the client renders "dates unknown" for null spans.
+let commandersAttached = 0;
+try {
+  const wd = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'commanders.json'), 'utf8')).commanders;
+  for (const u of units.values()) {
+    if (u.commanders?.length) continue;
+    const qid = u.links?.wikidata?.replace(/^.*\//, '');
+    const list = qid && wd[qid];
+    if (!list?.length) continue;
+    u.commanders = list.map((c) => ({ from: c.from ?? null, to: c.to ?? null, name: c.name, link: c.link ?? undefined, source: 'wikidata' }));
+    commandersAttached++;
+  }
+  console.log(`Commanders: attached Wikidata successions to ${commandersAttached} units`);
+} catch {
+  console.log('No commanders.json — units keep only curated commanders.');
 }
 
 // Children: reverse of parents.

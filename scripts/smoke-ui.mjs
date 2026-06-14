@@ -152,6 +152,7 @@ await page.waitForTimeout(1500);
 const importedPanel = await page.locator('.detail-panel').textContent();
 check('imported division panel opens (12th SS)', /Hitlerjugend/.test(importedPanel ?? ''));
 check('scaffold marked not mapped + auto-imported', /Not mapped yet/.test(importedPanel ?? '') && /Auto-imported from Wikidata/.test(importedPanel ?? ''));
+check('Wikidata commanders attached (Kurt Meyer)', /Commanders/.test(importedPanel ?? '') && /Meyer/.test(importedPanel ?? ''));
 
 // People panel (Phase 4.1): archive links prefill with the name; the wizard
 // resolves a unit; ?person= deep-links.

@@ -463,6 +463,28 @@ Two long-standing gaps closed.
 - v1 remainder: no per-day land clipping (the rear boundary is fixed, so
   deep-1945 shading is schematic).
 
+## Reconciliation registry + Wikidata commanders ✅
+Two data-foundation items.
+- [x] **Reconciliation registry** (SCALE_PLAN §4, `data/curated/units/registry/{de,su}.json`):
+      a curated `merge` map folds duplicate unit records into a canonical id
+      (the dupe's names become search aliases, every OOB/parent reference is
+      redirected, then it's dropped) — `build-units.mjs` applies it. Seeded with
+      11 verified German curated↔scaffold dupes (the Stalingrad divisions vs
+      their Wikidata scaffolds), removing real search clutter; 1739→1728 units.
+      `incarnations` documents formation ordinals (6. Armee / 6. Armee (II),
+      8. Armee / A.Abt. Kempf as the worked examples). Key finding, recorded:
+      bulk formation-splitting is NOT auto-applied — heuristics over-predict
+      (Guards ≠ line number; the active-army gap flags 271/626 SU divisions,
+      mostly refit not reformation), so it needs an authoritative reformation
+      source; the mechanism is in place for when that lands.
+- [x] **Wikidata commanders** (`fetch-commanders.mjs` → `oob/commanders.json`):
+      P598 "commander of" with date qualifiers for all 941 unit QIDs → 631
+      commander records across 368 units, attached by `build-units` to units
+      without curated successions (curated win). Undated terms render "dates
+      unknown". E.g. 12. SS now shows Witt/Meyer/Kraas; Wiking shows Gille.
+- Verified: 57/57 smoke (incl. registry dedup search-alias + commanders on a
+  derived division); side-check 99.8%.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)
