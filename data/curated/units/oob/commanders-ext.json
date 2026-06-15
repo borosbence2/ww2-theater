@@ -1,0 +1,3430 @@
+{
+ "note": "Higher Soviet formations resolved to Wikidata by label; commanders (P598), description, and Wikipedia article. Keyed by unit id. Attached by build-units.",
+ "source": "Wikidata (CC0)",
+ "units": {
+  "de-h-armee-1": {
+   "qid": "Q327779",
+   "description": "1939-1945 German field army",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Erwin von Witzleben",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Erwin_von_Witzleben"
+    },
+    {
+     "name": "Johannes Blaskowitz",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Johannes_Blaskowitz"
+    },
+    {
+     "name": "Joachim Lemelsen",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Joachim_Lemelsen"
+    }
+   ]
+  },
+  "de-h-armee-10": {
+   "qid": "Q163925",
+   "description": "German field army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/10th_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Walter von Reichenau",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Walter_von_Reichenau"
+    },
+    {
+     "name": "Heinrich von Vietinghoff",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Heinrich_von_Vietinghoff"
+    },
+    {
+     "name": "Joachim Lemelsen",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Joachim_Lemelsen"
+    }
+   ]
+  },
+  "de-h-armee-11": {
+   "qid": "Q155434",
+   "description": "German field army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/11th_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Erich von Manstein",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Erich_von_Manstein"
+    },
+    {
+     "name": "Walther Lucht",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Walther_Lucht"
+    },
+    {
+     "name": "Arnold von Winckler",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Arnold_von_Winckler"
+    }
+   ]
+  },
+  "de-h-armee-12": {
+   "qid": "Q171673",
+   "description": "German field army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/12th_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Wilhelm Ritter von Leeb",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Wilhelm_Ritter_von_Leeb"
+    },
+    {
+     "name": "Wilhelm List",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Wilhelm_List"
+    }
+   ]
+  },
+  "de-h-armee-14": {
+   "qid": "Q187119",
+   "description": "German field army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/14th_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Wilhelm List",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Wilhelm_List"
+    },
+    {
+     "name": "Eberhard von Mackensen",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Eberhard_von_Mackensen"
+    },
+    {
+     "name": "Joachim Lemelsen",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Joachim_Lemelsen"
+    }
+   ]
+  },
+  "de-h-armee-15": {
+   "qid": "Q191052",
+   "description": "German field army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/15th_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Curt Haase",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Curt_Haase"
+    },
+    {
+     "name": "Hans von Salmuth",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Hans_von_Salmuth"
+    }
+   ]
+  },
+  "de-h-armee-16": {
+   "qid": "Q194400",
+   "description": "German field army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/16th_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Ernst Busch",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ernst_Busch_(field_marshal)"
+    },
+    {
+     "name": "Christian Hansen",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Christian_Hansen_(general)"
+    }
+   ]
+  },
+  "de-h-armee-17": {
+   "qid": "Q197284",
+   "description": "1940-1945 German Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/17th_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Juliann Kurzmann",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Hermann Hoth",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Hermann_Hoth"
+    },
+    {
+     "name": "Friedrich Schulz",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Friedrich_Schulz"
+    },
+    {
+     "name": "Carl-Heinrich von Stülpnagel",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Carl-Heinrich_von_St%C3%BClpnagel"
+    },
+    {
+     "name": "Hans von Salmuth",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Hans_von_Salmuth"
+    },
+    {
+     "name": "Erwin Jaenecke",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Erwin_Jaenecke"
+    }
+   ]
+  },
+  "de-h-armee-18": {
+   "qid": "Q200121",
+   "description": "German field army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/18th_Army_(Wehrmacht)",
+   "commanders": []
+  },
+  "de-h-armee-19": {
+   "qid": "Q204597",
+   "description": "German field army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/19th_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Erich Brandenberger",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Erich_Brandenberger"
+    }
+   ]
+  },
+  "de-h-armee-2": {
+   "qid": "Q819304",
+   "description": "1939-1945 army-level field formation of the German Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/2nd_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Maximilian von Weichs",
+     "from": "1939-10-20",
+     "to": "1941-11-15",
+     "link": "https://en.wikipedia.org/wiki/Maximilian_von_Weichs"
+    },
+    {
+     "name": "Maximilian von Weichs",
+     "from": "1942-01-15",
+     "to": "1942-07-15",
+     "link": "https://en.wikipedia.org/wiki/Maximilian_von_Weichs"
+    },
+    {
+     "name": "Walter Weiß",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Walter_Wei%C3%9F"
+    },
+    {
+     "name": "Hans von Salmuth",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Hans_von_Salmuth"
+    }
+   ]
+  },
+  "de-h-armee-25": {
+   "qid": "Q217368",
+   "description": "Wehrmacht military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/25th_Army_(Wehrmacht)",
+   "commanders": []
+  },
+  "de-h-armee-3": {
+   "qid": "Q540974",
+   "description": "German field army that fought during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/3rd_Army_(Wehrmacht)",
+   "commanders": []
+  },
+  "de-h-armee-4": {
+   "qid": "Q464848",
+   "description": "field army of the Wehrmacht during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/4th_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Friedrich Hoßbach",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Friedrich_Hossbach"
+    },
+    {
+     "name": "Johannes Frießner",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Johannes_Frie%C3%9Fner"
+    },
+    {
+     "name": "Hans von Salmuth",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Hans_von_Salmuth"
+    }
+   ]
+  },
+  "de-h-armee-5": {
+   "qid": "Q203364",
+   "description": "field army of the Wehrmacht during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/5th_Army_(Wehrmacht)",
+   "commanders": []
+  },
+  "de-h-armee-6": {
+   "qid": "Q161213",
+   "description": "German field army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/6th_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Friedrich Paulus",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Friedrich_Paulus"
+    },
+    {
+     "name": "Walter von Reichenau",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Walter_von_Reichenau"
+    }
+   ]
+  },
+  "de-h-armee-7": {
+   "qid": "Q671885",
+   "description": "German field army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/7th_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Erich Brandenberger",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Erich_Brandenberger"
+    }
+   ]
+  },
+  "de-h-armee-8": {
+   "qid": "Q671863",
+   "description": "field army of the German Army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/8th_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Otto Wöhler",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Otto_W%C3%B6hler"
+    },
+    {
+     "name": "Johannes Blaskowitz",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Johannes_Blaskowitz"
+    }
+   ]
+  },
+  "de-h-armee-9": {
+   "qid": "Q275151",
+   "description": "German field army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/9th_Army_(Wehrmacht)",
+   "commanders": [
+    {
+     "name": "Smilo Freiherr von Lüttwitz",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Smilo_Freiherr_von_L%C3%BCttwitz"
+    },
+    {
+     "name": "Johannes Blaskowitz",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Johannes_Blaskowitz"
+    },
+    {
+     "name": "Josef Harpe",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Josef_Harpe"
+    },
+    {
+     "name": "Theodor Busse",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Theodor_Busse"
+    },
+    {
+     "name": "Adolf Strauss",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Adolf_Strauss_(general)"
+    }
+   ]
+  },
+  "de-h-hgr-a": {
+   "qid": "Q163259",
+   "description": "name of a number of German Army Groups during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/Army_Group_A",
+   "commanders": [
+    {
+     "name": "Paul Ludwig Ewald von Kleist",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Paul_Ludwig_Ewald_von_Kleist"
+    },
+    {
+     "name": "Josef Harpe",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Josef_Harpe"
+    }
+   ]
+  },
+  "de-h-hgr-b": {
+   "qid": "Q157572",
+   "description": "name of three different German Army Groups during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/Army_Group_B",
+   "commanders": [
+    {
+     "name": "Maximilian von Weichs",
+     "from": "1942-08-01",
+     "to": "1943-02-01",
+     "link": "https://en.wikipedia.org/wiki/Maximilian_von_Weichs"
+    },
+    {
+     "name": "Fedor von Bock",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fedor_von_Bock"
+    },
+    {
+     "name": "Erwin Rommel",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Erwin_Rommel"
+    },
+    {
+     "name": "Hans von Salmuth",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Hans_von_Salmuth"
+    }
+   ]
+  },
+  "de-h-hgr-don": {
+   "qid": "Q318342",
+   "description": "army group in Nazi Germany",
+   "wikipedia": "https://en.wikipedia.org/wiki/Army_Group_Don",
+   "commanders": [
+    {
+     "name": "Erich von Manstein",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Erich_von_Manstein"
+    }
+   ]
+  },
+  "de-h-hgr-kurland": {
+   "qid": "Q328311",
+   "description": "army group",
+   "wikipedia": "https://en.wikipedia.org/wiki/Army_Group_Courland",
+   "commanders": [
+    {
+     "name": "Lothar Rendulic",
+     "from": "1945-03-13",
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Lothar_Rendulic"
+    }
+   ]
+  },
+  "de-h-hgr-mitte": {
+   "qid": "Q158260",
+   "description": "army group of the German Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/Army_Group_Centre",
+   "commanders": [
+    {
+     "name": "Ernst Busch",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ernst_Busch_(field_marshal)"
+    },
+    {
+     "name": "Fedor von Bock",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fedor_von_Bock"
+    },
+    {
+     "name": "Georg-Hans Reinhardt",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Georg-Hans_Reinhardt"
+    }
+   ]
+  },
+  "de-h-hgr-nord": {
+   "qid": "Q163084",
+   "description": "army group subordinated to the German army high command during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/Army_Group_North",
+   "commanders": [
+    {
+     "name": "Georg von Küchler",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Georg_von_K%C3%BCchler"
+    },
+    {
+     "name": "Fedor von Bock",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fedor_von_Bock"
+    },
+    {
+     "name": "Lothar Rendulic",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Lothar_Rendulic"
+    },
+    {
+     "name": "Johannes Frießner",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Johannes_Frie%C3%9Fner"
+    },
+    {
+     "name": "Walter Weiß",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Walter_Wei%C3%9F"
+    }
+   ]
+  },
+  "de-h-hgr-nordukraine": {
+   "qid": "Q702618",
+   "description": "army group",
+   "wikipedia": "https://en.wikipedia.org/wiki/Army_Group_North_Ukraine",
+   "commanders": []
+  },
+  "de-h-hgr-ostmark": {
+   "qid": "Q702369",
+   "description": "army group",
+   "wikipedia": "https://en.wikipedia.org/wiki/Army_Group_Ostmark",
+   "commanders": []
+  },
+  "de-h-hgr-sued": {
+   "qid": "Q266893",
+   "description": "name of a number of German Army Groups during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/Army_Group_South",
+   "commanders": [
+    {
+     "name": "Walter von Reichenau",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Walter_von_Reichenau"
+    },
+    {
+     "name": "Erich von Manstein",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Erich_von_Manstein"
+    },
+    {
+     "name": "Ferdinand Schörner",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ferdinand_Sch%C3%B6rner"
+    },
+    {
+     "name": "Fedor von Bock",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fedor_von_Bock"
+    },
+    {
+     "name": "Gerd von Rundstedt",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Gerd_von_Rundstedt"
+    },
+    {
+     "name": "Otto Wöhler",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Otto_W%C3%B6hler"
+    },
+    {
+     "name": "Johannes Frießner",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Johannes_Frie%C3%9Fner"
+    }
+   ]
+  },
+  "de-h-hgr-suedukraine": {
+   "qid": "Q585349",
+   "description": "army group",
+   "wikipedia": "https://en.wikipedia.org/wiki/Army_Group_South_Ukraine",
+   "commanders": []
+  },
+  "de-h-hgr-weichsel": {
+   "qid": "Q313401",
+   "description": "army group",
+   "wikipedia": "https://en.wikipedia.org/wiki/Army_Group_Vistula",
+   "commanders": [
+    {
+     "name": "Heinrich Himmler",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Heinrich_Himmler"
+    }
+   ]
+  },
+  "de-h-pzarmee-1": {
+   "qid": "Q163388",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Panzer_Army",
+   "commanders": [
+    {
+     "name": "Paul Ludwig Ewald von Kleist",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Paul_Ludwig_Ewald_von_Kleist"
+    },
+    {
+     "name": "Erhard Raus",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Erhard_Raus"
+    },
+    {
+     "name": "Eberhard von Mackensen",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Eberhard_von_Mackensen"
+    }
+   ]
+  },
+  "de-h-pzarmee-2": {
+   "qid": "Q210404",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/2nd_Panzer_Army",
+   "commanders": [
+    {
+     "name": "Lothar Rendulic",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Lothar_Rendulic"
+    }
+   ]
+  },
+  "de-h-pzarmee-3": {
+   "qid": "Q223458",
+   "description": "German armoured formation during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/3rd_Panzer_Army",
+   "commanders": [
+    {
+     "name": "Erhard Raus",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Erhard_Raus"
+    },
+    {
+     "name": "Georg-Hans Reinhardt",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Georg-Hans_Reinhardt"
+    }
+   ]
+  },
+  "de-h-pzarmee-4": {
+   "qid": "Q168248",
+   "description": "Army group",
+   "wikipedia": "https://en.wikipedia.org/wiki/4th_Panzer_Army",
+   "commanders": [
+    {
+     "name": "Hermann Hoth",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Hermann_Hoth"
+    },
+    {
+     "name": "Fritz-Hubert Gräser",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fritz-Hubert_Gr%C3%A4ser"
+    },
+    {
+     "name": "Erhard Raus",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Erhard_Raus"
+    },
+    {
+     "name": "Erich Hoepner",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Erich_Hoepner"
+    },
+    {
+     "name": "Josef Harpe",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Josef_Harpe"
+    }
+   ]
+  },
+  "su-army-10": {
+   "qid": "Q2026384",
+   "description": "1939-1944 Soviet Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/10th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Konstantin Golubev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Golubev"
+    },
+    {
+     "name": "Ivan Zakharkin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Zakharkin"
+    },
+    {
+     "name": "Vasily Kryuchenkin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kryuchyonkin"
+    }
+   ]
+  },
+  "su-army-12": {
+   "qid": "Q4028525",
+   "description": "Soviet military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/12th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Aleksey Danilov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Nikolay Kirichenko",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Ivan Shlyomin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Shlyomin"
+    },
+    {
+     "name": "Konstantin Koroteev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Koroteyev"
+    },
+    {
+     "name": "Pavel Ponedelin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pavel_Ponedelin"
+    }
+   ]
+  },
+  "su-army-13": {
+   "qid": "Q2501519",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/13th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Sergey Andryushchenko",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Gleb Baklanov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Gleb_Baklanov"
+    },
+    {
+     "name": "Konstantin Golubev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Golubev"
+    },
+    {
+     "name": "Nikolay Pukhov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Pukhov"
+    },
+    {
+     "name": "Pyotr Filatov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pyotr_Filatov"
+    }
+   ]
+  },
+  "su-army-14": {
+   "qid": "Q2659337",
+   "description": "Soviet Field Army unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/14th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Georgy Latyshev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Valerian Frolov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Valerian_Frolov"
+    },
+    {
+     "name": "Roman Ivanovich Panin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Roman_Ivanovich_Panin"
+    }
+   ]
+  },
+  "su-army-16": {
+   "qid": "Q2027790",
+   "description": "Soviet field army active from 1940 to 1945",
+   "wikipedia": "https://en.wikipedia.org/wiki/16th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Mikhail Lukin",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Ivan Bagramyan",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Bagramyan"
+    },
+    {
+     "name": "Konstantin Rokossovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Rokossovsky"
+    }
+   ]
+  },
+  "su-army-18": {
+   "qid": "Q1977778",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/18th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Anton Gastilovich",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Fyodor Vasilyevich Kamkov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Leonid Brezhnev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Leonid_Brezhnev"
+    },
+    {
+     "name": "Yevgeny Zhuravlyov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Yevgeny_Zhuravlev"
+    },
+    {
+     "name": "Vladimir Kolpakchi",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Kolpakchi"
+    }
+   ]
+  },
+  "su-army-19": {
+   "qid": "Q2470547",
+   "description": "field army",
+   "wikipedia": "https://en.wikipedia.org/wiki/19th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Vasily Malyshkin",
+     "from": "1941-07-01",
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Malyshkin"
+    },
+    {
+     "name": "Mikhail Lukin",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-20": {
+   "qid": "Q4029919",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/20th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Mikhail Lukin",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Ivan Prokhorov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Fyodor Semenovsky",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Alexander Tyurin",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Andrey Vlasov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Andrey_Vlasov"
+    },
+    {
+     "name": "Nikolai Gusev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Gusev"
+    },
+    {
+     "name": "Max Reyter",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Max_Reyter"
+    }
+   ]
+  },
+  "su-army-21": {
+   "qid": "Q1823528",
+   "description": "a field army of the Red Army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/21st_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Aleksey Danilov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Dmitry Gusev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Fyodor Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fyodor_Kuznetsov"
+    },
+    {
+     "name": "Yevgeny Zhuravlyov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Yevgeny_Zhuravlev"
+    },
+    {
+     "name": "Vasily Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kuznetsov_(general)"
+    },
+    {
+     "name": "Vasily Gordov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Gordov"
+    }
+   ]
+  },
+  "su-army-22": {
+   "qid": "Q2026210",
+   "description": "soviet then Russian army",
+   "wikipedia": "https://en.wikipedia.org/wiki/22nd_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Dmitry Seleznyov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vasily Aleksandrovich Yushkevich",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Yushkevich"
+    }
+   ]
+  },
+  "su-army-23": {
+   "qid": "Q2499340",
+   "description": "a field army of the Soviet Union during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/23rd_Army_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-army-24": {
+   "qid": "Q2511196",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/24th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Vladimir Martsinkevich",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vasily Khomenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Khomenko"
+    },
+    {
+     "name": "Dmitry Timofeyevich Kozlov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Timofeyevich_Kozlov"
+    }
+   ]
+  },
+  "su-army-26": {
+   "qid": "Q4030397",
+   "description": "Soviet military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/26th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Lev Skvirsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Lev_Skvirsky"
+    },
+    {
+     "name": "Nikolai Alexandrovich Gagen",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Gagen"
+    },
+    {
+     "name": "Fyodor Kostenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fyodor_Kostenko"
+    }
+   ]
+  },
+  "su-army-27": {
+   "qid": "Q4030451",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/27th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Georgy Bragin",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Nikolai Berzarin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Berzarin"
+    }
+   ]
+  },
+  "su-army-28": {
+   "qid": "Q2063817",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/28th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Sergey Gusev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Nikolay Abashin",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Nikolai Gusev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Gusev"
+    },
+    {
+     "name": "Andrey Andreyev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Andrey_Matveyevich_Andreyev"
+    },
+    {
+     "name": "Vladimir Kachalov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Kachalov"
+    },
+    {
+     "name": "Vasily Kryuchenkin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kryuchyonkin"
+    },
+    {
+     "name": "Aleksandr Luchinskiy",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Alexander_Luchinsky"
+    }
+   ]
+  },
+  "su-army-29": {
+   "qid": "Q1707851",
+   "description": "soviet army",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Evgeny Poplavsky",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Alexey Avdeyev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Yevgeny Zhuravlyov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Yevgeny_Zhuravlev"
+    },
+    {
+     "name": "Ivan Maslennikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Maslennikov"
+    }
+   ]
+  },
+  "su-army-3": {
+   "qid": "Q2469025",
+   "description": "",
+   "wikipedia": "https://en.wikipedia.org/wiki/3rd_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Dmitry Alekseyev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Nikolai Gusev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Gusev"
+    },
+    {
+     "name": "Yakov Kreizer",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Yakov_Kreizer"
+    },
+    {
+     "name": "Pavel Batov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pavel_Batov"
+    },
+    {
+     "name": "Vasily Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kuznetsov_(general)"
+    },
+    {
+     "name": "Alexander Gorbatov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Alexander_Gorbatov"
+    }
+   ]
+  },
+  "su-army-30": {
+   "qid": "Q4030779",
+   "description": "Soviet army",
+   "wikipedia": "https://en.wikipedia.org/wiki/30th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Vasily Khomenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Khomenko"
+    },
+    {
+     "name": "Vladimir Kolpakchi",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Kolpakchi"
+    },
+    {
+     "name": "Dmitry Lelyushenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Lelyushenko"
+    }
+   ]
+  },
+  "su-army-31": {
+   "qid": "Q4030831",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/31st_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Vladimir Gluzdovskiy",
+     "from": "1943-02-27",
+     "to": "1944-05-27",
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Gluzdovsky"
+    },
+    {
+     "name": "Vasily Aleksandrovich Yushkevich",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Yushkevich"
+    }
+   ]
+  },
+  "su-army-32": {
+   "qid": "Q4030873",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/32nd_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Sergey Vishnevsky",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Georgy Bragin",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Philipp Gorelenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Filipp_Gorelenko"
+    }
+   ]
+  },
+  "su-army-33": {
+   "qid": "Q2448716",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/33rd_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Vasily Gordov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Gordov"
+    },
+    {
+     "name": "Vyacheslav Tsvetayev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vyacheslav_Tsvetayev"
+    },
+    {
+     "name": "Vasily Kryuchenkin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kryuchyonkin"
+    }
+   ]
+  },
+  "su-army-34": {
+   "qid": "Q4030954",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/34th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Peter Fjodorovič Alferjev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Kuzma Maksimovich Kachanov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Anton Lopatin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Anton_Lopatin"
+    },
+    {
+     "name": "Nikolai Berzarin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Berzarin"
+    },
+    {
+     "name": "Ivan Sovetnikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Sovetnikov"
+    }
+   ]
+  },
+  "su-army-37": {
+   "qid": "Q3658267",
+   "description": "Soviet military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/37th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Pyotr Kozlov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Andrey Vlasov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Andrey_Vlasov"
+    },
+    {
+     "name": "Anton Lopatin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Anton_Lopatin"
+    },
+    {
+     "name": "Sergey Biryuzov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Sergey_Biryuzov"
+    }
+   ]
+  },
+  "su-army-38": {
+   "qid": "Q4031102",
+   "description": "1941-1991 Soviet Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/38th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Eduard Vorobyov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Piotr Lashchenko",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Aleksey Maslov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Grigoriy Krivosheyev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Grigori_F._Krivosheev"
+    },
+    {
+     "name": "Viktor Tsyganov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Viktor_Tsyganov"
+    },
+    {
+     "name": "Yakov Kreizer",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Yakov_Kreizer"
+    },
+    {
+     "name": "Kirill Moskalenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Kirill_Moskalenko"
+    }
+   ]
+  },
+  "su-army-39": {
+   "qid": "Q1998878",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/39th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Aleksey Zygin",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Georgy Petrovsky",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Panteleymon Shishvili",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Nikolai Berzarin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Berzarin"
+    },
+    {
+     "name": "Ivan Bogdanov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Bogdanov"
+    },
+    {
+     "name": "Ivan Maslennikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Maslennikov"
+    }
+   ]
+  },
+  "su-army-4": {
+   "qid": "Q2495641",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/4th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Ivan Tretyak",
+     "from": "1964-01-01",
+     "to": "1967-01-01",
+     "link": "https://en.wikipedia.org/wiki/Ivan_Tretyak"
+    },
+    {
+     "name": "Gavriil Vasilenko",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Pyotr Ivanov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Nikolai Gusev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Gusev"
+    },
+    {
+     "name": "Alexander Andreevich Korobkov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Aleksandr_Korobkov"
+    },
+    {
+     "name": "Konstantin Rokossovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Rokossovsky"
+    },
+    {
+     "name": "Dmitry Yazov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Yazov"
+    }
+   ]
+  },
+  "su-army-40": {
+   "qid": "Q231336",
+   "description": "army-level command of the Soviet Union's Soviet Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/40th_Army",
+   "commanders": [
+    {
+     "name": "Igor Rodionov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Igor_Rodionov"
+    },
+    {
+     "name": "Viktor Dubynin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Viktor_Dubynin"
+    },
+    {
+     "name": "Borys Tkach",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-41": {
+   "qid": "Q4031320",
+   "description": "Soviet military unit (1942-1943)",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Robert Brichenok",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Robert_Brichenok"
+    }
+   ]
+  },
+  "su-army-42": {
+   "qid": "Q4031353",
+   "description": "field army of the Soviet Union's Red Army, created in 1941",
+   "wikipedia": "https://en.wikipedia.org/wiki/42nd_Army",
+   "commanders": [
+    {
+     "name": "Ivan Maslennikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Maslennikov"
+    },
+    {
+     "name": "Vladimir Petrovich Sviridov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Sviridov_(military_commander)"
+    },
+    {
+     "name": "Ivan Fedyuninsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Fedyuninsky"
+    },
+    {
+     "name": "Ivan Fyodorovich Nikolaev",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-43": {
+   "qid": "Q4031382",
+   "description": "field army in the Soviet Union",
+   "wikipedia": "https://en.wikipedia.org/wiki/43rd_Army",
+   "commanders": [
+    {
+     "name": "Afanasy Beloborodov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Afanasy_Beloborodov"
+    },
+    {
+     "name": "Stepan Akimov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Stepan_Akimov"
+    },
+    {
+     "name": "Konstantin Golubev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Golubev"
+    },
+    {
+     "name": "Ivan Zakharkin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Zakharkin"
+    },
+    {
+     "name": "Pyotr Sobennikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pyotr_Sobennikov"
+    },
+    {
+     "name": "Dmitry Seleznyov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-44": {
+   "qid": "Q2032424",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/44th_Army",
+   "commanders": [
+    {
+     "name": "Vasily Khomenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Khomenko"
+    },
+    {
+     "name": "Serafim Rozhdestvenskiy",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Ivan Dashichev",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-46": {
+   "qid": "Q4031473",
+   "description": "soviet Red Army field army",
+   "wikipedia": "https://en.wikipedia.org/wiki/46th_Army",
+   "commanders": [
+    {
+     "name": "Ivan Shlyomin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Shlyomin"
+    }
+   ]
+  },
+  "su-army-47": {
+   "qid": "Q2332389",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/47th_Army",
+   "commanders": [
+    {
+     "name": "Nikolai Gusev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Gusev"
+    },
+    {
+     "name": "Franz Perkhorovich",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Frants_Perkhorovich"
+    },
+    {
+     "name": "Fyodor Vasilyevich Kamkov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Pyotr Kozlov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Konstantin Kolganov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vasily Novikov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-48": {
+   "qid": "Q4031526",
+   "description": "field army of the Soviet Red Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/48th_Army",
+   "commanders": [
+    {
+     "name": "Maksim Antoniuk",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Maksim_Antoniuk"
+    },
+    {
+     "name": "Stepan Akimov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Stepan_Akimov"
+    },
+    {
+     "name": "Nikolai Gusev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Gusev"
+    },
+    {
+     "name": "Prokofy Romanenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Prokofy_Romanenko"
+    },
+    {
+     "name": "Aleksandr Samokhin",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-49": {
+   "qid": "Q83166281",
+   "description": "army of the USSR",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-army-5": {
+   "qid": "Q2470036",
+   "description": "",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Ivan Sovetnikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Sovetnikov"
+    },
+    {
+     "name": "Mikhail Potapov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-50": {
+   "qid": "Q4031673",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/50th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Ivan Boldin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Boldin"
+    },
+    {
+     "name": "Arkadii Nikolaevich Ermakov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Arkady_Yermakov"
+    },
+    {
+     "name": "Mikhail Petrovich Petrov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Mikhail_Petrov_(general)"
+    },
+    {
+     "name": "Nikolay Garnich",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-51": {
+   "qid": "Q2033289",
+   "description": "a field army of the Red Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/51st_Army_(Russia)",
+   "commanders": [
+    {
+     "name": "Fyodor Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fyodor_Kuznetsov"
+    },
+    {
+     "name": "Pavel Batov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pavel_Batov"
+    },
+    {
+     "name": "Trofim Kolomiets",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Trofim_Kolomiets"
+    },
+    {
+     "name": "Yakov Kreizer",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Yakov_Kreizer"
+    },
+    {
+     "name": "Nikolay Kirichenko",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Aleksey Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-52": {
+   "qid": "Q4031725",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/52nd_Army_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-army-53": {
+   "qid": "Q4031746",
+   "description": "Soviet military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/53rd_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Yevgeny Zhuravlyov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Yevgeny_Zhuravlev"
+    },
+    {
+     "name": "Aleksander Sergeevich Ksenofontov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-54": {
+   "qid": "Q4031783",
+   "description": "field army of the Red Army 1941-1944",
+   "wikipedia": "https://en.wikipedia.org/wiki/54th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Grigory Kulik",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Grigory_Kulik"
+    }
+   ]
+  },
+  "su-army-55": {
+   "qid": "Q2817502",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/55th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Vladimir Petrovich Sviridov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Sviridov_(military_commander)"
+    }
+   ]
+  },
+  "su-army-56": {
+   "qid": "Q4031819",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/56th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Viktor Tsyganov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Viktor_Tsyganov"
+    }
+   ]
+  },
+  "su-army-57": {
+   "qid": "Q2895086",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/57th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Fyodor Ivanovich Tolbukhin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fyodor_Tolbukhin"
+    },
+    {
+     "name": "Nikolai Alexandrovich Gagen",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Gagen"
+    },
+    {
+     "name": "Dmitry Nikishov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-58": {
+   "qid": "Q4782165",
+   "description": "",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Vasily Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kuznetsov_(general)"
+    },
+    {
+     "name": "Vasily Khomenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Khomenko"
+    }
+   ]
+  },
+  "su-army-59": {
+   "qid": "Q4031872",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/59th_Army_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-army-6": {
+   "qid": "Q122500225",
+   "description": "",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Vladimir Gluzdovskiy",
+     "from": "1944-12-07",
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Gluzdovsky"
+    }
+   ]
+  },
+  "su-army-60": {
+   "qid": "Q4031982",
+   "description": "formation of the Soviet Red Army (1941-1945)",
+   "wikipedia": "https://en.wikipedia.org/wiki/60th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Ivan Chernyakhovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Chernyakhovsky"
+    },
+    {
+     "name": "Maksim Antoniuk",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Maksim_Antoniuk"
+    }
+   ]
+  },
+  "su-army-61": {
+   "qid": "Q4032017",
+   "description": "Soviet military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/61st_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Fyodor Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fyodor_Kuznetsov"
+    },
+    {
+     "name": "Pavel Alexeyevich Belov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pavel_Belov"
+    },
+    {
+     "name": "Maksim Yegorov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-62": {
+   "qid": "Q249395",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/62nd_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Vladimir Kolpakchi",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Kolpakchi"
+    },
+    {
+     "name": "Anton Lopatin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Anton_Lopatin"
+    }
+   ]
+  },
+  "su-army-63": {
+   "qid": "Q2599059",
+   "description": "WW2 Soviet Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/63rd_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Vasily Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kuznetsov_(general)"
+    },
+    {
+     "name": "Roman Ivanovich Panin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Roman_Ivanovich_Panin"
+    },
+    {
+     "name": "Maksim Antoniuk",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Maksim_Antoniuk"
+    },
+    {
+     "name": "Vasily Ivanovich Morozov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-64": {
+   "qid": "Q2034805",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/64th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Ivan Andreevich Laskin",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-65": {
+   "qid": "Q2346919",
+   "description": "",
+   "wikipedia": "https://en.wikipedia.org/wiki/65th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Pavel Batov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pavel_Batov"
+    }
+   ]
+  },
+  "su-army-66": {
+   "qid": "Q1763639",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/66th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Aleksey Zhadov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Aleksey_Zhadov"
+    }
+   ]
+  },
+  "su-army-67": {
+   "qid": "Q4032124",
+   "description": "Soviet field army",
+   "wikipedia": "https://en.wikipedia.org/wiki/67th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Vladimir Petrovich Sviridov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Sviridov_(military_commander)"
+    },
+    {
+     "name": "Robert Brichenok",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Robert_Brichenok"
+    }
+   ]
+  },
+  "su-army-68": {
+   "qid": "Q12062129",
+   "description": "Soviet military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/68th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Fyodor Ivanovich Tolbukhin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fyodor_Tolbukhin"
+    },
+    {
+     "name": "Yevgeny Zhuravlyov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Yevgeny_Zhuravlev"
+    }
+   ]
+  },
+  "su-army-69": {
+   "qid": "Q7485683",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/69th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Vladimir Kolpakchi",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Kolpakchi"
+    },
+    {
+     "name": "Mikhail Kazakov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Mikhail_Kazakov"
+    },
+    {
+     "name": "Vasily Kryuchenkin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kryuchyonkin"
+    }
+   ]
+  },
+  "su-army-7": {
+   "qid": "Q2453119",
+   "description": "Military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/7th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Philipp Gorelenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Filipp_Gorelenko"
+    },
+    {
+     "name": "Filipp Cherokmanov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Filipp_Cherokmanov"
+    }
+   ]
+  },
+  "su-army-70": {
+   "qid": "Q4032252",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/70th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Ivan Fyodorovich Nikolaev",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-8": {
+   "qid": "Q2667666",
+   "description": "field army of the Soviet Red Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/8th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Andrey Bondarev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Alexander Tyurin",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-army-9": {
+   "qid": "Q684480",
+   "description": "Army of the Soviet Union",
+   "wikipedia": "https://en.wikipedia.org/wiki/9th_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Vasily Chuikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Chuikov"
+    },
+    {
+     "name": "Vasily Vasilyevich Glagolev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Glagolev"
+    },
+    {
+     "name": "Pyotr Kozlov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vladimir Martsinkevich",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Dmitry Nikishov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-front-1-baltic": {
+   "qid": "Q2344621",
+   "description": "formation of the Soviet Red Army (1943-1945)",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Baltic_Front",
+   "commanders": [
+    {
+     "name": "Ivan Bagramyan",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Bagramyan"
+    }
+   ]
+  },
+  "su-front-1-belorussian": {
+   "qid": "Q2088142",
+   "description": "formation of the Soviet Red Army (1943–1945)",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Belorussian_Front",
+   "commanders": [
+    {
+     "name": "Konstantin Rokossovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Rokossovsky"
+    },
+    {
+     "name": "Vladimir Gorbunov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vladimir Stenin",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-front-1-ukrainian": {
+   "qid": "Q277985",
+   "description": "Military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Ukrainian_Front",
+   "commanders": [
+    {
+     "name": "Nikolai Vatutin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Vatutin"
+    },
+    {
+     "name": "Aleksey Iosifovich Makarenko",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-front-2-baltic": {
+   "qid": "Q209587",
+   "description": "formation of the Soviet Red Army (1943-1945)",
+   "wikipedia": "https://en.wikipedia.org/wiki/2nd_Baltic_Front",
+   "commanders": [
+    {
+     "name": "Leonid Govorov",
+     "from": "1945-02-01",
+     "to": "1945-03-01",
+     "link": "https://en.wikipedia.org/wiki/Leonid_Govorov"
+    }
+   ]
+  },
+  "su-front-2-belorussian": {
+   "qid": "Q210633",
+   "description": "formation of the Soviet Red Army (1944–1945)",
+   "wikipedia": "https://en.wikipedia.org/wiki/2nd_Belorussian_Front",
+   "commanders": [
+    {
+     "name": "Konstantin Rokossovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Rokossovsky"
+    }
+   ]
+  },
+  "su-front-2-ukrainian": {
+   "qid": "Q1078966",
+   "description": "formation of the Soviet Red Army (1943-1945)",
+   "wikipedia": "https://en.wikipedia.org/wiki/2nd_Ukrainian_Front",
+   "commanders": [
+    {
+     "name": "Aleksey Iosifovich Makarenko",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-front-3-baltic": {
+   "qid": "Q223144",
+   "description": "formation of the Soviet Red Army (1944 )",
+   "wikipedia": "https://en.wikipedia.org/wiki/3rd_Baltic_Front",
+   "commanders": [
+    {
+     "name": "Ivan Maslennikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Maslennikov"
+    }
+   ]
+  },
+  "su-front-3-belorussian": {
+   "qid": "Q2354459",
+   "description": "formation of the Soviet Red Army (1944-1945)",
+   "wikipedia": "https://en.wikipedia.org/wiki/3rd_Belorussian_Front",
+   "commanders": [
+    {
+     "name": "Ivan Bagramyan",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Bagramyan"
+    },
+    {
+     "name": "Ivan Chernyakhovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Chernyakhovsky"
+    },
+    {
+     "name": "Sergey Gusev",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-front-3-ukrainian": {
+   "qid": "Q2414156",
+   "description": "formation of the Soviet Red Army (1943-1945)",
+   "wikipedia": "https://en.wikipedia.org/wiki/3rd_Ukrainian_Front",
+   "commanders": [
+    {
+     "name": "Fyodor Ivanovich Tolbukhin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fyodor_Tolbukhin"
+    },
+    {
+     "name": "Dmitry Loza",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Loza"
+    }
+   ]
+  },
+  "su-front-4-ukrainian": {
+   "qid": "Q2563827",
+   "description": "formation of the Soviet Red Army (1943-1945)",
+   "wikipedia": "https://en.wikipedia.org/wiki/4th_Ukrainian_Front",
+   "commanders": [
+    {
+     "name": "Fyodor Ivanovich Tolbukhin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fyodor_Tolbukhin"
+    },
+    {
+     "name": "Leonid Brezhnev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Leonid_Brezhnev"
+    }
+   ]
+  },
+  "su-front-bryansk": {
+   "qid": "Q921618",
+   "description": "front",
+   "wikipedia": "https://en.wikipedia.org/wiki/Bryansk_Front",
+   "commanders": [
+    {
+     "name": "Konstantin Rokossovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Rokossovsky"
+    },
+    {
+     "name": "Filipp Golikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Filipp_Golikov"
+    },
+    {
+     "name": "Max Reyter",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Max_Reyter"
+    }
+   ]
+  },
+  "su-front-caucasian": {
+   "qid": "Q2595244",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/Caucasus_Front_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Dmitry Timofeyevich Kozlov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Timofeyevich_Kozlov"
+    }
+   ]
+  },
+  "su-front-central": {
+   "qid": "Q190500",
+   "description": "front of the Soviet Army during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/Central_Front",
+   "commanders": [
+    {
+     "name": "Konstantin Rokossovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Rokossovsky"
+    },
+    {
+     "name": "Fyodor Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fyodor_Kuznetsov"
+    }
+   ]
+  },
+  "su-front-crimean": {
+   "qid": "Q1788961",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/Crimean_Front",
+   "commanders": [
+    {
+     "name": "Dmitry Timofeyevich Kozlov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Timofeyevich_Kozlov"
+    }
+   ]
+  },
+  "su-front-don": {
+   "qid": "Q1241225",
+   "description": "front",
+   "wikipedia": "https://en.wikipedia.org/wiki/Don_Front",
+   "commanders": [
+    {
+     "name": "Konstantin Rokossovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Rokossovsky"
+    }
+   ]
+  },
+  "su-front-kalinin": {
+   "qid": "Q1421194",
+   "description": "formation of the Soviet Red Army (1941-1943)",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kalinin_Front",
+   "commanders": [
+    {
+     "name": "Maksim Purkayev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Maksim_Purkayev"
+    }
+   ]
+  },
+  "su-front-karelian": {
+   "qid": "Q1729228",
+   "description": "Soviet front during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/Karelian_Front",
+   "commanders": [
+    {
+     "name": "Valerian Frolov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Valerian_Frolov"
+    },
+    {
+     "name": "Nikolay Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-front-leningrad": {
+   "qid": "Q1635580",
+   "description": "formation of the Soviet Red Army (1941-1945)",
+   "wikipedia": "https://en.wikipedia.org/wiki/Leningrad_Front",
+   "commanders": [
+    {
+     "name": "Leonid Govorov",
+     "from": "1942-06-10",
+     "to": "1945-07-24",
+     "link": "https://en.wikipedia.org/wiki/Leonid_Govorov"
+    },
+    {
+     "name": "Viktor Baranov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Viktor_Ilyich_Baranov"
+    },
+    {
+     "name": "Georgy Odintsov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-front-northern": {
+   "qid": "Q1076943",
+   "description": "front",
+   "wikipedia": "https://en.wikipedia.org/wiki/Northern_Front_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-front-northwestern": {
+   "qid": "Q257026",
+   "description": "front",
+   "wikipedia": "https://en.wikipedia.org/wiki/Northwestern_Front",
+   "commanders": [
+    {
+     "name": "Fyodor Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fyodor_Kuznetsov"
+    },
+    {
+     "name": "Semyon Timoshenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Semyon_Timoshenko"
+    },
+    {
+     "name": "Pyotr Sobennikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pyotr_Sobennikov"
+    }
+   ]
+  },
+  "su-front-reserve": {
+   "qid": "Q2599920",
+   "description": "Military formation of the WW2 Red Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/Reserve_Front",
+   "commanders": []
+  },
+  "su-front-southeastern": {
+   "qid": "Q1814293",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/Southeastern_Front",
+   "commanders": []
+  },
+  "su-front-southern": {
+   "qid": "Q1634413",
+   "description": "front of the Soviet Army during the Second World War",
+   "wikipedia": "https://en.wikipedia.org/wiki/Southern_Front_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Ivan Tyulenev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Tyulenev"
+    }
+   ]
+  },
+  "su-front-southwestern": {
+   "qid": "Q1469548",
+   "description": "front",
+   "wikipedia": "https://en.wikipedia.org/wiki/Southwestern_Front_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Semyon Timoshenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Semyon_Timoshenko"
+    },
+    {
+     "name": "Nikolai Vatutin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Vatutin"
+    },
+    {
+     "name": "Fedor Astakhov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fyodor_Astakhov"
+    },
+    {
+     "name": "Grigory Stelmakh",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Grigory_Stelmakh"
+    },
+    {
+     "name": "Fedor Falaleyev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fedor_Falaleyev"
+    },
+    {
+     "name": "Eugene Rykov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-front-stalingrad": {
+   "qid": "Q1469267",
+   "description": "front",
+   "wikipedia": "https://en.wikipedia.org/wiki/Stalingrad_Front",
+   "commanders": [
+    {
+     "name": "Semyon Timoshenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Semyon_Timoshenko"
+    },
+    {
+     "name": "Vasily Gordov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Gordov"
+    }
+   ]
+  },
+  "su-front-steppe": {
+   "qid": "Q1347332",
+   "description": "front of the Red Army during WWII",
+   "wikipedia": "https://en.wikipedia.org/wiki/Steppe_Front",
+   "commanders": [
+    {
+     "name": "Aleksey Iosifovich Makarenko",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-front-transcaucasian": {
+   "qid": "Q2298875",
+   "description": "Soviet front during World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/Transcaucasus_Front",
+   "commanders": [
+    {
+     "name": "Ivan Tyulenev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Tyulenev"
+    },
+    {
+     "name": "Dmitry Timofeyevich Kozlov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Timofeyevich_Kozlov"
+    },
+    {
+     "name": "Ivan Maslennikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Maslennikov"
+    }
+   ]
+  },
+  "su-front-volkhov": {
+   "qid": "Q684080",
+   "description": "formation of the Soviet Red Army (1941-1942)",
+   "wikipedia": "https://en.wikipedia.org/wiki/Volkhov_Front",
+   "commanders": [
+    {
+     "name": "Grigory Stelmakh",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Grigory_Stelmakh"
+    }
+   ]
+  },
+  "su-front-voronezh": {
+   "qid": "Q1469561",
+   "description": "front",
+   "wikipedia": "https://en.wikipedia.org/wiki/Voronezh_Front",
+   "commanders": [
+    {
+     "name": "Nikolai Vatutin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Vatutin"
+    },
+    {
+     "name": "Filipp Golikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Filipp_Golikov"
+    },
+    {
+     "name": "Iosif Apanasenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Iosif_Apanasenko"
+    },
+    {
+     "name": "Aleksey Iosifovich Makarenko",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-front-western": {
+   "qid": "Q848492",
+   "description": "Front of the Red Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/Western_Front_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Semyon Timoshenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Semyon_Timoshenko"
+    },
+    {
+     "name": "Vasily Sokolovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Sokolovsky"
+    },
+    {
+     "name": "Dmitry Pavlov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Pavlov_(general)"
+    },
+    {
+     "name": "Andrey Yeryomenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Andrey_Yeryomenko"
+    },
+    {
+     "name": "Ivan Maslennikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Maslennikov"
+    }
+   ]
+  },
+  "su-gd-army-1": {
+   "qid": "Q2386202",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Guards_Army_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Alexander Rodimtsev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Aleksandr_Rodimtsev"
+    },
+    {
+     "name": "Vasily Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kuznetsov_(general)"
+    },
+    {
+     "name": "Dmitry Lelyushenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Lelyushenko"
+    }
+   ]
+  },
+  "su-gd-army-10": {
+   "qid": "Q4028148",
+   "description": "soviet military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/10th_Guards_Army",
+   "commanders": [
+    {
+     "name": "Vladimir Chistov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-gd-army-11": {
+   "qid": "Q2032186",
+   "description": "field army of the Red Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/11th_Guards_Army",
+   "commanders": [
+    {
+     "name": "Ivan Bagramyan",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Bagramyan"
+    },
+    {
+     "name": "Pyotr Koshevoy",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pyotr_Koshevoy"
+    },
+    {
+     "name": "Kuzma Galitsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Kuzma_Galitsky"
+    }
+   ]
+  },
+  "su-gd-army-2": {
+   "qid": "Q2027057",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/2nd_Guards_Army",
+   "commanders": [
+    {
+     "name": "Porfiriy Chanchibadze",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Porfiry_Chanchibadze"
+    },
+    {
+     "name": "Yakov Kreizer",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Yakov_Kreizer"
+    }
+   ]
+  },
+  "su-gd-army-3": {
+   "qid": "Q2816563",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/3rd_Guards_Army",
+   "commanders": [
+    {
+     "name": "Georgii Khetagurov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Georgy_Khetagurov"
+    },
+    {
+     "name": "Vasily Gordov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Gordov"
+    },
+    {
+     "name": "Dmitry Lelyushenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Lelyushenko"
+    },
+    {
+     "name": "Ivan Voitenko",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-gd-army-4": {
+   "qid": "Q4031230",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/4th_Guards_Army",
+   "commanders": [
+    {
+     "name": "Grigory Kulik",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Grigory_Kulik"
+    },
+    {
+     "name": "Aleksey Zygin",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-gd-army-5": {
+   "qid": "Q4031636",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/5th_Guards_Army",
+   "commanders": [
+    {
+     "name": "Aleksey Zhadov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Aleksey_Zhadov"
+    }
+   ]
+  },
+  "su-gd-army-6": {
+   "qid": "Q4031957",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/6th_Guards_Army",
+   "commanders": [
+    {
+     "name": "Pyotr Koshevoy",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pyotr_Koshevoy"
+    }
+   ]
+  },
+  "su-gd-army-7": {
+   "qid": "Q2333748",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/7th_Guards_Army",
+   "commanders": [
+    {
+     "name": "Anatoly Gribkov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Anatoly_Gribkov"
+    },
+    {
+     "name": "Yakov Kreizer",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Yakov_Kreizer"
+    }
+   ]
+  },
+  "su-gd-army-8": {
+   "qid": "Q2495312",
+   "description": "formation of the Soviet Red Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/8th_Guards_Combined_Arms_Army",
+   "commanders": [
+    {
+     "name": "Anatoly Betekhtin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Anatoly_Betekhtin"
+    },
+    {
+     "name": "Georgii Khetagurov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Georgy_Khetagurov"
+    },
+    {
+     "name": "Andrey Mordvichev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Andrey_Mordvichev"
+    },
+    {
+     "name": "Ivan Boldin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Boldin"
+    },
+    {
+     "name": "Ivan Maslennikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Maslennikov"
+    },
+    {
+     "name": "Vladimir Tolubko",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Sergey Goryachev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Yevgeny Krylov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Aleksandr Georgiyevich Shurupov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-gd-army-9": {
+   "qid": "Q4032693",
+   "description": "field army of the Red Army in WWII",
+   "wikipedia": "https://en.wikipedia.org/wiki/9th_Guards_Army",
+   "commanders": []
+  },
+  "su-gd-tank-army-1": {
+   "qid": "Q162559",
+   "description": "military formation in the composition of the ground forces of the Russian Armed Forces",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Guards_Tank_Army",
+   "commanders": [
+    {
+     "name": "Mikhail Katukov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Mikhail_Katukov"
+    },
+    {
+     "name": "Leonty Shevtsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Leonty_Shevtsov"
+    },
+    {
+     "name": "Vladimir Tolubko",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vladimir Osipov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Alexey Avdeyev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Georgy Ivanovich Shuvaev",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-gd-tank-army-2": {
+   "qid": "Q4029882",
+   "description": "large military formation of the Red Army and later the Soviet Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/2nd_Guards_Tank_Army",
+   "commanders": [
+    {
+     "name": "Vladimir Govorov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Govorov"
+    },
+    {
+     "name": "Alexei Radzievsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Alexei_Radzievsky"
+    },
+    {
+     "name": "Matvey Shaposhnikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Matvey_Shaposhnikov"
+    },
+    {
+     "name": "Vladimir Shuralyov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Shuralyov"
+    },
+    {
+     "name": "Hamazasp Babadzhanian",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Hamazasp_Babadzhanian"
+    },
+    {
+     "name": "Nikolay Grachёv",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vladimir Popov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-gd-tank-army-3": {
+   "qid": "Q4030734",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/3rd_Guards_Tank_Army",
+   "commanders": [
+    {
+     "name": "Viktor Obukhov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Viktor_Obukhov"
+    }
+   ]
+  },
+  "su-gd-tank-army-4": {
+   "qid": "Q55656946",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/4th_Guards_Tank_Army",
+   "commanders": [
+    {
+     "name": "Viktor Obukhov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Viktor_Obukhov"
+    },
+    {
+     "name": "Vladimir Komarov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-gd-tank-army-5": {
+   "qid": "Q2594845",
+   "description": "1943-1991 unit of the Red and Soviet Armies",
+   "wikipedia": "https://en.wikipedia.org/wiki/5th_Guards_Tank_Army",
+   "commanders": [
+    {
+     "name": "Vasily Timofeyevich Volsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Volsky"
+    },
+    {
+     "name": "Pavel Poluboyarov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-gd-tank-army-6": {
+   "qid": "Q1084970",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/6th_Guards_Tank_Army",
+   "commanders": [
+    {
+     "name": "Dmitry Loza",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Loza"
+    },
+    {
+     "name": "Gennady Ivanovich Obaturov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Gennady_Obaturov"
+    },
+    {
+     "name": "Petro Shkidchenko",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vladimir Osipov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vladimir Makarov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-shock-army-1": {
+   "qid": "Q163613",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Shock_Army",
+   "commanders": [
+    {
+     "name": "Vasily Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kuznetsov_(general)"
+    },
+    {
+     "name": "Vasily Ivanovich Morozov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-shock-army-2": {
+   "qid": "Q2664298",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/2nd_Shock_Army",
+   "commanders": [
+    {
+     "name": "Andrey Vlasov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Andrey_Vlasov"
+    }
+   ]
+  },
+  "su-shock-army-3": {
+   "qid": "Q2424428",
+   "description": "formation of the Soviet Red Army (1941-1954)",
+   "wikipedia": "https://en.wikipedia.org/wiki/3rd_Shock_Army",
+   "commanders": [
+    {
+     "name": "Andrey Andreyev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Andrey_Matveyevich_Andreyev"
+    },
+    {
+     "name": "Filipp Cherokmanov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Filipp_Cherokmanov"
+    },
+    {
+     "name": "Vasily Aleksandrovich Yushkevich",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Yushkevich"
+    },
+    {
+     "name": "Kuzma Galitsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Kuzma_Galitsky"
+    },
+    {
+     "name": "Vasily Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kuznetsov_(general)"
+    }
+   ]
+  },
+  "su-shock-army-4": {
+   "qid": "Q2033739",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/4th_Shock_Army",
+   "commanders": [
+    {
+     "name": "Vladimir Kurasov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Kurasov"
+    }
+   ]
+  },
+  "su-shock-army-5": {
+   "qid": "Q4031655",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/5th_Shock_Army",
+   "commanders": [
+    {
+     "name": "Nikolai Berzarin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Berzarin"
+    },
+    {
+     "name": "Vyacheslav Tsvetayev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vyacheslav_Tsvetayev"
+    },
+    {
+     "name": "Vladimir Gorbunov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-tank-army-1": {
+   "qid": "Q162559",
+   "description": "military formation in the composition of the ground forces of the Russian Armed Forces",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Guards_Tank_Army",
+   "commanders": [
+    {
+     "name": "Mikhail Katukov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Mikhail_Katukov"
+    },
+    {
+     "name": "Leonty Shevtsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Leonty_Shevtsov"
+    },
+    {
+     "name": "Vladimir Tolubko",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vladimir Osipov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Alexey Avdeyev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Georgy Ivanovich Shuvaev",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-tank-army-2": {
+   "qid": "Q4029894",
+   "description": "",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Prokofy Romanenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Prokofy_Romanenko"
+    }
+   ]
+  },
+  "su-tank-army-3": {
+   "qid": "Q4030756",
+   "description": "",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Prokofy Romanenko",
+     "from": "1942-05-25",
+     "to": "1942-09-24",
+     "link": "https://en.wikipedia.org/wiki/Prokofy_Romanenko"
+    }
+   ]
+  },
+  "su-tank-army-5": {
+   "qid": "Q2505268",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/5th_Tank_Army",
+   "commanders": [
+    {
+     "name": "Alexander Lizyukov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Alexander_Lizyukov"
+    },
+    {
+     "name": "Prokofy Romanenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Prokofy_Romanenko"
+    },
+    {
+     "name": "Ivan Shlyomin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Shlyomin"
+    }
+   ]
+  }
+ }
+}

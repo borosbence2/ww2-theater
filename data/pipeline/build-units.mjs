@@ -451,6 +451,41 @@ try {
   console.log('No commanders.json — units keep only curated commanders.');
 }
 
+// Higher formations resolved to Wikidata by label (fetch-commanders-ext.mjs,
+// keyed by unit id): Soviet fronts/armies and German armies/army groups that
+// carry no QID. Fills the QID, Wikipedia link, a description note, and
+// commanders for units that still lack them — so it never overrides the dated
+// QID-keyed successions or curated data above.
+try {
+  const ext = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'commanders-ext.json'), 'utf8')).units;
+  let extCmd = 0;
+  let extInfo = 0;
+  for (const u of units.values()) {
+    const e = ext[u.id];
+    if (!e) continue;
+    u.links = u.links ?? {};
+    if (!u.links.wikidata && e.qid) {
+      u.links.wikidata = e.qid;
+      extInfo++;
+    }
+    if (!u.links['wikipedia.en'] && e.wikipedia) u.links['wikipedia.en'] = e.wikipedia;
+    if (!u.notes && e.description) u.notes = e.description[0].toUpperCase() + e.description.slice(1) + '.';
+    if (!u.commanders?.length && e.commanders?.length) {
+      u.commanders = e.commanders.map((c) => ({
+        from: c.from ?? null,
+        to: c.to ?? null,
+        name: c.name,
+        link: c.link ?? undefined,
+        source: 'wikidata',
+      }));
+      extCmd++;
+    }
+  }
+  console.log(`Commanders(ext): Wikidata commanders for ${extCmd} formations, QID/links for ${extInfo}`);
+} catch {
+  console.log('No commanders-ext.json — higher formations keep only curated commanders.');
+}
+
 // Children: reverse of parents.
 const childrenOf = new Map();
 for (const u of units.values()) {

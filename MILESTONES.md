@@ -647,6 +647,32 @@ sub-unit data.
   click. Verified to squad level for German (Schützengruppe ×4) and Soviet
   (Rifle Squad ×4).
 
+## Commanders + army info for the higher formations ✅
+The QID-keyed commander fetch only reached units that already carried a Wikidata
+QID — i.e. mostly divisions. Fronts, armies, and army groups are text-derived
+scaffolds with **no QID**, so they had no commanders at all (the user noticed
+the gap at Soviet front level). Filled by resolving them to Wikidata *by label*.
+- [x] **`fetch-commanders-ext.mjs`**: for every front / army / army group lacking
+      a QID, search Wikidata by label and verify the candidate against its claims
+      before accepting — country (USSR vs Germany, rejecting modern Russia and
+      other nations), era (rejecting WWI homonyms like the 1914 8th Army), type
+      (so "4. Armee" ≠ "4. Panzerarmee", "5th Army" ≠ "5th Tank/Guards Army"),
+      and ordinal/front-name. Then pulls commanders (P598), the English
+      description, and the Wikipedia article. Output `commanders-ext.json` keyed
+      by unit id. **151 / 161 formations resolved** (94%); spot-checked correct
+      (Heeresgruppe Süd → Manstein/Rundstedt; 1st Ukrainian Front → Vatutin; 5th
+      Shock Army → Berzarin).
+- [x] **`build-units` merge** (priority: curated → dated QID-keyed → label-ext):
+      ext fills only units still missing data, so dated successions (6. Armee's
+      Paulus, 62nd Army's Chuikov) are never overwritten. ext also backfills the
+      unit's `links.wikidata` + `links['wikipedia.en']` and a description note —
+      "more about the army" on the panel.
+- Coverage now: Soviet fronts 0→27/31, Soviet armies 0→82/91, German army groups
+  1→8/11, German armies →19/28. Commander tenure dates are often absent on
+  Wikidata (shown "dates unknown") — honest; names + archive links are the win.
+  Remaining gap: Soviet corps/brigades (no QID, not yet resolved). 62/62 smoke,
+  lint clean.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)
