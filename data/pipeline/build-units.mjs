@@ -486,6 +486,23 @@ try {
   console.log('No commanders-ext.json — higher formations keep only curated commanders.');
 }
 
+// Wikipedia descriptions (fetch-descriptions.mjs, keyed by unit id): a short
+// historical summary shown atop the card. Attached to any unit that has one.
+try {
+  const desc = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'descriptions.json'), 'utf8')).descriptions;
+  let n = 0;
+  for (const u of units.values()) {
+    const d = desc[u.id];
+    if (d?.summary) {
+      u.summary = d.summary;
+      n++;
+    }
+  }
+  console.log(`Descriptions: attached Wikipedia summaries to ${n} units`);
+} catch {
+  console.log('No descriptions.json — units have no Wikipedia summary.');
+}
+
 // Children: reverse of parents.
 const childrenOf = new Map();
 for (const u of units.values()) {
@@ -1062,6 +1079,7 @@ for (const u of units.values()) {
     links: u.links ?? {},
     sources: usedSources.map((s) => ({ id: s, ...(sourcesReg[s] ?? {}) })),
     notes: u.notes ?? null,
+    summary: u.summary ?? null,
   };
   const shard = shardOf(u.id);
   if (!shards.has(shard)) shards.set(shard, {});

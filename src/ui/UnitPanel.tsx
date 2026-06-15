@@ -190,6 +190,20 @@ export function UnitPanel({ id }: { id: string }) {
         {lifeEnd.end && <span className="unit-end"> · {lifeEnd.end}</span>}
       </p>
 
+      {unit.summary && (
+        <p className="unit-summary">
+          {unit.summary}
+          {unit.links?.['wikipedia.en'] && (
+            <>
+              {' '}
+              <a href={unit.links['wikipedia.en']} target="_blank" rel="noreferrer">
+                Wikipedia
+              </a>
+            </>
+          )}
+        </p>
+      )}
+
       {(unit.positions.length > 0 || unit.derived) && (
         <div className="unit-controls">
           <label>

@@ -42,16 +42,15 @@ async function wbsearch(term, lang) {
   }
 }
 
-/** The unit's specialisation must match the candidate's, so "4. Armee" never
- *  resolves to "4. Panzerarmee" nor "5th Army" to "5th Tank/Guards Army". */
+// Specialisation tokens that must agree between our label and the candidate, so
+// "4. Armee" never resolves to "4. Panzerarmee", nor "29th Rifle Corps" to the
+// "29th Tank/Guards/Cavalry Corps".
+const SPECIAL = /tank|panzer|cavalry|mechani|motor|guard|shock|\bair\b/i;
+const TYPE_RES = [/tank|panzer/i, /cavalry/i, /mechani/i, /motor/i, /guard/i, /shock/i];
 function typeOk(label, hay) {
-  const need = (re) => re.test(hay);
-  if (/tank|panzer/i.test(label) && !need(/tank|panzer/i)) return false;
-  if (/guards/i.test(label) && !need(/guard/i)) return false;
-  if (/shock/i.test(label) && !need(/shock|udarn/i)) return false;
-  // A plain army must not grab a specialised one.
-  const plain = /\barm(y|ee)\b/i.test(label) && !/tank|panzer|guard|shock|air|cavalry/i.test(label);
-  if (plain && /tank|panzer|guard|shock|air army|cavalry/i.test(hay)) return false;
+  for (const re of TYPE_RES) if (re.test(label) && !re.test(hay)) return false;
+  // A plain formation (rifle/infantry/combined-arms) must not grab a specialised one.
+  if (!SPECIAL.test(label) && SPECIAL.test(hay)) return false;
   return true;
 }
 
@@ -90,6 +89,9 @@ async function resolve(label, echelon, side) {
       : [label, `${label} (Wehrmacht)`];
   const wantOrd = ordinal(label);
   const wantFront = echelon === 'front' ? frontWord(label) : null;
+  // Corps are numerous and homonym-prone; without a numeric ordinal to anchor
+  // on (e.g. German roman-numeral corps) skip rather than risk a wrong match.
+  if (echelon === 'corps' && !wantOrd) return null;
 
   const candIds = [];
   const seen = new Set();
@@ -180,9 +182,10 @@ async function fetchDetails(qids) {
 
 // --- main ------------------------------------------------------------------
 const index = JSON.parse(readFileSync(INDEX, 'utf8')).units;
-// Higher formations that lack a QID: Soviet fronts + armies, German armies +
-// army groups. (Divisions/corps already carry QIDs from the importers.)
-const ECHS = new Set(['front', 'army', 'army-group']);
+// Higher formations that lack a QID: Soviet fronts + armies + corps, German
+// armies + army groups. (Divisions already carry QIDs from the importers;
+// German corps use roman numerals and are skipped by the corps ordinal guard.)
+const ECHS = new Set(['front', 'army', 'army-group', 'corps']);
 let targets = index.filter((u) => ECHS.has(u.echelon));
 if (process.env.SAMPLE) targets = targets.slice(0, Number(process.env.SAMPLE));
 console.log(`Resolving ${targets.length} higher formations on Wikidata…`);

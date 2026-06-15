@@ -76,6 +76,8 @@ export interface UnitDetail {
   links: Record<string, string>;
   sources: { id: string; citation?: string; url?: string }[];
   notes: string | null;
+  /** Short historical description (Wikipedia summary), shown atop the card. */
+  summary?: string | null;
 }
 
 /** Keyframe: [startNum, fraction] on the main line, or [startNum, lon, lat]

@@ -673,6 +673,27 @@ the gap at Soviet front level). Filled by resolving them to Wikidata *by label*.
   Remaining gap: Soviet corps/brigades (no QID, not yet resolved). 62/62 smoke,
   lint clean.
 
+## Richer unit cards — Wikipedia descriptions + corps commanders ✅
+Made the cards genuinely informative, and pushed commander/QID resolution down
+to corps.
+- [x] **Corps resolution**: `fetch-commanders-ext.mjs` now also resolves Soviet
+      corps (rifle/tank/mechanized/cavalry) with stricter type matching (so
+      "29th Rifle Corps" ≠ "29th Tank/Guards Corps"; corps without a numeric
+      ordinal are skipped to avoid German roman-numeral mismatches). 268 / 422
+      higher formations resolved; Soviet corps commanders 0 → 72/256, with QIDs +
+      Wikipedia links for ~117.
+- [x] **Wikipedia descriptions** (`fetch-descriptions.mjs`): a lead-paragraph
+      summary for every unit carrying a Wikipedia link — **992 units**, divisions
+      through fronts — from the REST summary endpoint (resumable cache, CC BY-SA
+      attributed via the unit's Wikipedia link). Attached as `summary`,
+      rendered atop the card in an accented panel (`UnitPanel` + `unit-summary`).
+- [x] **More external links**: ext-resolved formations now expose Wikidata +
+      Wikipedia in the card's External archives.
+- Coverage: 1,007 units carry a Wikipedia link; 992 have a description. Honest
+  by design — undated commanders read "dates unknown", all leaders in a span are
+  listed, and the provenance note stays at the foot of the card. 62/62 smoke,
+  lint clean.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

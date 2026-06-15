@@ -127,16 +127,16 @@
    "wikipedia": "https://en.wikipedia.org/wiki/15th_Army_(Wehrmacht)",
    "commanders": [
     {
-     "name": "Curt Haase",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Curt_Haase"
-    },
-    {
      "name": "Hans von Salmuth",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Hans_von_Salmuth"
+    },
+    {
+     "name": "Curt Haase",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Curt_Haase"
     }
    ]
   },
@@ -165,22 +165,16 @@
    "wikipedia": "https://en.wikipedia.org/wiki/17th_Army_(Wehrmacht)",
    "commanders": [
     {
-     "name": "Juliann Kurzmann",
-     "from": null,
-     "to": null,
-     "link": null
-    },
-    {
      "name": "Hermann Hoth",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Hermann_Hoth"
     },
     {
-     "name": "Friedrich Schulz",
+     "name": "Juliann Kurzmann",
      "from": null,
      "to": null,
-     "link": "https://en.wikipedia.org/wiki/Friedrich_Schulz"
+     "link": null
     },
     {
      "name": "Carl-Heinrich von Stülpnagel",
@@ -199,6 +193,12 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Erwin_Jaenecke"
+    },
+    {
+     "name": "Friedrich Schulz",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Friedrich_Schulz"
     }
    ]
   },
@@ -270,12 +270,6 @@
    "wikipedia": "https://en.wikipedia.org/wiki/4th_Army_(Wehrmacht)",
    "commanders": [
     {
-     "name": "Friedrich Hoßbach",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Friedrich_Hossbach"
-    },
-    {
      "name": "Johannes Frießner",
      "from": null,
      "to": null,
@@ -286,6 +280,12 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Hans_von_Salmuth"
+    },
+    {
+     "name": "Friedrich Hoßbach",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Friedrich_Hossbach"
     }
    ]
   },
@@ -333,16 +333,16 @@
    "wikipedia": "https://en.wikipedia.org/wiki/8th_Army_(Wehrmacht)",
    "commanders": [
     {
-     "name": "Otto Wöhler",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Otto_W%C3%B6hler"
-    },
-    {
      "name": "Johannes Blaskowitz",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Johannes_Blaskowitz"
+    },
+    {
+     "name": "Otto Wöhler",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Otto_W%C3%B6hler"
     }
    ]
   },
@@ -351,12 +351,6 @@
    "description": "German field army during World War II",
    "wikipedia": "https://en.wikipedia.org/wiki/9th_Army_(Wehrmacht)",
    "commanders": [
-    {
-     "name": "Smilo Freiherr von Lüttwitz",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Smilo_Freiherr_von_L%C3%BCttwitz"
-    },
     {
      "name": "Johannes Blaskowitz",
      "from": null,
@@ -380,6 +374,12 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Adolf_Strauss_(general)"
+    },
+    {
+     "name": "Smilo Freiherr von Lüttwitz",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Smilo_Freiherr_von_L%C3%BCttwitz"
     }
    ]
   },
@@ -414,16 +414,16 @@
      "link": "https://en.wikipedia.org/wiki/Maximilian_von_Weichs"
     },
     {
-     "name": "Fedor von Bock",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Fedor_von_Bock"
-    },
-    {
      "name": "Erwin Rommel",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Erwin_Rommel"
+    },
+    {
+     "name": "Fedor von Bock",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fedor_von_Bock"
     },
     {
      "name": "Hans von Salmuth",
@@ -490,16 +490,16 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Army_Group_North",
    "commanders": [
     {
-     "name": "Georg von Küchler",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Georg_von_K%C3%BCchler"
-    },
-    {
      "name": "Fedor von Bock",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Fedor_von_Bock"
+    },
+    {
+     "name": "Georg von Küchler",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Georg_von_K%C3%BCchler"
     },
     {
      "name": "Lothar Rendulic",
@@ -539,28 +539,16 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Army_Group_South",
    "commanders": [
     {
-     "name": "Walter von Reichenau",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Walter_von_Reichenau"
-    },
-    {
      "name": "Erich von Manstein",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Erich_von_Manstein"
     },
     {
-     "name": "Ferdinand Schörner",
+     "name": "Walter von Reichenau",
      "from": null,
      "to": null,
-     "link": "https://en.wikipedia.org/wiki/Ferdinand_Sch%C3%B6rner"
-    },
-    {
-     "name": "Fedor von Bock",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Fedor_von_Bock"
+     "link": "https://en.wikipedia.org/wiki/Walter_von_Reichenau"
     },
     {
      "name": "Gerd von Rundstedt",
@@ -569,16 +557,28 @@
      "link": "https://en.wikipedia.org/wiki/Gerd_von_Rundstedt"
     },
     {
-     "name": "Otto Wöhler",
+     "name": "Fedor von Bock",
      "from": null,
      "to": null,
-     "link": "https://en.wikipedia.org/wiki/Otto_W%C3%B6hler"
+     "link": "https://en.wikipedia.org/wiki/Fedor_von_Bock"
+    },
+    {
+     "name": "Ferdinand Schörner",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ferdinand_Sch%C3%B6rner"
     },
     {
      "name": "Johannes Frießner",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Johannes_Frie%C3%9Fner"
+    },
+    {
+     "name": "Otto Wöhler",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Otto_W%C3%B6hler"
     }
    ]
   },
@@ -670,16 +670,16 @@
      "link": "https://en.wikipedia.org/wiki/Hermann_Hoth"
     },
     {
-     "name": "Fritz-Hubert Gräser",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Fritz-Hubert_Gr%C3%A4ser"
-    },
-    {
      "name": "Erhard Raus",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Erhard_Raus"
+    },
+    {
+     "name": "Fritz-Hubert Gräser",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fritz-Hubert_Gr%C3%A4ser"
     },
     {
      "name": "Erich Hoepner",
@@ -692,6 +692,1632 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Josef_Harpe"
+    }
+   ]
+  },
+  "su-10th-guards-tank-corps": {
+   "qid": "Q86723633",
+   "description": "1943-1945 Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/10th_Guards_Tank_Corps",
+   "commanders": []
+  },
+  "su-10th-mechanized-corps": {
+   "qid": "Q4028128",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/10th_Mechanized_Corps_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-10th-rifle-corps": {
+   "qid": "Q4028133",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/10th_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Pavel Batov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pavel_Batov"
+    },
+    {
+     "name": "Ivan Fyodorovich Nikolaev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Yevgeny Yegorov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vasily Golovskoy",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Mikhail Isayev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Leonid Vasilevsky",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-10th-tank-corps": {
+   "qid": "Q12061605",
+   "description": "1942–1945 Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/10th_Tank_Corps",
+   "commanders": [
+    {
+     "name": "Matvey Shaposhnikov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Matvey_Shaposhnikov"
+    },
+    {
+     "name": "Vasily Alekseyev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vasily Burkov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Mikhail Sakhno",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-115th-rifle-corps": {
+   "qid": "Q120281155",
+   "description": "Soviet military unit",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Sergei Borisovich Kozachek",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-11th-cavalry-corps": {
+   "qid": "Q4547829",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/11th_Cavalry_Corps",
+   "commanders": [
+    {
+     "name": "Grigory Timofeev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Sergey Sokolov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-11th-guards-tank-corps": {
+   "qid": "Q3597223",
+   "description": "1943-1945 Red Army formation",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Hamazasp Babadzhanian",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Hamazasp_Babadzhanian"
+    },
+    {
+     "name": "Iosif Gusakovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Iosif_Gusakovsky"
+    },
+    {
+     "name": "Vladimir Makarov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-11th-mechanized-corps": {
+   "qid": "Q4028361",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/11th_Mechanized_Corps_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Pyotr Makarov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-11th-rifle-corps": {
+   "qid": "Q4028367",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/11th_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Nikolay Yermilov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-11th-tank-corps": {
+   "qid": "Q15107874",
+   "description": "Red Army formation",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Filipp Rudkin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Filipp_Rudkin"
+    },
+    {
+     "name": "Ivan Yushchuk",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-12th-guards-tank-corps": {
+   "qid": "Q4028496",
+   "description": "1943-1945 Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-12th-mechanized-corps": {
+   "qid": "Q4028505",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/12th_Mechanized_Corps_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Nikolai Mikhaylovich Shestopalov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-12th-tank-corps": {
+   "qid": "Q16687015",
+   "description": "1942-1943 Red Army formation",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Mitrofan Zinkovich",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-13th-rifle-corps": {
+   "qid": "Q4028674",
+   "description": "corps of the Red Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/13th_Rifle_Corps",
+   "commanders": []
+  },
+  "su-13th-tank-corps": {
+   "qid": "Q4028677",
+   "description": "1942-1943 Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-14th-rifle-corps": {
+   "qid": "Q4028779",
+   "description": "Soviet military unit",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Nikolay Kiryukhin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolay_Kiryukhin"
+    },
+    {
+     "name": "Bagrat Arushanyan",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Aleksandr Ivanovsky",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-14th-tank-corps": {
+   "qid": "Q18170376",
+   "description": "1942 Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-15th-rifle-corps": {
+   "qid": "Q4028899",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/15th_Rifle_Corps",
+   "commanders": []
+  },
+  "su-15th-tank-corps": {
+   "qid": "Q18234564",
+   "description": "1938-1943 Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/15th_Tank_Corps",
+   "commanders": [
+    {
+     "name": "Mikhail Petrovich Petrov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Mikhail_Petrov_(general)"
+    },
+    {
+     "name": "Filipp Rudkin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Filipp_Rudkin"
+    },
+    {
+     "name": "Alexander Lozovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Alexander_Lozovsky"
+    }
+   ]
+  },
+  "su-16th-mechanized-corps": {
+   "qid": "Q12061761",
+   "description": "",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-16th-rifle-corps": {
+   "qid": "Q4029019",
+   "description": "former Soviet military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/16th_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Yerofey Dobrovolsky",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-16th-tank-corps": {
+   "qid": "Q16687099",
+   "description": "1942-1943 Red Army formation",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Aleksey Maslov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-17th-mechanized-corps": {
+   "qid": "Q4029142",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/17th_Mechanized_Corps_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Mikhail Petrovich Petrov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Mikhail_Petrov_(general)"
+    }
+   ]
+  },
+  "su-17th-rifle-corps": {
+   "qid": "Q4029146",
+   "description": "Soviet military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/17th_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Nikolay Nikitin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolay_Aleksandrovich_Nikitin"
+    },
+    {
+     "name": "Grigory Belov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Konstantin Kolganov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-17th-tank-corps": {
+   "qid": "Q16687111",
+   "description": "Red Army unit",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-18th-tank-corps": {
+   "qid": "Q18170438",
+   "description": "Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-19th-mechanized-corps": {
+   "qid": "Q4029404",
+   "description": "Soviet operational formation, formed and destroyed in 1941",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-19th-rifle-corps": {
+   "qid": "Q4029408",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/19th_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Ivan Fyodorovich Nikolaev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vasily Golovskoy",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Grigory Kivovich Fayans",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Mikhail Borisoviсh Anashkin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Mikhail_Anashkin"
+    },
+    {
+     "name": "Andrey Andreyev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Andrey_Matveyevich_Andreyev"
+    },
+    {
+     "name": "Mikhail Iosifovich Glinsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Mikhail_Iosifovich_Glinsky"
+    }
+   ]
+  },
+  "su-19th-tank-corps": {
+   "qid": "Q18170512",
+   "description": "Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/19th_Tank_Corps",
+   "commanders": []
+  },
+  "su-1st-guards-cavalry-corps": {
+   "qid": "Q4027982",
+   "description": "unit of the Soviet Red Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Guards_Cavalry_Corps",
+   "commanders": [
+    {
+     "name": "Viktor Baranov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Viktor_Kirillovich_Baranov"
+    },
+    {
+     "name": "Pavel Alexeyevich Belov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pavel_Belov"
+    }
+   ]
+  },
+  "su-1st-guards-mechanized-corps": {
+   "qid": "Q4027983",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Guards_Mechanized_Corps_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Ivan Voitenko",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-1st-guards-tank-corps": {
+   "qid": "Q890416",
+   "description": "1942-1945 Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Guards_Tank_Division",
+   "commanders": [
+    {
+     "name": "Aleksandr Kukushkin",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-1st-mechanized-corps": {
+   "qid": "Q4027996",
+   "description": "Soviet military formation designation",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Mechanized_Corps_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-1st-rifle-corps": {
+   "qid": "Q16969773",
+   "description": "",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Army_Corps_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Nikolay Vasilyev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vladimir Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Roman Ivanovich Panin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Roman_Ivanovich_Panin"
+    },
+    {
+     "name": "Mikhail Iosifovich Glinsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Mikhail_Iosifovich_Glinsky"
+    }
+   ]
+  },
+  "su-1st-tank-corps": {
+   "qid": "Q4028013",
+   "description": "1942-1945 Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-20th-mechanized-corps": {
+   "qid": "Q4029902",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/20th_Mechanized_Corps_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Nikolai Vedeneyev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Vedeneyev"
+    }
+   ]
+  },
+  "su-20th-tank-corps": {
+   "qid": "Q16160370",
+   "description": "Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/20th_Tank_Division",
+   "commanders": [
+    {
+     "name": "Dmytro Hrytsenko",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-21st-mechanized-corps": {
+   "qid": "Q4030109",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/21st_Mechanized_Corps_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Dmitry Lelyushenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Lelyushenko"
+    }
+   ]
+  },
+  "su-21st-rifle-corps": {
+   "qid": "Q16160459",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/21st_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Dmitriy Zakutniy",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-21st-tank-corps": {
+   "qid": "Q18170339",
+   "description": "Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-22nd-rifle-corps": {
+   "qid": "Q4030170",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/22nd_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Aleksander Sergeevich Ksenofontov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Fyodor Zakharov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-22nd-tank-corps": {
+   "qid": "Q18234691",
+   "description": "Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-23rd-rifle-corps": {
+   "qid": "Q30668202",
+   "description": "Soviet military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/23rd_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Stepan Akimov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Stepan_Akimov"
+    }
+   ]
+  },
+  "su-23rd-tank-corps": {
+   "qid": "Q4030216",
+   "description": "Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/23rd_Tank_Corps",
+   "commanders": [
+    {
+     "name": "Aleksej Osipovič Ahmanov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Alexey_Akhmanov"
+    },
+    {
+     "name": "Yefim Pushkin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Yefim_Pushkin"
+    }
+   ]
+  },
+  "su-24th-rifle-corps": {
+   "qid": "Q4030276",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/24th_Rifle_Corps",
+   "commanders": []
+  },
+  "su-24th-tank-corps": {
+   "qid": "Q16687170",
+   "description": "1942 Red Army formation",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Vasily Badanov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Badanov"
+    }
+   ]
+  },
+  "su-25th-mechanized-corps": {
+   "qid": "Q28429665",
+   "description": "Mechanized corps of the Red Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/25th_Mechanized_Corps_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-25th-rifle-corps": {
+   "qid": "Q30668206",
+   "description": "",
+   "wikipedia": "https://en.wikipedia.org/wiki/25th_Rifle_Corps_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-25th-tank-corps": {
+   "qid": "Q4030334",
+   "description": "1942 Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-26th-tank-corps": {
+   "qid": "Q16687183",
+   "description": "Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-27th-rifle-corps": {
+   "qid": "Q113866400",
+   "description": "corps of the Soviet Red Army",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-28th-tank-corps": {
+   "qid": "Q18170350",
+   "description": "Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-29th-rifle-corps": {
+   "qid": "Q4030555",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/29th_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Andrey Andreyev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Andrey_Matveyevich_Andreyev"
+    },
+    {
+     "name": "Vincas Vitkauskas",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vincas_Vitkauskas"
+    }
+   ]
+  },
+  "su-29th-tank-corps": {
+   "qid": "Q12061941",
+   "description": "Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/29th_Tank_Corps",
+   "commanders": [
+    {
+     "name": "Ksenofont Malakhov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-2nd-cavalry-corps": {
+   "qid": "Q4029813",
+   "description": "soviet Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/2nd_Cavalry_Corps_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Fyodor Vasilyevich Kamkov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Pavel Alexeyevich Belov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pavel_Belov"
+    },
+    {
+     "name": "Grigory Kotovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Grigory_Kotovsky"
+    }
+   ]
+  },
+  "su-2nd-guards-cavalry-corps": {
+   "qid": "Q16160103",
+   "description": "",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Lev Dovator",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Lev_Dovator"
+    }
+   ]
+  },
+  "su-2nd-guards-tank-corps": {
+   "qid": "Q3598747",
+   "description": "1942-1945 Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/2nd_Guards_Tank_Corps",
+   "commanders": [
+    {
+     "name": "Vasily Badanov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Badanov"
+    }
+   ]
+  },
+  "su-2nd-mechanized-corps": {
+   "qid": "Q19906825",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/2nd_Mechanized_Corps_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-2nd-rifle-corps": {
+   "qid": "Q4029826",
+   "description": "red Army military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/2nd_Rifle_Corps",
+   "commanders": []
+  },
+  "su-2nd-tank-corps": {
+   "qid": "Q4029835",
+   "description": "1942-1943 Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/2nd_Tank_Corps",
+   "commanders": [
+    {
+     "name": "Andrey Kravchenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Andrey_Kravchenko_(general)"
+    }
+   ]
+  },
+  "su-30th-tank-corps": {
+   "qid": "Q21634826",
+   "description": "Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/30th_Tank_Corps",
+   "commanders": []
+  },
+  "su-31st-tank-corps": {
+   "qid": "Q12061971",
+   "description": "Red Army formation",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Grigory Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-32nd-rifle-corps": {
+   "qid": "Q30668205",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/32nd_Rifle_Corps",
+   "commanders": []
+  },
+  "su-34th-rifle-corps": {
+   "qid": "Q4030950",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/34th_Rifle_Corps",
+   "commanders": []
+  },
+  "su-36th-rifle-corps": {
+   "qid": "Q7485592",
+   "description": "",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Pavel Vasilievich Sysoev",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-3rd-guards-tank-corps": {
+   "qid": "Q4030678",
+   "description": "1942-1945 Red Army formation",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Alexander Lobanov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-3rd-mechanized-corps": {
+   "qid": "Q55656937",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/3rd_Mechanized_Corps_(1940_formation)",
+   "commanders": []
+  },
+  "su-3rd-rifle-corps": {
+   "qid": "Q16160758",
+   "description": "Soviet military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/3rd_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Yakov Balakhonov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Mikhail Ivanov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Grigory Kulik",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Grigory_Kulik"
+    },
+    {
+     "name": "Pavel Batov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pavel_Batov"
+    },
+    {
+     "name": "Konstantin Leselidze",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Leselidze"
+    }
+   ]
+  },
+  "su-3rd-tank-corps": {
+   "qid": "Q4030699",
+   "description": "1942-1944 Red Army formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/16th_Guards_Tank_Division",
+   "commanders": [
+    {
+     "name": "Nikolai Vedeneyev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Vedeneyev"
+    }
+   ]
+  },
+  "su-42nd-rifle-corps": {
+   "qid": "Q30668219",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/42nd_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Konstantin Kolganov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Roman Ivanovich Panin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Roman_Ivanovich_Panin"
+    }
+   ]
+  },
+  "su-47th-rifle-corps": {
+   "qid": "Q16161032",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/47th_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Vasily Vinogradov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Ivan Dashichev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Stepan Povetkin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Stepan_Povetkin"
+    }
+   ]
+  },
+  "su-4th-cavalry-corps": {
+   "qid": "Q4031188",
+   "description": "",
+   "wikipedia": "https://en.wikipedia.org/wiki/4th_Cavalry_Corps_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-4th-guards-cavalry-corps": {
+   "qid": "Q4031179",
+   "description": "Soviet cavalry corps",
+   "wikipedia": "https://en.wikipedia.org/wiki/4th_Guards_Cavalry_Corps",
+   "commanders": [
+    {
+     "name": "Vasily Golovskoy",
+     "from": "1944-11-05",
+     "to": "1945-04-08",
+     "link": null
+    },
+    {
+     "name": "Fyodor Vasilyevich Kamkov",
+     "from": "1945-04-12",
+     "to": "1946-11-01",
+     "link": null
+    },
+    {
+     "name": "Nikolay Kirichenko",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-4th-guards-tank-corps": {
+   "qid": "Q90086821",
+   "description": "1943-1945 Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-4th-mechanized-corps": {
+   "qid": "Q30891264",
+   "description": "World War 2 Soviet military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/4th_Mechanized_Corps_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-4th-rifle-corps": {
+   "qid": "Q4031202",
+   "description": "Soviet military unit",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Yevgeny Yegorov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Aleksandr Pavlov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Danilo Serdich",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Danilo_Srdi%C4%87"
+    }
+   ]
+  },
+  "su-4th-tank-corps": {
+   "qid": "Q4031206",
+   "description": "1942-1943 Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-50th-rifle-corps": {
+   "qid": "Q4031667",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/50th_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Nikoloz Tavartkiladze",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Philipp Gorelenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Filipp_Gorelenko"
+    },
+    {
+     "name": "Pavel Batitsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pavel_Batitsky"
+    }
+   ]
+  },
+  "su-51st-rifle-corps": {
+   "qid": "Q30668209",
+   "description": "corps of the Soviet Red Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/51st_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Sergei Prokofevich Timoshkov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-52nd-rifle-corps": {
+   "qid": "Q30668211",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/52nd_Rifle_Corps",
+   "commanders": []
+  },
+  "su-5th-cavalry-corps": {
+   "qid": "Q4031603",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/5th_Cavalry_Corps_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Fyodor Vasilyevich Kamkov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Feofan Parkhomenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Feofan_Parkhomenko"
+    }
+   ]
+  },
+  "su-5th-guards-cavalry-corps": {
+   "qid": "Q4031596",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/5th_Guards_Cavalry_Corps",
+   "commanders": [
+    {
+     "name": "Sergey Gorshkov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Sergey_Gorshkov_(general)"
+    }
+   ]
+  },
+  "su-5th-guards-tank-corps": {
+   "qid": "Q4031594",
+   "description": "1943-1945 Red Army formation",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Vasily Alekseyev",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-5th-mechanized-corps": {
+   "qid": "Q18987553",
+   "description": "Red Army designation used for multiple formations",
+   "wikipedia": "https://en.wikipedia.org/wiki/5th_Mechanised_Corps_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-5th-rifle-corps": {
+   "qid": "Q16161163",
+   "description": "corps",
+   "wikipedia": "https://en.wikipedia.org/wiki/5th_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Aleksander Vasilievich Garnov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Leonid Petrovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Leonid_Petrovsky"
+    },
+    {
+     "name": "Sergei Gribov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Sergei_Gribov_(military_officer)"
+    }
+   ]
+  },
+  "su-5th-tank-corps": {
+   "qid": "Q4031617",
+   "description": "1942-1945 Red Army formation",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Mikhail Sakhno",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Yakov Babicki",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-60th-rifle-corps": {
+   "qid": "Q65075672",
+   "description": "Rifle corps of the Red Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/60th_Rifle_Corps",
+   "commanders": []
+  },
+  "su-61st-rifle-corps": {
+   "qid": "Q21634873",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/61st_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Vasily Vinogradov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Fyodor Bakunin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Fyodor_Bakunin"
+    }
+   ]
+  },
+  "su-62nd-rifle-corps": {
+   "qid": "Q30668213",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/62nd_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Aleksandr Naumov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-63rd-rifle-corps": {
+   "qid": "Q86678193",
+   "description": "",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Pyotr Koshevoy",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pyotr_Koshevoy"
+    },
+    {
+     "name": "Leonid Petrovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Leonid_Petrovsky"
+    }
+   ]
+  },
+  "su-65th-rifle-corps": {
+   "qid": "Q4032080",
+   "description": "Soviet military unit",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Nikolai Mikhaylovich Shestopalov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vasily Komarov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vassily Revyakin",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-66th-rifle-corps": {
+   "qid": "Q30668208",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/66th_Rifle_Corps",
+   "commanders": []
+  },
+  "su-67th-rifle-corps": {
+   "qid": "Q4032118",
+   "description": "Red Army unit in World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/67th_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Phillip Feodosyevich Zhmachenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Filipp_Zhmachenko"
+    }
+   ]
+  },
+  "su-6th-cavalry-corps": {
+   "qid": "Q32065341",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/6th_Cavalry_Corps_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Ivan Semyonovich Nikitin",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-6th-guards-rifle-corps": {
+   "qid": "Q4031917",
+   "description": "Soviet rifle corps in World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/6th_Guards_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Ivan Alfyorov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Fyodor Zakharov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-6th-guards-tank-corps": {
+   "qid": "Q4031918",
+   "description": "1943-1945 Red Army formation",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Mitrofan Zinkovich",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Vasily Novikov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-6th-mechanized-corps": {
+   "qid": "Q4031930",
+   "description": "",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Mikhail Khatskilevich",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Mikhail_Khatskilevich"
+    }
+   ]
+  },
+  "su-6th-rifle-corps": {
+   "qid": "Q16959580",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/6th_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Ivan Alekseyev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Boris Rikhter",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Gaspar Voskanyan",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Gaspar_Voskanyan"
+    }
+   ]
+  },
+  "su-6th-tank-corps": {
+   "qid": "Q4031939",
+   "description": "1942-1943 Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-79th-rifle-corps": {
+   "qid": "Q4643756",
+   "description": "rifle corps of the Red Army in World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/79th_Rifle_Corps",
+   "commanders": []
+  },
+  "su-7th-cavalry-corps": {
+   "qid": "Q16161362",
+   "description": "Soviet military unit",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Nikolai Mikhaylovich Shestopalov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Sergey Sokolov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-7th-guards-cavalry-corps": {
+   "qid": "Q18634867",
+   "description": "military unit of the Red Army in World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/7th_Guards_Cavalry_Corps",
+   "commanders": [
+    {
+     "name": "Mikhail Konstantinov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Mikhail_Konstantinov"
+    }
+   ]
+  },
+  "su-7th-guards-tank-corps": {
+   "qid": "Q3599883",
+   "description": "1943-1992 Soviet military formation",
+   "wikipedia": "https://en.wikipedia.org/wiki/7th_Guards_Tank_Division",
+   "commanders": [
+    {
+     "name": "Vasily Novikov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Filipp Rudkin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Filipp_Rudkin"
+    }
+   ]
+  },
+  "su-7th-mechanized-corps": {
+   "qid": "Q16277978",
+   "description": "Soviet military formation designation",
+   "wikipedia": "https://en.wikipedia.org/wiki/7th_Mechanized_Corps_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-7th-rifle-corps": {
+   "qid": "Q4032207",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/7th_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Aleksandr Nikolayevich Bakhtin",
+     "from": "1922-10-31",
+     "to": "1923-09-01",
+     "link": null
+    },
+    {
+     "name": "Valentin Mulin",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Sergey Goryachev",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-7th-tank-corps": {
+   "qid": "Q4032211",
+   "description": "1942 Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-82nd-rifle-corps": {
+   "qid": "Q60785253",
+   "description": "Soviet military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/82nd_Rifle_Corps",
+   "commanders": []
+  },
+  "su-8th-cavalry-corps": {
+   "qid": "Q18634873",
+   "description": "military unit of the Red Army in World War II",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Mikhail Borisov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Aleksey Zhadov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Aleksey_Zhadov"
+    }
+   ]
+  },
+  "su-8th-guards-rifle-corps": {
+   "qid": "Q4032444",
+   "description": "Soviet military unit",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Fyodor Zakharov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Aleksander Sergeevich Ksenofontov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-8th-guards-tank-corps": {
+   "qid": "Q16161528",
+   "description": "1943-1945 Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-8th-mechanized-corps": {
+   "qid": "Q4032450",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/8th_Mechanized_Corps_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-8th-tank-corps": {
+   "qid": "Q12062181",
+   "description": "1942 Red Army formation",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-9th-guards-mechanized-corps": {
+   "qid": "Q13033755",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/9th_Guards_Motor_Rifle_Division",
+   "commanders": [
+    {
+     "name": "Mikhail Volkov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Dmitry Loza",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Loza"
+    }
+   ]
+  },
+  "su-9th-guards-rifle-corps": {
+   "qid": "Q4032663",
+   "description": "Soviet military unit",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Mikhail Zashibalov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-9th-guards-tank-corps": {
+   "qid": "Q4032664",
+   "description": "1944-1945 Red Army formation",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Nikolai Vedeneyev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Vedeneyev"
+    }
+   ]
+  },
+  "su-9th-mechanized-corps": {
+   "qid": "Q4032673",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/9th_Mechanized_Corps_(Soviet_Union)",
+   "commanders": [
+    {
+     "name": "Aleksey Maslov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Konstantin Rokossovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Rokossovsky"
+    }
+   ]
+  },
+  "su-9th-rifle-corps": {
+   "qid": "Q65119485",
+   "description": "military unit",
+   "wikipedia": "https://en.wikipedia.org/wiki/9th_Rifle_Corps",
+   "commanders": [
+    {
+     "name": "Aleksandr Nikolayevich Bakhtin",
+     "from": "1929-06-20",
+     "to": "1931-05-14",
+     "link": null
+    },
+    {
+     "name": "Ivan Dashichev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Dmitry Gordeyev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Georgy Zuyev",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Ivan Smolin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Smolin"
+    },
+    {
+     "name": "Pavel Batov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Pavel_Batov"
     }
    ]
   },
@@ -738,12 +2364,6 @@
      "link": null
     },
     {
-     "name": "Ivan Shlyomin",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Ivan_Shlyomin"
-    },
-    {
      "name": "Konstantin Koroteev",
      "from": null,
      "to": null,
@@ -754,6 +2374,12 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Pavel_Ponedelin"
+    },
+    {
+     "name": "Ivan Shlyomin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Shlyomin"
     }
    ]
   },
@@ -769,6 +2395,12 @@
      "link": null
     },
     {
+     "name": "Nikolay Pukhov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Pukhov"
+    },
+    {
      "name": "Gleb Baklanov",
      "from": null,
      "to": null,
@@ -779,12 +2411,6 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Konstantin_Golubev"
-    },
-    {
-     "name": "Nikolay Pukhov",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Nikolai_Pukhov"
     },
     {
      "name": "Pyotr Filatov",
@@ -831,16 +2457,16 @@
      "link": null
     },
     {
-     "name": "Ivan Bagramyan",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Ivan_Bagramyan"
-    },
-    {
      "name": "Konstantin Rokossovsky",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Konstantin_Rokossovsky"
+    },
+    {
+     "name": "Ivan Bagramyan",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Ivan_Bagramyan"
     }
    ]
   },
@@ -1048,12 +2674,6 @@
    "wikipedia": "https://en.wikipedia.org/wiki/26th_Army_(Soviet_Union)",
    "commanders": [
     {
-     "name": "Lev Skvirsky",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Lev_Skvirsky"
-    },
-    {
      "name": "Nikolai Alexandrovich Gagen",
      "from": null,
      "to": null,
@@ -1064,6 +2684,12 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Fyodor_Kostenko"
+    },
+    {
+     "name": "Lev Skvirsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Lev_Skvirsky"
     }
    ]
   },
@@ -1110,12 +2736,6 @@
      "link": "https://en.wikipedia.org/wiki/Nikolai_Gusev"
     },
     {
-     "name": "Andrey Andreyev",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Andrey_Matveyevich_Andreyev"
-    },
-    {
      "name": "Vladimir Kachalov",
      "from": null,
      "to": null,
@@ -1132,6 +2752,12 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Alexander_Luchinsky"
+    },
+    {
+     "name": "Andrey Andreyev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Andrey_Matveyevich_Andreyev"
     }
    ]
   },
@@ -1284,6 +2910,12 @@
    "wikipedia": "https://en.wikipedia.org/wiki/33rd_Army_(Soviet_Union)",
    "commanders": [
     {
+     "name": "Vasily Kryuchenkin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kryuchyonkin"
+    },
+    {
      "name": "Vasily Gordov",
      "from": null,
      "to": null,
@@ -1294,12 +2926,6 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Vyacheslav_Tsvetayev"
-    },
-    {
-     "name": "Vasily Kryuchenkin",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Vasily_Kryuchyonkin"
     }
    ]
   },
@@ -1401,10 +3027,10 @@
      "link": "https://en.wikipedia.org/wiki/Grigori_F._Krivosheev"
     },
     {
-     "name": "Viktor Tsyganov",
+     "name": "Kirill Moskalenko",
      "from": null,
      "to": null,
-     "link": "https://en.wikipedia.org/wiki/Viktor_Tsyganov"
+     "link": "https://en.wikipedia.org/wiki/Kirill_Moskalenko"
     },
     {
      "name": "Yakov Kreizer",
@@ -1413,10 +3039,10 @@
      "link": "https://en.wikipedia.org/wiki/Yakov_Kreizer"
     },
     {
-     "name": "Kirill Moskalenko",
+     "name": "Viktor Tsyganov",
      "from": null,
      "to": null,
-     "link": "https://en.wikipedia.org/wiki/Kirill_Moskalenko"
+     "link": "https://en.wikipedia.org/wiki/Viktor_Tsyganov"
     }
    ]
   },
@@ -1487,18 +3113,6 @@
      "link": null
     },
     {
-     "name": "Nikolai Gusev",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Nikolai_Gusev"
-    },
-    {
-     "name": "Alexander Andreevich Korobkov",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Aleksandr_Korobkov"
-    },
-    {
      "name": "Konstantin Rokossovsky",
      "from": null,
      "to": null,
@@ -1509,6 +3123,18 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Dmitry_Yazov"
+    },
+    {
+     "name": "Nikolai Gusev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Gusev"
+    },
+    {
+     "name": "Alexander Andreevich Korobkov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Aleksandr_Korobkov"
     }
    ]
   },
@@ -1518,10 +3144,10 @@
    "wikipedia": "https://en.wikipedia.org/wiki/40th_Army",
    "commanders": [
     {
-     "name": "Igor Rodionov",
+     "name": "Borys Tkach",
      "from": null,
      "to": null,
-     "link": "https://en.wikipedia.org/wiki/Igor_Rodionov"
+     "link": null
     },
     {
      "name": "Viktor Dubynin",
@@ -1530,10 +3156,10 @@
      "link": "https://en.wikipedia.org/wiki/Viktor_Dubynin"
     },
     {
-     "name": "Borys Tkach",
+     "name": "Igor Rodionov",
      "from": null,
      "to": null,
-     "link": null
+     "link": "https://en.wikipedia.org/wiki/Igor_Rodionov"
     }
    ]
   },
@@ -1556,10 +3182,10 @@
    "wikipedia": "https://en.wikipedia.org/wiki/42nd_Army",
    "commanders": [
     {
-     "name": "Ivan Maslennikov",
+     "name": "Ivan Fyodorovich Nikolaev",
      "from": null,
      "to": null,
-     "link": "https://en.wikipedia.org/wiki/Ivan_Maslennikov"
+     "link": null
     },
     {
      "name": "Vladimir Petrovich Sviridov",
@@ -1574,10 +3200,10 @@
      "link": "https://en.wikipedia.org/wiki/Ivan_Fedyuninsky"
     },
     {
-     "name": "Ivan Fyodorovich Nikolaev",
+     "name": "Ivan Maslennikov",
      "from": null,
      "to": null,
-     "link": null
+     "link": "https://en.wikipedia.org/wiki/Ivan_Maslennikov"
     }
    ]
   },
@@ -1593,18 +3219,6 @@
      "link": "https://en.wikipedia.org/wiki/Afanasy_Beloborodov"
     },
     {
-     "name": "Stepan Akimov",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Stepan_Akimov"
-    },
-    {
-     "name": "Konstantin Golubev",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Konstantin_Golubev"
-    },
-    {
      "name": "Ivan Zakharkin",
      "from": null,
      "to": null,
@@ -1615,6 +3229,18 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Pyotr_Sobennikov"
+    },
+    {
+     "name": "Stepan Akimov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Stepan_Akimov"
+    },
+    {
+     "name": "Konstantin Golubev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Golubev"
     },
     {
      "name": "Dmitry Seleznyov",
@@ -1711,18 +3337,6 @@
    "wikipedia": "https://en.wikipedia.org/wiki/48th_Army",
    "commanders": [
     {
-     "name": "Maksim Antoniuk",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Maksim_Antoniuk"
-    },
-    {
-     "name": "Stepan Akimov",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Stepan_Akimov"
-    },
-    {
      "name": "Nikolai Gusev",
      "from": null,
      "to": null,
@@ -1733,6 +3347,18 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Prokofy_Romanenko"
+    },
+    {
+     "name": "Maksim Antoniuk",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Maksim_Antoniuk"
+    },
+    {
+     "name": "Stepan Akimov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Stepan_Akimov"
     },
     {
      "name": "Aleksandr Samokhin",
@@ -1810,6 +3436,12 @@
      "link": "https://en.wikipedia.org/wiki/Fyodor_Kuznetsov"
     },
     {
+     "name": "Yakov Kreizer",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Yakov_Kreizer"
+    },
+    {
      "name": "Pavel Batov",
      "from": null,
      "to": null,
@@ -1820,12 +3452,6 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Trofim_Kolomiets"
-    },
-    {
-     "name": "Yakov Kreizer",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Yakov_Kreizer"
     },
     {
      "name": "Nikolay Kirichenko",
@@ -1936,16 +3562,16 @@
    "wikipedia": null,
    "commanders": [
     {
-     "name": "Vasily Kuznetsov",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Vasily_Kuznetsov_(general)"
-    },
-    {
      "name": "Vasily Khomenko",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Vasily_Khomenko"
+    },
+    {
+     "name": "Vasily Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kuznetsov_(general)"
     }
    ]
   },
@@ -2018,16 +3644,16 @@
    "wikipedia": "https://en.wikipedia.org/wiki/62nd_Army_(Soviet_Union)",
    "commanders": [
     {
-     "name": "Vladimir Kolpakchi",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Vladimir_Kolpakchi"
-    },
-    {
      "name": "Anton Lopatin",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Anton_Lopatin"
+    },
+    {
+     "name": "Vladimir Kolpakchi",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Kolpakchi"
     }
    ]
   },
@@ -2145,12 +3771,6 @@
    "wikipedia": "https://en.wikipedia.org/wiki/69th_Army_(Soviet_Union)",
    "commanders": [
     {
-     "name": "Vladimir Kolpakchi",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Vladimir_Kolpakchi"
-    },
-    {
      "name": "Mikhail Kazakov",
      "from": null,
      "to": null,
@@ -2161,6 +3781,12 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Vasily_Kryuchyonkin"
+    },
+    {
+     "name": "Vladimir Kolpakchi",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vladimir_Kolpakchi"
     }
    ]
   },
@@ -2430,16 +4056,16 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Bryansk_Front",
    "commanders": [
     {
-     "name": "Konstantin Rokossovsky",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Konstantin_Rokossovsky"
-    },
-    {
      "name": "Filipp Golikov",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Filipp_Golikov"
+    },
+    {
+     "name": "Konstantin Rokossovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Konstantin_Rokossovsky"
     },
     {
      "name": "Max Reyter",
@@ -2626,16 +4252,16 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Southwestern_Front_(Soviet_Union)",
    "commanders": [
     {
-     "name": "Semyon Timoshenko",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Semyon_Timoshenko"
-    },
-    {
      "name": "Nikolai Vatutin",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Nikolai_Vatutin"
+    },
+    {
+     "name": "Semyon Timoshenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Semyon_Timoshenko"
     },
     {
      "name": "Fedor Astakhov",
@@ -2739,16 +4365,16 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Voronezh_Front",
    "commanders": [
     {
-     "name": "Nikolai Vatutin",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Nikolai_Vatutin"
-    },
-    {
      "name": "Filipp Golikov",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Filipp_Golikov"
+    },
+    {
+     "name": "Nikolai Vatutin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Nikolai_Vatutin"
     },
     {
      "name": "Iosif Apanasenko",
@@ -2770,28 +4396,28 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Western_Front_(Soviet_Union)",
    "commanders": [
     {
-     "name": "Semyon Timoshenko",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Semyon_Timoshenko"
-    },
-    {
      "name": "Vasily Sokolovsky",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Vasily_Sokolovsky"
     },
     {
-     "name": "Dmitry Pavlov",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Dmitry_Pavlov_(general)"
-    },
-    {
      "name": "Andrey Yeryomenko",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Andrey_Yeryomenko"
+    },
+    {
+     "name": "Semyon Timoshenko",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Semyon_Timoshenko"
+    },
+    {
+     "name": "Dmitry Pavlov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Dmitry_Pavlov_(general)"
     },
     {
      "name": "Ivan Maslennikov",
@@ -2870,16 +4496,16 @@
    "wikipedia": "https://en.wikipedia.org/wiki/2nd_Guards_Army",
    "commanders": [
     {
-     "name": "Porfiriy Chanchibadze",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Porfiry_Chanchibadze"
-    },
-    {
      "name": "Yakov Kreizer",
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Yakov_Kreizer"
+    },
+    {
+     "name": "Porfiriy Chanchibadze",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Porfiry_Chanchibadze"
     }
    ]
   },
@@ -2888,12 +4514,6 @@
    "description": "military unit",
    "wikipedia": "https://en.wikipedia.org/wiki/3rd_Guards_Army",
    "commanders": [
-    {
-     "name": "Georgii Khetagurov",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Georgy_Khetagurov"
-    },
     {
      "name": "Vasily Gordov",
      "from": null,
@@ -2905,6 +4525,12 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Dmitry_Lelyushenko"
+    },
+    {
+     "name": "Georgii Khetagurov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Georgy_Khetagurov"
     },
     {
      "name": "Ivan Voitenko",
@@ -2984,24 +4610,6 @@
    "wikipedia": "https://en.wikipedia.org/wiki/8th_Guards_Combined_Arms_Army",
    "commanders": [
     {
-     "name": "Anatoly Betekhtin",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Anatoly_Betekhtin"
-    },
-    {
-     "name": "Georgii Khetagurov",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Georgy_Khetagurov"
-    },
-    {
-     "name": "Andrey Mordvichev",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Andrey_Mordvichev"
-    },
-    {
      "name": "Ivan Boldin",
      "from": null,
      "to": null,
@@ -3012,6 +4620,24 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Ivan_Maslennikov"
+    },
+    {
+     "name": "Anatoly Betekhtin",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Anatoly_Betekhtin"
+    },
+    {
+     "name": "Andrey Mordvichev",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Andrey_Mordvichev"
+    },
+    {
+     "name": "Georgii Khetagurov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Georgy_Khetagurov"
     },
     {
      "name": "Vladimir Tolubko",
@@ -3094,6 +4720,12 @@
    "wikipedia": "https://en.wikipedia.org/wiki/2nd_Guards_Tank_Army",
    "commanders": [
     {
+     "name": "Hamazasp Babadzhanian",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Hamazasp_Babadzhanian"
+    },
+    {
      "name": "Vladimir Govorov",
      "from": null,
      "to": null,
@@ -3116,12 +4748,6 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Vladimir_Shuralyov"
-    },
-    {
-     "name": "Hamazasp Babadzhanian",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Hamazasp_Babadzhanian"
     },
     {
      "name": "Nikolay Grachёv",
@@ -3263,6 +4889,18 @@
    "wikipedia": "https://en.wikipedia.org/wiki/3rd_Shock_Army",
    "commanders": [
     {
+     "name": "Kuzma Galitsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Kuzma_Galitsky"
+    },
+    {
+     "name": "Vasily Kuznetsov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Vasily_Kuznetsov_(general)"
+    },
+    {
      "name": "Andrey Andreyev",
      "from": null,
      "to": null,
@@ -3279,18 +4917,6 @@
      "from": null,
      "to": null,
      "link": "https://en.wikipedia.org/wiki/Vasily_Yushkevich"
-    },
-    {
-     "name": "Kuzma Galitsky",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Kuzma_Galitsky"
-    },
-    {
-     "name": "Vasily Kuznetsov",
-     "from": null,
-     "to": null,
-     "link": "https://en.wikipedia.org/wiki/Vasily_Kuznetsov_(general)"
     }
    ]
   },
