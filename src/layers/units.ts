@@ -17,26 +17,56 @@ import {
   derivedPlacementOn,
   loadDerivedUnits,
   loadUnitTracks,
+  parentOnDate,
   positionOn,
   type DerivedUnit,
+  type ParentSpan,
   type UnitTrack,
 } from '../data/units';
 import { getFrontFeatures, type FrontFeature } from './front';
 
 const SOURCE_ID = 'units';
+const LINKS_SOURCE_ID = 'unit-links';
+const LINKS_HALO_ID = 'units-links-halo';
+const LINKS_ID = 'units-links';
 const TOP_ID = 'units-top';
 const ARMY_ID = 'units-army';
 const CORPS_ID = 'units-corps';
 const DIVISION_ID = 'units-division';
 const BRIGADE_ID = 'units-brigade';
 const SUB_ID = 'units-sub';
+// Selected unit's command family, force-rendered across zoom (so the parent
+// army stays visible while you inspect its divisions).
+const FAMILY_ID = 'units-family';
 
 /** All MapLibre layer ids, for registry visibility toggling. */
-export const UNITS_LAYER_IDS = [TOP_ID, ARMY_ID, CORPS_ID, DIVISION_ID, BRIGADE_ID, SUB_ID];
-/** Click/hover targets for MapView. */
-export const UNITS_HIT_LAYER_IDS = UNITS_LAYER_IDS;
+export const UNITS_LAYER_IDS = [
+  LINKS_HALO_ID,
+  LINKS_ID,
+  TOP_ID,
+  ARMY_ID,
+  CORPS_ID,
+  DIVISION_ID,
+  BRIGADE_ID,
+  SUB_ID,
+  FAMILY_ID,
+];
+/** Click/hover targets for MapView (symbols only, not the link lines). */
+export const UNITS_HIT_LAYER_IDS = [
+  TOP_ID,
+  ARMY_ID,
+  CORPS_ID,
+  DIVISION_ID,
+  BRIGADE_ID,
+  SUB_ID,
+  FAMILY_ID,
+];
 
-const SIDE_COLOR = { axis: '#b5402f', soviet: '#2f6fb0' } as const;
+const SIDE_COLOR = { axis: '#d6543d', soviet: '#4d8fd6' } as const;
+// Pale gradient fill (bottom stop) + darker symbol ink, so a unit reads by
+// colour at a glance: Axis warm-red, Soviet steel-blue.
+const SIDE_FILL = { axis: '#f4d3ca', soviet: '#cfe1f5' } as const;
+const SIDE_INK = { axis: '#9c3322', soviet: '#2c5e93' } as const;
 const ECH_MARK: Record<string, string> = {
   battalion: 'II',
   regiment: 'III',
@@ -76,6 +106,10 @@ const ZOOM_WINDOW: Record<EchGroup, [number, number]> = {
 let tracks: UnitTrack[] = [];
 let derivedUnits: DerivedUnit[] = [];
 const trackIds = new Set<string>();
+// By-id lookups for command-link resolution (parent/position of any unit).
+const trackById = new Map<string, UnitTrack>();
+const derivedById = new Map<string, DerivedUnit>();
+const allUnitIds: string[] = [];
 /** Selected unit id: sub-division units render only for themselves/children
  *  of the focus (progressive disclosure — Tier 2 drill-down). */
 let focusId: string | null = null;
@@ -134,21 +168,121 @@ function pointAt(line: [number, number][], f: number, side: 'axis' | 'soviet', e
   return [line[i][0] + (-dy / len) * off, line[i][1] + (dx / len) * off];
 }
 
-/** Position of any unit (curated track first, then derived) on a date. */
-export function getUnitPositionOn(id: string, dateISO: string): [number, number] | null {
-  const d = dateToNum(dateISO);
-  const track = tracks.find((t) => t.id === id);
+/** Position of any unit by id (curated track first, then derived) on a date,
+ *  given the day's main-front line (pass null if off the front). */
+function positionForId(
+  id: string,
+  dateISO: string,
+  d: number,
+  line: [number, number][] | null,
+): [number, number] | null {
+  const track = trackById.get(id);
   if (track) {
     const at = positionOn(track, dateISO, d);
     if (at) return at;
   }
-  const du = derivedUnits.find((u) => u.id === id);
+  const du = derivedById.get(id);
   if (!du) return null;
   const place = derivedPlacementOn(du, dateISO, d);
   if (!place) return null;
   if ('at' in place) return place.at; // inside a pocket ring
-  const line = mainFrontLine(dateISO, d);
   return line ? pointAt(line, place.frac, du.side, ECH_GROUP(du.echelon)) : null;
+}
+
+/** Position of any unit (curated track first, then derived) on a date. */
+export function getUnitPositionOn(id: string, dateISO: string): [number, number] | null {
+  const d = dateToNum(dateISO);
+  return positionForId(id, dateISO, d, mainFrontLine(dateISO, d));
+}
+
+// --- Command tree: which divisions sit under which army --------------------
+// Selecting any unit reveals its whole formation around it: the chain up to its
+// army (and army group) and every corps/division under that army, connected by
+// leader lines. The family is force-rendered across zoom so the parent army
+// stays on screen while you inspect its divisions.
+
+const echelonOf = (id: string): string | null =>
+  trackById.get(id)?.echelon ?? derivedById.get(id)?.echelon ?? null;
+const parentsOf = (id: string): ParentSpan[] | undefined =>
+  trackById.get(id)?.parents ?? derivedById.get(id)?.parents;
+const SENIOR = new Set(['army', 'army-group', 'front']);
+
+/** Climb to the army the focus belongs to (or the focus itself if it already
+ *  is an army/army-group/front, or the highest ancestor reached). */
+function anchorOf(focus: string, d: number): string {
+  if (SENIOR.has(echelonOf(focus) ?? '')) return focus;
+  let cur = focus;
+  for (let i = 0; i < 8; i++) {
+    const p = parentOnDate(parentsOf(cur), d);
+    if (!p) return cur;
+    if (SENIOR.has(echelonOf(p) ?? '')) return p;
+    cur = p;
+  }
+  return cur;
+}
+
+/** parentId -> child ids active on the date (over every unit). */
+function buildChildrenIndex(d: number): Map<string, string[]> {
+  const idx = new Map<string, string[]>();
+  for (const id of allUnitIds) {
+    const p = parentOnDate(parentsOf(id), d);
+    if (!p) continue;
+    const arr = idx.get(p);
+    if (arr) arr.push(id);
+    else idx.set(p, [id]);
+  }
+  return idx;
+}
+
+/** The selected unit's formation: anchor army + its ancestors + every corps/
+ *  division under it (descent stops at division/brigade — not regiments). */
+function computeFamily(focus: string, d: number): Set<string> {
+  const anchor = anchorOf(focus, d);
+  const fam = new Set<string>([anchor, focus]);
+  let cur = anchor; // ancestors (army group / front)
+  for (let i = 0; i < 6; i++) {
+    const p = parentOnDate(parentsOf(cur), d);
+    if (!p || fam.has(p)) break;
+    fam.add(p);
+    cur = p;
+  }
+  const childrenIndex = buildChildrenIndex(d); // descendants down to divisions
+  const queue = [anchor];
+  while (queue.length) {
+    const x = queue.shift()!;
+    const g = ECH_GROUP(echelonOf(x) ?? 'division');
+    if (g === 'division' || g === 'brigade' || g === 'sub') continue; // leaf
+    for (const c of childrenIndex.get(x) ?? []) {
+      if (!fam.has(c)) {
+        fam.add(c);
+        queue.push(c);
+      }
+    }
+  }
+  return fam;
+}
+
+/** Leader lines: each family unit to its parent (when the parent is in family). */
+function buildLinks(
+  fam: Set<string>,
+  dateISO: string,
+  d: number,
+  line: [number, number][] | null,
+): FeatureCollection {
+  const feats: Feature[] = [];
+  for (const id of fam) {
+    const p = parentOnDate(parentsOf(id), d);
+    if (!p || !fam.has(p)) continue;
+    const a = positionForId(id, dateISO, d, line);
+    const b = positionForId(p, dateISO, d, line);
+    if (!a || !b) continue;
+    feats.push({
+      type: 'Feature',
+      properties: {},
+      geometry: { type: 'LineString', coordinates: [a, b] },
+    });
+  }
+  return { type: 'FeatureCollection', features: feats };
 }
 
 const numToISO = (n: number): string => {
@@ -201,9 +335,9 @@ export function getDerivedRoute(id: string): { date: string; at: [number, number
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
 function makeIcon(side: 'axis' | 'soviet', type: string, mark: string, hollow = false): ImageData {
-  const PR = 2;
-  const W = 48;
-  const H = 42;
+  const PR = 2.6; // higher pixel ratio for crisp symbols
+  const W = 52;
+  const H = 46;
   const canvas = document.createElement('canvas');
   canvas.width = W * PR;
   canvas.height = H * PR;
@@ -211,21 +345,40 @@ function makeIcon(side: 'axis' | 'soviet', type: string, mark: string, hollow = 
   ctx.scale(PR, PR);
 
   const color = SIDE_COLOR[side];
-  const x = 5;
-  const y = 14;
-  const w = 38;
-  const h = 24;
+  const ink = SIDE_INK[side];
+  const x = 6;
+  const y = 16;
+  const w = 40;
+  const h = 25;
 
-  // Hollow + dashed frame = derived position (sector + OOB, not documented).
-  ctx.fillStyle = hollow ? 'rgba(252, 252, 250, 0.55)' : 'rgba(252, 252, 250, 0.94)';
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 2;
+  // Body: white→side-tint gradient fill with a soft drop shadow. Hollow =
+  // derived (sector + OOB, not documented): translucent + dashed frame.
+  ctx.save();
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+  ctx.shadowBlur = 4;
+  ctx.shadowOffsetY = 1.5;
+  const grad = ctx.createLinearGradient(0, y, 0, y + h);
+  if (hollow) {
+    grad.addColorStop(0, 'rgba(255, 255, 255, 0.55)');
+    grad.addColorStop(1, side === 'axis' ? 'rgba(214, 84, 61, 0.28)' : 'rgba(77, 143, 214, 0.28)');
+  } else {
+    grad.addColorStop(0, '#ffffff');
+    grad.addColorStop(1, SIDE_FILL[side]);
+  }
+  ctx.fillStyle = grad;
   ctx.fillRect(x, y, w, h);
+  ctx.restore();
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2.2;
   if (hollow) ctx.setLineDash([4, 3]);
   ctx.strokeRect(x, y, w, h);
   ctx.setLineDash([]);
 
-  ctx.lineWidth = 1.6;
+  // Branch symbol in the darker side ink for contrast on the tinted fill.
+  ctx.strokeStyle = ink;
+  ctx.lineWidth = 1.8;
+  ctx.lineCap = 'round';
   if (type === 'infantry' || type === 'motorized') {
     ctx.beginPath();
     ctx.moveTo(x, y);
@@ -246,11 +399,15 @@ function makeIcon(side: 'axis' | 'soviet', type: string, mark: string, hollow = 
     ctx.stroke();
   }
 
-  ctx.fillStyle = color;
-  ctx.font = '700 10px system-ui, sans-serif';
+  // Echelon mark above, side colour with a white halo for legibility.
+  ctx.font = '800 10px system-ui, sans-serif';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'alphabetic';
-  ctx.fillText(mark, x + w / 2, y - 3);
+  ctx.lineWidth = 2.5;
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
+  ctx.strokeText(mark, x + w / 2, y - 4);
+  ctx.fillStyle = color;
+  ctx.fillText(mark, x + w / 2, y - 4);
 
   return ctx.getImageData(0, 0, W * PR, H * PR);
 }
@@ -259,9 +416,13 @@ function iconId(side: string, type: string, mark: string, hollow = false): strin
   return `u-${side}-${type}-${mark}${hollow ? '-d' : ''}`;
 }
 
-function collectionFor(dateISO: string): FeatureCollection {
+function collectionFor(
+  dateISO: string,
+  d: number,
+  line: [number, number][] | null,
+  family: Set<string> | null,
+): FeatureCollection {
   if (!tracks.length) return EMPTY;
-  const d = dateToNum(dateISO);
   const out: Feature[] = [];
   for (const t of tracks) {
     if (
@@ -280,6 +441,7 @@ function collectionFor(dateISO: string): FeatureCollection {
         icon: iconId(t.side, t.type, ECH_MARK[t.echelon] ?? 'XX'),
         ech: ECH_GROUP(t.echelon),
         approx: confidenceOn(t, d) === 'approximate',
+        fam: family ? family.has(t.id) : false,
       },
       geometry: { type: 'Point', coordinates: at },
     });
@@ -287,7 +449,6 @@ function collectionFor(dateISO: string): FeatureCollection {
 
   // Derived units ride the daily front line at their sector fraction, or sit
   // inside a pocket ring (absolute placement).
-  const line = mainFrontLine(dateISO, d);
   for (const du of derivedUnits) {
     // A curated track wins whenever it is active on this date.
     if (trackIds.has(du.id)) {
@@ -309,11 +470,24 @@ function collectionFor(dateISO: string): FeatureCollection {
         icon: iconId(du.side, du.type, ECH_MARK[du.echelon] ?? 'XX', true),
         ech,
         approx: false,
+        fam: family ? family.has(du.id) : false,
       },
       geometry: { type: 'Point', coordinates: at },
     });
   }
   return { type: 'FeatureCollection', features: out };
+}
+
+/** Recompute both sources for a date: unit symbols (family-tagged) and the
+ *  selected formation's command links. */
+function refresh(map: MapLibreMap, dateISO: string): void {
+  const d = dateToNum(dateISO);
+  const line = mainFrontLine(dateISO, d);
+  const family = focusId ? computeFamily(focusId, d) : null;
+  const usrc = map.getSource(SOURCE_ID) as GeoJSONSource | undefined;
+  if (usrc) usrc.setData(collectionFor(dateISO, d, line, family));
+  const lsrc = map.getSource(LINKS_SOURCE_ID) as GeoJSONSource | undefined;
+  if (lsrc) lsrc.setData(family ? buildLinks(family, dateISO, d, line) : EMPTY);
 }
 
 function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
@@ -324,7 +498,9 @@ function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
     source: SOURCE_ID,
     minzoom,
     maxzoom,
-    filter: ['==', ['get', 'ech'], ech],
+    // Family members are drawn by the always-on FAMILY layer instead, so they
+    // stay visible outside this tier's zoom window when a unit is selected.
+    filter: ['all', ['==', ['get', 'ech'], ech], ['!=', ['get', 'fam'], true]],
     layout: {
       'icon-image': ['get', 'icon'],
       // Legible even at the zoomed-out top tier (z≈3.5).
@@ -350,7 +526,18 @@ function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
 export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<void> {
   [tracks, derivedUnits] = await Promise.all([loadUnitTracks(), loadDerivedUnits()]);
   trackIds.clear();
-  for (const t of tracks) trackIds.add(t.id);
+  trackById.clear();
+  derivedById.clear();
+  allUnitIds.length = 0;
+  for (const t of tracks) {
+    trackIds.add(t.id);
+    trackById.set(t.id, t);
+  }
+  for (const u of derivedUnits) {
+    derivedById.set(u.id, u);
+    allUnitIds.push(u.id);
+  }
+  for (const t of tracks) if (!derivedById.has(t.id)) allUnitIds.push(t.id);
 
   // One generated icon per (side, type, echelon-mark[, derived]) in use.
   const combos = new Set([
@@ -361,15 +548,33 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
     const [side, type, mark, hollow] = combo.split('|') as ['axis' | 'soviet', string, string, string];
     const id = iconId(side, type, mark, hollow === '1');
     if (!map.hasImage(id)) {
-      map.addImage(id, makeIcon(side, type, mark, hollow === '1'), { pixelRatio: 2 });
+      map.addImage(id, makeIcon(side, type, mark, hollow === '1'), { pixelRatio: 2.6 });
     }
   }
 
+  const d0 = dateToNum(date);
   map.addSource(SOURCE_ID, {
     type: 'geojson',
-    data: collectionFor(date),
+    data: collectionFor(date, d0, mainFrontLine(date, d0), null),
     attribution: 'Units: curated (Stalingrad pilot, approximate)',
   });
+  // Command-link lines (selected formation only), beneath the symbols.
+  map.addSource(LINKS_SOURCE_ID, { type: 'geojson', data: EMPTY });
+  map.addLayer({
+    id: LINKS_HALO_ID,
+    type: 'line',
+    source: LINKS_SOURCE_ID,
+    layout: { 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-color': '#1b1e24', 'line-width': 3.2, 'line-opacity': 0.4 },
+  });
+  map.addLayer({
+    id: LINKS_ID,
+    type: 'line',
+    source: LINKS_SOURCE_ID,
+    layout: { 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-color': '#f1c552', 'line-width': 1.6, 'line-opacity': 0.95 },
+  });
+
   // Senior tiers first so juniors draw on top where windows overlap.
   addEchelonLayer(map, TOP_ID, 'top');
   addEchelonLayer(map, ARMY_ID, 'army');
@@ -377,18 +582,43 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
   addEchelonLayer(map, DIVISION_ID, 'division');
   addEchelonLayer(map, BRIGADE_ID, 'brigade');
   addEchelonLayer(map, SUB_ID, 'sub');
+
+  // Selected formation: always visible across zoom, with brass labels so the
+  // parent army stays readable while you inspect its divisions.
+  map.addLayer({
+    id: FAMILY_ID,
+    type: 'symbol',
+    source: SOURCE_ID,
+    minzoom: 3,
+    filter: ['==', ['get', 'fam'], true],
+    layout: {
+      'icon-image': ['get', 'icon'],
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.9, 6, 1.0, 8, 1.15],
+      'icon-allow-overlap': true,
+      'text-field': ['get', 'short'],
+      'text-size': 11,
+      'text-offset': [0, 1.6],
+      'text-anchor': 'top',
+      'text-allow-overlap': false,
+      'symbol-sort-key': ['match', ['get', 'ech'], 'army', 0, 'corps', 1, 2],
+    },
+    paint: {
+      'icon-opacity': ['case', ['get', 'approx'], 0.85, 1],
+      'text-color': '#1c2026',
+      'text-halo-color': '#ffe4a0',
+      'text-halo-width': 1.8,
+    },
+  });
 }
 
-/** Re-interpolate unit positions to the given date. */
+/** Re-interpolate unit positions (and command links) to the given date. */
 export function updateUnitsDate(map: MapLibreMap, date: string): void {
-  const src = map.getSource(SOURCE_ID) as GeoJSONSource | undefined;
-  if (!src) return;
-  src.setData(collectionFor(date));
+  refresh(map, date);
 }
 
 /** Set the drill-down focus (selected unit) and refresh. */
 export function updateUnitsFocus(map: MapLibreMap, unitId: string | null, date: string): void {
   if (focusId === unitId) return;
   focusId = unitId;
-  updateUnitsDate(map, date);
+  refresh(map, date);
 }

@@ -175,8 +175,8 @@ const wizardPanel = await page.locator('.detail-panel').textContent();
 check('wizard resolves 305. Infanterie-Division (curated)', /305\. Infanterie-Division/.test(wizardPanel ?? ''));
 await page.screenshot({ path: `${SHOTS}/ww2-people.png` });
 
-// Drill-down (Phase 4.2): the division's regiments appear as children and
-// are selectable; sub-division markers render only around the selection.
+// Drill-down (Phase 4.2): the division's regiments appear in its order of
+// battle and are selectable; sub-division markers render only around it.
 await page.fill('.omnibox input', '13th Guards Rifle Division');
 await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
 await page.keyboard.press('Enter');
@@ -184,8 +184,11 @@ await page.waitForSelector('.detail-panel', { timeout: 10000 });
 await page.waitForTimeout(1500);
 const divPanel = await page.locator('.detail-panel').textContent();
 check('13th Guards lists Rodimtsev as commander', /Rodimtsev/.test(divPanel ?? ''));
-check('13th Guards lists its regiments as children', /42nd Guards Rifle Regiment/.test(divPanel ?? ''));
-await page.locator('.detail-panel .date-link', { hasText: '42nd Guards Rifle Regiment' }).first().click();
+check('13th Guards order of battle lists its regiments', /42nd Guards Rifle Regiment/.test(divPanel ?? ''));
+// ORBAT rows (Phase: templates) replace the old children list; doctrinal
+// establishment template appears for the division's type + era.
+check('13th Guards shows an establishment template', /Establishment/.test(divPanel ?? '') && /Rifle Regiment/.test(divPanel ?? ''));
+await page.locator('.detail-panel .orbat-row', { hasText: '42nd Guards Rifle Regiment' }).first().click();
 await page.waitForTimeout(1500);
 const rrPanel = await page.locator('.detail-panel').textContent();
 check('regiment panel opens with 13th Guards parent', /13th Guards Rifle Division/.test(rrPanel ?? ''));

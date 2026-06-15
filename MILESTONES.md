@@ -544,6 +544,99 @@ Completes the zoom ladder's top tier and declutters high zoom.
   HGr renames (e.g. Süd→A/B, Süd→Nordukraine) are modelled as distinct groups,
   not a temporal rename chain.
 
+## UI redesign — situation-room theme ✅
+A cohesive visual pass over the whole interface (CSS-only + one TimeBar tweak;
+no functional change, 61/61 smoke).
+- [x] Design system in `src/index.css`: one token set for layered glass
+      surfaces, hairlines, a warm brass accent (gold), vivid side colours
+      (Axis amber-red / Soviet steel-blue), and a shared radius/shadow/easing
+      scale. Stronger backdrop blur + soft drop shadows give panels depth.
+- [x] Timebar: filled brass progress slider (custom thumb, `--pct` from
+      TimeBar), gradient play button, lifted buttons.
+- [x] Omnibox: taller field with a search glyph and focus glow ring; result
+      rows with accent hover.
+- [x] Detail panel: sectioned with divider headers, side-tinted holder badge,
+      gradient side chips, brass underline links, custom scrollbar.
+- [x] Layer panel: uppercase header, hover rows, crisper legend swatches;
+      MapLibre nav control restyled to match the glass theme.
+- All class hooks preserved, so the smoke suite and selectors are unchanged.
+
+## Colourful map — two-sided tide + tinted unit icons ✅
+The map now reads as a contested theatre at a glance: red Axis territory meets
+blue Soviet territory along the daily front, with side-coloured unit symbols on
+top. CSS-only theme stayed; this is the map/data layer (61/61 smoke, lint clean).
+- [x] **Two-sided territorial fill** (`src/layers/controlFill.ts`): a fixed
+      Soviet-blue "theatre mask" base (the contestable European-USSR / eastern-
+      Europe landmass, Black Sea cut out as a hole so open water is never
+      painted) underlies the red Axis polygon closed between the daily front and
+      the fixed rear boundary. Red shows the Axis tide; blue shows through
+      everywhere else, including Soviet pocket holes — so red meets blue *at the
+      line* instead of red-on-blank. Two fill layers (`control-fill-soviet`,
+      `control-fill-axis`) filtered by a `side` property off one source.
+- [x] **Redesigned unit icons** (`makeIcon` in `src/layers/units.ts`):
+      side-tinted gradient fills (Axis warm-red, Soviet steel-blue), a soft drop
+      shadow, ink-coloured branch glyphs (infantry cross / cavalry slash /
+      armour ellipse), and a white-haloed echelon mark; rendered at pixelRatio
+      2.6 for crisp edges. Formations now read by colour over the tide.
+- [x] Legend updated (`registry.ts`): the tide layer shows both
+      Axis-controlled / Soviet-controlled swatches.
+- Honest scope unchanged: the fill is schematic (fixed rear boundary, authored
+  coastlines, no per-day polygon clipping); best 1941–44 when the front runs
+  coast-to-coast, with a straight rear closure once the south goes inland (1945).
+
+## Command tree — which divisions sit under which army ✅
+The zoom ladder kept the map uncluttered but hid subordination: army symbols
+live in z[4.2,6.2] and divisions appear at z6.2, so once you zoom in to inspect
+divisions the parent army has already dropped off screen. Selecting a unit now
+draws its whole formation around it.
+- [x] **Temporal parent timelines** in the unit data (`build-units.mjs` emits
+      `parents: [fromNum, toNum|null, unitId]` on derived units *and* tracks;
+      `parentOnDate` in `src/data/units.ts` resolves the parent active on a day).
+      1,529 / 1,569 derived units carry it; armies carry their army-group chain.
+- [x] **Command-tree overlay** (`src/layers/units.ts`): selecting any unit climbs
+      to its army (`anchorOf`), then gathers that army's ancestors (army group /
+      front) and every corps/division under it (`computeFamily`, descent stops
+      at division/brigade). The family is force-rendered by an always-on
+      `units-family` symbol layer (brass labels) so the parent army stays on
+      screen at any zoom, while the normal windowed tiers exclude family members
+      to avoid double-drawing.
+- [x] **Leader lines** (`unit-links` source, halo + brass line layers beneath the
+      symbols): each family unit links to its parent, so the army HQ fans out to
+      its corps and divisions — read the tree to see what's under what. Verified
+      at Stalingrad (z8): 62nd Army's divisions fan from its HQ; selecting a lone
+      division climbs the chain to its army.
+- Legend gained a "Command link (select a unit → its army & divisions)" entry.
+  61/61 smoke, lint clean. Existing regiment drill-down (sub-tier focus gating)
+  is unchanged.
+
+## Formation templates — ORBAT + establishment (TO&E) in the panel ✅
+Selecting a unit now shows its structure as an org-chart, with APP-6 mini-icons:
+the **actual** order of battle where we have it, and the **doctrinal template**
+(establishment / TO&E / shtat) otherwise — so an army shows its real corps and
+divisions, and a division shows what it was built from even when we host no
+sub-unit data.
+- [x] **Template library** (`src/data/templates.ts`): hand-authored TO&Es keyed
+      by side + echelon + type + era, matched by date (`matchTemplate`). Covers
+      German infantry (Type 1939 / 1944), Panzer (1941 / 1943-44),
+      panzergrenadier; Soviet rifle (1941 04/400, late-41 04/300, 1943 04/550),
+      cavalry, tank corps, mechanized corps, tank & mechanized brigades. Each is
+      a small tree of {echelon, branch, count, children} with a short note.
+- [x] **Actual ORBAT resolver** (`loadOrbat` in `src/data/units.ts`): reuses the
+      temporal parent timelines now in the unit data to build a unit's real
+      subtree on a date (army → corps → divisions; division → regiments) without
+      fetching every child's detail file. Descent stops at division/regiment so
+      it stays readable; node-budget capped.
+- [x] **SVG glyphs** (`src/ui/UnitGlyph.tsx`): side-tinted APP-6 frame + branch
+      symbol (infantry/armour/artillery/recon/AT/AA/engineer/signals/cavalry/HQ)
+      + echelon size mark — crisp at any size, distinct from the canvas map icons.
+- [x] **Panel org-chart** (`src/ui/UnitPanel.tsx`): an "Order of battle on this
+      date" tree (clickable rows → select on map, tagged mapped/derived) and an
+      "Establishment — template" tree with ×N badges. Verified: 305.
+      Infanterie-Division → Type-1939 template; 6. Armee → real corps/divisions;
+      13th Guards → both (its real regiments + the rifle-division shtat).
+- 62/62 smoke (regiment drill-down now clicks the ORBAT row; added a
+  template-present check), lint clean.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

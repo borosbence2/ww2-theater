@@ -4,9 +4,17 @@
 // external archive links, and source citations.
 
 import { useEffect, useState } from 'react';
-import { loadUnitDetail, type UnitDetail } from '../data/units';
+import {
+  loadOrbat,
+  loadUnitDetail,
+  type OrbatIndex,
+  type OrbatNode,
+  type UnitDetail,
+} from '../data/units';
+import { matchTemplate, type TemplateNode } from '../data/templates';
 import { dateToNum, formatLong } from '../time/dates';
 import { useStore } from '../store';
+import { UnitGlyph } from './UnitGlyph';
 
 const LINK_LABELS: Record<string, string> = {
   'wikipedia.en': 'Wikipedia',
@@ -19,6 +27,94 @@ const LINK_LABELS: Record<string, string> = {
 /** Interval entry active on the date (from <= d < to/open). */
 function activeOn<T extends { from: string; to?: string | null }>(list: T[], d: number): T | undefined {
   return list.find((x) => dateToNum(x.from) <= d && (!x.to || d < dateToNum(x.to)));
+}
+
+const branchOf = (type: string): string => (type === 'hq' ? 'hq' : type);
+
+interface OrbatItem {
+  node: OrbatNode;
+  children: OrbatItem[];
+}
+
+// Build the actual ORBAT subtree under a unit on a date. Descent stops at
+// division level (and never expands regiments/battalions) so an army shows its
+// corps and divisions, and a division shows its regiments, without exploding.
+const STOP = new Set(['division', 'brigade', 'regiment', 'battalion', 'company']);
+function buildOrbat(
+  idx: OrbatIndex,
+  rootId: string,
+  d: number,
+  depth: number,
+  budget: { n: number },
+): OrbatItem[] {
+  if (depth > 4 || budget.n >= 180) return [];
+  const out: OrbatItem[] = [];
+  for (const node of idx.childrenOn(rootId, d)) {
+    if (budget.n >= 180) break;
+    budget.n++;
+    const children = STOP.has(node.echelon) ? [] : buildOrbat(idx, node.id, d, depth + 1, budget);
+    out.push({ node, children });
+  }
+  return out;
+}
+
+function OrbatRows({ items, onSelect }: { items: OrbatItem[]; onSelect: (id: string) => void }) {
+  return (
+    <ul className="orbat-tree">
+      {items.map((it) => (
+        <li key={it.node.id}>
+          <button className="orbat-row" onClick={() => onSelect(it.node.id)} title={it.node.label}>
+            <UnitGlyph side={it.node.side} echelon={it.node.echelon} branch={branchOf(it.node.type)} />
+            <span className="orbat-label">{it.node.label}</span>
+            {(it.node.hasPositions || it.node.hasDerived) && (
+              <span className="orbat-tag">{it.node.hasPositions ? 'mapped' : 'derived'}</span>
+            )}
+          </button>
+          {it.children.length > 0 && <OrbatRows items={it.children} onSelect={onSelect} />}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/** Actual order of battle under the selected unit on the date. */
+function OrbatSection({ id, d, onSelect }: { id: string; d: number; onSelect: (id: string) => void }) {
+  const [idx, setIdx] = useState<OrbatIndex | null>(null);
+  useEffect(() => {
+    let alive = true;
+    loadOrbat().then((o) => alive && setIdx(o));
+    return () => {
+      alive = false;
+    };
+  }, []);
+  if (!idx) return null;
+  const budget = { n: 0 };
+  const items = buildOrbat(idx, id, d, 0, budget);
+  if (!items.length) return null;
+  return (
+    <section className="detail-history">
+      <h3>Order of battle on this date</h3>
+      <OrbatRows items={items} onSelect={onSelect} />
+      {budget.n >= 180 && <p className="detail-note">…tree truncated.</p>}
+    </section>
+  );
+}
+
+function TemplateRows({ nodes, side }: { nodes: TemplateNode[]; side: 'axis' | 'soviet' }) {
+  return (
+    <ul className="orbat-tree">
+      {nodes.map((n, i) => (
+        <li key={`${n.label}-${i}`}>
+          <div className="orbat-row static">
+            <UnitGlyph side={side} echelon={n.ech} branch={n.branch} />
+            <span className="orbat-label">{n.label}</span>
+            {n.count && n.count > 1 && <span className="orbat-count">×{n.count}</span>}
+          </div>
+          {n.children && n.children.length > 0 && <TemplateRows nodes={n.children} side={side} />}
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 export function UnitPanel({ id }: { id: string }) {
@@ -54,7 +150,7 @@ export function UnitPanel({ id }: { id: string }) {
   const lifeEnd = unit.existence[unit.existence.length - 1];
   const exists = activeOn(unit.existence, d) !== undefined;
   const parentNow = activeOn(unit.parents, d);
-  const childrenNow = unit.children.filter((c) => dateToNum(c.from) <= d && (!c.to || d < dateToNum(c.to)));
+  const template = matchTemplate(unit.side, unit.echelon, unit.type, date);
   const firstMapped = unit.positions[0]?.date;
   const docCount = unit.positions.filter((p) => p.confidence === 'documented').length;
 
@@ -166,18 +262,17 @@ export function UnitPanel({ id }: { id: string }) {
         </section>
       )}
 
-      {childrenNow.length > 0 && (
+      <OrbatSection id={id} d={d} onSelect={(uid) => setSelection({ kind: 'unit', id: uid })} />
+
+      {template && (
         <section className="detail-history">
-          <h3>Subordinate units on this date</h3>
-          <ul>
-            {childrenNow.map((c) => (
-              <li key={c.unit}>
-                <button className="date-link" onClick={() => setSelection({ kind: 'unit', id: c.unit })}>
-                  {c.label}
-                </button>
-              </li>
-            ))}
-          </ul>
+          <h3>Establishment — template</h3>
+          <p className="detail-note orbat-template-name">
+            {template.name}
+            <span className="orbat-template-tag">standard TO&amp;E</span>
+          </p>
+          <TemplateRows nodes={template.components} side={unit.side} />
+          {template.note && <p className="detail-note">{template.note}</p>}
         </section>
       )}
 

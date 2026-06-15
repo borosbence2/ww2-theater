@@ -38,9 +38,23 @@ export interface UnitTrack {
   type: string;
   /** Parent unit ids — sub-division units render only when one is in focus. */
   parentIds: string[];
+  /** Temporal parent timeline [fromNum, toNum|null, unitId] for command links. */
+  parents?: ParentSpan[];
   /** YYYYMMDD: first day the track no longer renders. */
   trackTo: number;
   keyframes: UnitTrackKeyframe[];
+}
+
+/** [fromNum, toNum|null, parentUnitId] — the parent active in [from, to). */
+export type ParentSpan = [number, number | null, string];
+
+/** Parent id active on a date (YYYYMMDD num), or null. */
+export function parentOnDate(parents: ParentSpan[] | undefined, d: number): string | null {
+  if (!parents) return null;
+  for (const [from, to, unit] of parents) {
+    if (from <= d && (to === null || d < to)) return unit;
+  }
+  return null;
 }
 
 export interface UnitDetail {
@@ -82,6 +96,8 @@ export interface DerivedUnit {
   echelon: string;
   type: string;
   segs: DerivedSeg[];
+  /** Temporal parent timeline [fromNum, toNum|null, unitId] for command links. */
+  parents?: ParentSpan[];
 }
 
 let indexPromise: Promise<UnitIndexEntry[]> | null = null;
@@ -121,6 +137,79 @@ export function loadDerivedUnits(): Promise<DerivedUnit[]> {
       .then((d) => d.units);
   }
   return derivedPromise;
+}
+
+/** A unit's display fields for the order-of-battle tree. */
+export interface OrbatNode {
+  id: string;
+  label: string;
+  side: 'axis' | 'soviet';
+  echelon: string;
+  type: string;
+  hasPositions: boolean;
+  hasDerived: boolean;
+}
+
+export interface OrbatIndex {
+  /** Direct subordinates of `id` active on the date (YYYYMMDD num). */
+  childrenOn: (id: string, d: number) => OrbatNode[];
+  meta: (id: string) => OrbatNode | undefined;
+}
+
+let orbatPromise: Promise<OrbatIndex> | null = null;
+
+/**
+ * Build a parent/child resolver from the temporal parent timelines now carried
+ * by tracks + derived units, joined to the index for display fields. Lets the
+ * panel render a unit's actual ORBAT (army → corps → divisions) on any date
+ * without fetching every child's detail file.
+ */
+export function loadOrbat(): Promise<OrbatIndex> {
+  if (!orbatPromise) {
+    orbatPromise = Promise.all([loadUnitIndex(), loadUnitTracks(), loadDerivedUnits()]).then(
+      ([index, tracks, derived]) => {
+        const parents = new Map<string, ParentSpan[]>();
+        for (const u of derived) if (u.parents?.length) parents.set(u.id, u.parents);
+        for (const t of tracks) if (t.parents?.length) parents.set(t.id, t.parents); // track wins
+        const meta = new Map<string, OrbatNode>();
+        for (const e of index) {
+          meta.set(e.id, {
+            id: e.id,
+            label: e.label,
+            side: e.side,
+            echelon: e.echelon,
+            type: e.type,
+            hasPositions: e.hasPositions,
+            hasDerived: e.hasDerived,
+          });
+        }
+        const cache = new Map<number, Map<string, string[]>>();
+        const indexOn = (d: number): Map<string, string[]> => {
+          let idx = cache.get(d);
+          if (idx) return idx;
+          idx = new Map();
+          for (const [id, spans] of parents) {
+            const p = parentOnDate(spans, d);
+            if (!p) continue;
+            const arr = idx.get(p);
+            if (arr) arr.push(id);
+            else idx.set(p, [id]);
+          }
+          cache.set(d, idx);
+          return idx;
+        };
+        return {
+          childrenOn: (id, d) =>
+            (indexOn(d).get(id) ?? [])
+              .map((cid) => meta.get(cid))
+              .filter((m): m is OrbatNode => m !== undefined)
+              .sort((a, b) => a.label.localeCompare(b.label)),
+          meta: (id) => meta.get(id),
+        };
+      },
+    );
+  }
+  return orbatPromise;
 }
 
 /**

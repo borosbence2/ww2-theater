@@ -939,6 +939,12 @@ mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
       echelon: u.echelon,
       type: u.type,
       segs: segs.map((s) => ({ end: dateNum(addDays(s.lastDate, 35)), kfs: s.kfs })),
+      // Temporal parent timeline [fromNum, toNum|null, unitId] so the map can
+      // resolve each unit's parent on a given date and draw command links
+      // (which division sits under which army). Omitted when no parents.
+      ...((u.parents ?? []).length
+        ? { parents: u.parents.map((p) => [dateNum(p.from), p.to ? dateNum(p.to) : null, p.unit]) }
+        : {}),
     });
   }
   writeFileSync(
@@ -985,6 +991,8 @@ const tracks = positioned
     type: u.type,
     // Sub-division units render only when a related unit is selected.
     parentIds: [...new Set((u.parents ?? []).map((p) => p.unit))],
+    // Temporal parent timeline (see derived emit) for date-accurate command links.
+    parents: (u.parents ?? []).map((p) => [dateNum(p.from), p.to ? dateNum(p.to) : null, p.unit]),
     trackTo: u._trackTo,
     keyframes: u.positions.map((p) => ({
       date: p.date,

@@ -83,6 +83,8 @@ export function TimeBar() {
         value={dayIndex}
         onChange={(e) => setDate(addDays(TIMELINE_START, Number(e.target.value)))}
         aria-label="Date"
+        // Fill the track up to the current day (brass progress).
+        style={{ '--pct': `${(dayIndex / TOTAL_DAYS) * 100}%` } as React.CSSProperties}
       />
 
       <div className="timebar-date">{formatLong(date)}</div>

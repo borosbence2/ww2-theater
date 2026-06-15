@@ -42,7 +42,10 @@ export const LAYERS: LayerDef[] = [
   {
     id: 'control-fill',
     label: 'Territorial control (tide)',
-    legend: [{ shape: 'fill', color: AXIS_COLOR, label: 'Axis-controlled territory (schematic)' }],
+    legend: [
+      { shape: 'fill', color: AXIS_COLOR, label: 'Axis-controlled' },
+      { shape: 'fill', color: SOVIET_COLOR, label: 'Soviet-controlled' },
+    ],
     add: addControlFillLayer,
     updateDate: updateControlFillDate,
     mapLayerIds: CONTROL_FILL_LAYER_IDS,
@@ -103,6 +106,7 @@ export const LAYERS: LayerDef[] = [
     legend: [
       { shape: 'fill', color: AXIS_COLOR, label: 'German formation (zoom for corps/divisions)' },
       { shape: 'fill', color: SOVIET_COLOR, label: 'Soviet formation' },
+      { shape: 'line', color: '#e0b443', label: 'Command link (select a unit → its army & divisions)' },
     ],
     add: addUnitsLayer,
     updateDate: updateUnitsDate,
