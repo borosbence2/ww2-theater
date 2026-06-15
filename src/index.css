@@ -619,6 +619,20 @@ button.orbat-row:hover {
 .orbat-row.static {
   cursor: default;
 }
+.orbat-row.has-kids {
+  cursor: pointer;
+}
+.orbat-row.has-kids:hover {
+  background: var(--hover);
+}
+.orbat-toggle {
+  flex: none;
+  width: 11px;
+  margin-left: -2px;
+  font-size: 9px;
+  line-height: 1;
+  color: var(--faint);
+}
 .orbat-glyph {
   flex: none;
 }

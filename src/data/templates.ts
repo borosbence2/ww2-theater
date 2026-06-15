@@ -1,10 +1,14 @@
 // Doctrinal establishment templates (TO&E / shtat). When a formation's actual
-// internal units aren't ingested (true for most divisions), the unit panel
-// shows the standard structure for its nation, type, and era instead — a
-// "template". Matched by side + echelon + type + date; the closest era wins.
+// internal units aren't ingested (true below division), the unit panel shows the
+// standard structure for its nation, type, and era instead — a "template" — now
+// all the way down to squad / crew. Matched by side + echelon + type + date.
 //
-// These are schematic teaching templates, not exact strength returns: the aim
-// is "what a 1942 German infantry division was built from", not every company.
+// Counts are representative badges, not enumerations: "Rifle Company ×3" with a
+// single expandable child means "three of these, each built like this". The
+// panel renders the tree collapsed below the top level, so the full depth is
+// drill-down-on-click rather than hundreds of rows.
+//
+// These are schematic teaching templates, not exact strength returns.
 // Sources: Niehorster (German/Soviet OOB), Soviet shtaty (штаты), Glantz.
 
 export type Branch =
@@ -23,7 +27,7 @@ export type Branch =
   | 'support';
 
 export interface TemplateNode {
-  /** Echelon for the NATO size mark (regiment III, battalion II, …). */
+  /** Echelon for the NATO size mark (regiment III … platoon •••, squad •). */
   ech: string;
   branch: Branch;
   label: string;
@@ -34,31 +38,182 @@ export interface TemplateNode {
 
 export interface FormationTemplate {
   side: 'axis' | 'soviet';
-  /** Echelon this template describes (division, brigade, corps). */
   echelon: string;
-  /** unit.type values it applies to. */
   types: string[];
-  /** Inclusive date window [from, to] as YYYY-MM-DD. */
   from: string;
   to: string;
-  /** Display name, e.g. "Infantry Division (Type 1939)". */
   name: string;
   note?: string;
   components: TemplateNode[];
 }
 
-const bn = (branch: Branch, label: string, count = 1): TemplateNode => ({
-  ech: 'battalion',
+interface Opt {
+  count?: number;
+  children?: TemplateNode[];
+}
+const n = (ech: string, branch: Branch, label: string, opt: Opt = {}): TemplateNode => ({
+  ech,
   branch,
   label,
-  count,
+  ...opt,
 });
-const coy = (branch: Branch, label: string, count = 1): TemplateNode => ({
-  ech: 'company',
-  branch,
-  label,
-  count,
-});
+/** Same node with a ×count badge (fresh object). */
+const x = (count: number, node: TemplateNode): TemplateNode => ({ ...node, count });
+
+// --- Reusable building blocks (down to squad / crew) -----------------------
+
+// German rifle battalion (Type 1939): three rifle companies + a heavy company.
+const deRifleBn1939 = (): TemplateNode =>
+  n('battalion', 'infantry', 'Schützen-Bataillon', {
+    children: [
+      x(
+        3,
+        n('company', 'infantry', 'Schützen-Kompanie', {
+          children: [
+            x(
+              3,
+              n('platoon', 'infantry', 'Schützenzug', {
+                children: [
+                  x(4, n('squad', 'infantry', 'Schützengruppe · 1 le.MG')),
+                  n('team', 'infantry', 'le. Granatwerfer-Trupp (5 cm)'),
+                ],
+              }),
+            ),
+            n('squad', 'infantry', 'Kompanietrupp'),
+          ],
+        }),
+      ),
+      n('company', 'infantry', 'MG-Kompanie (schwere)', {
+        children: [x(2, n('platoon', 'infantry', 'sMG-Zug')), n('platoon', 'artillery', 'Granatwerfer-Zug (8 cm)')],
+      }),
+    ],
+  });
+
+// German grenadier battalion (Type 1944): two fewer rifle companies' worth of
+// teeth, but the heavy company gains the regiment's old guns.
+const deGrenadierBn1944 = (): TemplateNode =>
+  n('battalion', 'infantry', 'Grenadier-Bataillon', {
+    children: [
+      x(
+        3,
+        n('company', 'infantry', 'Grenadier-Kompanie', {
+          children: [
+            x(
+              3,
+              n('platoon', 'infantry', 'Zug', {
+                children: [x(4, n('squad', 'infantry', 'Gruppe · 1-2 MG42'))],
+              }),
+            ),
+          ],
+        }),
+      ),
+      n('company', 'infantry', 'schwere Kompanie', {
+        children: [x(2, n('platoon', 'infantry', 'sMG-Zug')), n('platoon', 'artillery', 'Granatwerfer-Zug (8 cm)')],
+      }),
+    ],
+  });
+
+const dePzGrenBn = (): TemplateNode =>
+  n('battalion', 'motorized', 'Panzergrenadier-Bataillon', {
+    children: [
+      x(
+        3,
+        n('company', 'motorized', 'Panzergrenadier-Kompanie', {
+          children: [
+            x(
+              3,
+              n('platoon', 'motorized', 'Zug', {
+                children: [x(4, n('squad', 'motorized', 'Gruppe (SPW/Lkw) · 2 MG'))],
+              }),
+            ),
+          ],
+        }),
+      ),
+      n('company', 'motorized', 'schwere Kompanie (Geschütze/Granatwerfer)'),
+    ],
+  });
+
+const dePanzerBn = (): TemplateNode =>
+  n('battalion', 'armoured', 'Panzer-Abteilung', {
+    children: [
+      x(
+        4,
+        n('company', 'armoured', 'Panzer-Kompanie', {
+          children: [
+            x(
+              4,
+              n('platoon', 'armoured', 'Panzer-Zug', {
+                children: [x(5, n('team', 'armoured', 'Panzer (Besatzung)'))],
+              }),
+            ),
+          ],
+        }),
+      ),
+    ],
+  });
+
+// German artillery battalion (Abteilung): three batteries of two gun platoons.
+const deArtyBn = (): TemplateNode =>
+  n('battalion', 'artillery', 'Abteilung', {
+    children: [
+      x(
+        3,
+        n('battery', 'artillery', 'Batterie', {
+          children: [x(2, n('platoon', 'artillery', 'Zug', { children: [x(2, n('team', 'artillery', 'Geschütz'))] }))],
+        }),
+      ),
+    ],
+  });
+
+// Soviet rifle battalion: three rifle companies + MG + mortar companies.
+const suRifleBn = (): TemplateNode =>
+  n('battalion', 'infantry', 'Rifle Battalion', {
+    children: [
+      x(
+        3,
+        n('company', 'infantry', 'Rifle Company', {
+          children: [
+            x(
+              3,
+              n('platoon', 'infantry', 'Rifle Platoon', {
+                children: [x(4, n('squad', 'infantry', 'Rifle Squad · 11 men'))],
+              }),
+            ),
+            n('platoon', 'infantry', 'Machine-Gun Platoon (Maxim)'),
+          ],
+        }),
+      ),
+      n('company', 'infantry', 'Machine-Gun Company'),
+      n('company', 'artillery', 'Mortar Company (82 mm)'),
+    ],
+  });
+
+const suTankBn = (): TemplateNode =>
+  n('battalion', 'armoured', 'Tank Battalion', {
+    children: [
+      x(
+        3,
+        n('company', 'armoured', 'Tank Company', {
+          children: [
+            x(3, n('platoon', 'armoured', 'Tank Platoon', { children: [x(3, n('team', 'armoured', 'Tank & crew'))] })),
+          ],
+        }),
+      ),
+    ],
+  });
+
+const suMotorRifleBn = (): TemplateNode =>
+  n('battalion', 'motorized', 'Motor Rifle Battalion', {
+    children: [
+      x(
+        3,
+        n('company', 'motorized', 'Motor Rifle Company', {
+          children: [x(3, n('platoon', 'motorized', 'Platoon', { children: [x(4, n('squad', 'motorized', 'Squad'))] }))],
+        }),
+      ),
+      n('company', 'infantry', 'Machine-Gun Company'),
+    ],
+  });
 
 export const TEMPLATES: FormationTemplate[] = [
   // --- German -------------------------------------------------------------
@@ -71,24 +226,24 @@ export const TEMPLATES: FormationTemplate[] = [
     name: 'Infantry Division (Type 1939)',
     note: 'The pre-war "first wave" establishment: nine infantry battalions in three regiments.',
     components: [
-      {
-        ech: 'regiment',
-        branch: 'infantry',
-        label: 'Infanterie-Regiment',
-        count: 3,
-        children: [bn('infantry', 'Bataillon', 3)],
-      },
-      {
-        ech: 'regiment',
-        branch: 'artillery',
-        label: 'Artillerie-Regiment',
-        children: [bn('artillery', 'Abteilung (le./s.)', 4)],
-      },
-      bn('recon', 'Aufklärungs-Abteilung'),
-      bn('antitank', 'Panzerjäger-Abteilung'),
-      bn('engineer', 'Pionier-Bataillon'),
-      bn('signals', 'Nachrichten-Abteilung'),
-      bn('support', 'Divisions-Nachschub (services)'),
+      x(
+        3,
+        n('regiment', 'infantry', 'Infanterie-Regiment', {
+          children: [
+            x(3, deRifleBn1939()),
+            n('company', 'artillery', 'Infanteriegeschütz-Kompanie (13.)'),
+            n('company', 'antitank', 'Panzerabwehr-Kompanie (14.)'),
+          ],
+        }),
+      ),
+      n('regiment', 'artillery', 'Artillerie-Regiment', { children: [x(4, deArtyBn())] }),
+      n('battalion', 'recon', 'Aufklärungs-Abteilung', {
+        children: [n('squad', 'cavalry', 'Reiter-Schwadron'), n('squad', 'recon', 'Radfahr-Schwadron')],
+      }),
+      n('battalion', 'antitank', 'Panzerjäger-Abteilung', { children: [x(3, n('company', 'antitank', 'Kompanie'))] }),
+      n('battalion', 'engineer', 'Pionier-Bataillon', { children: [x(3, n('company', 'engineer', 'Kompanie'))] }),
+      n('battalion', 'signals', 'Nachrichten-Abteilung'),
+      n('battalion', 'support', 'Divisions-Nachschub (services)'),
     ],
   },
   {
@@ -100,24 +255,22 @@ export const TEMPLATES: FormationTemplate[] = [
     name: 'Infantry Division (Type 1944)',
     note: 'Slimmed late-war establishment: six grenadier battalions; a Füsilier battalion as recon.',
     components: [
-      {
-        ech: 'regiment',
-        branch: 'infantry',
-        label: 'Grenadier-Regiment',
-        count: 3,
-        children: [bn('infantry', 'Bataillon', 2)],
-      },
-      {
-        ech: 'regiment',
-        branch: 'artillery',
-        label: 'Artillerie-Regiment',
-        children: [bn('artillery', 'Abteilung', 4)],
-      },
-      bn('recon', 'Füsilier-Bataillon'),
-      bn('antitank', 'Panzerjäger-Abteilung'),
-      bn('engineer', 'Pionier-Bataillon'),
-      bn('signals', 'Nachrichten-Abteilung'),
-      bn('support', 'Feldersatz-Bataillon'),
+      x(
+        3,
+        n('regiment', 'infantry', 'Grenadier-Regiment', {
+          children: [
+            x(2, deGrenadierBn1944()),
+            n('company', 'artillery', 'Infanteriegeschütz-Kompanie'),
+            n('company', 'antitank', 'Panzerjäger-Kompanie'),
+          ],
+        }),
+      ),
+      n('regiment', 'artillery', 'Artillerie-Regiment', { children: [x(4, deArtyBn())] }),
+      n('battalion', 'recon', 'Füsilier-Bataillon', { children: [x(3, n('company', 'infantry', 'Kompanie'))] }),
+      n('battalion', 'antitank', 'Panzerjäger-Abteilung'),
+      n('battalion', 'engineer', 'Pionier-Bataillon'),
+      n('battalion', 'signals', 'Nachrichten-Abteilung'),
+      n('battalion', 'support', 'Feldersatz-Bataillon'),
     ],
   },
   {
@@ -129,29 +282,16 @@ export const TEMPLATES: FormationTemplate[] = [
     name: 'Panzer-Division (1941)',
     note: 'Barbarossa establishment: one tank regiment, a two-regiment rifle brigade.',
     components: [
-      {
-        ech: 'regiment',
-        branch: 'armoured',
-        label: 'Panzer-Regiment',
-        children: [bn('armoured', 'Panzer-Abteilung', 2)],
-      },
-      {
-        ech: 'brigade',
-        branch: 'motorized',
-        label: 'Schützen-Brigade',
-        children: [{ ech: 'regiment', branch: 'motorized', label: 'Schützen-Regiment', count: 2 }],
-      },
-      bn('recon', 'Kradschützen-Bataillon'),
-      {
-        ech: 'regiment',
-        branch: 'artillery',
-        label: 'Artillerie-Regiment',
-        children: [bn('artillery', 'Abteilung', 3)],
-      },
-      bn('antitank', 'Panzerjäger-Abteilung'),
-      bn('recon', 'Aufklärungs-Abteilung'),
-      bn('engineer', 'Pionier-Bataillon'),
-      bn('signals', 'Nachrichten-Abteilung'),
+      n('regiment', 'armoured', 'Panzer-Regiment', { children: [x(2, dePanzerBn())] }),
+      n('brigade', 'motorized', 'Schützen-Brigade', {
+        children: [x(2, n('regiment', 'motorized', 'Schützen-Regiment', { children: [x(2, dePzGrenBn())] }))],
+      }),
+      n('battalion', 'recon', 'Kradschützen-Bataillon', { children: [x(3, n('company', 'recon', 'Kompanie'))] }),
+      n('regiment', 'artillery', 'Artillerie-Regiment', { children: [x(3, deArtyBn())] }),
+      n('battalion', 'antitank', 'Panzerjäger-Abteilung'),
+      n('battalion', 'recon', 'Aufklärungs-Abteilung'),
+      n('battalion', 'engineer', 'Pionier-Bataillon'),
+      n('battalion', 'signals', 'Nachrichten-Abteilung'),
     ],
   },
   {
@@ -163,30 +303,17 @@ export const TEMPLATES: FormationTemplate[] = [
     name: 'Panzer-Division (1943/44)',
     note: 'Two panzergrenadier regiments around one tank regiment, with organic Flak.',
     components: [
-      {
-        ech: 'regiment',
-        branch: 'armoured',
-        label: 'Panzer-Regiment',
-        children: [bn('armoured', 'Panzer-Abteilung', 2)],
-      },
-      {
-        ech: 'regiment',
-        branch: 'motorized',
-        label: 'Panzergrenadier-Regiment',
-        count: 2,
-        children: [bn('motorized', 'Bataillon', 2)],
-      },
-      {
-        ech: 'regiment',
-        branch: 'artillery',
-        label: 'Panzer-Artillerie-Regiment',
-        children: [bn('artillery', 'Abteilung', 3)],
-      },
-      bn('recon', 'Panzer-Aufklärungs-Abteilung'),
-      bn('antitank', 'Panzerjäger-Abteilung'),
-      bn('antiair', 'Heeres-Flak-Abteilung'),
-      bn('engineer', 'Panzer-Pionier-Bataillon'),
-      bn('signals', 'Panzer-Nachrichten-Abteilung'),
+      n('regiment', 'armoured', 'Panzer-Regiment', { children: [x(2, dePanzerBn())] }),
+      x(
+        2,
+        n('regiment', 'motorized', 'Panzergrenadier-Regiment', { children: [x(2, dePzGrenBn())] }),
+      ),
+      n('regiment', 'artillery', 'Panzer-Artillerie-Regiment', { children: [x(3, deArtyBn())] }),
+      n('battalion', 'recon', 'Panzer-Aufklärungs-Abteilung', { children: [x(4, n('company', 'recon', 'Kompanie'))] }),
+      n('battalion', 'antitank', 'Panzerjäger-Abteilung'),
+      n('battalion', 'antiair', 'Heeres-Flak-Abteilung'),
+      n('battalion', 'engineer', 'Panzer-Pionier-Bataillon'),
+      n('battalion', 'signals', 'Panzer-Nachrichten-Abteilung'),
     ],
   },
   {
@@ -197,24 +324,13 @@ export const TEMPLATES: FormationTemplate[] = [
     to: '1945-12-31',
     name: 'Panzergrenadier-/Motorized Division',
     components: [
-      {
-        ech: 'regiment',
-        branch: 'motorized',
-        label: 'Panzergrenadier-Regiment',
-        count: 2,
-        children: [bn('motorized', 'Bataillon', 3)],
-      },
-      bn('armoured', 'Panzer-Abteilung'),
-      {
-        ech: 'regiment',
-        branch: 'artillery',
-        label: 'Artillerie-Regiment',
-        children: [bn('artillery', 'Abteilung', 3)],
-      },
-      bn('recon', 'Aufklärungs-Abteilung'),
-      bn('antitank', 'Panzerjäger-Abteilung'),
-      bn('engineer', 'Pionier-Bataillon'),
-      bn('signals', 'Nachrichten-Abteilung'),
+      x(2, n('regiment', 'motorized', 'Panzergrenadier-Regiment', { children: [x(3, dePzGrenBn())] })),
+      n('battalion', 'armoured', 'Panzer-Abteilung', { children: dePanzerBn().children }),
+      n('regiment', 'artillery', 'Artillerie-Regiment', { children: [x(3, deArtyBn())] }),
+      n('battalion', 'recon', 'Aufklärungs-Abteilung'),
+      n('battalion', 'antitank', 'Panzerjäger-Abteilung'),
+      n('battalion', 'engineer', 'Pionier-Bataillon'),
+      n('battalion', 'signals', 'Nachrichten-Abteilung'),
     ],
   },
   // --- Soviet -------------------------------------------------------------
@@ -227,20 +343,23 @@ export const TEMPLATES: FormationTemplate[] = [
     name: 'Rifle Division (shtat 04/400, 1941)',
     note: 'Pre-war establishment: three rifle regiments and two artillery regiments.',
     components: [
-      {
-        ech: 'regiment',
-        branch: 'infantry',
-        label: 'Rifle Regiment',
-        count: 3,
-        children: [bn('infantry', 'Rifle Battalion', 3)],
-      },
-      { ech: 'regiment', branch: 'artillery', label: 'Artillery Regiment' },
-      { ech: 'regiment', branch: 'artillery', label: 'Howitzer Regiment' },
-      bn('antitank', 'Anti-Tank Battalion'),
-      bn('antiair', 'Anti-Aircraft Battalion'),
-      bn('recon', 'Reconnaissance Battalion'),
-      bn('engineer', 'Sapper Battalion'),
-      bn('signals', 'Signal Battalion'),
+      x(
+        3,
+        n('regiment', 'infantry', 'Rifle Regiment', {
+          children: [
+            x(3, suRifleBn()),
+            n('battery', 'artillery', 'Regimental Gun Battery'),
+            n('battery', 'antitank', 'Anti-Tank Battery'),
+          ],
+        }),
+      ),
+      n('regiment', 'artillery', 'Artillery Regiment', { children: [x(2, n('battalion', 'artillery', 'Battalion'))] }),
+      n('regiment', 'artillery', 'Howitzer Regiment', { children: [x(2, n('battalion', 'artillery', 'Battalion'))] }),
+      n('battalion', 'antitank', 'Anti-Tank Battalion'),
+      n('battalion', 'antiair', 'Anti-Aircraft Battalion'),
+      n('battalion', 'recon', 'Reconnaissance Battalion'),
+      n('battalion', 'engineer', 'Sapper Battalion'),
+      n('battalion', 'signals', 'Signal Battalion'),
     ],
   },
   {
@@ -252,18 +371,12 @@ export const TEMPLATES: FormationTemplate[] = [
     name: 'Rifle Division (shtat 04/300, late 1941)',
     note: 'Cut down after the summer catastrophe: one artillery regiment, recon reduced to a company.',
     components: [
-      {
-        ech: 'regiment',
-        branch: 'infantry',
-        label: 'Rifle Regiment',
-        count: 3,
-        children: [bn('infantry', 'Rifle Battalion', 3)],
-      },
-      { ech: 'regiment', branch: 'artillery', label: 'Artillery Regiment' },
-      bn('antitank', 'Anti-Tank Battalion'),
-      coy('recon', 'Reconnaissance Company'),
-      bn('engineer', 'Sapper Battalion'),
-      bn('signals', 'Signal Battalion'),
+      x(3, n('regiment', 'infantry', 'Rifle Regiment', { children: [x(3, suRifleBn())] })),
+      n('regiment', 'artillery', 'Artillery Regiment', { children: [x(2, n('battalion', 'artillery', 'Battalion'))] }),
+      n('battalion', 'antitank', 'Anti-Tank Battalion'),
+      n('company', 'recon', 'Reconnaissance Company'),
+      n('battalion', 'engineer', 'Sapper Battalion'),
+      n('battalion', 'signals', 'Signal Battalion'),
     ],
   },
   {
@@ -275,18 +388,12 @@ export const TEMPLATES: FormationTemplate[] = [
     name: 'Rifle Division (shtat 04/550, 1943)',
     note: 'The standard mid/late-war division; Guards divisions followed an uprated version.',
     components: [
-      {
-        ech: 'regiment',
-        branch: 'infantry',
-        label: 'Rifle Regiment',
-        count: 3,
-        children: [bn('infantry', 'Rifle Battalion', 3)],
-      },
-      { ech: 'regiment', branch: 'artillery', label: 'Artillery Regiment' },
-      bn('antitank', 'Anti-Tank Battalion'),
-      coy('recon', 'Reconnaissance Company'),
-      bn('engineer', 'Sapper Battalion'),
-      bn('signals', 'Signal Battalion'),
+      x(3, n('regiment', 'infantry', 'Rifle Regiment', { children: [x(3, suRifleBn())] })),
+      n('regiment', 'artillery', 'Artillery Regiment', { children: [x(3, n('battalion', 'artillery', 'Battalion'))] }),
+      n('battalion', 'antitank', 'Anti-Tank Battalion'),
+      n('company', 'recon', 'Reconnaissance Company'),
+      n('battalion', 'engineer', 'Sapper Battalion'),
+      n('battalion', 'signals', 'Signal Battalion'),
     ],
   },
   {
@@ -297,10 +404,18 @@ export const TEMPLATES: FormationTemplate[] = [
     to: '1945-12-31',
     name: 'Cavalry Division',
     components: [
-      { ech: 'regiment', branch: 'cavalry', label: 'Cavalry Regiment', count: 3 },
-      { ech: 'regiment', branch: 'armoured', label: 'Tank Regiment' },
-      bn('artillery', 'Horse Artillery Battalion'),
-      bn('antiair', 'Anti-Aircraft Battalion'),
+      x(
+        3,
+        n('regiment', 'cavalry', 'Cavalry Regiment', {
+          children: [
+            x(4, n('squad', 'cavalry', 'Sabre Squadron', { children: [x(4, n('platoon', 'cavalry', 'Platoon'))] })),
+            n('squad', 'infantry', 'Machine-Gun Squadron'),
+          ],
+        }),
+      ),
+      n('regiment', 'armoured', 'Tank Regiment', { children: [suTankBn()] }),
+      n('battalion', 'artillery', 'Horse Artillery Battalion'),
+      n('battalion', 'antiair', 'Anti-Aircraft Battalion'),
     ],
   },
   {
@@ -312,10 +427,15 @@ export const TEMPLATES: FormationTemplate[] = [
     name: 'Tank Corps (1942)',
     note: 'A division-sized strike formation: three tank brigades and a motor rifle brigade.',
     components: [
-      { ech: 'brigade', branch: 'armoured', label: 'Tank Brigade', count: 3 },
-      { ech: 'brigade', branch: 'motorized', label: 'Motor Rifle Brigade' },
-      bn('recon', 'Reconnaissance Battalion'),
-      { ech: 'regiment', branch: 'artillery', label: 'Mortar / SP Artillery Regiment', count: 2 },
+      x(
+        3,
+        n('brigade', 'armoured', 'Tank Brigade', {
+          children: [x(2, suTankBn()), suMotorRifleBn()],
+        }),
+      ),
+      n('brigade', 'motorized', 'Motor Rifle Brigade', { children: [x(3, suMotorRifleBn())] }),
+      n('battalion', 'recon', 'Reconnaissance Battalion'),
+      x(2, n('regiment', 'artillery', 'Mortar / SP Artillery Regiment')),
     ],
   },
   {
@@ -326,9 +446,14 @@ export const TEMPLATES: FormationTemplate[] = [
     to: '1945-12-31',
     name: 'Mechanized Corps (1942)',
     components: [
-      { ech: 'brigade', branch: 'mechanized', label: 'Mechanized Brigade', count: 3 },
-      { ech: 'brigade', branch: 'armoured', label: 'Tank Brigade' },
-      { ech: 'regiment', branch: 'artillery', label: 'Artillery / Mortar Regiment', count: 2 },
+      x(
+        3,
+        n('brigade', 'mechanized', 'Mechanized Brigade', {
+          children: [x(3, suMotorRifleBn()), suTankBn()],
+        }),
+      ),
+      n('brigade', 'armoured', 'Tank Brigade', { children: [x(2, suTankBn()), suMotorRifleBn()] }),
+      x(2, n('regiment', 'artillery', 'Artillery / Mortar Regiment')),
     ],
   },
   {
@@ -339,9 +464,9 @@ export const TEMPLATES: FormationTemplate[] = [
     to: '1945-12-31',
     name: 'Tank Brigade (1942)',
     components: [
-      bn('armoured', 'Tank Battalion', 2),
-      bn('motorized', 'Motor Rifle Battalion'),
-      coy('antiair', 'Anti-Aircraft Company'),
+      x(2, suTankBn()),
+      suMotorRifleBn(),
+      n('company', 'antiair', 'Anti-Aircraft Company'),
     ],
   },
   {
@@ -352,9 +477,9 @@ export const TEMPLATES: FormationTemplate[] = [
     to: '1945-12-31',
     name: 'Mechanized / Motor Rifle Brigade',
     components: [
-      bn('motorized', 'Motor Rifle Battalion', 3),
-      bn('armoured', 'Tank Regiment'),
-      bn('artillery', 'Artillery Battalion'),
+      x(3, suMotorRifleBn()),
+      n('battalion', 'armoured', 'Tank Regiment', { children: suTankBn().children }),
+      n('battalion', 'artillery', 'Artillery Battalion'),
     ],
   },
 ];

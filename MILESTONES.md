@@ -636,6 +636,16 @@ sub-unit data.
       13th Guards → both (its real regiments + the rifle-division shtat).
 - 62/62 smoke (regiment drill-down now clicks the ORBAT row; added a
   template-present check), lint clean.
+- **Full-depth templates + collapsible tree:** the establishment templates now
+  go all the way down — regiment → battalion → company → platoon → squad/crew —
+  built from reusable building blocks (rifle/grenadier/panzergrenadier/tank/
+  artillery battalions composed once and shared across divisions). Counts are
+  representative badges ("Rifle Company ×3", one expandable child), so a whole
+  division's TO&E stays a few hundred nodes, not thousands. `TemplateRow` is
+  collapsible (`UnitGlyph` gained platoon `•••` / squad `•` / team `Ø` / battery
+  marks): expanded to the top level by default, deeper echelons drill down on
+  click. Verified to squad level for German (Schützengruppe ×4) and Soviet
+  (Rifle Squad ×4).
 
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways

@@ -8,7 +8,12 @@ const FILL = { axis: '#f6dcd4', soviet: '#d7e6f7' } as const;
 const INK = { axis: '#9c3322', soviet: '#2c5e93' } as const;
 
 const ECH_MARK: Record<string, string> = {
+  team: 'Ø',
+  squad: '•',
+  section: '••',
+  platoon: '•••',
   company: 'I',
+  battery: 'I',
   battalion: 'II',
   regiment: 'III',
   brigade: 'X',

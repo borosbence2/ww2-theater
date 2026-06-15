@@ -100,18 +100,39 @@ function OrbatSection({ id, d, onSelect }: { id: string; d: number; onSelect: (i
   );
 }
 
+// Collapsible template row: expanded down to the top level by default, deeper
+// echelons (company → platoon → squad) drill down on click.
+function TemplateRow({ node, side, depth }: { node: TemplateNode; side: 'axis' | 'soviet'; depth: number }) {
+  const kids = node.children ?? [];
+  const hasKids = kids.length > 0;
+  const [open, setOpen] = useState(depth < 1);
+  return (
+    <li>
+      <div
+        className={`orbat-row static${hasKids ? ' has-kids' : ''}`}
+        onClick={hasKids ? () => setOpen((o) => !o) : undefined}
+      >
+        <span className="orbat-toggle">{hasKids ? (open ? '▾' : '▸') : ''}</span>
+        <UnitGlyph side={side} echelon={node.ech} branch={node.branch} />
+        <span className="orbat-label">{node.label}</span>
+        {node.count && node.count > 1 && <span className="orbat-count">×{node.count}</span>}
+      </div>
+      {hasKids && open && (
+        <ul className="orbat-tree">
+          {kids.map((c, i) => (
+            <TemplateRow key={`${c.label}-${i}`} node={c} side={side} depth={depth + 1} />
+          ))}
+        </ul>
+      )}
+    </li>
+  );
+}
+
 function TemplateRows({ nodes, side }: { nodes: TemplateNode[]; side: 'axis' | 'soviet' }) {
   return (
     <ul className="orbat-tree">
-      {nodes.map((n, i) => (
-        <li key={`${n.label}-${i}`}>
-          <div className="orbat-row static">
-            <UnitGlyph side={side} echelon={n.ech} branch={n.branch} />
-            <span className="orbat-label">{n.label}</span>
-            {n.count && n.count > 1 && <span className="orbat-count">×{n.count}</span>}
-          </div>
-          {n.children && n.children.length > 0 && <TemplateRows nodes={n.children} side={side} />}
-        </li>
+      {nodes.map((node, i) => (
+        <TemplateRow key={`${node.label}-${i}`} node={node} side={side} depth={0} />
       ))}
     </ul>
   );
