@@ -1,5 +1,4 @@
-// Throwaway: screenshot a Soviet front + army panel to confirm enriched
-// commanders + Wikidata/Wikipedia links render.
+// Throwaway: screenshot a card showing the Wikipedia description + commanders.
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const { chromium } = require('playwright');
@@ -17,14 +16,13 @@ async function pick(name, query) {
   await page.keyboard.press('Enter');
   await page.waitForSelector('.detail-panel', { timeout: 10000 });
   await page.waitForTimeout(2500);
-  const txt = (await page.locator('.detail-panel').textContent().catch(() => '')) ?? '';
-  const cmds = (txt.match(/Commanders/) ? 'yes' : 'no');
-  console.log(name, '| commanders section:', cmds, '| wiki:', /Wikipedia/.test(txt));
+  const has = await page.locator('.unit-summary').count();
+  console.log(name, '| summary block:', has > 0);
   await page.locator('.detail-panel').screenshot({ path: `${SHOTS}/${name}.png` });
 }
 
-await pick('ww2-cmd-front', '1st Ukrainian Front');
-await pick('ww2-cmd-army', '5th Shock Army');
+await pick('ww2-desc-front', '1st Ukrainian Front');
+await pick('ww2-desc-corps', '10th Mechanized Corps');
 
 await browser.close();
 console.log('done');

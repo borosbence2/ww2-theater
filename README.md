@@ -10,22 +10,33 @@ The full target design and phased roadmap live in [REWRITE_PLAN.md](./REWRITE_PL
 
 > **Status: the Eastern Front is simulated, Barbarossa → Berlin.** The moving
 > multi-feature front (main line, pockets, sieges, daily city control) is now
-> populated by **1,739 military units**: the curated Stalingrad showcase
+> populated by **2,136 military units**: the curated Stalingrad showcase
 > (6. Armee's order of battle down to 13th Guards' regiments, commander
-> successions, documented position tracks), plus **1,167 units at daily
+> successions, documented position tracks), plus **1,569 units at daily
 > sector-derived positions** — every Soviet rifle/guards/cavalry division from
-> the monthly *Boevoi sostav* lists and 107 German divisions from Lexikon der
-> Wehrmacht *Unterstellung* tables, plus Soviet tank/mech corps from the
-> armored-forces column, distributed along authored army sectors
-> and riding the interpolated front (hollow icons = derived, solid =
-> documented). Everything is searchable (units by alias/transliteration,
-> cities, 445 Wikidata battles), clickable (OOB chains, drill-down,
-> path/follow mode), and deep-linkable; the **People panel** fans a name out
-> to 11 national archives and resolves the found unit back onto the map.
-> A toggleable **territorial tide** shades Axis-controlled land (front →
-> coast-closed rear); encircled formations sit inside their pocket rings.
-> Validation loops check every city and every curated unit against the front
-> for every day of the war. See [MILESTONES.md](./MILESTONES.md) for details,
+> the monthly *Boevoi sostav* lists and German divisions from Lexikon der
+> Wehrmacht *Unterstellung* tables, plus Soviet tank/mech corps and brigades
+> from the armored-forces column, distributed along authored army sectors and
+> riding the interpolated front (hollow icons = derived, solid = documented).
+> Everything is searchable (units by alias/transliteration, cities, 445
+> Wikidata battles), clickable (OOB chains, drill-down, path/follow mode), and
+> deep-linkable; the **People panel** fans a name out to 11 national archives
+> and resolves the found unit back onto the map.
+>
+> **Unit cards are detailed and honest.** Selecting a unit draws its **command
+> tree** on the map (leader lines from the army HQ down to its corps/divisions)
+> and shows, in the panel: a Wikipedia **description** (995 units), **commander
+> successions** (596 units — Wikidata for Soviet fronts/armies/corps, *dated*
+> Lexikon der Wehrmacht successions for German formations; undated tenures read
+> "dates unknown"), the **actual order of battle** on the date where we have it,
+> and the **doctrinal establishment template** (TO&E) otherwise — drillable down
+> to squad/crew, with nominal strength + key equipment.
+>
+> A toggleable two-sided **territorial tide** shades the theatre — red
+> Axis-held west of the front, blue Soviet-held east — meeting at the daily
+> line; encircled formations sit inside their pocket rings. Validation loops
+> check every city and every curated unit against the front for every day of
+> the war. See [MILESTONES.md](./MILESTONES.md) for details,
 > [SCALE_PLAN.md](./SCALE_PLAN.md) for where this is headed.
 
 ## Stack
@@ -70,6 +81,15 @@ node data/pipeline/import-divisions.mjs
 # merged with the imported scaffolds (curated files win).
 # Validates every positioned unit against the front, daily (run fronts first).
 node data/pipeline/build-units.mjs
+
+# Commander + description enrichment (two-pass: build-units must run once first
+# so these scripts can read index.json + the detail shards, then run it again to
+# attach). All write committed intermediates under data/curated/units/oob/.
+node data/pipeline/fetch-commanders.mjs      # Wikidata P598, by the QIDs units carry
+node data/pipeline/fetch-commanders-ext.mjs  # QID-less fronts/armies/corps/brigades, by label (resumable)
+node data/pipeline/fetch-commanders-ldw.mjs  # dated German Oberbefehlshaber from Lexikon der Wehrmacht
+node data/pipeline/fetch-descriptions.mjs    # Wikipedia lead-paragraph summary per linked unit (resumable)
+node data/pipeline/build-units.mjs           # re-run to attach commanders/descriptions
 
 # Battles (Phase 2) — Wikidata battles/sieges/operations, 1938-45, with coords
 curl -G "https://query.wikidata.org/sparql" \
@@ -125,8 +145,9 @@ between sparse keyframes — not literally sourced per day. See
 | **Phase 3.1** ✅ | 949 division scaffolds imported from Wikidata — every German/Soviet division searchable with an honest "not mapped yet" page (986 units total) |
 | Phase 3 (rest) | Campaign position passes (Barbarossa → Kursk → Bagration → Berlin); Western/Italian fronts; importer pass 2 (ru labels, missing famous units, corps/armies, subordination) |
 | **Phase 4** ✅ | People panel (federated archive search + find-their-unit wizard, `?person=`), Tier-2 drill-down (13th Guards' regiments, selection-gated), commander successions on all curated formations |
-| **Eastern Front sim** ✅ | SCALE_PLAN S1–S3, *complete*: Boevoi sostav (22k assignments, full front→army→corps→division chains) + Lexikon der Wehrmacht (139 German divisions incl. Waffen-SS) + Romanian/Hungarian/Italian armies; 1,739 units, 1,167 at daily sector-derived positions (hollow icons), Barbarossa→Berlin. See EASTERN_SIM_PLAN.md for the definition of done. |
-| Phase 5 | Strength/equipment records, pocket↔unit links, front sector segmentation |
+| **Eastern Front sim** ✅ | SCALE_PLAN S1–S3, *complete*: Boevoi sostav (22k assignments, full front→army→corps→division chains) + Lexikon der Wehrmacht (German divisions incl. Waffen-SS) + Romanian/Hungarian/Italian armies; 2,136 units, 1,569 at daily sector-derived positions (hollow icons), Barbarossa→Berlin. See EASTERN_SIM_PLAN.md for the definition of done. |
+| **Detail cards** ✅ | Two-sided territorial tide; on-select **command tree** (leader lines army→corps→divisions); rich unit cards — Wikipedia descriptions, commander successions (Wikidata + dated Lexikon der Wehrmacht), actual ORBAT, doctrinal TO&E templates drillable to squad with nominal strength/equipment |
+| **Phase 5** (in progress) | Establishment strength/equipment on templates ✅; next: actual strength-at-date, equipment catalog + imagery (Phase 5b — Commons thumbnails, lazy-load), pocket↔unit links, front sector segmentation |
 | Phase 6 | Perf (PMTiles), mobile, public deploy; community-contribution decision gate |
 
 Old M4 (railways/roads) is deprioritized below the unit work; old M5/M6 are

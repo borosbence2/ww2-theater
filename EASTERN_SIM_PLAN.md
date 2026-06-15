@@ -1,9 +1,12 @@
 # Eastern Front full simulation — increment plan
 
 > **Status 2026-06-11: COMPLETE (v1 + v2 + v3).** The Eastern Front is
-> considered finished against the definition of done below. 1,739 units;
-> 1,167 at daily sector-derived positions; full front→army→corps→division
-> chains both sides; 16 sector keyframes Barbarossa→Berlin.
+> considered finished against the definition of done below. **2,136 units;
+> 1,569 at daily sector-derived positions** (incl. tank/mech corps + brigades);
+> full front→army→corps→division chains both sides; 16 sector keyframes
+> Barbarossa→Berlin. Since enriched with commanders (Wikidata + dated Lexikon
+> der Wehrmacht), Wikipedia descriptions, on-select command tree, and doctrinal
+> TO&E templates — see MILESTONES.md.
 
 ## Definition of done (Eastern Front)
 
