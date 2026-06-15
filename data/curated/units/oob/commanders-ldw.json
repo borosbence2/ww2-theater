@@ -1,0 +1,1950 @@
+{
+ "note": "Dated German commanders (Oberbefehlshaber) from Lexikon der Wehrmacht army/army-group pages, keyed by unit id. Attached first (dated) by build-units for German formations.",
+ "source": "Lexikon der Wehrmacht",
+ "units": {
+  "de-h-armee-1": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/1Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generalfeldmarschall Erwin von Witzleben",
+     "from": null,
+     "to": "1940-10-24",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WitzlebenErwinv-R.htm"
+    },
+    {
+     "name": "Generaloberst Johannes Blaskowitz",
+     "from": "1940-10-24",
+     "to": "1944-05-03",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BlaskowitzJ-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Joachim Lemelsen",
+     "from": "1944-05-03",
+     "to": "1944-06-04",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LemelsenJ-R.htm"
+    },
+    {
+     "name": "General der Infanterie Kurt von der Chevallerie",
+     "from": "1944-06-04",
+     "to": "1944-09-05",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/C/ChevallerieKv-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Otto von Knobelsdorff",
+     "from": "1944-09-06",
+     "to": "1944-10-30",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KnobelsdorffOv-R.htm"
+    },
+    {
+     "name": "General der Infanterie Kurt von Tippelskirch",
+     "from": "1944-10-31",
+     "to": "1944-11-11",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/T/TippelskirchKv-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Otto von Knobelsdorff",
+     "from": "1944-11-11",
+     "to": "1944-11-30",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KnobelsdorffOv-R.htm"
+    },
+    {
+     "name": "General der Infanterie Hans von Obstfelder",
+     "from": "1944-11-30",
+     "to": "1945-02-28",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/O/ObstfelderHv-R.htm"
+    },
+    {
+     "name": "General der Infanterie Hermann Foertsch",
+     "from": "1945-02-28",
+     "to": "1945-05-06",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FoertschHermann-R.htm"
+    },
+    {
+     "name": "General der Kavallerie Rudolf Koch-Erpach",
+     "from": "1945-05-06",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KochErpachRudolf-R.htm"
+    },
+    {
+     "name": "Generalmajor Friedrich Mieth",
+     "from": null,
+     "to": "1940-02-05",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MiethF-R.htm"
+    },
+    {
+     "name": "Generalmajor Carl Hilpert",
+     "from": "1940-02-05",
+     "to": "1940-10-25",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HilpertC-R.htm"
+    },
+    {
+     "name": "Generalmajor Edgar Röhricht",
+     "from": "1940-10-25",
+     "to": "1942-06-16",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RoehrichtEdgar-R.htm"
+    },
+    {
+     "name": "Generalmajor Anton-Reichard Freiherr von Mauchenheim genannt Bechtolsheim",
+     "from": "1942-06-16",
+     "to": "1943-08-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BechtolsheimAntonReichardFrhvMauchenheim-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Gustav Harteneck",
+     "from": null,
+     "to": "1940-11-07",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HarteneckG-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Kurt Adam",
+     "from": "1940-11-10",
+     "to": "1941-09-30",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/A/AdamK-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-10": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/10Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Walter von Reichenau",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/ReichenauWaltherv-R.htm"
+    },
+    {
+     "name": "Generaloberst Heinrich von Vietinghoff, genannt von Scheel",
+     "from": "1943-08-15",
+     "to": "1943-10-24",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/V/VietinghoffHv-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Joachim Lemelsen",
+     "from": "1943-10-24",
+     "to": "1943-12-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LemelsenJ-R.htm"
+    },
+    {
+     "name": "Generaloberst Heinrich von Vietinghoff, genannt von Scheel",
+     "from": "1943-12-31",
+     "to": "1944-10-24",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/V/VietinghoffHv-R.htm"
+    },
+    {
+     "name": "General der Panzertruppe Joachim Lemelsen",
+     "from": "1944-10-24",
+     "to": "1945-02-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LemelsenJ-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Traugott Herr",
+     "from": "1945-02-15",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HerrT-R.htm"
+    },
+    {
+     "name": "Generalmajor Friedrich Paulus",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/P/Paulus-R.htm"
+    },
+    {
+     "name": "Oberstleutnant i.G. Anton Reichard Freiherr von Mauchenheim genannt von Bechtoldsheim",
+     "from": "1939-10-03",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BechtolsheimAntonReichardFrhvMauchenheim-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-11": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/11Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Eugen Ritter von Schobert",
+     "from": "1940-10-05",
+     "to": "1941-09-12",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SchobertEugenRitterv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Erich von Manstein",
+     "from": "1941-09-12",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MansteinEv-R.htm"
+    },
+    {
+     "name": "General der Waffen-SS Felix Steiner",
+     "from": "1945-01-28",
+     "to": "1945-03-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SteinerF-R.htm"
+    },
+    {
+     "name": "General der Artillerie Walther Lucht",
+     "from": "1945-04-01",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LuchtW-R.htm"
+    },
+    {
+     "name": "General der Infanterie Otto-Maximilian Hitzfeld",
+     "from": "1945-04-02",
+     "to": "1945-04-08",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HitzfeldOM-R.htm"
+    },
+    {
+     "name": "General der Artillerie Walther Lucht",
+     "from": "1945-04-08",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LuchtW-R.htm"
+    },
+    {
+     "name": "Generalmajor Otto Wöhler",
+     "from": null,
+     "to": "1942-04-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WoehlerO-R.htm"
+    },
+    {
+     "name": "Generalmajor Friedrich Schulz",
+     "from": "1942-05-12",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SchulzF-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Theodor Busse",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BusseTheodor-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-12": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/12Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Gerd von Rundstedt",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RundstedtGv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Wilhelm List",
+     "from": "1939-10-13",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/ListWilhelm-R.htm"
+    },
+    {
+     "name": "General der Pioniere Walter Kuntze",
+     "from": "1941-10-29",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KuntzeWalter-R.htm"
+    },
+    {
+     "name": "Generaloberst Alexander Löhr",
+     "from": "1942-08-08",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LoehrA-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Walther Wenck",
+     "from": "1945-04-10",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WenckWalter-R.htm"
+    },
+    {
+     "name": "Generalleutnant Erich von Manstein",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MansteinEv-R.htm"
+    },
+    {
+     "name": "General der Kavallerie Eberhard von Mackensen",
+     "from": null,
+     "to": "1941-01-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MackensenEv-R.htm"
+    },
+    {
+     "name": "Generalmajor Hans von Greiffenberg",
+     "from": "1941-01-01",
+     "to": "1941-05-10",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/G/GreiffenbergHansv-R.htm"
+    },
+    {
+     "name": "Generalmajor Hermann Foertsch",
+     "from": "1941-05-10",
+     "to": "1942-12-31",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FoertschHermann-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Günter Reichhelm",
+     "from": "1945-04-10",
+     "to": "1945-05-07",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/ReichhelmG-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Günther Blumentritt",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BlumentrittG-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Otto Wöhler",
+     "from": null,
+     "to": "1939-10-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WoehlerO-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-14": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/14Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Wilhelm List",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/ListWilhelm-R.htm"
+    },
+    {
+     "name": "Generaloberst Eberhard von Mackensen",
+     "from": "1943-11-05",
+     "to": "1944-06-05",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MackensenEv-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Joachim Lemelsen",
+     "from": "1944-06-05",
+     "to": "1944-10-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LemelsenJ-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Fridolin von Senger und Etterlin",
+     "from": "1944-10-15",
+     "to": "1944-10-24",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SengerF-R.htm"
+    },
+    {
+     "name": "General der Artillerie Heinz Ziegler",
+     "from": "1944-10-24",
+     "to": "1944-11-22",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/Z/ZieglerHeinz-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Traugott Herr",
+     "from": "1944-11-23",
+     "to": "1944-12-12",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HerrT-R.htm"
+    },
+    {
+     "name": "General der Infanterie Kurt von Tippelskirch",
+     "from": "1944-12-13",
+     "to": "1945-02-22",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/T/TippelskirchKv-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Joachim Lemelsen",
+     "from": "1945-02-22",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LemelsenJ-R.htm"
+    },
+    {
+     "name": "Generalmajor Eberhard von Mackensen",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MackensenEv-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Otto Wöhler",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WoehlerO-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-15": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/15Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Curt Haase",
+     "from": null,
+     "to": "1942-11-30",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HaaseCurt-R.htm"
+    },
+    {
+     "name": "Generaloberst Heinrich von Viettinghoff, genannt von Scheel",
+     "from": "1942-12-01",
+     "to": "1943-08-05",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/V/VietinghoffHv-R.htm"
+    },
+    {
+     "name": "Generaloberst Hans von Salmuth",
+     "from": "1943-08-05",
+     "to": "1944-08-25",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SalmuthHansv-R.htm"
+    },
+    {
+     "name": "General der Infanterie Gustav-Adolf von Zangen",
+     "from": "1944-08-25",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/Z/ZangenGAv-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Maximilian Grimmeiß",
+     "from": "1941-01-15",
+     "to": "1941-11-21",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/G/GrimmeissMaximilian-R.htm"
+    },
+    {
+     "name": "Generalmajor Heinz Ziegler",
+     "from": "1941-12-09",
+     "to": "1942-04-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/Z/ZieglerHeinz-R.htm"
+    },
+    {
+     "name": "Generalmajor Rolf Wuthmann",
+     "from": "1942-04-01",
+     "to": "1942-04-30",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WuthmannRolf-R.htm"
+    },
+    {
+     "name": "Generalleutnant Rudolf Hofmann",
+     "from": "1942-05-01",
+     "to": "1944-11-06",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HofmannRudolf-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-16": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/16Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generalfeldmarschall Ernst Busch",
+     "from": null,
+     "to": "1943-10-11",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BuschE-R.htm"
+    },
+    {
+     "name": "General der Artillerie Christian Hansen",
+     "from": "1943-10-11",
+     "to": "1944-07-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HansenChristian-R.htm"
+    },
+    {
+     "name": "General der Infanterie Paul Laux",
+     "from": "1944-07-02",
+     "to": "1944-08-30",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LauxP-R.htm"
+    },
+    {
+     "name": "Generaloberst Carl Hilpert",
+     "from": "1944-09-03",
+     "to": "1945-03-10",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HilpertC-R.htm"
+    },
+    {
+     "name": "General der Infanterie Ernst-Anton von Krosigk",
+     "from": "1945-03-10",
+     "to": "1945-03-16",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KrosigkEAv-R.htm"
+    },
+    {
+     "name": "General der Gebirgstruppen Friedrich-Jobst Volckmar von Kirchensittenbach",
+     "from": "1945-03-17",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/V/VolckamervKirchensittenbachFriedrichJobst-R.htm"
+    },
+    {
+     "name": "Generalleutnant Walther Model",
+     "from": null,
+     "to": "1940-11-13",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/ModelW-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Rolf Wuthmann",
+     "from": "1940-11-15",
+     "to": "1942-01-16",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WuthmannRolf-R.htm"
+    },
+    {
+     "name": "Generalmajor Hans Boeckh-Behrens",
+     "from": "1942-01-16",
+     "to": "1943-07-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BoeckhBehrensHans-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Hans Boeckh-Behrens",
+     "from": "1939-10-23",
+     "to": "1942-01-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BoeckhBehrensHans-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Hanns-Horst von Necker",
+     "from": "1943-05-01",
+     "to": "1943-12-05",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/N/NeckerHHv-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-17": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/17Armee-R.htm",
+   "commanders": [
+    {
+     "name": "General der Infanterie Carl-Heinrich von Stülpnagel",
+     "from": "1941-02-22",
+     "to": "1941-10-05",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/StuelpnagelCarlHeinrichv-R.htm"
+    },
+    {
+     "name": "Generaloberst Hermann Hoth",
+     "from": "1941-10-06",
+     "to": "1942-04-20",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/Hoth-R.htm"
+    },
+    {
+     "name": "General der Infanterie Hans von Salmuth",
+     "from": "1942-04-20",
+     "to": "1942-06-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SalmuthHansv-R.htm"
+    },
+    {
+     "name": "Generaloberst Richard Ruoff",
+     "from": "1942-06-01",
+     "to": "1943-06-24",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RuoffRichard-R.htm"
+    },
+    {
+     "name": "Generaloberst Erwin Jaenecke",
+     "from": "1943-06-24",
+     "to": "1944-03-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/J/JaeneckeE-R.htm"
+    },
+    {
+     "name": "Generaloberst Ferdinand Schörner",
+     "from": "1944-03-02",
+     "to": "1944-03-31",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SchoernerF-R.htm"
+    },
+    {
+     "name": "Generaloberst Erwin Jaenecke",
+     "from": "1944-03-31",
+     "to": "1944-04-30",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/J/JaeneckeE-R.htm"
+    },
+    {
+     "name": "General der Infanterie Karl Allmendinger",
+     "from": "1944-05-01",
+     "to": "1944-07-25",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/A/Allmendinger-R.htm"
+    },
+    {
+     "name": "General der Infanterie Friedrich Schulz",
+     "from": "1944-07-25",
+     "to": "1945-03-30",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SchulzF-R.htm"
+    },
+    {
+     "name": "General der Infanterie Wilhelm Hasse",
+     "from": "1945-03-30",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HasseW-R.htm"
+    },
+    {
+     "name": "Generalmajor Vincenz Müller",
+     "from": null,
+     "to": "1943-06-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MuellerVinzenz-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Wolfdietrich Ritter von Xylander",
+     "from": "1943-06-01",
+     "to": "1943-10-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/X/XylanderWolfdietrichRitterv-R.htm"
+    },
+    {
+     "name": "Generalmajor Harald Freiherr von Elverfeldt",
+     "from": "1943-11-01",
+     "to": "1943-11-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/E/ElverfeldHFv-R.htm"
+    },
+    {
+     "name": "Generalmajor Wolfdietrich Ritter von Xylander",
+     "from": "1943-11-15",
+     "to": "1944-07-09",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/X/XylanderWolfdietrichRitterv-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-18": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/18Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generalfeldmarschall Georg von Küchler",
+     "from": null,
+     "to": "1942-01-16",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KuechlerGv-R.htm"
+    },
+    {
+     "name": "Generaloberst Georg Lindemann",
+     "from": "1942-01-16",
+     "to": "1944-03-29",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LindemannG-R.htm"
+    },
+    {
+     "name": "General der Artillerie Herbert Loch",
+     "from": "1944-03-29",
+     "to": "1944-09-02",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LochHerbert-R.htm"
+    },
+    {
+     "name": "General der Infanterie Ehrenfried Boege",
+     "from": "1944-09-02",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BoegeE-R.htm"
+    },
+    {
+     "name": "Generalmajor Erich Marcks",
+     "from": null,
+     "to": "1940-12-10",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MarcksE-R.htm"
+    },
+    {
+     "name": "Generalmajor Wilhelm Hasse",
+     "from": "1940-12-10",
+     "to": "1941-01-19",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HasseW-R.htm"
+    },
+    {
+     "name": "Generalmajor Dr. Ing. h.c. Kurt Waeger",
+     "from": "1941-01-19",
+     "to": "1942-11-17",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WaegerKurtDr-R.htm"
+    },
+    {
+     "name": "Generalmajor Hans Speth",
+     "from": "1942-11-24",
+     "to": "1943-12-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SpethHansLudwig-R.htm"
+    },
+    {
+     "name": "Generalmajor Friedrich Foertsch",
+     "from": "1943-12-01",
+     "to": "1945-01-25",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FoertschF-R.htm"
+    },
+    {
+     "name": "Generalmajor Dr. Ing. h.c. Kurt Waeger",
+     "from": "1942-01-01",
+     "to": "1942-02-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WaegerKurtDr-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Friedrich Foertsch",
+     "from": "1942-07-15",
+     "to": "1943-12-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FoertschF-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-19": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/19Armee-R.htm",
+   "commanders": [
+    {
+     "name": "General der Infanterie Georg von Sodenstern",
+     "from": null,
+     "to": "1944-06-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SodensternGeorgv-R.htm"
+    },
+    {
+     "name": "General der Infanterie Friedrich Wiese",
+     "from": "1944-06-29",
+     "to": "1944-12-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WieseF-R.htm"
+    },
+    {
+     "name": "General der Infanterie Siegfried Rasp",
+     "from": "1944-12-15",
+     "to": "1945-02-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RaspS-R.htm"
+    },
+    {
+     "name": "General der Infanterie Hermann Foertsch",
+     "from": "1945-02-15",
+     "to": "1945-02-28",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FoertschHermann-R.htm"
+    },
+    {
+     "name": "General der Infanterie Hans von Obstfelder",
+     "from": "1945-03-01",
+     "to": "1945-03-26",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/O/ObstfelderHv-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Erich Brandenberger",
+     "from": "1945-03-26",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BrandenbergerE-R.htm"
+    },
+    {
+     "name": "Generalleutnant Walter Botsch",
+     "from": null,
+     "to": "1945-01-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BotschW-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-2": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/2Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Fedor von Bock",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BockFedorv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Maximilian Reichsfreiherr von Weichs",
+     "from": null,
+     "to": "1941-11-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WeichsMFv-R.htm"
+    },
+    {
+     "name": "Generaloberst Rudolf Schmidt",
+     "from": "1941-11-15",
+     "to": "1941-12-25",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SchmidtR-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Maximilian Reichsfreiherr von Weichs",
+     "from": "1941-12-25",
+     "to": "1942-07-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WeichsMFv-R.htm"
+    },
+    {
+     "name": "Generaloberst Hans von Salmuth",
+     "from": "1942-07-15",
+     "to": "1943-02-03",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SalmuthHansv-R.htm"
+    },
+    {
+     "name": "Generaloberst Walter Weiss",
+     "from": "1943-02-04",
+     "to": "1945-03-12",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WeissW-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Dietrich von Saucken",
+     "from": "1945-03-12",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SauckenDv-R.htm"
+    },
+    {
+     "name": "Generalleutnant Hans von Salmuth",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SalmuthHansv-R.htm"
+    },
+    {
+     "name": "Generalleutnant Hans-Gustav Felber",
+     "from": null,
+     "to": "1940-02-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FelberHansGustav-R.htm"
+    },
+    {
+     "name": "Generalmajor Rudolf Konrad",
+     "from": "1940-02-15",
+     "to": "1940-11-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KonradRudolf-R.htm"
+    },
+    {
+     "name": "Generalleutnant Gustav von Harteneck",
+     "from": "1941-10-26",
+     "to": "1943-11-20",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HarteneckG-R.htm"
+    },
+    {
+     "name": "Generalmajor Henning von Tresckow",
+     "from": "1943-11-20",
+     "to": "1944-07-21",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/T/TresckowH-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Wilhelm Hasse",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HasseW-R.htm"
+    },
+    {
+     "name": "Oberstleutnant i.G. Wolfdietrich Ritter von Xylander",
+     "from": "1941-08-07",
+     "to": "1942-11-25",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/X/XylanderWolfdietrichRitterv-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-25": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/25Armee-R.htm",
+   "commanders": [
+    {
+     "name": "General der Infanterie Günther Blumentritt",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BlumentrittG-R.htm"
+    },
+    {
+     "name": "Generaloberst Johannes Blaskowitz",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BlaskowitzJ-R.htm"
+    },
+    {
+     "name": "General der Infanterie Philipp Kleffel",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KleffelP-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-3": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/3Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Georg von Küchler",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KuechlerGv-R.htm"
+    },
+    {
+     "name": "Generalmajor Herbert von Böckmann",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BoeckmannHerbertv-R.htm"
+    },
+    {
+     "name": "Oberstleutnant i.G. Herbert Wagner",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WagnerHerbert-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-4": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/4Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generalfeldmarschall Günther von Kluge",
+     "from": null,
+     "to": "1941-12-19",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KlugeGv-R.htm"
+    },
+    {
+     "name": "General der Gebirgstruppen Ludwig Kübler",
+     "from": "1941-12-19",
+     "to": "1942-01-20",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KueblerLudwig-R.htm"
+    },
+    {
+     "name": "General der Infanterie Gotthard Heinrici",
+     "from": "1942-01-20",
+     "to": "1942-06-06",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HeinriciG-R.htm"
+    },
+    {
+     "name": "General der Infanterie Hans von Salmuth",
+     "from": "1942-06-06",
+     "to": "1942-07-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SalmuthHansv-R.htm"
+    },
+    {
+     "name": "Generaloberst Gotthard Heinrici",
+     "from": "1942-07-15",
+     "to": "1943-06-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HeinriciG-R.htm"
+    },
+    {
+     "name": "Generaloberst Hans von Salmuth",
+     "from": "1943-06-01",
+     "to": "1943-07-31",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SalmuthHansv-R.htm"
+    },
+    {
+     "name": "Generaloberst Gotthard Heinrici",
+     "from": "1943-07-31",
+     "to": "1943-12-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HeinriciG-R.htm"
+    },
+    {
+     "name": "General der Infanterie Johannes Frießner",
+     "from": "1943-12-01",
+     "to": "1944-01-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FriessnerJ-R.htm"
+    },
+    {
+     "name": "Generaloberst Gotthard Heinrici",
+     "from": "1944-01-01",
+     "to": "1944-06-04",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HeinriciG-R.htm"
+    },
+    {
+     "name": "General der Infanterie Kurt von Tippelskirch",
+     "from": "1944-06-04",
+     "to": "1944-06-30",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/T/TippelskirchKv-R.htm"
+    },
+    {
+     "name": "Generalleutnant Vincenz Müller",
+     "from": "1944-06-30",
+     "to": "1944-07-07",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MuellerVinzenz-R.htm"
+    },
+    {
+     "name": "General der Infanterie Kurt von Tippelskirch",
+     "from": "1944-07-07",
+     "to": "1944-07-18",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/T/TippelskirchKv-R.htm"
+    },
+    {
+     "name": "General der Infanterie Friedrich Hoßbach",
+     "from": "1944-07-18",
+     "to": "1945-01-29",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HossbachF-R.htm"
+    },
+    {
+     "name": "General der Infanterie Friedrich-Wilhelm Müller",
+     "from": "1945-01-29",
+     "to": "1945-04-16",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MuellerFW-R.htm"
+    },
+    {
+     "name": "General der Infanterie Kurt von Tippelskirch",
+     "from": "1945-04-16",
+     "to": "1945-04-27",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/T/TippelskirchKv-R.htm"
+    },
+    {
+     "name": "Generalleutnant Kurt Brennecke",
+     "from": null,
+     "to": "1940-10-25",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BrenneckeKurt-R.htm"
+    },
+    {
+     "name": "Generalmajor Günther Blumentritt",
+     "from": "1940-10-25",
+     "to": "1942-01-10",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BlumentrittG-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Julius von Bernuth",
+     "from": "1942-01-10",
+     "to": "1942-04-27",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BernuthJuliusv-R.htm"
+    },
+    {
+     "name": "Generalmajor Hans Röttiger",
+     "from": "1942-04-28",
+     "to": "1943-05-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RoettigerHans-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Rolf Wuthmann",
+     "from": null,
+     "to": "1940-11-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WuthmannRolf-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-5": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/5Armee-R.htm",
+   "commanders": [
+    {
+     "name": "General der Infanterie Curt Liebmann",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LiebmannCurt-R.htm"
+    },
+    {
+     "name": "Generalmajor Karl-Adolf Hollidt",
+     "from": "1939-09-10",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HollidtK-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-6": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/6Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generalfeldmarschall Walter von Reichenau",
+     "from": null,
+     "to": "1941-12-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/ReichenauWaltherv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Friedrich Paulus",
+     "from": "1942-01-01",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/P/Paulus-R.htm"
+    },
+    {
+     "name": "Generaloberst Karl-Adolf Hollidt",
+     "from": "1943-03-06",
+     "to": "1943-11-22",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HollidtK-R.htm"
+    },
+    {
+     "name": "General der Artillerie Maximilian de Angelis",
+     "from": "1943-11-22",
+     "to": "1943-12-19",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/A/AngelisM-R.htm"
+    },
+    {
+     "name": "Generaloberst Karl-Adolf Hollidt",
+     "from": "1943-12-19",
+     "to": "1944-03-25",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HollidtK-R.htm"
+    },
+    {
+     "name": "General der Panzertruppe Sigfrid Henrici",
+     "from": "1944-03-25",
+     "to": "1944-04-08",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HenriciS-R.htm"
+    },
+    {
+     "name": "General der Artillerie Maximilian de Angelis",
+     "from": "1944-04-08",
+     "to": "1944-07-17",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/A/AngelisM-R.htm"
+    },
+    {
+     "name": "General der Artillerie Maximilian Fretter-Pico",
+     "from": "1944-07-17",
+     "to": "1944-12-22",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/Fretter-Pico-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Hermann Balck",
+     "from": "1944-12-23",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BalckH-R.htm"
+    },
+    {
+     "name": "Generalmajor Friedrich Paulus",
+     "from": null,
+     "to": "1940-09-03",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/P/Paulus-R.htm"
+    },
+    {
+     "name": "Generalmajor Ferdinand Heim",
+     "from": "1940-09-03",
+     "to": "1942-05-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HeimFerdinand-R.htm"
+    },
+    {
+     "name": "Generalmajor Walther Wenck",
+     "from": "1943-03-06",
+     "to": "1943-03-10",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WenckWalter-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Anton-Reichard Freiherr von Mauchenheim genannt Bechtolsheim",
+     "from": null,
+     "to": "1941-02-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BechtolsheimAntonReichardFrhvMauchenheim-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-7": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/7Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Friedrich Dollmann",
+     "from": null,
+     "to": "1944-06-28",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/D/DollmannF-R.htm"
+    },
+    {
+     "name": "Generaloberst der Wffen-SS Paul Hausser",
+     "from": "1944-06-29",
+     "to": "1944-08-21",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HausserP-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Hans Freiherr von Funck",
+     "from": "1944-08-21",
+     "to": "1944-08-22",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FunckHFv-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Heinrich Eberbach",
+     "from": "1944-08-24",
+     "to": "1944-08-31",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/E/EberbachH-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Erich Brandenberger",
+     "from": "1944-08-31",
+     "to": "1945-02-20",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BrandenbergerE-R.htm"
+    },
+    {
+     "name": "General der Infanterie Hans Felber",
+     "from": "1945-02-22",
+     "to": "1945-03-25",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FelberHansGustav-R.htm"
+    },
+    {
+     "name": "General der Infanterie Hans von Obstfelder",
+     "from": "1945-03-25",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/O/ObstfelderHv-R.htm"
+    },
+    {
+     "name": "Generalleutnant Walther Fischer von Weikersthal",
+     "from": "1939-08-26",
+     "to": "1940-11-25",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FischervWeikersthalWalther-R.htm"
+    },
+    {
+     "name": "Generalmajor Max Pemsel",
+     "from": "1943-06-01",
+     "to": "1944-04-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/P/PemselM-R.htm"
+    },
+    {
+     "name": "Generalmajor Max Pemsel",
+     "from": "1944-05-01",
+     "to": "1944-07-28",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/P/PemselM-R.htm"
+    },
+    {
+     "name": "Generalmajor Rudolf-Christoph Freiherr von Gersdorff",
+     "from": "1944-07-28",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/G/GersdorffRv-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Anton Dostler",
+     "from": null,
+     "to": "1939-10-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/D/DostlerAnton-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Siegfried Rasp",
+     "from": "1940-06-20",
+     "to": "1942-04-24",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RaspS-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Otto-Hermann Brücker",
+     "from": "1942-04-24",
+     "to": "1942-12-12",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BrueckerOH-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-8": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/8Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Johannes Blaskowitz",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BlaskowitzJ-R.htm"
+    },
+    {
+     "name": "General der Infanterie Otto Wöhler",
+     "from": null,
+     "to": "1944-12-22",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WoehlerO-R.htm"
+    },
+    {
+     "name": "General der Panzertruppe Ulrich Kleemann",
+     "from": "1944-12-22",
+     "to": "1944-12-28",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KleemannU-R.htm"
+    },
+    {
+     "name": "General der Gebirgstruppen Hans Kreysing",
+     "from": "1944-12-28",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KreysingH-R.htm"
+    },
+    {
+     "name": "Generalleutnant Hans-Gustav Felber",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FelberHansGustav-R.htm"
+    }
+   ]
+  },
+  "de-h-armee-9": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Armeen/9Armee-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Johannes Blaskowitz",
+     "from": null,
+     "to": "1940-05-29",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BlaskowitzJ-R.htm"
+    },
+    {
+     "name": "Generaloberst Adolf Strauss",
+     "from": "1940-05-29",
+     "to": "1942-01-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/Strauss-R.htm"
+    },
+    {
+     "name": "Generaloberst Walter Model",
+     "from": "1942-01-15",
+     "to": "1942-05-23",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/ModelW-R.htm"
+    },
+    {
+     "name": "General der Infanterie Albrecht Schubert",
+     "from": "1942-05-23",
+     "to": "1942-06-10",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SchubertAlbrecht-R.htm"
+    },
+    {
+     "name": "Generaloberst Heinrich von Vietinghoff-Scheel",
+     "from": "1942-09-01",
+     "to": "1942-12-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/V/VietinghoffHv-R.htm"
+    },
+    {
+     "name": "Generaloberst Walter Model",
+     "from": "1942-12-01",
+     "to": "1943-03-19",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/ModelW-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Josef Harpe",
+     "from": "1943-03-19",
+     "to": "1943-03-30",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HarpeJ-R.htm"
+    },
+    {
+     "name": "Generaloberst Walter Model",
+     "from": "1943-03-30",
+     "to": "1943-05-20",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/ModelW-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Josef Harpe",
+     "from": "1943-05-20",
+     "to": "1943-06-09",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HarpeJ-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Walter Model",
+     "from": "1943-06-09",
+     "to": "1943-11-04",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/ModelW-R.htm"
+    },
+    {
+     "name": "Generaloberst Josef Harpe",
+     "from": "1943-11-04",
+     "to": "1944-05-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HarpeJ-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Walter Model",
+     "from": "1943-11-30",
+     "to": "1944-01-09",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/ModelW-R.htm"
+    },
+    {
+     "name": "Generaloberst Josef Harpe",
+     "from": "1944-01-09",
+     "to": "1944-05-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HarpeJ-R.htm"
+    },
+    {
+     "name": "General der Infanterie Hans Jordan",
+     "from": "1944-05-20",
+     "to": "1944-06-27",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/J/JordanH-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Nikolaus von Vormann",
+     "from": "1944-06-27",
+     "to": "1944-09-21",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/V/VormannNikolausv-R.htm"
+    },
+    {
+     "name": "General der Panzertruppen Smilo Freiherr von Lüttwitz",
+     "from": "1944-09-21",
+     "to": "1945-01-19",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LuttwitzSFv-R.htm"
+    },
+    {
+     "name": "General der Infanterie Theodor Busse",
+     "from": "1945-01-19",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BusseTheodor-R.htm"
+    },
+    {
+     "name": "Generalmajor Karl-Adolf Hollidt",
+     "from": null,
+     "to": "1940-10-25",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HollidtK-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Kurt Weckmann",
+     "from": "1940-10-25",
+     "to": "1941-10-16",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WeckmannK-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Rudolf Hofmann",
+     "from": "1941-10-27",
+     "to": "1942-01-14",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HofmannRudolf-R.htm"
+    },
+    {
+     "name": "Generalmajor Hans Krebs",
+     "from": "1942-01-14",
+     "to": "1943-01-30",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KrebsH-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Harald Freiherr von Elverfeldt",
+     "from": "1943-01-30",
+     "to": "1943-10-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/E/ElverfeldHFv-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Edmund Blaurock",
+     "from": "1941-03-06",
+     "to": "1942-03-04",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BlaurockE-R.htm"
+    }
+   ]
+  },
+  "de-h-hgr-a": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Heeresgruppen/HeeresgruppeA-R.htm",
+   "commanders": [
+    {
+     "name": "Generalfeldmarschall Gerd von Rundstedt",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RundstedtGv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Wilhelm List",
+     "from": "1942-07-10",
+     "to": "1942-09-10",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/ListWilhelm-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Ewald von Kleist",
+     "from": "1942-11-22",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KleistEv-R.htm"
+    },
+    {
+     "name": "Generaloberst Josef Harpe",
+     "from": null,
+     "to": "1944-01-17",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HarpeJ-R.htm"
+    },
+    {
+     "name": "Generaloberst Ferdinand Schörner",
+     "from": "1945-01-17",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SchoernerF-R.htm"
+    },
+    {
+     "name": "Generalleutnant Erich von Manstein",
+     "from": null,
+     "to": "1940-02-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MansteinEv-R.htm"
+    },
+    {
+     "name": "General der Infanterie Georg von Sodenstern",
+     "from": "1940-02-06",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SodensternGeorgv-R.htm"
+    },
+    {
+     "name": "Generalleutnant Hans von Greiffenberg",
+     "from": null,
+     "to": "1943-02-23",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/G/GreiffenbergHansv-R.htm"
+    },
+    {
+     "name": "Generalleutnant Alfred Gause",
+     "from": "1943-02-23",
+     "to": "1943-05-13",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/G/GauseAlfred-R.htm"
+    },
+    {
+     "name": "Generalleutnant Hans von Greiffenberg",
+     "from": "1943-05-13",
+     "to": "1943-07-16",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/G/GreiffenbergHansv-R.htm"
+    },
+    {
+     "name": "Generalmajor Hans Röttiger",
+     "from": "1943-07-16",
+     "to": "1944-03-24",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RoettigerHans-R.htm"
+    },
+    {
+     "name": "Generalleutnant Walther Wenck",
+     "from": "1944-03-24",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WenckWalter-R.htm"
+    },
+    {
+     "name": "Generalleutnant Wolfdietrich von Xylander",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/X/XylanderWolfdietrichRitterv-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Günther von Blumentritt",
+     "from": null,
+     "to": "1940-03-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BlumentrittG-R.htm"
+    },
+    {
+     "name": "Oberstleutnant i.G. Henning von Treskow",
+     "from": "1940-03-01",
+     "to": "1940-10-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/T/TresckowH-R.htm"
+    },
+    {
+     "name": "Oberst i.G. August Winter",
+     "from": "1940-10-31",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WinterAugust-R.htm"
+    }
+   ]
+  },
+  "de-h-hgr-b": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Heeresgruppen/HeeresgruppeB-R.htm",
+   "commanders": [
+    {
+     "name": "Generalfeldmarschall Fedor von Bock",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BockFedorv-R.htm"
+    },
+    {
+     "name": "Generaloberst Maximilian Freiherr von Weichs",
+     "from": "1942-07-15",
+     "to": "1943-07-10",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WeichsMFv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Erwin Rommel",
+     "from": "1943-07-14",
+     "to": "1943-07-17",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RommelE-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Günther von Kluge",
+     "from": "1944-07-19",
+     "to": "1944-08-16",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KlugeGv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Walter Model",
+     "from": "1944-08-17",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/ModelW-R.htm"
+    },
+    {
+     "name": "General der Infanterie Hans von Salmuth",
+     "from": null,
+     "to": "1941-05-09",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SalmuthHansv-R.htm"
+    },
+    {
+     "name": "Generalmajor Hans von Greiffenberg",
+     "from": "1941-05-20",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/G/GreiffenbergHansv-R.htm"
+    },
+    {
+     "name": "General der Infanterie Georg von Sodenstern",
+     "from": null,
+     "to": "1943-05-20",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SodensternGeorgv-R.htm"
+    },
+    {
+     "name": "Generalleutnant Alfred Gause",
+     "from": "1943-05-20",
+     "to": "1944-04-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/G/GauseAlfred-R.htm"
+    },
+    {
+     "name": "General der Infanterie Hans Krebs",
+     "from": "1944-09-05",
+     "to": "1945-02-17",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KrebsH-R.htm"
+    },
+    {
+     "name": "Generalmajor Carl Wagener",
+     "from": "1945-02-20",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WagenerC-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Wilhelm Hasse",
+     "from": null,
+     "to": "1940-05-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HasseW-R.htm"
+    },
+    {
+     "name": "Oberstleutnant i.G. Henning von Tresckow",
+     "from": "1940-12-01",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/T/TresckowH-R.htm"
+    },
+    {
+     "name": "Oberst i.G. August Winter",
+     "from": null,
+     "to": "1943-02-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WinterAugust-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Günther Reichhelm",
+     "from": "1944-09-30",
+     "to": "1945-04-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/ReichhelmG-R.htm"
+    }
+   ]
+  },
+  "de-h-hgr-don": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Heeresgruppen/HeeresgruppeDon-R.htm",
+   "commanders": [
+    {
+     "name": "Generalfeldmarschall Erich von Mannstein",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MansteinEv-R.htm"
+    },
+    {
+     "name": "Generalmajor Friedrich Schulz",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SchulzF-R.htm"
+    },
+    {
+     "name": "Generalmajor Theodor Busse",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BusseTheodor-R.htm"
+    }
+   ]
+  },
+  "de-h-hgr-kurland": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Heeresgruppen/HeeresgruppeKurland-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Dr. Lothar Rendulic",
+     "from": null,
+     "to": "1945-01-26",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RendulicL-R.htm"
+    },
+    {
+     "name": "Generaloberst Carl Hilpert",
+     "from": "1945-01-26",
+     "to": "1945-01-30",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HilpertC-R.htm"
+    },
+    {
+     "name": "Generaloberst Heinrich von Vietinghoff",
+     "from": "1945-01-30",
+     "to": "1945-03-10",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/V/VietinghoffHv-R.htm"
+    },
+    {
+     "name": "Generaloberst Dr. Lothar Rendulic",
+     "from": "1945-03-10",
+     "to": "1945-03-24",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RendulicL-R.htm"
+    },
+    {
+     "name": "Generaloberst Carl Hilpert",
+     "from": "1945-03-25",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HilpertC-R.htm"
+    },
+    {
+     "name": "Generalleutnant Friedrich Foertsch",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FoertschF-R.htm"
+    }
+   ]
+  },
+  "de-h-hgr-mitte": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Heeresgruppen/HeeresgruppeMitte-R.htm",
+   "commanders": [
+    {
+     "name": "Generalfeldmarschall Fedor von Bock",
+     "from": null,
+     "to": "1941-12-19",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BockFedorv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Günther von Kluge",
+     "from": "1941-12-19",
+     "to": "1943-10-12",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KlugeGv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Ernst Busch",
+     "from": "1943-10-12",
+     "to": "1944-06-27",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BuschE-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Walter Model",
+     "from": "1944-06-28",
+     "to": "1944-08-16",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/ModelW-R.htm"
+    },
+    {
+     "name": "Generaloberst Georg-Hans Reinhardt",
+     "from": "1944-08-16",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/ReinhardtGH-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Ferdinand Schörner",
+     "from": "1945-01-17",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SchoernerF-R.htm"
+    },
+    {
+     "name": "Generalmajor Hans von Greiffenberg",
+     "from": null,
+     "to": "1942-04-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/G/GreiffenbergHansv-R.htm"
+    },
+    {
+     "name": "Generalleutnant Otto Wöhler",
+     "from": "1942-04-01",
+     "to": "1943-03-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WoehlerO-R.htm"
+    },
+    {
+     "name": "General der Infanterie Hans Krebs",
+     "from": "1943-03-01",
+     "to": "1944-09-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KrebsH-R.htm"
+    },
+    {
+     "name": "Generalleutnant Otto Heidkämper",
+     "from": "1944-09-01",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HeidkaemperOtto-R.htm"
+    },
+    {
+     "name": "Generalleutnant Wolfdietrich Ritter von Xylander",
+     "from": null,
+     "to": "1945-02-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/X/XylanderWolfdietrichRitterv-R.htm"
+    },
+    {
+     "name": "Generalleutnant Oldwig von Natzmer",
+     "from": "1945-02-17",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/N/NatzmerOldwigOttov-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Henning von Treskow",
+     "from": null,
+     "to": "1943-07-25",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/T/TresckowH-R.htm"
+    }
+   ]
+  },
+  "de-h-hgr-nord": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Heeresgruppen/HeeresgruppeNord-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Fedor von Bock",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BockFedorv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Wilhelm Ritter von Leeb",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LeebWilhelmRitterv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Georg von Küchler",
+     "from": "1942-01-17",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KuechlerGv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Walter Model",
+     "from": "1944-01-09",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/ModelW-R.htm"
+    },
+    {
+     "name": "Generaloberst Georg Lindemann",
+     "from": "1944-03-31",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/LindemannG-R.htm"
+    },
+    {
+     "name": "Generaloberst Johannes Frießner",
+     "from": "1944-07-04",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FriessnerJ-R.htm"
+    },
+    {
+     "name": "Generaloberst Ferdinand Schörner",
+     "from": "1944-07-25",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SchoernerF-R.htm"
+    },
+    {
+     "name": "Generaloberst Dr. Lothar Rendulic",
+     "from": "1945-01-27",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RendulicL-R.htm"
+    },
+    {
+     "name": "Generaloberst Walter Weiss",
+     "from": "1945-03-12",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WeissW-R.htm"
+    },
+    {
+     "name": "Generalmajor Hans von Salmuth",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SalmuthHansv-R.htm"
+    },
+    {
+     "name": "Generalleutnant Kurt Brennecke",
+     "from": null,
+     "to": "1942-01-17",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BrenneckeKurt-R.htm"
+    },
+    {
+     "name": "Generalleutnant Wilhelm Hasse",
+     "from": "1942-01-25",
+     "to": "1943-01-22",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HasseW-R.htm"
+    },
+    {
+     "name": "Generalleutnant Eberhard Kinzel",
+     "from": "1943-01-22",
+     "to": "1944-07-18",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KinzelEberhard-R.htm"
+    },
+    {
+     "name": "Generalmajor Oldwig von Natzmer",
+     "from": "1944-07-19",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/N/NatzmerOldwigOttov-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Wilhelm Hasse",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HasseW-R.htm"
+    }
+   ]
+  },
+  "de-h-hgr-nordukraine": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Heeresgruppen/HeeresgruppeNordukraine-R.htm",
+   "commanders": [
+    {
+     "name": "Generalfeldmarschall Walter Model",
+     "from": null,
+     "to": "1944-08-16",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/ModelW-R.htm"
+    },
+    {
+     "name": "Generaloberst Josef Harpe",
+     "from": "1944-08-16",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HarpeJ-R.htm"
+    },
+    {
+     "name": "Generalleutnant Theodor Busse",
+     "from": null,
+     "to": "1944-07-10",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BusseTheodor-R.htm"
+    },
+    {
+     "name": "Generalmajor Wolfdietrich Ritter von Xylander",
+     "from": "1944-07-10",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/X/XylanderWolfdietrichRitterv-R.htm"
+    }
+   ]
+  },
+  "de-h-hgr-ostmark": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Heeresgruppen/HeeresgruppeOstmark-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Dr. Lothar Rendulic",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RendulicL-R.htm"
+    }
+   ]
+  },
+  "de-h-hgr-sued": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Heeresgruppen/HeeresgruppeSud-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Gerd von Rundstedt",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RundstedtGv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Gerd von Rundstedt",
+     "from": null,
+     "to": "1941-12-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RundstedtGv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Walter von Reichenau",
+     "from": "1941-12-01",
+     "to": "1942-01-15",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/ReichenauWaltherv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Fedor von Bock",
+     "from": "1942-01-18",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BockFedorv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Erich von Manstein",
+     "from": "1943-02-12",
+     "to": "1944-03-31",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MansteinEv-R.htm"
+    },
+    {
+     "name": "Generalfeldmarschall Walter Model",
+     "from": "1944-03-31",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/ModelW-R.htm"
+    },
+    {
+     "name": "Generaloberst Johannes Frießner",
+     "from": "1944-09-23",
+     "to": "1944-12-22",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FriessnerJ-R.htm"
+    },
+    {
+     "name": "General der Infanterie Otto Wöhler",
+     "from": "1944-12-28",
+     "to": "1945-04-06",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WoehlerO-R.htm"
+    },
+    {
+     "name": "Generaloberst Lothar Rendulic",
+     "from": "1945-04-06",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/R/RendulicL-R.htm"
+    },
+    {
+     "name": "Generalleutnant Erich von Manstein",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/M/MansteinEv-R.htm"
+    },
+    {
+     "name": "General der Infanterie Georg von Sodenstern",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SodensternGeorgv-R.htm"
+    },
+    {
+     "name": "Generalmajor Friedrich Schulz",
+     "from": null,
+     "to": "1943-03-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SchulzF-R.htm"
+    },
+    {
+     "name": "Generalleutnant Theodor Busse",
+     "from": "1943-03-01",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BusseTheodor-R.htm"
+    },
+    {
+     "name": "Oberst i.G. Günther Blumentritt",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BlumentrittG-R.htm"
+    },
+    {
+     "name": "Oberst i.G. August Winter",
+     "from": null,
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WinterAugust-R.htm"
+    },
+    {
+     "name": "Generalmajor Theodor Busse",
+     "from": null,
+     "to": "1944-03-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/B/BusseTheodor-R.htm"
+    }
+   ]
+  },
+  "de-h-hgr-suedukraine": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Heeresgruppen/HeeresgruppeSudukraine-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Ferdinand Schörner",
+     "from": null,
+     "to": "1944-07-20",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/SchoernerF-R.htm"
+    },
+    {
+     "name": "Generaloberst Johannes Frießner",
+     "from": "1944-07-25",
+     "to": null,
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/F/FriessnerJ-R.htm"
+    },
+    {
+     "name": "Generalleutnant Walther Wenck",
+     "from": null,
+     "to": "1944-07-20",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/W/WenckWalter-R.htm"
+    }
+   ]
+  },
+  "de-h-hgr-weichsel": {
+   "page": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Heeresgruppen/HeeresgruppeWeichsel-R.htm",
+   "commanders": [
+    {
+     "name": "Generaloberst Gotthard Heinrici",
+     "from": "1945-03-21",
+     "to": "1945-04-29",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/H/HeinriciG-R.htm"
+    },
+    {
+     "name": "Generaloberst Kurt Student",
+     "from": "1945-04-30",
+     "to": "1945-05-01",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/S/StudentK-R.htm"
+    },
+    {
+     "name": "Generalmajor der Waffen-SS Heinz Lammerding",
+     "from": null,
+     "to": "1945-03-21",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/L/KochFriedrich-R.htm"
+    },
+    {
+     "name": "General der Infanterie Eberhard Kinzel",
+     "from": "1945-03-21",
+     "to": "1945-04-22",
+     "link": "https://www.lexikon-der-wehrmacht.de/Personenregister/K/KinzelEberhard-R.htm"
+    }
+   ]
+  }
+ }
+}

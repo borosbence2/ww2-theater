@@ -1390,6 +1390,10 @@
    "title": "64th_Army_(Soviet_Union)",
    "summary": "The 64th Army was a field army established by the Soviet Union's Red Army during the Second World War."
   },
+  "su-1st-tank-brigade": {
+   "title": "1st_Tank_Brigade_(Soviet_Union)",
+   "summary": "The 1st Tank Brigade was a Soviet tank brigade taking a part in World War II. The brigade was in the lines during 18 September 1941 to 16 February 1942."
+  },
   "su-25th-mechanized-corps": {
    "title": "25th_Mechanized_Corps_(Soviet_Union)",
    "summary": "The 25th Mechanized Corps was a Mechanized corps of the Red Army. Formed in March 1941, the corps fought in the Battle of Smolensk. Its headquarters and that of the 20th Rifle Corps were combined in August 1941 to form the Bryansk Front headquarters."
@@ -1609,6 +1613,10 @@
   "su-19th-tank-corps": {
    "title": "19th_Tank_Corps",
    "summary": "The 19th Perekop Red Banner Tank Corps was a tank corps of the Red Army during World War II."
+  },
+  "su-44th-guards-tank-brigade": {
+   "title": "44th_Guards_Tank_Brigade",
+   "summary": "The 112th \"Revolutionary Mongolia\" Tank Brigade, previously the 112th Tank Brigade, was a military formation in the Red Army, funded by contributions from the People's Republic of Mongolia, during World War II. It was originally formed as the 112th Tank Division."
   },
   "su-61st-rifle-corps": {
    "title": "61st_Rifle_Corps",
@@ -3409,6 +3417,10 @@
   "su-10th-tank-corps": {
    "title": "10th_Tank_Corps",
    "summary": "The 10th Tank Corps was a tank corps of the Red Army, formed twice."
+  },
+  "su-112th-tank-brigade": {
+   "title": "112th_\"Revolutionary_Mongolia\"_Tank_Brigade",
+   "summary": "The 112th \"Revolutionary Mongolia\" Tank Brigade, previously the 112th Tank Brigade, was a military formation in the Red Army, funded by contributions from the People's Republic of Mongolia, during World War II. It was originally formed as the 112th Tank Division."
   },
   "su-1st-guards-tank-corps": {
    "title": "1st_Guards_Tank_Division",

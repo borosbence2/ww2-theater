@@ -672,6 +672,24 @@ button.orbat-row:hover {
   background: var(--accent-soft);
   color: var(--accent);
 }
+.equip-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 7px 0 2px;
+}
+.equip-chip {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--hover);
+  border: 1px solid var(--line-soft);
+  color: var(--muted);
+}
+.equip-chip b {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
 
 .side-dot {
   flex: none;

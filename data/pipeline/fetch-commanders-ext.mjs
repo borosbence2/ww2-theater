@@ -9,7 +9,7 @@
 // Run: node data/pipeline/fetch-commanders-ext.mjs   (after build-units once,
 // to have index.json). Set SAMPLE=N to resolve only the first N (for testing).
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 
 const INDEX = 'public/data/units/index.json';
 const OUT = 'data/curated/units/oob/commanders-ext.json';
@@ -89,9 +89,9 @@ async function resolve(label, echelon, side) {
       : [label, `${label} (Wehrmacht)`];
   const wantOrd = ordinal(label);
   const wantFront = echelon === 'front' ? frontWord(label) : null;
-  // Corps are numerous and homonym-prone; without a numeric ordinal to anchor
-  // on (e.g. German roman-numeral corps) skip rather than risk a wrong match.
-  if (echelon === 'corps' && !wantOrd) return null;
+  // Corps/brigades are numerous and homonym-prone; without a numeric ordinal to
+  // anchor on (e.g. German roman-numeral corps) skip rather than risk a wrong match.
+  if ((echelon === 'corps' || echelon === 'brigade') && !wantOrd) return null;
 
   const candIds = [];
   const seen = new Set();
@@ -182,17 +182,22 @@ async function fetchDetails(qids) {
 
 // --- main ------------------------------------------------------------------
 const index = JSON.parse(readFileSync(INDEX, 'utf8')).units;
-// Higher formations that lack a QID: Soviet fronts + armies + corps, German
-// armies + army groups. (Divisions already carry QIDs from the importers;
-// German corps use roman numerals and are skipped by the corps ordinal guard.)
-const ECHS = new Set(['front', 'army', 'army-group', 'corps']);
+// Higher formations that lack a QID: Soviet fronts + armies + corps + brigades,
+// German armies + army groups. (Divisions already carry QIDs from the importers;
+// German corps/brigades use roman numerals and are skipped by the ordinal guard.)
+const ECHS = new Set(['front', 'army', 'army-group', 'corps', 'brigade']);
 let targets = index.filter((u) => ECHS.has(u.echelon));
 if (process.env.SAMPLE) targets = targets.slice(0, Number(process.env.SAMPLE));
-console.log(`Resolving ${targets.length} higher formations on Wikidata…`);
 
-const resolved = {}; // unitId -> { qid, description, wikipedia }
+// Resume cache: keep already-resolved units, only hit the network for new ones
+// (set FORCE=1 to re-resolve everything).
+const prev = !process.env.FORCE && existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')).units ?? {} : {};
+const todo = targets.filter((u) => !prev[u.id]);
+console.log(`${targets.length} targets; ${Object.keys(prev).length} cached; resolving ${todo.length} new…`);
+
+const resolved = {}; // newly-resolved unitId -> { qid, description, wikipedia }
 let hit = 0;
-for (const u of targets) {
+for (const u of todo) {
   const r = await resolve(u.label, u.echelon, u.side);
   if (r) {
     resolved[u.id] = r;
@@ -203,24 +208,24 @@ for (const u of targets) {
   }
   await sleep(300);
 }
-console.log(`Resolved ${hit}/${targets.length}.`);
+console.log(`Resolved ${hit}/${todo.length} new.`);
 
 const qids = [...new Set(Object.values(resolved).map((r) => r.qid))];
 const details = await fetchDetails(qids);
 
-const unitsOut = {};
-let cmdTotal = 0;
+// Start from the cache, add the newly-resolved units.
+const unitsOut = { ...prev };
 for (const [id, r] of Object.entries(resolved)) {
   const d = details[r.qid] ?? { commanders: [] };
   d.commanders.sort((a, b) => ((a.from ?? '9999') < (b.from ?? '9999') ? -1 : 1));
   unitsOut[id] = { qid: r.qid, description: r.description, wikipedia: r.wikipedia, commanders: d.commanders };
-  cmdTotal += d.commanders.length;
 }
+const cmdTotal = Object.values(unitsOut).reduce((n, u) => n + (u.commanders?.length ?? 0), 0);
 writeFileSync(
   OUT,
   JSON.stringify(
     {
-      note: 'Higher Soviet formations resolved to Wikidata by label; commanders (P598), description, and Wikipedia article. Keyed by unit id. Attached by build-units.',
+      note: 'Higher formations (Soviet fronts/armies/corps/brigades, German armies/army groups) resolved to Wikidata by label; commanders (P598), description, and Wikipedia article. Keyed by unit id. Attached by build-units.',
       source: 'Wikidata (CC0)',
       units: unitsOut,
     },

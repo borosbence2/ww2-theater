@@ -237,8 +237,15 @@ export function UnitPanel({ id }: { id: string }) {
             {unit.commanders.map((c) => {
               // Wikidata commanders may be undated; only dated spans can be "active".
               const active = c.from ? dateToNum(c.from) <= d && (!c.to || d < dateToNum(c.to)) : false;
+              // Tenures may have one endpoint as a keyword (Aufstellung/Kapitulation)
+              // and so be partially dated — show what we have, honestly.
+              const span = c.from
+                ? `${formatLong(c.from)} — ${c.to ? formatLong(c.to) : 'open'}`
+                : c.to
+                  ? `until ${formatLong(c.to)}`
+                  : 'dates unknown';
               return (
-                <li key={`${c.name}|${c.from ?? '?'}`} className={active ? 'commander-active' : undefined}>
+                <li key={`${c.name}|${c.from ?? '?'}|${c.to ?? '?'}`} className={active ? 'commander-active' : undefined}>
                   {c.link ? (
                     <a href={c.link} target="_blank" rel="noreferrer">
                       {c.name}
@@ -247,7 +254,7 @@ export function UnitPanel({ id }: { id: string }) {
                     c.name
                   )}{' '}
                   <span className="omnibox-meta">
-                    {c.from ? `${formatLong(c.from)} — ${c.to ? formatLong(c.to) : 'open'}` : 'dates unknown'}
+                    {span}
                     {active && ' · in command'}
                   </span>
                 </li>
@@ -306,6 +313,20 @@ export function UnitPanel({ id }: { id: string }) {
             {template.name}
             <span className="orbat-template-tag">standard TO&amp;E</span>
           </p>
+          {template.strength && (
+            <p className="detail-note">
+              Establishment ≈ <strong>{template.strength.toLocaleString()}</strong> personnel (nominal)
+            </p>
+          )}
+          {template.equipment && template.equipment.length > 0 && (
+            <div className="equip-chips">
+              {template.equipment.map((e) => (
+                <span className="equip-chip" key={e.name}>
+                  <b>{e.count.toLocaleString()}</b> {e.name}
+                </span>
+              ))}
+            </div>
+          )}
           <TemplateRows nodes={template.components} side={unit.side} />
           {template.note && <p className="detail-note">{template.note}</p>}
         </section>

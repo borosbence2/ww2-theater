@@ -36,6 +36,11 @@ export interface TemplateNode {
   children?: TemplateNode[];
 }
 
+export interface EquipItem {
+  name: string;
+  count: number;
+}
+
 export interface FormationTemplate {
   side: 'axis' | 'soviet';
   echelon: string;
@@ -45,7 +50,137 @@ export interface FormationTemplate {
   name: string;
   note?: string;
   components: TemplateNode[];
+  /** Nominal establishment strength (personnel), TO&E — not an actual return. */
+  strength?: number;
+  /** Key authorised weapons/vehicles (nominal counts), for the quantitative view. */
+  equipment?: EquipItem[];
 }
+
+// Nominal establishment strength + key equipment per template, keyed by name.
+// TO&E "paper" figures (Niehorster / Soviet shtaty / Glantz & House) — what the
+// formation was *meant* to field, not a strength return on any given day.
+const ESTABLISHMENT: Record<string, { strength?: number; equipment?: EquipItem[] }> = {
+  'Infantry Division (Type 1939)': {
+    strength: 17734,
+    equipment: [
+      { name: 'Rifles & carbines', count: 12609 },
+      { name: 'Light MG (MG 34)', count: 378 },
+      { name: 'Heavy MG', count: 138 },
+      { name: '8 cm mortars', count: 54 },
+      { name: '3.7 cm PaK', count: 75 },
+      { name: '10.5 cm leFH', count: 36 },
+      { name: '15 cm sFH', count: 12 },
+      { name: 'Horses', count: 4842 },
+    ],
+  },
+  'Infantry Division (Type 1944)': {
+    strength: 12769,
+    equipment: [
+      { name: 'Rifles & carbines', count: 9069 },
+      { name: 'MG 42', count: 566 },
+      { name: '8 cm mortars', count: 48 },
+      { name: '7.5 cm PaK', count: 21 },
+      { name: '10.5 cm leFH', count: 36 },
+      { name: '15 cm sFH', count: 12 },
+    ],
+  },
+  'Panzer-Division (1941)': {
+    strength: 16932,
+    equipment: [
+      { name: 'Tanks (Pz II/III/IV)', count: 196 },
+      { name: 'Armoured cars', count: 90 },
+      { name: '3.7/5 cm PaK', count: 51 },
+      { name: '10.5 cm leFH', count: 24 },
+    ],
+  },
+  'Panzer-Division (1943/44)': {
+    strength: 14727,
+    equipment: [
+      { name: 'Tanks (Pz IV/Panther)', count: 160 },
+      { name: 'StuG / Panzerjäger', count: 21 },
+      { name: 'Field howitzers', count: 42 },
+      { name: 'Flak (2 cm/8.8 cm)', count: 63 },
+    ],
+  },
+  'Panzergrenadier-/Motorized Division': {
+    strength: 14000,
+    equipment: [
+      { name: 'Tanks / StuG', count: 48 },
+      { name: 'Armoured cars', count: 25 },
+      { name: 'Field howitzers', count: 36 },
+    ],
+  },
+  'Rifle Division (shtat 04/400, 1941)': {
+    strength: 14483,
+    equipment: [
+      { name: 'Rifles & carbines', count: 10420 },
+      { name: 'Light & heavy MG', count: 558 },
+      { name: 'Mortars (50/82/120 mm)', count: 150 },
+      { name: '45 mm AT guns', count: 54 },
+      { name: '76 mm guns', count: 34 },
+      { name: '122/152 mm howitzers', count: 44 },
+      { name: 'Horses', count: 3039 },
+    ],
+  },
+  'Rifle Division (shtat 04/300, late 1941)': {
+    strength: 11626,
+    equipment: [
+      { name: 'Rifles & carbines', count: 8341 },
+      { name: 'Mortars', count: 78 },
+      { name: '45 mm AT guns', count: 18 },
+      { name: '76 mm guns', count: 28 },
+      { name: '122 mm howitzers', count: 8 },
+    ],
+  },
+  'Rifle Division (shtat 04/550, 1943)': {
+    strength: 9380,
+    equipment: [
+      { name: 'Rifles & carbines', count: 6330 },
+      { name: 'SMG (PPSh)', count: 2010 },
+      { name: 'Mortars', count: 136 },
+      { name: '45 mm AT guns', count: 48 },
+      { name: '76 mm guns', count: 44 },
+      { name: '122 mm howitzers', count: 12 },
+    ],
+  },
+  'Cavalry Division': {
+    strength: 9240,
+    equipment: [
+      { name: 'Horses', count: 8000 },
+      { name: 'Mortars', count: 64 },
+      { name: '76 mm guns', count: 8 },
+    ],
+  },
+  'Tank Corps (1942)': {
+    strength: 7800,
+    equipment: [
+      { name: 'Tanks (T-34/T-70)', count: 168 },
+      { name: 'Guns & mortars', count: 52 },
+      { name: 'Armoured cars', count: 8 },
+    ],
+  },
+  'Mechanized Corps (1942)': {
+    strength: 13559,
+    equipment: [
+      { name: 'Tanks', count: 175 },
+      { name: 'Guns & mortars', count: 100 },
+    ],
+  },
+  'Tank Brigade (1942)': {
+    strength: 1107,
+    equipment: [
+      { name: 'Tanks (T-34/T-70)', count: 53 },
+      { name: 'AT rifles', count: 12 },
+    ],
+  },
+  'Mechanized / Motor Rifle Brigade': {
+    strength: 3500,
+    equipment: [
+      { name: 'Tanks (mech bde)', count: 39 },
+      { name: 'Guns & mortars', count: 36 },
+    ],
+  },
+};
 
 interface Opt {
   count?: number;
@@ -500,13 +635,15 @@ export function matchTemplate(
       dateISO >= t.from &&
       dateISO <= t.to,
   );
+  const withEstablishment = (t: FormationTemplate | undefined): FormationTemplate | null =>
+    t ? { ...t, ...ESTABLISHMENT[t.name] } : null;
   if (inWindow.length) {
-    return inWindow.sort((a, b) => b.from.localeCompare(a.from))[0];
+    return withEstablishment(inWindow.sort((a, b) => b.from.localeCompare(a.from))[0]);
   }
   // No date-valid template: fall back to the nearest era for this type so a
   // unit selected outside the curated windows still shows a sensible structure.
   const anyEra = TEMPLATES.filter(
     (t) => t.side === side && t.echelon === echelon && (t.types.includes(type) || t.types.includes('*')),
   );
-  return anyEra.sort((a, b) => b.from.localeCompare(a.from))[0] ?? null;
+  return withEstablishment(anyEra.sort((a, b) => b.from.localeCompare(a.from))[0]);
 }

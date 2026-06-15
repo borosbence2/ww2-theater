@@ -358,8 +358,16 @@ fronts (prereq for placing western units).
 
 ### Phase 5 — Equipment & enrichment (Tier 4)
 
+- [x] 5.0 Commanders + descriptions enrichment (done June 2026): Wikidata P598
+      by QID + by-label for QID-less higher formations; **Lexikon der Wehrmacht
+      dated Oberbefehlshaber** successions for German armies/army groups;
+      Wikipedia lead-paragraph `summary` on every linked card. (`fetch-commanders*.mjs`,
+      `fetch-descriptions.mjs`.)
 - [ ] 5.1 `strength` records for pilot formations (Niehorster KStN, strength
-      returns); panel table + simple sparkline over time.
+      returns); panel table + simple sparkline over time. **Started**: nominal
+      *establishment* strength + key equipment counts live on the doctrinal
+      templates (honest "TO&E nominal", not actual returns). Next: actual
+      strength-at-date for curated pilots, shown against the nominal.
 - [ ] 5.2 Pocket/siege ↔ unit links ("trapped in this pocket: …" on pocket
       click — joins two existing features).
 - [ ] 5.3 Unit insignia/photos via external/Wikimedia links (license-gated).
@@ -370,6 +378,41 @@ fronts (prereq for placing western units).
       fallback wherever units aren't curated yet; divisions never *replace*
       the line (points can't make a clean line — relearned from the Voronoi
       attempt), they decorate it.
+
+### Phase 5b — Detail-tab depth: equipment & imagery (planned)
+
+Goal (user-requested): a much richer detail tab — the equipment a unit fielded,
+and photographs — without wrecking the static-site performance budget.
+
+- [ ] **Equipment data model.** Extend the establishment templates and add a
+      per-unit `equipment` layer: weapon/vehicle types with counts, keyed to a
+      shared **equipment catalog** (`data/curated/equipment/*.json`: id, name,
+      class, nation, calibre/armour/etc., a Wikipedia/Wikidata link, an optional
+      Commons image id). Templates reference catalog ids so the same Panzer IV /
+      T-34 entry is authored once and reused. Two honesty tiers, labelled as
+      such: *nominal* (TO&E establishment, from the template) vs *actual*
+      (curated strength/equipment returns at a date, from Niehorster/Jentz).
+- [ ] **Equipment panel.** A collapsible "Equipment" section under the ORBAT /
+      template tree: grouped by class (armour, artillery, AT, transport…), each
+      row = catalog glyph/thumbnail + name + count + link. Reuses the
+      collapsible tree component already built for templates.
+- [ ] **Imagery — performance plan.** Never bundle or self-host full images.
+      - Curate an image **manifest** (`data/curated/images/*.json`): unit/
+        equipment id → Wikimedia Commons file name + author/license (CC/PD only;
+        license stored for attribution — the licensing audit gate).
+      - Render via the **Commons thumbnail URL** at the exact displayed width
+        (`.../thumb/.../<W>px-<file>`), so the browser only ever pulls a small
+        responsive image, served by Wikimedia's CDN — zero bytes in our bundle.
+      - **Lazy-load**: `loading="lazy"` + `IntersectionObserver`, fetch only
+        when the detail tab/section is opened and the thumb scrolls into view;
+        `srcset` for DPR; fixed aspect-ratio boxes to avoid layout shift.
+      - Cache the resolved thumb URLs in the manifest at ETL time (one Commons
+        `imageinfo` call per file, committed) so the client makes no metadata
+        round-trips — only the image GETs, on demand.
+      - Fallback: APP-6 glyph (already have `UnitGlyph`) when no image/licence.
+- [ ] **Risks**: Commons file renames/deletions (pin by file + periodic ETL
+      re-resolve); license drift (store license per image, exclude non-free);
+      payload creep (manifests are tiny text; images are CDN-served on demand).
 
 ### Phase 6 — Scale & ship (old M6)
 

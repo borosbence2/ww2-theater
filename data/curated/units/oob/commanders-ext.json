@@ -1,5 +1,5 @@
 {
- "note": "Higher Soviet formations resolved to Wikidata by label; commanders (P598), description, and Wikipedia article. Keyed by unit id. Attached by build-units.",
+ "note": "Higher formations (Soviet fronts/armies/corps/brigades, German armies/army groups) resolved to Wikidata by label; commanders (P598), description, and Wikipedia article. Keyed by unit id. Attached by build-units.",
  "source": "Wikidata (CC0)",
  "units": {
   "de-h-armee-1": {
@@ -5051,6 +5051,162 @@
      "link": "https://en.wikipedia.org/wiki/Ivan_Shlyomin"
     }
    ]
+  },
+  "su-112th-tank-brigade": {
+   "qid": "Q4028430",
+   "description": "Soviet tank formation 1942-1945 or longer",
+   "wikipedia": "https://en.wikipedia.org/wiki/112th_%22Revolutionary_Mongolia%22_Tank_Brigade",
+   "commanders": []
+  },
+  "su-159th-tank-brigade": {
+   "qid": "Q97316536",
+   "description": "tactical military formation of Red Army in Great Patriotic War",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-15th-guards-tank-brigade": {
+   "qid": "Q4028885",
+   "description": "",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-1st-guards-tank-brigade": {
+   "qid": "Q4028065",
+   "description": "armoured brigade formation of the Red Army",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Vladimir Gorelov",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-1st-tank-brigade": {
+   "qid": "Q65063300",
+   "description": "Soviet tank brigade in World War II",
+   "wikipedia": "https://en.wikipedia.org/wiki/1st_Tank_Brigade_(Soviet_Union)",
+   "commanders": []
+  },
+  "su-32nd-tank-brigade": {
+   "qid": "Q4030875",
+   "description": "tank brigade of the Red Army during the Great Patriotic War",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Semyon Kolesnikov",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Mikhail Sakhno",
+     "from": null,
+     "to": null,
+     "link": null
+    },
+    {
+     "name": "Ivan Yushchuk",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-35th-guards-tank-brigade": {
+   "qid": "Q48942049",
+   "description": "",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Hazi Aslanov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Hazi_Aslanov"
+    }
+   ]
+  },
+  "su-43rd-guards-tank-brigade": {
+   "qid": "Q4031379",
+   "description": "",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-44th-guards-tank-brigade": {
+   "qid": "Q4031412",
+   "description": "armoured brigade formation of the Red Army",
+   "wikipedia": "https://en.wikipedia.org/wiki/44th_Guards_Tank_Brigade",
+   "commanders": [
+    {
+     "name": "Iosif Gusakovsky",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Iosif_Gusakovsky"
+    }
+   ]
+  },
+  "su-47th-tank-brigade": {
+   "qid": "Q97190365",
+   "description": "",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Galiy Adilbekovich Adilbekov",
+     "from": null,
+     "to": null,
+     "link": "https://en.wikipedia.org/wiki/Galiy_Adilbekov"
+    }
+   ]
+  },
+  "su-50th-tank-brigade": {
+   "qid": "Q18634831",
+   "description": "tactical military formation of Red Army in Great Patriotic War",
+   "wikipedia": null,
+   "commanders": [
+    {
+     "name": "Iosif Cheryapkin",
+     "from": null,
+     "to": null,
+     "link": null
+    }
+   ]
+  },
+  "su-54th-guards-tank-brigade": {
+   "qid": "Q19907236",
+   "description": "tactical military formation of Red Army in Great Patriotic War",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-55th-guards-tank-brigade": {
+   "qid": "Q106245660",
+   "description": "armoured brigade formation of the Red Army",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-58th-tank-brigade": {
+   "qid": "Q120261537",
+   "description": "",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-5th-guards-tank-brigade": {
+   "qid": "Q4031634",
+   "description": "",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-63rd-tank-brigade": {
+   "qid": "Q86666419",
+   "description": "tank brigade of the red army of the USSR, during the great Patriotic war",
+   "wikipedia": null,
+   "commanders": []
+  },
+  "su-66th-mechanized-brigade": {
+   "qid": "Q113409532",
+   "description": "Soviet mechanized brigade",
+   "wikipedia": null,
+   "commanders": []
   }
  }
 }

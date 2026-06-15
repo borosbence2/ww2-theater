@@ -694,6 +694,37 @@ to corps.
   listed, and the provenance note stays at the foot of the card. 62/62 smoke,
   lint clean.
 
+## Dated German commanders, Soviet brigades, quantitative templates ✅
+Three enrichments + a forward plan, on the "honest, detailed cards" direction.
+- [x] **Dated German commanders** (`fetch-commanders-ldw.mjs`): parses the
+      "Oberbefehlshaber:" section of each Lexikon der Wehrmacht army / army-group
+      page into dated successions (German dates → ISO; keyword endpoints like
+      "Aufstellung"/"Kapitulation"/"Umbenennung" stay null — honestly partial).
+      30 formations, 299 records, 87% with ≥1 date, each linked to its LdW
+      Personenregister bio. Attached above Wikidata for German units (priority:
+      curated → LdW-dated → QID → label-ext); the panel now renders partial
+      spans ("until 19 December 1941"). Turns the German side from names-only
+      into real tenures (e.g. 4. Armee: Kluge → Kübler → Heinrici …).
+- [x] **Soviet brigades** (resolver extended to `brigade`, with a resume cache so
+      it only fetches new units): 17 of 398 resolved with QID + Wikipedia link,
+      6 with commanders. Low by design — most plain-numbered tank brigades have
+      no Wikidata item, and strict country/type/ordinal verification skips rather
+      than guess, so **no wrong data** is attached. The famous (Guards) brigades
+      that exist resolved correctly.
+- [x] **Quantitative templates** (`templates.ts`): nominal *establishment*
+      strength + key equipment for all 13 TO&E templates (men, MGs, mortars,
+      AT/field guns, tanks, horses…), merged in `matchTemplate`, rendered as an
+      "Establishment ≈ N personnel (nominal)" line + equipment chips above the
+      org chart. Labelled nominal (paper TO&E, not a strength return).
+- [x] **Forward plan**: REWRITE_PLAN Phase 5b — equipment data model (shared
+      equipment catalog + per-unit nominal/actual layers) and an **imagery
+      performance strategy** (Wikimedia Commons thumbnail URLs at display width,
+      lazy-load via IntersectionObserver, ETL-cached manifest, license gating,
+      APP-6 glyph fallback) — captured for the requested detail-tab expansion.
+- 62/62 smoke, lint clean, build clean. (Reminder learned + recorded: restart
+  the dev server after build-units — its `rmSync` of public/data makes Vite
+  serve the SPA fallback for recreated files until restart.)
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

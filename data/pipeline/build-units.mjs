@@ -431,6 +431,32 @@ for (const u of units.values()) {
   }
 }
 
+// Lexikon der Wehrmacht commanders (fetch-commanders-ldw.mjs, keyed by unit id):
+// dated Oberbefehlshaber successions for German armies + army groups. Highest
+// auto priority (after curated) because these carry real tenure dates; some
+// endpoints are keywords ("Aufstellung"/"Umbenennung") and stay null.
+try {
+  const ldw = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'commanders-ldw.json'), 'utf8')).units;
+  let n = 0;
+  for (const u of units.values()) {
+    const e = ldw[u.id];
+    if (!e?.commanders?.length || u.commanders?.length) continue;
+    u.commanders = e.commanders.map((c) => ({
+      from: c.from ?? null,
+      to: c.to ?? null,
+      name: c.name,
+      link: c.link ?? undefined,
+      source: 'lexikon-der-wehrmacht',
+    }));
+    u.links = u.links ?? {};
+    if (!u.links['lexikon-der-wehrmacht'] && e.page) u.links['lexikon-der-wehrmacht'] = e.page;
+    n++;
+  }
+  console.log(`Commanders(LdW): dated successions for ${n} German formations`);
+} catch {
+  console.log('No commanders-ldw.json — German formations fall back to Wikidata.');
+}
+
 // Wikidata commanders (fetch-commanders.mjs, keyed by QID): attach to units
 // that have none authored. Curated commander successions always win. These may
 // be undated (Wikidata often lacks term qualifiers), so they bypass the ISO
