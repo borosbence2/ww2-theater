@@ -328,6 +328,27 @@ const pocketKf = await page.evaluate(async () => {
 });
 check('Courland garrison has in-pocket (absolute) placement', pocketKf === 1);
 
+// Courland besiegers: Soviet blockaders pinned just outside the ring (absolute
+// keyframes on the land-facing side) instead of on the far-south main line.
+const besiegerKf = await page.evaluate(async () => {
+  const d = await (await fetch('/data/units/derived/eastern.json')).json();
+  const u = d.units.find((x) => x.id === 'su-army-22'); // 2nd Baltic Front, Courland blockade
+  if (!u) return 0;
+  return u.segs.some((s) => s.kfs.some((k) => k.length === 3 && k[0] >= 19441010 && k[2] > 55.5)) ? 1 : 0;
+});
+check('Courland besieger placed outside the ring (absolute)', besiegerKf === 1);
+
+// Formation ordinals: a re-formed unit shows its formation history (the
+// reconciliation registry surfaced in the panel).
+await page.fill('.omnibox input', '16. Panzer-Division');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1200);
+const formPanel = await page.locator('.detail-panel').textContent();
+check('16. Panzer-Division shows formation history', /Formations/.test(formPanel ?? '') && /formation/.test(formPanel ?? ''));
+check('formation history names the fate', /destroyed at Stalingrad/i.test(formPanel ?? ''));
+
 const realErrors = errors.filter((e) => !/WebGL|GPU|swiftshader|Failed to load resource/i.test(e));
 check(`no console/page errors (${errors.length} total, ${realErrors.length} relevant)`, realErrors.length === 0);
 if (realErrors.length) console.log(realErrors.join('\n'));

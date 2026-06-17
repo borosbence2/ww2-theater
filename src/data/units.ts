@@ -78,6 +78,22 @@ export interface UnitDetail {
   notes: string | null;
   /** Short historical description (Wikipedia summary), shown atop the card. */
   summary?: string | null;
+  /** Formation ordinals (SCALE_PLAN §4): a designation re-used after a unit was
+   *  destroyed and re-raised. `list` is the full ordered history; `self` marks
+   *  this unit's entry; entries without `id` are re-formations not separately
+   *  modelled. Null when the unit had a single formation. */
+  formations?: {
+    designation: string;
+    list: {
+      ordinal: number;
+      from: string | null;
+      to: string | null;
+      fate: string | null;
+      note: string | null;
+      id: string | null;
+      self: boolean;
+    }[];
+  } | null;
 }
 
 /** Keyframe: [startNum, fraction] on the main line, or [startNum, lon, lat]

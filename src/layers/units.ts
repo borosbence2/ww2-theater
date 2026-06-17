@@ -9,7 +9,7 @@
 // Positions interpolate by date like the front (hold-then-jump for rail/gap
 // segments); approximate-confidence segments render slightly transparent.
 
-import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
+import maplibregl, { type GeoJSONSource, type Map as MapLibreMap } from 'maplibre-gl';
 import type { Feature, FeatureCollection } from 'geojson';
 import { dateToNum, diffDays } from '../time/dates';
 import {
@@ -23,12 +23,16 @@ import {
   type ParentSpan,
   type UnitTrack,
 } from '../data/units';
+import { matchTemplate } from '../data/templates';
 import { getFrontFeatures, type FrontFeature } from './front';
 
 const SOURCE_ID = 'units';
 const LINKS_SOURCE_ID = 'unit-links';
 const LINKS_HALO_ID = 'units-links-halo';
 const LINKS_ID = 'units-links';
+// Soft glow circle behind the hovered counter (feature-state driven). Sits
+// beneath the symbols and is not a hit target, so it never steals clicks.
+const HOVER_GLOW_ID = 'units-hover-glow';
 const TOP_ID = 'units-top';
 const ARMY_ID = 'units-army';
 const CORPS_ID = 'units-corps';
@@ -43,6 +47,7 @@ const FAMILY_ID = 'units-family';
 export const UNITS_LAYER_IDS = [
   LINKS_HALO_ID,
   LINKS_ID,
+  HOVER_GLOW_ID,
   TOP_ID,
   ARMY_ID,
   CORPS_ID,
@@ -62,11 +67,9 @@ export const UNITS_HIT_LAYER_IDS = [
   FAMILY_ID,
 ];
 
+// Frame stroke per side (Axis warm-red, Soviet steel-blue); the full counter
+// palette (fills, ink, badge tints) lives in PAL below. Used for the hover glow.
 const SIDE_COLOR = { axis: '#d6543d', soviet: '#4d8fd6' } as const;
-// Pale gradient fill (bottom stop) + darker symbol ink, so a unit reads by
-// colour at a glance: Axis warm-red, Soviet steel-blue.
-const SIDE_FILL = { axis: '#f4d3ca', soviet: '#cfe1f5' } as const;
-const SIDE_INK = { axis: '#9c3322', soviet: '#2c5e93' } as const;
 const ECH_MARK: Record<string, string> = {
   battalion: 'II',
   regiment: 'III',
@@ -91,6 +94,59 @@ const ECH_GROUP = (echelon: string): EchGroup =>
             ? 'top' // army groups + fronts: the zoomed-out tier
             : 'division';
 
+// Counter design system — ported verbatim from the "Unit System Spec" board
+// (Counter.dc.html). A unit's echelon reads three ways at once: footprint
+// (w/h), a dark monospace badge chip above the frame, and fill/stroke intensity
+// (t, 0 junior -> 1 senior). Senior HQs (army/front) also get a soft glow.
+type IconTier = {
+  w: number;
+  h: number;
+  t: number;
+  fw: number; // frame stroke width
+  bf: number; // badge font px
+  bh: number; // badge height px
+  glow: boolean;
+};
+const LADDER: Record<string, IconTier> = {
+  regiment: { w: 40, h: 25, t: 0.0, fw: 1.6, bf: 8, bh: 12, glow: false },
+  brigade: { w: 44, h: 27, t: 0.16, fw: 1.8, bf: 8.5, bh: 13, glow: false },
+  division: { w: 52, h: 31, t: 0.42, fw: 2.0, bf: 9.5, bh: 14, glow: false },
+  corps: { w: 63, h: 36, t: 0.66, fw: 2.3, bf: 10.5, bh: 15, glow: false },
+  army: { w: 77, h: 43, t: 0.85, fw: 2.7, bf: 12, bh: 17, glow: true },
+  front: { w: 93, h: 51, t: 1.0, fw: 3.1, bf: 13, bh: 19, glow: true },
+};
+// App echelons -> ladder tier (battalions ride the regiment footprint but keep
+// their own 'II' mark; army-groups ride the front footprint).
+const ICON_TIER: Record<string, keyof typeof LADDER> = {
+  battalion: 'regiment',
+  regiment: 'regiment',
+  brigade: 'brigade',
+  division: 'division',
+  corps: 'corps',
+  army: 'army',
+  front: 'front',
+  'army-group': 'front',
+};
+// Per-side palette (reconciled to units.ts SIDE_COLOR/FILL/INK): line = frame,
+// ink = branch symbol, tl/td = light/dark fill tints (mixed by t), bright = badge.
+const PAL = {
+  axis: { line: '#d6543d', ink: '#9c3322', tl: '#fdeae3', td: '#e0a288', bright: '#ef9a80' },
+  soviet: { line: '#4d8fd6', ink: '#2c5e93', tl: '#e9f1fb', td: '#9bc1ed', bright: '#8ab7ef' },
+} as const;
+
+// Tiny colour helpers: blend a->b by t (0..1), and hex -> rgba string.
+function mixHex(a: string, b: string, t: number): string {
+  const h = (s: string) => [1, 3, 5].map((i) => parseInt(s.slice(i, i + 2), 16));
+  const x = (n: number) => Math.max(0, Math.min(255, Math.round(n))).toString(16).padStart(2, '0');
+  const A = h(a),
+    B = h(b);
+  return '#' + A.map((v, i) => x(v + (B[i] - v) * t)).join('');
+}
+function rgbaHex(hex: string, a: number): string {
+  const c = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  return `rgba(${c[0]},${c[1]},${c[2]},${a})`;
+}
+
 // Each tier shows in a zoom WINDOW [min, max): senior echelons appear when
 // zoomed out and drop off as you zoom into their children, so the map shows
 // roughly one-to-two echelons at a time instead of all of them at once.
@@ -113,6 +169,9 @@ const allUnitIds: string[] = [];
 /** Selected unit id: sub-division units render only for themselves/children
  *  of the focus (progressive disclosure — Tier 2 drill-down). */
 let focusId: string | null = null;
+/** Last rendered date, so the hover tooltip can resolve a unit's nominal
+ *  establishment strength (TO&E) for that day. */
+let lastDateISO = '';
 
 // --- Derived positions: fraction along the daily interpolated main front ---
 
@@ -334,86 +393,217 @@ export function getDerivedRoute(id: string): { date: string; at: [number, number
 
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
-function makeIcon(side: 'axis' | 'soviet', type: string, mark: string, hollow = false): ImageData {
+type CtxLS = CanvasRenderingContext2D & { letterSpacing?: string };
+function roundRectPath(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number): void {
+  if (ctx.roundRect) {
+    ctx.beginPath();
+    ctx.roundRect(x, y, w, h, r);
+  } else {
+    ctx.beginPath();
+    ctx.rect(x, y, w, h);
+  }
+}
+
+// Counter image — a canvas port of the "Unit System Spec" board (Counter.dc.html):
+// per-echelon footprint (LADDER) + intensity fill + a dark monospace badge chip,
+// branch symbol inset in the central 68%×60%, a single soft depth shadow with a
+// coloured glow for senior HQs. Derived = dashed frame + wash (no fill); selected
+// = brass ring + glow + gold badge.
+function makeIcon(
+  side: 'axis' | 'soviet',
+  type: string,
+  mark: string,
+  echelon: string,
+  opts: { derived?: boolean; selected?: boolean } = {},
+): ImageData {
   const PR = 2.6; // higher pixel ratio for crisp symbols
-  const W = 52;
-  const H = 46;
+  const derived = !!opts.derived;
+  const selected = !!opts.selected;
+  const lv = LADDER[ICON_TIER[echelon] ?? 'division'] ?? LADDER.division;
+  const pal = PAL[side];
+
+  // --- fill / stroke colours (mirror Counter.renderVals) ---
+  const fill = mixHex(pal.tl, pal.td, lv.t);
+  const gtop = mixHex(fill, '#ffffff', 0.5);
+  const gbot = mixHex(fill, pal.td, 0.18);
+  const strokeCol = mixHex(pal.line, pal.ink, lv.t * 0.5);
+  const sw = Math.max(1.4, lv.fw * 0.85); // branch stroke
+
+  // --- badge metrics + measured chip width ---
+  const badgeFont = lv.bf;
+  const badgeH = lv.bh;
+  const badgePadX = Math.round(badgeFont * 0.55);
+  const measure = document.createElement('canvas').getContext('2d') as CtxLS;
+  measure.font = `800 ${badgeFont}px ui-monospace, Menlo, Consolas, monospace`;
+  if ('letterSpacing' in measure) measure.letterSpacing = '1.5px';
+  const chipW = Math.ceil(measure.measureText(mark).width + badgePadX * 2);
+
+  // --- canvas geometry: frame centred; room above for the badge, around for
+  //     the depth shadow / senior glow / selected ring. ---
+  const PAD = lv.glow || selected ? 12 : 7;
+  const badgeGap = 3;
+  const contentW = Math.max(lv.w, chipW);
+  const W = contentW + PAD * 2;
+  const H = PAD + badgeH + badgeGap + lv.h + PAD;
+  const fx = (W - lv.w) / 2; // frame x (centred)
+  const fy = PAD + badgeH + badgeGap; // frame y
+
   const canvas = document.createElement('canvas');
   canvas.width = W * PR;
   canvas.height = H * PR;
-  const ctx = canvas.getContext('2d')!;
+  const ctx = canvas.getContext('2d') as CtxLS;
   ctx.scale(PR, PR);
 
-  const color = SIDE_COLOR[side];
-  const ink = SIDE_INK[side];
-  const x = 6;
-  const y = 16;
-  const w = 40;
-  const h = 25;
-
-  // Body: white→side-tint gradient fill with a soft drop shadow. Hollow =
-  // derived (sector + OOB, not documented): translucent + dashed frame.
-  ctx.save();
-  ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-  ctx.shadowBlur = 4;
-  ctx.shadowOffsetY = 1.5;
-  const grad = ctx.createLinearGradient(0, y, 0, y + h);
-  if (hollow) {
-    grad.addColorStop(0, 'rgba(255, 255, 255, 0.55)');
-    grad.addColorStop(1, side === 'axis' ? 'rgba(214, 84, 61, 0.28)' : 'rgba(77, 143, 214, 0.28)');
-  } else {
-    grad.addColorStop(0, '#ffffff');
-    grad.addColorStop(1, SIDE_FILL[side]);
+  // --- glow passes (cast outside the frame; the fills are overpainted below) ---
+  if (!derived && lv.glow) {
+    ctx.save();
+    ctx.shadowColor = rgbaHex(pal.line, 0.4);
+    ctx.shadowBlur = 7;
+    ctx.fillStyle = gbot;
+    roundRectPath(ctx, fx, fy, lv.w, lv.h, 1.5);
+    ctx.fill();
+    ctx.restore();
   }
-  ctx.fillStyle = grad;
-  ctx.fillRect(x, y, w, h);
+  if (selected) {
+    ctx.save();
+    ctx.shadowColor = 'rgba(241,197,82,0.6)';
+    ctx.shadowBlur = 10;
+    ctx.fillStyle = gbot;
+    roundRectPath(ctx, fx, fy, lv.w, lv.h, 1.5);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  // --- body + depth shadow ---
+  ctx.save();
+  ctx.shadowColor = `rgba(8,11,16,${derived ? 0.28 : 0.42})`;
+  ctx.shadowBlur = 3;
+  ctx.shadowOffsetY = 2;
+  if (derived) {
+    ctx.fillStyle = rgbaHex(pal.line, 0.1); // wash
+    roundRectPath(ctx, fx, fy, lv.w, lv.h, 1.5);
+    ctx.fill();
+  } else {
+    const grad = ctx.createLinearGradient(0, fy, 0, fy + lv.h);
+    grad.addColorStop(0, gtop);
+    grad.addColorStop(1, gbot);
+    ctx.fillStyle = grad;
+    roundRectPath(ctx, fx, fy, lv.w, lv.h, 1.5);
+    ctx.fill();
+  }
   ctx.restore();
 
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 2.2;
-  if (hollow) ctx.setLineDash([4, 3]);
-  ctx.strokeRect(x, y, w, h);
+  // --- top bevel highlight (documented only) ---
+  if (!derived) {
+    ctx.strokeStyle = 'rgba(255,255,255,0.65)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(fx + 2.5, fy + 1.3);
+    ctx.lineTo(fx + lv.w - 2.5, fy + 1.3);
+    ctx.stroke();
+  }
+
+  // --- frame ---
+  ctx.strokeStyle = strokeCol;
+  ctx.lineWidth = lv.fw;
+  if (derived) ctx.setLineDash([lv.fw * 1.7, lv.fw * 1.1]);
+  roundRectPath(ctx, fx, fy, lv.w, lv.h, 1.5);
+  ctx.stroke();
   ctx.setLineDash([]);
 
-  // Branch symbol in the darker side ink for contrast on the tinted fill.
-  ctx.strokeStyle = ink;
-  ctx.lineWidth = 1.8;
-  ctx.lineCap = 'round';
-  if (type === 'infantry' || type === 'motorized') {
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.lineTo(x + w, y + h);
-    ctx.moveTo(x + w, y);
-    ctx.lineTo(x, y + h);
-    ctx.stroke();
-  }
-  if (type === 'armoured' || type === 'motorized') {
-    ctx.beginPath();
-    ctx.ellipse(x + w / 2, y + h / 2, type === 'motorized' ? 8 : 11, type === 'motorized' ? 4.5 : 6.5, 0, 0, Math.PI * 2);
-    ctx.stroke();
-  }
-  if (type === 'cavalry') {
-    ctx.beginPath();
-    ctx.moveTo(x, y + h);
-    ctx.lineTo(x + w, y);
+  // --- selected brass ring ---
+  if (selected) {
+    ctx.strokeStyle = '#f1c552';
+    ctx.lineWidth = 2;
+    roundRectPath(ctx, fx - 3.5, fy - 3.5, lv.w + 7, lv.h + 7, 3);
     ctx.stroke();
   }
 
-  // Echelon mark above, side colour with a white halo for legibility.
-  ctx.font = '800 10px system-ui, sans-serif';
+  // --- branch symbol (inset in the central 68%×60%) ---
+  const ix = fx + lv.w * 0.16,
+    iy = fy + lv.h * 0.2,
+    iw = lv.w * 0.68,
+    ih = lv.h * 0.6;
+  const cx = ix + iw / 2,
+    cy = iy + ih / 2;
+  ctx.strokeStyle = pal.ink;
+  ctx.fillStyle = pal.ink;
+  ctx.lineWidth = sw;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  const diag = (x1: number, y1: number, x2: number, y2: number): void => {
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+  };
+  const cross = (): void => {
+    diag(ix, iy, ix + iw, iy + ih);
+    diag(ix + iw, iy, ix, iy + ih);
+  };
+  const oval = (rx: number, ry: number): void => {
+    ctx.beginPath();
+    ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+    ctx.stroke();
+  };
+  if (type === 'infantry' || type === 'motorized' || type === 'mechanized') cross();
+  if (type === 'armoured' || type === 'mechanized') oval(iw * 0.46, ih * 0.48);
+  if (type === 'motorized') oval(iw * 0.3, ih * 0.34);
+  if (type === 'cavalry' || type === 'recon') diag(ix, iy + ih, ix + iw, iy);
+  if (type === 'artillery') {
+    ctx.beginPath();
+    ctx.arc(cx, cy, Math.min(iw, ih) * 0.24, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  if (type === 'antitank') {
+    ctx.beginPath();
+    ctx.moveTo(ix, iy + ih);
+    ctx.lineTo(cx, iy);
+    ctx.lineTo(ix + iw, iy + ih);
+    ctx.stroke();
+  }
+  // type === 'hq' -> empty frame (no symbol)
+
+  // --- echelon badge: dark monospace chip above the frame ---
+  const chipX = fx + lv.w / 2 - chipW / 2;
+  const chipY = PAD;
+  ctx.save();
+  ctx.shadowColor = 'rgba(0,0,0,0.45)';
+  ctx.shadowBlur = 3;
+  ctx.shadowOffsetY = 1;
+  ctx.fillStyle = derived ? 'rgba(13,19,29,0.82)' : '#0d131d';
+  roundRectPath(ctx, chipX, chipY, chipW, badgeH, 2);
+  ctx.fill();
+  ctx.restore();
+  ctx.strokeStyle = selected ? 'rgba(241,197,82,0.7)' : rgbaHex(pal.line, 0.55);
+  ctx.lineWidth = 1;
+  if (derived && !selected) ctx.setLineDash([3, 2]);
+  roundRectPath(ctx, chipX, chipY, chipW, badgeH, 2);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.font = `800 ${badgeFont}px ui-monospace, Menlo, Consolas, monospace`;
+  if ('letterSpacing' in ctx) ctx.letterSpacing = '1.5px';
   ctx.textAlign = 'center';
-  ctx.textBaseline = 'alphabetic';
-  ctx.lineWidth = 2.5;
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
-  ctx.strokeText(mark, x + w / 2, y - 4);
-  ctx.fillStyle = color;
-  ctx.fillText(mark, x + w / 2, y - 4);
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = selected ? '#f6d278' : pal.bright;
+  ctx.fillText(mark, fx + lv.w / 2 + 0.75, chipY + badgeH / 2 + 0.5); // +0.75 ≈ text-indent
 
   return ctx.getImageData(0, 0, W * PR, H * PR);
 }
 
-function iconId(side: string, type: string, mark: string, hollow = false): string {
-  return `u-${side}-${type}-${mark}${hollow ? '-d' : ''}`;
+// Icon id keys on the size tier + mark + state: front/army-group share a 'front'
+// image and battalion (II) vs regiment (III) stay distinct within the regiment
+// tier; derived and selected each get their own cached image.
+function iconId(
+  side: string,
+  type: string,
+  echelon: string,
+  mark: string,
+  derived = false,
+  selected = false,
+): string {
+  const tier = ICON_TIER[echelon] ?? 'division';
+  return `u-${side}-${type}-${tier}-${mark}${derived ? '-d' : ''}${selected ? '-s' : ''}`;
 }
 
 function collectionFor(
@@ -438,10 +628,16 @@ function collectionFor(
       properties: {
         id: t.id,
         short: t.short,
-        icon: iconId(t.side, t.type, ECH_MARK[t.echelon] ?? 'XX'),
+        icon: iconId(t.side, t.type, t.echelon, ECH_MARK[t.echelon] ?? 'XX', false, t.id === focusId),
         ech: ECH_GROUP(t.echelon),
+        echelon: t.echelon,
+        type: t.type,
+        side: t.side,
+        derived: false,
         approx: confidenceOn(t, d) === 'approximate',
         fam: family ? family.has(t.id) : false,
+        // command-focus: dim everything outside the selected formation.
+        dim: family ? !family.has(t.id) : false,
       },
       geometry: { type: 'Point', coordinates: at },
     });
@@ -467,10 +663,15 @@ function collectionFor(
       properties: {
         id: du.id,
         short: du.short,
-        icon: iconId(du.side, du.type, ECH_MARK[du.echelon] ?? 'XX', true),
+        icon: iconId(du.side, du.type, du.echelon, ECH_MARK[du.echelon] ?? 'XX', true, du.id === focusId),
         ech,
+        echelon: du.echelon,
+        type: du.type,
+        side: du.side,
+        derived: true,
         approx: false,
         fam: family ? family.has(du.id) : false,
+        dim: family ? !family.has(du.id) : false,
       },
       geometry: { type: 'Point', coordinates: at },
     });
@@ -481,6 +682,7 @@ function collectionFor(
 /** Recompute both sources for a date: unit symbols (family-tagged) and the
  *  selected formation's command links. */
 function refresh(map: MapLibreMap, dateISO: string): void {
+  lastDateISO = dateISO;
   const d = dateToNum(dateISO);
   const line = mainFrontLine(dateISO, d);
   const family = focusId ? computeFamily(focusId, d) : null;
@@ -506,19 +708,31 @@ function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
       // Legible even at the zoomed-out top tier (z≈3.5).
       'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.82, 6, 0.9, 8, 1.05],
       'icon-allow-overlap': true,
-      'text-field': ['get', 'short'],
-      'text-size': 10,
+      // Senior tiers (top/army/corps) are always labelled; division/brigade/sub
+      // labels gate behind zoom so names don't soup the map when zoomed out.
+      // (zoom must be the top-level input to step, so it wraps the ech test.)
+      'text-field': [
+        'step',
+        ['zoom'],
+        ['case', ['in', ['get', 'ech'], ['literal', ['top', 'army', 'corps']]], ['get', 'short'], ''],
+        6.8,
+        ['get', 'short'],
+      ],
+      'text-size': 9.5,
       'text-offset': [0, 1.7],
       'text-anchor': 'top',
       'text-optional': true,
+      'text-allow-overlap': false, // let collisions hide juniors
       // Senior formations win label collisions.
       'symbol-sort-key': ['match', ['get', 'ech'], 'army', 0, 'corps', 1, 2],
     },
     paint: {
-      'icon-opacity': ['case', ['get', 'approx'], 0.78, 1],
+      // command-focus: out-of-formation counters recede when a unit is selected.
+      'icon-opacity': ['case', ['get', 'dim'], 0.4, ['get', 'approx'], 0.78, 1],
       'text-color': '#23272e',
       'text-halo-color': '#ffffff',
-      'text-halo-width': 1.1,
+      'text-halo-width': 0.9,
+      'text-opacity': ['case', ['get', 'dim'], 0.32, 1],
     },
   });
 }
@@ -539,22 +753,33 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
   }
   for (const t of tracks) if (!derivedById.has(t.id)) allUnitIds.push(t.id);
 
-  // One generated icon per (side, type, echelon-mark[, derived]) in use.
+  // One generated icon per (side, type, echelon, derived) in use, plus a
+  // selected (brass-ring) variant for each, since any unit can become the focus.
+  // The raw echelon is kept so the tier (size) and precise mark are both
+  // available; iconId folds same-tier/same-mark echelons together.
   const combos = new Set([
-    ...tracks.map((t) => `${t.side}|${t.type}|${ECH_MARK[t.echelon] ?? 'XX'}|0`),
-    ...derivedUnits.map((u) => `${u.side}|${u.type}|${ECH_MARK[u.echelon] ?? 'XX'}|1`),
+    ...tracks.map((t) => `${t.side}|${t.type}|${t.echelon}|0`),
+    ...derivedUnits.map((u) => `${u.side}|${u.type}|${u.echelon}|1`),
   ]);
   for (const combo of combos) {
-    const [side, type, mark, hollow] = combo.split('|') as ['axis' | 'soviet', string, string, string];
-    const id = iconId(side, type, mark, hollow === '1');
-    if (!map.hasImage(id)) {
-      map.addImage(id, makeIcon(side, type, mark, hollow === '1'), { pixelRatio: 2.6 });
+    const [side, type, echelon, hollow] = combo.split('|') as ['axis' | 'soviet', string, string, string];
+    const mark = ECH_MARK[echelon] ?? 'XX';
+    const derived = hollow === '1';
+    for (const selected of [false, true]) {
+      const id = iconId(side, type, echelon, mark, derived, selected);
+      if (!map.hasImage(id)) {
+        map.addImage(id, makeIcon(side, type, mark, echelon, { derived, selected }), { pixelRatio: 2.6 });
+      }
     }
   }
 
   const d0 = dateToNum(date);
+  lastDateISO = date;
   map.addSource(SOURCE_ID, {
     type: 'geojson',
+    // promoteId exposes each unit's id as the feature id, so hover feature-state
+    // (the glow layer) can be keyed per unit and survive date-driven setData.
+    promoteId: 'id',
     data: collectionFor(date, d0, mainFrontLine(date, d0), null),
     attribution: 'Units: curated (Stalingrad pilot, approximate)',
   });
@@ -573,6 +798,22 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
     source: LINKS_SOURCE_ID,
     layout: { 'line-cap': 'round', 'line-join': 'round' },
     paint: { 'line-color': '#f1c552', 'line-width': 1.6, 'line-opacity': 0.95 },
+  });
+
+  // Hover glow: a soft, side-coloured halo behind the counter, lit only on the
+  // hovered unit via feature-state. (MapLibre 5 can't drive icon-size from
+  // feature-state — layout props take no feature-state — so the hover "lift"
+  // is rendered as this circle rather than by scaling the icon.)
+  map.addLayer({
+    id: HOVER_GLOW_ID,
+    type: 'circle',
+    source: SOURCE_ID,
+    paint: {
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 3, 14, 7, 22],
+      'circle-blur': 0.7,
+      'circle-color': ['match', ['get', 'side'], 'axis', SIDE_COLOR.axis, SIDE_COLOR.soviet],
+      'circle-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 0.32, 0],
+    },
   });
 
   // Senior tiers first so juniors draw on top where windows overlap.
@@ -621,4 +862,62 @@ export function updateUnitsFocus(map: MapLibreMap, unitId: string | null, date: 
   if (focusId === unitId) return;
   focusId = unitId;
   refresh(map, date);
+}
+
+// --- Hover: glow the unit under the cursor + a situation-room tooltip --------
+
+const esc = (s: string): string =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+/** Tooltip body, in the spec's format: name + "XXXX · ARMOUR · ~N est." — the
+ *  echelon mark, branch, and nominal establishment strength (TO&E). */
+function tipHTML(p: Record<string, unknown>): string {
+  const side = (p.side === 'soviet' ? 'soviet' : 'axis') as 'axis' | 'soviet';
+  const echelon = String(p.echelon ?? '');
+  const type = String(p.type ?? '');
+  const meta = [ECH_MARK[echelon] ?? '', type.toUpperCase()].filter(Boolean);
+  const tmpl = echelon && type ? matchTemplate(side, echelon, type, lastDateISO) : null;
+  if (tmpl?.strength) meta.push(`~${tmpl.strength.toLocaleString()} est.`);
+  if (p.derived === true) meta.push('derived');
+  return (
+    `<div class="unit-tip-name unit-tip-${side}">${esc(String(p.short ?? ''))}</div>` +
+    `<div class="unit-tip-meta">${esc(meta.join(' · '))}</div>`
+  );
+}
+
+/** Wire hover glow (feature-state) + tooltip on the unit symbol layers. Call
+ *  once, after the layers are added. */
+export function setupUnitInteractions(map: MapLibreMap): void {
+  const popup = new maplibregl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+    offset: 16,
+    className: 'unit-tip',
+  });
+  let hoveredId: string | number | null = null;
+
+  const clearHover = (): void => {
+    if (hoveredId !== null) {
+      map.setFeatureState({ source: SOURCE_ID, id: hoveredId }, { hover: false });
+      hoveredId = null;
+    }
+    popup.remove();
+    map.getCanvas().style.cursor = '';
+  };
+
+  for (const layerId of UNITS_HIT_LAYER_IDS) {
+    map.on('mousemove', layerId, (e) => {
+      const f = e.features?.[0];
+      if (!f) return;
+      const fid = f.id ?? null;
+      if (fid !== hoveredId) {
+        if (hoveredId !== null) map.setFeatureState({ source: SOURCE_ID, id: hoveredId }, { hover: false });
+        hoveredId = fid;
+        if (hoveredId !== null) map.setFeatureState({ source: SOURCE_ID, id: hoveredId }, { hover: true });
+      }
+      map.getCanvas().style.cursor = 'pointer';
+      popup.setLngLat(e.lngLat).setHTML(tipHTML(f.properties as Record<string, unknown>)).addTo(map);
+    });
+    map.on('mouseleave', layerId, clearHover);
+  }
 }

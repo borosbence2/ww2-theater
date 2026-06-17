@@ -9,7 +9,12 @@ import maplibregl from 'maplibre-gl';
 import { useStore } from '../store';
 import { LAYERS, applyVisibility } from '../layers/registry';
 import { CITY_DOT_LAYER_ID } from '../layers/cities';
-import { UNITS_HIT_LAYER_IDS, getUnitPositionOn, updateUnitsFocus } from '../layers/units';
+import {
+  UNITS_HIT_LAYER_IDS,
+  getUnitPositionOn,
+  setupUnitInteractions,
+  updateUnitsFocus,
+} from '../layers/units';
 import { BATTLES_HIT_LAYER_ID } from '../layers/battles';
 import { addUnitPathLayers, updateUnitPath } from '../layers/unitPath';
 import { loadCities } from '../data/cities';
@@ -21,6 +26,33 @@ import { addEditLayers } from '../edit/editLayer';
 // Keyless, CORS-enabled vector basemap. Swappable in later milestones (e.g. a
 // period-correct style or a georeferenced historical raster).
 const BASEMAP_STYLE = 'https://tiles.openfreemap.org/styles/positron';
+
+// Mute the basemap so the historical layers (tide, front, unit counters) are
+// the brightest things on screen: drop POI/transport clutter, lighten labels,
+// and quiet roads + admin boundaries. Defensive per-layer — positron's exact
+// layer set may shift, and not every layer carries every paint/layout prop.
+function muteBasemap(map: maplibregl.Map): void {
+  for (const l of map.getStyle().layers ?? []) {
+    const id = l.id;
+    try {
+      if (l.type === 'symbol') {
+        if (/poi|housenumber|continent|bus|airport|ferry|aeroway/i.test(id)) {
+          map.setLayoutProperty(id, 'visibility', 'none');
+        } else if (/label|place|water_name|country|state|town|village|city|road/i.test(id)) {
+          map.setPaintProperty(id, 'text-opacity', 0.5);
+        }
+      } else if (l.type === 'line') {
+        if (/road|street|motorway|bridge|tunnel|transport|rail|aeroway/i.test(id)) {
+          map.setPaintProperty(id, 'line-opacity', 0.3);
+        } else if (/boundary|admin/i.test(id)) {
+          map.setPaintProperty(id, 'line-opacity', 0.35);
+        }
+      }
+    } catch {
+      // This layer lacks the prop in the current style; leave it untouched.
+    }
+  }
+}
 
 export function MapView() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -72,11 +104,14 @@ export function MapView() {
     map.on('moveend', onMoveEnd);
 
     map.on('load', async () => {
+      muteBasemap(map);
       const state = useStore.getState();
       for (const def of LAYERS) await def.add(map, state.date);
       // Path lines render beneath the unit symbols.
       addUnitPathLayers(map, UNITS_HIT_LAYER_IDS.find((id) => map.getLayer(id)));
       applyVisibility(map, state.hiddenLayers);
+      // Hover glow + tooltip on the unit counters (read-only; safe in edit mode).
+      setupUnitInteractions(map);
 
       if (EDIT_MODE) {
         addEditLayers(map);

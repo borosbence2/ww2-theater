@@ -6,7 +6,10 @@
 > full front→army→corps→division chains both sides; 16 sector keyframes
 > Barbarossa→Berlin. Since enriched with commanders (Wikidata + dated Lexikon
 > der Wehrmacht), Wikipedia descriptions, on-select command tree, and doctrinal
-> TO&E templates — see MILESTONES.md.
+> TO&E templates; and the documented leftovers picked up — Courland pocket
+> (garrison + Soviet blockaders), formation ordinals (the incarnation registry
+> surfaced in the panel), and the army-group-in-pocket placement fix. See
+> MILESTONES.md.
 
 ## Definition of done (Eastern Front)
 
@@ -24,25 +27,32 @@ Met:
 4. **Honest provenance**: derived positions visibly distinct + disclaimed;
    curated tracks override; validation loop still green for curated units.
 5. **Derived positions validated**: the side-check (the project's quality
-   engine) now covers derived units too — **99.9% of 23,854 unit-months land
+   engine) now covers derived units too — **99.7% of 29,198 unit-months land
    on the correct side of the front**. A 95% floor in `build-units.mjs` fails
    the build on a placement regression (the class of bug the axis/soviet
-   offset sign-flip was). The residual 0.1% (32 unit-months, 21 units) is
+   offset sign-flip was). The residual 0.3% (102 unit-months, 53 units) is
    inherent to the schematic N→S sector model: mobile formations (cavalry/
    mechanized/tank corps) in deep breakthrough operations that are genuinely
-   ahead of or behind the line, plus 51st Army on the Caucasus E-W segment —
-   not chased with hacks.
-6. Verified: 54/54 smoke checks.
+   ahead of or behind the line, plus 51st Army on the Caucasus E-W segment and
+   the northern-extreme formations near Leningrad/the Baltic — not chased with
+   hacks (densifying keyframes does not fix model-inherent misses).
+6. Verified: 65/65 smoke checks.
 
 Deliberately out of scope (documented, not gaps):
 - **Finland / the Arctic front** — the main front polyline doesn't extend
   north of Leningrad, so no sector exists to place those units on.
 - **Brigades and below** — showcase-only by the SCALE_PLAN sub-division rule.
-- **Courland pocket sectors** (Oct 1944+) — 16./18. Armee sit inside the
-  pocket feature, off the main line; pocket-relative sectors are future work,
-  so those two armies drop from the sector table there (still searchable).
-- **Formation ordinals** — a re-formed division (2nd/3rd formation) shares one
-  identity; the reconciliation registry (SCALE_PLAN §4) is future work.
+
+Since addressed (were out of scope):
+- **Courland pocket sectors** (Oct 1944+) — *done.* 16./18. Armee + their OOB
+  ride inside the ring (garrison pre-pass), the Soviet blockaders (1st Shock,
+  10th Guards, 22nd, 42nd) hug its land-facing outer arc (`besiegers`), and
+  Heeresgruppe Nord/Kurland now follows its encircled armies into the pocket
+  instead of being averaged onto the distant main line.
+- **Formation ordinals** — *surfaced.* The reconciliation registry's
+  `incarnations` (SCALE_PLAN §4) is now attached to unit detail and shown in the
+  panel (e.g. 6. Armee, 16. Panzer-Division, 2nd Shock Army: destroyed →
+  re-formed). Append-only/crowdsourcable; seeded with documented cases.
 - **Position accuracy** is schematic (army order = source listing order,
   16 sector keyframes); the design goal is "the right units in the right
   sector on the right day", not survey-grade placement.

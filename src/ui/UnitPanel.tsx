@@ -31,6 +31,13 @@ function activeOn<T extends { from: string; to?: string | null }>(list: T[], d: 
 
 const branchOf = (type: string): string => (type === 'hq' ? 'hq' : type);
 
+/** 1 -> "1st", 2 -> "2nd", 3 -> "3rd", 4 -> "4th" … */
+const ordinal = (n: number): string => {
+  const s = ['th', 'st', 'nd', 'rd'];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] ?? s[v] ?? s[0]);
+};
+
 interface OrbatItem {
   node: OrbatNode;
   children: OrbatItem[];
@@ -228,6 +235,39 @@ export function UnitPanel({ id }: { id: string }) {
             Jump to {formatLong(firstMapped ?? life.from)}
           </button>
         </p>
+      )}
+
+      {unit.formations && unit.formations.list.length > 1 && (
+        <section className="detail-history">
+          <h3>Formations — {unit.formations.designation}</h3>
+          <ul>
+            {unit.formations.list.map((f) => {
+              const span = f.from
+                ? `${formatLong(f.from)} — ${f.to ? formatLong(f.to) : 'war end'}`
+                : f.to
+                  ? `until ${formatLong(f.to)}`
+                  : 'dates unknown';
+              const name = `${ordinal(f.ordinal)} formation`;
+              return (
+                <li key={`${f.ordinal}|${f.id ?? 'x'}`} className={f.self ? 'commander-active' : undefined}>
+                  {f.id && !f.self ? (
+                    <button className="date-link" onClick={() => setSelection({ kind: 'unit', id: f.id! })}>
+                      {name}
+                    </button>
+                  ) : (
+                    name
+                  )}{' '}
+                  <span className="omnibox-meta">
+                    {span}
+                    {f.fate && ` · ${f.fate}`}
+                    {f.note && ` · ${f.note}`}
+                    {f.self && ' · this unit'}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
       )}
 
       {unit.commanders.length > 0 && (

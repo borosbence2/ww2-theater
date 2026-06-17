@@ -20,8 +20,10 @@ const FILL_SOVIET_ID = 'control-fill-soviet';
 const FILL_ID = 'control-fill-axis';
 export const CONTROL_FILL_LAYER_IDS = [FILL_SOVIET_ID, FILL_ID];
 
-const AXIS_COLOR = '#cf4b34';
-const SOVIET_COLOR = '#3f86d4';
+// Desaturated toward grey so the tide reads as held territory, not as ink —
+// the front line and the unit counters stay the loudest marks on the map.
+const AXIS_COLOR = '#ab6356';
+const SOVIET_COLOR = '#5c83ae';
 
 // Fixed "theatre" landmass that can be Axis- or Soviet-held: west edge = rear
 // boundary, north = Baltic coast then NE across the USSR, east = a deep arc,
@@ -151,7 +153,7 @@ export async function addControlFillLayer(map: MapLibreMap, date: string): Promi
       type: 'fill',
       source: SOURCE_ID,
       filter: ['==', ['get', 'side'], 'soviet'],
-      paint: { 'fill-color': SOVIET_COLOR, 'fill-opacity': 0.17 },
+      paint: { 'fill-color': SOVIET_COLOR, 'fill-opacity': 0.1 },
     },
     firstLayer,
   );
@@ -161,7 +163,7 @@ export async function addControlFillLayer(map: MapLibreMap, date: string): Promi
       type: 'fill',
       source: SOURCE_ID,
       filter: ['==', ['get', 'side'], 'axis'],
-      paint: { 'fill-color': AXIS_COLOR, 'fill-opacity': 0.2 },
+      paint: { 'fill-color': AXIS_COLOR, 'fill-opacity': 0.11 },
     },
     firstLayer,
   );

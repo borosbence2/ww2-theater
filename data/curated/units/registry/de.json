@@ -15,11 +15,15 @@
   },
   "incarnations": {
     "6. Armee": [
-      { "id": "de-h-armee-6", "from": "1939-10-10", "to": "1943-02-02", "note": "destroyed at Stalingrad" },
+      { "id": "de-h-armee-6", "from": "1939-10-10", "to": "1943-02-02", "fate": "destroyed at Stalingrad" },
       { "id": "de-h-armee-6-2", "from": "1943-03-06", "note": "reformed from Armeeabteilung Hollidt" }
     ],
     "8. Armee": [
       { "id": "de-h-armee-8", "from": "1943-02-01", "note": "from Armeeabteilung Kempf (the 1939 8. Armee is not yet a separate incarnation)" }
+    ],
+    "16. Panzer-Division": [
+      { "id": "de-h-pz-div-16", "from": "1940-11-01", "to": "1943-02-02", "fate": "destroyed at Stalingrad" },
+      { "from": "1943-03-06", "note": "re-formed in Brittany, France (2nd formation not separately modelled)" }
     ]
   }
 }

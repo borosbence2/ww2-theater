@@ -725,6 +725,89 @@ Three enrichments + a forward plan, on the "honest, detailed cards" direction.
   the dev server after build-units — its `rmSync` of public/data makes Vite
   serve the SPA fallback for recreated files until restart.)
 
+## Situation-room counter redesign + map declutter ✅
+Per `IMPLEMENTATION.md` (the unit-system spec hand-off): a unit's echelon now
+reads three ways at once and the basemap/front/tide step back so the counters
+are the loudest marks on screen.
+- [x] **Per-echelon counter footprint** (`makeIcon` in `src/layers/units.ts`):
+      `ECH_TIER` scales the frame, deepens fill/stroke with rank (`mixHex`), and
+      adds a soft coloured glow for senior HQs (army, front/army-group). The
+      old fixed 52×46 canvas is gone — size is computed from the tier.
+- [x] **Echelon badge chip**: the NATO mark moved into a dark rounded monospace
+      chip above the frame (replacing the white-haloed text), with a top bevel
+      highlight on the frame. Branch coverage extended to `mechanized`,
+      `artillery`, `antitank`, `recon` (→ cavalry slash) and `hq` (empty frame).
+- [x] **Icon cache keyed by tier + mark** (`iconId`): front/army-group share one
+      `top` image, but battalion (II) and regiment (III) stay distinct within the
+      `sub` tier — the spec's group-only key would have collapsed them.
+- [x] **Label declutter** (`addEchelonLayer`): top/army/corps always labelled;
+      division/brigade/sub labels gate behind z6.8 (`step` on zoom wrapping the
+      ech test — zoom must be the top-level input), lighter halo, collisions hide
+      juniors.
+- [x] **Quieter front + tide**: the front line is now a thin crisp core (1.6→3.2
+      px) over a wide low-opacity glow (`front.ts`, replacing the bright white
+      casing); the tide fills drop to 0.10/0.11 opacity and desaturate toward
+      grey (`controlFill.ts`) so they read as territory, not ink.
+- [x] **Muted basemap** (`muteBasemap` in `MapView.tsx`): drops POI/transport
+      clutter, lightens labels, and quiets roads + admin boundaries after style
+      load (defensive per-layer — positron's layer set may shift).
+- [x] **Hover glow + tooltip** (`setupUnitInteractions`): a side-coloured glow
+      circle behind the hovered counter, lit via `feature-state` (source gains
+      `promoteId: 'id'`), plus a situation-room `Popup` showing name · echelon ·
+      type · nominal establishment strength (from `matchTemplate`). *Note:*
+      MapLibre 5 forbids `feature-state` in layout props, so the hover "lift" is
+      the paint-driven glow circle, not an `icon-size` bump as the spec sketched.
+- 62/62 smoke, lint clean, build clean.
+
+### Counter geometry ported to the exact spec board ✅
+Pulled the actual Claude Design bundle (`Unit System Spec.dc.html` + its
+`Counter.dc.html` primitive) and reconciled `makeIcon` to it pixel-for-pixel,
+beyond the condensed `IMPLEMENTATION.md`:
+- [x] **Authoritative ladder** (`LADDER`): explicit per-echelon `w/h/t/fw/bf/bh`
+      (regiment 40×25 → front 93×51), replacing the scale-multiplier guess.
+- [x] **Intensity fill** (`PAL` + `mixHex`): fill = `tl→td` by `t`; gradient
+      `gtop=mix(fill,#fff,.5)` → `gbot=mix(fill,td,.18)`; stroke = `mix(line,ink,t/2)`.
+- [x] **Inset branch glyphs** drawn in the central 68%×60% (matching the SVG
+      primitive's geometry exactly), all eight branches.
+- [x] **Selected state** baked into the icon: brass ring + brass glow + gold
+      badge; a `-s` icon variant is pre-generated per combo and chosen for the
+      focused unit in `collectionFor`.
+- [x] **Command-focus dimming** (states §03 / hover B): non-formation counters
+      drop to 0.4 icon / 0.32 text opacity via a `dim` feature property when a
+      unit is selected.
+- [x] **Tooltip** reformatted to the board's `name` + `XXXX · ARMOUR · ~N est.`
+- Verified live (deep-link to su-gd-rd-13 @ 1942-09-15): badge chips, size
+      ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
+      all render. 62/62 smoke, lint clean, build clean.
+
+## Eastern Front leftovers — Courland, formation ordinals, AGN-in-pocket ✅
+The documented out-of-scope items from EASTERN_SIM_PLAN, picked up (all but the
+Finland/Arctic front, which has no sector). 65/65 smoke, build + lint clean.
+- [x] **Courland pocket — both sides.** A generic `besiegers` field on a pocket
+      feature (passed through `build-fronts.mjs`): the blockading Soviet armies
+      (1st Shock, 10th Guards, 22nd, 42nd) are pinned ~15 km outside the ring on
+      its land-facing arc (bearing = ring centre → nearest main-line point), so
+      they read as sealing the Kessel and stay within the side-check's pocket
+      tolerance. The German garrison (16./18. Armee + OOB) already rode inside
+      the ring; this completes the picture.
+- [x] **Army-group-in-pocket fix** (`build-units.mjs`): an encircled army's
+      stale main-line midpoint no longer feeds the army-group average, and a
+      group with **all** armies encircled (Heeresgruppe Nord/Kurland) is now
+      placed inside the pocket with them instead of averaged onto the distant
+      East-Prussian line (where it was landing at fraction ≈ 0.01, wrong-side).
+- [x] **Formation ordinals surfaced** (SCALE_PLAN §4): the registry's
+      `incarnations` are attached to unit detail (`formations`) and rendered as a
+      **Formations** panel section — full ordered history, the current unit
+      highlighted, separately-modelled siblings clickable (6. Armee 1st/2nd),
+      annotation-only re-formations for the rest (16. Panzer-Division, 2nd Shock
+      Army: "destroyed → re-formed"). Registry seeded in `registry/{de,su}.json`;
+      append-only and crowdsourcable.
+- [x] **Side-check honesty**: 99.7% of 29,198 derived unit-months on the correct
+      side (102 / 53 units). The residual is the model-inherent class (mobile
+      corps in deep ops, the Caucasus E-W segment, northern-extreme formations) —
+      not keyframe-gap artefacts, so densification was assessed and declined
+      rather than authoring speculative sector data.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

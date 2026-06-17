@@ -94,6 +94,8 @@ const features = src.features.map((f) => {
     toNum: f.to ? dateNum(f.to) : OPEN_END,
     // Units trapped in this pocket (placed inside the ring by build-units).
     ...(f.garrison ? { garrison: f.garrison } : {}),
+    // Formations blockading the pocket (placed just outside the ring, land-side).
+    ...(f.besiegers ? { besiegers: f.besiegers } : {}),
     keyframes,
   };
 });

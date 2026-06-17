@@ -160,6 +160,7 @@ try {
 // into their canonical id (names → aliases) and redirect every reference, so
 // search/derivation see one unit. Validate `incarnations` (formation ordinals).
 const redirect = new Map(); // dupe id -> canonical id
+const formationsOf = new Map(); // unit id -> { designation, list } (formation ordinals)
 for (const cc of ['de', 'su', 'ro', 'hu', 'it']) {
   let reg;
   try {
@@ -189,8 +190,34 @@ for (const cc of ['de', 'su', 'ro', 'hu', 'it']) {
     }
   }
   for (const [desig, incs] of Object.entries(reg.incarnations ?? {})) {
-    for (const inc of incs) {
-      if (!units.has(inc.id)) err('registry', `incarnation "${desig}" → missing unit ${inc.id}`);
+    // Full ordered formation history; entries without an `id` are re-formations
+    // not separately modelled (annotation only). `fate` ends a formation; `note`
+    // describes its origin.
+    const list = incs.map((inc, i) => {
+      if (inc.from && !ISO.test(inc.from)) err('registry', `incarnation "${desig}" bad from ${inc.from}`);
+      if (inc.to && !ISO.test(inc.to)) err('registry', `incarnation "${desig}" bad to ${inc.to}`);
+      return {
+        ordinal: inc.ordinal ?? i + 1,
+        from: inc.from ?? null,
+        to: inc.to ?? null,
+        fate: inc.fate ?? null,
+        note: inc.note ?? null,
+        id: inc.id ?? null,
+      };
+    });
+    const anchored = incs.filter((inc) => inc.id);
+    if (!anchored.length) warn('registry', `incarnation "${desig}" has no entry with an id — orphaned`);
+    // Attach the shared history to every separately-modelled incarnation; mark
+    // which entry IS this unit so the panel can highlight it.
+    for (const inc of anchored) {
+      if (!units.has(inc.id)) {
+        err('registry', `incarnation "${desig}" → missing unit ${inc.id}`);
+        continue;
+      }
+      formationsOf.set(inc.id, {
+        designation: desig,
+        list: list.map((e) => ({ ...e, self: e.id === inc.id })),
+      });
     }
   }
 }
@@ -728,7 +755,7 @@ if (sectors && monthlyRosters.length) {
   const inPocket = new Set(); // `${id}|${date}` to skip on the main line
   const pocketAbs = []; // { id, date, dNum, at:[lon,lat] }
   for (const pk of pockets) {
-    if (!pk.garrison?.length) continue;
+    if (!pk.garrison?.length && !pk.besiegers?.length) continue;
     for (const month of monthlyRosters) {
       const dNum = dateNum(month.date);
       if (dNum < pk.fromNum || dNum >= pk.toNum) continue;
@@ -744,38 +771,103 @@ if (sectors && monthlyRosters.length) {
       cy /= ring.length;
       let r = 0;
       for (const [x, y] of ring) r = Math.max(r, Math.hypot(x - cx, y - cy));
-      // Garrison + OOB descendants active this month (fixpoint over parents).
-      const garr = new Set(pk.garrison);
-      for (let pass = 0, changed = true; changed && pass < 6; pass++) {
-        changed = false;
-        for (const u of units.values()) {
-          if (garr.has(u.id)) continue;
-          const p = (u.parents ?? []).find(
-            (p) => dateNum(p.from) <= dNum && (!p.to || dNum < dateNum(p.to)),
-          );
-          if (p && garr.has(p.unit)) {
-            garr.add(u.id);
-            changed = true;
+
+      // Garrison + OOB descendants active this month (fixpoint over parents),
+      // spread inside the ring (golden angle).
+      if (pk.garrison?.length) {
+        const garr = new Set(pk.garrison);
+        for (let pass = 0, changed = true; changed && pass < 6; pass++) {
+          changed = false;
+          for (const u of units.values()) {
+            if (garr.has(u.id)) continue;
+            const p = (u.parents ?? []).find(
+              (p) => dateNum(p.from) <= dNum && (!p.to || dNum < dateNum(p.to)),
+            );
+            if (p && garr.has(p.unit)) {
+              garr.add(u.id);
+              changed = true;
+            }
           }
         }
-      }
-      const list = [...garr].filter((id) => {
-        const u = units.get(id);
-        return existsAt(u, dNum) && !isCuratedActive(u, dNum);
-      });
-      list.forEach((id, i) => {
-        const ang = i * 2.399963229; // golden angle, even fill
-        const rad = 0.55 * r * Math.sqrt((i + 0.5) / list.length);
-        inPocket.add(`${id}|${month.date}`);
-        pocketAbs.push({
-          id,
-          date: month.date,
-          dNum,
-          at: [Number((cx + rad * Math.cos(ang)).toFixed(4)), Number((cy + rad * Math.sin(ang)).toFixed(4))],
+        const list = [...garr].filter((id) => {
+          const u = units.get(id);
+          return existsAt(u, dNum) && !isCuratedActive(u, dNum);
         });
-      });
+        list.forEach((id, i) => {
+          const ang = i * 2.399963229; // golden angle, even fill
+          const rad = 0.55 * r * Math.sqrt((i + 0.5) / list.length);
+          inPocket.add(`${id}|${month.date}`);
+          pocketAbs.push({
+            id,
+            date: month.date,
+            dNum,
+            at: [Number((cx + rad * Math.cos(ang)).toFixed(4)), Number((cy + rad * Math.sin(ang)).toFixed(4))],
+          });
+        });
+      }
+
+      // Besiegers: the blockading formations hug the ring just OUTSIDE its
+      // land-facing arc (bearing = ring centre -> nearest main-line point), each
+      // pinned ~15 km beyond a ring vertex so they read as sealing the pocket
+      // and stay within the side-check's pocket tolerance (not "wrong side").
+      // Entries are ids or {id, from?, to?} (default window = the pocket's).
+      if (pk.besiegers?.length) {
+        const line = coordsFor(main, month.date);
+        let bearing = Math.PI; // fallback: face west (toward the continent)
+        if (line) {
+          let best = Infinity;
+          let bx = cx;
+          let by = cy;
+          for (const [x, y] of line) {
+            const dd = (x - cx) ** 2 + (y - cy) ** 2;
+            if (dd < best) {
+              best = dd;
+              bx = x;
+              by = y;
+            }
+          }
+          bearing = Math.atan2(by - cy, bx - cx);
+        }
+        const angDiff = (a) => {
+          const d = Math.abs(a - bearing);
+          return d > Math.PI ? 2 * Math.PI - d : d;
+        };
+        const verts = ring
+          .map(([x, y]) => ({ x, y, ang: Math.atan2(y - cy, x - cx) }))
+          .sort((p, q) => angDiff(p.ang) - angDiff(q.ang)); // land-facing first
+        const OFF = 0.16; // ~15 km outward from the ring edge
+        const bz = pk.besiegers
+          .map((b) => (typeof b === 'string' ? { id: b } : b))
+          .filter((b) => {
+            const u = units.get(b.id);
+            if (!u || !existsAt(u, dNum) || isCuratedActive(u, dNum)) return false;
+            if (b.from && dNum < dateNum(b.from)) return false;
+            if (b.to && dNum >= dateNum(b.to)) return false;
+            return true;
+          });
+        bz.forEach((b, i) => {
+          const v = verts[Math.min(i, verts.length - 1)];
+          const len = Math.hypot(v.x - cx, v.y - cy) || 1;
+          inPocket.add(`${b.id}|${month.date}`);
+          pocketAbs.push({
+            id: b.id,
+            date: month.date,
+            dNum,
+            at: [
+              Number((v.x + ((v.x - cx) / len) * OFF).toFixed(4)),
+              Number((v.y + ((v.y - cy) / len) * OFF).toFixed(4)),
+            ],
+          });
+        });
+      }
     }
   }
+
+  // Lookup: an in-pocket unit's absolute position this month, so a fully
+  // encircled army group can be placed with its armies instead of averaged onto
+  // the distant main line.
+  const pocketPosOf = new Map();
+  for (const p of pocketAbs) pocketPosOf.set(`${p.id}|${p.date}`, p.at);
 
   const push = (id, date, f) => {
     const u = units.get(id);
@@ -813,11 +905,25 @@ if (sectors && monthlyRosters.length) {
 
     // German armies: sector midpoints; their divisions (Lexikon Unterstellung
     // rosters) subdivide the army span like Soviet divisions do army slices.
+    const monthHgr = deArmyHgr.get(month.date);
     const deSeen = new Set();
     const armyFrac = new Map(); // armyId -> midpoint fraction (for army-group avg)
+    const hgrPocketPos = new Map(); // hgrId -> [[lon,lat]] for its encircled armies
     for (const e of [...(k0.de ?? []), ...(k1.de ?? [])]) {
       if (deSeen.has(e.unit)) continue;
       deSeen.add(e.unit);
+      // Encircled army (placed inside the ring by the pocket pre-pass): its stale
+      // main-line midpoint must NOT feed the army-group average. Note its pocket
+      // position so a fully-encircled group follows its armies in.
+      if (inPocket.has(`${e.unit}|${month.date}`)) {
+        const hgr = monthHgr?.get(e.unit);
+        const pos = pocketPosOf.get(`${e.unit}|${month.date}`);
+        if (hgr && pos) {
+          if (!hgrPocketPos.has(hgr)) hgrPocketPos.set(hgr, []);
+          hgrPocketPos.get(hgr).push(pos);
+        }
+        continue;
+      }
       const span = spanFor('de', e.unit);
       if (!span) continue;
       const mid = (span[0] + span[1]) / 2;
@@ -828,9 +934,10 @@ if (sectors && monthlyRosters.length) {
         push(d.id, month.date, span[0] + ((span[1] - span[0]) * (j + 0.5)) / divs.length),
       );
     }
-    // German army groups: average of their armies' sector fractions this month.
+    // German army groups: on-line armies -> average of their sector fractions; a
+    // group with ALL armies encircled (Heeresgruppe Kurland) is placed inside the
+    // pocket with them rather than averaged onto the distant main line.
     const hgrMembers = new Map(); // hgrId -> [fraction]
-    const monthHgr = deArmyHgr.get(month.date);
     if (monthHgr) {
       for (const [army, frac] of armyFrac) {
         const hgr = monthHgr.get(army);
@@ -841,6 +948,16 @@ if (sectors && monthlyRosters.length) {
       for (const [hgr, fracs] of hgrMembers) {
         push(hgr, month.date, fracs.reduce((s, f) => s + f, 0) / fracs.length);
       }
+    }
+    for (const [hgr, positions] of hgrPocketPos) {
+      if (hgrMembers.has(hgr)) continue; // some armies still on the line: placed above
+      const hu = units.get(hgr);
+      const dNum = dateNum(month.date);
+      if (!existsAt(hu, dNum) || isCuratedActive(hu, dNum)) continue;
+      const ax = positions.reduce((s, p) => s + p[0], 0) / positions.length;
+      const ay = positions.reduce((s, p) => s + p[1], 0) / positions.length;
+      inPocket.add(`${hgr}|${month.date}`);
+      pocketAbs.push({ id: hgr, date: month.date, dNum, at: [Number(ax.toFixed(4)), Number(ay.toFixed(4))] });
     }
 
     // Soviet: front span -> armies (roster order) -> divisions.
@@ -1106,6 +1223,7 @@ for (const u of units.values()) {
     sources: usedSources.map((s) => ({ id: s, ...(sourcesReg[s] ?? {}) })),
     notes: u.notes ?? null,
     summary: u.summary ?? null,
+    formations: formationsOf.get(u.id) ?? null,
   };
   const shard = shardOf(u.id);
   if (!shards.has(shard)) shards.set(shard, {});

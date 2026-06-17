@@ -969,3 +969,39 @@ button.orbat-row:hover {
 .maplibregl-ctrl button .maplibregl-ctrl-icon {
   filter: invert(1) hue-rotate(180deg) brightness(1.1);
 }
+
+/* Unit hover tooltip — a situation-room chip (name + monospace meta line).
+   pointer-events: none so it never interrupts the hover it is describing. */
+.maplibregl-popup.unit-tip {
+  pointer-events: none;
+  max-width: 260px;
+}
+.maplibregl-popup.unit-tip .maplibregl-popup-content {
+  padding: 6px 10px;
+  background: var(--surface-solid);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  box-shadow: var(--shadow-sm);
+}
+.maplibregl-popup.unit-tip .maplibregl-popup-tip {
+  display: none;
+}
+.unit-tip-name {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text);
+}
+.unit-tip-name.unit-tip-axis {
+  color: var(--axis-text);
+}
+.unit-tip-name.unit-tip-soviet {
+  color: var(--soviet-text);
+}
+.unit-tip-meta {
+  margin-top: 2px;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}

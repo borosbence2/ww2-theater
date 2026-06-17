@@ -199,7 +199,9 @@ export async function addFrontLayer(map: MapLibreMap, date: string): Promise<voi
     },
   });
 
-  // Main front line (white casing + dark core), as before.
+  // Main front line: a wide, soft, low-opacity glow beneath a thin crisp core,
+  // so the line reads as a quiet boundary and the unit counters stay the
+  // loudest thing on the map. (Replaces the old bright white casing.)
   map.addLayer({
     id: CASING_ID,
     type: 'line',
@@ -207,8 +209,10 @@ export async function addFrontLayer(map: MapLibreMap, date: string): Promise<voi
     filter: isFront as never,
     layout,
     paint: {
-      'line-color': 'rgba(248,248,250,0.9)',
-      'line-width': ['interpolate', ['linear'], ['zoom'], 3, 4, 7, 9],
+      'line-color': '#0d131d',
+      'line-opacity': 0.18,
+      'line-width': ['interpolate', ['linear'], ['zoom'], 3, 5, 7, 12],
+      'line-blur': ['interpolate', ['linear'], ['zoom'], 3, 3, 7, 6],
     },
   });
   map.addLayer({
@@ -219,7 +223,7 @@ export async function addFrontLayer(map: MapLibreMap, date: string): Promise<voi
     layout,
     paint: {
       'line-color': '#16181c',
-      'line-width': ['interpolate', ['linear'], ['zoom'], 3, 2, 7, 4.5],
+      'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.6, 7, 3.2],
     },
   });
 

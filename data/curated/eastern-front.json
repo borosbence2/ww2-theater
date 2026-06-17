@@ -7807,6 +7807,12 @@
       "garrison": [
         "de-h-armee-16",
         "de-h-armee-18"
+      ],
+      "besiegers": [
+        "su-shock-army-1",
+        "su-gd-army-10",
+        "su-army-22",
+        "su-army-42"
       ]
     },
     {
