@@ -808,6 +808,27 @@ Finland/Arctic front, which has no sector). 65/65 smoke, build + lint clean.
       not keyframe-gap artefacts, so densification was assessed and declined
       rather than authoring speculative sector data.
 
+## Unit detail panel — situation-room redesign ✅
+Recreated the design bundle's `Unit Detail.dc.html` (§8) in the React panel,
+reorganising the same data into scannable sections with the numbers promoted.
+65/65 smoke, build + lint clean.
+- [x] **Widened 384px** (`index.css`) with a **sticky identity header**
+      (`DetailPanel.tsx` hands units to `UnitPanel`, which owns header + close):
+      the APP-6 counter glyph (`UnitGlyph` size 58) + period name + echelon/
+      branch/country chips + a side-tinted status line, pinned while the body
+      scrolls.
+- [x] **Key-stats band** (`StatTile`): establishment, lead equipment, raised
+      year, and end/fate promoted out of prose into monospace tiles — each
+      guarded so a missing datum gets no tile.
+- [x] **Chain-of-command spine**: walks parents upward (`loadAncestors`, cycle-
+      guarded) into a vertical thread on a brass rail with compact counter
+      glyphs, the selected unit highlighted — not a one-line parent.
+- [x] **Archive chips + sources footer**: external links became hover-lit chips;
+      citations/period-name recede into a hairline footer.
+- Deferred (§8e, the only genuinely new data): commander portraits (Wikidata
+  P18) and insignia (P41) — needs an image-fetch ETL; the panel degrades
+  gracefully without them.
+
 ## M4 — Railways & roads (deprioritized — see REWRITE_PLAN.md)
 - [ ] ETL: Morillas-Torné 1940 railways
 - [ ] Roads as modern-OSM approximation (clearly labeled)

@@ -38,6 +38,46 @@ const ordinal = (n: number): string => {
   return n + (s[(v - 20) % 10] ?? s[v] ?? s[0]);
 };
 
+/** A scannable stat tile (establishment, armour, raised, fate). */
+function StatTile({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="stat-tile">
+      <div className="stat-value">{value}</div>
+      <div className="stat-label">{label}</div>
+    </div>
+  );
+}
+
+interface ChainNode {
+  id: string;
+  label: string;
+  echelon: string;
+  side: 'axis' | 'soviet';
+  branch: string;
+}
+
+/** Walk the chain of command upward from a unit on a date (immediate parent ->
+ *  …-> top), so the panel can draw the full command spine, not one level. */
+async function loadAncestors(start: UnitDetail, d: number): Promise<ChainNode[]> {
+  const out: ChainNode[] = [];
+  const seen = new Set([start.id]); // guard against cycles / a parent repeated up the chain
+  let cur = start;
+  for (let i = 0; i < 6; i++) {
+    const p = activeOn(cur.parents, d);
+    if (!p || seen.has(p.unit)) break;
+    seen.add(p.unit);
+    let pu: UnitDetail;
+    try {
+      pu = await loadUnitDetail(p.unit);
+    } catch {
+      break;
+    }
+    out.unshift({ id: pu.id, label: p.label, echelon: pu.echelon, side: pu.side, branch: pu.type });
+    cur = pu;
+  }
+  return out;
+}
+
 interface OrbatItem {
   node: OrbatNode;
   children: OrbatItem[];
@@ -145,7 +185,7 @@ function TemplateRows({ nodes, side }: { nodes: TemplateNode[]; side: 'axis' | '
   );
 }
 
-export function UnitPanel({ id }: { id: string }) {
+export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void }) {
   const date = useStore((s) => s.date);
   const setDate = useStore((s) => s.setDate);
   const setSelection = useStore((s) => s.setSelection);
@@ -156,6 +196,7 @@ export function UnitPanel({ id }: { id: string }) {
 
   const [unit, setUnit] = useState<UnitDetail | null>(null);
   const [missing, setMissing] = useState(false);
+  const [ancestors, setAncestors] = useState<ChainNode[]>([]);
 
   useEffect(() => {
     let alive = true;
@@ -169,6 +210,17 @@ export function UnitPanel({ id }: { id: string }) {
     };
   }, [id]);
 
+  // Chain-of-command spine: walk parents upward (date-dependent).
+  useEffect(() => {
+    let alive = true;
+    setAncestors([]);
+    if (!unit) return;
+    loadAncestors(unit, dateToNum(date)).then((a) => alive && setAncestors(a));
+    return () => {
+      alive = false;
+    };
+  }, [unit, date]);
+
   if (missing) return <p className="detail-note">Unknown unit “{id}”.</p>;
   if (!unit) return <p className="detail-note">Loading…</p>;
 
@@ -177,39 +229,80 @@ export function UnitPanel({ id }: { id: string }) {
   const life = unit.existence[0];
   const lifeEnd = unit.existence[unit.existence.length - 1];
   const exists = activeOn(unit.existence, d) !== undefined;
-  const parentNow = activeOn(unit.parents, d);
   const template = matchTemplate(unit.side, unit.echelon, unit.type, date);
   const firstMapped = unit.positions[0]?.date;
   const docCount = unit.positions.filter((p) => p.confidence === 'documented').length;
 
   const jump = (iso: string) => setDate(iso);
 
+  // Key-stats band: numbers promoted out of prose. Each tile is guarded — a
+  // datum that doesn't exist gets no tile (never fabricated).
+  const selfFate = unit.formations?.list.find((f) => f.self)?.fate ?? lifeEnd.end ?? null;
+  const leadEquip = template?.equipment?.[0];
+  const stats: { value: string; label: string }[] = [];
+  if (template?.strength) stats.push({ value: template.strength.toLocaleString(), label: 'Establishment' });
+  if (leadEquip) stats.push({ value: leadEquip.count.toLocaleString(), label: leadEquip.name });
+  stats.push({ value: life.from.slice(0, 4), label: 'Raised' });
+  if (lifeEnd.to) stats.push({ value: lifeEnd.to.slice(0, 4), label: selfFate ? 'Fate' : 'Last active' });
+
+  // Command spine: ancestors (loaded async) + this unit at the bottom.
+  const spine: (ChainNode & { self?: boolean })[] = [
+    ...ancestors,
+    { id: unit.id, label: name.name, echelon: unit.echelon, side: unit.side, branch: unit.type, self: true },
+  ];
+
   return (
     <div className="unit-panel">
-      <p className="detail-meta">
-        <span className={`unit-chip side-${unit.side}`}>{unit.echelon}</span>
-        {unit.type !== 'hq' && `${unit.type} · `}
-        {unit.country} · {unit.branch}
-      </p>
+      <header className={`unit-head side-${unit.side}`}>
+        {onClose && (
+          <button className="detail-close" title="Close" onClick={onClose}>
+            ×
+          </button>
+        )}
+        <div className="unit-head-id">
+          <UnitGlyph side={unit.side} echelon={unit.echelon} branch={unit.type} size={58} />
+          <div className="unit-head-text">
+            <h2>{name.name}</h2>
+            <div className="unit-head-chips">
+              <span className={`unit-chip side-${unit.side}`}>{unit.echelon}</span>
+              <span className="unit-head-sub">
+                {unit.type !== 'hq' && `${unit.type} · `}
+                {unit.country}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="unit-head-status">
+          <span className={`side-dot side-${unit.side}`} />
+          {exists ? 'Active' : 'Not active'} · {formatLong(life.from)} —{' '}
+          {lifeEnd.to ? formatLong(lifeEnd.to) : 'war end'}
+          {lifeEnd.end && <span className="unit-end"> · {lifeEnd.end}</span>}
+        </div>
+      </header>
 
-      <p className="detail-meta">
-        {formatLong(life.from)} — {lifeEnd.to ? formatLong(lifeEnd.to) : 'war end'}
-        {lifeEnd.end && <span className="unit-end"> · {lifeEnd.end}</span>}
-      </p>
+      <div className="unit-body">
+        {unit.summary && (
+          <p className="unit-summary">
+            {unit.summary}
+            {unit.links?.['wikipedia.en'] && (
+              <>
+                {' '}
+                <a href={unit.links['wikipedia.en']} target="_blank" rel="noreferrer">
+                  Wikipedia ↗
+                </a>
+              </>
+            )}
+          </p>
+        )}
 
-      {unit.summary && (
-        <p className="unit-summary">
-          {unit.summary}
-          {unit.links?.['wikipedia.en'] && (
-            <>
-              {' '}
-              <a href={unit.links['wikipedia.en']} target="_blank" rel="noreferrer">
-                Wikipedia
-              </a>
-            </>
-          )}
-        </p>
-      )}
+        {stats.length > 0 && (
+          <div className="stat-grid">
+            {stats.map((s) => (
+              <StatTile key={s.label} value={s.value} label={s.label} />
+            ))}
+          </div>
+        )}
+        {selfFate && <p className="stat-fate">{selfFate}</p>}
 
       {(unit.positions.length > 0 || unit.derived) && (
         <div className="unit-controls">
@@ -304,16 +397,32 @@ export function UnitPanel({ id }: { id: string }) {
         </section>
       )}
 
-      {parentNow && (
+      {spine.length > 1 && (
         <section className="detail-history">
-          <h3>Chain of command on {formatLong(date)}</h3>
-          <ul>
-            <li>
-              <button className="date-link" onClick={() => setSelection({ kind: 'unit', id: parentNow.unit })}>
-                {parentNow.label}
+          <h3>Chain of command · {formatLong(date)}</h3>
+          <div className="chain-spine">
+            {spine.map((u, i) => (
+              <button
+                key={`${u.id}-${i}`}
+                className={`chain-row${u.self ? ' chain-self' : ''} side-${u.side}`}
+                onClick={() => !u.self && setSelection({ kind: 'unit', id: u.id })}
+                disabled={u.self}
+                title={u.label}
+              >
+                <span className="chain-glyph">
+                  <UnitGlyph side={u.side} echelon={u.echelon} branch={u.branch} size={30} />
+                </span>
+                <span className="chain-text">
+                  <span className="chain-label">{u.label}</span>
+                  <span className="chain-ech">
+                    {u.echelon}
+                    {u.self && ' · this unit'}
+                  </span>
+                </span>
+                {u.self && <span className="chain-marker">◂</span>}
               </button>
-            </li>
-          </ul>
+            ))}
+          </div>
         </section>
       )}
 
@@ -411,29 +520,30 @@ export function UnitPanel({ id }: { id: string }) {
       {Object.keys(unit.links).length > 0 && (
         <section className="detail-history">
           <h3>External archives</h3>
-          <ul>
+          <div className="archive-chips">
             {Object.entries(unit.links).map(([key, url]) => (
-              <li key={key}>
-                {key === 'wikidata' ? (
-                  <a href={`https://www.wikidata.org/wiki/${url}`} target="_blank" rel="noreferrer">
-                    Wikidata
-                  </a>
-                ) : (
-                  <a href={url} target="_blank" rel="noreferrer">
-                    {LINK_LABELS[key] ?? key}
-                  </a>
-                )}
-              </li>
+              <a
+                className="archive-chip"
+                key={key}
+                href={key === 'wikidata' ? `https://www.wikidata.org/wiki/${url}` : url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {LINK_LABELS[key] ?? key} <span className="archive-arr">↗</span>
+              </a>
             ))}
-          </ul>
+          </div>
         </section>
       )}
 
-      {unit.sources.length > 0 && (
-        <p className="detail-note">Sources: {unit.sources.map((s) => s.citation ?? s.id).join(' · ')}</p>
-      )}
-      {unit.notes && <p className="detail-note">{unit.notes}</p>}
-      <p className="detail-note">Period name on this date: {name.name}</p>
+        <div className="unit-foot">
+          {unit.sources.length > 0 && (
+            <p>Sources: {unit.sources.map((s) => s.citation ?? s.id).join(' · ')}</p>
+          )}
+          {unit.notes && <p>{unit.notes}</p>}
+          <p>Period name on this date: {name.name}</p>
+        </div>
+      </div>
     </div>
   );
 }

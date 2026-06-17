@@ -293,7 +293,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   z-index: 11;
-  width: min(360px, calc(100% - 380px));
+  width: min(360px, calc(100% - 410px));
 }
 
 .omnibox input {
@@ -483,11 +483,15 @@ body {
   top: 64px;
   right: 14px;
   z-index: 10;
-  width: 288px;
-  max-height: calc(100% - 160px);
+  width: 384px;
+  max-height: calc(100% - 96px);
   overflow-y: auto;
   padding: 16px 16px 18px;
   border-radius: var(--r);
+}
+/* The unit panel manages its own padding (sticky header + scrolling body). */
+.detail-panel.unit-detail {
+  padding: 0;
 }
 
 .detail-panel h2 {
@@ -800,6 +804,237 @@ button.orbat-row:hover {
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
+}
+
+/* ------------------------------------------- Unit detail panel (redesign) - */
+.unit-panel {
+  display: flex;
+  flex-direction: column;
+}
+/* Sticky identity header: counter glyph + name + chips + status. */
+.unit-head {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 16px 16px 13px;
+  background: linear-gradient(180deg, rgba(20, 24, 31, 0.97), rgba(17, 22, 31, 0.93));
+  -webkit-backdrop-filter: var(--blur);
+  backdrop-filter: var(--blur);
+  border-bottom: 1px solid var(--line-soft);
+}
+.unit-head.side-axis {
+  background: linear-gradient(180deg, rgba(40, 22, 19, 0.96), rgba(20, 17, 21, 0.93));
+}
+.unit-head.side-soviet {
+  background: linear-gradient(180deg, rgba(18, 28, 42, 0.96), rgba(17, 21, 31, 0.93));
+}
+.unit-head .detail-close {
+  top: 12px;
+  right: 12px;
+}
+.unit-head-id {
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  padding-right: 30px;
+}
+.unit-head-id .orbat-glyph {
+  flex: none;
+  margin-top: 2px;
+}
+.unit-head-text {
+  min-width: 0;
+}
+.unit-head h2 {
+  margin: 0 0 7px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+.unit-head-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+}
+.unit-head-sub {
+  font-size: 11.5px;
+  color: var(--muted);
+  text-transform: capitalize;
+}
+.unit-head-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+/* Scrollable body: every section spaced evenly. */
+.unit-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 16px;
+}
+.unit-body > .detail-history {
+  margin-top: 0;
+}
+.unit-body > .unit-summary,
+.unit-body > .unit-controls,
+.unit-body > .detail-note {
+  margin: 0;
+}
+
+/* Key-stats band. */
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+.stat-tile {
+  background: var(--sunken);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-xs);
+  padding: 11px 13px;
+}
+.stat-value {
+  font: 800 17px ui-monospace, Consolas, monospace;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.stat-label {
+  margin-top: 3px;
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.stat-fate {
+  margin: -10px 0 0;
+  font-size: 11.5px;
+  color: var(--axis-text);
+}
+
+/* Chain-of-command spine: a brass rail behind a compact counter column. */
+.chain-spine {
+  position: relative;
+}
+.chain-spine::before {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent-line), rgba(231, 189, 85, 0.12));
+}
+.chain-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  padding: 6px 8px;
+  background: none;
+  border: none;
+  border-radius: var(--r-xs);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s var(--ease);
+}
+.chain-row:not(.chain-self):hover {
+  background: var(--hover);
+}
+.chain-self {
+  cursor: default;
+}
+.chain-self.side-axis {
+  background: var(--axis-soft);
+}
+.chain-self.side-soviet {
+  background: var(--soviet-soft);
+}
+.chain-glyph {
+  flex: none;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+.chain-text {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.chain-label {
+  font-size: 12.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chain-self .chain-label {
+  font-weight: 700;
+  color: #fff;
+}
+.chain-ech {
+  font-size: 10px;
+  color: var(--faint);
+  text-transform: capitalize;
+}
+.chain-marker {
+  flex: none;
+  font-size: 11px;
+  color: var(--axis-text);
+}
+.chain-self.side-soviet .chain-marker {
+  color: var(--soviet-text);
+}
+
+/* External-archive chips + sources footer. */
+.archive-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.archive-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  font-size: 11.5px;
+  color: var(--muted);
+  text-decoration: none;
+  background: var(--raised);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-xs);
+  transition: all 0.15s var(--ease);
+}
+.archive-chip:hover {
+  color: var(--accent-bright);
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+}
+.archive-arr {
+  opacity: 0.6;
+}
+.unit-foot {
+  border-top: 1px solid var(--line-soft);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.unit-foot p {
+  margin: 0;
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--faint);
 }
 
 /* ---------------------------------------------------- People button/panel - */

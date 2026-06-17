@@ -10,7 +10,6 @@ import {
   type City,
   type ControlCity,
 } from '../data/cities';
-import { loadUnitDetail } from '../data/units';
 import { formatLong } from '../time/dates';
 import { useStore } from '../store';
 import { UnitPanel } from './UnitPanel';
@@ -90,25 +89,20 @@ function CityDetail({ name }: { name: string }) {
   );
 }
 
-function UnitTitle({ id }: { id: string }) {
-  const [label, setLabel] = useState(id);
-  useEffect(() => {
-    let alive = true;
-    loadUnitDetail(id)
-      .then((u) => alive && setLabel(u.names[u.names.length - 1].name))
-      .catch(() => undefined);
-    return () => {
-      alive = false;
-    };
-  }, [id]);
-  return <h2>{label}</h2>;
-}
-
 export function DetailPanel() {
   const selection = useStore((s) => s.selection);
   const setSelection = useStore((s) => s.setSelection);
 
   if (!selection) return null;
+
+  // Units own their (sticky) header + close button inside UnitPanel.
+  if (selection.kind === 'unit') {
+    return (
+      <aside className="detail-panel unit-detail">
+        <UnitPanel id={selection.id} onClose={() => setSelection(null)} />
+      </aside>
+    );
+  }
 
   return (
     <aside className="detail-panel">
@@ -117,13 +111,8 @@ export function DetailPanel() {
       </button>
       {selection.kind === 'city' ? (
         <CityDetail name={selection.id} />
-      ) : selection.kind === 'battle' ? (
-        <BattlePanel id={selection.id} />
       ) : (
-        <>
-          <UnitTitle id={selection.id} />
-          <UnitPanel id={selection.id} />
-        </>
+        <BattlePanel id={selection.id} />
       )}
     </aside>
   );
