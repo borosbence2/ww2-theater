@@ -39,6 +39,10 @@
    "n": 7
   },
   {
+   "id": "de-h-armee-1",
+   "n": 1
+  },
+  {
    "id": "de-h-armee-18",
    "n": 18
   },
@@ -49,10 +53,6 @@
   {
    "id": "de-h-armee-3",
    "n": 3
-  },
-  {
-   "id": "de-h-armee-1",
-   "n": 1
   },
   {
    "id": "de-h-armee-12",
@@ -122,14 +122,14 @@
    "en": "Army Group Vistula"
   },
   {
-   "id": "de-h-hgr-ostmark",
-   "name": "Heeresgruppe Ostmark",
-   "en": "Army Group Ostmark"
-  },
-  {
    "id": "de-h-hgr-nordukraine",
    "name": "Heeresgruppe Nordukraine",
    "en": "Army Group North Ukraine"
+  },
+  {
+   "id": "de-h-hgr-ostmark",
+   "name": "Heeresgruppe Ostmark",
+   "en": "Army Group Ostmark"
   }
  ],
  "armeeabteilungen": [],
@@ -251,6 +251,32 @@
      "name": "199th Infantry Division",
      "aliases": [
       "199. Infanteriedivision"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-20th-panzer-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "armoured",
+   "short": "20. Pan",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "20th Panzer Division",
+     "aliases": [
+      "20. Panzer-Division"
      ]
     }
    ],
@@ -655,6 +681,32 @@
    "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
   },
   {
+   "id": "de-52nd-security-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "52. Sec",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "52nd Security Division",
+     "aliases": [
+      "52. Sicherungs-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
    "id": "de-59th-infantry-division",
    "country": "DE",
    "branch": "heer",
@@ -693,6 +745,32 @@
      "name": "6th SS Mountain Division",
      "aliases": [
       "SS-Gebirgs-Division Nord"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-6th-panzer-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "armoured",
+   "short": "6. Pan",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "6th Panzer Division",
+     "aliases": [
+      "6. Panzer-Division"
      ]
     }
    ],
@@ -1264,6 +1342,67 @@
     [
      "1943-11-02",
      null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-11th-panzer-division",
+   "label": "11. Panzer-Division",
+   "events": [
+    [
+     "1944-01-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-15",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-8",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1944-05-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-06-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-19",
+     null
+    ],
+    [
+     "1944-10-01",
+     null,
+     null
+    ],
+    [
+     "1944-11-01",
+     "de-h-armee-1",
      null
     ]
    ]
@@ -7125,6 +7264,42 @@
    ]
   },
   {
+   "id": "de-52nd-security-division",
+   "label": "52. Sicherungs-Division",
+   "events": [
+    [
+     "1944-05-01",
+     null,
+     null
+    ],
+    [
+     "1944-07-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-08-01",
+     null,
+     null
+    ],
+    [
+     "1944-11-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-18",
+     "de-h-hgr-kurland"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-542nd-grenadier-division",
    "label": "542. Grenadier-Division",
    "events": [
@@ -9435,6 +9610,97 @@
      "1945-04-01",
      "de-h-armee-10",
      null
+    ]
+   ]
+  },
+  {
+   "id": "de-h-pz-div-16",
+   "label": "16. Panzer-Division",
+   "events": [
+    [
+     "1940-11-01",
+     "de-h-armee-11",
+     null
+    ],
+    [
+     "1940-12-01",
+     null,
+     null
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-12",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-06-01",
+     null,
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-01-01",
+     null,
+     null
+    ],
+    [
+     "1942-08-25",
+     "de-h-armee-6",
+     "de-h-hgr-a"
+    ],
+    [
+     "1942-09-03",
+     null,
+     null
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-04-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1943-06-01",
+     null,
+     null
+    ],
+    [
+     "1943-09-08",
+     "de-h-armee-10",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-12-01",
+     null,
+     null
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-04-01",
+     null,
+     null
+    ],
+    [
+     "1944-05-01",
+     null,
+     "de-h-hgr-nordukraine"
+    ],
+    [
+     "1944-06-01",
+     null,
+     null
+    ],
+    [
+     "1945-05-01",
+     "de-h-armee-17",
+     "de-h-hgr-mitte"
     ]
    ]
   }

@@ -780,6 +780,54 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Sub-division drill-down + registry expansion (S6, ordinals, Tessin) ✅
+Three smaller depth items. 65/65 smoke, build + lint clean.
+- [x] **Sub-division drill-down (SCALE_PLAN S6)** (`src/layers/units.ts`):
+      selecting a division (or brigade) with no curated regiments draws its
+      *organic regiments* from the TO&E template as a small dashed cluster around
+      it (a dedicated `units-doctrinal` source/layer, sub-tier zoom, not a hit
+      target so it never steals clicks). Doctrinal regiment icons (every branch ×
+      regiment/brigade/battalion, derived style) are pre-generated. Divisions
+      with real curated regiments (e.g. 13th Guards) still show those instead.
+- [x] **Formation ordinals expanded** (`registry/{de,su}.json`): added 14. & 24.
+      Panzer-Division (destroyed at Stalingrad → re-formed in France) and the
+      Soviet 6th Army (Uman → Kharkov → re-formed), 19th & 20th Army (both
+      encircled at Vyazma → re-formed). Surfaced in the panel's Formations
+      section alongside the earlier seeds.
+- [x] **Tessin reconciliation** (`registry/de.json` merge): folded two same-unit
+      Wikidata QID duplicates — 2nd SS Panzer "Das Reich" and the 154th Infantry
+      Division — into their canonical ids (names kept as aliases). Most other
+      number+class collisions are genuinely distinct units (Flak vs Parachute,
+      Panzer vs Panzergrenadier lineages) and are deliberately left separate.
+
+## Reserve placement + German OOB coverage ✅
+Direction from the user: place only Eastern-Front units; route reserves to a
+reserve area; skip Luftwaffe/navy for now. Investigation first re-framed the
+"354 unplaced Axis divisions" — most are *correctly* off an Eastern-Front map
+(West/Italy/Balkans armies, Luftwaffe Flak/parachute, reserve/late-war). 65/65
+smoke, build + lint clean.
+- [x] **Reserve placement** (`build-units.mjs`): EF-theater formations with no
+      front sector this month ride a rear reserve area (front centre, deep in own
+      rear, golden-angle spread) instead of vanishing. Soviet = the Reserve Front
+      (Stavka RVGK); German = EF divisions resting in a null-army (OKH-reserve)
+      gap *between* Eastern-Front deployments. Non-EF fronts (West/Italy/Balkans/
+      Karelia) and Luftwaffe/naval formations are deliberately left unplaced.
+      948 reserve unit-months — mostly continuity (a division no longer blinks
+      off the map during refit) + the Reserve Front massing before counter-
+      offensives. Exempt from the line side-check (schematic rear positions);
+      side-check holds at 99.7%.
+- [x] **fetch-ldw harvest bug fixed**: the Panzer/Gebirgs/Kavallerie indexes link
+      the content frame (`13PD-R.htm`) directly, but the crawler skipped any
+      `-R.htm` href — so **zero** panzer pages were ever cached. Now both link
+      styles are accepted (and only numbered divisions are fetched, skipping
+      named/RAD/Festung 1945 units). Re-import added 11. Panzer + 52. Sicherungs-
+      Division (real EF formations).
+- [x] **Honest ceiling**: most panzer/mountain/cavalry LdW pages carry their
+      *Unterstellung* as **prose narrative**, not the Datum|Korps|Armee table the
+      parser needs — so German EF coverage is data-format-limited, not effort-
+      limited. Pages are now cached for a future prose extractor. On-map units
+      1,589 → 1,592 (+ the reserve continuity).
+
 ## Eastern Front leftovers — Courland, formation ordinals, AGN-in-pocket ✅
 The documented out-of-scope items from EASTERN_SIM_PLAN, picked up (all but the
 Finland/Arctic front, which has no sector). 65/65 smoke, build + lint clean.

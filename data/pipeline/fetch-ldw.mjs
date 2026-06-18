@@ -78,11 +78,16 @@ const SEED = [
     for (const m of html.matchAll(/href="([^"]+?\.htm)"[^>]*>\s*([^<]{3,70})/g)) {
       const [, href, rawLabel] = m;
       const label = rawLabel.replace(/\s+/g, ' ').trim();
-      if (/-R\.htm$/i.test(href) || /KStN|Gliederung|Index/i.test(href)) continue;
+      if (/KStN|Gliederung|Index/i.test(href)) continue;
       if (!/[Dd]ivision/.test(label)) continue;
-      // Resolve relative to the index's directory.
+      // Numbered divisions only — skip named/RAD/Festung/ad-hoc 1945 divisions
+      // (mostly West/local-defence, never on the Eastern Front line).
+      if (!/^\d/.test(label)) continue;
+      // Resolve relative to the index's directory. Some indexes link the
+      // frameset (X.htm -> X-R.htm content frame); the Panzer/Gebirgs/Kavallerie
+      // indexes link the content frame (X-R.htm) directly — accept both.
       const abs = new URL(href, BASE + dir).href;
-      const content = abs.replace(/\.htm$/i, '-R.htm');
+      const content = /-R\.htm$/i.test(abs) ? abs : abs.replace(/\.htm$/i, '-R.htm');
       const file = content.split('/').pop();
       if (!targets.has(file)) targets.set(file, { url: content, label });
     }

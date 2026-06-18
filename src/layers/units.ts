@@ -23,7 +23,7 @@ import {
   type ParentSpan,
   type UnitTrack,
 } from '../data/units';
-import { matchTemplate } from '../data/templates';
+import { matchTemplate, type TemplateNode } from '../data/templates';
 import { getFrontFeatures, type FrontFeature } from './front';
 
 const SOURCE_ID = 'units';
@@ -42,6 +42,11 @@ const SUB_ID = 'units-sub';
 // Selected unit's command family, force-rendered across zoom (so the parent
 // army stays visible while you inspect its divisions).
 const FAMILY_ID = 'units-family';
+// Doctrinal sub-division drill-down: a selected division's organic regiments
+// (from its TO&E template) clustered around it (SCALE_PLAN S6). Not a hit target
+// — these are doctrinal markers, not indexed units.
+const DOCTRINAL_SOURCE_ID = 'unit-doctrinal';
+const DOCTRINAL_ID = 'units-doctrinal';
 
 /** All MapLibre layer ids, for registry visibility toggling. */
 export const UNITS_LAYER_IDS = [
@@ -54,6 +59,7 @@ export const UNITS_LAYER_IDS = [
   DIVISION_ID,
   BRIGADE_ID,
   SUB_ID,
+  DOCTRINAL_ID,
   FAMILY_ID,
 ];
 /** Click/hover targets for MapView (symbols only, not the link lines). */
@@ -147,13 +153,15 @@ function rgbaHex(hex: string, a: number): string {
   return `rgba(${c[0]},${c[1]},${c[2]},${a})`;
 }
 
-// Each tier shows in a zoom WINDOW [min, max): senior echelons appear when
-// zoomed out and drop off as you zoom into their children, so the map shows
-// roughly one-to-two echelons at a time instead of all of them at once.
+// Each tier appears at its MIN zoom (so the map doesn't soup with divisions at
+// theater zoom) and then PERSISTS as you zoom in — senior HQs stay on screen,
+// stacked into the rear by ECH_DEPTH, so a division's army/corps remain visible
+// (and labelled) behind it instead of vanishing the moment you zoom in to read
+// the divisions. Only the min gates each tier; the rear is otherwise empty.
 const ZOOM_WINDOW: Record<EchGroup, [number, number]> = {
-  top: [3, 4.8], // army groups / fronts
-  army: [4.2, 6.2],
-  corps: [5.3, 7.2],
+  top: [3, 24], // army groups / fronts
+  army: [4.2, 24],
+  corps: [5.3, 24],
   division: [6.2, 24],
   brigade: [6.9, 24],
   sub: [7.2, 24], // regiments/battalions (also focus-gated)
@@ -343,6 +351,64 @@ function buildLinks(
   }
   return { type: 'FeatureCollection', features: feats };
 }
+
+/** Doctrinal organic regiments of a focused division/brigade, clustered around
+ *  its position (SCALE_PLAN S6 — "select a division, see its regiments"). Only
+ *  when the division has no curated sub-units of its own (those real regiments
+ *  render instead). Markers come from the TO&E template, drawn dashed/derived,
+ *  and are NOT hit targets — they are doctrinal, not indexed units. */
+function doctrinalFeatures(
+  focus: string,
+  dateISO: string,
+  d: number,
+  line: [number, number][] | null,
+): FeatureCollection {
+  const fu = trackById.get(focus) ?? derivedById.get(focus);
+  if (!fu) return EMPTY;
+  const g = ECH_GROUP(fu.echelon);
+  if (g !== 'division' && g !== 'brigade') return EMPTY;
+  // If this division has its own curated regiments, show those (real) instead.
+  const hasCurated = tracks.some(
+    (t) => ECH_GROUP(t.echelon) === 'sub' && t.parentIds.includes(focus) && positionOn(t, dateISO, d),
+  );
+  if (hasCurated) return EMPTY;
+  const at = positionForId(focus, dateISO, d, line);
+  if (!at) return EMPTY;
+  const tmpl = matchTemplate(fu.side, fu.echelon, fu.type, dateISO);
+  if (!tmpl) return EMPTY;
+  // Top-level organic components, expanded by count (capped to keep it legible).
+  const items: { label: string; branch: string; ech: string }[] = [];
+  for (const c of tmpl.components as TemplateNode[]) {
+    const n = c.count ?? 1;
+    for (let i = 0; i < n && items.length < 10; i++) {
+      items.push({ label: n > 1 ? `${c.label} ${i + 1}` : c.label, branch: c.branch, ech: c.ech });
+    }
+  }
+  if (!items.length) return EMPTY;
+  const R = 0.09; // small ring — only shown at sub-tier zoom
+  const feats: Feature[] = items.map((it, i) => {
+    const ang = -Math.PI / 2 + (i / items.length) * Math.PI * 2;
+    const ech = ['regiment', 'brigade', 'battalion'].includes(it.ech) ? it.ech : 'regiment';
+    return {
+      type: 'Feature',
+      properties: {
+        id: `${focus}~r${i}`,
+        short: it.label,
+        icon: iconId(fu.side, it.branch, ech, ECH_MARK[ech] ?? 'III', true),
+        ech: 'sub',
+        side: fu.side,
+        doctrinal: true,
+      },
+      geometry: { type: 'Point', coordinates: [at[0] + R * Math.cos(ang), at[1] + R * Math.sin(ang)] },
+    };
+  });
+  return { type: 'FeatureCollection', features: feats };
+}
+
+const DOCTRINAL_BRANCHES = [
+  'infantry', 'armoured', 'motorized', 'mechanized', 'cavalry', 'recon',
+  'artillery', 'antitank', 'engineer', 'signals', 'support', 'hq',
+];
 
 const numToISO = (n: number): string => {
   const s = String(n);
@@ -690,6 +756,8 @@ function refresh(map: MapLibreMap, dateISO: string): void {
   if (usrc) usrc.setData(collectionFor(dateISO, d, line, family));
   const lsrc = map.getSource(LINKS_SOURCE_ID) as GeoJSONSource | undefined;
   if (lsrc) lsrc.setData(family ? buildLinks(family, dateISO, d, line) : EMPTY);
+  const dsrc = map.getSource(DOCTRINAL_SOURCE_ID) as GeoJSONSource | undefined;
+  if (dsrc) dsrc.setData(focusId ? doctrinalFeatures(focusId, dateISO, d, line) : EMPTY);
 }
 
 function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
@@ -706,7 +774,7 @@ function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
     layout: {
       'icon-image': ['get', 'icon'],
       // Legible even at the zoomed-out top tier (z≈3.5).
-      'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.82, 6, 0.9, 8, 1.05],
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.5, 6, 0.6, 8, 0.72],
       'icon-allow-overlap': true,
       // Senior tiers (top/army/corps) are always labelled; division/brigade/sub
       // labels gate behind zoom so names don't soup the map when zoomed out.
@@ -772,6 +840,21 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
       }
     }
   }
+  // Doctrinal regiment icons (dashed/derived) for the sub-division drill-down —
+  // every branch × regiment/brigade/battalion, both sides, so any template's
+  // organic components have an icon.
+  for (const side of ['axis', 'soviet'] as const) {
+    for (const branch of DOCTRINAL_BRANCHES) {
+      for (const ech of ['regiment', 'brigade', 'battalion']) {
+        const id = iconId(side, branch, ech, ECH_MARK[ech] ?? 'III', true);
+        if (!map.hasImage(id)) {
+          map.addImage(id, makeIcon(side, branch, ECH_MARK[ech] ?? 'III', ech, { derived: true }), {
+            pixelRatio: 2.6,
+          });
+        }
+      }
+    }
+  }
 
   const d0 = dateToNum(date);
   lastDateISO = date;
@@ -783,6 +866,8 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
     data: collectionFor(date, d0, mainFrontLine(date, d0), null),
     attribution: 'Units: curated (Stalingrad pilot, approximate)',
   });
+  // Doctrinal sub-division drill-down (selected division's organic regiments).
+  map.addSource(DOCTRINAL_SOURCE_ID, { type: 'geojson', data: EMPTY });
   // Command-link lines (selected formation only), beneath the symbols.
   map.addSource(LINKS_SOURCE_ID, { type: 'geojson', data: EMPTY });
   map.addLayer({
@@ -809,7 +894,7 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
     type: 'circle',
     source: SOURCE_ID,
     paint: {
-      'circle-radius': ['interpolate', ['linear'], ['zoom'], 3, 14, 7, 22],
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 3, 10, 7, 16],
       'circle-blur': 0.7,
       'circle-color': ['match', ['get', 'side'], 'axis', SIDE_COLOR.axis, SIDE_COLOR.soviet],
       'circle-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 0.32, 0],
@@ -824,6 +909,30 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
   addEchelonLayer(map, BRIGADE_ID, 'brigade');
   addEchelonLayer(map, SUB_ID, 'sub');
 
+  // Doctrinal regiments of the selected division (shown only when zoomed in).
+  map.addLayer({
+    id: DOCTRINAL_ID,
+    type: 'symbol',
+    source: DOCTRINAL_SOURCE_ID,
+    minzoom: 6.5,
+    layout: {
+      'icon-image': ['get', 'icon'],
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 6, 0.5, 8, 0.66],
+      'icon-allow-overlap': true,
+      'text-field': ['step', ['zoom'], '', 7.4, ['get', 'short']],
+      'text-size': 8.5,
+      'text-offset': [0, 1.5],
+      'text-anchor': 'top',
+      'text-optional': true,
+    },
+    paint: {
+      'icon-opacity': 0.92,
+      'text-color': '#3a4150',
+      'text-halo-color': '#ffffff',
+      'text-halo-width': 0.8,
+    },
+  });
+
   // Selected formation: always visible across zoom, with brass labels so the
   // parent army stays readable while you inspect its divisions.
   map.addLayer({
@@ -834,7 +943,7 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
     filter: ['==', ['get', 'fam'], true],
     layout: {
       'icon-image': ['get', 'icon'],
-      'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.9, 6, 1.0, 8, 1.15],
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.58, 6, 0.68, 8, 0.82],
       'icon-allow-overlap': true,
       'text-field': ['get', 'short'],
       'text-size': 11,

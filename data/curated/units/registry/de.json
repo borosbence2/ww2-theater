@@ -11,7 +11,9 @@
     "de-h-id-3-mot": ["de-3rd-infantry-division"],
     "de-h-id-60-mot": ["de-60th-infantry-division"],
     "de-h-id-71": ["de-71st-infantry-division"],
-    "de-h-id-76": ["de-76th-infantry-division"]
+    "de-h-id-76": ["de-76th-infantry-division"],
+    "de-2nd-ss-panzer-division": ["de-2nd-ss-panzer-division-das-reich"],
+    "de-154th-infantry-division-q2808097": ["de-154th-infantry-division-q25446033"]
   },
   "incarnations": {
     "6. Armee": [
@@ -24,6 +26,14 @@
     "16. Panzer-Division": [
       { "id": "de-h-pz-div-16", "from": "1940-11-01", "to": "1943-02-02", "fate": "destroyed at Stalingrad" },
       { "from": "1943-03-06", "note": "re-formed in Brittany, France (2nd formation not separately modelled)" }
+    ],
+    "14. Panzer-Division": [
+      { "id": "de-h-pz-div-14", "from": "1940-08-01", "to": "1943-02-03", "fate": "destroyed at Stalingrad" },
+      { "from": "1943-04-01", "note": "re-formed in France (2nd formation not separately modelled)" }
+    ],
+    "24. Panzer-Division": [
+      { "id": "de-h-pz-div-24", "from": "1941-11-28", "to": "1943-02-03", "fate": "destroyed at Stalingrad" },
+      { "from": "1943-03-01", "note": "re-formed in Normandy (2nd formation not separately modelled)" }
     ]
   }
 }

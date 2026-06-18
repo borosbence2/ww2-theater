@@ -869,11 +869,91 @@ if (sectors && monthlyRosters.length) {
   const pocketPosOf = new Map();
   for (const p of pocketAbs) pocketPosOf.set(`${p.id}|${p.date}`, p.at);
 
+  // --- Reserve placement (pre-pass): EF-theater formations with no front sector
+  // this month ride a rear "reserve" area (front centre, deep in own rear)
+  // instead of vanishing. Soviet: the Reserve Front (Stavka RVGK). German: EF
+  // divisions resting in a null-army (OKH reserve) gap *between* Eastern-Front
+  // deployments. Non-EF fronts (West/Italy/Balkans/Karelia) and Luftwaffe/naval
+  // formations are deliberately NOT placed — they were not on the Eastern Front.
+  const secDeArmies = new Set();
+  const secSuFronts = new Set();
+  for (const k of sKfs) {
+    for (const e of k.de ?? []) secDeArmies.add(e.unit);
+    for (const e of k.su ?? []) secSuFronts.add(e.unit);
+  }
+  const RESERVE_SU_FRONTS = new Set(['su-front-reserve']);
+  const deDivById = new Map((deOob?.divisions ?? []).map((d) => [d.id, d]));
+  const deEF = new Set(); // German divisions that ever sit under an EF sector army
+  for (const div of deDivById.values()) {
+    if ((div.events ?? []).some(([, army]) => army && secDeArmies.has(army))) deEF.add(div.id);
+  }
+  const RESERVE_DEPTH = 2.6; // degrees behind the line — operational reserve depth
+  const reserveAt = (line, side, i, n) => {
+    const idx = Math.round(0.5 * (line.length - 1)); // front centre
+    const a = line[Math.max(0, idx - 2)];
+    const b = line[Math.min(line.length - 1, idx + 2)];
+    const dx = b[0] - a[0];
+    const dy = b[1] - a[1];
+    const len = Math.hypot(dx, dy) || 1;
+    const dir = side === 'axis' ? -1 : 1; // axis rear = west, soviet rear = east
+    const cx = line[idx][0] + (-dy / len) * RESERVE_DEPTH * dir;
+    const cy = line[idx][1] + (dx / len) * RESERVE_DEPTH * dir;
+    const ang = i * 2.399963229; // golden-angle spread
+    const rad = 1.7 * Math.sqrt((i + 0.5) / Math.max(1, n));
+    return [Number((cx + rad * Math.cos(ang)).toFixed(4)), Number((cy + rad * Math.sin(ang)).toFixed(4))];
+  };
+  const inReserve = new Set(); // `${id}|${date}`
+  const reserveAbs = [];
+  for (const month of monthlyRosters) {
+    const dNum = dateNum(month.date);
+    const line = coordsFor(main, month.date);
+    if (!line) continue;
+    const placeReserve = (ids, side) => {
+      const uniq = [...new Set(ids)].filter((id) => {
+        const u = units.get(id);
+        return u && existsAt(u, dNum) && !isCuratedActive(u, dNum) && !inPocket.has(`${id}|${month.date}`);
+      });
+      uniq.forEach((id, i) => {
+        inReserve.add(`${id}|${month.date}`);
+        reserveAbs.push({ id, date: month.date, dNum, at: reserveAt(line, side, i, uniq.length) });
+      });
+    };
+    // Soviet: every formation under the Reserve Front this month.
+    const su = [];
+    for (const e of month.entries) {
+      if (!RESERVE_SU_FRONTS.has(e.front)) continue;
+      if (e.army) su.push(e.army);
+      for (const c of e.corps ?? []) {
+        su.push(c.unit);
+        for (const d of c.divisions) su.push(d);
+      }
+      for (const d of e.divisions) su.push(d);
+      for (const d of e.armor ?? []) su.push(d);
+    }
+    placeReserve(su, 'soviet');
+    // German: EF divisions currently in a null-army gap whose last real army was
+    // an Eastern-Front army (resting/refitting, not transferred to another front).
+    const de = [];
+    for (const id of deEF) {
+      const div = deDivById.get(id);
+      let cur = null;
+      let prevReal = null;
+      for (const [date, army] of div.events ?? []) {
+        if (dateNum(date) <= dNum) {
+          cur = army;
+          if (army) prevReal = army;
+        } else break;
+      }
+      if (!cur && prevReal && secDeArmies.has(prevReal)) de.push(id);
+    }
+    placeReserve(de, 'axis');
+  }
+
   const push = (id, date, f) => {
     const u = units.get(id);
     const dNum = dateNum(date);
     if (!existsAt(u, dNum) || isCuratedActive(u, dNum)) return;
-    if (inPocket.has(`${id}|${date}`)) return; // placed in a pocket instead
+    if (inPocket.has(`${id}|${date}`) || inReserve.has(`${id}|${date}`)) return; // placed elsewhere
     if (!derived.has(id)) derived.set(id, []);
     derived.get(id).push({ startNum: dNum, date, f: Number(f.toFixed(4)) });
   };
@@ -1024,7 +1104,19 @@ if (sectors && monthlyRosters.length) {
     derived.get(p.id).push({ startNum: p.dNum, date: p.date, at: p.at });
     pocketPlaced++;
   }
-  console.log(`Derived fraction tracks for ${derived.size} units (${pocketPlaced} pocket placements)`);
+  // Add reserve placements (absolute keyframes in the rear reserve area).
+  let reservePlaced = 0;
+  for (const p of reserveAbs) {
+    const u = units.get(p.id);
+    if (!existsAt(u, p.dNum) || isCuratedActive(u, p.dNum)) continue;
+    if (inPocket.has(`${p.id}|${p.date}`)) continue;
+    if (!derived.has(p.id)) derived.set(p.id, []);
+    derived.get(p.id).push({ startNum: p.dNum, date: p.date, at: p.at });
+    reservePlaced++;
+  }
+  console.log(
+    `Derived fraction tracks for ${derived.size} units (${pocketPlaced} pocket, ${reservePlaced} reserve placements)`,
+  );
 
   // Validation: do derived positions land on their unit's own side of the
   // front? This is the project's quality engine (city-control, curated units)
@@ -1053,6 +1145,9 @@ if (sectors && monthlyRosters.length) {
     return [line[i][0] + (-dy / len) * off, line[i][1] + (dx / len) * off];
   };
   const TOL = 30; // km past the line before a wrong side counts (sector slop)
+  // Reserve placements are schematic rear positions (deep in own territory by
+  // construction), not line-derived — exempt from the line side-check.
+  const reserveDays = new Set(reserveAbs.map((p) => `${p.id}|${p.date}`));
   let checked = 0;
   let wrong = 0;
   const wrongByUnit = new Map();
@@ -1060,6 +1155,7 @@ if (sectors && monthlyRosters.length) {
     const u = units.get(id);
     const ech = echGroup(u.echelon);
     for (const kfv of kfs) {
+      if (reserveDays.has(`${id}|${kfv.date}`)) continue;
       const line = coordsFor(main, kfv.date);
       if (!line) continue;
       // Pocket placements are absolute; main-line placements resolve a fraction.

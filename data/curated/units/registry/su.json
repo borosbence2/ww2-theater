@@ -5,6 +5,19 @@
     "2nd Shock Army": [
       { "id": "su-shock-army-2", "from": "1941-12-25", "to": "1942-06-25", "fate": "encircled and destroyed in the Volkhov (Lyuban) pocket" },
       { "from": "1942-07-01", "note": "re-formed; later fought at Leningrad, Narva and in East Prussia (2nd formation not separately modelled)" }
+    ],
+    "6th Army": [
+      { "id": "su-army-6", "from": "1939-09-01", "to": "1941-08-10", "fate": "encircled and destroyed at Uman" },
+      { "from": "1941-08-25", "to": "1942-05-28", "fate": "destroyed in the Second Battle of Kharkov" },
+      { "from": "1942-07-09", "note": "re-formed; later renamed (2nd/3rd formations not separately modelled)" }
+    ],
+    "19th Army": [
+      { "id": "su-army-19", "from": "1941-06-22", "to": "1941-10-13", "fate": "encircled at Vyazma" },
+      { "from": "1942-04-01", "note": "re-formed; transferred to the Karelian Front (2nd formation not separately modelled)" }
+    ],
+    "20th Army": [
+      { "id": "su-army-20", "from": "1941-06-22", "to": "1941-10-12", "fate": "encircled at Vyazma" },
+      { "from": "1941-11-18", "note": "re-formed for the defence of Moscow (2nd formation not separately modelled)" }
     ]
   }
 }
