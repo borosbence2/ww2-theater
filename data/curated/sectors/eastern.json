@@ -5,6 +5,13 @@
       "date": "1941-07-01",
       "su": [
         {
+          "unit": "su-front-northern",
+          "to": [
+            28.5,
+            58.0
+          ]
+        },
+        {
           "unit": "su-front-northwestern",
           "to": [
             28.0,

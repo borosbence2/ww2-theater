@@ -780,6 +780,26 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Closing small EF gaps — army groups, Reserve/Northern Front, BS reconciliation ✅
+On-map units 1,594 → 1,628; side-check holds 99.7%. 65/65 smoke, build + lint clean.
+- [x] **Transient army groups placed** (`build-units.mjs`): army-group placement
+      now reads the full army→Heeresgruppe vote map and resolves each army's
+      position from the sector line, a pocket, OR its curated track — so
+      **Heeresgruppe Don** follows the curated 6. Armee into the Stalingrad pocket
+      (Dec 1942) instead of vanishing. (Heeresgruppe Nordukraine stays unplaced —
+      its OOB has no army association at all; genuinely data-limited.)
+- [x] **Reserve Front HQ + Northern Front placed**: the Reserve Front HQ marker
+      now rides the reserve area with its formations; the early-war **Northern
+      Front** (Jun–Aug 1941) is added to the 1941-07 sector as the northernmost
+      front, so it and its rifle divisions appear at the Leningrad end.
+- [x] **Boevoi sostav reconciliation**: a unit's effective existence is widened
+      to cover its sourced OOB roster span. A 1st-formation existence carried on a
+      multi-formation unit (e.g. 109th Rifle Division, recorded as ending Jul 1942
+      but rostered under Leningrad Front to 1945) no longer drops it off the map —
+      **+23 previously-unplaced rifle divisions** now placed (list-only 543→509).
+      The detail panel still shows the recorded existence; only placement bounds
+      widen.
+
 ## Sub-division drill-down + registry expansion (S6, ordinals, Tessin) ✅
 Three smaller depth items. 65/65 smoke, build + lint clean.
 - [x] **Sub-division drill-down (SCALE_PLAN S6)** (`src/layers/units.ts`):

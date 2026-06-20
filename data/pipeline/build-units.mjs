@@ -458,6 +458,63 @@ for (const u of units.values()) {
   }
 }
 
+// Extend effective existence to cover sourced OOB rosters (Boevoi sostav /
+// Lexikon Unterstellung). If a roster lists a unit active in a month beyond its
+// recorded lifespan — often a 1st-formation existence carried on a multi-
+// formation unit (e.g. 109th Rifle Division, rostered to 1945 but recorded as
+// ending Jul 1942) — trust the roster, or the unit silently drops off the map.
+// (The detail panel still shows the recorded existence; this only widens the
+// internal placement bounds.)
+{
+  const span = new Map(); // canonical id -> { min: num, maxISO: string }
+  const note = (id, iso) => {
+    const cid = canon(id);
+    const dn = dateNum(iso);
+    const s = span.get(cid);
+    if (!s) span.set(cid, { min: dn, maxISO: iso });
+    else {
+      if (dn < s.min) s.min = dn;
+      if (dn > dateNum(s.maxISO)) s.maxISO = iso;
+    }
+  };
+  if (oob) {
+    for (const m of oob.months) {
+      for (const e of m.entries) {
+        if (e.front) note(e.front, m.date);
+        if (e.army) note(e.army, m.date);
+        for (const d of e.divisions ?? []) note(d, m.date);
+        for (const d of e.armor ?? []) note(d, m.date);
+        for (const c of e.corps ?? []) {
+          note(c.unit, m.date);
+          for (const d of c.divisions ?? []) note(d, m.date);
+        }
+      }
+    }
+  }
+  if (deOob) {
+    for (const div of deOob.divisions) {
+      for (const [date, army] of div.events) if (army) note(div.id, date);
+    }
+  }
+  let extended = 0;
+  for (const [id, s] of span) {
+    const u = units.get(id);
+    if (!u) continue;
+    if (s.min < u._existFrom) {
+      u._existFrom = s.min;
+      extended++;
+    }
+    const after = dateNum(addDays(s.maxISO, 32)); // first day after the last roster month
+    if (after > u._existTo) {
+      const wasTrack = u._trackTo === u._existTo;
+      u._existTo = after;
+      if (wasTrack) u._trackTo = after;
+      extended++;
+    }
+  }
+  if (extended) console.log(`Extended existence bounds for ${extended} units to cover OOB rosters`);
+}
+
 // Lexikon der Wehrmacht commanders (fetch-commanders-ldw.mjs, keyed by unit id):
 // dated Oberbefehlshaber successions for German armies + army groups. Highest
 // auto priority (after curated) because these carry real tenure dates; some
@@ -918,10 +975,15 @@ if (sectors && monthlyRosters.length) {
         reserveAbs.push({ id, date: month.date, dNum, at: reserveAt(line, side, i, uniq.length) });
       });
     };
-    // Soviet: every formation under the Reserve Front this month.
+    // Soviet: the Reserve Front HQ itself + every formation under it this month.
     const su = [];
+    const reserveFrontsSeen = new Set();
     for (const e of month.entries) {
       if (!RESERVE_SU_FRONTS.has(e.front)) continue;
+      if (!reserveFrontsSeen.has(e.front)) {
+        reserveFrontsSeen.add(e.front);
+        su.push(e.front); // the front HQ marker
+      }
       if (e.army) su.push(e.army);
       for (const c of e.corps ?? []) {
         su.push(c.unit);
@@ -988,22 +1050,13 @@ if (sectors && monthlyRosters.length) {
     const monthHgr = deArmyHgr.get(month.date);
     const deSeen = new Set();
     const armyFrac = new Map(); // armyId -> midpoint fraction (for army-group avg)
-    const hgrPocketPos = new Map(); // hgrId -> [[lon,lat]] for its encircled armies
     for (const e of [...(k0.de ?? []), ...(k1.de ?? [])]) {
       if (deSeen.has(e.unit)) continue;
       deSeen.add(e.unit);
-      // Encircled army (placed inside the ring by the pocket pre-pass): its stale
-      // main-line midpoint must NOT feed the army-group average. Note its pocket
-      // position so a fully-encircled group follows its armies in.
-      if (inPocket.has(`${e.unit}|${month.date}`)) {
-        const hgr = monthHgr?.get(e.unit);
-        const pos = pocketPosOf.get(`${e.unit}|${month.date}`);
-        if (hgr && pos) {
-          if (!hgrPocketPos.has(hgr)) hgrPocketPos.set(hgr, []);
-          hgrPocketPos.get(hgr).push(pos);
-        }
-        continue;
-      }
+      // Encircled army: placed inside the ring by the pocket pre-pass; its stale
+      // main-line midpoint must NOT feed the army-group average (the hgr block
+      // below picks up its pocket position from the army -> hgr vote map).
+      if (inPocket.has(`${e.unit}|${month.date}`)) continue;
       const span = spanFor('de', e.unit);
       if (!span) continue;
       const mid = (span[0] + span[1]) / 2;
@@ -1014,30 +1067,47 @@ if (sectors && monthlyRosters.length) {
         push(d.id, month.date, span[0] + ((span[1] - span[0]) * (j + 0.5)) / divs.length),
       );
     }
-    // German army groups: on-line armies -> average of their sector fractions; a
-    // group with ALL armies encircled (Heeresgruppe Kurland) is placed inside the
-    // pocket with them rather than averaged onto the distant main line.
-    const hgrMembers = new Map(); // hgrId -> [fraction]
+    // German army groups: place each at the average position of EVERY army it
+    // commands this month (from the division hgr votes), wherever that army is —
+    // on the line (sector fraction) or encircled in a pocket. A group whose
+    // armies are entirely pocketed (e.g. Heeresgruppe Don over Stalingrad)
+    // follows them into the ring instead of vanishing; transient/renamed groups
+    // (Don, Nordukraine) get a position as long as they command a placed army.
     if (monthHgr) {
-      for (const [army, frac] of armyFrac) {
-        const hgr = monthHgr.get(army);
+      const hgrFracs = new Map(); // hgr -> [fraction] (on-line armies)
+      const hgrPos = new Map(); // hgr -> [[lon,lat]] (pocketed / curated armies)
+      for (const [army, hgr] of monthHgr) {
         if (!hgr) continue;
-        if (!hgrMembers.has(hgr)) hgrMembers.set(hgr, []);
-        hgrMembers.get(hgr).push(frac);
+        if (armyFrac.has(army)) {
+          if (!hgrFracs.has(hgr)) hgrFracs.set(hgr, []);
+          hgrFracs.get(hgr).push(armyFrac.get(army));
+        } else {
+          // Off the sector line: an encircled army (pocket pre-pass) or a curated
+          // army (e.g. 6. Armee in the Stalingrad pocket). Use its absolute spot.
+          let pos = inPocket.has(`${army}|${month.date}`) ? pocketPosOf.get(`${army}|${month.date}`) : null;
+          if (!pos) {
+            const au = units.get(army);
+            if (au) pos = positionOn(au, month.date);
+          }
+          if (pos) {
+            if (!hgrPos.has(hgr)) hgrPos.set(hgr, []);
+            hgrPos.get(hgr).push(pos);
+          }
+        }
       }
-      for (const [hgr, fracs] of hgrMembers) {
+      for (const [hgr, fracs] of hgrFracs) {
         push(hgr, month.date, fracs.reduce((s, f) => s + f, 0) / fracs.length);
       }
-    }
-    for (const [hgr, positions] of hgrPocketPos) {
-      if (hgrMembers.has(hgr)) continue; // some armies still on the line: placed above
-      const hu = units.get(hgr);
       const dNum = dateNum(month.date);
-      if (!existsAt(hu, dNum) || isCuratedActive(hu, dNum)) continue;
-      const ax = positions.reduce((s, p) => s + p[0], 0) / positions.length;
-      const ay = positions.reduce((s, p) => s + p[1], 0) / positions.length;
-      inPocket.add(`${hgr}|${month.date}`);
-      pocketAbs.push({ id: hgr, date: month.date, dNum, at: [Number(ax.toFixed(4)), Number(ay.toFixed(4))] });
+      for (const [hgr, positions] of hgrPos) {
+        if (hgrFracs.has(hgr)) continue; // also has on-line armies: placed above
+        const hu = units.get(hgr);
+        if (!existsAt(hu, dNum) || isCuratedActive(hu, dNum)) continue;
+        const ax = positions.reduce((s, p) => s + p[0], 0) / positions.length;
+        const ay = positions.reduce((s, p) => s + p[1], 0) / positions.length;
+        inPocket.add(`${hgr}|${month.date}`);
+        pocketAbs.push({ id: hgr, date: month.date, dNum, at: [Number(ax.toFixed(4)), Number(ay.toFixed(4))] });
+      }
     }
 
     // Soviet: front span -> armies (roster order) -> divisions.
