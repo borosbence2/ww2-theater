@@ -14,6 +14,7 @@ import { CONTROL_DOTS_LAYER_IDS, addControlDotsLayer, updateControlDotsDate } fr
 import { UNITS_LAYER_IDS, addUnitsLayer, updateUnitsDate } from './units';
 import { BATTLES_LAYER_IDS, addBattlesLayer, updateBattlesDate } from './battles';
 import { CONTROL_FILL_LAYER_IDS, addControlFillLayer, updateControlFillDate } from './controlFill';
+import { OPERATIONS_LAYER_IDS, addOperationsLayer, updateOperationsDate } from './operations';
 
 export interface LegendItem {
   /** Swatch shape: line | dash | fill | dot. */
@@ -66,10 +67,22 @@ export const LAYERS: LayerDef[] = [
       { shape: 'fill', color: AXIS_COLOR, label: 'Pocket — Axis encircled' },
       { shape: 'fill', color: SOVIET_COLOR, label: 'Pocket — Soviet encircled' },
       { shape: 'dash', color: '#16181c', label: 'Siege ring (city holds)' },
+      { shape: 'line', color: SOVIET_COLOR, label: 'Advance / encirclement arrow (by side)' },
     ],
     add: addFrontLayer,
     updateDate: updateFrontDate,
     mapLayerIds: FRONT_LAYER_IDS,
+  },
+  {
+    id: 'operations',
+    label: 'Operations',
+    legend: [
+      { shape: 'fill', color: AXIS_COLOR, label: 'Axis operation (axis of advance)' },
+      { shape: 'fill', color: SOVIET_COLOR, label: 'Soviet operation (Uranus, Bagration…)' },
+    ],
+    add: addOperationsLayer,
+    updateDate: updateOperationsDate,
+    mapLayerIds: OPERATIONS_LAYER_IDS,
   },
   {
     id: 'control',

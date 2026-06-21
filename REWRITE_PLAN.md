@@ -377,10 +377,10 @@ fronts (prereq for placing western units).
       side, and the pocket dates — joining the front feature's `garrison`/
       `besiegers` to the units.
 - [ ] 5.3 Unit insignia/photos via external/Wikimedia links (license-gated).
-- [~] 5.4 **Front graphics** (reworked 2026-06-21). The first cut — per-division
-      *frontage bands* — read as one muddy stripe (no visible per-division
-      separation) duplicating the tide, so it was **retired** in favour of a
-      proper staff-map vocabulary:
+- [x] 5.4 **Front graphics** (reworked 2026-06-21) — **done.** The first cut —
+      per-division *frontage bands* — read as one muddy stripe (no visible
+      per-division separation) duplicating the tide, so it was **retired** in
+      favour of a proper staff-map vocabulary:
       - [x] **FEBA front line** — bold smoothed line + a light casing so it reads
             over the two-sided tide, with **forward-edge teeth** (a sawtooth
             sprite repeated along the line, `symbol-placement:'line'`) fading in
@@ -398,8 +398,13 @@ fronts (prereq for placing western units).
             besieging side (the opposite of who's trapped) and scaled to the ring
             — kept visible at high zoom (a pocket is a local event). Verified on
             the Stalingrad pocket (Soviet pincers on the trapped 6. Armee).
-      - [ ] **Curated operation arrows** (Uranus / Bagration / Citadel) shown in
-            their date window.
+      - [x] **Curated operation arrows** (Uranus / Citadel / Bagration): a small
+            hand-authored set (`src/data/operations.ts`) of the signature
+            offensives, each one or more big tapered arrows (Catmull-Rom-smoothed
+            axes → filled arrow polygons) shown only in its date window, named on
+            the map, on their **own legend toggle**. The dynamic advance arrows
+            suppress themselves inside an active operation's box so the editorial
+            arrow isn't doubled by the automatic one.
 
 ### Phase 5b — Detail-tab depth: equipment & imagery (planned)
 

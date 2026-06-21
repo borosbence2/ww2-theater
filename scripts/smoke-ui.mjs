@@ -387,6 +387,20 @@ const enc = await page.evaluate(() => {
 });
 check('encirclement arrows ring the Stalingrad pocket (Soviet)', enc.ok && enc.n >= 4 && enc.sides.includes('soviet'));
 
+// Curated operation arrows: Citadel (Jul 1943) shows its named pincers + label.
+await page.goto(`${BASE}/?date=1943-07-08&z=6.0&lat=51.7&lng=36.6`, { waitUntil: 'domcontentloaded' });
+await page.waitForTimeout(3500);
+const ops = await page.evaluate(() => {
+  const m = window.__map;
+  if (!m || !m.getLayer('operations-fill')) return { ok: false };
+  return {
+    ok: true,
+    fills: m.queryRenderedFeatures({ layers: ['operations-fill'] }).length,
+    labels: m.queryRenderedFeatures({ layers: ['operations-label'] }).map((x) => x.properties.name),
+  };
+});
+check('operation arrows + label show during Citadel', ops.ok && ops.fills >= 2 && ops.labels.includes('Operation Citadel'));
+
 // Formation ordinals: a re-formed unit shows its formation history (the
 // reconciliation registry surfaced in the panel).
 await page.fill('.omnibox input', '16. Panzer-Division');

@@ -9,6 +9,7 @@
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 import type { Feature, FeatureCollection } from 'geojson';
 import { addDays, dateToNum, diffDays } from '../time/dates';
+import { activeOperationBoxes } from './operations';
 
 const SOURCE_ID = 'front';
 const BAND_AXIS_ID = 'front-band-axis';
@@ -141,8 +142,12 @@ function advanceArrows(dateISO: string): FeatureCollection {
   const now = mainFrontLineOn(dateISO);
   const then = mainFrontLineOn(addDays(dateISO, -ADV_WINDOW));
   if (!now || !then || now.length !== then.length || now.length < 5) return EMPTY;
+  const opBoxes = activeOperationBoxes(dateISO); // skip where a curated arrow already tells the story
+  const inOpBox = (x: number, y: number) =>
+    opBoxes.some(([x0, y0, x1, y1]) => x >= x0 && x <= x1 && y >= y0 && y <= y1);
   const out: Feature[] = [];
   for (let i = ADV_STEP; i < now.length - ADV_STEP; i += ADV_STEP) {
+    if (inOpBox(now[i][0], now[i][1])) continue;
     const dx = now[i][0] - then[i][0];
     const dy = now[i][1] - then[i][1];
     // local front tangent -> east-pointing normal (Soviet side is east/+x)

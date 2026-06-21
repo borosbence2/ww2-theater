@@ -780,11 +780,12 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
-## Phase 5.4 — front graphics (in progress)
+## Phase 5.4 — front graphics ✅
 The first cut (per-division frontage bands) fused into one muddy stripe that just
-duplicated the tide, so it was **retired** for a proper staff-map vocabulary.
-Building in steps; FEBA line landed first. Dev-only `window.__map` handle added so
-the smoke harness can assert map layers render.
+duplicated the tide, so it was **retired** for a proper staff-map vocabulary —
+FEBA line, advance arrows, encirclement pincers, named operation arrows. 73/73
+smoke. Dev-only `window.__map` handle added so the smoke harness can assert
+map layers render.
 - [x] **FEBA front line** (`front.ts`): the quiet thin line became a bold core
       with a light casing (so it reads over the two-sided tide) and **forward-edge
       teeth** — a sawtooth sprite (`registerTeethSprite`) repeated along the line
@@ -801,7 +802,13 @@ the smoke harness can assert map layers render.
       each active pocket, pointing inward, coloured by the besieging side (the
       opposite of who's trapped) and scaled to the ring; kept visible at high
       zoom since a pocket is a local event. Verified on Stalingrad. 72/72 smoke.
-- [ ] Curated operation arrows (Uranus/Bagration/Citadel).
+- [x] **Curated operation arrows** (`operations.ts` + `src/data/operations.ts`):
+      a hand-authored set of signature offensives (Uranus, Citadel, Bagration),
+      each one or more big tapered arrows (Catmull-Rom-smoothed axes → filled
+      arrow polygons) shown only in its date window, named on the map, on their
+      **own legend toggle**. The dynamic advance arrows suppress themselves inside
+      an active operation's box so the editorial arrow isn't doubled. Verified on
+      Citadel (red pincers + label on the Kursk salient).
 
 ## Phase 5.2 — pocket ↔ unit links ✅
 Clicking a pocket/siege now opens a panel joining it to the formations inside and
