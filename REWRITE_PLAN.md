@@ -377,13 +377,15 @@ fronts (prereq for placing western units).
       side, and the pocket dates — joining the front feature's `garrison`/
       `besiegers` to the units.
 - [ ] 5.3 Unit insignia/photos via external/Wikimedia links (license-gated).
-- [ ] 5.4 **Front sector segmentation** (decided 2026-06-10): where division
-      data is dense, render the high-zoom front *subdivided by holder* —
-      division rectangles pinned behind their `sector` slice of the line,
-      staff-map style. The authored front stays the war-wide backbone and the
-      fallback wherever units aren't curated yet; divisions never *replace*
-      the line (points can't make a clean line — relearned from the Voronoi
-      attempt), they decorate it.
+- [x] 5.4 **Front sector segmentation** — **done.** At high zoom (z ≥ 6.5,
+      fading in to 7.5) each line-placed division/brigade gets a faint
+      **side-coloured frontage band** hugging its `sector` slice of the line —
+      red Axis bands west of the line, blue Soviet east, tiled per division by
+      taking the midpoints to same-side neighbours (`sectorBands`/`bandPolygon`
+      in `units.ts`, computed client-side from the derived sector *fractions*,
+      offset perpendicular into each side's rear). Drawn beneath the counters, so
+      the staff-map sectors decorate the authored line without replacing it; the
+      line stays the backbone and the fallback where units aren't curated.
 
 ### Phase 5b — Detail-tab depth: equipment & imagery (planned)
 

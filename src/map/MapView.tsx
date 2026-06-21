@@ -81,6 +81,8 @@ export function MapView() {
     });
     mapRef.current = map;
     setMap(map);
+    // Dev-only handle for the smoke harness (assert layers render).
+    if (import.meta.env.DEV) (window as unknown as { __map?: unknown }).__map = map;
 
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
     map.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');

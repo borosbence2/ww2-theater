@@ -780,6 +780,22 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Phase 5.4 — front sector segmentation ✅
+At high zoom the front now reads as held by visible formations, staff-map style.
+70/70 smoke, build + lint clean.
+- [x] **Frontage bands** (`units.ts` `sectorBands`/`bandPolygon`, layer
+      `units-sectors`): each line-placed division/brigade gets a faint
+      side-coloured band hugging its sector slice of the line — red Axis west of
+      the line, blue Soviet east — tiled per division by taking the midpoints to
+      same-side neighbours, offset perpendicular into each side's rear. Computed
+      client-side from the derived sector *fractions*; updated on date change with
+      the rest of the unit refresh.
+- [x] **Decorates, never replaces**: drawn beneath every other unit layer
+      (counters sit on top), z ≥ 6.5 fading in to 7.5 so it's staff-map detail
+      only once zoomed in; the authored line stays the backbone and the fallback
+      where units aren't curated. Dev-only `window.__map` handle added so the
+      smoke harness can assert the layer renders (both sides).
+
 ## Phase 5.2 — pocket ↔ unit links ✅
 Clicking a pocket/siege now opens a panel joining it to the formations inside and
 around it. 69/69 smoke, build + lint clean.

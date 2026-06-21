@@ -47,9 +47,15 @@ const FAMILY_ID = 'units-family';
 // — these are doctrinal markers, not indexed units.
 const DOCTRINAL_SOURCE_ID = 'unit-doctrinal';
 const DOCTRINAL_ID = 'units-doctrinal';
+// Front sector segmentation (SCALE_PLAN S4): at high zoom, each division's
+// frontage slice drawn as a faint side-coloured band hugging the line, so the
+// front reads as held by visible formations. Decorates the line; never a hit.
+const SECTOR_SOURCE_ID = 'unit-sectors';
+const SECTOR_ID = 'units-sectors';
 
 /** All MapLibre layer ids, for registry visibility toggling. */
 export const UNITS_LAYER_IDS = [
+  SECTOR_ID,
   LINKS_HALO_ID,
   LINKS_ID,
   HOVER_GLOW_ID,
@@ -410,6 +416,72 @@ const DOCTRINAL_BRANCHES = [
   'artillery', 'antitank', 'engineer', 'signals', 'support', 'hq',
 ];
 
+// --- Front sector segmentation (SCALE_PLAN S4) ------------------------------
+
+/** A division's frontage band: the line from f0..f1, offset into the side's
+ *  rear by `depth`, as a filled polygon hugging the line. */
+function bandPolygon(
+  line: [number, number][],
+  f0: number,
+  f1: number,
+  side: 'axis' | 'soviet',
+  depth: number,
+): Feature {
+  const n = line.length - 1;
+  const a = Math.min(Math.round(f0 * n), Math.round(f1 * n));
+  const b = Math.max(Math.round(f0 * n), Math.round(f1 * n));
+  const front: [number, number][] = [];
+  for (let i = a; i <= b; i++) front.push(line[i]);
+  if (front.length < 2) front.push(line[Math.min(n, b + 1)] ?? line[a]);
+  const dir = side === 'axis' ? -1 : 1; // axis rear = west, soviet rear = east
+  const rear: [number, number][] = front.map((p, k) => {
+    const u = front[Math.max(0, k - 1)];
+    const v = front[Math.min(front.length - 1, k + 1)];
+    const dx = v[0] - u[0];
+    const dy = v[1] - u[1];
+    const len = Math.hypot(dx, dy) || 1;
+    return [p[0] + (-dy / len) * depth * dir, p[1] + (dx / len) * depth * dir];
+  });
+  return {
+    type: 'Feature',
+    properties: { side },
+    geometry: { type: 'Polygon', coordinates: [[...front, ...rear.reverse(), front[0]]] },
+  };
+}
+
+/** Tile the front into per-division frontage bands, by side, from the day's
+ *  line-placed divisions/brigades (their sector fractions). */
+function sectorBands(dateISO: string, d: number, line: [number, number][] | null): FeatureCollection {
+  if (!line) return EMPTY;
+  const bySide: Record<'axis' | 'soviet', number[]> = { axis: [], soviet: [] };
+  for (const du of derivedUnits) {
+    const g = ECH_GROUP(du.echelon);
+    if (g !== 'division' && g !== 'brigade') continue;
+    if (trackIds.has(du.id)) {
+      const t = trackById.get(du.id);
+      if (t && positionOn(t, dateISO, d)) continue; // a curated track wins
+    }
+    const place = derivedPlacementOn(du, dateISO, d);
+    if (!place || !('frac' in place)) continue; // skip pocket/absolute placements
+    bySide[du.side].push(place.frac);
+  }
+  const feats: Feature[] = [];
+  const DEPTH = 0.14;
+  for (const side of ['axis', 'soviet'] as const) {
+    const fr = bySide[side].slice().sort((a, b) => a - b);
+    for (let i = 0; i < fr.length; i++) {
+      const f = fr[i];
+      const lo = i === 0 ? f - (fr[1] !== undefined ? (fr[1] - f) / 2 : 0.01) : (fr[i - 1] + f) / 2;
+      const hi =
+        i === fr.length - 1 ? f + (fr[i - 1] !== undefined ? (f - fr[i - 1]) / 2 : 0.01) : (f + fr[i + 1]) / 2;
+      const f0 = Math.max(0, Math.min(1, lo));
+      const f1 = Math.max(0, Math.min(1, hi));
+      if (f1 > f0) feats.push(bandPolygon(line, f0, f1, side, DEPTH));
+    }
+  }
+  return { type: 'FeatureCollection', features: feats };
+}
+
 const numToISO = (n: number): string => {
   const s = String(n);
   return `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}`;
@@ -758,6 +830,8 @@ function refresh(map: MapLibreMap, dateISO: string): void {
   if (lsrc) lsrc.setData(family ? buildLinks(family, dateISO, d, line) : EMPTY);
   const dsrc = map.getSource(DOCTRINAL_SOURCE_ID) as GeoJSONSource | undefined;
   if (dsrc) dsrc.setData(focusId ? doctrinalFeatures(focusId, dateISO, d, line) : EMPTY);
+  const ssrc = map.getSource(SECTOR_SOURCE_ID) as GeoJSONSource | undefined;
+  if (ssrc) ssrc.setData(sectorBands(dateISO, d, line));
 }
 
 function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
@@ -866,6 +940,23 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
     data: collectionFor(date, d0, mainFrontLine(date, d0), null),
     attribution: 'Units: curated (Stalingrad pilot, approximate)',
   });
+  // Front sector segmentation: per-division frontage bands hugging the line,
+  // beneath every other unit layer (it decorates the front; counters sit above).
+  map.addSource(SECTOR_SOURCE_ID, {
+    type: 'geojson',
+    data: sectorBands(date, d0, mainFrontLine(date, d0)),
+  });
+  map.addLayer({
+    id: SECTOR_ID,
+    type: 'fill',
+    source: SECTOR_SOURCE_ID,
+    minzoom: 6.5, // staff-map detail only once you've zoomed in
+    paint: {
+      'fill-color': ['match', ['get', 'side'], 'axis', SIDE_COLOR.axis, SIDE_COLOR.soviet],
+      'fill-opacity': ['interpolate', ['linear'], ['zoom'], 6.5, 0, 7.5, 0.16],
+    },
+  });
+
   // Doctrinal sub-division drill-down (selected division's organic regiments).
   map.addSource(DOCTRINAL_SOURCE_ID, { type: 'geojson', data: EMPTY });
   // Command-link lines (selected formation only), beneath the symbols.
