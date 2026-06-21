@@ -41,9 +41,20 @@ Met:
 Deliberately out of scope (documented, not gaps):
 - **Finland / the Arctic front** — the main front polyline doesn't extend
   north of Leningrad, so no sector exists to place those units on.
-- **Brigades and below** — showcase-only by the SCALE_PLAN sub-division rule.
+- **Crimean Front** (Jan–May 1942, Kerch) — a brief peninsula case, deferred.
 
 Since addressed (were out of scope):
+- **Caucasus front** — *done.* The Transcaucasian Front is assigned to the
+  southern Caucasus segment (Terek → Black Sea) for the 1942 campaign, placing
+  all 58 of its units. North Caucasus Front split out alongside it.
+- **Minor-Axis divisions** — *done.* 32 Romanian/Hungarian/Italian division
+  scaffolds (`build-minor-axis.mjs`) deploy under their Don-flank armies, so the
+  flank is populated below army level.
+- **Reserve / transient HQs** — *done.* Reserve Front, Northern Front,
+  Heeresgruppe Don now placed; EF formations resting in a null-army gap ride a
+  rear reserve area.
+- **Sub-division drill-down** — *done.* Selecting a division shows its doctrinal
+  organic regiments clustered around it (SCALE_PLAN S6).
 - **Courland pocket sectors** (Oct 1944+) — *done.* 16./18. Armee + their OOB
   ride inside the ring (garrison pre-pass), the Soviet blockaders (1st Shock,
   10th Guards, 22nd, 42nd) hug its land-facing outer arc (`besiegers`), and

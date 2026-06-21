@@ -137,6 +137,19 @@ try {
   console.log('No oob/de-monthly.json — German divisions stay scaffold-only.');
 }
 
+// Minor-Axis divisions (Romanian/Hungarian/Italian Don flank, build-minor-axis.mjs):
+// scaffold units + OOB events fed through the same German divisional pipeline, so
+// they get parents + a roster slot and place inside their army's sector slice.
+try {
+  const ma = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'minor-axis.json'), 'utf8'));
+  for (const u of ma.units) if (!units.has(u.id)) units.set(u.id, u);
+  if (deOob) deOob.divisions.push(...ma.divisions);
+  else deOob = { divisions: ma.divisions, armies: [], armyGroups: [] };
+  console.log(`Loaded ${ma.units.length} minor-Axis divisions`);
+} catch {
+  console.log('No oob/minor-axis.json — minor-Axis divisions stay army-only.');
+}
+
 // Imported scaffolds (import-divisions.mjs): identity-only, curated files win.
 let importedCount = 0;
 try {

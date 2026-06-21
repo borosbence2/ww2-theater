@@ -780,6 +780,25 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Caucasus front + minor-Axis divisions ✅
+The two largest remaining EF gaps. On-map units 1,628 → 1,674; side-check holds
+99.7%. 65/65 smoke, build + lint clean.
+- [x] **Caucasus front segment** (`sectors/eastern.json`): the curated main line
+      already curls along the Caucasus (Terek → Black Sea) from late 1942, but
+      the sector table assigned that southern span to North Caucasus / Stalingrad
+      Fronts only. Added the **Transcaucasian Front** to the 1942-09 and 1942-11
+      keyframes as the southernmost sector — placing **all 58 of its units**
+      (armies + rifle divisions along the Terek and Black Sea coast) for the
+      Caucasus campaign. (Crimean Front — a brief 1942 Kerch peninsula case — is
+      left for later.)
+- [x] **Minor-Axis divisions** (`build-minor-axis.mjs` → `oob/minor-axis.json`):
+      32 Romanian / Hungarian / Italian division scaffolds for the Don /
+      Stalingrad flank (3./4. Romanian, 8. Italian, 2. Hungarian, summer 1942 →
+      destruction early 1943). Fed through the German divisional pipeline (events
+      → parents → army-slice placement) so they sit under their army in the right
+      N→S order (Hungarian at Voronezh → Italian → Romanian at Stalingrad). The
+      Don flank is no longer empty below army level.
+
 ## Closing small EF gaps — army groups, Reserve/Northern Front, BS reconciliation ✅
 On-map units 1,594 → 1,628; side-check holds 99.7%. 65/65 smoke, build + lint clean.
 - [x] **Transient army groups placed** (`build-units.mjs`): army-group placement

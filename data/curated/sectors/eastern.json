@@ -686,6 +686,13 @@
           ]
         },
         {
+          "unit": "su-front-transcaucasian",
+          "to": [
+            40.5,
+            43.9
+          ]
+        },
+        {
           "unit": "su-front-north-caucasus",
           "to": null
         }
@@ -849,6 +856,13 @@
         },
         {
           "unit": "su-front-stalingrad",
+          "to": [
+            45.8,
+            46.5
+          ]
+        },
+        {
+          "unit": "su-front-transcaucasian",
           "to": null
         }
       ],

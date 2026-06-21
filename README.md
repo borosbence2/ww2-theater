@@ -77,6 +77,10 @@ node data/pipeline/build-fronts.mjs
 #  same endpoint/UA as the battles query; see import-divisions.mjs header)
 node data/pipeline/import-divisions.mjs
 
+# Minor-Axis divisions (Don/Stalingrad flank: Romanian/Hungarian/Italian) —
+# generates committed scaffolds + OOB events consumed by build-units.
+node data/pipeline/build-minor-axis.mjs
+
 # Units (Phase 1) — curated order of battle + positions (Stalingrad pilot),
 # merged with the imported scaffolds (curated files win).
 # Validates every positioned unit against the front, daily (run fronts first).
