@@ -626,6 +626,28 @@ try {
   console.log('No descriptions.json — units have no Wikipedia summary.');
 }
 
+// Phase 5.1: dated actual strength returns (personnel + key equipment), keyed by
+// unit id; shown in the panel against the doctrinal nominal establishment.
+const strengthOf = new Map();
+try {
+  const sr = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'strength.json'), 'utf8')).records;
+  for (const [id, recs] of Object.entries(sr)) {
+    const cid = canon(id);
+    if (!units.has(cid)) {
+      warn('strength', `unknown unit "${id}"`);
+      continue;
+    }
+    for (const r of recs) {
+      if (!ISO.test(r.date)) err('strength', `bad date "${r.date}" for ${id}`);
+      if (r.source && !sourcesReg[r.source]) warn('strength', `unknown source "${r.source}" for ${id}`);
+    }
+    strengthOf.set(cid, [...recs].sort((a, b) => a.date.localeCompare(b.date)));
+  }
+  console.log(`Strength returns for ${strengthOf.size} units`);
+} catch {
+  console.log('No strength.json — units show only nominal establishment.');
+}
+
 // Children: reverse of parents.
 const childrenOf = new Map();
 for (const u of units.values()) {
@@ -1381,7 +1403,15 @@ writeFileSync(join(OUT_DIR, 'tracks', 'eastern.json'), JSON.stringify({ units: t
 
 const shards = new Map();
 for (const u of units.values()) {
-  const usedSources = [...new Set((u.positions ?? []).map((p) => p.source).filter(Boolean))];
+  const strengthRecs = strengthOf.get(u.id) ?? null;
+  const usedSources = [
+    ...new Set(
+      [
+        ...(u.positions ?? []).map((p) => p.source),
+        ...(strengthRecs ?? []).map((r) => r.source),
+      ].filter(Boolean),
+    ),
+  ];
   const detail = {
     id: u.id,
     country: u.country,
@@ -1403,6 +1433,7 @@ for (const u of units.values()) {
     notes: u.notes ?? null,
     summary: u.summary ?? null,
     formations: formationsOf.get(u.id) ?? null,
+    strength: strengthRecs,
   };
   const shard = shardOf(u.id);
   if (!shards.has(shard)) shards.set(shard, {});

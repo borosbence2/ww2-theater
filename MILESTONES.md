@@ -780,6 +780,22 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Phase 5.1 — strength-at-date ✅
+The first Phase 5 (depth) increment: actual dated strength returns alongside the
+doctrinal nominal. 66/66 smoke, build + lint clean.
+- [x] **Data model + curated returns** (`oob/strength.json`, keyed by unit id):
+      dated `{ personnel, equipment[], note, source }` records, ascending,
+      validated in `build-units` (ids/dates/sources) and attached to the unit
+      detail (their sources join the panel footer). Seeded with documented
+      pilots — 6. Armee (250,000 encircled → 91,000 surrendered), 16. Panzer
+      (tanks 146 → 40), 13th Guards (10,000 across the Volga → halved).
+- [x] **"Strength returns" panel section** (`UnitPanel.tsx`): a personnel
+      **sparkline** over the returns + dated rows (personnel · equipment chips ·
+      note, each a timeline jump-link), shown *against the nominal establishment*
+      from the TO&E template — the honest nominal-vs-actual comparison.
+- Append-only / crowdsourcable, like the registry; figures are cited
+  approximations, not survey-grade.
+
 ## Caucasus front + minor-Axis divisions ✅
 The two largest remaining EF gaps. On-map units 1,628 → 1,674; side-check holds
 99.7%. 65/65 smoke, build + lint clean.

@@ -363,11 +363,14 @@ fronts (prereq for placing western units).
       dated Oberbefehlshaber** successions for German armies/army groups;
       Wikipedia lead-paragraph `summary` on every linked card. (`fetch-commanders*.mjs`,
       `fetch-descriptions.mjs`.)
-- [ ] 5.1 `strength` records for pilot formations (Niehorster KStN, strength
-      returns); panel table + simple sparkline over time. **Started**: nominal
-      *establishment* strength + key equipment counts live on the doctrinal
-      templates (honest "TO&E nominal", not actual returns). Next: actual
-      strength-at-date for curated pilots, shown against the nominal.
+- [x] 5.1 `strength` records for pilot formations — **done (v1)**. Nominal
+      *establishment* strength + key equipment live on the doctrinal templates;
+      now **actual dated strength returns** (`data/curated/units/oob/strength.json`,
+      keyed by unit id) attach to the detail and render as a **"Strength returns"**
+      panel section: a personnel **sparkline** + dated rows (personnel + key
+      equipment + note), shown against the nominal establishment, cited. Seeded
+      with pilots (6. Armee 250k→91k at Stalingrad, 16. Panzer tank strength,
+      13th Guards across the Volga). Append-only/crowdsourcable.
 - [ ] 5.2 Pocket/siege ↔ unit links ("trapped in this pocket: …" on pocket
       click — joins two existing features).
 - [ ] 5.3 Unit insignia/photos via external/Wikimedia links (license-gated).

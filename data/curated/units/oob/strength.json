@@ -1,0 +1,17 @@
+{
+  "note": "Phase 5.1 — dated ACTUAL strength returns (personnel + key equipment) for pilot formations, keyed by unit id, ascending by date. Shown in the unit panel against the doctrinal nominal establishment (templates.ts). Curated from references; append-only and crowdsourcable. Figures are honest approximations from the cited works, not survey-grade.",
+  "records": {
+    "de-h-armee-6": [
+      { "date": "1942-11-23", "personnel": 250000, "note": "encircled in the Stalingrad pocket", "source": "glantz-house-stalingrad" },
+      { "date": "1943-02-02", "personnel": 91000, "note": "final surrender — taken prisoner", "source": "glantz-house-stalingrad" }
+    ],
+    "de-h-pz-div-16": [
+      { "date": "1941-06-22", "personnel": 17000, "equipment": [{ "name": "tanks", "count": 146 }], "note": "Barbarossa start", "source": "jentz-panzertruppen" },
+      { "date": "1942-11-19", "personnel": 9000, "equipment": [{ "name": "tanks", "count": 40 }], "note": "worn down on the Volga as Uranus opens", "source": "jentz-panzertruppen" }
+    ],
+    "su-gd-rd-13": [
+      { "date": "1942-09-14", "personnel": 10000, "note": "crossed the Volga into Stalingrad", "source": "glantz-house-stalingrad" },
+      { "date": "1942-10-02", "personnel": 5000, "note": "halved in two weeks of street fighting", "source": "glantz-house-stalingrad" }
+    ]
+  }
+}

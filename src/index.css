@@ -918,6 +918,23 @@ button.orbat-row:hover {
   color: var(--axis-text);
 }
 
+/* Strength returns (Phase 5.1): personnel sparkline + dated records. */
+.strength-spark {
+  display: block;
+  margin: 4px 0 8px;
+}
+.strength-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px;
+  line-height: 1.7;
+}
+.strength-row .equip-chip {
+  padding: 1px 7px;
+  font-size: 10.5px;
+}
+
 /* Chain-of-command spine: a brass rail behind a compact counter column. */
 .chain-spine {
   position: relative;

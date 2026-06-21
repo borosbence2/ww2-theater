@@ -94,6 +94,16 @@ export interface UnitDetail {
       self: boolean;
     }[];
   } | null;
+  /** Phase 5.1: dated *actual* strength returns (personnel + key equipment),
+   *  shown in the panel against the doctrinal nominal establishment. Curated
+   *  from references (Glantz, Jentz, …); ascending by date. */
+  strength?: {
+    date: string;
+    personnel?: number;
+    equipment?: { name: string; count: number }[];
+    note?: string;
+    source?: string;
+  }[];
 }
 
 /** Keyframe: [startNum, fraction] on the main line, or [startNum, lon, lat]

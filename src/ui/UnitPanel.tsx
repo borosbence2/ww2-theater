@@ -38,6 +38,37 @@ const ordinal = (n: number): string => {
   return n + (s[(v - 20) % 10] ?? s[v] ?? s[0]);
 };
 
+/** Tiny inline trend line of personnel strength over the curated returns. */
+function Sparkline({ points }: { points: number[] }) {
+  if (points.length < 2) return null;
+  const W = 150;
+  const H = 32;
+  const pad = 4;
+  const max = Math.max(...points);
+  const min = Math.min(...points);
+  const range = max - min || 1;
+  const xy = points.map((v, i) => {
+    const x = pad + (i / (points.length - 1)) * (W - 2 * pad);
+    const y = pad + (1 - (v - min) / range) * (H - 2 * pad);
+    return [x, y] as const;
+  });
+  return (
+    <svg className="strength-spark" width={W} height={H} viewBox={`0 0 ${W} ${H}`} aria-hidden>
+      <polyline
+        points={xy.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' ')}
+        fill="none"
+        stroke="var(--accent)"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {xy.map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r={2} fill="var(--accent)" />
+      ))}
+    </svg>
+  );
+}
+
 /** A scannable stat tile (establishment, armour, raised, fate). */
 function StatTile({ value, label }: { value: string; label: string }) {
   return (
@@ -478,6 +509,39 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
           )}
           <TemplateRows nodes={template.components} side={unit.side} />
           {template.note && <p className="detail-note">{template.note}</p>}
+        </section>
+      )}
+
+      {unit.strength && unit.strength.length > 0 && (
+        <section className="detail-history">
+          <h3>Strength returns</h3>
+          {template?.strength && (
+            <p className="detail-note">
+              vs. nominal establishment ≈ <strong>{template.strength.toLocaleString()}</strong> personnel
+            </p>
+          )}
+          <Sparkline points={unit.strength.filter((r) => r.personnel != null).map((r) => r.personnel!)} />
+          <ul>
+            {unit.strength.map((r) => (
+              <li key={r.date} className="strength-row">
+                <button className="date-link" onClick={() => jump(r.date)}>
+                  {formatLong(r.date)}
+                </button>
+                {r.personnel != null && (
+                  <span>
+                    {' — '}
+                    <strong>{r.personnel.toLocaleString()}</strong> men
+                  </span>
+                )}
+                {r.equipment?.map((e) => (
+                  <span className="equip-chip" key={e.name}>
+                    <b>{e.count.toLocaleString()}</b> {e.name}
+                  </span>
+                ))}
+                {r.note && <span className="omnibox-meta"> · {r.note}</span>}
+              </li>
+            ))}
+          </ul>
         </section>
       )}
 

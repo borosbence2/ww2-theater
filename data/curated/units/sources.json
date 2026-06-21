@@ -35,6 +35,11 @@
       "url": "https://www.lexikon-der-wehrmacht.de/",
       "granularity": "per-unit narrative histories",
       "license": "website, cited"
+    },
+    "jentz-panzertruppen": {
+      "citation": "Jentz, T. — Panzertruppen: The Complete Guide to the Creation & Combat Employment of Germany's Tank Force, 1933–45",
+      "granularity": "dated tank strength returns",
+      "license": "book (reference only)"
     }
   }
 }
