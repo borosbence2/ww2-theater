@@ -401,6 +401,16 @@ const ops = await page.evaluate(() => {
 });
 check('operation arrows + label show during Citadel', ops.ok && ops.fills >= 2 && ops.labels.includes('Operation Citadel'));
 
+// Operation set spans the war: Barbarossa's three army-group thrusts (Jun 1941).
+await page.goto(`${BASE}/?date=1941-07-10&z=4.5&lat=54&lng=28`, { waitUntil: 'domcontentloaded' });
+await page.waitForTimeout(3500);
+const barb = await page.evaluate(() => {
+  const m = window.__map;
+  if (!m || !m.getLayer('operations-label')) return { ok: false };
+  return { ok: true, labels: m.queryRenderedFeatures({ layers: ['operations-label'] }).map((x) => x.properties.name) };
+});
+check('Barbarossa operation shows in 1941', barb.ok && barb.labels.includes('Operation Barbarossa'));
+
 // Formation ordinals: a re-formed unit shows its formation history (the
 // reconciliation registry surfaced in the panel).
 await page.fill('.omnibox input', '16. Panzer-Division');

@@ -398,13 +398,15 @@ fronts (prereq for placing western units).
             besieging side (the opposite of who's trapped) and scaled to the ring
             — kept visible at high zoom (a pocket is a local event). Verified on
             the Stalingrad pocket (Soviet pincers on the trapped 6. Armee).
-      - [x] **Curated operation arrows** (Uranus / Citadel / Bagration): a small
-            hand-authored set (`src/data/operations.ts`) of the signature
-            offensives, each one or more big tapered arrows (Catmull-Rom-smoothed
-            axes → filled arrow polygons) shown only in its date window, named on
-            the map, on their **own legend toggle**. The dynamic advance arrows
-            suppress themselves inside an active operation's box so the editorial
-            arrow isn't doubled by the automatic one.
+      - [x] **Curated operation arrows** — a hand-authored set of **10 signature
+            offensives spanning the war** (`src/data/operations.ts`): Barbarossa,
+            Typhoon, the Moscow counter-offensive, Case Blue, Uranus, Citadel,
+            Bagration, Lvov–Sandomierz, Vistula–Oder, Berlin. Each axis of advance
+            (control points) is Catmull-Rom-smoothed into a big tapered arrow
+            polygon, shown only in its date window, named on the map, on their
+            **own legend toggle**. The dynamic advance arrows suppress themselves
+            inside an active operation's box so the editorial arrow isn't doubled
+            by the automatic one.
 
 ### Phase 5b — Detail-tab depth: equipment & imagery (planned)
 

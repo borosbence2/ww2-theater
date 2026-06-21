@@ -803,12 +803,14 @@ map layers render.
       opposite of who's trapped) and scaled to the ring; kept visible at high
       zoom since a pocket is a local event. Verified on Stalingrad. 72/72 smoke.
 - [x] **Curated operation arrows** (`operations.ts` + `src/data/operations.ts`):
-      a hand-authored set of signature offensives (Uranus, Citadel, Bagration),
-      each one or more big tapered arrows (Catmull-Rom-smoothed axes → filled
-      arrow polygons) shown only in its date window, named on the map, on their
-      **own legend toggle**. The dynamic advance arrows suppress themselves inside
-      an active operation's box so the editorial arrow isn't doubled. Verified on
-      Citadel (red pincers + label on the Kursk salient).
+      a hand-authored set of **10 signature offensives spanning the war** —
+      Barbarossa, Typhoon, the Moscow counter-offensive, Case Blue, Uranus,
+      Citadel, Bagration, Lvov–Sandomierz, Vistula–Oder, Berlin. Each axis of
+      advance is Catmull-Rom-smoothed into a big tapered arrow polygon, shown only
+      in its date window, named on the map, on their **own legend toggle**. The
+      dynamic advance arrows suppress themselves inside an active operation's box
+      so the editorial arrow isn't doubled. Verified on Citadel (red pincers on
+      the Kursk salient) and Barbarossa (three army-group thrusts).
 
 ## Phase 5.2 — pocket ↔ unit links ✅
 Clicking a pocket/siege now opens a panel joining it to the formations inside and
