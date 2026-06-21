@@ -190,6 +190,8 @@ check('13th Guards order of battle lists its regiments', /42nd Guards Rifle Regi
 check('13th Guards shows an establishment template', /Establishment/.test(divPanel ?? '') && /Rifle Regiment/.test(divPanel ?? ''));
 // Phase 5.1: actual strength returns shown against the nominal establishment.
 check('13th Guards shows strength returns', /Strength returns/.test(divPanel ?? '') && /crossed the Volga/.test(divPanel ?? ''));
+// Phase 5b: equipment catalog — the formation's notable kit with specs/links.
+check('13th Guards shows equipment catalog', /Equipment/.test(divPanel ?? '') && /ZiS-3/.test(divPanel ?? ''));
 await page.locator('.detail-panel .orbat-row', { hasText: '42nd Guards Rifle Regiment' }).first().click();
 await page.waitForTimeout(1500);
 const rrPanel = await page.locator('.detail-panel').textContent();

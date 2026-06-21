@@ -12,6 +12,7 @@ import {
   type UnitDetail,
 } from '../data/units';
 import { matchTemplate, type TemplateNode } from '../data/templates';
+import { groupedEquipment, EQUIP_CLASS_LABEL } from '../data/equipment';
 import { dateToNum, formatLong } from '../time/dates';
 import { useStore } from '../store';
 import { UnitGlyph } from './UnitGlyph';
@@ -509,6 +510,27 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
           )}
           <TemplateRows nodes={template.components} side={unit.side} />
           {template.note && <p className="detail-note">{template.note}</p>}
+        </section>
+      )}
+
+      {template?.equipmentRefs && template.equipmentRefs.length > 0 && (
+        <section className="detail-history">
+          <h3>Equipment</h3>
+          {groupedEquipment(template.equipmentRefs).map(({ cls, items }) => (
+            <div className="equip-group" key={cls}>
+              <div className="equip-group-label">{EQUIP_CLASS_LABEL[cls]}</div>
+              <ul>
+                {items.map((e) => (
+                  <li key={e.id}>
+                    <a href={e.wiki} target="_blank" rel="noreferrer">
+                      {e.name}
+                    </a>
+                    <span className="omnibox-meta"> · {e.spec}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </section>
       )}
 

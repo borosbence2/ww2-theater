@@ -918,6 +918,28 @@ button.orbat-row:hover {
   color: var(--axis-text);
 }
 
+/* Equipment catalog (Phase 5b): grouped weapons/vehicles with specs + links. */
+.equip-group {
+  margin-top: 8px;
+}
+.equip-group-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 1px;
+}
+.equip-group ul {
+  margin: 0 0 2px;
+  padding: 0;
+  list-style: none;
+}
+.equip-group li {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
 /* Strength returns (Phase 5.1): personnel sparkline + dated records. */
 .strength-spark {
   display: block;

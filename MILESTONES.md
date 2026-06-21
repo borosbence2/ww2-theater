@@ -780,6 +780,21 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Phase 5b — equipment catalog ✅
+A shared catalog of the key Eastern-Front weapons/vehicles, surfaced per
+formation. 67/67 smoke, build + lint clean.
+- [x] **Equipment catalog** (`src/data/equipment.ts`): ~32 entries (Panzer
+      II/III/IV, Panther, Tiger, StuG, T-34, KV-1, the major guns, MGs, mortars),
+      each with class, nation, a one-line spec, and a Wikipedia link. Authored
+      once, referenced by id.
+- [x] **Per-formation refs** (`templates.ts` `EQUIP_REFS`, merged in
+      `matchTemplate` as `equipmentRefs`): each establishment template lists the
+      notable kit it fielded.
+- [x] **Equipment panel section** (`UnitPanel.tsx`): under the establishment
+      template, grouped by class (armour, assault guns, anti-tank, artillery,
+      AA, infantry weapons…), each row = name + spec + Wikipedia link. No fetch /
+      no ETL — catalog + refs resolve client-side. (Imagery is a later increment.)
+
 ## Phase 5.1 — strength-at-date ✅
 The first Phase 5 (depth) increment: actual dated strength returns alongside the
 doctrinal nominal. 66/66 smoke, build + lint clean.

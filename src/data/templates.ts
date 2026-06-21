@@ -54,12 +54,15 @@ export interface FormationTemplate {
   strength?: number;
   /** Key authorised weapons/vehicles (nominal counts), for the quantitative view. */
   equipment?: EquipItem[];
+  /** Equipment-catalog ids (equipment.ts) of the notable weapons/vehicles this
+   *  formation fielded — resolved to specs + links in the panel. */
+  equipmentRefs?: string[];
 }
 
 // Nominal establishment strength + key equipment per template, keyed by name.
 // TO&E "paper" figures (Niehorster / Soviet shtaty / Glantz & House) — what the
 // formation was *meant* to field, not a strength return on any given day.
-const ESTABLISHMENT: Record<string, { strength?: number; equipment?: EquipItem[] }> = {
+const ESTABLISHMENT: Record<string, { strength?: number; equipment?: EquipItem[]; equipmentRefs?: string[] }> = {
   'Infantry Division (Type 1939)': {
     strength: 17734,
     equipment: [
@@ -180,6 +183,24 @@ const ESTABLISHMENT: Record<string, { strength?: number; equipment?: EquipItem[]
       { name: 'Guns & mortars', count: 36 },
     ],
   },
+};
+
+// Notable equipment a formation fielded, as equipment-catalog ids (equipment.ts).
+// Resolved to specs + Wikipedia links in the panel's Equipment section.
+const EQUIP_REFS: Record<string, string[]> = {
+  'Infantry Division (Type 1939)': ['kar98k', 'mg34', 'gw-34', 'pak-36', 'lefh-18', 'sfh-18'],
+  'Infantry Division (Type 1944)': ['kar98k', 'mg42', 'gw-34', 'pak-40', 'lefh-18', 'sfh-18'],
+  'Panzer-Division (1941)': ['pz-ii', 'pz-iii', 'pz-iv', 'sdkfz-251', 'sdkfz-222', 'pak-36', 'lefh-18', 'flak-88'],
+  'Panzer-Division (1943/44)': ['pz-iv', 'panther', 'stug-iii', 'sdkfz-251', 'lefh-18', 'pak-40', 'flak-88'],
+  'Panzergrenadier-/Motorized Division': ['pz-iv', 'stug-iii', 'sdkfz-251', 'sdkfz-222', 'lefh-18', 'pak-40'],
+  'Rifle Division (shtat 04/400, 1941)': ['mosin', 'dp-28', '82-bm-37', '120-pm-38', '45mm-m37', 'zis-3', 'm-30', 'ml-20', 'ptrd'],
+  'Rifle Division (shtat 04/300, late 1941)': ['mosin', 'dp-28', '82-bm-37', '45mm-m37', 'zis-3', 'm-30'],
+  'Rifle Division (shtat 04/550, 1943)': ['mosin', 'ppsh', 'dp-28', '82-bm-37', '120-pm-38', '45mm-m37', 'zis-3', 'm-30', 'ptrd'],
+  'Cavalry Division': ['mosin', 'ppsh', '82-bm-37', 'zis-3'],
+  'Tank Corps (1942)': ['t-34', 't-70', 'ba-64', 'zis-3'],
+  'Mechanized Corps (1942)': ['t-34', 't-70', 'zis-3', 'ppsh'],
+  'Tank Brigade (1942)': ['t-34', 't-70', 'ptrd'],
+  'Mechanized / Motor Rifle Brigade': ['t-34', 'ppsh', 'zis-3', 'ptrd'],
 };
 
 interface Opt {
@@ -636,7 +657,7 @@ export function matchTemplate(
       dateISO <= t.to,
   );
   const withEstablishment = (t: FormationTemplate | undefined): FormationTemplate | null =>
-    t ? { ...t, ...ESTABLISHMENT[t.name] } : null;
+    t ? { ...t, ...ESTABLISHMENT[t.name], equipmentRefs: EQUIP_REFS[t.name] } : null;
   if (inWindow.length) {
     return withEstablishment(inWindow.sort((a, b) => b.from.localeCompare(a.from))[0]);
   }

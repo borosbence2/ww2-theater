@@ -387,18 +387,16 @@ fronts (prereq for placing western units).
 Goal (user-requested): a much richer detail tab — the equipment a unit fielded,
 and photographs — without wrecking the static-site performance budget.
 
-- [ ] **Equipment data model.** Extend the establishment templates and add a
-      per-unit `equipment` layer: weapon/vehicle types with counts, keyed to a
-      shared **equipment catalog** (`data/curated/equipment/*.json`: id, name,
-      class, nation, calibre/armour/etc., a Wikipedia/Wikidata link, an optional
-      Commons image id). Templates reference catalog ids so the same Panzer IV /
-      T-34 entry is authored once and reused. Two honesty tiers, labelled as
-      such: *nominal* (TO&E establishment, from the template) vs *actual*
-      (curated strength/equipment returns at a date, from Niehorster/Jentz).
-- [ ] **Equipment panel.** A collapsible "Equipment" section under the ORBAT /
-      template tree: grouped by class (armour, artillery, AT, transport…), each
-      row = catalog glyph/thumbnail + name + count + link. Reuses the
-      collapsible tree component already built for templates.
+- [x] **Equipment data model — done (v1).** A shared **equipment catalog**
+      (`src/data/equipment.ts`: id, name, class, nation, one-line spec, Wikipedia
+      link) of the key EF weapons/vehicles; establishment templates reference
+      catalog ids (`equipmentRefs`, merged in `matchTemplate`) so Panzer IV /
+      T-34 are authored once and reused. The *actual* tier is Phase 5.1 strength
+      returns; the *nominal* tier is the template establishment — both labelled.
+      (Commons image id deferred to the imagery item.)
+- [x] **Equipment panel — done.** An "Equipment" section under the establishment
+      template, grouped by class (armour, assault guns, AT, artillery, AA,
+      infantry weapons…), each row = name + spec + Wikipedia link.
 - [ ] **Imagery — performance plan.** Never bundle or self-host full images.
       - Curate an image **manifest** (`data/curated/images/*.json`): unit/
         equipment id → Wikimedia Commons file name + author/license (CC/PD only;
