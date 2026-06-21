@@ -14,6 +14,8 @@ const SOURCE_ID = 'front';
 const BAND_AXIS_ID = 'front-band-axis';
 const BAND_SOVIET_ID = 'front-band-soviet';
 const POCKET_FILL_ID = 'front-pocket-fill';
+/** Pocket/siege fill — a click target (selects the pocket). */
+export const POCKET_FILL_LAYER_ID = POCKET_FILL_ID;
 const POCKET_CASING_ID = 'front-pocket-casing';
 const POCKET_LINE_ID = 'front-pocket-line';
 const SIEGE_LINE_ID = 'front-siege-line';
@@ -50,8 +52,14 @@ export interface FrontFeature {
   label?: string;
   encircled?: 'axis' | 'soviet';
   closed: boolean;
+  from?: string;
+  to?: string | null;
   fromNum: number;
   toNum: number;
+  /** Unit ids trapped inside (placed in the ring by build-units). */
+  garrison?: string[];
+  /** Formations blockading the pocket (ids, or {id,from?,to?}). */
+  besiegers?: (string | { id: string; from?: string; to?: string })[];
   keyframes: FrontKeyframe[];
 }
 
@@ -60,6 +68,26 @@ let features: FrontFeature[] = [];
 /** Loaded front features (used by the dev keyframe editor for ghost lines). */
 export function getFrontFeatures(): FrontFeature[] {
   return features;
+}
+
+/** A pocket/siege feature by id (for the pocket panel). */
+export function getPocketFeature(id: string): FrontFeature | undefined {
+  return features.find((f) => f.id === id && f.closed);
+}
+
+// Cached front-features load, shared by the map layer and the pocket panel (so
+// the panel works even if it mounts before the layer is added, e.g. deep link).
+let featuresPromise: Promise<FrontFeature[]> | null = null;
+export function loadFrontFeatures(): Promise<FrontFeature[]> {
+  if (!featuresPromise) {
+    featuresPromise = fetch(DATA_URL)
+      .then((r) => r.json())
+      .then((d) => {
+        features = d.features;
+        return features;
+      });
+  }
+  return featuresPromise;
 }
 
 /** Interpolated main front line (N→S) on a date, or null. Shared with the
@@ -139,8 +167,7 @@ function collectionFor(dateISO: string): FeatureCollection {
 }
 
 export async function addFrontLayer(map: MapLibreMap, date: string): Promise<void> {
-  const data = await fetch(DATA_URL).then((r) => r.json());
-  features = data.features;
+  await loadFrontFeatures();
 
   map.addSource(SOURCE_ID, {
     type: 'geojson',

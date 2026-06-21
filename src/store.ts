@@ -13,7 +13,7 @@ export interface Viewport {
 }
 
 /** What is selected in the UI (detail panel + deep link). */
-export type Selection = { kind: 'city' | 'unit' | 'battle'; id: string };
+export type Selection = { kind: 'city' | 'unit' | 'battle' | 'pocket'; id: string };
 
 /** Default view: centered on central Europe, whole-theater zoom. */
 const DEFAULT_VIEWPORT: Viewport = { lng: 15, lat: 50, zoom: 4 };

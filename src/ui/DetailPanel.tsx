@@ -10,7 +10,9 @@ import {
   type City,
   type ControlCity,
 } from '../data/cities';
-import { formatLong } from '../time/dates';
+import { loadUnitIndex } from '../data/units';
+import { getPocketFeature, loadFrontFeatures, type FrontFeature } from '../layers/front';
+import { formatLong, dateToNum } from '../time/dates';
 import { useStore } from '../store';
 import { UnitPanel } from './UnitPanel';
 import { BattlePanel } from './BattlePanel';
@@ -89,6 +91,69 @@ function CityDetail({ name }: { name: string }) {
   );
 }
 
+/** Pocket / siege detail (Phase 5.2): the formations trapped inside and the
+ *  ones besieging it — joins the front feature's garrison/besiegers to units. */
+function PocketDetail({ id }: { id: string }) {
+  const date = useStore((s) => s.date);
+  const setSelection = useStore((s) => s.setSelection);
+  const [labels, setLabels] = useState<Map<string, string>>(new Map());
+  const [f, setF] = useState<FrontFeature | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    loadUnitIndex().then((units) => {
+      if (alive) setLabels(new Map(units.map((u) => [u.id, u.label])));
+    });
+    loadFrontFeatures().then(() => {
+      if (alive) setF(getPocketFeature(id) ?? null);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [id]);
+
+  if (!f) return <p className="detail-note">Loading…</p>;
+  const enc = f.encircled ?? 'axis';
+  const d = dateToNum(date);
+  const active = d >= f.fromNum && d < f.toNum;
+  const besiegerIds = (f.besiegers ?? []).map((b) => (typeof b === 'string' ? b : b.id));
+  const link = (uid: string) => (
+    <li key={uid}>
+      <button className="date-link" onClick={() => setSelection({ kind: 'unit', id: uid })}>
+        {labels.get(uid) ?? uid}
+      </button>
+    </li>
+  );
+
+  return (
+    <>
+      <h2>{f.label ?? id}</h2>
+      <p className={`detail-holder side-${enc}`}>
+        {SIDE_LABEL[enc]} encircled
+        {f.from && ` · ${formatLong(f.from)}`}
+        {f.to ? ` – ${formatLong(f.to)}` : ''}
+      </p>
+      {!active && <p className="detail-note">Not active on {formatLong(date)}.</p>}
+      {f.garrison && f.garrison.length > 0 && (
+        <section className="detail-history">
+          <h3>Trapped in the pocket</h3>
+          <ul>{f.garrison.map(link)}</ul>
+        </section>
+      )}
+      {besiegerIds.length > 0 && (
+        <section className="detail-history">
+          <h3>Besieging formations</h3>
+          <ul>{besiegerIds.map(link)}</ul>
+        </section>
+      )}
+      <p className="detail-note">
+        Trapped formations are placed inside the ring; besiegers hug its outer
+        edge. Click any to inspect it.
+      </p>
+    </>
+  );
+}
+
 export function DetailPanel() {
   const selection = useStore((s) => s.selection);
   const setSelection = useStore((s) => s.setSelection);
@@ -111,6 +176,8 @@ export function DetailPanel() {
       </button>
       {selection.kind === 'city' ? (
         <CityDetail name={selection.id} />
+      ) : selection.kind === 'pocket' ? (
+        <PocketDetail id={selection.id} />
       ) : (
         <BattlePanel id={selection.id} />
       )}

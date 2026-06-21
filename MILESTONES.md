@@ -780,6 +780,17 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Phase 5.2 — pocket ↔ unit links ✅
+Clicking a pocket/siege now opens a panel joining it to the formations inside and
+around it. 69/69 smoke, build + lint clean.
+- [x] **Pocket selectable** (`MapView.tsx` + `?pocket=` deep link): the pocket
+      fill is a click target (lowest priority, so a unit/city on top still wins);
+      new `pocket` selection kind.
+- [x] **Pocket panel** (`DetailPanel.tsx` `PocketDetail`): encircled side +
+      dates, the **trapped garrison** and the **besieging formations** — each
+      clickable through to the unit — resolved by joining the front feature's
+      `garrison`/`besiegers` (exposed via `loadFrontFeatures`) to the unit index.
+
 ## Phase 5b — unit imagery ✅
 Unit insignia/photographs in the card, perf-safe (no bundled bytes). 68/68
 smoke, build + lint clean.

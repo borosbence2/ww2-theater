@@ -371,8 +371,11 @@ fronts (prereq for placing western units).
       equipment + note), shown against the nominal establishment, cited. Seeded
       with pilots (6. Armee 250k→91k at Stalingrad, 16. Panzer tank strength,
       13th Guards across the Volga). Append-only/crowdsourcable.
-- [ ] 5.2 Pocket/siege ↔ unit links ("trapped in this pocket: …" on pocket
-      click — joins two existing features).
+- [x] 5.2 Pocket/siege ↔ unit links — **done.** Pocket fills are clickable
+      (`?pocket=` deep-link too); the panel lists the **trapped garrison** and the
+      **besieging formations** (both clickable through to the unit), the encircled
+      side, and the pocket dates — joining the front feature's `garrison`/
+      `besiegers` to the units.
 - [ ] 5.3 Unit insignia/photos via external/Wikimedia links (license-gated).
 - [ ] 5.4 **Front sector segmentation** (decided 2026-06-10): where division
       data is dense, render the high-zoom front *subdivided by holder* —

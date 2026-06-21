@@ -344,6 +344,13 @@ const besiegerKf = await page.evaluate(async () => {
 });
 check('Courland besieger placed outside the ring (absolute)', besiegerKf === 1);
 
+// Phase 5.2: pocket panel — click/deep-link a pocket -> trapped + besieging units.
+await page.goto(`${BASE}/?pocket=courland-pocket&date=1945-02-15`, { waitUntil: 'domcontentloaded' });
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1200);
+const pocketPanel = await page.locator('.detail-panel').textContent();
+check('pocket panel lists trapped + besieging units', /Trapped in the pocket/.test(pocketPanel ?? '') && /16\. Armee/.test(pocketPanel ?? '') && /Besieging/.test(pocketPanel ?? ''));
+
 // Formation ordinals: a re-formed unit shows its formation history (the
 // reconciliation registry surfaced in the panel).
 await page.fill('.omnibox input', '16. Panzer-Division');

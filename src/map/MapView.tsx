@@ -16,6 +16,7 @@ import {
   updateUnitsFocus,
 } from '../layers/units';
 import { BATTLES_HIT_LAYER_ID } from '../layers/battles';
+import { POCKET_FILL_LAYER_ID } from '../layers/front';
 import { addUnitPathLayers, updateUnitPath } from '../layers/unitPath';
 import { loadCities } from '../data/cities';
 import { loadBattles } from '../data/battles';
@@ -116,14 +117,26 @@ export function MapView() {
       if (EDIT_MODE) {
         addEditLayers(map);
       } else {
-        // Click priority: unit symbol > battle > city dot; empty map clears.
-        const clickable = [...UNITS_HIT_LAYER_IDS, BATTLES_HIT_LAYER_ID, CITY_DOT_LAYER_ID];
+        // Click priority: unit symbol > battle > city dot > pocket fill; empty
+        // map clears. (Pocket is last so a unit/city on top of it wins.)
+        const clickable = [
+          ...UNITS_HIT_LAYER_IDS,
+          BATTLES_HIT_LAYER_ID,
+          CITY_DOT_LAYER_ID,
+          POCKET_FILL_LAYER_ID,
+        ];
         map.on('click', (e) => {
           const hits = map.queryRenderedFeatures(e.point, {
             layers: clickable.filter((id) => map.getLayer(id)),
           });
           const rank = (lid: string) =>
-            UNITS_HIT_LAYER_IDS.includes(lid) ? 0 : lid === BATTLES_HIT_LAYER_ID ? 1 : 2;
+            UNITS_HIT_LAYER_IDS.includes(lid)
+              ? 0
+              : lid === BATTLES_HIT_LAYER_ID
+                ? 1
+                : lid === CITY_DOT_LAYER_ID
+                  ? 2
+                  : 3;
           const top = [...hits].sort((a, b) => rank(a.layer.id) - rank(b.layer.id))[0];
           const { setSelection } = useStore.getState();
           if (!top) setSelection(null);
@@ -131,8 +144,10 @@ export function MapView() {
             setSelection({ kind: 'unit', id: top.properties.id as string });
           } else if (top.layer.id === BATTLES_HIT_LAYER_ID) {
             setSelection({ kind: 'battle', id: top.properties.id as string });
-          } else {
+          } else if (top.layer.id === CITY_DOT_LAYER_ID) {
             setSelection({ kind: 'city', id: top.properties.name as string });
+          } else {
+            setSelection({ kind: 'pocket', id: top.properties.id as string });
           }
         });
         for (const id of clickable) {
