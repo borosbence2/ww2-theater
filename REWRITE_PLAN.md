@@ -377,15 +377,19 @@ fronts (prereq for placing western units).
       side, and the pocket dates — joining the front feature's `garrison`/
       `besiegers` to the units.
 - [ ] 5.3 Unit insignia/photos via external/Wikimedia links (license-gated).
-- [x] 5.4 **Front sector segmentation** — **done.** At high zoom (z ≥ 6.5,
-      fading in to 7.5) each line-placed division/brigade gets a faint
-      **side-coloured frontage band** hugging its `sector` slice of the line —
-      red Axis bands west of the line, blue Soviet east, tiled per division by
-      taking the midpoints to same-side neighbours (`sectorBands`/`bandPolygon`
-      in `units.ts`, computed client-side from the derived sector *fractions*,
-      offset perpendicular into each side's rear). Drawn beneath the counters, so
-      the staff-map sectors decorate the authored line without replacing it; the
-      line stays the backbone and the fallback where units aren't curated.
+- [~] 5.4 **Front graphics** (reworked 2026-06-21). The first cut — per-division
+      *frontage bands* — read as one muddy stripe (no visible per-division
+      separation) duplicating the tide, so it was **retired** in favour of a
+      proper staff-map vocabulary:
+      - [x] **FEBA front line** — bold smoothed line + a light casing so it reads
+            over the two-sided tide, with **forward-edge teeth** (a sawtooth
+            sprite repeated along the line, `symbol-placement:'line'`) fading in
+            at z ≥ 5 so the strategic view stays a clean line.
+      - [ ] **Dynamic advance arrows** — computed from how the front moved over
+            ~10 days; side-coloured, sparse, thresholded.
+      - [ ] **Encirclement arrows** on active pockets (besieger → centroid).
+      - [ ] **Curated operation arrows** (Uranus / Bagration / Citadel) shown in
+            their date window.
 
 ### Phase 5b — Detail-tab depth: equipment & imagery (planned)
 

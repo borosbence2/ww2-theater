@@ -20,7 +20,10 @@ const POCKET_CASING_ID = 'front-pocket-casing';
 const POCKET_LINE_ID = 'front-pocket-line';
 const SIEGE_LINE_ID = 'front-siege-line';
 const CASING_ID = 'front-casing';
+const LINE_HALO_ID = 'front-line-halo';
+const TEETH_ID = 'front-teeth';
 const LINE_ID = 'front-line';
+const TEETH_SPRITE = 'feba-tooth';
 const DATA_URL = `${import.meta.env.BASE_URL}data/front/eastern-keyframes.json`;
 
 /** All MapLibre layer ids, for registry visibility toggling. */
@@ -32,6 +35,8 @@ export const FRONT_LAYER_IDS = [
   POCKET_LINE_ID,
   SIEGE_LINE_ID,
   CASING_ID,
+  LINE_HALO_ID,
+  TEETH_ID,
   LINE_ID,
 ];
 
@@ -166,8 +171,31 @@ function collectionFor(dateISO: string): FeatureCollection {
   return { type: 'FeatureCollection', features: out };
 }
 
+/** A small forward-edge "tooth" sprite (filled triangle on a baseline), drawn
+ *  in the upper half so it sits to one side of the line once placed. */
+function registerTeethSprite(map: MapLibreMap): void {
+  if (map.hasImage(TEETH_SPRITE)) return;
+  const s = 2; // pixel ratio for crispness
+  const w = 16 * s;
+  const h = 16 * s;
+  const c = document.createElement('canvas');
+  c.width = w;
+  c.height = h;
+  const g = c.getContext('2d');
+  if (!g) return;
+  g.fillStyle = '#14171c';
+  g.beginPath(); // triangle pointing up, base at vertical centre
+  g.moveTo(2 * s, h / 2);
+  g.lineTo(w - 2 * s, h / 2);
+  g.lineTo(w / 2, 2 * s);
+  g.closePath();
+  g.fill();
+  map.addImage(TEETH_SPRITE, { width: w, height: h, data: g.getImageData(0, 0, w, h).data }, { pixelRatio: s });
+}
+
 export async function addFrontLayer(map: MapLibreMap, date: string): Promise<void> {
   await loadFrontFeatures();
+  registerTeethSprite(map);
 
   map.addSource(SOURCE_ID, {
     type: 'geojson',
@@ -226,9 +254,9 @@ export async function addFrontLayer(map: MapLibreMap, date: string): Promise<voi
     },
   });
 
-  // Main front line: a wide, soft, low-opacity glow beneath a thin crisp core,
-  // so the line reads as a quiet boundary and the unit counters stay the
-  // loudest thing on the map. (Replaces the old bright white casing.)
+  // Main front line (FEBA): a soft dark glow, a thin light casing so it reads
+  // over the two-sided tide, then a bold dark core — a confident staff-map
+  // boundary. Teeth (below) add the forward-edge hatch once you zoom in.
   map.addLayer({
     id: CASING_ID,
     type: 'line',
@@ -237,9 +265,42 @@ export async function addFrontLayer(map: MapLibreMap, date: string): Promise<voi
     layout,
     paint: {
       'line-color': '#0d131d',
-      'line-opacity': 0.18,
-      'line-width': ['interpolate', ['linear'], ['zoom'], 3, 5, 7, 12],
-      'line-blur': ['interpolate', ['linear'], ['zoom'], 3, 3, 7, 6],
+      'line-opacity': 0.22,
+      'line-width': ['interpolate', ['linear'], ['zoom'], 3, 6, 7, 16],
+      'line-blur': ['interpolate', ['linear'], ['zoom'], 3, 3, 7, 7],
+    },
+  });
+  map.addLayer({
+    id: LINE_HALO_ID,
+    type: 'line',
+    source: SOURCE_ID,
+    filter: isFront as never,
+    layout,
+    paint: {
+      'line-color': 'rgba(245,247,250,0.55)',
+      'line-width': ['interpolate', ['linear'], ['zoom'], 3, 3.2, 7, 7.5],
+    },
+  });
+  // Forward-edge teeth: a sawtooth sprite repeated along the line, on the Axis
+  // (west) side, fading in at z>=5 so the strategic view stays a clean line.
+  map.addLayer({
+    id: TEETH_ID,
+    type: 'symbol',
+    source: SOURCE_ID,
+    filter: isFront as never,
+    minzoom: 5,
+    layout: {
+      'symbol-placement': 'line',
+      'symbol-spacing': ['interpolate', ['linear'], ['zoom'], 5, 22, 8, 34],
+      'icon-image': TEETH_SPRITE,
+      'icon-rotation-alignment': 'map',
+      'icon-allow-overlap': true,
+      'icon-ignore-placement': true,
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 5, 0.5, 8, 0.9],
+      'icon-offset': [0, -7], // push the teeth to one side of the line
+    },
+    paint: {
+      'icon-opacity': ['interpolate', ['linear'], ['zoom'], 5, 0, 6, 0.7],
     },
   });
   map.addLayer({
@@ -249,8 +310,8 @@ export async function addFrontLayer(map: MapLibreMap, date: string): Promise<voi
     filter: isFront as never,
     layout,
     paint: {
-      'line-color': '#16181c',
-      'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.6, 7, 3.2],
+      'line-color': '#14171c',
+      'line-width': ['interpolate', ['linear'], ['zoom'], 3, 2.2, 7, 4.4],
     },
   });
 

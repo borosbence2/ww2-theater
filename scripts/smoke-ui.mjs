@@ -351,17 +351,19 @@ await page.waitForTimeout(1200);
 const pocketPanel = await page.locator('.detail-panel').textContent();
 check('pocket panel lists trapped + besieging units', /Trapped in the pocket/.test(pocketPanel ?? '') && /16\. Armee/.test(pocketPanel ?? '') && /Besieging/.test(pocketPanel ?? ''));
 
-// Phase 5.4: front sector segmentation — per-division frontage bands hugging the
-// line at high zoom (a fill layer, two sides), computed from sector fractions.
-await page.goto(`${BASE}/?date=1943-07-04&z=7.4&lat=51.5&lng=35.5`, { waitUntil: 'domcontentloaded' });
+// Front graphics (5.4 rework): the FEBA front line + forward-edge teeth render.
+await page.goto(`${BASE}/?date=1943-08-20&z=6.8&lat=50.2&lng=35.5`, { waitUntil: 'domcontentloaded' });
 await page.waitForTimeout(3500);
-const sectors = await page.evaluate(() => {
+const feba = await page.evaluate(() => {
   const m = window.__map;
-  if (!m || !m.getLayer('units-sectors')) return { ok: false };
-  const f = m.queryRenderedFeatures({ layers: ['units-sectors'] });
-  return { ok: true, n: f.length, sides: [...new Set(f.map((x) => x.properties.side))].sort() };
+  if (!m) return { ok: false };
+  return {
+    ok: true,
+    line: m.getLayer('front-line') ? m.queryRenderedFeatures({ layers: ['front-line'] }).length : 0,
+    teeth: m.getLayer('front-teeth') ? m.queryRenderedFeatures({ layers: ['front-teeth'] }).length : 0,
+  };
 });
-check('sector bands render at high zoom (both sides)', sectors.ok && sectors.n > 10 && sectors.sides.length === 2);
+check('FEBA front line + teeth render at zoom', feba.ok && feba.line > 0 && feba.teeth > 0);
 
 // Formation ordinals: a re-formed unit shows its formation history (the
 // reconciliation registry surfaced in the panel).
