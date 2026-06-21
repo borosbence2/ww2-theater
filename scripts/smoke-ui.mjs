@@ -376,6 +376,17 @@ const adv = await page.evaluate(() => {
 });
 check('advance arrows show the Soviet push during Bagration', adv.ok && adv.n > 3 && adv.sides.includes('soviet'));
 
+// Encirclement arrows: Stalingrad pocket (Dec 1942) -> Soviet pincers pressing in.
+await page.goto(`${BASE}/?date=1942-12-10&z=5.8&lat=48.6&lng=43.5`, { waitUntil: 'domcontentloaded' });
+await page.waitForTimeout(3500);
+const enc = await page.evaluate(() => {
+  const m = window.__map;
+  if (!m || !m.getLayer('front-encircle-arrows')) return { ok: false };
+  const f = m.queryRenderedFeatures({ layers: ['front-encircle-arrows'] });
+  return { ok: true, n: f.length, sides: [...new Set(f.map((x) => x.properties.side))] };
+});
+check('encirclement arrows ring the Stalingrad pocket (Soviet)', enc.ok && enc.n >= 4 && enc.sides.includes('soviet'));
+
 // Formation ordinals: a re-formed unit shows its formation history (the
 // reconciliation registry surfaced in the panel).
 await page.fill('.omnibox input', '16. Panzer-Division');

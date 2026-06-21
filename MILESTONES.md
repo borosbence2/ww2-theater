@@ -797,8 +797,11 @@ the smoke harness can assert map layers render.
       Sized by distance, capped at the strongest ~22, faded out past z 8.
       Recomputed each date tick. Verified on Barbarossa (red, east) and Bagration
       (blue, west). 71/71 smoke.
-- [ ] Encirclement arrows on pockets · curated operation arrows
-      (Uranus/Bagration/Citadel).
+- [x] **Encirclement arrows** (`front.ts` `encircleArrows`): six pincers ring
+      each active pocket, pointing inward, coloured by the besieging side (the
+      opposite of who's trapped) and scaled to the ring; kept visible at high
+      zoom since a pocket is a local event. Verified on Stalingrad. 72/72 smoke.
+- [ ] Curated operation arrows (Uranus/Bagration/Citadel).
 
 ## Phase 5.2 — pocket ↔ unit links ✅
 Clicking a pocket/siege now opens a panel joining it to the formations inside and

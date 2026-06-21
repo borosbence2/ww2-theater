@@ -27,6 +27,8 @@ const TEETH_SPRITE = 'feba-tooth';
 const ADV_SOURCE_ID = 'front-advance';
 const ADV_ID = 'front-advance-arrows';
 const ADV_SPRITE = { axis: 'adv-arrow-axis', soviet: 'adv-arrow-soviet' } as const;
+const ENC_SOURCE_ID = 'front-encircle';
+const ENC_ID = 'front-encircle-arrows';
 const DATA_URL = `${import.meta.env.BASE_URL}data/front/eastern-keyframes.json`;
 
 /** All MapLibre layer ids, for registry visibility toggling. */
@@ -42,6 +44,7 @@ export const FRONT_LAYER_IDS = [
   TEETH_ID,
   LINE_ID,
   ADV_ID,
+  ENC_ID,
 ];
 
 /** Side colors, matching the control palette (Axis red, Soviet/Allied blue). */
@@ -168,6 +171,46 @@ function advanceArrows(dateISO: string): FeatureCollection {
   return { type: 'FeatureCollection', features: out.slice(0, ADV_MAX_N) };
 }
 
+/** Pincer arrows pressing in on each active pocket, coloured by the besieging
+ *  side (the opposite of who is encircled), scaled to the ring's size. */
+function encircleArrows(dateISO: string): FeatureCollection {
+  const d = dateToNum(dateISO);
+  const out: Feature[] = [];
+  for (const f of features) {
+    if (!f.closed || !f.encircled) continue;
+    const ring = coordsFor(f, dateISO, d);
+    if (!ring || ring.length < 3) continue;
+    let cx = 0;
+    let cy = 0;
+    for (const [x, y] of ring) {
+      cx += x;
+      cy += y;
+    }
+    cx /= ring.length;
+    cy /= ring.length;
+    let rad = 0;
+    for (const [x, y] of ring) rad += Math.hypot(x - cx, y - cy);
+    rad /= ring.length;
+    const offset = Math.max(0.08, rad * 0.16);
+    const besieger = f.encircled === 'axis' ? 'soviet' : 'axis'; // besiegers oppose the trapped
+    const K = 6;
+    for (let k = 0; k < K; k++) {
+      const [rx, ry] = ring[Math.floor((k / K) * ring.length)];
+      let ox = rx - cx;
+      let oy = ry - cy;
+      const ol = Math.hypot(ox, oy) || 1;
+      ox /= ol;
+      oy /= ol;
+      out.push({
+        type: 'Feature',
+        properties: { side: besieger, bearing: (Math.atan2(-ox, -oy) * 180) / Math.PI, mag: 0.9 },
+        geometry: { type: 'Point', coordinates: [rx + ox * offset, ry + oy * offset] },
+      });
+    }
+  }
+  return { type: 'FeatureCollection', features: out };
+}
+
 /** Interpolated coords of one feature, or null while it is not active.
  *  Active while fromNum <= d < toNum (`to` is the first day it is gone). */
 function coordsFor(f: FrontFeature, dateISO: string, d: number): [number, number][] | null {
@@ -285,6 +328,7 @@ export async function addFrontLayer(map: MapLibreMap, date: string): Promise<voi
     attribution: 'Front line: curated (approximate)',
   });
   map.addSource(ADV_SOURCE_ID, { type: 'geojson', data: advanceArrows(date) });
+  map.addSource(ENC_SOURCE_ID, { type: 'geojson', data: encircleArrows(date) });
 
   const layout = { 'line-cap': 'round', 'line-join': 'round' } as const;
   const isFront = ['==', ['get', 'kind'], 'front'] as const;
@@ -457,6 +501,27 @@ export async function addFrontLayer(map: MapLibreMap, date: string): Promise<voi
       'icon-opacity': ['interpolate', ['linear'], ['zoom'], 4, 0, 4.8, 0.9, 8, 0.9, 9, 0],
     },
   });
+
+  // Encirclement pincers: arrows pressing in on each active pocket, coloured by
+  // the besieging side. Kept visible at high zoom (a pocket is a local event).
+  map.addLayer({
+    id: ENC_ID,
+    type: 'symbol',
+    source: ENC_SOURCE_ID,
+    minzoom: 4,
+    layout: {
+      'icon-image': ['match', ['get', 'side'], 'axis', ADV_SPRITE.axis, ADV_SPRITE.soviet] as never,
+      'icon-rotate': ['get', 'bearing'] as never,
+      'icon-rotation-alignment': 'map',
+      'icon-anchor': 'bottom',
+      'icon-allow-overlap': true,
+      'icon-ignore-placement': true,
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 4, 0.5, 7, 0.95] as never,
+    },
+    paint: {
+      'icon-opacity': ['interpolate', ['linear'], ['zoom'], 4, 0, 4.8, 0.92],
+    },
+  });
 }
 
 export function frontReady(map: MapLibreMap): boolean {
@@ -470,4 +535,6 @@ export function updateFrontDate(map: MapLibreMap, date: string): void {
   src.setData(collectionFor(date));
   const adv = map.getSource(ADV_SOURCE_ID) as GeoJSONSource | undefined;
   if (adv) adv.setData(advanceArrows(date));
+  const enc = map.getSource(ENC_SOURCE_ID) as GeoJSONSource | undefined;
+  if (enc) enc.setData(encircleArrows(date));
 }

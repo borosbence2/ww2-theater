@@ -393,7 +393,11 @@ fronts (prereq for placing western units).
             faded out past z 8 so offensives read at the operational scale
             without cluttering the tactical view. Verified on Barbarossa (red,
             east) and Bagration (blue, west).
-      - [ ] **Encirclement arrows** on active pockets (besieger → centroid).
+      - [x] **Encirclement arrows** on active pockets (`encircleArrows`): six
+            pincers ring each active pocket, pointing inward, coloured by the
+            besieging side (the opposite of who's trapped) and scaled to the ring
+            — kept visible at high zoom (a pocket is a local event). Verified on
+            the Stalingrad pocket (Soviet pincers on the trapped 6. Armee).
       - [ ] **Curated operation arrows** (Uranus / Bagration / Citadel) shown in
             their date window.
 
