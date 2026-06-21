@@ -46,7 +46,7 @@ export function Omnibox() {
       ].sort((a, b) => prefix(labelOf(a)) - prefix(labelOf(b)) || kindRank[a.kind] - kindRank[b.kind]);
       setResults(hits);
       setActive(0);
-      setOpen(hits.length > 0);
+      setOpen(true); // open even with no hits, to show the "no matches" state
     });
     return () => {
       alive = false;
@@ -92,12 +92,17 @@ export function Omnibox() {
         placeholder="Search units & cities…"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        onFocus={() => setOpen(results.length > 0)}
+        onFocus={() => setOpen(query.trim().length >= 2 || results.length > 0)}
         onKeyDown={onKeyDown}
         aria-label="Search"
       />
       {open && (
         <ul className="omnibox-results">
+          {results.length === 0 && (
+            <li className="omnibox-empty">
+              No matches for <b>{query.trim()}</b>
+            </li>
+          )}
           {results.map((r, i) => {
             const key =
               r.kind === 'city'

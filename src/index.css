@@ -398,6 +398,15 @@ body {
 .layer-panel-header:hover {
   color: var(--text);
 }
+/* Caret rotates between the panel's open/closed states. */
+.caret {
+  display: inline-block;
+  transition: transform 0.18s var(--ease);
+  transform: rotate(-90deg);
+}
+.caret.open {
+  transform: rotate(0deg);
+}
 
 .layer-list {
   margin: 0;
@@ -406,23 +415,59 @@ body {
 }
 
 .layer-list > li + li {
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .layer-row {
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 4px 6px;
+  padding: 3px 6px;
   margin: 0 -6px;
   border-radius: var(--r-xs);
   font-size: 12.5px;
   font-weight: 500;
-  cursor: pointer;
   transition: background 0.1s var(--ease);
 }
 .layer-row:hover {
   background: var(--hover);
+}
+.layer-row-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+/* Per-row legend chevron — faint until you hover the row. */
+.layer-legend-toggle {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font-size: 9px;
+  color: var(--faint);
+  background: none;
+  border: none;
+  border-radius: var(--r-xs);
+  cursor: pointer;
+  opacity: 0;
+  transform: rotate(-90deg);
+  transition: transform 0.18s var(--ease), opacity 0.12s var(--ease), color 0.12s var(--ease);
+}
+.layer-row:hover .layer-legend-toggle {
+  opacity: 0.7;
+}
+.layer-legend-toggle:hover {
+  color: var(--text);
+  background: var(--hover);
+}
+.layer-legend-toggle.open {
+  opacity: 0.9;
+  transform: rotate(0deg);
 }
 
 .layer-row input,
@@ -435,9 +480,96 @@ body {
 }
 
 .legend {
-  margin: 4px 0 6px;
+  margin: 3px 0 6px;
   padding-left: 23px;
   list-style: none;
+  animation: reveal-down 0.18s var(--ease);
+}
+
+@keyframes reveal-down {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Detail / people panel entrance: a small slide-in from the right edge. */
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Loading skeleton shimmer (unit panel while its shard loads). */
+.skeleton-panel {
+  padding: 4px 2px;
+}
+.skeleton-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.skel {
+  background: linear-gradient(
+    100deg,
+    var(--hover) 30%,
+    rgba(255, 255, 255, 0.14) 50%,
+    var(--hover) 70%
+  );
+  background-size: 220% 100%;
+  border-radius: var(--r-xs);
+  animation: shimmer 1.1s ease-in-out infinite;
+}
+.skel-glyph {
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-sm);
+}
+.skel-line {
+  height: 11px;
+}
+@keyframes shimmer {
+  from {
+    background-position: 180% 0;
+  }
+  to {
+    background-position: -80% 0;
+  }
+}
+
+/* Omnibox empty state. */
+.omnibox-empty {
+  display: block;
+  padding: 9px 11px;
+  font-size: 12.5px;
+  color: var(--faint);
+  cursor: default;
+}
+.omnibox-empty b {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* Respect reduced-motion: keep the UI but drop the movement. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
 
 .legend li {
@@ -487,6 +619,7 @@ body {
   max-height: calc(100% - 96px);
   overflow-y: auto;
   padding: 16px 16px 18px;
+  animation: panel-in 0.22s var(--ease);
   border-radius: var(--r);
 }
 /* The unit panel manages its own padding (sticky header + scrolling body). */
@@ -1128,6 +1261,7 @@ button.orbat-row:hover {
 
 .people-panel {
   z-index: 12; /* above the detail panel when both are open */
+  animation: panel-in 0.22s var(--ease);
 }
 
 .people-input {

@@ -32,10 +32,10 @@ await page.waitForSelector('.layer-panel', { timeout: 15000 });
 check('layer panel rendered', true);
 check('omnibox rendered', (await page.locator('.omnibox input').count()) === 1);
 check('timebar rendered', (await page.locator('.timebar').count()) === 1);
-check(
-  'legend swatches present',
-  (await page.locator('.legend-swatch').count()) >= 6,
-);
+// Legends are now tucked behind a per-row chevron — expand one and check.
+await page.locator('.layer-legend-toggle').first().click();
+await page.waitForTimeout(300);
+check('legend swatches present (per-row reveal)', (await page.locator('.legend-swatch').count()) >= 2);
 
 // Give MapLibre a moment to fetch layers, then snapshot the initial view.
 await page.waitForTimeout(4000);

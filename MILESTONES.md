@@ -780,6 +780,20 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## UI polish (desktop) ✅
+A finishing pass on the chrome (mobile deliberately out of scope for now). 74/74
+smoke, build + lint clean.
+- [x] **Compact layers panel** (`LayerPanel.tsx`): each layer's legend is now
+      tucked behind a per-row chevron (revealed on demand) instead of dumped
+      inline for every visible layer, so the open panel is a tight checklist and
+      far more map is visible. Panel + per-row carets animate.
+- [x] **Motion**: detail / People panels slide-in (`panel-in`), legends reveal
+      (`reveal-down`), all honouring `prefers-reduced-motion`.
+- [x] **Loading skeleton**: the unit panel shows a shimmer skeleton (glyph +
+      lines) while its shard loads, instead of a bare "Loading…".
+- [x] **Search empty state**: the omnibox now shows "No matches for …" instead
+      of silently closing.
+
 ## Phase 5.4 — front graphics ✅
 The first cut (per-division frontage bands) fused into one muddy stripe that just
 duplicated the tide, so it was **retired** for a proper staff-map vocabulary —

@@ -254,7 +254,21 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
   }, [unit, date]);
 
   if (missing) return <p className="detail-note">Unknown unit “{id}”.</p>;
-  if (!unit) return <p className="detail-note">Loading…</p>;
+  if (!unit)
+    return (
+      <div className="skeleton-panel" aria-busy="true" aria-label="Loading unit">
+        <div className="skeleton-head">
+          <div className="skel skel-glyph" />
+          <div style={{ flex: 1 }}>
+            <div className="skel skel-line" style={{ width: '72%', marginBottom: 8 }} />
+            <div className="skel skel-line" style={{ width: '46%' }} />
+          </div>
+        </div>
+        <div className="skel skel-line" style={{ width: '100%', marginBottom: 8 }} />
+        <div className="skel skel-line" style={{ width: '90%', marginBottom: 8 }} />
+        <div className="skel skel-line" style={{ width: '62%' }} />
+      </div>
+    );
 
   const d = dateToNum(date);
   const name = [...unit.names].reverse().find((n) => dateToNum(n.from) <= d) ?? unit.names[0];
