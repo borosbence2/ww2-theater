@@ -780,6 +780,21 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Phase 5b — unit imagery ✅
+Unit insignia/photographs in the card, perf-safe (no bundled bytes). 68/68
+smoke, build + lint clean.
+- [x] **Image manifest ETL** (`fetch-images.mjs` → `oob/images.json`): for every
+      unit with a Wikidata QID, resolve **P18** to a Wikimedia **Commons
+      thumbnail url** + license + author, cached in a committed manifest
+      (resumable; two-pass like the commander/description enrichment; rate-limit
+      back-off). **234 units** with a **free** image (CC / public domain only;
+      non-free skipped). Attached to the unit detail by `build-units`.
+- [x] **Panel image** (`UnitPanel.tsx`): a Commons thumbnail at the top of the
+      card, **lazy-loaded** (`loading="lazy"`), with an attribution caption
+      (author · license · Commons ↗) and a link to the file page — pointing
+      straight at the Wikimedia CDN, **zero image bytes in the bundle**. Degrades
+      gracefully to the APP-6 counter glyph when there's no image.
+
 ## Phase 5b — equipment catalog ✅
 A shared catalog of the key Eastern-Front weapons/vehicles, surfaced per
 formation. 67/67 smoke, build + lint clean.

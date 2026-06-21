@@ -918,6 +918,32 @@ button.orbat-row:hover {
   color: var(--axis-text);
 }
 
+/* Unit imagery (Phase 5b): a Commons thumbnail (lazy) + attribution caption. */
+.unit-photo {
+  display: block;
+  text-decoration: none;
+}
+.unit-photo img {
+  display: block;
+  max-width: 100%;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+  border-radius: var(--r-xs);
+  border: 1px solid var(--line);
+  background: var(--sunken);
+}
+.unit-photo-cap {
+  display: block;
+  margin-top: 4px;
+  font-size: 9.5px;
+  line-height: 1.4;
+  color: var(--faint);
+}
+.unit-photo:hover .unit-photo-cap {
+  color: var(--muted);
+}
+
 /* Equipment catalog (Phase 5b): grouped weapons/vehicles with specs + links. */
 .equip-group {
   margin-top: 8px;

@@ -93,7 +93,8 @@ node data/pipeline/fetch-commanders.mjs      # Wikidata P598, by the QIDs units 
 node data/pipeline/fetch-commanders-ext.mjs  # QID-less fronts/armies/corps/brigades, by label (resumable)
 node data/pipeline/fetch-commanders-ldw.mjs  # dated German Oberbefehlshaber from Lexikon der Wehrmacht
 node data/pipeline/fetch-descriptions.mjs    # Wikipedia lead-paragraph summary per linked unit (resumable)
-node data/pipeline/build-units.mjs           # re-run to attach commanders/descriptions
+node data/pipeline/fetch-images.mjs          # Wikidata P18 -> Commons thumbnail + license, per unit (resumable)
+node data/pipeline/build-units.mjs           # re-run to attach commanders/descriptions/images
 
 # Battles (Phase 2) — Wikidata battles/sieges/operations, 1938-45, with coords
 curl -G "https://query.wikidata.org/sparql" \

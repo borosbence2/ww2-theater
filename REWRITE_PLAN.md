@@ -397,20 +397,15 @@ and photographs — without wrecking the static-site performance budget.
 - [x] **Equipment panel — done.** An "Equipment" section under the establishment
       template, grouped by class (armour, assault guns, AT, artillery, AA,
       infantry weapons…), each row = name + spec + Wikipedia link.
-- [ ] **Imagery — performance plan.** Never bundle or self-host full images.
-      - Curate an image **manifest** (`data/curated/images/*.json`): unit/
-        equipment id → Wikimedia Commons file name + author/license (CC/PD only;
-        license stored for attribution — the licensing audit gate).
-      - Render via the **Commons thumbnail URL** at the exact displayed width
-        (`.../thumb/.../<W>px-<file>`), so the browser only ever pulls a small
-        responsive image, served by Wikimedia's CDN — zero bytes in our bundle.
-      - **Lazy-load**: `loading="lazy"` + `IntersectionObserver`, fetch only
-        when the detail tab/section is opened and the thumb scrolls into view;
-        `srcset` for DPR; fixed aspect-ratio boxes to avoid layout shift.
-      - Cache the resolved thumb URLs in the manifest at ETL time (one Commons
-        `imageinfo` call per file, committed) so the client makes no metadata
-        round-trips — only the image GETs, on demand.
-      - Fallback: APP-6 glyph (already have `UnitGlyph`) when no image/licence.
+- [x] **Imagery — done (unit images).** `fetch-images.mjs` resolves every unit's
+      Wikidata **P18** to a **Commons thumbnail url** + license/author, cached in
+      a committed manifest (`oob/images.json`, resumable, two-pass) — **234 units
+      with a free image** (CC / public domain only; non-free skipped). The panel
+      renders the thumbnail at the top of the card, **lazy-loaded**
+      (`loading="lazy"`), attributed (author · license · Commons link), pointing
+      straight at the Wikimedia CDN — zero image bytes in our bundle. Fallback:
+      the APP-6 `UnitGlyph` carries identity when there's no image. (Next:
+      per-equipment images via the same manifest; commander portraits.)
 - [ ] **Risks**: Commons file renames/deletions (pin by file + periodic ETL
       re-resolve); license drift (store license per image, exclude non-free);
       payload creep (manifests are tiny text; images are CDN-served on demand).

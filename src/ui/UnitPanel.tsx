@@ -313,6 +313,27 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
       </header>
 
       <div className="unit-body">
+        {unit.image && (
+          <a
+            className="unit-photo"
+            href={`https://commons.wikimedia.org/wiki/File:${encodeURIComponent(unit.image.file)}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              loading="lazy"
+              src={unit.image.thumb}
+              width={unit.image.w}
+              height={unit.image.h ?? undefined}
+              alt={`${name.name} — insignia or photograph`}
+            />
+            <span className="unit-photo-cap">
+              {unit.image.artist ? `${unit.image.artist} · ` : ''}
+              {unit.image.license} · Wikimedia Commons ↗
+            </span>
+          </a>
+        )}
+
         {unit.summary && (
           <p className="unit-summary">
             {unit.summary}

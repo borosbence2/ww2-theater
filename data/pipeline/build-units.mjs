@@ -648,6 +648,17 @@ try {
   console.log('No strength.json — units show only nominal establishment.');
 }
 
+// Phase 5b: unit imagery manifest (fetch-images.mjs) — Wikidata P18 -> Commons
+// thumbnail + license, keyed by unit id; shown (lazy, attributed) in the panel.
+const imageOf = new Map();
+try {
+  const im = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'images.json'), 'utf8')).images;
+  for (const [id, rec] of Object.entries(im)) if (rec) imageOf.set(canon(id), rec);
+  console.log(`Images for ${imageOf.size} units`);
+} catch {
+  console.log('No images.json — units show no imagery.');
+}
+
 // Children: reverse of parents.
 const childrenOf = new Map();
 for (const u of units.values()) {
@@ -1434,6 +1445,7 @@ for (const u of units.values()) {
     summary: u.summary ?? null,
     formations: formationsOf.get(u.id) ?? null,
     strength: strengthRecs,
+    image: imageOf.get(u.id) ?? null,
   };
   const shard = shardOf(u.id);
   if (!shards.has(shard)) shards.set(shard, {});

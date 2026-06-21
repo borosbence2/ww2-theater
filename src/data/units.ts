@@ -104,6 +104,16 @@ export interface UnitDetail {
     note?: string;
     source?: string;
   }[];
+  /** Phase 5b: unit insignia/photo — a Wikimedia Commons thumbnail (never
+   *  bundled; lazy-loaded) with license + author for attribution. */
+  image?: {
+    thumb: string;
+    w: number;
+    h: number | null;
+    license: string;
+    artist: string | null;
+    file: string;
+  } | null;
 }
 
 /** Keyframe: [startNum, fraction] on the main line, or [startNum, lon, lat]

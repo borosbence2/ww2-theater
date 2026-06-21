@@ -222,6 +222,8 @@ await page.waitForTimeout(1800);
 const tcPanel = await page.locator('.detail-panel').textContent();
 check('2nd Guards Tank Corps panel opens', /2nd Guards Tank Corps/.test(tcPanel ?? ''));
 check('tank corps shows derived note + subordination', /derived daily/.test(tcPanel ?? '') && /Subordination/.test(tcPanel ?? ''));
+// Phase 5b: unit imagery (Commons thumbnail + attribution caption).
+check('2nd Guards Tank Corps shows an image (Commons)', /Wikimedia Commons/.test(tcPanel ?? ''));
 
 // Path/follow work for sector-derived units (armies), not just curated.
 await page.fill('.omnibox input', '5th Shock Army');
