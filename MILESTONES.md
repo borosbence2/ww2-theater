@@ -790,8 +790,15 @@ the smoke harness can assert map layers render.
       teeth** — a sawtooth sprite (`registerTeethSprite`) repeated along the line
       via `symbol-placement:'line'`, fading in at z ≥ 5 so the strategic view
       stays a clean line and zoomed-in reads as a front. 70/70 smoke.
-- [ ] Dynamic advance arrows (from front movement) · encirclement arrows on
-      pockets · curated operation arrows (Uranus/Bagration/Citadel).
+- [x] **Dynamic advance arrows** (`front.ts` `advanceArrows`): compares the
+      interpolated line at T vs T−10 days; where the perpendicular shift vs the
+      local front normal clears a threshold, a bold arrow points the way it
+      moved — red where the Axis gained ground, blue where the Soviets did.
+      Sized by distance, capped at the strongest ~22, faded out past z 8.
+      Recomputed each date tick. Verified on Barbarossa (red, east) and Bagration
+      (blue, west). 71/71 smoke.
+- [ ] Encirclement arrows on pockets · curated operation arrows
+      (Uranus/Bagration/Citadel).
 
 ## Phase 5.2 — pocket ↔ unit links ✅
 Clicking a pocket/siege now opens a panel joining it to the formations inside and

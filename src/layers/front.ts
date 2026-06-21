@@ -8,7 +8,7 @@
 
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 import type { Feature, FeatureCollection } from 'geojson';
-import { dateToNum, diffDays } from '../time/dates';
+import { addDays, dateToNum, diffDays } from '../time/dates';
 
 const SOURCE_ID = 'front';
 const BAND_AXIS_ID = 'front-band-axis';
@@ -24,6 +24,9 @@ const LINE_HALO_ID = 'front-line-halo';
 const TEETH_ID = 'front-teeth';
 const LINE_ID = 'front-line';
 const TEETH_SPRITE = 'feba-tooth';
+const ADV_SOURCE_ID = 'front-advance';
+const ADV_ID = 'front-advance-arrows';
+const ADV_SPRITE = { axis: 'adv-arrow-axis', soviet: 'adv-arrow-soviet' } as const;
 const DATA_URL = `${import.meta.env.BASE_URL}data/front/eastern-keyframes.json`;
 
 /** All MapLibre layer ids, for registry visibility toggling. */
@@ -38,6 +41,7 @@ export const FRONT_LAYER_IDS = [
   LINE_HALO_ID,
   TEETH_ID,
   LINE_ID,
+  ADV_ID,
 ];
 
 /** Side colors, matching the control palette (Axis red, Soviet/Allied blue). */
@@ -119,6 +123,51 @@ export function pocketRingsOn(
 
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
+// --- Dynamic advance arrows -------------------------------------------------
+// Where the front MOVED over the last window, draw an arrow in the direction of
+// movement, coloured by who advanced (Axis east = red, Soviet west = blue).
+// Computed from the same interpolated line at T and T-Δ; index i corresponds
+// (every keyframe is resampled to the same point count), so disp = now[i]-past[i].
+const ADV_WINDOW = 10; // days looked back
+const ADV_STEP = 14; // sample roughly every Nth point (sparse -> uncluttered)
+const ADV_MIN = 0.32; // min perpendicular shift (deg ~ 35 km/10d) to draw an arrow
+const ADV_MAX_N = 22; // hard cap on arrows
+
+/** Arrow point-features for the front's movement ending on `dateISO`. */
+function advanceArrows(dateISO: string): FeatureCollection {
+  const now = mainFrontLineOn(dateISO);
+  const then = mainFrontLineOn(addDays(dateISO, -ADV_WINDOW));
+  if (!now || !then || now.length !== then.length || now.length < 5) return EMPTY;
+  const out: Feature[] = [];
+  for (let i = ADV_STEP; i < now.length - ADV_STEP; i += ADV_STEP) {
+    const dx = now[i][0] - then[i][0];
+    const dy = now[i][1] - then[i][1];
+    // local front tangent -> east-pointing normal (Soviet side is east/+x)
+    const tx = now[i + 1][0] - now[i - 1][0];
+    const ty = now[i + 1][1] - now[i - 1][1];
+    const tl = Math.hypot(tx, ty) || 1;
+    let nx = ty / tl;
+    let ny = -tx / tl;
+    if (nx < 0) {
+      nx = -nx;
+      ny = -ny;
+    } // ensure the normal points east (toward the Soviet rear)
+    const advance = dx * nx + dy * ny; // signed perpendicular shift; >0 = front moved east = Axis gained
+    if (Math.abs(advance) < ADV_MIN) continue;
+    const side = advance > 0 ? 'axis' : 'soviet';
+    const sgn = advance > 0 ? 1 : -1;
+    const bearing = (Math.atan2(sgn * nx, sgn * ny) * 180) / Math.PI; // CW from north
+    out.push({
+      type: 'Feature',
+      properties: { side, bearing, mag: Math.min(Math.abs(advance), 2) },
+      geometry: { type: 'Point', coordinates: now[i] },
+    });
+  }
+  // keep the strongest few — big offensives stay legible, quiet days show nothing
+  out.sort((a, b) => (b.properties!.mag as number) - (a.properties!.mag as number));
+  return { type: 'FeatureCollection', features: out.slice(0, ADV_MAX_N) };
+}
+
 /** Interpolated coords of one feature, or null while it is not active.
  *  Active while fromNum <= d < toNum (`to` is the first day it is gone). */
 function coordsFor(f: FrontFeature, dateISO: string, d: number): [number, number][] | null {
@@ -193,15 +242,49 @@ function registerTeethSprite(map: MapLibreMap): void {
   map.addImage(TEETH_SPRITE, { width: w, height: h, data: g.getImageData(0, 0, w, h).data }, { pixelRatio: s });
 }
 
+/** Bold advance-arrow sprites (one per side), pointing up; icon-rotate aims
+ *  them along the direction of movement. White outline so they read over tide. */
+function registerArrowSprites(map: MapLibreMap): void {
+  const s = 2;
+  const w = 26 * s;
+  const h = 34 * s;
+  for (const [side, name] of Object.entries(ADV_SPRITE)) {
+    if (map.hasImage(name)) continue;
+    const c = document.createElement('canvas');
+    c.width = w;
+    c.height = h;
+    const g = c.getContext('2d');
+    if (!g) continue;
+    const cx = w / 2;
+    g.beginPath();
+    g.moveTo(cx, 2 * s); // tip
+    g.lineTo(w - 3 * s, h * 0.42); // right barb
+    g.lineTo(cx + 5 * s, h * 0.42); // right notch
+    g.lineTo(cx + 5 * s, h - 3 * s); // right shaft foot
+    g.lineTo(cx - 5 * s, h - 3 * s); // left shaft foot
+    g.lineTo(cx - 5 * s, h * 0.42); // left notch
+    g.lineTo(3 * s, h * 0.42); // left barb
+    g.closePath();
+    g.fillStyle = side === 'axis' ? AXIS_COLOR : SOVIET_COLOR;
+    g.fill();
+    g.lineWidth = 1.4 * s;
+    g.strokeStyle = 'rgba(255,255,255,0.8)';
+    g.stroke();
+    map.addImage(name, { width: w, height: h, data: g.getImageData(0, 0, w, h).data }, { pixelRatio: s });
+  }
+}
+
 export async function addFrontLayer(map: MapLibreMap, date: string): Promise<void> {
   await loadFrontFeatures();
   registerTeethSprite(map);
+  registerArrowSprites(map);
 
   map.addSource(SOURCE_ID, {
     type: 'geojson',
     data: collectionFor(date),
     attribution: 'Front line: curated (approximate)',
   });
+  map.addSource(ADV_SOURCE_ID, { type: 'geojson', data: advanceArrows(date) });
 
   const layout = { 'line-cap': 'round', 'line-join': 'round' } as const;
   const isFront = ['==', ['get', 'kind'], 'front'] as const;
@@ -352,6 +435,28 @@ export async function addFrontLayer(map: MapLibreMap, date: string): Promise<voi
       'line-dasharray': [2, 2],
     },
   });
+
+  // Advance arrows: where the front moved, an arrow in the direction of the
+  // push, sized by how far. Sparse + capped, fading out at high zoom so the
+  // operational view shows offensives without cluttering the tactical view.
+  map.addLayer({
+    id: ADV_ID,
+    type: 'symbol',
+    source: ADV_SOURCE_ID,
+    minzoom: 4,
+    layout: {
+      'icon-image': ['match', ['get', 'side'], 'axis', ADV_SPRITE.axis, ADV_SPRITE.soviet] as never,
+      'icon-rotate': ['get', 'bearing'] as never,
+      'icon-rotation-alignment': 'map',
+      'icon-anchor': 'bottom',
+      'icon-allow-overlap': true,
+      'icon-ignore-placement': true,
+      'icon-size': ['interpolate', ['linear'], ['get', 'mag'], 0.3, 0.5, 1.5, 1.05] as never,
+    },
+    paint: {
+      'icon-opacity': ['interpolate', ['linear'], ['zoom'], 4, 0, 4.8, 0.9, 8, 0.9, 9, 0],
+    },
+  });
 }
 
 export function frontReady(map: MapLibreMap): boolean {
@@ -363,4 +468,6 @@ export function updateFrontDate(map: MapLibreMap, date: string): void {
   const src = map.getSource(SOURCE_ID) as GeoJSONSource | undefined;
   if (!src) return;
   src.setData(collectionFor(date));
+  const adv = map.getSource(ADV_SOURCE_ID) as GeoJSONSource | undefined;
+  if (adv) adv.setData(advanceArrows(date));
 }

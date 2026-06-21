@@ -365,6 +365,17 @@ const feba = await page.evaluate(() => {
 });
 check('FEBA front line + teeth render at zoom', feba.ok && feba.line > 0 && feba.teeth > 0);
 
+// Dynamic advance arrows: Bagration (Jul 1944) -> Soviet arrows pushing west.
+await page.goto(`${BASE}/?date=1944-07-08&z=4.9&lat=53.5&lng=29`, { waitUntil: 'domcontentloaded' });
+await page.waitForTimeout(3500);
+const adv = await page.evaluate(() => {
+  const m = window.__map;
+  if (!m || !m.getLayer('front-advance-arrows')) return { ok: false };
+  const f = m.queryRenderedFeatures({ layers: ['front-advance-arrows'] });
+  return { ok: true, n: f.length, sides: [...new Set(f.map((x) => x.properties.side))] };
+});
+check('advance arrows show the Soviet push during Bagration', adv.ok && adv.n > 3 && adv.sides.includes('soviet'));
+
 // Formation ordinals: a re-formed unit shows its formation history (the
 // reconciliation registry surfaced in the panel).
 await page.fill('.omnibox input', '16. Panzer-Division');

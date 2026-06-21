@@ -385,8 +385,14 @@ fronts (prereq for placing western units).
             over the two-sided tide, with **forward-edge teeth** (a sawtooth
             sprite repeated along the line, `symbol-placement:'line'`) fading in
             at z ≥ 5 so the strategic view stays a clean line.
-      - [ ] **Dynamic advance arrows** — computed from how the front moved over
-            ~10 days; side-coloured, sparse, thresholded.
+      - [x] **Dynamic advance arrows** — computed from how the front moved over
+            ~10 days (`advanceArrows`): at each sparse sample, the perpendicular
+            shift vs the local front normal; if it clears a threshold, a bold
+            arrow points the way it moved, red where the Axis gained, blue where
+            the Soviets did. Sized by distance, capped (strongest ~22), opacity
+            faded out past z 8 so offensives read at the operational scale
+            without cluttering the tactical view. Verified on Barbarossa (red,
+            east) and Bagration (blue, west).
       - [ ] **Encirclement arrows** on active pockets (besieger → centroid).
       - [ ] **Curated operation arrows** (Uranus / Bagration / Citadel) shown in
             their date window.
