@@ -415,6 +415,14 @@ const feba = await page.evaluate(() => {
 });
 check('FEBA front line + teeth render at zoom', feba.ok && feba.line > 0 && feba.teeth > 0);
 
+// Finnish theater (Phase 1): a separate Finnish front line exists north of Leningrad.
+const fin = await page.evaluate(async () => {
+  const d = await (await fetch('/data/front/eastern-keyframes.json')).json();
+  const f = d.features.find((x) => x.id === 'finnish-front');
+  return { ok: !!f, kfs: f ? f.keyframes.length : 0 };
+});
+check('Finnish front line present', fin.ok && fin.kfs >= 3);
+
 // Dynamic advance arrows: Bagration (Jul 1944) -> Soviet arrows pushing west.
 await page.goto(`${BASE}/?date=1944-07-08&z=4.9&lat=53.5&lng=29`, { waitUntil: 'domcontentloaded' });
 await page.waitForTimeout(3500);
