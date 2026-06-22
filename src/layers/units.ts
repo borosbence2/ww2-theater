@@ -167,6 +167,18 @@ const ZOOM_WINDOW: Record<EchGroup, [number, number]> = {
   sub: [8.4, 24], //     into a sector, so armies/corps read at theater scale
 };
 
+// Per-echelon icon-size multiplier (on top of the counter ladder's w/h) so the
+// hierarchy reads by size: seniors clearly bigger than the juniors clustered
+// around them.
+const ECH_SCALE: Record<EchGroup, number> = {
+  top: 1.2,
+  army: 1.08,
+  corps: 0.96,
+  division: 0.84,
+  brigade: 0.76,
+  sub: 0.7,
+};
+
 let tracks: UnitTrack[] = [];
 let derivedUnits: DerivedUnit[] = [];
 const trackIds = new Set<string>();
@@ -780,8 +792,20 @@ function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
     filter: ['all', ['==', ['get', 'ech'], ech], ['!=', ['get', 'fam'], true]],
     layout: {
       'icon-image': ['get', 'icon'],
-      // Legible even at the zoomed-out top tier (z≈3.5).
-      'icon-size': ['interpolate', ['linear'], ['zoom'], 3, 0.5, 6, 0.6, 8, 0.72],
+      // Per-echelon size factor amplifies the counter ladder so seniors clearly
+      // out-size their clustered juniors (an army reads bigger than its divisions
+      // at a glance, not just by the XXXX/XX badge).
+      'icon-size': [
+        'interpolate',
+        ['linear'],
+        ['zoom'],
+        3,
+        0.5 * ECH_SCALE[ech],
+        6,
+        0.6 * ECH_SCALE[ech],
+        8,
+        0.72 * ECH_SCALE[ech],
+      ],
       'icon-allow-overlap': true,
       // Senior tiers (top/army/corps) are always labelled; division/brigade/sub
       // labels gate behind zoom so names don't soup the map when zoomed out.
@@ -919,13 +943,14 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
     },
   });
 
-  // Senior tiers first so juniors draw on top where windows overlap.
-  addEchelonLayer(map, TOP_ID, 'top');
-  addEchelonLayer(map, ARMY_ID, 'army');
-  addEchelonLayer(map, CORPS_ID, 'corps');
-  addEchelonLayer(map, DIVISION_ID, 'division');
-  addEchelonLayer(map, BRIGADE_ID, 'brigade');
+  // Juniors first so SENIORS draw on top: an army HQ sits above the divisions
+  // clustered around it instead of being buried under them.
   addEchelonLayer(map, SUB_ID, 'sub');
+  addEchelonLayer(map, BRIGADE_ID, 'brigade');
+  addEchelonLayer(map, DIVISION_ID, 'division');
+  addEchelonLayer(map, CORPS_ID, 'corps');
+  addEchelonLayer(map, ARMY_ID, 'army');
+  addEchelonLayer(map, TOP_ID, 'top');
 
   // Doctrinal regiments of the selected division (shown only when zoomed in).
   map.addLayer({

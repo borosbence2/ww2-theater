@@ -780,6 +780,15 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Consistency rework — echelon hierarchy ✅
+With divisions clustered tightly around their army, the army HQ was hard to pick
+out — it rendered the *same size* as a division and was drawn *under* its own
+cluster. Two fixes: (1) **seniors render on top** — the echelon layers are added
+juniors-first so an army/front draws above the divisions clustered around it
+(`addUnitsLayer`); (2) a per-echelon **size multiplier** (`ECH_SCALE`, on top of
+the counter ladder) so an army reads ~1.9× a division and a front bigger still,
+not just by the XXXX/XX badge. 78/78 smoke, build + lint clean.
+
 ## Consistency rework — zoom level-of-detail ✅
 Even clustered, a whole army's divisions swamp the operational view and bury the
 armies. Divisions/brigades/regiments are now gated to higher zoom (`ZOOM_WINDOW`:
