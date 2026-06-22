@@ -106,7 +106,7 @@ await page.waitForTimeout(1000);
 const hgrPanel = await page.locator('.detail-panel').textContent();
 check('parent navigation opens Heeresgruppe B', /Heeresgruppe B/.test(hgrPanel ?? ''));
 // HGr B is now a derived army group (top tier), not an unmapped scaffold.
-check('army group shows a derived position', /derived daily/.test(hgrPanel ?? ''));
+check('army group shows a derived position', /Approximate position/.test(hgrPanel ?? ''));
 
 // Soviet side reachable too. (Use the full name: with corps + cavalry now
 // indexed, bare "13th Guards" is legitimately ambiguous.)
@@ -209,7 +209,7 @@ await page.waitForSelector('.detail-panel', { timeout: 10000 });
 await page.waitForTimeout(1800);
 const shockPanel = await page.locator('.detail-panel').textContent();
 check('5th Shock Army panel opens (OOB-created unit)', /5th Shock Army/.test(shockPanel ?? ''));
-check('panel explains derived position', /derived daily/.test(shockPanel ?? ''));
+check('panel explains derived position', /Approximate position/.test(shockPanel ?? ''));
 check('panel shows an OOB chain of command (front)', /Front/.test(shockPanel ?? ''));
 
 // Soviet armored formations: tank/mech corps from the boevoi sostav armored
@@ -221,7 +221,7 @@ await page.waitForSelector('.detail-panel', { timeout: 10000 });
 await page.waitForTimeout(1800);
 const tcPanel = await page.locator('.detail-panel').textContent();
 check('2nd Guards Tank Corps panel opens', /2nd Guards Tank Corps/.test(tcPanel ?? ''));
-check('tank corps shows derived note + subordination', /derived daily/.test(tcPanel ?? '') && /Subordination/.test(tcPanel ?? ''));
+check('tank corps shows derived note + subordination', /Approximate position/.test(tcPanel ?? '') && /Subordination/.test(tcPanel ?? ''));
 // Phase 5b: unit imagery (Commons thumbnail + attribution caption).
 check('2nd Guards Tank Corps shows an image (Commons)', /Wikimedia Commons/.test(tcPanel ?? ''));
 
@@ -285,7 +285,7 @@ await page.waitForSelector('.detail-panel', { timeout: 10000 });
 await page.waitForTimeout(1800);
 const dePanel = await page.locator('.detail-panel').textContent();
 check('110th ID panel opens (Lexikon OOB)', /110th Infantry Division/.test(dePanel ?? ''));
-check('110th ID shows derived note', /derived daily/.test(dePanel ?? ''));
+check('110th ID shows derived note', /Approximate position/.test(dePanel ?? ''));
 check('110th ID subordination lists a German army', /Armee|Army/.test(dePanel ?? ''));
 
 // Full-front view at Kursk: derived markers render along the whole line.
@@ -304,7 +304,7 @@ await page.waitForSelector('.detail-panel', { timeout: 10000 });
 await page.waitForTimeout(1500);
 const bdePanel = await page.locator('.detail-panel').textContent();
 check('1st Guards Tank Brigade panel opens', /1st Guards Tank Brigade/.test(bdePanel ?? ''));
-check('tank brigade is derived (chain of command)', /derived daily/.test(bdePanel ?? '') && /(Army|Front|Corps)/.test(bdePanel ?? ''));
+check('tank brigade is derived (chain of command)', /Approximate position/.test(bdePanel ?? '') && /(Army|Front|Corps)/.test(bdePanel ?? ''));
 
 // German army groups (top tier, derived from the Lexikon Heeresgruppe column):
 // searchable, and present in the derived set so the zoomed-out view is symmetric.
@@ -367,6 +367,27 @@ const postureTxt = (await page.locator('.posture-chip').count())
   ? await page.locator('.posture-chip').first().textContent()
   : '';
 check('posture chip explains an off-line unit', /Encircled/.test(postureTxt ?? ''));
+
+// Phase C: a sparse waypoint overrides the derived anchor within its span.
+// Totenkopf's OOB anchor sits near Leningrad (~59°N) in mid-1943, but a Citadel
+// waypoint puts it at Prokhorovka (~51°N) on 1943-07-11.
+await page.goto(`${BASE}/?unit=de-3rd-ss-panzer-division&date=1943-07-11&z=7&lat=51&lng=36.7`, {
+  waitUntil: 'domcontentloaded',
+});
+await page.waitForTimeout(3000);
+const wpLat = await page.evaluate(() => {
+  const m = window.__map;
+  const ids = m.getStyle().layers.filter((l) => l.id.startsWith('units-')).map((l) => l.id);
+  const f = m.queryRenderedFeatures({ layers: ids }).find((x) => x.properties?.id === 'de-3rd-ss-panzer-division');
+  return f ? f.geometry.coordinates[1] : null;
+});
+check(`waypoint overrides the derived anchor (lat ${wpLat?.toFixed?.(1)} ≈ Prokhorovka)`, wpLat > 50.5 && wpLat < 51.5);
+// Phase D: the panel surfaces the curated waypoints (provenance) + credits source.
+const wpPanel = await page.locator('.detail-panel').textContent();
+check(
+  'panel surfaces curated waypoints + provenance',
+  /curated waypoints/.test(wpPanel ?? '') && /Prokhorovka/.test(wpPanel ?? ''),
+);
 
 // Phase 5.2: pocket panel — click/deep-link a pocket -> trapped + besieging units.
 await page.goto(`${BASE}/?pocket=courland-pocket&date=1945-02-15`, { waitUntil: 'domcontentloaded' });

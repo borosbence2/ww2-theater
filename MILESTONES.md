@@ -796,6 +796,23 @@ lint clean; coverage unchanged (1,654 derived units), side-check still 99.7%.
       fraction path stays as a dormant fallback for any unbaked data.
 - Next: first-class waypoints (C), source honesty (D).
 
+## Precedence-model positioning — Phases C + D (waypoints + honesty) ✅
+The ladder is complete: curated track › sparse waypoints › pocket/reserve ›
+derived anchor. 78/78 smoke, build + lint clean.
+- [x] **First-class sparse waypoints** (C): `data/curated/units/oob/waypoints.json`
+      (`{records:{id:[{date,lng,lat,note?,source?}]}}`), loaded + validated by
+      `build-units.mjs`, emitted onto the derived unit as `wp`. The client
+      resolver (`derivedPlacementOn`) prefers waypoints within their date span and
+      resumes the derived anchor outside it. Seeded: Totenkopf (II SS Panzer Corps
+      → Prokhorovka, Citadel — a real correction from a stale Leningrad anchor)
+      and 13th Tank Corps (Uranus southern pincer → Kalach). Verified: on
+      1943-07-11 Totenkopf renders at Prokhorovka (51°N), on 1943-09 it falls
+      back to its anchor (59°N).
+- [x] **Honesty** (D): the panel calls a derived position "Approximate position …
+      monthly anchor, not individually documented" (corrected from the old "derived
+      daily" now that anchors are baked), lists the curated waypoints with their
+      notes, and credits waypoint sources in the Sources footer.
+
 ## Precedence-model positioning — Phase B (posture) ✅
 A derived unit's *posture* now explains why it sits where it does. 76/76 smoke,
 build + lint clean.

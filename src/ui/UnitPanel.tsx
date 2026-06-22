@@ -635,15 +635,33 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
           </>
         ) : unit.derived ? (
           <p className="detail-note">
-            Position <strong>derived daily</strong> from the front line, authored
-            army sectors, and the order of battle (Боевой состав Советской Армии /
-            Lexikon der Wehrmacht Unterstellung) — not individually documented.
-            Shown hollow on the map.
+            <strong>Approximate position</strong> — placed from authored army
+            sectors and the order of battle (Боевой состав Советской Армии /
+            Lexikon der Wehrmacht Unterstellung) as a monthly anchor, not
+            individually documented. Shown hollow on the map.
           </p>
         ) : (
           <p className="detail-note">
             Not mapped yet — identity and subordination only. Sources below tell the story.
           </p>
+        )}
+        {unit.waypoints && unit.waypoints.length > 0 && (
+          <>
+            <p className="detail-note">
+              <strong>{unit.waypoints.length} curated waypoints</strong> pin this unit to a
+              documented location, overriding the approximate position within their dates:
+            </p>
+            <ul>
+              {unit.waypoints.map((w) => (
+                <li key={w.date}>
+                  <button className="date-link" onClick={() => jump(w.date)}>
+                    {formatLong(w.date)}
+                  </button>
+                  {w.note ? ` — ${w.note}` : ''}
+                </li>
+              ))}
+            </ul>
+          </>
         )}
       </section>
 

@@ -659,6 +659,31 @@ try {
   console.log('No images.json — units show no imagery.');
 }
 
+// Phase C (precedence model): curated sparse waypoints. A few dated points lift a
+// unit off its derived anchor within their span (a spearhead leading the line, a
+// unit held in a rear strongpoint). Attached to the derived unit; the client
+// resolver prefers them over the derived anchor.
+const waypointsOf = new Map();
+try {
+  const wp = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'waypoints.json'), 'utf8')).records;
+  for (const [id, recs] of Object.entries(wp)) {
+    const cid = canon(id);
+    if (!units.has(cid)) {
+      warn('waypoints', `unknown unit "${id}"`);
+      continue;
+    }
+    for (const r of recs) {
+      if (!ISO.test(r.date)) err('waypoints', `bad date "${r.date}" for ${id}`);
+      if (typeof r.lng !== 'number' || typeof r.lat !== 'number') err('waypoints', `bad coords for ${id} @ ${r.date}`);
+      if (r.source && !sourcesReg[r.source]) warn('waypoints', `unknown source "${r.source}" for ${id}`);
+    }
+    waypointsOf.set(cid, [...recs].sort((a, b) => a.date.localeCompare(b.date)));
+  }
+  console.log(`Waypoints for ${waypointsOf.size} units`);
+} catch {
+  console.log('No waypoints.json — derived anchors only.');
+}
+
 // Children: reverse of parents.
 const childrenOf = new Map();
 for (const u of units.values()) {
@@ -1375,6 +1400,11 @@ mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
       echelon: u.echelon,
       type: u.type,
       segs: segs.map((s) => ({ end: dateNum(addDays(s.lastDate, 35)), kfs: s.kfs })),
+      // Curated sparse waypoints (Phase C): override the derived anchor within
+      // their span. [startNum, lon, lat], ascending.
+      ...(waypointsOf.has(id)
+        ? { wp: waypointsOf.get(id).map((r) => [dateNum(r.date), r.lng, r.lat]) }
+        : {}),
       // Temporal parent timeline [fromNum, toNum|null, unitId] so the map can
       // resolve each unit's parent on a given date and draw command links
       // (which division sits under which army). Omitted when no parents.
@@ -1464,9 +1494,13 @@ for (const u of units.values()) {
       [
         ...(u.positions ?? []).map((p) => p.source),
         ...(strengthRecs ?? []).map((r) => r.source),
+        ...(waypointsOf.get(u.id) ?? []).map((r) => r.source),
       ].filter(Boolean),
     ),
   ];
+  const waypoints = waypointsOf.has(u.id)
+    ? waypointsOf.get(u.id).map((r) => ({ date: r.date, note: r.note ?? null, source: r.source ?? null }))
+    : null;
   const detail = {
     id: u.id,
     country: u.country,
@@ -1491,6 +1525,7 @@ for (const u of units.values()) {
     strength: strengthRecs,
     image: imageOf.get(u.id) ?? null,
     postures: posturesFor(u.id),
+    waypoints,
   };
   const shard = shardOf(u.id);
   if (!shards.has(shard)) shards.set(shard, {});

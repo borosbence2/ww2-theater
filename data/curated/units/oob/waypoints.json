@@ -1,0 +1,15 @@
+{
+  "note": "Curated sparse waypoints (Phase C, precedence model). A few dated points lift a unit off its derived sector anchor within their date span — a spearhead leading the line, or a correction where the OOB-derived position is plainly wrong. The client interpolates between them and resumes the derived anchor outside the span. [lng, lat]; ascending by date.",
+  "records": {
+    "de-3rd-ss-panzer-division": [
+      { "date": "1943-07-05", "lng": 36.55, "lat": 50.70, "note": "II SS Panzer Corps jump-off north of Belgorod (Operation Citadel)", "source": "us-army-atlas" },
+      { "date": "1943-07-11", "lng": 36.73, "lat": 51.05, "note": "Spearhead at Prokhorovka", "source": "us-army-atlas" },
+      { "date": "1943-07-17", "lng": 36.55, "lat": 50.65, "note": "Withdrawal after Citadel is halted", "source": "us-army-atlas" }
+    ],
+    "su-13th-tank-corps": [
+      { "date": "1942-11-20", "lng": 44.60, "lat": 48.40, "note": "Southern pincer jump-off south of Stalingrad (Operation Uranus)", "source": "glantz-house-stalingrad" },
+      { "date": "1942-11-22", "lng": 44.00, "lat": 48.55, "note": "Driving north-west toward the Kalach link-up", "source": "glantz-house-stalingrad" },
+      { "date": "1942-11-23", "lng": 43.55, "lat": 48.70, "note": "Link-up at Sovetsky / Kalach — the pocket closes", "source": "glantz-house-stalingrad" }
+    ]
+  }
+}

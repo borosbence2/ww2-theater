@@ -118,6 +118,9 @@ export interface UnitDetail {
    *  why a unit sits off the front line on a given date. Ascending by `from`;
    *  null for units that were always on the front (or aren't derived). */
   postures?: { from: string; kind: 'encircled' | 'reserve' | 'refit' | 'front' }[] | null;
+  /** Phase C/D: curated sparse waypoints' provenance (date + note + source),
+   *  shown in the panel and credited in Sources. Null when none. */
+  waypoints?: { date: string; note: string | null; source: string | null }[] | null;
 }
 
 /** Keyframe: [startNum, fraction] on the main line, or [startNum, lon, lat]
@@ -140,6 +143,11 @@ export interface DerivedUnit {
   segs: DerivedSeg[];
   /** Temporal parent timeline [fromNum, toNum|null, unitId] for command links. */
   parents?: ParentSpan[];
+  /** Phase C (precedence model): curated sparse waypoints [startNum, lon, lat],
+   *  ascending. Within their date span they OVERRIDE the derived anchor (a
+   *  spearhead leading the line, a unit held in a rear strongpoint); outside it,
+   *  the derived anchor resumes. */
+  wp?: [number, number, number][];
 }
 
 let indexPromise: Promise<UnitIndexEntry[]> | null = null;
@@ -272,6 +280,18 @@ export function derivedPlacementOn(
   dateISO: string,
   d: number,
 ): { frac: number } | { at: [number, number] } | null {
+  // Precedence: curated sparse waypoints override the derived anchor within
+  // their span (the derived segments resume outside it).
+  const wp = unit.wp;
+  if (wp && wp.length && d >= wp[0][0] && d <= wp[wp.length - 1][0]) {
+    let i = 0;
+    while (i < wp.length - 1 && wp[i + 1][0] <= d) i++;
+    const a = wp[i];
+    const b = wp[Math.min(i + 1, wp.length - 1)];
+    const span = b[0] > a[0] ? diffDays(numToDate(a[0]), numToDate(b[0])) : 0;
+    const t = span > 0 ? Math.max(0, Math.min(1, diffDays(numToDate(a[0]), dateISO) / span)) : 0;
+    return { at: [a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t] };
+  }
   for (const seg of unit.segs) {
     if (d < seg.kfs[0][0] || d > seg.end) continue;
     const kfs = seg.kfs;
