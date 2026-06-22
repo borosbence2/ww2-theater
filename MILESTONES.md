@@ -780,6 +780,22 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Precedence-model positioning — Phase A (decouple) ✅
+Derived units no longer ride the wiggling daily front line. 75/75 smoke, build +
+lint clean; coverage unchanged (1,654 derived units), side-check still 99.7%.
+- [x] **Bake fraction → absolute monthly anchor** (`build-units.mjs`): at emit
+      time each derived sector fraction is resolved against that month's line
+      (with the per-echelon rear offset, via hoisted `echGroup`/`fracToPoint`)
+      and written as an absolute `[d,lon,lat]` keyframe — `derived/eastern.json`
+      is now 32,755 absolute anchors, 0 fractions. Pocket/reserve placements were
+      already absolute.
+- [x] **Client point-lerps stable anchors** (`derivedPlacementOn`): the `at`
+      branch already lerped; added a distance-hold guard (`DERIVED_JUMP` ≈ 2.2°)
+      so a front re-assignment jumps instead of sliding across the map. The line
+      becomes a visual feature, no longer the anchor for 1,500 sprites; the
+      fraction path stays as a dormant fallback for any unbaked data.
+- Next: posture dimension (B), first-class waypoints (C), source honesty (D).
+
 ## UI polish (desktop) ✅
 A finishing pass on the chrome (mobile deliberately out of scope for now). 74/74
 smoke, build + lint clean.

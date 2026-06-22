@@ -344,6 +344,21 @@ const besiegerKf = await page.evaluate(async () => {
 });
 check('Courland besieger placed outside the ring (absolute)', besiegerKf === 1);
 
+// Precedence model (Phase A): derived positions are baked ABSOLUTE monthly
+// anchors — decoupled from the daily render line — so no fraction keyframes
+// remain. This is what stops the whole front from dragging every unit.
+const derivedAbs = await page.evaluate(async () => {
+  const d = await (await fetch('/data/units/derived/eastern.json')).json();
+  let frac = 0;
+  let abs = 0;
+  for (const u of d.units) for (const s of u.segs) for (const k of s.kfs) k.length === 2 ? frac++ : abs++;
+  return { frac, abs };
+});
+check(
+  `derived positions decoupled from the line (${derivedAbs.abs} anchors, ${derivedAbs.frac} fractions)`,
+  derivedAbs.frac === 0 && derivedAbs.abs > 1000,
+);
+
 // Phase 5.2: pocket panel — click/deep-link a pocket -> trapped + besieging units.
 await page.goto(`${BASE}/?pocket=courland-pocket&date=1945-02-15`, { waitUntil: 'domcontentloaded' });
 await page.waitForSelector('.detail-panel', { timeout: 10000 });

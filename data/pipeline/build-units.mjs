@@ -788,6 +788,34 @@ if (!runs.size) {
 // moving line instead of lagging at monthly anchors.
 
 const derived = new Map(); // unit id -> [{startNum, date, f}]
+
+// Mirror src/layers/units.ts ECH_GROUP + ECH_DEPTH so we can bake a sector
+// fraction to the exact rendered point (per-echelon rear depth). Used by both
+// the side-check and the derived emit (fraction -> absolute monthly anchor).
+const echGroup = (e) =>
+  ['front', 'army-group'].includes(e)
+    ? 'top'
+    : e === 'army'
+      ? 'army'
+      : e === 'corps'
+        ? 'corps'
+        : e === 'brigade'
+          ? 'brigade'
+          : e === 'division'
+            ? 'division'
+            : 'sub';
+const DERIVED_DEPTH = { division: 0.12, brigade: 0.2, sub: 0.12, corps: 0.36, army: 0.62, top: 1.25 };
+const fracToPoint = (line, f, side, ech) => {
+  const i = Math.max(0, Math.min(line.length - 1, Math.round(f * (line.length - 1))));
+  const a = line[Math.max(0, i - 2)];
+  const b = line[Math.min(line.length - 1, i + 2)];
+  const dx = b[0] - a[0];
+  const dy = b[1] - a[1];
+  const len = Math.hypot(dx, dy) || 1;
+  const off = (DERIVED_DEPTH[ech] ?? 0.3) * (side === 'axis' ? -1 : 1);
+  return [line[i][0] + (-dy / len) * off, line[i][1] + (dx / len) * off];
+};
+
 let sectors = null;
 try {
   sectors = JSON.parse(readFileSync('data/curated/sectors/eastern.json', 'utf8'));
@@ -1240,26 +1268,8 @@ if (sectors && monthlyRosters.length) {
   // N->S sector model is weakest where the line runs E-W (Caucasus 1942) or
   // hugs a pocket. Replicates the client's pointAt so it checks the actually
   // rendered location, not just the fraction.
-  // Mirror src/layers/units.ts ECH_GROUP + ECH_DEPTH so the check validates
-  // the actually-rendered position (per-echelon rear depth).
-  const echGroup = (e) =>
-    ['front', 'army-group'].includes(e) ? 'top'
-      : e === 'army' ? 'army'
-      : e === 'corps' ? 'corps'
-      : e === 'brigade' ? 'brigade'
-      : e === 'division' ? 'division'
-      : 'sub';
-  const DEPTH = { division: 0.12, brigade: 0.2, sub: 0.12, corps: 0.36, army: 0.62, top: 1.25 };
-  const pointAt = (line, f, side, ech) => {
-    const i = Math.max(0, Math.min(line.length - 1, Math.round(f * (line.length - 1))));
-    const a = line[Math.max(0, i - 2)];
-    const b = line[Math.min(line.length - 1, i + 2)];
-    const dx = b[0] - a[0];
-    const dy = b[1] - a[1];
-    const len = Math.hypot(dx, dy) || 1;
-    const off = (DEPTH[ech] ?? 0.3) * (side === 'axis' ? -1 : 1);
-    return [line[i][0] + (-dy / len) * off, line[i][1] + (dx / len) * off];
-  };
+  // echGroup + fracToPoint (hoisted to module scope) mirror the client's
+  // ECH_GROUP + ECH_DEPTH so the check validates the actually-rendered position.
   const TOL = 30; // km past the line before a wrong side counts (sector slop)
   // Reserve placements are schematic rear positions (deep in own territory by
   // construction), not line-derived — exempt from the line side-check.
@@ -1275,7 +1285,7 @@ if (sectors && monthlyRosters.length) {
       const line = coordsFor(main, kfv.date);
       if (!line) continue;
       // Pocket placements are absolute; main-line placements resolve a fraction.
-      const [lon, lat] = kfv.at ? kfv.at : pointAt(line, kfv.f, u.side, ech);
+      const [lon, lat] = kfv.at ? kfv.at : fracToPoint(line, kfv.f, u.side, ech);
       let drawn = null;
       for (const pf of pockets) {
         const ring = coordsFor(pf, kfv.date);
@@ -1327,16 +1337,29 @@ mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
   const out = [];
   for (const [id, kfs] of derived) {
     const u = units.get(id);
+    const ech = echGroup(u.echelon);
     kfs.sort((a, b) => a.startNum - b.startNum);
     const segs = [];
     let cur = null;
     for (const kf of kfs) {
-      const abs = Boolean(kf.at);
-      if (!cur || diffDays(cur.lastDate, kf.date) > 40 || cur.abs !== abs) {
-        cur = { kfs: [], lastDate: kf.date, abs };
+      // Decouple from the daily render line: bake each derived sector fraction
+      // to an ABSOLUTE monthly anchor here (resolved against that month's line
+      // with the echelon rear-offset) so the client point-lerps stable anchors
+      // instead of re-snapping every unit to the wiggling interpolated line on
+      // every tick. Pocket/reserve placements are already absolute.
+      let pt;
+      if (kf.at) {
+        pt = kf.at;
+      } else {
+        const line = coordsFor(main, kf.date);
+        if (!line) continue;
+        pt = fracToPoint(line, kf.f, u.side, ech);
+      }
+      if (!cur || diffDays(cur.lastDate, kf.date) > 40) {
+        cur = { kfs: [], lastDate: kf.date };
         segs.push(cur);
       }
-      cur.kfs.push(abs ? [kf.startNum, kf.at[0], kf.at[1]] : [kf.startNum, kf.f]);
+      cur.kfs.push([kf.startNum, Number(pt[0].toFixed(4)), Number(pt[1].toFixed(4))]);
       cur.lastDate = kf.date;
     }
     out.push({

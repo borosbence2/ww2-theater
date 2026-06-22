@@ -250,12 +250,18 @@ export function loadOrbat(): Promise<OrbatIndex> {
   return orbatPromise;
 }
 
+/** Degrees between consecutive monthly anchors past which we treat the move as a
+ *  re-assignment (hold-then-jump) rather than a march (slide). ~240 km. */
+const DERIVED_JUMP = 2.2;
+
 /**
  * Derived placement of a unit on a date, or null when outside every segment:
- *   { frac } — a fraction along the main front line (resolve with the line), or
- *   { at }   — an absolute [lon, lat] (the unit is inside a pocket ring).
- * Values lerp between monthly keyframes; a large fraction jump (front
- * re-assignment) holds-and-jumps like a rail move.
+ *   { at }   — an absolute [lon, lat] anchor (baked monthly by build-units, or a
+ *              pocket/reserve placement); point-lerped between monthly keyframes.
+ *   { frac } — legacy fraction along the main front line (dormant fallback for
+ *              any unbaked data); resolve against the day's line.
+ * A large jump between anchors (front re-assignment) holds-and-jumps like a rail
+ * move instead of sliding.
  */
 export function derivedPlacementOn(
   unit: DerivedUnit,
@@ -272,9 +278,14 @@ export function derivedPlacementOn(
     const span = k1[0] > k0[0] ? diffDays(numToDate(k0[0]), numToDate(k1[0])) : 0;
     const t = span > 0 ? Math.max(0, Math.min(1, diffDays(numToDate(k0[0]), dateISO) / span)) : 0;
     if (k0.length === 3) {
-      const lon = k0[1] + ((k1[1] ?? k0[1]) - k0[1]) * t;
-      const lat = k0[2] + ((k1[2] ?? k0[2]) - k0[2]) * t;
-      return { at: [lon, lat] };
+      const x0 = k0[1];
+      const y0 = k0[2];
+      const x1 = k1[1] ?? x0;
+      const y1 = k1[2] ?? y0;
+      // Far-apart consecutive anchors = a front re-assignment / rail move, not a
+      // march: hold at the current anchor and jump, don't slide across the map.
+      if (Math.hypot(x1 - x0, y1 - y0) > DERIVED_JUMP) return { at: [x0, y0] };
+      return { at: [x0 + (x1 - x0) * t, y0 + (y1 - y0) * t] };
     }
     const f0 = k0[1];
     const f1 = k1[1];
