@@ -10,6 +10,7 @@ import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 import type { Feature, FeatureCollection } from 'geojson';
 import { addDays, dateToNum, diffDays } from '../time/dates';
 import { activeOperationBoxes } from './operations';
+import { loadDerivedUnits } from '../data/units';
 
 const SOURCE_ID = 'front';
 const BAND_AXIS_ID = 'front-band-axis';
@@ -99,15 +100,19 @@ export function loadFrontFeatures(): Promise<FrontFeature[]> {
         features = d.features;
         return features;
       });
+    // Documented waypoints reshape the line (evidence feedback) — load them too.
+    void loadDerivedUnits().then((us) => {
+      evidenceUnits = us.filter((u) => u.wp && u.wp.length).map((u) => ({ wp: u.wp!, side: u.side }));
+    });
   }
   return featuresPromise;
 }
 
-/** Interpolated main front line (N→S) on a date, or null. Shared with the
- *  control-fill layer so it tracks the same daily line the front draws. */
+/** Interpolated main front line (N→S) on a date, deformed by documented
+ *  evidence, or null. Shared with the control-fill layer + derived placement so
+ *  everything tracks the same daily line. */
 export function mainFrontLineOn(dateISO: string): [number, number][] | null {
-  const main = features.find((f) => f.kind === 'front');
-  return main ? coordsFor(main, dateISO, dateToNum(dateISO)) : null;
+  return resolvedFrontCoords(dateISO, dateToNum(dateISO));
 }
 
 /** Active pockets/sieges on a date as closed rings, by encircled side — for
@@ -126,6 +131,87 @@ export function pocketRingsOn(
 }
 
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
+
+// --- Evidence-driven line feedback ------------------------------------------
+// Documented division positions (curated waypoints) update the FRONT LINE so it
+// stays consistent with the units that override the schematic line: where a
+// documented unit sits on the wrong side of the line, the line bulges past it.
+// Sparse + local — active only while a waypoint is, so the blast radius is the
+// waypoint's date window.
+let evidenceUnits: { wp: [number, number, number][]; side: 'axis' | 'soviet' }[] = [];
+const EV_MARGIN = 0.12; // line sits this far beyond the documented unit (deg)
+const EV_WINDOW = 8; // vertices each side of the bulge
+const EV_CAP = 1.6; // max bulge (deg)
+const numToISO = (n: number): string => {
+  const s = String(n);
+  return `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}`;
+};
+
+/** Documented {pos, side} constraints active on a date (interpolated waypoints). */
+function evidenceOn(d: number): { pos: [number, number]; side: 'axis' | 'soviet' }[] {
+  const out: { pos: [number, number]; side: 'axis' | 'soviet' }[] = [];
+  for (const u of evidenceUnits) {
+    const wp = u.wp;
+    if (d < wp[0][0] || d > wp[wp.length - 1][0]) continue;
+    let i = 0;
+    while (i < wp.length - 1 && wp[i + 1][0] <= d) i++;
+    const a = wp[i];
+    const b = wp[Math.min(i + 1, wp.length - 1)];
+    const span = b[0] > a[0] ? diffDays(numToISO(a[0]), numToISO(b[0])) : 0;
+    const t = span > 0 ? Math.max(0, Math.min(1, diffDays(numToISO(a[0]), numToISO(d)) / span)) : 0;
+    out.push({ pos: [a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t], side: u.side });
+  }
+  return out;
+}
+
+/** Bulge the line locally so each documented unit is on its own side. */
+function deformForEvidence(line: [number, number][] | null, d: number): [number, number][] | null {
+  if (!line) return line;
+  const cons = evidenceOn(d);
+  if (!cons.length) return line;
+  const pts = line.map((p) => [p[0], p[1]] as [number, number]);
+  const n = pts.length;
+  for (const { pos, side } of cons) {
+    let bi = 0;
+    let bd = Infinity;
+    for (let i = 0; i < n; i++) {
+      const dd = (pts[i][0] - pos[0]) ** 2 + (pts[i][1] - pos[1]) ** 2;
+      if (dd < bd) {
+        bd = dd;
+        bi = i;
+      }
+    }
+    const a = pts[Math.max(0, bi - 2)];
+    const b = pts[Math.min(n - 1, bi + 2)];
+    const tl = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+    const nsx = -(b[1] - a[1]) / tl; // Soviet-side normal (east / left of southward travel)
+    const nsy = (b[0] - a[0]) / tl;
+    const N = pts[bi];
+    const onSoviet = (pos[0] - N[0]) * nsx + (pos[1] - N[1]) * nsy > 0;
+    if (side === 'axis' ? !onSoviet : onSoviet) continue; // already on its own side
+    const dir = side === 'axis' ? 1 : -1; // push the line past the unit, toward the enemy
+    let dispx = pos[0] + nsx * EV_MARGIN * dir - N[0];
+    let dispy = pos[1] + nsy * EV_MARGIN * dir - N[1];
+    const dmag = Math.hypot(dispx, dispy);
+    if (dmag > EV_CAP) {
+      dispx = (dispx / dmag) * EV_CAP;
+      dispy = (dispy / dmag) * EV_CAP;
+    }
+    for (let j = Math.max(1, bi - EV_WINDOW); j <= Math.min(n - 2, bi + EV_WINDOW); j++) {
+      const fall = Math.cos((Math.abs(j - bi) / EV_WINDOW) * (Math.PI / 2));
+      pts[j][0] += dispx * fall;
+      pts[j][1] += dispy * fall;
+    }
+  }
+  return pts;
+}
+
+/** The day's main-front coords, deformed by documented evidence (shared by the
+ *  rendered line, the tide, and derived unit placement). */
+export function resolvedFrontCoords(dateISO: string, d: number): [number, number][] | null {
+  const main = features.find((f) => f.kind === 'front');
+  return main ? deformForEvidence(coordsFor(main, dateISO, d), d) : null;
+}
 
 // --- Dynamic advance arrows -------------------------------------------------
 // Where the front MOVED over the last window, draw an arrow in the direction of
@@ -248,7 +334,9 @@ function collectionFor(dateISO: string): FeatureCollection {
   const d = dateToNum(dateISO);
   const out: Feature[] = [];
   for (const f of features) {
-    const coords = coordsFor(f, dateISO, d);
+    // The main front absorbs documented evidence (bulges around documented
+    // units); pockets/sieges are rings, drawn as-authored.
+    const coords = f.kind === 'front' ? deformForEvidence(coordsFor(f, dateISO, d), d) : coordsFor(f, dateISO, d);
     if (!coords) continue;
     const properties = { id: f.id, kind: f.kind, encircled: f.encircled ?? '' };
     out.push(

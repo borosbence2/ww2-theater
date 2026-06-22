@@ -1390,7 +1390,13 @@ mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
       side: u.side,
       echelon: u.echelon,
       type: u.type,
-      segs: segs.map((s) => ({ end: dateNum(addDays(s.lastDate, 35)), kfs: s.kfs })),
+      // A segment renders ~35 days past its last keyframe (to bridge to the next
+      // monthly keyframe), but never past the unit's recorded existence — so a
+      // destroyed/withdrawn formation stops instead of lingering on the line.
+      segs: segs.map((s) => ({
+        end: Math.min(dateNum(addDays(s.lastDate, 35)), u._existTo),
+        kfs: s.kfs,
+      })),
       // Curated sparse waypoints (Phase C): override the derived anchor within
       // their span. [startNum, lon, lat], ascending.
       ...(waypointsOf.has(id)

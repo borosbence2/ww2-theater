@@ -780,6 +780,27 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Consistency rework — evidence-driven line + lifecycle ✅
+Completes the "accurate, but consistent" model on top of the re-couple. 78/78
+smoke, build + lint clean.
+- [x] **Lifecycle trim** (`build-units.mjs`): a derived segment renders ≤ the
+      unit's recorded existence end (`min(lastKf + 35d, _existTo)`), so a
+      destroyed/withdrawn formation stops instead of lingering on the line.
+- [x] **Evidence-driven line feedback** (`front.ts`): documented division
+      positions (curated waypoints) now **update the front line** — where a
+      documented unit is on the wrong side of the schematic line, the line bulges
+      locally past it (`deformForEvidence`, capped + falloff). The deformed line
+      is the single resolved line shared by the rendered front, the tide, and
+      derived placement (`resolvedFrontCoords`, consumed by `units.ts` too), so
+      everything stays consistent. `front.ts` reads waypoints from the leaf data
+      module (no import cycle). Active only within a waypoint's date window
+      (verified: the line bulges east around Totenkopf at Prokhorovka during
+      Citadel). This closes the loop: when accuracy overrides the line, the line
+      follows the evidence.
+- [~] Side-clamp deferred: ~0.3% of derived unit-months land on the wrong side at
+      sharp bends; a render-time clamp is costly for the payoff, so it's noted but
+      not built (the re-couple + line feedback carry consistency).
+
 ## Consistency rework — re-couple front units to the live line ✅
 Phase A's baked monthly anchors *lagged* the front during fast movement (the
 Donbas '43 screenshot: units detached into a cloud NE of the line). That's the

@@ -11,7 +11,7 @@
 
 import maplibregl, { type GeoJSONSource, type Map as MapLibreMap } from 'maplibre-gl';
 import type { Feature, FeatureCollection } from 'geojson';
-import { dateToNum, diffDays } from '../time/dates';
+import { dateToNum } from '../time/dates';
 import {
   confidenceOn,
   derivedPlacementOn,
@@ -24,7 +24,7 @@ import {
   type UnitTrack,
 } from '../data/units';
 import { matchTemplate, type TemplateNode } from '../data/templates';
-import { getFrontFeatures, type FrontFeature } from './front';
+import { resolvedFrontCoords } from './front';
 
 const SOURCE_ID = 'units';
 const LINKS_SOURCE_ID = 'unit-links';
@@ -183,29 +183,11 @@ let lastDateISO = '';
 
 // --- Derived positions: fraction along the daily interpolated main front ---
 
-/** Interpolated main-front coords for a date (mirrors front.ts internals). */
+/** Interpolated main-front coords for a date, deformed by documented evidence —
+ *  the single resolved line shared with the rendered front + tide (front.ts), so
+ *  derived units cluster on the same line the map draws. */
 function mainFrontLine(dateISO: string, d: number): [number, number][] | null {
-  const main = getFrontFeatures().find((f: FrontFeature) => f.kind === 'front');
-  if (!main || d < main.fromNum || d >= main.toNum) return null;
-  const kfs = main.keyframes;
-  if (d <= kfs[0].start) return kfs[0].coords;
-  const last = kfs[kfs.length - 1];
-  if (d >= last.start) return last.coords;
-  let k0 = kfs[0];
-  let k1 = kfs[1];
-  for (let i = 0; i < kfs.length - 1; i++) {
-    if (d >= kfs[i].start && d < kfs[i + 1].start) {
-      k0 = kfs[i];
-      k1 = kfs[i + 1];
-      break;
-    }
-  }
-  const span = diffDays(k0.date, k1.date);
-  const t = span > 0 ? diffDays(k0.date, dateISO) / span : 0;
-  return k0.coords.map(([x, y], i) => {
-    const [qx, qy] = k1.coords[i];
-    return [x + (qx - x) * t, y + (qy - y) * t] as [number, number];
-  });
+  return resolvedFrontCoords(dateISO, d);
 }
 
 // Rear depth per echelon (degrees off the line): divisions hold the line,
