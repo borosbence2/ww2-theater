@@ -1167,10 +1167,10 @@ if (sectors && monthlyRosters.length) {
       const mid = (span[0] + span[1]) / 2;
       armyFrac.set(e.unit, mid);
       push(e.unit, month.date, mid);
+      // Cluster the army's divisions at its sector centre; the client fans them
+      // into a compact group (no long even row strung across the whole sector).
       const divs = deRoster.get(month.date)?.get(e.unit) ?? [];
-      divs.forEach((d, j) =>
-        push(d.id, month.date, span[0] + ((span[1] - span[0]) * (j + 0.5)) / divs.length),
-      );
+      divs.forEach((d) => push(d.id, month.date, mid));
     }
     // German army groups: place each at the average position of EVERY army it
     // commands this month (from the division hgr votes), wherever that army is —
@@ -1233,40 +1233,18 @@ if (sectors && monthlyRosters.length) {
       if (!A) continue;
       const width = span[1] - span[0];
       groups.forEach((g, a) => {
-        const a0 = span[0] + (width * a) / A;
-        const a1 = span[0] + (width * (a + 1)) / A;
-        if (g.army) push(g.army, month.date, (a0 + a1) / 2);
-
-        // Weighted sub-slices: a corps occupies frontage proportional to its
-        // member count; loose divisions/armor get one slot each. The corps
-        // marker sits at its slice center, members spread inside it.
+        const center = span[0] + (width * (a + 0.5)) / A; // the army's sector centre
+        if (g.army) push(g.army, month.date, center);
+        // Cluster the army's corps + divisions at its centre; the client fans them
+        // into a compact group instead of an even row across the whole sector.
         const seen = new Set();
         const fresh = (d) => !seen.has(d) && seen.add(d);
-        const slots = [];
         for (const c of g.corps ?? []) {
           if (!fresh(c.unit)) continue;
-          const members = c.divisions.filter(fresh);
-          slots.push({ weight: Math.max(1, members.length), corps: c.unit, members });
+          push(c.unit, month.date, center);
+          for (const d of c.divisions) if (fresh(d)) push(d, month.date, center);
         }
-        for (const d of [...g.divisions, ...(g.armor ?? [])]) {
-          if (fresh(d)) slots.push({ weight: 1, unit: d });
-        }
-        const totalW = slots.reduce((s, x) => s + x.weight, 0);
-        if (!totalW) return;
-        let cursor = a0;
-        const armyWidth = a1 - a0;
-        for (const slot of slots) {
-          const w = (armyWidth * slot.weight) / totalW;
-          if (slot.unit) {
-            push(slot.unit, month.date, cursor + w / 2);
-          } else {
-            push(slot.corps, month.date, cursor + w / 2);
-            slot.members.forEach((d, j) =>
-              push(d, month.date, cursor + (w * (j + 0.5)) / slot.members.length),
-            );
-          }
-          cursor += w;
-        }
+        for (const d of [...g.divisions, ...(g.armor ?? [])]) if (fresh(d)) push(d, month.date, center);
       });
     }
   }

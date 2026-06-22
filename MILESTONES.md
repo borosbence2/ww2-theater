@@ -780,6 +780,15 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Consistency rework — army clustering ✅
+The sector-spread placed an army's divisions in a long even row strung across its
+whole frontage (jarring straight lines of identical counters, esp. in salients).
+Now divisions/corps are pushed at their **army's sector centre** (`build-units.mjs`)
+and the client fans them into a **compact group** around it (`pointAt` id-hash
+cluster offset: ±0.35° along the line + a little extra depth). Each army reads as
+a coherent block instead of a row; side-check 99.7% (96 wrong, down from 103),
+78/78 smoke, build + lint clean. Verified on the Rzhev salient and Kursk.
+
 ## Consistency rework — evidence-driven line + lifecycle ✅
 Completes the "accurate, but consistent" model on top of the re-couple. 78/78
 smoke, build + lint clean.

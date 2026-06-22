@@ -203,8 +203,15 @@ const ECH_DEPTH: Record<string, number> = {
   top: 1.25,
 };
 
-/** Point at fraction f, offset perpendicular to the line toward `side`. */
-function pointAt(line: [number, number][], f: number, side: 'axis' | 'soviet', ech: string): [number, number] {
+/** Point at fraction f, offset perpendicular to the line toward `side`; `id`
+ *  (when given) adds a deterministic per-unit cluster fan for sub-army echelons. */
+function pointAt(
+  line: [number, number][],
+  f: number,
+  side: 'axis' | 'soviet',
+  ech: string,
+  id?: string,
+): [number, number] {
   const i = Math.max(0, Math.min(line.length - 1, Math.round(f * (line.length - 1))));
   const a = line[Math.max(0, i - 2)];
   const b = line[Math.min(line.length - 1, i + 2)];
@@ -213,8 +220,26 @@ function pointAt(line: [number, number][], f: number, side: 'axis' | 'soviet', e
   const len = Math.hypot(dx, dy) || 1;
   // Line runs N->S. (-dy, dx) is the LEFT of travel = east = Soviet side;
   // Axis offsets the other way (right of travel = west).
-  const off = (ECH_DEPTH[ech] ?? 0.3) * (side === 'axis' ? -1 : 1);
-  return [line[i][0] + (-dy / len) * off, line[i][1] + (dx / len) * off];
+  const sideSign = side === 'axis' ? -1 : 1;
+  let depth = ECH_DEPTH[ech] ?? 0.3;
+  let along = 0;
+  // Cluster sub-army echelons: their build-units fraction is their ARMY's sector
+  // centre, so without a spread they'd stack on one point. A deterministic
+  // id-hash fan (along the line + a little extra depth) turns them into a compact
+  // group around the army instead of an even row strung across the whole sector.
+  if (id && (ech === 'division' || ech === 'brigade' || ech === 'corps' || ech === 'sub')) {
+    let h = 2166136261;
+    for (let k = 0; k < id.length; k++) h = Math.imul(h ^ id.charCodeAt(k), 16777619);
+    h >>>= 0;
+    along = ((h % 1000) / 1000 - 0.5) * 0.7; // ±0.35° along the front
+    depth += (((h >>> 10) % 1000) / 1000) * 0.22; // 0..0.22° extra rear depth
+  }
+  const tx = dx / len;
+  const ty = dy / len;
+  return [
+    line[i][0] + (-dy / len) * depth * sideSign + tx * along,
+    line[i][1] + (dx / len) * depth * sideSign + ty * along,
+  ];
 }
 
 /** Position of any unit by id (curated track first, then derived) on a date,
@@ -235,7 +260,7 @@ function positionForId(
   const place = derivedPlacementOn(du, dateISO, d);
   if (!place) return null;
   if ('at' in place) return place.at; // inside a pocket ring
-  return line ? pointAt(line, place.frac, du.side, ECH_GROUP(du.echelon)) : null;
+  return line ? pointAt(line, place.frac, du.side, ECH_GROUP(du.echelon), du.id) : null;
 }
 
 /** Position of any unit (curated track first, then derived) on a date. */
@@ -432,7 +457,7 @@ export function getDerivedRoute(id: string): { date: string; at: [number, number
         out.push({ date: iso, at: [kf[1], kf[2]], jump: si > 0 && ki === 0 });
       } else {
         const line = mainFrontLine(iso, startNum);
-        if (line) out.push({ date: iso, at: pointAt(line, kf[1], du.side, ech), jump: si > 0 && ki === 0 });
+        if (line) out.push({ date: iso, at: pointAt(line, kf[1], du.side, ech, du.id), jump: si > 0 && ki === 0 });
       }
     });
   });
@@ -704,7 +729,7 @@ function collectionFor(
     const ech = ECH_GROUP(du.echelon);
     let at: [number, number];
     if ('at' in place) at = place.at;
-    else if (line) at = pointAt(line, place.frac, du.side, ech);
+    else if (line) at = pointAt(line, place.frac, du.side, ech, du.id);
     else continue;
     out.push({
       type: 'Feature',
