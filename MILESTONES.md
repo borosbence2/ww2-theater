@@ -780,7 +780,18 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
-## Precedence-model positioning — Phase A (decouple) ✅
+## Consistency rework — re-couple front units to the live line ✅
+Phase A's baked monthly anchors *lagged* the front during fast movement (the
+Donbas '43 screenshot: units detached into a cloud NE of the line). That's the
+very thing the original fraction model avoided. So front (sector) units are
+**re-coupled to the daily line** — they emit fraction keyframes again and ride
+the moving front, while pocket/reserve placements stay absolute. The line is the
+*consistency floor*: derived units are placed from it and can't detach. 78/78
+smoke, build + lint clean. (Supersedes Phase A's decouple; Phases B/C/D —
+posture, waypoints, honesty — are unchanged.) Next: lifecycle-trim, side-clamp,
+and the evidence-driven line feedback so documented units update the line.
+
+## Precedence-model positioning — Phase A (decouple, superseded) ✅
 Derived units no longer ride the wiggling daily front line. 75/75 smoke, build +
 lint clean; coverage unchanged (1,654 derived units), side-check still 99.7%.
 - [x] **Bake fraction → absolute monthly anchor** (`build-units.mjs`): at emit

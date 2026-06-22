@@ -1368,29 +1368,20 @@ mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
   const out = [];
   for (const [id, kfs] of derived) {
     const u = units.get(id);
-    const ech = echGroup(u.echelon);
     kfs.sort((a, b) => a.startNum - b.startNum);
     const segs = [];
     let cur = null;
     for (const kf of kfs) {
-      // Decouple from the daily render line: bake each derived sector fraction
-      // to an ABSOLUTE monthly anchor here (resolved against that month's line
-      // with the echelon rear-offset) so the client point-lerps stable anchors
-      // instead of re-snapping every unit to the wiggling interpolated line on
-      // every tick. Pocket/reserve placements are already absolute.
-      let pt;
-      if (kf.at) {
-        pt = kf.at;
-      } else {
-        const line = coordsFor(main, kf.date);
-        if (!line) continue;
-        pt = fracToPoint(line, kf.f, u.side, ech);
-      }
-      if (!cur || diffDays(cur.lastDate, kf.date) > 40) {
-        cur = { kfs: [], lastDate: kf.date };
+      // Front (sector) units emit a FRACTION keyframe resolved against the daily
+      // line by the client, so they ride the moving front instead of lagging at
+      // a stale monthly anchor (the lesson from the baked-anchor detachment).
+      // Pocket / reserve placements stay absolute.
+      const abs = Boolean(kf.at);
+      if (!cur || diffDays(cur.lastDate, kf.date) > 40 || cur.abs !== abs) {
+        cur = { kfs: [], lastDate: kf.date, abs };
         segs.push(cur);
       }
-      cur.kfs.push([kf.startNum, Number(pt[0].toFixed(4)), Number(pt[1].toFixed(4))]);
+      cur.kfs.push(abs ? [kf.startNum, kf.at[0], kf.at[1]] : [kf.startNum, kf.f]);
       cur.lastDate = kf.date;
     }
     out.push({

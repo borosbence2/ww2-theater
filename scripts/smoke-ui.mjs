@@ -344,9 +344,9 @@ const besiegerKf = await page.evaluate(async () => {
 });
 check('Courland besieger placed outside the ring (absolute)', besiegerKf === 1);
 
-// Precedence model (Phase A): derived positions are baked ABSOLUTE monthly
-// anchors — decoupled from the daily render line — so no fraction keyframes
-// remain. This is what stops the whole front from dragging every unit.
+// Precedence model: front (sector) units ride the daily line as FRACTION
+// keyframes (so they stay on the moving front, not lagging at a stale anchor),
+// while pocket/reserve placements are absolute. This is the consistency floor.
 const derivedAbs = await page.evaluate(async () => {
   const d = await (await fetch('/data/units/derived/eastern.json')).json();
   let frac = 0;
@@ -355,8 +355,8 @@ const derivedAbs = await page.evaluate(async () => {
   return { frac, abs };
 });
 check(
-  `derived positions decoupled from the line (${derivedAbs.abs} anchors, ${derivedAbs.frac} fractions)`,
-  derivedAbs.frac === 0 && derivedAbs.abs > 1000,
+  `front units ride the line (${derivedAbs.frac} fractions, ${derivedAbs.abs} absolute pocket/reserve)`,
+  derivedAbs.frac > 1000 && derivedAbs.abs > 0,
 );
 
 // Phase B: posture surfaced in the panel — why a derived unit sits off the line.
@@ -372,15 +372,20 @@ check('posture chip explains an off-line unit', /Encircled/.test(postureTxt ?? '
 // Totenkopf's OOB anchor sits near Leningrad (~59°N) in mid-1943, but a Citadel
 // waypoint puts it at Prokhorovka (~51°N) on 1943-07-11.
 await page.goto(`${BASE}/?unit=de-3rd-ss-panzer-division&date=1943-07-11&z=7&lat=51&lng=36.7`, {
-  waitUntil: 'domcontentloaded',
+  waitUntil: 'networkidle',
 });
-await page.waitForTimeout(3000);
-const wpLat = await page.evaluate(() => {
-  const m = window.__map;
-  const ids = m.getStyle().layers.filter((l) => l.id.startsWith('units-')).map((l) => l.id);
-  const f = m.queryRenderedFeatures({ layers: ids }).find((x) => x.properties?.id === 'de-3rd-ss-panzer-division');
-  return f ? f.geometry.coordinates[1] : null;
-});
+// Wait until the unit layers actually have features (render can lag the load).
+let wpLat = null;
+for (let i = 0; i < 16; i++) {
+  await page.waitForTimeout(700);
+  wpLat = await page.evaluate(() => {
+    const m = window.__map;
+    const ids = ['units-division', 'units-corps', 'units-army', 'units-family'].filter((id) => m.getLayer(id));
+    const f = m.queryRenderedFeatures({ layers: ids }).find((x) => x.properties?.id === 'de-3rd-ss-panzer-division');
+    return f ? f.geometry.coordinates[1] : null;
+  });
+  if (wpLat != null) break;
+}
 check(`waypoint overrides the derived anchor (lat ${wpLat?.toFixed?.(1)} ≈ Prokhorovka)`, wpLat > 50.5 && wpLat < 51.5);
 // Phase D: the panel surfaces the curated waypoints (provenance) + credits source.
 const wpPanel = await page.locator('.detail-panel').textContent();
