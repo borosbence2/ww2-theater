@@ -371,7 +371,7 @@ check('posture chip explains an off-line unit', /Encircled/.test(postureTxt ?? '
 // Phase C: a sparse waypoint overrides the derived anchor within its span.
 // Totenkopf's OOB anchor sits near Leningrad (~59°N) in mid-1943, but a Citadel
 // waypoint puts it at Prokhorovka (~51°N) on 1943-07-11.
-await page.goto(`${BASE}/?unit=de-3rd-ss-panzer-division&date=1943-07-11&z=7&lat=51&lng=36.7`, {
+await page.goto(`${BASE}/?unit=de-3rd-ss-panzer-division&date=1943-07-11&z=7.8&lat=51&lng=36.7`, {
   waitUntil: 'networkidle',
 });
 // Wait until the unit layers actually have features (render can lag the load).

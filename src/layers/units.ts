@@ -161,10 +161,10 @@ function rgbaHex(hex: string, a: number): string {
 const ZOOM_WINDOW: Record<EchGroup, [number, number]> = {
   top: [3, 24], // army groups / fronts
   army: [4.2, 24],
-  corps: [5.3, 24],
-  division: [6.2, 24],
-  brigade: [6.9, 24],
-  sub: [7.2, 24], // regiments/battalions (also focus-gated)
+  corps: [5.6, 24],
+  division: [7, 24], // a whole army's divisions swarm the operational view —
+  brigade: [7.8, 24], // hold them (and brigades/regiments) back until you zoom
+  sub: [8.4, 24], //     into a sector, so armies/corps read at theater scale
 };
 
 let tracks: UnitTrack[] = [];
@@ -802,8 +802,19 @@ function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
       'symbol-sort-key': ['match', ['get', 'ech'], 'army', 0, 'corps', 1, 2],
     },
     paint: {
-      // command-focus: out-of-formation counters recede when a unit is selected.
-      'icon-opacity': ['case', ['get', 'dim'], 0.4, ['get', 'approx'], 0.78, 1],
+      // A short fade-in over the tier's first half-zoom (zoom must be the
+      // top-level interpolate input) so a tier eases in across its gate instead
+      // of hard-popping; the stop value carries the command-focus dim/approx case
+      // (out-of-formation counters recede when a unit is selected).
+      'icon-opacity': [
+        'interpolate',
+        ['linear'],
+        ['zoom'],
+        minzoom,
+        0,
+        minzoom + 0.6,
+        ['case', ['get', 'dim'], 0.4, ['get', 'approx'], 0.78, 1],
+      ],
       'text-color': '#23272e',
       'text-halo-color': '#ffffff',
       'text-halo-width': 0.9,

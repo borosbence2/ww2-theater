@@ -780,6 +780,16 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Consistency rework — zoom level-of-detail ✅
+Even clustered, a whole army's divisions swamp the operational view and bury the
+armies. Divisions/brigades/regiments are now gated to higher zoom (`ZOOM_WINDOW`:
+division 6.2→7.0, brigade →7.8, sub →8.4; corps 5.3→5.6), so the theatre/
+operational view (z≤~6.5) reads as **fronts → armies → corps**, and divisions
+appear (clustered) only once you zoom into a sector. Each tier eases in with a
+half-zoom opacity fade (a top-level zoom `interpolate` whose stop carries the
+command-focus dim/approx case). Selection still reveals a unit's whole formation
+at any zoom (the always-on family layer). 78/78 smoke, build + lint clean.
+
 ## Consistency rework — army clustering ✅
 The sector-spread placed an army's divisions in a long even row strung across its
 whole frontage (jarring straight lines of identical counters, esp. in salients).
