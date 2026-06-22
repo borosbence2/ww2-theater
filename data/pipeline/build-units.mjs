@@ -1124,6 +1124,20 @@ if (sectors && monthlyRosters.length) {
     if (!derived.has(id)) derived.set(id, []);
     derived.get(id).push({ startNum: dNum, date, f: Number(f.toFixed(4)) });
   };
+  // Place a top HQ (front / army group) at the CENTROID of its armies' actual
+  // points — absolute, so it sits among its forces instead of being flung across
+  // a salient by the deep top-echelon perpendicular offset a sector fraction
+  // would apply at render.
+  const pushHqAt = (id, date, pts) => {
+    const u = units.get(id);
+    const dNum = dateNum(date);
+    if (!pts.length || !existsAt(u, dNum) || isCuratedActive(u, dNum)) return;
+    if (inPocket.has(`${id}|${date}`) || inReserve.has(`${id}|${date}`)) return;
+    const cx = pts.reduce((s, p) => s + p[0], 0) / pts.length;
+    const cy = pts.reduce((s, p) => s + p[1], 0) / pts.length;
+    if (!derived.has(id)) derived.set(id, []);
+    derived.get(id).push({ startNum: dNum, date, at: [Number(cx.toFixed(4)), Number(cy.toFixed(4))] });
+  };
 
   for (const month of monthlyRosters) {
     const line = coordsFor(main, month.date);
@@ -1179,40 +1193,26 @@ if (sectors && monthlyRosters.length) {
     // follows them into the ring instead of vanishing; transient/renamed groups
     // (Don, Nordukraine) get a position as long as they command a placed army.
     if (monthHgr) {
-      const hgrFracs = new Map(); // hgr -> [fraction] (on-line armies)
-      const hgrPos = new Map(); // hgr -> [[lon,lat]] (pocketed / curated armies)
+      // Each army group at the centroid of EVERY army it commands this month,
+      // wherever that army actually is: on the line (sector fraction -> point),
+      // encircled (pocket pre-pass), or curated. A group whose armies are all
+      // pocketed (Heeresgruppe Don over Stalingrad) follows them into the ring.
+      const hgrPts = new Map();
       for (const [army, hgr] of monthHgr) {
         if (!hgr) continue;
-        if (armyFrac.has(army)) {
-          if (!hgrFracs.has(hgr)) hgrFracs.set(hgr, []);
-          hgrFracs.get(hgr).push(armyFrac.get(army));
-        } else {
-          // Off the sector line: an encircled army (pocket pre-pass) or a curated
-          // army (e.g. 6. Armee in the Stalingrad pocket). Use its absolute spot.
-          let pos = inPocket.has(`${army}|${month.date}`) ? pocketPosOf.get(`${army}|${month.date}`) : null;
-          if (!pos) {
-            const au = units.get(army);
-            if (au) pos = positionOn(au, month.date);
-          }
-          if (pos) {
-            if (!hgrPos.has(hgr)) hgrPos.set(hgr, []);
-            hgrPos.get(hgr).push(pos);
-          }
+        let pt = null;
+        if (armyFrac.has(army)) pt = fracToPoint(line, armyFrac.get(army), 'axis', 'army');
+        else if (inPocket.has(`${army}|${month.date}`)) pt = pocketPosOf.get(`${army}|${month.date}`);
+        else {
+          const au = units.get(army);
+          if (au) pt = positionOn(au, month.date);
+        }
+        if (pt) {
+          if (!hgrPts.has(hgr)) hgrPts.set(hgr, []);
+          hgrPts.get(hgr).push(pt);
         }
       }
-      for (const [hgr, fracs] of hgrFracs) {
-        push(hgr, month.date, fracs.reduce((s, f) => s + f, 0) / fracs.length);
-      }
-      const dNum = dateNum(month.date);
-      for (const [hgr, positions] of hgrPos) {
-        if (hgrFracs.has(hgr)) continue; // also has on-line armies: placed above
-        const hu = units.get(hgr);
-        if (!existsAt(hu, dNum) || isCuratedActive(hu, dNum)) continue;
-        const ax = positions.reduce((s, p) => s + p[0], 0) / positions.length;
-        const ay = positions.reduce((s, p) => s + p[1], 0) / positions.length;
-        inPocket.add(`${hgr}|${month.date}`);
-        pocketAbs.push({ id: hgr, date: month.date, dNum, at: [Number(ax.toFixed(4)), Number(ay.toFixed(4))] });
-      }
+      for (const [hgr, pts] of hgrPts) pushHqAt(hgr, month.date, pts);
     }
 
     // Soviet: front span -> armies (roster order) -> divisions.
@@ -1225,16 +1225,16 @@ if (sectors && monthlyRosters.length) {
     for (const [frontId, entries] of byFront) {
       const span = spanFor('su', frontId);
       if (!span) continue; // reserve / off-line front: list-only
-      push(frontId, month.date, (span[0] + span[1]) / 2);
       const groups = entries.filter(
         (e) => e.divisions.length + (e.armor?.length ?? 0) + (e.corps?.length ?? 0) > 0,
       );
       const A = groups.length;
-      if (!A) continue;
       const width = span[1] - span[0];
+      const armyPts = [];
       groups.forEach((g, a) => {
         const center = span[0] + (width * (a + 0.5)) / A; // the army's sector centre
         if (g.army) push(g.army, month.date, center);
+        armyPts.push(fracToPoint(line, center, 'soviet', 'army'));
         // Cluster the army's corps + divisions at its centre; the client fans them
         // into a compact group instead of an even row across the whole sector.
         const seen = new Set();
@@ -1246,6 +1246,10 @@ if (sectors && monthlyRosters.length) {
         }
         for (const d of [...g.divisions, ...(g.armor ?? [])]) if (fresh(d)) push(d, month.date, center);
       });
+      // Front HQ at the centroid of its armies (among its forces); fall back to
+      // the sector centre when it has no placed armies this month.
+      if (armyPts.length) pushHqAt(frontId, month.date, armyPts);
+      else push(frontId, month.date, (span[0] + span[1]) / 2);
     }
   }
   // Add pocket placements (absolute keyframes) — precedence over main line.

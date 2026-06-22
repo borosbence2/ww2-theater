@@ -780,6 +780,19 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Consistency rework — HQs follow their forces ✅
+Front / army-group HQs sometimes landed in the wrong part of the front (e.g. the
+Northwestern Front flung south into Axis territory, away from its armies). Cause:
+a front was placed at its sector-keyframe centre **plus the deep top-echelon
+perpendicular offset (1.25°)**, which across a narrow salient neck throws the HQ
+to the wrong side. Fix (`build-units.mjs` `pushHqAt`): a top HQ is now placed at
+the **centroid of its armies' actual points**, as an absolute position — among
+its forces, with no deep offset to fling it. Applied to Soviet fronts (centroid
+of their armies) and unified the German army-group placement onto the same helper
+(on-line + pocketed + curated armies all averaged as points). Verified: the
+Northwestern Front moves from the southern Axis rear up into its salient (32.2,
+57.0); HGr Nord/Mitte/Kalinin all sit with their armies. 78/78 smoke.
+
 ## Consistency rework — echelon hierarchy ✅
 With divisions clustered tightly around their army, the army HQ was hard to pick
 out — it rendered the *same size* as a division and was drawn *under* its own
