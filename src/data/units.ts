@@ -148,6 +148,9 @@ export interface DerivedUnit {
    *  spearhead leading the line, a unit held in a rear strongpoint); outside it,
    *  the derived anchor resumes. */
   wp?: [number, number, number][];
+  /** Front feature id this unit's fractions resolve against (Finnish theatre:
+   *  'finnish-front' / 'arctic-front'). Absent = the main front. */
+  front?: string;
 }
 
 let indexPromise: Promise<UnitIndexEntry[]> | null = null;

@@ -213,6 +213,13 @@ export function resolvedFrontCoords(dateISO: string, d: number): [number, number
   return main ? deformForEvidence(coordsFor(main, dateISO, d), d) : null;
 }
 
+/** Interpolated coords of a front feature by id (Finnish theatre lines), so
+ *  derived units tagged with a `front` resolve their fraction against it. */
+export function frontLineById(frontId: string, dateISO: string, d: number): [number, number][] | null {
+  const f = features.find((x) => x.id === frontId);
+  return f ? coordsFor(f, dateISO, d) : null;
+}
+
 // --- Dynamic advance arrows -------------------------------------------------
 // Where the front MOVED over the last window, draw an arrow in the direction of
 // movement, coloured by who advanced (Axis east = red, Soviet west = blue).

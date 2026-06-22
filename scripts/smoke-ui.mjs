@@ -422,6 +422,15 @@ const fin = await page.evaluate(async () => {
   return { ok: !!f, kfs: f ? f.keyframes.length : 0 };
 });
 check('Finnish front line present', fin.ok && fin.kfs >= 3);
+// Finnish-theatre units placed on the Finnish line (tagged with their front).
+const finUnits = await page.evaluate(async () => {
+  const d = await (await fetch('/data/units/derived/eastern.json')).json();
+  const fi = d.units.filter((u) => u.front === 'finnish-front');
+  const army = d.units.find((u) => u.id === 'fi-karelian-army');
+  const sov = d.units.find((u) => u.id === 'su-army-7');
+  return { tagged: fi.length, army: !!army?.segs?.length, sov: sov?.front === 'finnish-front' };
+});
+check('Finnish/Karelian units placed on the Finnish line', finUnits.tagged > 10 && finUnits.army && finUnits.sov);
 
 // Dynamic advance arrows: Bagration (Jul 1944) -> Soviet arrows pushing west.
 await page.goto(`${BASE}/?date=1944-07-08&z=4.9&lat=53.5&lng=29`, { waitUntil: 'domcontentloaded' });

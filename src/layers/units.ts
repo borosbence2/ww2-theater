@@ -24,7 +24,7 @@ import {
   type UnitTrack,
 } from '../data/units';
 import { matchTemplate, type TemplateNode } from '../data/templates';
-import { resolvedFrontCoords } from './front';
+import { resolvedFrontCoords, frontLineById } from './front';
 
 const SOURCE_ID = 'units';
 const LINKS_SOURCE_ID = 'unit-links';
@@ -272,7 +272,8 @@ function positionForId(
   const place = derivedPlacementOn(du, dateISO, d);
   if (!place) return null;
   if ('at' in place) return place.at; // inside a pocket ring
-  return line ? pointAt(line, place.frac, du.side, ECH_GROUP(du.echelon), du.id) : null;
+  const ul = du.front ? frontLineById(du.front, dateISO, d) : line; // Finnish theatre rides its own line
+  return ul ? pointAt(ul, place.frac, du.side, ECH_GROUP(du.echelon), du.id) : null;
 }
 
 /** Position of any unit (curated track first, then derived) on a date. */
@@ -468,7 +469,7 @@ export function getDerivedRoute(id: string): { date: string; at: [number, number
       if (kf.length === 3) {
         out.push({ date: iso, at: [kf[1], kf[2]], jump: si > 0 && ki === 0 });
       } else {
-        const line = mainFrontLine(iso, startNum);
+        const line = du.front ? frontLineById(du.front, iso, startNum) : mainFrontLine(iso, startNum);
         if (line) out.push({ date: iso, at: pointAt(line, kf[1], du.side, ech, du.id), jump: si > 0 && ki === 0 });
       }
     });
@@ -741,8 +742,11 @@ function collectionFor(
     const ech = ECH_GROUP(du.echelon);
     let at: [number, number];
     if ('at' in place) at = place.at;
-    else if (line) at = pointAt(line, place.frac, du.side, ech, du.id);
-    else continue;
+    else {
+      const ul = du.front ? frontLineById(du.front, dateISO, d) : line; // Finnish theatre line
+      if (!ul) continue;
+      at = pointAt(ul, place.frac, du.side, ech, du.id);
+    }
     out.push({
       type: 'Feature',
       properties: {

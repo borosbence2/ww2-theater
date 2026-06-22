@@ -39,9 +39,13 @@ Met:
 6. Verified: 65/65 smoke checks.
 
 Deliberately out of scope (documented, not gaps):
-- **Finland / the Arctic front** — the main front polyline doesn't extend
-  north of Leningrad, so no sector exists to place those units on.
 - **Crimean Front** (Jan–May 1942, Kerch) — a brief peninsula case, deferred.
+
+Since addressed (were out of scope):
+- **Finland / the Arctic front** — *done.* Separate `finnish-front`/`arctic-front`
+  lines + a dedicated Finnish derivation pass (`sectors/finnish.json`,
+  `build-finnish.mjs`) place the Finnish armies/divisions, the German 20th
+  Mountain Army, and the Karelian-front Soviet armies. See MILESTONES.
 
 Since addressed (were out of scope):
 - **Caucasus front** — *done.* The Transcaucasian Front is assigned to the

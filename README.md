@@ -81,6 +81,10 @@ node data/pipeline/import-divisions.mjs
 # generates committed scaffolds + OOB events consumed by build-units.
 node data/pipeline/build-minor-axis.mjs
 
+# Finnish / Arctic theatre (build-finnish.mjs) — Finnish + German-mountain OOB
+# scaffolds; placed on the separate finnish-front/arctic-front lines by build-units.
+node data/pipeline/build-finnish.mjs
+
 # Units (Phase 1) — curated order of battle + positions (Stalingrad pilot),
 # merged with the imported scaffolds (curated files win).
 # Validates every positioned unit against the front, daily (run fronts first).

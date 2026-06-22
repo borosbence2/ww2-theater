@@ -150,6 +150,26 @@ try {
   console.log('No oob/minor-axis.json — minor-Axis divisions stay army-only.');
 }
 
+// Finnish + Arctic theatre (build-finnish.mjs): scaffold units + roster events,
+// fed through the German divisional pipeline (parents + roster). They DON'T
+// place on the main front — a dedicated pass below routes them onto the Finnish /
+// Arctic front lines via sectors/finnish.json.
+const finUnitIds = new Set();
+const finFrontOf = new Map(); // unit id -> front feature id (which line its fraction is on)
+try {
+  const fin = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'finnish.json'), 'utf8'));
+  for (const u of fin.units) {
+    if (!units.has(u.id)) units.set(u.id, u);
+    finUnitIds.add(u.id);
+  }
+  for (const d of fin.divisions) finUnitIds.add(d.id);
+  if (deOob) deOob.divisions.push(...fin.divisions);
+  else deOob = { divisions: fin.divisions, armies: [], armyGroups: [] };
+  console.log(`Loaded ${fin.units.length} Finnish/Arctic units`);
+} catch {
+  console.log('No oob/finnish.json — Finnish theatre stays empty.');
+}
+
 // Imported scaffolds (import-divisions.mjs): identity-only, curated files win.
 let importedCount = 0;
 try {
@@ -1252,6 +1272,86 @@ if (sectors && monthlyRosters.length) {
       else push(frontId, month.date, (span[0] + span[1]) / 2);
     }
   }
+
+  // --- Finnish + Arctic theatre ---------------------------------------------
+  // The Finnish-theatre units (fi-* + de-h-armee-20, and the Karelian-front
+  // Soviet armies already in the OOB) sit on SEPARATE front lines, so they're
+  // placed here against finnish-front / arctic-front (sectors/finnish.json),
+  // reusing the same span + cluster machinery. The lines are authored N->S with
+  // the Axis side on the right, so the standard perpendicular offset holds.
+  let finSectors = null;
+  try {
+    finSectors = JSON.parse(readFileSync('data/curated/sectors/finnish.json', 'utf8')).fronts;
+  } catch {
+    finSectors = null;
+  }
+  if (finSectors) {
+    const sovietDivsOf = (month, armyId) => {
+      const out = [];
+      for (const e of month.entries) {
+        if (e.army !== armyId) continue;
+        for (const d of e.divisions ?? []) out.push(d);
+        for (const d of e.armor ?? []) out.push(d);
+        for (const c of e.corps ?? []) {
+          out.push(c.unit);
+          for (const d of c.divisions) out.push(d);
+        }
+      }
+      return out;
+    };
+    for (const [frontId, sec] of Object.entries(finSectors)) {
+      const feat = front.features.find((f) => f.id === frontId);
+      if (!feat) continue;
+      const sk = sec.keyframes;
+      const tops = sec.top ?? {};
+      for (const month of monthlyRosters) {
+        const d = dateNum(month.date);
+        const line = coordsFor(feat, month.date);
+        if (!line) continue;
+        let k0 = sk[0];
+        let k1 = sk[sk.length - 1];
+        for (let i = 0; i < sk.length; i++) {
+          if (dateNum(sk[i].date) <= d) k0 = sk[i];
+          if (dateNum(sk[i].date) > d) {
+            k1 = sk[i];
+            break;
+          }
+        }
+        const dsp = diffDays(k0.date, k1.date);
+        const t = dsp > 0 ? Math.max(0, Math.min(1, diffDays(k0.date, month.date) / dsp)) : 0;
+        for (const sideKey of Object.keys(k0)) {
+          if (sideKey === 'date') continue;
+          const offSide = sideKey === 'su' ? 'soviet' : 'axis';
+          const s0 = spansAt(k0, sideKey, line);
+          const s1 = spansAt(k1, sideKey, line);
+          const armyPts = [];
+          for (const e of k0[sideKey]) {
+            const a = s0.get(e.unit);
+            const b = s1.get(e.unit);
+            const span = a && b ? [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t] : (a ?? b);
+            if (!span) continue;
+            const center = (span[0] + span[1]) / 2;
+            push(e.unit, month.date, center);
+            finFrontOf.set(e.unit, frontId);
+            armyPts.push(fracToPoint(line, center, offSide, 'army'));
+            const divs =
+              offSide === 'axis'
+                ? (deRoster.get(month.date)?.get(e.unit) ?? []).map((x) => x.id)
+                : sovietDivsOf(month, e.unit);
+            for (const did of divs) {
+              push(did, month.date, center);
+              finFrontOf.set(did, frontId);
+            }
+          }
+          if (tops[sideKey] && armyPts.length) {
+            pushHqAt(tops[sideKey], month.date, armyPts);
+            finFrontOf.set(tops[sideKey], frontId);
+          }
+        }
+      }
+    }
+  }
+
   // Add pocket placements (absolute keyframes) — precedence over main line.
   let pocketPlaced = 0;
   for (const p of pocketAbs) {
@@ -1292,6 +1392,7 @@ if (sectors && monthlyRosters.length) {
   const wrongByUnit = new Map();
   for (const [id, kfs] of derived) {
     const u = units.get(id);
+    if (finUnitIds.has(id)) continue; // Finnish theatre sits on a separate line
     const ech = echGroup(u.echelon);
     for (const kfv of kfs) {
       if (reserveDays.has(`${id}|${kfv.date}`)) continue;
@@ -1379,6 +1480,9 @@ mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
         end: Math.min(dateNum(addDays(s.lastDate, 35)), u._existTo),
         kfs: s.kfs,
       })),
+      // Which front line this unit's fractions resolve against (Finnish theatre);
+      // absent = the main front.
+      ...(finFrontOf.has(id) ? { front: finFrontOf.get(id) } : {}),
       // Curated sparse waypoints (Phase C): override the derived anchor within
       // their span. [startNum, lon, lat], ascending.
       ...(waypointsOf.has(id)

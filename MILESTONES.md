@@ -780,6 +780,27 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Finnish / Arctic theatre ✅
+The theatre that was wholly absent (the main front stops at Leningrad) is now on
+the map. 80/80 smoke, build + lint clean.
+- [x] **Front lines** (`eastern-front.json`): separate `finnish-front`
+      (Continuation War — 1940 border → 1941 advance to the Svir/Petrozavodsk →
+      the 1941–44 static line → the 1944 Soviet Vyborg–Petrozavodsk offensive →
+      the Moscow Armistice) and `arctic-front` (Litsa/Murmansk → Petsamo–
+      Kirkenes). `build-fronts` renders any number of front features; `main` stays
+      the validation/tide reference.
+- [x] **Units** (`build-finnish.mjs` → `oob/finnish.json`): Finnish GHQ + the
+      Karelian Army + Isthmus forces + 12 Finnish divisions, and the German 20th
+      Mountain Army + 3 mountain divisions, fed through the German roster pipeline.
+- [x] **Placement** (`build-units.mjs`): a dedicated Finnish-theatre pass projects
+      `sectors/finnish.json` onto the Finnish/Arctic lines (reusing
+      `spansAt`/`push`/`pushHqAt`/`fracToPoint`), placing the Finnish armies + the
+      already-in-OOB Karelian-front Soviet armies (7th/14th/32nd) + their
+      divisions. Each derived unit is tagged with its `front`; the client resolves
+      its fraction against that line (`frontLineById`). Exempt from the main
+      side-check (separate line). The lines are authored N→S with the Axis side on
+      the right, so the standard perpendicular offset + cluster fan hold.
+
 ## Consistency rework — HQs follow their forces ✅
 Front / army-group HQs sometimes landed in the wrong part of the front (e.g. the
 Northwestern Front flung south into Axis territory, away from its armies). Cause:

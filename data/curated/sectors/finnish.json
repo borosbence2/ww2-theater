@@ -1,0 +1,31 @@
+{
+  "note": "Finnish-theatre sectors (Phase 1). Boundary anchors {unit, to:[lng,lat]} projected onto the finnish-front / arctic-front lines by build-units, exactly like sectors/eastern.json but for the Finnish theatre. fi/de = axis side (offset to the Finnish/German rear), su = Soviet. One keyframe per front — the army order is static; units ride the moving line at fixed fractions. A null `to` means 'rest of the line' (even-split).",
+  "fronts": {
+    "finnish-front": {
+      "top": { "fi": "fi-ghq", "su": "su-front-karelian" },
+      "keyframes": [
+        {
+          "date": "1941-12-06",
+          "fi": [
+            { "unit": "fi-karelian-army", "to": [32.0, 60.9] },
+            { "unit": "fi-isthmus" }
+          ],
+          "su": [
+            { "unit": "su-army-32", "to": [34.0, 60.95] },
+            { "unit": "su-army-7" }
+          ]
+        }
+      ]
+    },
+    "arctic-front": {
+      "top": {},
+      "keyframes": [
+        {
+          "date": "1941-09-15",
+          "de": [{ "unit": "de-h-armee-20" }],
+          "su": [{ "unit": "su-army-14" }]
+        }
+      ]
+    }
+  }
+}
