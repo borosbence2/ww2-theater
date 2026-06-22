@@ -7780,6 +7780,15 @@
       ],
       "garrison": [
         "de-h-armee-6"
+      ],
+      "besiegers": [
+        "su-army-65",
+        "su-army-21",
+        "su-army-24",
+        "su-army-66",
+        "su-army-62",
+        "su-army-64",
+        "su-army-57"
       ]
     },
     {
@@ -8186,6 +8195,12 @@
         "de-290th-infantry-division",
         "de-123rd-infantry-division",
         "de-3rd-ss-panzer-division"
+      ],
+      "besiegers": [
+        "su-shock-army-1",
+        "su-army-11",
+        "su-army-34",
+        "su-army-53"
       ]
     },
     {
@@ -8522,6 +8537,13 @@
         "de-57th-infantry-division",
         "de-389th-infantry-division",
         "de-5th-ss-panzer-division"
+      ],
+      "besiegers": [
+        "su-army-27",
+        "su-tank-army-6",
+        "su-gd-army-4",
+        "su-army-52",
+        "su-army-53"
       ]
     },
     {
