@@ -278,6 +278,10 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
   const template = matchTemplate(unit.side, unit.echelon, unit.type, date);
   const firstMapped = unit.positions[0]?.date;
   const docCount = unit.positions.filter((p) => p.confidence === 'documented').length;
+  // Posture on this date (precedence model Phase B): why the unit sits off the
+  // line. Last span whose `from` has been reached; 'front' shows no chip.
+  const posture =
+    unit.postures?.reduce<string | null>((cur, p) => (dateToNum(p.from) <= d ? p.kind : cur), null) ?? null;
 
   const jump = (iso: string) => setDate(iso);
 
@@ -323,6 +327,11 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
           {exists ? 'Active' : 'Not active'} · {formatLong(life.from)} —{' '}
           {lifeEnd.to ? formatLong(lifeEnd.to) : 'war end'}
           {lifeEnd.end && <span className="unit-end"> · {lifeEnd.end}</span>}
+          {posture && posture !== 'front' && (
+            <span className={`posture-chip posture-${posture}`}>
+              {posture === 'encircled' ? 'Encircled' : posture === 'reserve' ? 'In reserve' : 'Refitting'}
+            </span>
+          )}
         </div>
       </header>
 

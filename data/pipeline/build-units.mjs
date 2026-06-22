@@ -788,6 +788,10 @@ if (!runs.size) {
 // moving line instead of lagging at monthly anchors.
 
 const derived = new Map(); // unit id -> [{startNum, date, f}]
+// Posture per derived unit-month (`${id}|${date}` -> kind): encircled | reserve
+// | refit. Absent = front. Surfaced in the panel so a unit off the line is
+// explained (Phase B of the precedence model).
+const postureAt = new Map();
 
 // Mirror src/layers/units.ts ECH_GROUP + ECH_DEPTH so we can bake a sector
 // fraction to the exact rendered point (per-echelon rear depth). Used by both
@@ -928,6 +932,7 @@ if (sectors && monthlyRosters.length) {
           const ang = i * 2.399963229; // golden angle, even fill
           const rad = 0.55 * r * Math.sqrt((i + 0.5) / list.length);
           inPocket.add(`${id}|${month.date}`);
+          postureAt.set(`${id}|${month.date}`, 'encircled');
           pocketAbs.push({
             id,
             date: month.date,
@@ -1039,13 +1044,14 @@ if (sectors && monthlyRosters.length) {
     const dNum = dateNum(month.date);
     const line = coordsFor(main, month.date);
     if (!line) continue;
-    const placeReserve = (ids, side) => {
+    const placeReserve = (ids, side, posture) => {
       const uniq = [...new Set(ids)].filter((id) => {
         const u = units.get(id);
         return u && existsAt(u, dNum) && !isCuratedActive(u, dNum) && !inPocket.has(`${id}|${month.date}`);
       });
       uniq.forEach((id, i) => {
         inReserve.add(`${id}|${month.date}`);
+        postureAt.set(`${id}|${month.date}`, posture);
         reserveAbs.push({ id, date: month.date, dNum, at: reserveAt(line, side, i, uniq.length) });
       });
     };
@@ -1066,7 +1072,7 @@ if (sectors && monthlyRosters.length) {
       for (const d of e.divisions) su.push(d);
       for (const d of e.armor ?? []) su.push(d);
     }
-    placeReserve(su, 'soviet');
+    placeReserve(su, 'soviet', 'reserve');
     // German: EF divisions currently in a null-army gap whose last real army was
     // an Eastern-Front army (resting/refitting, not transferred to another front).
     const de = [];
@@ -1082,7 +1088,7 @@ if (sectors && monthlyRosters.length) {
       }
       if (!cur && prevReal && secDeArmies.has(prevReal)) de.push(id);
     }
-    placeReserve(de, 'axis');
+    placeReserve(de, 'axis', 'refit');
   }
 
   const push = (id, date, f) => {
@@ -1395,6 +1401,21 @@ function shardOf(id) {
 const latestName = (u) => u.names[u.names.length - 1].name;
 const labelOf = (id) => (units.has(id) ? latestName(units.get(id)) : id);
 
+// Posture timeline for a derived unit: compress its monthly postures into spans
+// [{from, kind}] (encircled | reserve | refit | front). Null when the unit was
+// always on the front (or isn't derived) — nothing extra to explain.
+function posturesFor(id) {
+  const kfs = derived.get(id);
+  if (!kfs) return null;
+  const spans = [];
+  for (const kf of [...kfs].sort((a, b) => a.startNum - b.startNum)) {
+    const kind = postureAt.get(`${id}|${kf.date}`) ?? 'front';
+    if (spans.length && spans[spans.length - 1].kind === kind) continue;
+    spans.push({ from: kf.date, kind });
+  }
+  return spans.some((s) => s.kind !== 'front') ? spans : null;
+}
+
 const index = [...units.values()]
   .map((u) => ({
     id: u.id,
@@ -1469,6 +1490,7 @@ for (const u of units.values()) {
     formations: formationsOf.get(u.id) ?? null,
     strength: strengthRecs,
     image: imageOf.get(u.id) ?? null,
+    postures: posturesFor(u.id),
   };
   const shard = shardOf(u.id);
   if (!shards.has(shard)) shards.set(shard, {});

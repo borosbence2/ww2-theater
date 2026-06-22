@@ -1051,6 +1051,30 @@ button.orbat-row:hover {
   color: var(--axis-text);
 }
 
+/* Posture chip (precedence model): why a derived unit sits off the line. */
+.posture-chip {
+  display: inline-block;
+  margin-left: 7px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+  border: 1px solid transparent;
+}
+.posture-encircled {
+  color: var(--axis-text);
+  background: var(--axis-soft);
+  border-color: var(--axis);
+}
+.posture-reserve,
+.posture-refit {
+  color: var(--muted);
+  background: var(--hover);
+  border-color: var(--line);
+}
+
 /* Unit imagery (Phase 5b): a Commons thumbnail (lazy) + attribution caption. */
 .unit-photo {
   display: block;

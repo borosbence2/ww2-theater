@@ -359,6 +359,15 @@ check(
   derivedAbs.frac === 0 && derivedAbs.abs > 1000,
 );
 
+// Phase B: posture surfaced in the panel — why a derived unit sits off the line.
+await page.goto(`${BASE}/?unit=de-263rd-infantry-division&date=1944-12-01`, { waitUntil: 'domcontentloaded' });
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1000);
+const postureTxt = (await page.locator('.posture-chip').count())
+  ? await page.locator('.posture-chip').first().textContent()
+  : '';
+check('posture chip explains an off-line unit', /Encircled/.test(postureTxt ?? ''));
+
 // Phase 5.2: pocket panel — click/deep-link a pocket -> trapped + besieging units.
 await page.goto(`${BASE}/?pocket=courland-pocket&date=1945-02-15`, { waitUntil: 'domcontentloaded' });
 await page.waitForSelector('.detail-panel', { timeout: 10000 });

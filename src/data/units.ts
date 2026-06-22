@@ -114,6 +114,10 @@ export interface UnitDetail {
     artist: string | null;
     file: string;
   } | null;
+  /** Phase B (precedence model): posture timeline for derived units —
+   *  why a unit sits off the front line on a given date. Ascending by `from`;
+   *  null for units that were always on the front (or aren't derived). */
+  postures?: { from: string; kind: 'encircled' | 'reserve' | 'refit' | 'front' }[] | null;
 }
 
 /** Keyframe: [startNum, fraction] on the main line, or [startNum, lon, lat]

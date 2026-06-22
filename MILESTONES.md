@@ -794,7 +794,20 @@ lint clean; coverage unchanged (1,654 derived units), side-check still 99.7%.
       so a front re-assignment jumps instead of sliding across the map. The line
       becomes a visual feature, no longer the anchor for 1,500 sprites; the
       fraction path stays as a dormant fallback for any unbaked data.
-- Next: posture dimension (B), first-class waypoints (C), source honesty (D).
+- Next: first-class waypoints (C), source honesty (D).
+
+## Precedence-model positioning — Phase B (posture) ✅
+A derived unit's *posture* now explains why it sits where it does. 76/76 smoke,
+build + lint clean.
+- [x] **Tag posture per unit-month** (`build-units.mjs` `postureAt` + the
+      pocket/reserve pre-passes): `encircled` (in a Kessel), `reserve` (Soviet
+      Reserve Front), `refit` (German division resting in a null-army gap), else
+      `front`. Compressed into spans by `posturesFor` and attached to each
+      derived unit's detail (`postures`). 207 units carry a non-front posture.
+- [x] **Surfaced in the panel** (`UnitPanel.tsx`): a chip in the status band on
+      the active date — "Encircled" / "In reserve" / "Refitting" — so a unit off
+      the line is explained rather than looking misplaced. (Curated units keep
+      their documented track and need no posture.)
 
 ## UI polish (desktop) ✅
 A finishing pass on the chrome (mobile deliberately out of scope for now). 74/74
