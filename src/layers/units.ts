@@ -161,7 +161,11 @@ function rgbaHex(hex: string, a: number): string {
 const ZOOM_WINDOW: Record<EchGroup, [number, number]> = {
   top: [3, 24], // army groups / fronts
   army: [4.2, 24],
-  corps: [5.6, 24],
+  // The Soviet OOB carries 70-165 corps (the German has none below army), so a
+  // low corps gate swarms the operational view one-sidedly. Corps are a
+  // mid-zoom band: gated above the army view and faded out once their divisions
+  // take over the detail, so they never stack on top of the division swarm.
+  corps: [6.6, 8.8],
   division: [7, 24], // a whole army's divisions swarm the operational view —
   brigade: [7.8, 24], // hold them (and brigades/regiments) back until you zoom
   sub: [8.4, 24], //     into a sector, so armies/corps read at theater scale
@@ -842,6 +846,13 @@ function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
         0,
         minzoom + 0.6,
         ['case', ['get', 'dim'], 0.4, ['get', 'approx'], 0.78, 1],
+        // Fade the tier back out approaching its maxzoom so a capped tier (the
+        // corps band) recedes as its juniors take over instead of cutting hard.
+        // For always-on tiers (maxzoom 24) this window is never reached.
+        maxzoom - 0.9,
+        ['case', ['get', 'dim'], 0.4, ['get', 'approx'], 0.78, 1],
+        maxzoom,
+        0,
       ],
       'text-color': '#23272e',
       'text-halo-color': '#ffffff',
