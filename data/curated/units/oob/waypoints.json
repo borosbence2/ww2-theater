@@ -45,6 +45,14 @@
       { "date": "1945-03-06", "lng": 18.6, "lat": 47.15, "note": "IV SS Panzer Corps attack north of Lake Velence (Balaton)", "source": "us-army-atlas" },
       { "date": "1945-03-13", "lng": 18.9, "lat": 46.9, "note": "Toward the Danube at Dunaújváros", "source": "us-army-atlas" },
       { "date": "1945-03-16", "lng": 18.6, "lat": 47.05, "note": "Pushed back by the Soviet counter-offensive", "source": "us-army-atlas" }
+    ],
+    "su-tank-army-1": [
+      { "date": "1943-07-06", "lng": 36.05, "lat": 51.15, "note": "Dug in across the Oboyan road, blunting the German southern pincer (Kursk)", "source": "us-army-atlas" },
+      { "date": "1943-07-12", "lng": 36.2, "lat": 51.25, "note": "Holds south of Kursk through Prokhorovka", "source": "us-army-atlas" }
+    ],
+    "su-army-13": [
+      { "date": "1943-07-06", "lng": 36.0, "lat": 52.4, "note": "Holds the north face at Ponyri/Olkhovatka against Model's pincer (Kursk)", "source": "us-army-atlas" },
+      { "date": "1943-07-12", "lng": 36.0, "lat": 52.45, "note": "The northern German thrust is stopped", "source": "us-army-atlas" }
     ]
   }
 }
