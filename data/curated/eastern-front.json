@@ -7927,6 +7927,13 @@
       "garrison": [
         "de-13th-panzer-division",
         "de-8th-ss-cavalry-division-florian-geyer"
+      ],
+      "besiegers": [
+        "su-gd-army-7",
+        "su-army-46",
+        "su-army-53",
+        "su-army-57",
+        "su-gd-army-4"
       ]
     },
     {
@@ -8545,6 +8552,32 @@
         "su-army-52",
         "su-army-53"
       ]
+    },
+    {
+      "id": "bobruisk-pocket",
+      "kind": "pocket",
+      "encircled": "axis",
+      "label": "Bobruisk pocket (Bagration)",
+      "from": "1944-06-27",
+      "to": "1944-06-30",
+      "keyframes": [
+        { "date": "1944-06-27", "label": "9th Army trapped at Bobruisk", "waypoints": [[28.9, 53.3], [29.7, 53.3], [29.9, 53.0], [29.5, 52.8], [28.9, 52.85]] }
+      ],
+      "garrison": ["de-h-armee-9"],
+      "besiegers": ["su-army-3", "su-army-48", "su-army-65"]
+    },
+    {
+      "id": "minsk-pocket",
+      "kind": "pocket",
+      "encircled": "axis",
+      "label": "Minsk pocket (Bagration)",
+      "from": "1944-07-03",
+      "to": "1944-07-11",
+      "keyframes": [
+        { "date": "1944-07-03", "label": "4th Army encircled east of Minsk", "waypoints": [[28.0, 54.0], [29.3, 54.0], [29.9, 53.7], [29.4, 53.35], [28.3, 53.35], [27.9, 53.7]] }
+      ],
+      "garrison": ["de-h-armee-4"],
+      "besiegers": ["su-gd-army-11", "su-army-31", "su-army-5", "su-army-49", "su-army-50"]
     },
     {
       "id": "ternopil-pocket",
