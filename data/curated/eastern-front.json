@@ -8844,6 +8844,77 @@
           ]
         }
       ]
+    },
+    {
+      "id": "kamenets-podolsky-pocket",
+      "kind": "pocket",
+      "encircled": "axis",
+      "label": "Kamenets-Podolsky pocket (Hube's pocket)",
+      "from": "1944-03-25",
+      "to": "1944-04-09",
+      "garrison": ["de-h-pzarmee-1"],
+      "besiegers": ["su-tank-army-1", "su-tank-army-4", "su-army-38", "su-gd-army-1"],
+      "keyframes": [
+        {
+          "date": "1944-03-28",
+          "label": "1st Panzer Army encircled east of the Zbruch",
+          "waypoints": [
+            [27.8, 49.4], [28.35, 49.1], [28.05, 48.6], [27.2, 48.45], [26.7, 48.8], [27.0, 49.25]
+          ]
+        },
+        {
+          "date": "1944-04-06",
+          "label": "Wandering pocket breaks out west toward Buchach",
+          "waypoints": [
+            [26.35, 49.4], [26.95, 49.2], [26.6, 48.7], [25.8, 48.7], [25.4, 49.0], [25.7, 49.35]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "halbe-pocket",
+      "kind": "pocket",
+      "encircled": "axis",
+      "label": "Halbe pocket (9th Army)",
+      "from": "1945-04-21",
+      "to": "1945-05-01",
+      "garrison": ["de-h-armee-9"],
+      "besiegers": ["su-gd-army-3", "su-army-28", "su-gd-tank-army-3"],
+      "keyframes": [
+        {
+          "date": "1945-04-25",
+          "label": "9th Army encircled in the Spree forest south-east of Berlin",
+          "waypoints": [
+            [13.45, 52.25], [14.0, 52.2], [14.1, 51.95], [13.7, 51.85], [13.4, 51.95], [13.35, 52.1]
+          ]
+        },
+        {
+          "date": "1945-04-30",
+          "label": "Compressed around Halbe before the final break-out west",
+          "waypoints": [
+            [13.55, 52.18], [13.9, 52.12], [13.85, 51.97], [13.6, 51.93], [13.45, 52.02], [13.5, 52.13]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "velikiye-luki-pocket",
+      "kind": "pocket",
+      "encircled": "axis",
+      "label": "Velikiye Luki pocket",
+      "from": "1942-11-24",
+      "to": "1943-01-17",
+      "garrison": ["de-83rd-infantry-division"],
+      "besiegers": ["su-shock-army-3"],
+      "keyframes": [
+        {
+          "date": "1942-11-28",
+          "label": "German garrison encircled by 3rd Shock Army",
+          "waypoints": [
+            [30.42, 56.40], [30.62, 56.40], [30.66, 56.28], [30.50, 56.24], [30.36, 56.28], [30.36, 56.36]
+          ]
+        }
+      ]
     }
   ]
 }
