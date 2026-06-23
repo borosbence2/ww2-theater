@@ -810,6 +810,33 @@ Two map-fidelity fixes. 80/80 smoke, build + lint clean.
       nuance: 14./16./24. Panzer fold into their infantry-incarnation scaffolds —
       the documented formation-ordinal limitation.)
 
+## Battle completeness pass — pockets, waypoints, evolution ✅
+Filling famous Eastern-Front battles. 80/80 smoke, side-check 99.8%,
+city-validation unchanged (1350 city-days), build clean.
+- [x] **Three missing pockets**: Kamenets-Podolsky (Hube's pocket, Mar–Apr 1944)
+      as a two-keyframe *wandering* pocket breaking out west to Buchach; Halbe
+      (9th Army SE of Berlin, Apr–May 1945); Velikiye Luki (German garrison ringed
+      by 3rd Shock Army, winter 1942-43). Rings + encirclement arrows + besieger/
+      garrison metadata. (Garrison interiors populate only at monthly-roster
+      snapshots inside the window — a pre-pass limitation; the rings render
+      throughout.)
+- [x] **Pocket evolution**: Budapest now contracts — both Danube banks (26 Dec
+      1944) → Buda only after Pest falls (20 Jan 1945).
+- [x] **Four battle-waypoint records** (override-and-bulge): 2nd Panzer at
+      Krasnaya Polyana (deepest Moscow approach, Dec 1941); 7th Panzer at the
+      Yakhroma canal; 2nd & 3rd Guards Tank Armies on the Vistula–Oder dash and
+      into Berlin. Waypoints for 15 units (was 11).
+- [x] **Incarnation check**: verified the 14./16./24. Panzer "gap" was a false
+      alarm — they are correctly curated (`de-h-pz-div-N`, Stalingrad showcase)
+      and zero duplicate-name placements exist; the only residue is the HGr B /
+      11. Armee dual-incarnation, the documented registry limitation.
+- [ ] **Front-geometry refinement** (deferred): the major salients are already
+      shaped (Rzhev, Kursk verified). The remaining work is city-validation
+      worklist reduction (1350 city-days, mostly timing) + per-date salient
+      *evolution* — e.g. the Voronezh salient's waypoints are shared across 9
+      keyframes and need to form/collapse independently. Deep iterative surgery,
+      best done as a focused, regression-safe follow-up.
+
 ## Finnish / Arctic theatre ✅
 The theatre that was wholly absent (the main front stops at Leningrad) is now on
 the map. 80/80 smoke, build + lint clean.
