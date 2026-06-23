@@ -10,6 +10,21 @@
       { "date": "1942-11-20", "lng": 44.60, "lat": 48.40, "note": "Southern pincer jump-off south of Stalingrad (Operation Uranus)", "source": "glantz-house-stalingrad" },
       { "date": "1942-11-22", "lng": 44.00, "lat": 48.55, "note": "Driving north-west toward the Kalach link-up", "source": "glantz-house-stalingrad" },
       { "date": "1942-11-23", "lng": 43.55, "lat": 48.70, "note": "Link-up at Sovetsky / Kalach — the pocket closes", "source": "glantz-house-stalingrad" }
+    ],
+    "su-26th-tank-corps": [
+      { "date": "1942-11-19", "lng": 43.30, "lat": 49.40, "note": "Northern pincer jump-off from the Kletskaya bridgehead (Operation Uranus)", "source": "glantz-house-stalingrad" },
+      { "date": "1942-11-22", "lng": 43.50, "lat": 48.80, "note": "Seizes the Kalach bridge over the Don", "source": "glantz-house-stalingrad" },
+      { "date": "1942-11-23", "lng": 43.55, "lat": 48.70, "note": "Link-up at Sovetsky — the Stalingrad pocket closes", "source": "glantz-house-stalingrad" }
+    ],
+    "su-4th-tank-corps": [
+      { "date": "1942-11-19", "lng": 43.00, "lat": 49.50, "note": "Northern pincer breakout with 21st Army (Operation Uranus)", "source": "glantz-house-stalingrad" },
+      { "date": "1942-11-22", "lng": 43.40, "lat": 48.95, "note": "Driving south-east on Kalach", "source": "glantz-house-stalingrad" },
+      { "date": "1942-11-23", "lng": 43.60, "lat": 48.78, "note": "Closing the inner ring west of Stalingrad", "source": "glantz-house-stalingrad" }
+    ],
+    "su-4th-mechanized-corps": [
+      { "date": "1942-11-20", "lng": 44.55, "lat": 48.05, "note": "Southern pincer breakout with 51st Army (Operation Uranus)", "source": "glantz-house-stalingrad" },
+      { "date": "1942-11-22", "lng": 44.00, "lat": 48.45, "note": "Racing north-west to Sovetsky", "source": "glantz-house-stalingrad" },
+      { "date": "1942-11-23", "lng": 43.60, "lat": 48.68, "note": "Link-up at Sovetsky with the northern pincer", "source": "glantz-house-stalingrad" }
     ]
   }
 }
