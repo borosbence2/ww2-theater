@@ -1387,8 +1387,37 @@ if (sectors && monthlyRosters.length) {
   // Reserve placements are schematic rear positions (deep in own territory by
   // construction), not line-derived — exempt from the line side-check.
   const reserveDays = new Set(reserveAbs.map((p) => `${p.id}|${p.date}`));
+  // Nudge a wrong-side point to the nearest spot in `side`'s own territory:
+  // search perpendicular to the line (both directions) at increasing distance
+  // until the axis polygon agrees. Fixes the bend / E-W / loop cases a simple
+  // sign-flip can't. Returns null if no nearby correct-side spot is found.
+  const nudgeToSide = (line, lon, lat, side, axisPoly) => {
+    let bi = 0;
+    let bd = Infinity;
+    for (let i = 0; i < line.length; i++) {
+      const dd = (line[i][0] - lon) ** 2 + (line[i][1] - lat) ** 2;
+      if (dd < bd) {
+        bd = dd;
+        bi = i;
+      }
+    }
+    const a = line[Math.max(0, bi - 2)];
+    const b = line[Math.min(line.length - 1, bi + 2)];
+    const L = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+    const nx = -(b[1] - a[1]) / L;
+    const ny = (b[0] - a[0]) / L;
+    for (const dist of [0.14, 0.3, 0.5, 0.8, 1.2, 1.8]) {
+      for (const s of [1, -1]) {
+        const px = line[bi][0] + nx * dist * s;
+        const py = line[bi][1] + ny * dist * s;
+        if ((inRing(axisPoly, px, py) ? 'axis' : 'soviet') === side) return [px, py];
+      }
+    }
+    return null;
+  };
   let checked = 0;
   let wrong = 0;
+  let clamped = 0;
   const wrongByUnit = new Map();
   for (const [id, kfs] of derived) {
     const u = units.get(id);
@@ -1398,17 +1427,33 @@ if (sectors && monthlyRosters.length) {
       if (reserveDays.has(`${id}|${kfv.date}`)) continue;
       const line = coordsFor(main, kfv.date);
       if (!line) continue;
-      // Pocket placements are absolute; main-line placements resolve a fraction.
-      const [lon, lat] = kfv.at ? kfv.at : fracToPoint(line, kfv.f, u.side, ech);
+      const axisPoly = axisPolygon(line);
+      let [lon, lat] = kfv.at ? kfv.at : fracToPoint(line, kfv.f, u.side, ech);
+      let inPocketRing = false;
       let drawn = null;
       for (const pf of pockets) {
         const ring = coordsFor(pf, kfv.date);
         if (ring && inRing(ring, lon, lat)) {
           drawn = pf.encircled;
+          inPocketRing = true;
           break;
         }
       }
-      if (!drawn) drawn = inRing(axisPolygon(line), lon, lat) ? 'axis' : 'soviet';
+      if (!drawn) drawn = inRing(axisPoly, lon, lat) ? 'axis' : 'soviet';
+      // SIDE-CLAMP: a derived unit on the wrong side of the line (sharp bend,
+      // E-W segment, loop, or an HQ centroid) — nudge it into its own territory
+      // and bake the corrected point absolute. Pockets are intentional, skip.
+      if (drawn !== u.side && !inPocketRing) {
+        const fix = nudgeToSide(line, lon, lat, u.side, axisPoly);
+        if (fix) {
+          kfv.at = [Number(fix[0].toFixed(4)), Number(fix[1].toFixed(4))];
+          delete kfv.f;
+          lon = fix[0];
+          lat = fix[1];
+          drawn = u.side;
+          clamped++;
+        }
+      }
       checked++;
       if (drawn !== u.side && kmFromFront(line, lon, lat) > TOL) {
         wrong++;
@@ -1416,6 +1461,7 @@ if (sectors && monthlyRosters.length) {
       }
     }
   }
+  if (clamped) console.log(`Side-clamp: corrected ${clamped} wrong-side unit-months to their own side.`);
   const pct = checked ? ((100 * (checked - wrong)) / checked).toFixed(1) : '100';
   console.log(
     `Derived side-check: ${pct}% of ${checked} unit-months on the correct side ` +
