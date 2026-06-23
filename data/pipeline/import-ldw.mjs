@@ -102,7 +102,13 @@ function armyId(cell, year) {
     if (!aabtScaffolds.has(id)) aabtScaffolds.set(id, `Armeeabteilung ${m[1]}`);
     return id;
   }
-  if ((m = t.match(/Panzergruppe (\d)/)) || (m = t.match(/(\d)\. ?Panzerarmee/)) || (m = t.match(/Pz\.? ?AOK\.? ?(\d)/))) {
+  // German writes the ordinal first: "2. Panzergruppe", "4. Panzerarmee".
+  if (
+    (m = t.match(/(\d)\. ?Panzergruppe/)) ||
+    (m = t.match(/Panzergruppe (\d)/)) ||
+    (m = t.match(/(\d)\. ?Panzerarmee/)) ||
+    (m = t.match(/Pz\.? ?AOK\.? ?(\d)/))
+  ) {
     return `de-h-pzarmee-${m[1]}`;
   }
   if ((m = t.match(/(\d+)\. ?Armee(?!korps)/)) || (m = t.match(/AOK\.? ?(\d+)/))) {
@@ -231,13 +237,16 @@ for (const file of readdirSync(RAW)) {
   const events = [];
   let year = null;
   for (const tok of html.matchAll(
-    /<big><big>\s*(19[34]\d)\s*<\/big><\/big>|<tr[^>]*>([\s\S]*?)<\/tr>/g,
+    // Year heading: <big><big>1941</big></big> (infantry pages) OR
+    // <font size="5">1941</font> (panzer/jäger pages) — the only-year content
+    // guard keeps prose years (embedded in sentences) from matching.
+    /<big><big>(?:\s|&nbsp;)*(19[34]\d)(?:\s|&nbsp;)*<\/big><\/big>|<font[^>]*size="?[456]"?[^>]*>(?:\s|&nbsp;)*(19[34]\d)(?:\s|&nbsp;)*<\/font>|<tr[^>]*>([\s\S]*?)<\/tr>/g,
   )) {
-    if (tok[1]) {
-      year = Number(tok[1]);
+    if (tok[1] || tok[2]) {
+      year = Number(tok[1] || tok[2]);
       continue;
     }
-    const cells = [...tok[2].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map((c) =>
+    const cells = [...tok[3].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map((c) =>
       c[1].replace(/<[^>]+>/g, ' ').replace(/&nbsp;|\s+/g, ' ').trim(),
     );
     if (!cells.length) continue;
