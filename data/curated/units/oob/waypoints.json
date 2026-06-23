@@ -25,6 +25,26 @@
       { "date": "1942-11-20", "lng": 44.55, "lat": 48.05, "note": "Southern pincer breakout with 51st Army (Operation Uranus)", "source": "glantz-house-stalingrad" },
       { "date": "1942-11-22", "lng": 44.00, "lat": 48.45, "note": "Racing north-west to Sovetsky", "source": "glantz-house-stalingrad" },
       { "date": "1942-11-23", "lng": 43.60, "lat": 48.68, "note": "Link-up at Sovetsky with the northern pincer", "source": "glantz-house-stalingrad" }
+    ],
+    "su-2nd-guards-tank-corps": [
+      { "date": "1944-06-26", "lng": 30.0, "lat": 54.6, "note": "Exploitation toward Minsk (Operation Bagration)", "source": "us-army-atlas" },
+      { "date": "1944-07-03", "lng": 27.7, "lat": 53.95, "note": "First into Minsk — closes the pocket behind 4th Army", "source": "us-army-atlas" },
+      { "date": "1944-07-13", "lng": 25.5, "lat": 53.9, "note": "Driving west on Lida", "source": "us-army-atlas" }
+    ],
+    "su-3rd-guards-tank-corps": [
+      { "date": "1944-06-26", "lng": 30.4, "lat": 54.4, "note": "Exploitation with 3rd Belorussian Front (Operation Bagration)", "source": "us-army-atlas" },
+      { "date": "1944-07-03", "lng": 27.6, "lat": 53.85, "note": "Into Minsk from the north-east", "source": "us-army-atlas" },
+      { "date": "1944-07-12", "lng": 25.8, "lat": 53.7, "note": "Pursuit toward the Neman", "source": "us-army-atlas" }
+    ],
+    "de-2nd-ss-panzer-division": [
+      { "date": "1945-03-06", "lng": 18.4, "lat": 47.0, "note": "Operation Frühlingserwachen jump-off (6th SS Panzer Army, Lake Balaton)", "source": "us-army-atlas" },
+      { "date": "1945-03-14", "lng": 18.8, "lat": 46.7, "note": "Deepest penetration toward the Danube / Sió canal", "source": "us-army-atlas" },
+      { "date": "1945-03-16", "lng": 18.5, "lat": 46.95, "note": "Halted; the Soviet counter-offensive begins", "source": "us-army-atlas" }
+    ],
+    "de-5th-ss-panzer-division": [
+      { "date": "1945-03-06", "lng": 18.6, "lat": 47.15, "note": "IV SS Panzer Corps attack north of Lake Velence (Balaton)", "source": "us-army-atlas" },
+      { "date": "1945-03-13", "lng": 18.9, "lat": 46.9, "note": "Toward the Danube at Dunaújváros", "source": "us-army-atlas" },
+      { "date": "1945-03-16", "lng": 18.6, "lat": 47.05, "note": "Pushed back by the Soviet counter-offensive", "source": "us-army-atlas" }
     ]
   }
 }
