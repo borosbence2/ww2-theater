@@ -53,6 +53,26 @@
     "su-army-13": [
       { "date": "1943-07-06", "lng": 36.0, "lat": 52.4, "note": "Holds the north face at Ponyri/Olkhovatka against Model's pincer (Kursk)", "source": "us-army-atlas" },
       { "date": "1943-07-12", "lng": 36.0, "lat": 52.45, "note": "The northern German thrust is stopped", "source": "us-army-atlas" }
+    ],
+    "de-2nd-panzer-division": [
+      { "date": "1941-11-30", "lng": 37.0, "lat": 56.05, "note": "Driving on Moscow via Klin–Solnechnogorsk (Operation Typhoon)", "source": "us-army-atlas" },
+      { "date": "1941-12-02", "lng": 37.48, "lat": 56.03, "note": "Reaches Krasnaya Polyana — the deepest German approach to Moscow (~30 km)", "source": "us-army-atlas" },
+      { "date": "1941-12-07", "lng": 37.0, "lat": 56.2, "note": "Thrown back by the Soviet winter counter-offensive", "source": "us-army-atlas" }
+    ],
+    "de-7th-panzer-division": [
+      { "date": "1941-11-28", "lng": 37.49, "lat": 56.31, "note": "Seizes a bridgehead over the Moscow–Volga canal at Yakhroma", "source": "us-army-atlas" },
+      { "date": "1941-12-05", "lng": 37.25, "lat": 56.33, "note": "Holds the canal line as Typhoon culminates", "source": "us-army-atlas" },
+      { "date": "1941-12-10", "lng": 36.8, "lat": 56.45, "note": "Withdrawing under the Kalinin Front counter-attack", "source": "us-army-atlas" }
+    ],
+    "su-gd-tank-army-2": [
+      { "date": "1945-01-14", "lng": 21.4, "lat": 51.75, "note": "Exploits from the Magnuszew bridgehead (Vistula–Oder offensive)", "source": "us-army-atlas" },
+      { "date": "1945-01-31", "lng": 14.7, "lat": 52.58, "note": "Reaches the Oder at Küstrin — ~70 km from Berlin", "source": "us-army-atlas" }
+    ],
+    "su-gd-tank-army-3": [
+      { "date": "1945-01-12", "lng": 21.7, "lat": 50.65, "note": "Breaks out of the Sandomierz bridgehead (Vistula–Oder offensive)", "source": "us-army-atlas" },
+      { "date": "1945-01-26", "lng": 16.3, "lat": 51.4, "note": "Reaches the Oder near Steinau", "source": "us-army-atlas" },
+      { "date": "1945-04-18", "lng": 14.7, "lat": 51.55, "note": "Crosses the Neisse on the drive to Berlin", "source": "us-army-atlas" },
+      { "date": "1945-04-24", "lng": 13.45, "lat": 52.42, "note": "Into Berlin from the south across the Teltow canal", "source": "us-army-atlas" }
     ]
   }
 }
