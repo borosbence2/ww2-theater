@@ -780,6 +780,22 @@ beyond the condensed `IMPLEMENTATION.md`:
       ladder, brass selected ring, leader-line tree, dim, hover glow + tooltip
       all render. 62/62 smoke, lint clean, build clean.
 
+## Accuracy pass — wrong-side clamp + fuller German OOB ✅
+Two map-fidelity fixes. 80/80 smoke, build + lint clean.
+- [x] **Side-clamp** (`build-units.mjs` `nudgeToSide`): ~0.3% of derived
+      unit-months landed on the wrong side at sharp bends / E-W segments
+      (Crimea, Caucasus) / the Leningrad loop / HQ centroids. The side-check now
+      nudges them perpendicular into their own territory (axisPolygon) and bakes
+      the corrected point. 90 corrected (side-check 99.7→99.8%); they re-place
+      near their along-line spot, flipped to the correct side.
+- [x] **Fuller German OOB** (`import-ldw.mjs`): the Lexikon der Wehrmacht parser
+      silently dropped panzer/jäger divisions (1 of ~24 panzers in the OOB). Three
+      markup quirks on those pages: the year heading is `<font size="5">` not
+      `<big><big>`; it carries a trailing `&nbsp;`; and the ordinal is German-first
+      ("2. Panzergruppe"). Fixed → **166 German divisions** parsed (was 142), all
+      24 panzer divisions with correct 1941 Panzergruppe assignments. Placed
+      German divisions 77 → 97 on 1941-10-15.
+
 ## Finnish / Arctic theatre ✅
 The theatre that was wholly absent (the main front stops at Leningrad) is now on
 the map. 80/80 smoke, build + lint clean.
