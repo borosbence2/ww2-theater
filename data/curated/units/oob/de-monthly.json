@@ -5082,11 +5082,82 @@
    ]
   },
   {
+   "id": "de-1st-cavalry-division",
+   "label": "1. Kavallerie-Division",
+   "events": [
+    [
+     "1939-11-01",
+     "de-h-armee-3",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-01-01",
+     "de-h-armee-18",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-06-01",
+     "de-h-pzarmee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-06-28",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-06-28",
+     "de-h-pzarmee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-07-17",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-28",
+     "de-h-pzarmee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-24",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-1st-infantry-division",
    "label": "1. Infanterie-Division",
    "events": [
     [
-     "1940-01-01",
+     "1939-08-23",
+     "de-h-armee-3",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1939-12-01",
      "de-h-armee-6",
      "de-h-hgr-b"
     ],
@@ -5173,229 +5244,99 @@
    "label": "1. Panzer-Division",
    "events": [
     [
-     "1939-01-01",
-     null,
-     null
-    ],
-    [
-     "1939-01-01",
-     "de-h-armee-18",
-     "de-h-hgr-b"
-    ],
-    [
-     "1939-01-01",
-     "de-h-pzarmee-3",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-01-01",
-     "de-h-armee-15",
-     null
-    ],
-    [
-     "1939-01-01",
-     null,
-     null
-    ],
-    [
-     "1939-01-01",
-     "de-h-armee-6",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1939-01-13",
-     "de-h-armee-9",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-02-01",
-     null,
-     null
-    ],
-    [
-     "1939-02-01",
-     "de-h-armee-6",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1939-02-13",
-     "de-h-armee-7",
-     null
-    ],
-    [
-     "1939-02-27",
-     "de-h-armee-9",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-03-01",
-     null,
-     null
-    ],
-    [
-     "1939-03-28",
-     "de-h-armee-9",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-04-01",
-     null,
-     null
-    ],
-    [
-     "1939-04-01",
-     "de-h-armee-6",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1939-05-01",
-     null,
-     null
-    ],
-    [
-     "1939-05-01",
-     "de-h-armee-6",
-     "de-h-hgr-ostmark"
-    ],
-    [
-     "1939-05-02",
-     "de-h-pzarmee-4",
-     null
-    ],
-    [
-     "1939-05-09",
-     null,
-     null
-    ],
-    [
-     "1939-05-14",
-     "de-h-armee-9",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-05-28",
-     null,
-     null
-    ],
-    [
-     "1939-06-01",
-     "de-h-pzarmee-4",
-     "de-h-hgr-nord"
-    ],
-    [
-     "1939-06-01",
-     null,
-     null
-    ],
-    [
-     "1939-07-01",
-     "de-h-armee-2",
-     null
-    ],
-    [
-     "1939-07-01",
-     null,
-     null
-    ],
-    [
-     "1939-07-08",
-     "de-h-armee-9",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-08-01",
-     null,
-     null
-    ],
-    [
-     "1939-08-06",
-     "de-h-armee-9",
-     "de-h-hgr-mitte"
-    ],
-    [
      "1939-09-01",
      "de-h-armee-10",
      "de-h-hgr-sued"
     ],
     [
-     "1939-09-01",
+     "1939-12-01",
      null,
      null
     ],
     [
-     "1939-09-05",
+     "1940-07-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1940-09-05",
      "de-h-armee-18",
      "de-h-hgr-b"
     ],
     [
-     "1939-10-01",
-     null,
+     "1941-05-02",
+     "de-h-pzarmee-4",
      null
     ],
     [
-     "1939-10-01",
-     "de-h-armee-6",
-     "de-h-hgr-sued"
+     "1941-06-01",
+     "de-h-pzarmee-4",
+     "de-h-hgr-nord"
     ],
     [
-     "1939-10-28",
-     null,
-     "de-h-hgr-sued"
-    ],
-    [
-     "1939-10-28",
-     null,
-     null
-    ],
-    [
-     "1939-11-01",
-     "de-h-armee-6",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1939-11-07",
-     null,
-     "de-h-hgr-sued"
-    ],
-    [
-     "1939-11-10",
-     null,
-     null
-    ],
-    [
-     "1939-11-17",
-     "de-h-armee-9",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-12-01",
-     null,
-     null
-    ],
-    [
-     "1939-12-01",
-     "de-h-armee-6",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1939-12-07",
+     "1941-12-07",
      "de-h-pzarmee-3",
      "de-h-hgr-mitte"
     ],
     [
-     "1939-12-15",
+     "1941-12-15",
      "de-h-pzarmee-3",
      "de-h-hgr-nord"
     ],
     [
-     "1939-12-15",
+     "1942-01-01",
+     "de-h-pzarmee-3",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-01-13",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-12-28",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1943-02-13",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1943-05-28",
      null,
      null
     ],
     [
-     "1939-12-28",
-     "de-h-armee-15",
+     "1943-10-28",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-10-28",
+     null,
      null
+    ],
+    [
+     "1943-11-07",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-11-10",
+     null,
+     null
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1945-05-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-ostmark"
     ]
    ]
   },
@@ -7047,6 +6988,87 @@
      "1945-02-01",
      "de-h-armee-2",
      "de-h-hgr-weichsel"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-23rd-panzer-division",
+   "label": "23. Panzer-Division",
+   "events": [
+    [
+     "1941-09-21",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1942-03-10",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-07-01",
+     null,
+     null
+    ],
+    [
+     "1942-07-07",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-08-27",
+     null,
+     null
+    ],
+    [
+     "1943-04-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-07-01",
+     null,
+     null
+    ],
+    [
+     "1943-08-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-09-01",
+     null,
+     null
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-8",
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-08-01",
+     null,
+     null
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-11-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
     ],
     [
      "1945-04-01",
@@ -8752,6 +8774,37 @@
    ]
   },
   {
+   "id": "de-26th-panzer-division",
+   "label": "26. Panzer-Division",
+   "events": [
+    [
+     "1942-10-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1943-05-01",
+     null,
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-14",
+     null
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-10",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-272nd-infantry-division",
    "label": "272. Infanterie-Division",
    "events": [
@@ -9976,203 +10029,138 @@
    "label": "2. Panzer-Division",
    "events": [
     [
-     "1939-01-01",
-     "de-h-armee-12",
-     "de-h-hgr-a"
-    ],
-    [
-     "1939-01-01",
-     "de-h-armee-17",
-     "de-h-hgr-b"
-    ],
-    [
-     "1939-01-01",
-     null,
-     null
-    ],
-    [
-     "1939-01-01",
-     "de-h-armee-9",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-01-01",
-     null,
-     null
-    ],
-    [
-     "1939-01-04",
-     "de-h-armee-9",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-01-15",
-     "de-h-armee-15",
-     null
-    ],
-    [
-     "1939-02-01",
-     "de-h-armee-17",
-     "de-h-hgr-b"
-    ],
-    [
-     "1939-02-01",
-     "de-h-armee-7",
-     "de-h-hgr-b"
-    ],
-    [
-     "1939-03-01",
-     "de-h-armee-12",
-     null
-    ],
-    [
-     "1939-04-01",
-     null,
-     null
-    ],
-    [
-     "1939-04-01",
-     "de-h-armee-7",
-     null
-    ],
-    [
-     "1939-05-01",
-     "de-h-armee-12",
-     "de-h-hgr-a"
-    ],
-    [
-     "1939-05-01",
-     "de-h-armee-12",
-     null
-    ],
-    [
-     "1939-05-01",
-     "de-h-armee-9",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-05-01",
-     null,
-     null
-    ],
-    [
-     "1939-05-01",
-     "de-h-armee-7",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-06-01",
-     null,
-     null
-    ],
-    [
-     "1939-06-02",
-     null,
-     "de-h-hgr-b"
-    ],
-    [
-     "1939-07-01",
-     null,
-     null
-    ],
-    [
-     "1939-07-01",
-     "de-h-armee-9",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-08-01",
-     null,
-     null
-    ],
-    [
      "1939-09-01",
      "de-h-armee-14",
      "de-h-hgr-sued"
     ],
     [
-     "1939-09-01",
+     "1940-01-01",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-01",
      null,
      null
     ],
     [
-     "1939-09-01",
+     "1940-11-01",
+     "de-h-armee-12",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-01-01",
+     "de-h-armee-17",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-03-01",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1941-06-01",
+     null,
+     null
+    ],
+    [
+     "1941-09-01",
      "de-h-armee-7",
      null
     ],
     [
-     "1939-09-01",
+     "1941-10-01",
+     "de-h-pzarmee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-12-10",
+     "de-h-pzarmee-3",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-01-01",
+     null,
+     null
+    ],
+    [
+     "1942-01-04",
      "de-h-armee-9",
      "de-h-hgr-mitte"
     ],
     [
-     "1939-09-01",
+     "1942-10-28",
+     null,
+     null
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-04-01",
+     null,
+     null
+    ],
+    [
+     "1943-07-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-09-01",
      "de-h-armee-4",
      "de-h-hgr-mitte"
     ],
     [
-     "1939-09-01",
-     "de-h-armee-7",
-     "de-h-hgr-b"
-    ],
-    [
-     "1939-09-18",
-     "de-h-armee-14",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1939-10-01",
-     "de-h-pzarmee-4",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-10-01",
-     "de-h-armee-7",
-     "de-h-hgr-b"
-    ],
-    [
-     "1939-10-04",
+     "1943-10-04",
      "de-h-armee-2",
      "de-h-hgr-mitte"
     ],
     [
-     "1939-10-12",
-     "de-h-pzarmee-4",
-     "de-h-hgr-mitte"
+     "1944-01-15",
+     "de-h-armee-15",
+     null
     ],
     [
-     "1939-10-28",
+     "1944-04-01",
      null,
      null
     ],
     [
-     "1939-11-01",
-     "de-h-armee-12",
+     "1944-06-02",
+     null,
      "de-h-hgr-b"
     ],
     [
-     "1939-11-01",
-     "de-h-armee-2",
-     "de-h-hgr-mitte"
+     "1944-08-01",
+     null,
+     null
     ],
     [
-     "1939-11-11",
-     "de-h-pzarmee-4",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-12-01",
-     "de-h-armee-2",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1939-12-01",
+     "1944-09-01",
      "de-h-armee-7",
      "de-h-hgr-b"
     ],
     [
-     "1939-12-10",
-     "de-h-pzarmee-3",
+     "1945-01-01",
+     null,
+     null
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1945-04-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1945-05-01",
+     "de-h-armee-7",
      "de-h-hgr-mitte"
     ]
    ]
@@ -12643,159 +12631,9 @@
      "de-h-hgr-b"
     ],
     [
-     "1940-01-01",
-     "de-h-armee-11",
-     null
-    ],
-    [
-     "1940-01-01",
-     "de-h-armee-2",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1940-01-01",
+     "1940-08-15",
      null,
      null
-    ],
-    [
-     "1940-01-01",
-     null,
-     "de-h-hgr-sued"
-    ],
-    [
-     "1940-01-01",
-     "de-h-armee-6",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1940-01-05",
-     "de-h-armee-2",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1940-02-01",
-     null,
-     null
-    ],
-    [
-     "1940-02-01",
-     "de-h-armee-6",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1940-03-01",
-     "de-h-armee-6",
-     "de-h-hgr-b"
-    ],
-    [
-     "1940-03-01",
-     null,
-     null
-    ],
-    [
-     "1940-03-01",
-     "de-h-armee-6",
-     "de-h-hgr-a"
-    ],
-    [
-     "1940-03-09",
-     "de-h-armee-6",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1940-04-01",
-     null,
-     null
-    ],
-    [
-     "1940-04-01",
-     "de-h-armee-6",
-     "de-h-hgr-suedukraine"
-    ],
-    [
-     "1940-04-01",
-     "de-h-armee-6",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1940-04-04",
-     "de-h-armee-11",
-     null
-    ],
-    [
-     "1940-04-11",
-     "de-h-armee-6",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1940-05-01",
-     "de-h-armee-6",
-     "de-h-hgr-b"
-    ],
-    [
-     "1940-05-01",
-     "de-h-armee-4",
-     "de-h-hgr-b"
-    ],
-    [
-     "1940-05-01",
-     "de-h-armee-6",
-     "de-h-hgr-suedukraine"
-    ],
-    [
-     "1940-05-01",
-     "de-h-armee-6",
-     "de-h-hgr-ostmark"
-    ],
-    [
-     "1940-05-12",
-     "de-h-armee-6",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1940-06-01",
-     "de-h-armee-6",
-     "de-h-hgr-b"
-    ],
-    [
-     "1940-06-01",
-     "de-h-pzarmee-2",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1940-06-01",
-     null,
-     null
-    ],
-    [
-     "1940-06-01",
-     "de-h-armee-6",
-     "de-h-hgr-suedukraine"
-    ],
-    [
-     "1940-07-01",
-     null,
-     null
-    ],
-    [
-     "1940-09-01",
-     null,
-     "de-h-hgr-nordukraine"
-    ],
-    [
-     "1940-09-01",
-     "de-h-armee-2",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1940-10-16",
-     null,
-     null
-    ],
-    [
-     "1940-11-01",
-     "de-h-armee-2",
-     "de-h-hgr-mitte"
     ],
     [
      "1940-11-15",
@@ -12803,14 +12641,79 @@
      null
     ],
     [
-     "1940-12-01",
-     null,
+     "1941-05-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-06-01",
+     "de-h-pzarmee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-12-25",
+     "de-h-armee-2",
      "de-h-hgr-sued"
     ],
     [
-     "1940-12-25",
+     "1942-01-05",
      "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-03-09",
+     "de-h-armee-6",
      "de-h-hgr-sued"
+    ],
+    [
+     "1942-07-01",
+     null,
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-8",
+     "de-h-hgr-nordukraine"
+    ],
+    [
+     "1943-11-01",
+     null,
+     null
+    ],
+    [
+     "1943-12-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-08-01",
+     null,
+     null
+    ],
+    [
+     "1944-09-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1945-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1945-05-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-ostmark"
     ]
    ]
   },

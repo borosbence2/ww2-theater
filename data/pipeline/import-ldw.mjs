@@ -240,7 +240,7 @@ for (const file of readdirSync(RAW)) {
     // Year heading: <big><big>1941</big></big> (infantry pages) OR
     // <font size="5">1941</font> (panzer/jäger pages) — the only-year content
     // guard keeps prose years (embedded in sentences) from matching.
-    /<big><big>(?:\s|&nbsp;)*(19[34]\d)(?:\s|&nbsp;)*<\/big><\/big>|<font[^>]*size="?[456]"?[^>]*>(?:\s|&nbsp;)*(19[34]\d)(?:\s|&nbsp;)*<\/font>|<tr[^>]*>([\s\S]*?)<\/tr>/g,
+    /<big><big>(?:\s|&nbsp;)*(19[34]\d)(?:\s|&nbsp;)*<\/big><\/big>|<font[^>]*size="?[456]"?[^>]*>(?:\s|&nbsp;|<\/?p[^>]*>)*(19[34]\d)(?:\s|&nbsp;|<\/?p[^>]*>)*<\/font>|<tr[^>]*>([\s\S]*?)<\/tr>/g,
   )) {
     if (tok[1] || tok[2]) {
       year = Number(tok[1] || tok[2]);

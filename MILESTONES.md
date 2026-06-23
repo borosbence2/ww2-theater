@@ -792,7 +792,10 @@ Two map-fidelity fixes. 80/80 smoke, build + lint clean.
       silently dropped panzer/jäger divisions (1 of ~24 panzers in the OOB). Three
       markup quirks on those pages: the year heading is `<font size="5">` not
       `<big><big>`; it carries a trailing `&nbsp;`; and the ordinal is German-first
-      ("2. Panzergruppe").
+      ("2. Panzergruppe"). A fourth: on some pages (e.g. 1. Panzer) the year sits
+      inside an extra `<p align="justify">` between `<font size="5">` and the
+      number, so only the first year matched and every later row inherited it —
+      1. Panzer's whole war was stuck in 1939 (hence unplaced). Now tolerated.
 - [x] **German harvest expansion** (`fetch-ldw.mjs`): the page harvester filtered
       index links by their *text*, but many are image links (empty text), so it
       missed low-numbered EF divisions (10./11./12. Infanterie, all panzers). Now
