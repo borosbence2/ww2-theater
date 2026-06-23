@@ -830,12 +830,17 @@ city-validation unchanged (1350 city-days), build clean.
       alarm — they are correctly curated (`de-h-pz-div-N`, Stalingrad showcase)
       and zero duplicate-name placements exist; the only residue is the HGr B /
       11. Armee dual-incarnation, the documented registry limitation.
-- [ ] **Front-geometry refinement** (deferred): the major salients are already
-      shaped (Rzhev, Kursk verified). The remaining work is city-validation
-      worklist reduction (1350 city-days, mostly timing) + per-date salient
-      *evolution* — e.g. the Voronezh salient's waypoints are shared across 9
-      keyframes and need to form/collapse independently. Deep iterative surgery,
-      best done as a focused, regression-safe follow-up.
+- [x] **Front-geometry refinement** (city-validation worklist 1350 → 1235,
+      −115): densified the main line (70 → 80 keyframes) at ten battles where it
+      crossed a city days off its documented capture — Demyansk, Miskolc, Danzig,
+      Pskov, Kalach, Budapest, Velikiye Luki, Kotelnikovo (the 30-day
+      Wintergewitter gap), Nevel, Dnipropetrovsk, Rzhev. Each is an interpolated
+      intermediate keyframe nudged only in a narrow latitude band, so no side
+      effects elsewhere; each multi-week mismatch is now a 1–3 day transition
+      blip. Remaining worklist is the harder classes — the Voronezh salient loop
+      (shared across keyframes, needs form/collapse evolution), the
+      Voroshilovgrad/Orel sustained sags (dense-area re-trace), and the Caucasus
+      E-W segments (Mozdok — perpendicular convention) — left for a later pass.
 
 ## Finnish / Arctic theatre ✅
 The theatre that was wholly absent (the main front stops at Leningrad) is now on
