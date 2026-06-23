@@ -792,9 +792,20 @@ Two map-fidelity fixes. 80/80 smoke, build + lint clean.
       silently dropped panzer/jäger divisions (1 of ~24 panzers in the OOB). Three
       markup quirks on those pages: the year heading is `<font size="5">` not
       `<big><big>`; it carries a trailing `&nbsp;`; and the ordinal is German-first
-      ("2. Panzergruppe"). Fixed → **166 German divisions** parsed (was 142), all
-      24 panzer divisions with correct 1941 Panzergruppe assignments. Placed
-      German divisions 77 → 97 on 1941-10-15.
+      ("2. Panzergruppe").
+- [x] **German harvest expansion** (`fetch-ldw.mjs`): the page harvester filtered
+      index links by their *text*, but many are image links (empty text), so it
+      missed low-numbered EF divisions (10./11./12. Infanterie, all panzers). Now
+      it keys off the href (`10ID.htm`), synthesizes the German label from the
+      filename, and bootstraps the small all-EF indexes (Panzer/PzGr/Gebirgs/
+      leichte/Kavallerie) so LdW-only divisions with no Wikidata scaffold are
+      created. Harvest 178 → 334 pages, **OOB 142 → 321 divisions**, 329 with
+      parents. **Placed German divisions 77 → 146 on 1941-10-15** (a realistic
+      146 axis / 206 soviet). Total unmapped 464 → 396 — the remainder is
+      correctly off-map: Luftwaffe flak/parachute, Soviet aviation/NKVD/1941-
+      ephemeral divisions, and West-front/occupation German divisions. (Known
+      nuance: 14./16./24. Panzer fold into their infantry-incarnation scaffolds —
+      the documented formation-ordinal limitation.)
 
 ## Finnish / Arctic theatre ✅
 The theatre that was wholly absent (the main front stops at Leningrad) is now on

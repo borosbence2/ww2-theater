@@ -10,11 +10,11 @@ The full target design and phased roadmap live in [REWRITE_PLAN.md](./REWRITE_PL
 
 > **Status: the Eastern Front is simulated, Barbarossa → Berlin.** The moving
 > multi-feature front (main line, pockets, sieges, daily city control) is now
-> populated by **2,136 military units**: the curated Stalingrad showcase
+> populated by **2,202 military units**: the curated Stalingrad showcase
 > (6. Armee's order of battle down to 13th Guards' regiments, commander
-> successions, documented position tracks), plus **1,569 units at daily
+> successions, documented position tracks), plus **~1,770 units at daily
 > sector-derived positions** — every Soviet rifle/guards/cavalry division from
-> the monthly *Boevoi sostav* lists and German divisions from Lexikon der
+> the monthly *Boevoi sostav* lists and **321 German divisions** from Lexikon der
 > Wehrmacht *Unterstellung* tables, plus Soviet tank/mech corps and brigades
 > from the armored-forces column, distributed along authored army sectors and
 > riding the interpolated front (hollow icons = derived, solid = documented).

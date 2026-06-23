@@ -11,6 +11,18 @@
    "n": 9
   },
   {
+   "id": "de-h-armee-18",
+   "n": 18
+  },
+  {
+   "id": "de-h-armee-2",
+   "n": 2
+  },
+  {
+   "id": "de-h-armee-4",
+   "n": 4
+  },
+  {
    "id": "de-h-armee-15",
    "n": 15
   },
@@ -27,12 +39,8 @@
    "n": 16
   },
   {
-   "id": "de-h-armee-4",
-   "n": 4
-  },
-  {
-   "id": "de-h-armee-2",
-   "n": 2
+   "id": "de-h-armee-12",
+   "n": 12
   },
   {
    "id": "de-h-armee-1",
@@ -45,14 +53,6 @@
   {
    "id": "de-h-armee-7",
    "n": 7
-  },
-  {
-   "id": "de-h-armee-12",
-   "n": 12
-  },
-  {
-   "id": "de-h-armee-18",
-   "n": 18
   },
   {
    "id": "de-h-armee-3",
@@ -77,9 +77,19 @@
  ],
  "armyGroups": [
   {
+   "id": "de-h-hgr-b",
+   "name": "Heeresgruppe B",
+   "en": "Army Group B"
+  },
+  {
    "id": "de-h-hgr-mitte",
    "name": "Heeresgruppe Mitte",
    "en": "Army Group Centre"
+  },
+  {
+   "id": "de-h-hgr-nord",
+   "name": "Heeresgruppe Nord",
+   "en": "Army Group North"
   },
   {
    "id": "de-h-hgr-sued",
@@ -97,19 +107,9 @@
    "en": "Army Group A"
   },
   {
-   "id": "de-h-hgr-b",
-   "name": "Heeresgruppe B",
-   "en": "Army Group B"
-  },
-  {
    "id": "de-h-hgr-don",
    "name": "Heeresgruppe Don",
    "en": "Army Group Don"
-  },
-  {
-   "id": "de-h-hgr-nord",
-   "name": "Heeresgruppe Nord",
-   "en": "Army Group North"
   },
   {
    "id": "de-h-hgr-kurland",
@@ -135,18 +135,18 @@
  "armeeabteilungen": [],
  "created": [
   {
-   "id": "de-127th-infantry-division",
+   "id": "de-10th-panzergrenadier-division",
    "country": "DE",
    "branch": "heer",
    "echelon": "division",
-   "type": "infantry",
-   "short": "127. ID",
+   "type": "motorized",
+   "short": "10. Pan",
    "names": [
     {
      "from": "1939-09-01",
-     "name": "127th Infantry Division",
+     "name": "10th Panzergrenadier Division",
      "aliases": [
-      "127. Infanteriedivision"
+      "10. Panzergrenadier-Division"
      ]
     }
    ],
@@ -161,18 +161,122 @@
    "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
   },
   {
-   "id": "de-133rd-infantry-division",
+   "id": "de-157th-mountain-division",
    "country": "DE",
    "branch": "heer",
    "echelon": "division",
    "type": "infantry",
-   "short": "133. ID",
+   "short": "157. Mou",
    "names": [
     {
      "from": "1939-09-01",
-     "name": "133rd Infantry Division",
+     "name": "157th Mountain Division",
      "aliases": [
-      "133. Infanteriedivision"
+      "157. Gebirgs-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-15th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "15. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "15th Infantry Division",
+     "aliases": [
+      "15. Infanterie-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-15th-panzergrenadier-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "motorized",
+   "short": "15. Pan",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "15th Panzergrenadier Division",
+     "aliases": [
+      "15. Panzergrenadier-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-167th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "167. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "167th Infantry Division",
+     "aliases": [
+      "167. Infanterie-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-178th-panzer-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "armoured",
+   "short": "178. Pan",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "178th Panzer Division",
+     "aliases": [
+      "178. Panzer-Division"
      ]
     }
    ],
@@ -198,7 +302,7 @@
      "from": "1939-09-01",
      "name": "181st Infantry Division",
      "aliases": [
-      "181. Infanteriedivision"
+      "181. Infanterie-Division"
      ]
     }
    ],
@@ -224,7 +328,7 @@
      "from": "1939-09-01",
      "name": "18th Infantry Division",
      "aliases": [
-      "18. Infanteriedivision"
+      "18. Infanterie-Division"
      ]
     }
    ],
@@ -250,7 +354,7 @@
      "from": "1939-09-01",
      "name": "199th Infantry Division",
      "aliases": [
-      "199. Infanteriedivision"
+      "199. Infanterie-Division"
      ]
     }
    ],
@@ -291,6 +395,32 @@
    "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
   },
   {
+   "id": "de-20th-panzergrenadier-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "motorized",
+   "short": "20. Pan",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "20th Panzergrenadier Division",
+     "aliases": [
+      "20. Panzergrenadier-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
    "id": "de-210th-infantry-division",
    "country": "DE",
    "branch": "heer",
@@ -302,7 +432,7 @@
      "from": "1939-09-01",
      "name": "210th Infantry Division",
      "aliases": [
-      "210. Infanteriedivision"
+      "210. Infanterie-Division"
      ]
     }
    ],
@@ -328,7 +458,7 @@
      "from": "1939-09-01",
      "name": "221st Infantry Division",
      "aliases": [
-      "221. Infanteriedivision"
+      "221. Infanterie-Division"
      ]
     }
    ],
@@ -354,7 +484,85 @@
      "from": "1939-09-01",
      "name": "22nd Infantry Division",
      "aliases": [
-      "22. Infanteriedivision"
+      "22. Infanterie-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-232nd-panzer-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "armoured",
+   "short": "232. Pan",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "232nd Panzer Division",
+     "aliases": [
+      "232. Panzer-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-233rd-panzergrenadier-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "motorized",
+   "short": "233. Pan",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "233rd Panzergrenadier Division",
+     "aliases": [
+      "233. Panzergrenadier-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-23rd-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "23. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "23rd Infantry Division",
+     "aliases": [
+      "23. Infanterie-Division"
      ]
     }
    ],
@@ -380,7 +588,7 @@
      "from": "1939-09-01",
      "name": "242nd Infantry Division",
      "aliases": [
-      "242. Infanteriedivision"
+      "242. Infanterie-Division"
      ]
     }
    ],
@@ -406,7 +614,7 @@
      "from": "1939-09-01",
      "name": "243rd Infantry Division",
      "aliases": [
-      "243. Infanteriedivision"
+      "243. Infanterie-Division"
      ]
     }
    ],
@@ -432,7 +640,7 @@
      "from": "1939-09-01",
      "name": "244th Infantry Division",
      "aliases": [
-      "244. Infanteriedivision"
+      "244. Infanterie-Division"
      ]
     }
    ],
@@ -458,7 +666,7 @@
      "from": "1939-09-01",
      "name": "250th Infantry Division",
      "aliases": [
-      "250. Infanteriedivision"
+      "250. Infanterie-Division"
      ]
     }
    ],
@@ -484,7 +692,7 @@
      "from": "1939-09-01",
      "name": "25th Infantry Division",
      "aliases": [
-      "25. Infanteriedivision"
+      "25. Infanterie-Division"
      ]
     }
    ],
@@ -499,18 +707,44 @@
    "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
   },
   {
-   "id": "de-2nd-cavalry-division",
+   "id": "de-28th-infantry-division",
    "country": "DE",
    "branch": "heer",
    "echelon": "division",
-   "type": "cavalry",
-   "short": "2. Cav",
+   "type": "infantry",
+   "short": "28. ID",
    "names": [
     {
      "from": "1939-09-01",
-     "name": "2nd Cavalry Division",
+     "name": "28th Infantry Division",
      "aliases": [
-      "2. Kavallerie-Division"
+      "28. Infanterie-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-2nd-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "2. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "2nd Infantry Division",
+     "aliases": [
+      "2. Infanterie-Division"
      ]
     }
    ],
@@ -536,7 +770,7 @@
      "from": "1939-09-01",
      "name": "311th Infantry Division",
      "aliases": [
-      "311. Infanteriedivision"
+      "311. Infanterie-Division"
      ]
     }
    ],
@@ -562,7 +796,7 @@
      "from": "1939-09-01",
      "name": "331st Infantry Division",
      "aliases": [
-      "331. Infanteriedivision"
+      "331. Infanterie-Division"
      ]
     }
    ],
@@ -588,7 +822,7 @@
      "from": "1939-09-01",
      "name": "357th Infantry Division",
      "aliases": [
-      "357. Infanteriedivision"
+      "357. Infanterie-Division"
      ]
     }
    ],
@@ -614,7 +848,7 @@
      "from": "1939-09-01",
      "name": "362nd Infantry Division",
      "aliases": [
-      "362. Infanteriedivision"
+      "362. Infanterie-Division"
      ]
     }
    ],
@@ -640,7 +874,7 @@
      "from": "1939-09-01",
      "name": "367th Infantry Division",
      "aliases": [
-      "367. Infanteriedivision"
+      "367. Infanterie-Division"
      ]
     }
    ],
@@ -666,7 +900,59 @@
      "from": "1939-09-01",
      "name": "372nd Infantry Division",
      "aliases": [
-      "372. Infanteriedivision"
+      "372. Infanterie-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-462nd-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "462. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "462nd Infantry Division",
+     "aliases": [
+      "462. Infanterie-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-4th-cavalry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "cavalry",
+   "short": "4. Cav",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "4th Cavalry Division",
+     "aliases": [
+      "4. Kavallerie-Division"
      ]
     }
    ],
@@ -707,6 +993,32 @@
    "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
   },
   {
+   "id": "de-542nd-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "542. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "542nd Infantry Division",
+     "aliases": [
+      "542. Infanterie-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
    "id": "de-59th-infantry-division",
    "country": "DE",
    "branch": "heer",
@@ -718,7 +1030,33 @@
      "from": "1939-09-01",
      "name": "59th Infantry Division",
      "aliases": [
-      "59. Infanteriedivision"
+      "59. Infanterie-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-5th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "5. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "5th Infantry Division",
+     "aliases": [
+      "5. Infanterie-Division"
      ]
     }
    ],
@@ -796,7 +1134,7 @@
      "from": "1939-09-01",
      "name": "707th Infantry Division",
      "aliases": [
-      "707. Infanteriedivision"
+      "707. Infanterie-Division"
      ]
     }
    ],
@@ -822,7 +1160,7 @@
      "from": "1939-09-01",
      "name": "708th Infantry Division",
      "aliases": [
-      "708. Infanteriedivision"
+      "708. Infanterie-Division"
      ]
     }
    ],
@@ -848,7 +1186,7 @@
      "from": "1939-09-01",
      "name": "711th Infantry Division",
      "aliases": [
-      "711. Infanteriedivision"
+      "711. Infanterie-Division"
      ]
     }
    ],
@@ -874,7 +1212,7 @@
      "from": "1939-09-01",
      "name": "715th Infantry Division",
      "aliases": [
-      "715. Infanteriedivision"
+      "715. Infanterie-Division"
      ]
     }
    ],
@@ -900,7 +1238,7 @@
      "from": "1939-09-01",
      "name": "716th Infantry Division",
      "aliases": [
-      "716. Infanteriedivision"
+      "716. Infanterie-Division"
      ]
     }
    ],
@@ -926,7 +1264,7 @@
      "from": "1939-09-01",
      "name": "84th Infantry Division",
      "aliases": [
-      "84. Infanteriedivision"
+      "84. Infanterie-Division"
      ]
     }
    ],
@@ -952,7 +1290,111 @@
      "from": "1939-09-01",
      "name": "85th Infantry Division",
      "aliases": [
-      "85. Infanteriedivision"
+      "85. Infanterie-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-8th-infantry-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "8. ID",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "8th Infantry Division",
+     "aliases": [
+      "8. Infanterie-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-90th-panzergrenadier-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "motorized",
+   "short": "90. Pan",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "90th Panzergrenadier Division",
+     "aliases": [
+      "90. Panzergrenadier-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-999th-jager-division",
+   "country": "DE",
+   "branch": "heer",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "999. Jäg",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "999th Jäger Division",
+     "aliases": [
+      "999. Jäger-Division"
+     ]
+    }
+   ],
+   "existence": [
+    {
+     "from": "1939-09-01"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "notes": "Identity from Lexikon der Wehrmacht (absent from the Wikidata division tree). Lifecycle dates coarse."
+  },
+  {
+   "id": "de-1st-ss-panzer-division",
+   "country": "DE",
+   "branch": "waffen-ss",
+   "echelon": "division",
+   "type": "armoured",
+   "short": "1. SS ",
+   "names": [
+    {
+     "from": "1939-09-01",
+     "name": "1st SS Panzer Division",
+     "aliases": [
+      "SS-Division Leibstandarte SS Adolf Hitler"
      ]
     }
    ],
@@ -1073,8 +1515,94 @@
  ],
  "divisions": [
   {
+   "id": "de-102nd-infantry-division",
+   "label": "102. Infanterie-Division",
+   "events": [
+    [
+     "1940-11-15",
+     null,
+     null
+    ],
+    [
+     "1941-01-01",
+     "de-h-armee-11",
+     null
+    ],
+    [
+     "1941-05-25",
+     "de-h-armee-9",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-06-22",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-07-21",
+     null,
+     null
+    ],
+    [
+     "1941-08-07",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-03-14",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1943-04-01",
+     null,
+     null
+    ],
+    [
+     "1943-04-23",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-08-12",
+     null,
+     null
+    ],
+    [
+     "1943-08-28",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-05-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-07-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-4",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-106th-infantry-division",
-   "label": "106. Infanteriedivision",
+   "label": "106. Infanterie-Division",
    "events": [
     [
      "1940-12-01",
@@ -1144,6 +1672,97 @@
     [
      "1945-04-01",
      "de-h-armee-19",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-10th-infantry-division",
+   "label": "10. Infanterie-Division",
+   "events": [
+    [
+     "1939-08-26",
+     null,
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-05-10",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-05-19",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-21",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-23",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-04",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1940-07-12",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1940-09-13",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1940-09-23",
+     null,
+     null
+    ],
+    [
+     "1940-11-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-11",
+     null
+    ],
+    [
+     "1941-05-01",
+     "de-h-pzarmee-2",
+     null
+    ],
+    [
+     "1941-06-11",
+     "de-h-pzarmee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-25",
+     null,
+     null
+    ],
+    [
+     "1941-12-28",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-04-02",
+     null,
      null
     ]
    ]
@@ -1220,8 +1839,69 @@
    ]
   },
   {
+   "id": "de-10th-panzergrenadier-division",
+   "label": "10. Panzergrenadier-Division",
+   "events": [
+    [
+     "1943-06-16",
+     null,
+     null
+    ],
+    [
+     "1943-07-08",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-07-18",
+     null,
+     null
+    ],
+    [
+     "1943-10-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-11-01",
+     null,
+     null
+    ],
+    [
+     "1943-12-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-8",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-05-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-10-01",
+     null,
+     null
+    ],
+    [
+     "1945-01-01",
+     "de-h-armee-17",
+     "de-h-hgr-a"
+    ],
+    [
+     "1945-02-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-110th-infantry-division",
-   "label": "110. Infanteriedivision",
+   "label": "110. Infanterie-Division",
    "events": [
     [
      "1940-12-01",
@@ -1287,7 +1967,7 @@
   },
   {
    "id": "de-111th-infantry-division",
-   "label": "111. Infanteriedivision",
+   "label": "111. Infanterie-Division",
    "events": [
     [
      "1940-11-01",
@@ -1358,7 +2038,7 @@
   },
   {
    "id": "de-112th-infantry-division",
-   "label": "112. Infanteriedivision",
+   "label": "112. Infanterie-Division",
    "events": [
     [
      "1940-12-10",
@@ -1455,6 +2135,92 @@
      "1945-04-01",
      "de-h-armee-11",
      null
+    ]
+   ]
+  },
+  {
+   "id": "de-11th-infantry-division",
+   "label": "11. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-3",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-01-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-03-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-06-21",
+     "de-h-armee-18",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-07-03",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-11-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1941-03-10",
+     "de-h-armee-18",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-18",
+     null
+    ],
+    [
+     "1941-06-22",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1941-07-15",
+     "de-h-pzarmee-4",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1941-07-28",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1941-12-03",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-03-01",
+     null,
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-18",
+     "de-h-hgr-kurland"
     ]
    ]
   },
@@ -1556,7 +2322,7 @@
   },
   {
    "id": "de-121st-infantry-division",
-   "label": "121. Infanteriedivision",
+   "label": "121. Infanterie-Division",
    "events": [
     [
      "1940-10-05",
@@ -1626,74 +2392,8 @@
    ]
   },
   {
-   "id": "de-121st-infantry-division",
-   "label": "121. Infanteriedivision",
-   "events": [
-    [
-     "1940-11-01",
-     "de-h-armee-11",
-     null
-    ],
-    [
-     "1941-04-01",
-     "de-h-armee-4",
-     "de-h-hgr-b"
-    ],
-    [
-     "1941-06-04",
-     "de-h-armee-4",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1941-07-28",
-     "de-h-armee-2",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1941-11-01",
-     null,
-     null
-    ],
-    [
-     "1942-01-01",
-     "de-h-armee-4",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1943-09-01",
-     "de-h-armee-9",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1944-01-01",
-     null,
-     null
-    ],
-    [
-     "1944-04-01",
-     "de-h-armee-2",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1944-06-01",
-     null,
-     null
-    ],
-    [
-     "1944-07-01",
-     "de-h-armee-4",
-     "de-h-hgr-mitte"
-    ],
-    [
-     "1945-04-01",
-     null,
-     null
-    ]
-   ]
-  },
-  {
    "id": "de-122nd-infantry-division",
-   "label": "122. Infanteriedivision",
+   "label": "122. Infanterie-Division",
    "events": [
     [
      "1940-11-01",
@@ -1774,7 +2474,7 @@
   },
   {
    "id": "de-123rd-infantry-division",
-   "label": "123. Infanteriedivision",
+   "label": "123. Infanterie-Division",
    "events": [
     [
      "1940-11-01",
@@ -1815,7 +2515,7 @@
   },
   {
    "id": "de-125th-infantry-division",
-   "label": "125. Infanteriedivision",
+   "label": "125. Infanterie-Division",
    "events": [
     [
      "1940-10-16",
@@ -1876,7 +2576,7 @@
   },
   {
    "id": "de-126th-infantry-division",
-   "label": "126. Infanteriedivision",
+   "label": "126. Infanterie-Division",
    "events": [
     [
      "1940-10-12",
@@ -1936,104 +2636,8 @@
    ]
   },
   {
-   "id": "de-127th-infantry-division",
-   "label": "127. Infanteriedivision",
-   "events": [
-    [
-     "1940-11-04",
-     "de-h-armee-2",
-     null
-    ],
-    [
-     "1941-06-28",
-     null,
-     null
-    ],
-    [
-     "1941-07-25",
-     "de-h-armee-6",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1941-09-28",
-     null,
-     null
-    ],
-    [
-     "1941-10-17",
-     "de-h-armee-11",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1942-07-11",
-     "de-h-armee-11",
-     "de-h-hgr-a"
-    ],
-    [
-     "1942-09-03",
-     "de-h-armee-18",
-     "de-h-hgr-nord"
-    ],
-    [
-     "1942-09-06",
-     "de-h-armee-11",
-     "de-h-hgr-nord"
-    ],
-    [
-     "1942-10-19",
-     "de-h-armee-18",
-     "de-h-hgr-nord"
-    ],
-    [
-     "1943-11-14",
-     null,
-     null
-    ],
-    [
-     "1943-11-19",
-     "de-h-armee-16",
-     "de-h-hgr-nord"
-    ],
-    [
-     "1944-08-01",
-     "de-h-armee-18",
-     "de-h-hgr-nord"
-    ],
-    [
-     "1944-10-01",
-     "de-h-armee-16",
-     "de-h-hgr-nord"
-    ],
-    [
-     "1944-11-01",
-     "de-h-armee-18",
-     "de-h-hgr-nord"
-    ],
-    [
-     "1944-12-01",
-     "de-h-armee-16",
-     "de-h-hgr-nord"
-    ],
-    [
-     "1945-01-01",
-     "de-h-armee-18",
-     "de-h-hgr-nord"
-    ],
-    [
-     "1945-02-01",
-     "de-h-armee-18",
-     "de-h-hgr-kurland"
-    ],
-    [
-     "1945-06-01",
-     null,
-     null
-    ]
-   ]
-  },
-  {
    "id": "de-129th-infantry-division",
-   "label": "129. Infanteriedivision",
+   "label": "129. Infanterie-Division",
    "events": [
     [
      "1940-11-01",
@@ -2124,6 +2728,52 @@
      "1945-04-01",
      null,
      null
+    ]
+   ]
+  },
+  {
+   "id": "de-12th-infantry-division",
+   "label": "12. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-3",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-05-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-08-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-09-04",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-05-26",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-01-01",
+     null,
+     null
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
     ]
    ]
   },
@@ -2274,8 +2924,170 @@
    ]
   },
   {
-   "id": "de-133rd-infantry-division",
-   "label": "133. Infanteriedivision",
+   "id": "de-131st-infantry-division",
+   "label": "131. Infanterie-Division",
+   "events": [
+    [
+     "1940-11-01",
+     "de-h-armee-11",
+     null
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-06-04",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-07-28",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-11-01",
+     null,
+     null
+    ],
+    [
+     "1942-01-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-01-01",
+     null,
+     null
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-06-01",
+     null,
+     null
+    ],
+    [
+     "1944-07-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-132nd-infantry-division",
+   "label": "132. Infanterie-Division",
+   "events": [
+    [
+     "1940-11-04",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1941-06-28",
+     null,
+     null
+    ],
+    [
+     "1941-07-25",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-09-28",
+     null,
+     null
+    ],
+    [
+     "1941-10-17",
+     "de-h-armee-11",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-07-11",
+     "de-h-armee-11",
+     "de-h-hgr-a"
+    ],
+    [
+     "1942-09-03",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1942-09-06",
+     "de-h-armee-11",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1942-10-19",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1943-11-14",
+     null,
+     null
+    ],
+    [
+     "1943-11-19",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-11-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-12-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-01-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-18",
+     "de-h-hgr-kurland"
+    ],
+    [
+     "1945-06-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-134th-infantry-division",
+   "label": "134. Infanterie-Division",
    "events": [
     [
      "1940-11-01",
@@ -2356,7 +3168,7 @@
   },
   {
    "id": "de-137th-infantry-division",
-   "label": "137. Infanteriedivision",
+   "label": "137. Infanterie-Division",
    "events": [
     [
      "1940-11-01",
@@ -2407,6 +3219,37 @@
      "1943-09-01",
      "de-h-armee-2",
      "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-13th-infantry-division",
+   "label": "13. Infanterie-Division",
+   "events": [
+    [
+     "1939-08-24",
+     "de-h-armee-10",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-10-11",
+     null,
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-10-13",
+     null,
+     null
+    ],
+    [
+     "1940-05-01",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-01",
+     null,
+     null
     ]
    ]
   },
@@ -2487,6 +3330,282 @@
    ]
   },
   {
+   "id": "de-148th-infantry-division",
+   "label": "148. Infanterie-Division",
+   "events": [
+    [
+     "1944-09-18",
+     null,
+     null
+    ],
+    [
+     "1944-11-01",
+     "de-h-armee-14",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-14th-infantry-division",
+   "label": "14. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-10",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1939-11-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-06-01",
+     null,
+     null
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1940-10-01",
+     null,
+     null
+    ],
+    [
+     "1940-10-04",
+     "de-h-armee-11",
+     null
+    ],
+    [
+     "1940-11-16",
+     "de-h-pzarmee-1",
+     null
+    ],
+    [
+     "1940-12-01",
+     "de-h-armee-11",
+     null
+    ],
+    [
+     "1941-04-15",
+     "de-h-pzarmee-3",
+     null
+    ],
+    [
+     "1941-07-03",
+     "de-h-pzarmee-3",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-07-28",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-03",
+     "de-h-pzarmee-3",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-09-28",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-05",
+     "de-h-pzarmee-3",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-01-01",
+     null,
+     null
+    ],
+    [
+     "1942-02-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-03-25",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-08-27",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-09-21",
+     null,
+     null
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-4",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-155th-infantry-division",
+   "label": "155. Infanterie-Division",
+   "events": [
+    [
+     "1944-11-11",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-157th-mountain-division",
+   "label": "157. Gebirgs-Division",
+   "events": [
+    [
+     "1944-10-01",
+     null,
+     "de-h-hgr-b"
+    ],
+    [
+     "1945-01-01",
+     "de-h-armee-10",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-159th-infantry-division",
+   "label": "159. Infanterie-Division",
+   "events": [
+    [
+     "1944-10-01",
+     "de-h-armee-19",
+     null
+    ],
+    [
+     "1945-03-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-15th-infantry-division",
+   "label": "15. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-10",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1940-09-12",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1941-07-01",
+     null,
+     null
+    ],
+    [
+     "1941-08-04",
+     "de-h-pzarmee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-08",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-02-01",
+     null,
+     null
+    ],
+    [
+     "1942-05-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1942-06-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1943-02-18",
+     null,
+     null
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-08-01",
+     null,
+     null
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-15th-panzer-division",
    "label": "15. Panzer-Division",
    "events": [
@@ -2508,8 +3627,55 @@
    ]
   },
   {
+   "id": "de-15th-panzergrenadier-division",
+   "label": "15. Panzergrenadier-Division",
+   "events": [
+    [
+     "1943-07-01",
+     null,
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1944-06-01",
+     "de-h-armee-14",
+     null
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-1",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-09-01",
+     "de-h-armee-19",
+     null
+    ],
+    [
+     "1944-10-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-160th-infantry-division",
+   "label": "160. Infanterie-Division",
+   "events": [
+    [
+     "1945-03-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-161st-infantry-division",
-   "label": "161. Infanteriedivision",
+   "label": "161. Infanterie-Division",
    "events": [
     [
      "1939-12-01",
@@ -2624,8 +3790,265 @@
    ]
   },
   {
+   "id": "de-162nd-infantry-division",
+   "label": "162. Infanterie-Division",
+   "events": [
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-18",
+     null
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-9",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-01",
+     null,
+     null
+    ],
+    [
+     "1941-10-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-163rd-infantry-division",
+   "label": "163. Infanterie-Division",
+   "events": [
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-11",
+     "de-h-hgr-weichsel"
+    ],
+    [
+     "1945-03-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-164th-infantry-division",
+   "label": "164. Infanterie-Division",
+   "events": [
+    [
+     "1939-11-27",
+     null,
+     null
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-08-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-12-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1941-01-01",
+     "de-h-armee-12",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-164th-infantry-division",
+   "label": "164. Jäger-Division",
+   "events": [
+    [
+     "1942-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-166th-infantry-division",
+   "label": "166. Infanterie-Division",
+   "events": [
+    [
+     "1945-03-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-167th-infantry-division",
+   "label": "167. Infanterie-Division",
+   "events": [
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1941-03-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-11",
+     null
+    ],
+    [
+     "1941-06-22",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-19",
+     null,
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ]
+   ]
+  },
+  {
+   "id": "de-168th-infantry-division",
+   "label": "168. Infanterie-Division",
+   "events": [
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-01-01",
+     "de-h-armee-17",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-05-01",
+     "de-h-armee-6",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-18",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-12",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-2",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-09-01",
+     null,
+     "de-h-hgr-b"
+    ],
+    [
+     "1943-02-01",
+     null,
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-11-01",
+     null,
+     null
+    ],
+    [
+     "1945-04-01",
+     "de-h-armee-17",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
    "id": "de-169th-infantry-division",
-   "label": "169. Infanteriedivision",
+   "label": "169. Infanterie-Division",
    "events": [
     [
      "1939-12-01",
@@ -2665,8 +4088,156 @@
    ]
   },
   {
+   "id": "de-16th-infantry-division",
+   "label": "16. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-5",
+     null
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-05-18",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-6",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1940-08-01",
+     null,
+     null
+    ],
+    [
+     "1940-11-03",
+     "de-h-armee-11",
+     null
+    ],
+    [
+     "1940-12-08",
+     null,
+     null
+    ],
+    [
+     "1940-12-12",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1941-04-06",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1941-04-28",
+     null,
+     null
+    ],
+    [
+     "1941-07-01",
+     "de-h-pzarmee-1",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-10-01",
+     "de-h-pzarmee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-11-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-02-01",
+     "de-h-armee-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-07-01",
+     null,
+     null
+    ],
+    [
+     "1943-04-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-08-01",
+     null,
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-19",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-16th-ss-panzergrenadier-division-reichsfuhrer-ss",
+   "label": "16. Panzergrenadier-Division",
+   "events": [
+    [
+     "1943-06-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-09-01",
+     null,
+     null
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ]
+   ]
+  },
+  {
+   "id": "de-176th-infantry-division",
+   "label": "176. Infanterie-Division",
+   "events": [
+    [
+     "1944-11-01",
+     null,
+     null
+    ],
+    [
+     "1945-01-01",
+     "de-h-armee-15",
+     "de-h-hgr-b"
+    ]
+   ]
+  },
+  {
    "id": "de-17th-infantry-division",
-   "label": "17. Infanteriedivision",
+   "label": "17. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -2868,7 +4439,7 @@
   },
   {
    "id": "de-181st-infantry-division",
-   "label": "181. Infanteriedivision",
+   "label": "181. Infanterie-Division",
    "events": [
     [
      "1939-12-01",
@@ -2878,8 +4449,106 @@
    ]
   },
   {
+   "id": "de-182nd-infantry-division",
+   "label": "182. Infanterie-Division",
+   "events": [
+    [
+     "1942-09-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1945-04-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ]
+   ]
+  },
+  {
+   "id": "de-183rd-infantry-division",
+   "label": "183. Infanterie-Division",
+   "events": [
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-16",
+     null
+    ],
+    [
+     "1940-07-01",
+     null,
+     null
+    ],
+    [
+     "1940-11-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1941-07-01",
+     null,
+     null
+    ],
+    [
+     "1941-10-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-02-01",
+     null,
+     null
+    ],
+    [
+     "1943-02-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-188th-reserve-mountain-division",
+   "label": "188. Gebirgs-Division",
+   "events": [
+    [
+     "1944-01-01",
+     null,
+     null
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-14",
+     null
+    ],
+    [
+     "1944-09-01",
+     null,
+     null
+    ],
+    [
+     "1945-01-01",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-18th-infantry-division",
-   "label": "18. Infanteriedivision",
+   "label": "18. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -3005,8 +4674,136 @@
    ]
   },
   {
+   "id": "de-18th-ss-volunteer-panzergrenadier-division-horst-wessel",
+   "label": "18. Panzergrenadier-Division",
+   "events": [
+    [
+     "1943-06-23",
+     null,
+     null
+    ],
+    [
+     "1943-07-28",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-07-01",
+     null,
+     null
+    ],
+    [
+     "1944-12-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-4",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-196th-infantry-division",
+   "label": "196. Infanterie-Division",
+   "events": [
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-197th-infantry-division",
+   "label": "197. Infanterie-Division",
+   "events": [
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-03-01",
+     "de-h-armee-16",
+     null
+    ],
+    [
+     "1940-05-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1940-07-01",
+     null,
+     null
+    ],
+    [
+     "1941-03-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-11",
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1941-07-01",
+     null,
+     null
+    ],
+    [
+     "1941-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-11-01",
+     null,
+     null
+    ],
+    [
+     "1942-06-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-07-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-04-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-01-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-198th-infantry-division",
-   "label": "198. Infanteriedivision",
+   "label": "198. Infanterie-Division",
    "events": [
     [
      "1939-12-01",
@@ -3092,10 +4889,97 @@
   },
   {
    "id": "de-199th-infantry-division",
-   "label": "199. Infanteriedivision",
+   "label": "199. Infanterie-Division",
    "events": [
     [
      "1940-11-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-19th-grenadier-division",
+   "label": "19. Grenadier-Division",
+   "events": [
+    [
+     "1944-08-08",
+     null,
+     null
+    ],
+    [
+     "1944-09-16",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1944-09-17",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-1",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-19th-infantry-division",
+   "label": "19. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-10",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-06-09",
+     null,
+     null
+    ],
+    [
+     "1940-06-15",
+     "de-h-armee-18",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-06-20",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1940-06-28",
+     "de-h-armee-18",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-07-03",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1940-07-06",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-07-08",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-07-16",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1940-09-22",
      null,
      null
     ]
@@ -3199,7 +5083,7 @@
   },
   {
    "id": "de-1st-infantry-division",
-   "label": "1. Infanteriedivision",
+   "label": "1. Infanterie-Division",
    "events": [
     [
      "1940-01-01",
@@ -3274,103 +5158,13 @@
    ]
   },
   {
-   "id": "de-1st-mountain-division",
-   "label": "1. Gebirgs-Division",
+   "id": "de-1st-infantry-division",
+   "label": "1. Jäger-Division",
    "events": [
     [
      "1939-09-01",
-     null,
-     null
-    ],
-    [
-     "1939-10-01",
-     "de-h-armee-4",
-     "de-h-hgr-b"
-    ],
-    [
-     "1939-12-01",
-     "de-h-armee-12",
-     "de-h-hgr-a"
-    ],
-    [
-     "1940-06-01",
-     "de-h-armee-6",
-     "de-h-hgr-b"
-    ],
-    [
-     "1940-07-01",
-     "de-h-armee-12",
-     null
-    ],
-    [
-     "1940-08-01",
-     "de-h-armee-16",
-     "de-h-hgr-a"
-    ],
-    [
-     "1941-01-01",
-     "de-h-armee-1",
-     null
-    ],
-    [
-     "1941-04-01",
-     "de-h-armee-2",
-     null
-    ],
-    [
-     "1941-05-01",
-     "de-h-armee-17",
-     "de-h-hgr-a"
-    ],
-    [
-     "1941-06-01",
-     "de-h-armee-17",
+     "de-h-armee-10",
      "de-h-hgr-sued"
-    ],
-    [
-     "1941-10-01",
-     "de-h-armee-11",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1941-11-01",
-     null,
-     null
-    ],
-    [
-     "1942-08-01",
-     "de-h-armee-17",
-     "de-h-hgr-a"
-    ],
-    [
-     "1943-01-01",
-     "de-h-armee-17",
-     null
-    ],
-    [
-     "1943-04-01",
-     null,
-     null
-    ],
-    [
-     "1943-09-01",
-     "de-h-armee-11",
-     null
-    ],
-    [
-     "1943-10-01",
-     null,
-     null
-    ],
-    [
-     "1945-04-01",
-     "de-h-armee-6-2",
-     "de-h-hgr-sued"
-    ],
-    [
-     "1945-05-01",
-     "de-h-armee-6-2",
-     null
     ]
    ]
   },
@@ -3606,8 +5400,102 @@
    ]
   },
   {
+   "id": "de-1st-ss-panzer-division",
+   "label": "SS-Division Leibstandarte SS Adolf Hitler",
+   "events": [
+    [
+     "1942-07-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1942-11-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-201st-security-division",
+   "label": "201. Sicherungs-Division",
+   "events": [
+    [
+     "1942-07-01",
+     null,
+     null
+    ],
+    [
+     "1944-02-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-04-01",
+     null,
+     null
+    ],
+    [
+     "1944-12-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-02-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-203rd-infantry-division",
+   "label": "203. Infanterie-Division",
+   "events": [
+    [
+     "1944-11-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1945-03-01",
+     "de-h-armee-2",
+     "de-h-hgr-weichsel"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-203rd-security-division",
+   "label": "203. Sicherungs-Division",
+   "events": [
+    [
+     "1942-06-01",
+     null,
+     null
+    ],
+    [
+     "1943-11-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-12-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
    "id": "de-205th-infantry-division",
-   "label": "205. Infanteriedivision",
+   "label": "205. Infanterie-Division",
    "events": [
     [
      "1940-01-01",
@@ -3693,7 +5581,7 @@
   },
   {
    "id": "de-206th-infantry-division",
-   "label": "206. Infanteriedivision",
+   "label": "206. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -3728,8 +5616,208 @@
    ]
   },
   {
+   "id": "de-207th-infantry-division",
+   "label": "207. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-01-01",
+     "de-h-armee-18",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-05-22",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-207th-security-division",
+   "label": "207. Sicherungs-Division",
+   "events": [
+    [
+     "1941-03-01",
+     null,
+     null
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-08-01",
+     null,
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-04-01",
+     "de-h-armee-16",
+     "de-h-hgr-kurland"
+    ]
+   ]
+  },
+  {
+   "id": "de-208th-infantry-division",
+   "label": "208. Infanterie-Division",
+   "events": [
+    [
+     "1939-08-26",
+     null,
+     null
+    ],
+    [
+     "1939-09-03",
+     "de-h-armee-4",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1939-09-21",
+     null,
+     "de-h-hgr-nord"
+    ],
+    [
+     "1939-10-01",
+     null,
+     null
+    ],
+    [
+     "1939-11-18",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-01-01",
+     "de-h-armee-18",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-03-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-05-09",
+     "de-h-armee-18",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-06-11",
+     null,
+     null
+    ],
+    [
+     "1940-07-12",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-04-10",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1942-01-01",
+     null,
+     null
+    ],
+    [
+     "1943-08-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-09-01",
+     null,
+     null
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-17",
+     "de-h-hgr-a"
+    ],
+    [
+     "1945-01-01",
+     null,
+     null
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-17",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-209th-infantry-division",
+   "label": "209. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1939-10-19",
+     null,
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-10-28",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-20th-panzergrenadier-division",
+   "label": "20. Panzergrenadier-Division",
+   "events": [
+    [
+     "1943-06-01",
+     null,
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-10-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-11-01",
+     null,
+     null
+    ],
+    [
+     "1945-04-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
    "id": "de-210th-infantry-division",
-   "label": "210. Infanteriedivision",
+   "label": "210. Infanterie-Division",
    "events": [
     [
      "1942-09-01",
@@ -3740,7 +5828,7 @@
   },
   {
    "id": "de-211th-infantry-division",
-   "label": "211. Infanteriedivision",
+   "label": "211. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -3851,7 +5939,7 @@
   },
   {
    "id": "de-212th-infantry-division",
-   "label": "212. Infanteriedivision",
+   "label": "212. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -3897,7 +5985,7 @@
   },
   {
    "id": "de-213th-infantry-division",
-   "label": "213. Infanteriedivision",
+   "label": "213. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -3917,8 +6005,29 @@
    ]
   },
   {
+   "id": "de-213th-security-division",
+   "label": "213. Sicherungs-Division",
+   "events": [
+    [
+     "1941-03-01",
+     null,
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-214th-infantry-division",
-   "label": "214. Infanteriedivision",
+   "label": "214. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -3944,7 +6053,7 @@
   },
   {
    "id": "de-215th-infantry-division",
-   "label": "215. Infanteriedivision",
+   "label": "215. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -4015,7 +6124,7 @@
   },
   {
    "id": "de-216th-infantry-division",
-   "label": "216. Infanteriedivision",
+   "label": "216. Infanterie-Division",
    "events": [
     [
      "1939-08-26",
@@ -4106,7 +6215,7 @@
   },
   {
    "id": "de-217th-infantry-division",
-   "label": "217. Infanteriedivision",
+   "label": "217. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -4157,7 +6266,7 @@
   },
   {
    "id": "de-218th-infantry-division",
-   "label": "218. Infanteriedivision",
+   "label": "218. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -4208,7 +6317,7 @@
   },
   {
    "id": "de-21st-infantry-division",
-   "label": "21. Infanteriedivision",
+   "label": "21. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -4284,7 +6393,7 @@
   },
   {
    "id": "de-221st-infantry-division",
-   "label": "221. Infanteriedivision",
+   "label": "221. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -4304,8 +6413,135 @@
    ]
   },
   {
+   "id": "de-221st-security-division",
+   "label": "221. Sicherungs-Division",
+   "events": [
+    [
+     "1941-03-01",
+     null,
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-01",
+     null,
+     null
+    ],
+    [
+     "1942-01-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-02-01",
+     "de-h-armee-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-04-01",
+     null,
+     null
+    ],
+    [
+     "1943-10-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-11-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-223rd-infantry-division",
+   "label": "223. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1939-11-01",
+     null,
+     null
+    ],
+    [
+     "1940-03-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-06-01",
+     null,
+     null
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-6",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-08-01",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-11-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1941-01-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1941-11-01",
+     null,
+     null
+    ],
+    [
+     "1941-12-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1942-10-01",
+     "de-h-armee-11",
+     null
+    ],
+    [
+     "1942-11-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1943-06-01",
+     null,
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-11-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-225th-infantry-division",
-   "label": "225. Infanteriedivision",
+   "label": "225. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -4405,8 +6641,24 @@
    ]
   },
   {
+   "id": "de-226th-infantry-division",
+   "label": "226. Infanterie-Division",
+   "events": [
+    [
+     "1944-08-01",
+     "de-h-armee-15",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-12-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-227th-infantry-division",
-   "label": "227. Infanteriedivision",
+   "label": "227. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -4497,7 +6749,7 @@
   },
   {
    "id": "de-228th-infantry-division",
-   "label": "228. Infanteriedivision",
+   "label": "228. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -4513,7 +6765,7 @@
   },
   {
    "id": "de-22nd-infantry-division",
-   "label": "22. Infanteriedivision",
+   "label": "22. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -4614,8 +6866,46 @@
    ]
   },
   {
+   "id": "de-231st-infantry-division",
+   "label": "231. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1939-11-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-232nd-panzer-division",
+   "label": "232. Panzer-Division",
+   "events": [
+    [
+     "1945-03-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-233rd-reserve-panzer-division",
+   "label": "233. Panzer-Division",
+   "events": [
+    [
+     "1945-03-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-239th-infantry-division",
-   "label": "239. Infanteriedivision",
+   "label": "239. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -4655,8 +6945,119 @@
    ]
   },
   {
+   "id": "de-23rd-infantry-division",
+   "label": "23. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-05-15",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-01",
+     "de-h-pzarmee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-11-01",
+     null,
+     null
+    ],
+    [
+     "1941-12-01",
+     "de-h-pzarmee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-01-01",
+     null,
+     null
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1942-11-01",
+     null,
+     null
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1943-10-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1943-12-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-01-01",
+     null,
+     null
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-2",
+     "de-h-hgr-weichsel"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-242nd-infantry-division",
-   "label": "242. Infanteriedivision",
+   "label": "242. Infanterie-Division",
    "events": [
     [
      "1943-07-18",
@@ -4682,7 +7083,7 @@
   },
   {
    "id": "de-243rd-infantry-division",
-   "label": "243. Infanteriedivision",
+   "label": "243. Infanterie-Division",
    "events": [
     [
      "1943-08-01",
@@ -4703,7 +7104,7 @@
   },
   {
    "id": "de-244th-infantry-division",
-   "label": "244. Infanteriedivision",
+   "label": "244. Infanterie-Division",
    "events": [
     [
      "1943-10-01",
@@ -4724,7 +7125,7 @@
   },
   {
    "id": "de-245th-infantry-division",
-   "label": "245. Infanteriedivision",
+   "label": "245. Infanterie-Division",
    "events": [
     [
      "1943-10-01",
@@ -4755,7 +7156,7 @@
   },
   {
    "id": "de-246th-infantry-division",
-   "label": "246. Infanteriedivision",
+   "label": "246. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -4800,8 +7201,125 @@
    ]
   },
   {
+   "id": "de-249th-infantry-division",
+   "label": "249. Infanterie-Division",
+   "events": [
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-24th-infantry-division",
+   "label": "24. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     null,
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-05-18",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-04-22",
+     "de-h-armee-17",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-08-01",
+     "de-h-pzarmee-1",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-09-01",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-10-09",
+     null,
+     null
+    ],
+    [
+     "1941-10-27",
+     "de-h-armee-11",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-07-07",
+     "de-h-armee-11",
+     "de-h-hgr-a"
+    ],
+    [
+     "1942-08-26",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1942-09-05",
+     "de-h-armee-11",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1942-10-17",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-11-01",
+     null,
+     null
+    ],
+    [
+     "1944-12-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-16",
+     "de-h-hgr-kurland"
+    ]
+   ]
+  },
+  {
    "id": "de-250th-infantry-division",
-   "label": "250. Infanteriedivision",
+   "label": "250. Infanterie-Division",
    "events": [
     [
      "1941-09-01",
@@ -4842,7 +7360,7 @@
   },
   {
    "id": "de-251st-infantry-division",
-   "label": "251. Infanteriedivision",
+   "label": "251. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -4923,7 +7441,7 @@
   },
   {
    "id": "de-252nd-infantry-division",
-   "label": "252. Infanteriedivision",
+   "label": "252. Infanterie-Division",
    "events": [
     [
      "1939-08-26",
@@ -5004,7 +7522,7 @@
   },
   {
    "id": "de-253rd-infantry-division",
-   "label": "253. Infanteriedivision",
+   "label": "253. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -5105,7 +7623,7 @@
   },
   {
    "id": "de-254th-infantry-division",
-   "label": "254. Infanteriedivision",
+   "label": "254. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -5191,7 +7709,7 @@
   },
   {
    "id": "de-255th-infantry-division",
-   "label": "255. Infanteriedivision",
+   "label": "255. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -5277,7 +7795,7 @@
   },
   {
    "id": "de-256th-infantry-division",
-   "label": "256. Infanteriedivision",
+   "label": "256. Infanterie-Division",
    "events": [
     [
      "1939-08-27",
@@ -5373,7 +7891,7 @@
   },
   {
    "id": "de-257th-infantry-division",
-   "label": "257. Infanteriedivision",
+   "label": "257. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -5449,7 +7967,7 @@
   },
   {
    "id": "de-258th-infantry-division",
-   "label": "258. Infanteriedivision",
+   "label": "258. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -5555,7 +8073,7 @@
   },
   {
    "id": "de-25th-infantry-division",
-   "label": "25. Infanteriedivision",
+   "label": "25. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -5676,8 +8194,44 @@
    ]
   },
   {
+   "id": "de-25th-panzergrenadier-division",
+   "label": "25. Panzergrenadier-Division",
+   "events": [
+    [
+     "1943-06-01",
+     null,
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-07-01",
+     null,
+     null
+    ],
+    [
+     "1944-12-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1945-01-01",
+     null,
+     null
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-9",
+     "de-h-hgr-weichsel"
+    ]
+   ]
+  },
+  {
    "id": "de-260th-infantry-division",
-   "label": "260. Infanteriedivision",
+   "label": "260. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -5738,7 +8292,7 @@
   },
   {
    "id": "de-262nd-infantry-division",
-   "label": "262. Infanteriedivision",
+   "label": "262. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -5804,7 +8358,7 @@
   },
   {
    "id": "de-263rd-infantry-division",
-   "label": "263. Infanteriedivision",
+   "label": "263. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -5889,8 +8443,125 @@
    ]
   },
   {
+   "id": "de-267th-infantry-division",
+   "label": "267. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-5",
+     null
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-05-01",
+     "de-h-armee-4",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1941-05-28",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-06-03",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-27",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-11-01",
+     "de-h-pzarmee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-01-01",
+     null,
+     null
+    ],
+    [
+     "1942-05-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-07-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-268th-infantry-division",
+   "label": "268. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-01",
+     null,
+     null
+    ],
+    [
+     "1941-08-08",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-11-01",
+     null,
+     null
+    ],
+    [
+     "1942-01-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
    "id": "de-269th-infantry-division",
-   "label": "269. Infanteriedivision",
+   "label": "269. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -5966,7 +8637,7 @@
   },
   {
    "id": "de-26th-infantry-division",
-   "label": "26. Infanteriedivision",
+   "label": "26. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -6081,8 +8752,44 @@
    ]
   },
   {
+   "id": "de-272nd-infantry-division",
+   "label": "272. Infanterie-Division",
+   "events": [
+    [
+     "1943-12-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1944-02-01",
+     null,
+     null
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-19",
+     null
+    ],
+    [
+     "1944-07-01",
+     null,
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-07-28",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1944-09-14",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-275th-infantry-division",
-   "label": "275. Infanteriedivision",
+   "label": "275. Infanterie-Division",
    "events": [
     [
      "1944-01-01",
@@ -6117,8 +8824,34 @@
    ]
   },
   {
+   "id": "de-276th-infantry-division",
+   "label": "276. Infanterie-Division",
+   "events": [
+    [
+     "1944-01-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1944-07-01",
+     null,
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-5",
+     "de-h-hgr-b"
+    ]
+   ]
+  },
+  {
    "id": "de-277th-infantry-division",
-   "label": "277. Infanteriedivision",
+   "label": "277. Infanterie-Division",
    "events": [
     [
      "1943-12-01",
@@ -6153,8 +8886,29 @@
    ]
   },
   {
+   "id": "de-278th-infantry-division",
+   "label": "278. Infanterie-Division",
+   "events": [
+    [
+     "1943-12-01",
+     "de-h-armee-14",
+     null
+    ],
+    [
+     "1944-01-27",
+     null,
+     null
+    ],
+    [
+     "1944-06-01",
+     "de-h-armee-10",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-27th-infantry-division",
-   "label": "27. Infanteriedivision",
+   "label": "27. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -6230,8 +8984,19 @@
    ]
   },
   {
+   "id": "de-280th-infantry-division",
+   "label": "280. Infanterie-Division",
+   "events": [
+    [
+     "1942-02-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-281st-infantry-division",
-   "label": "281. Infanteriedivision",
+   "label": "281. Infanterie-Division",
    "events": [
     [
      "1944-11-01",
@@ -6252,7 +9017,7 @@
   },
   {
    "id": "de-282nd-infantry-division",
-   "label": "282. Infanteriedivision",
+   "label": "282. Infanterie-Division",
    "events": [
     [
      "1943-03-01",
@@ -6277,8 +9042,121 @@
    ]
   },
   {
+   "id": "de-285th-security-division",
+   "label": "285. Sicherungs-Division",
+   "events": [
+    [
+     "1941-04-01",
+     null,
+     null
+    ],
+    [
+     "1944-04-01",
+     null,
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-06-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-08-01",
+     null,
+     "de-h-hgr-nord"
+    ]
+   ]
+  },
+  {
+   "id": "de-286th-security-division",
+   "label": "286. Sicherungs-Division",
+   "events": [
+    [
+     "1941-04-01",
+     null,
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-01",
+     null,
+     null
+    ],
+    [
+     "1943-11-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-07-01",
+     null,
+     null
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-28th-infantry-division",
+   "label": "28. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-14",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-05-01",
+     "de-h-armee-4",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-04",
+     null,
+     null
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-08-01",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-11-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-290th-infantry-division",
-   "label": "290. Infanteriedivision",
+   "label": "290. Infanterie-Division",
    "events": [
     [
      "1940-05-01",
@@ -6349,7 +9227,7 @@
   },
   {
    "id": "de-291st-infantry-division",
-   "label": "291. Infanteriedivision",
+   "label": "291. Infanterie-Division",
    "events": [
     [
      "1940-06-01",
@@ -6385,7 +9263,7 @@
   },
   {
    "id": "de-292nd-infantry-division",
-   "label": "292. Infanteriedivision",
+   "label": "292. Infanterie-Division",
    "events": [
     [
      "1940-06-01",
@@ -6466,7 +9344,7 @@
   },
   {
    "id": "de-293rd-infantry-division",
-   "label": "293. Infanteriedivision",
+   "label": "293. Infanterie-Division",
    "events": [
     [
      "1940-02-08",
@@ -6562,7 +9440,7 @@
   },
   {
    "id": "de-294th-infantry-division",
-   "label": "294. Infanteriedivision",
+   "label": "294. Infanterie-Division",
    "events": [
     [
      "1940-06-25",
@@ -6667,8 +9545,160 @@
    ]
   },
   {
+   "id": "de-296th-infantry-division",
+   "label": "296. Infanterie-Division",
+   "events": [
+    [
+     "1940-02-03",
+     null,
+     null
+    ],
+    [
+     "1940-07-10",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-28",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-03-05",
+     "de-h-armee-17",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-04-23",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-17",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-05-27",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-07-02",
+     null,
+     null
+    ],
+    [
+     "1941-07-04",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-07-10",
+     "de-h-armee-6",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-07-16",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-09-27",
+     "de-h-pzarmee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-02",
+     null,
+     null
+    ],
+    [
+     "1941-10-22",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-11-17",
+     null,
+     null
+    ],
+    [
+     "1941-11-28",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-12-18",
+     null,
+     null
+    ],
+    [
+     "1943-08-13",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-298th-infantry-division",
+   "label": "298. Infanterie-Division",
+   "events": [
+    [
+     "1940-06-01",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-18",
+     null
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-12",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-01-01",
+     "de-h-armee-17",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-6",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-11-01",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-02-01",
+     null,
+     null
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-17",
+     "de-h-hgr-a"
+    ],
+    [
+     "1942-09-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-299th-infantry-division",
-   "label": "299. Infanteriedivision",
+   "label": "299. Infanterie-Division",
    "events": [
     [
      "1940-05-01",
@@ -6759,7 +9789,7 @@
   },
   {
    "id": "de-29th-infantry-division",
-   "label": "29. Infanteriedivision",
+   "label": "29. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -6849,6 +9879,94 @@
     [
      "1943-03-01",
      null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-2nd-infantry-division",
+   "label": "2. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1939-11-16",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-07-02",
+     null,
+     null
+    ],
+    [
+     "1940-07-10",
+     "de-h-armee-12",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-09-06",
+     "de-h-armee-18",
+     null
+    ],
+    [
+     "1940-09-19",
+     "de-h-armee-12",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-12-01",
+     "de-h-armee-11",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-2nd-infantry-division",
+   "label": "2. Jäger-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-10",
+     "de-h-hgr-sued"
+    ]
+   ]
+  },
+  {
+   "id": "de-2nd-mountain-division",
+   "label": "2. Gebirgs-Division",
+   "events": [
+    [
+     "1939-09-01",
+     null,
+     null
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-03-01",
+     null,
+     null
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-1",
      null
     ]
    ]
@@ -7116,8 +10234,64 @@
    ]
   },
   {
+   "id": "de-302nd-infantry-division",
+   "label": "302. Infanterie-Division",
+   "events": [
+    [
+     "1940-11-12",
+     null,
+     null
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1942-12-28",
+     null,
+     null
+    ],
+    [
+     "1943-03-06",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-09-15",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1943-11-01",
+     null,
+     null
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-304th-infantry-division",
-   "label": "304. Infanteriedivision",
+   "label": "304. Infanterie-Division",
    "events": [
     [
      "1940-12-01",
@@ -7178,7 +10352,7 @@
   },
   {
    "id": "de-306th-infantry-division",
-   "label": "306. Infanteriedivision",
+   "label": "306. Infanterie-Division",
    "events": [
     [
      "1940-11-15",
@@ -7224,7 +10398,7 @@
   },
   {
    "id": "de-30th-infantry-division",
-   "label": "30. Infanteriedivision",
+   "label": "30. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -7305,7 +10479,7 @@
   },
   {
    "id": "de-311th-infantry-division",
-   "label": "311. Infanteriedivision",
+   "label": "311. Infanterie-Division",
    "events": [
     [
      "1939-11-01",
@@ -7316,7 +10490,7 @@
   },
   {
    "id": "de-319th-infantry-division",
-   "label": "319. Infanteriedivision",
+   "label": "319. Infanterie-Division",
    "events": [
     [
      "1940-12-01",
@@ -7346,8 +10520,125 @@
    ]
   },
   {
+   "id": "de-31st-infantry-division",
+   "label": "31. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-10",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-08-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-19",
+     null,
+     null
+    ],
+    [
+     "1941-10-21",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-26",
+     null,
+     null
+    ],
+    [
+     "1941-12-19",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-08-14",
+     null,
+     null
+    ],
+    [
+     "1943-02-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-07-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-12-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-07-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-31st-ss-volunteer-grenadier-division",
+   "label": "31. Grenadier-Division",
+   "events": [
+    [
+     "1944-07-21",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ]
+   ]
+  },
+  {
    "id": "de-320th-infantry-division",
-   "label": "320. Infanteriedivision",
+   "label": "320. Infanterie-Division",
    "events": [
     [
      "1940-12-01",
@@ -7392,8 +10683,39 @@
    ]
   },
   {
+   "id": "de-321st-infantry-division",
+   "label": "321. Infanterie-Division",
+   "events": [
+    [
+     "1940-12-01",
+     null,
+     null
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1942-12-01",
+     null,
+     null
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
    "id": "de-323rd-infantry-division",
-   "label": "323. Infanteriedivision",
+   "label": "323. Infanterie-Division",
    "events": [
     [
      "1940-11-15",
@@ -7433,8 +10755,40 @@
    ]
   },
   {
+   "id": "de-325th-security-division",
+   "label": "325. Sicherungs-Division",
+   "events": [
+    [
+     "1943-02-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-326th-infantry-division",
+   "label": "326. Infanterie-Division",
+   "events": [
+    [
+     "1942-12-01",
+     null,
+     null
+    ],
+    [
+     "1944-02-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-7",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-327th-infantry-division",
-   "label": "327. Infanteriedivision",
+   "label": "327. Infanterie-Division",
    "events": [
     [
      "1940-11-15",
@@ -7475,7 +10829,7 @@
   },
   {
    "id": "de-328th-infantry-division",
-   "label": "328. Infanteriedivision",
+   "label": "328. Infanterie-Division",
    "events": [
     [
      "1941-12-01",
@@ -7495,8 +10849,136 @@
    ]
   },
   {
+   "id": "de-329th-infantry-division",
+   "label": "329. Infanterie-Division",
+   "events": [
+    [
+     "1941-12-17",
+     null,
+     null
+    ],
+    [
+     "1942-02-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-10-01",
+     null,
+     null
+    ],
+    [
+     "1944-12-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-01-25",
+     "de-h-armee-16",
+     "de-h-hgr-kurland"
+    ]
+   ]
+  },
+  {
+   "id": "de-32nd-infantry-division",
+   "label": "32. Infanterie-Division",
+   "events": [
+    [
+     "1939-08-26",
+     "de-h-armee-4",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-08-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-6",
+     null
+    ],
+    [
+     "1940-09-16",
+     "de-h-armee-18",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-16",
+     null
+    ],
+    [
+     "1941-06-22",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-10-01",
+     null,
+     null
+    ],
+    [
+     "1944-11-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-2",
+     "de-h-hgr-weichsel"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-330th-infantry-division",
+   "label": "330. Infanterie-Division",
+   "events": [
+    [
+     "1941-12-01",
+     null,
+     null
+    ],
+    [
+     "1942-11-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-04-01",
+     null,
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
    "id": "de-331st-infantry-division",
-   "label": "331. Infanteriedivision",
+   "label": "331. Infanterie-Division",
    "events": [
     [
      "1941-12-15",
@@ -7542,7 +11024,7 @@
   },
   {
    "id": "de-332nd-infantry-division",
-   "label": "332. Infanteriedivision",
+   "label": "332. Infanterie-Division",
    "events": [
     [
      "1940-12-01",
@@ -7582,8 +11064,90 @@
    ]
   },
   {
+   "id": "de-333rd-infantry-division",
+   "label": "333. Infanterie-Division",
+   "events": [
+    [
+     "1940-01-01",
+     null,
+     null
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1940-11-15",
+     null,
+     null
+    ],
+    [
+     "1942-04-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1943-02-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-334th-infantry-division",
+   "label": "334. Infanterie-Division",
+   "events": [
+    [
+     "1942-11-09",
+     null,
+     null
+    ],
+    [
+     "1943-07-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1943-11-01",
+     null,
+     null
+    ],
+    [
+     "1943-12-01",
+     "de-h-armee-14",
+     null
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1944-07-01",
+     null,
+     null
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-14",
+     null
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1945-04-01",
+     "de-h-armee-14",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-335th-infantry-division",
-   "label": "335. Infanteriedivision",
+   "label": "335. Infanterie-Division",
    "events": [
     [
      "1940-11-15",
@@ -7649,7 +11213,7 @@
   },
   {
    "id": "de-336th-infantry-division",
-   "label": "336. Infanteriedivision",
+   "label": "336. Infanterie-Division",
    "events": [
     [
      "1940-12-15",
@@ -7699,8 +11263,44 @@
    ]
   },
   {
+   "id": "de-337th-infantry-division",
+   "label": "337. Infanterie-Division",
+   "events": [
+    [
+     "1940-12-01",
+     null,
+     null
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1942-07-19",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1942-10-20",
+     null,
+     null
+    ],
+    [
+     "1942-10-28",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-04-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
    "id": "de-339th-infantry-division",
-   "label": "339. Infanteriedivision",
+   "label": "339. Infanterie-Division",
    "events": [
     [
      "1940-12-15",
@@ -7731,7 +11331,7 @@
   },
   {
    "id": "de-33rd-infantry-division",
-   "label": "33. Infanteriedivision",
+   "label": "33. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -7762,7 +11362,7 @@
   },
   {
    "id": "de-340th-infantry-division",
-   "label": "340. Infanteriedivision",
+   "label": "340. Infanterie-Division",
    "events": [
     [
      "1940-12-01",
@@ -7797,8 +11397,95 @@
    ]
   },
   {
+   "id": "de-342nd-infantry-division",
+   "label": "342. Infanterie-Division",
+   "events": [
+    [
+     "1940-12-01",
+     null,
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1941-10-01",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1942-03-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-11-01",
+     null,
+     null
+    ],
+    [
+     "1943-02-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-03-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-04-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-04-20",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-06-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-347nd-infantry-division",
+   "label": "347. Infanterie-Division",
+   "events": [
+    [
+     "1942-11-01",
+     null,
+     null
+    ],
+    [
+     "1944-09-01",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-12-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1945-01-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1945-03-26",
+     "de-h-armee-7",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-34th-infantry-division",
-   "label": "34. Infanteriedivision",
+   "label": "34. Infanterie-Division",
    "events": [
     [
      "1939-08-26",
@@ -7884,7 +11571,7 @@
   },
   {
    "id": "de-352nd-infantry-division",
-   "label": "352. Infanteriedivision",
+   "label": "352. Infanterie-Division",
    "events": [
     [
      "1943-11-01",
@@ -7910,7 +11597,7 @@
   },
   {
    "id": "de-357th-infantry-division",
-   "label": "357. Infanteriedivision",
+   "label": "357. Infanterie-Division",
    "events": [
     [
      "1943-11-11",
@@ -7935,8 +11622,105 @@
    ]
   },
   {
+   "id": "de-35th-infantry-division",
+   "label": "35. Infanterie-Division",
+   "events": [
+    [
+     "1939-08-25",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1939-11-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-06-01",
+     null,
+     null
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-27",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-04-09",
+     "de-h-armee-9",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-06-22",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-01",
+     "de-h-pzarmee-3",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-11-01",
+     "de-h-pzarmee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-01-01",
+     null,
+     null
+    ],
+    [
+     "1943-02-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-02-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-07-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-2",
+     "de-h-hgr-weichsel"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-361st-infantry-division",
+   "label": "361. Infanterie-Division",
+   "events": [
+    [
+     "1943-12-01",
+     null,
+     null
+    ],
+    [
+     "1945-04-01",
+     "de-h-armee-25",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-362nd-infantry-division",
-   "label": "362. Infanteriedivision",
+   "label": "362. Infanterie-Division",
    "events": [
     [
      "1943-11-15",
@@ -7956,8 +11740,29 @@
    ]
   },
   {
+   "id": "de-363rd-infantry-division",
+   "label": "363. Infanterie-Division",
+   "events": [
+    [
+     "1944-01-01",
+     null,
+     null
+    ],
+    [
+     "1944-07-01",
+     "de-h-armee-15",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ]
+   ]
+  },
+  {
    "id": "de-367th-infantry-division",
-   "label": "367. Infanteriedivision",
+   "label": "367. Infanterie-Division",
    "events": [
     [
      "1943-11-15",
@@ -7997,8 +11802,288 @@
    ]
   },
   {
+   "id": "de-369th",
+   "label": "369. Infanterie-Division",
+   "events": [
+    [
+     "1942-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-36th-infantry-division",
+   "label": "36. Grenadier-Division",
+   "events": [
+    [
+     "1944-08-01",
+     null,
+     null
+    ],
+    [
+     "1944-09-01",
+     "de-h-armee-1",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-36th-infantry-division",
+   "label": "36. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-05-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-13",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1940-09-01",
+     null,
+     null
+    ],
+    [
+     "1940-11-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-11",
+     null
+    ],
+    [
+     "1941-05-01",
+     "de-h-pzarmee-2",
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-pzarmee-4",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1941-10-01",
+     "de-h-pzarmee-3",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-01-01",
+     null,
+     null
+    ],
+    [
+     "1942-02-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-12-01",
+     null,
+     null
+    ],
+    [
+     "1943-02-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-03-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-04-01",
+     null,
+     null
+    ],
+    [
+     "1943-08-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-07-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-370th-infantry-division",
+   "label": "370. Infanterie-Division",
+   "events": [
+    [
+     "1942-04-24",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1942-05-09",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1942-06-18",
+     null,
+     null
+    ],
+    [
+     "1942-06-21",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-17",
+     "de-h-hgr-a"
+    ],
+    [
+     "1942-09-23",
+     null,
+     null
+    ],
+    [
+     "1943-01-22",
+     "de-h-armee-17",
+     "de-h-hgr-a"
+    ],
+    [
+     "1943-10-09",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1943-12-23",
+     null,
+     null
+    ],
+    [
+     "1943-12-28",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-01-01",
+     null,
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-8",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-06-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-371st-infantry-division",
+   "label": "371. Infanterie-Division",
+   "events": [
+    [
+     "1942-02-17",
+     null,
+     null
+    ],
+    [
+     "1942-04-28",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1942-06-08",
+     null,
+     null
+    ],
+    [
+     "1942-07-11",
+     "de-h-armee-17",
+     "de-h-hgr-a"
+    ],
+    [
+     "1942-07-28",
+     null,
+     null
+    ],
+    [
+     "1942-11-22",
+     "de-h-armee-6",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-02-17",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1943-10-09",
+     "de-h-armee-14",
+     "de-h-hgr-b"
+    ],
+    [
+     "1943-11-23",
+     null,
+     null
+    ],
+    [
+     "1944-08-15",
+     "de-h-armee-17",
+     "de-h-hgr-nordukraine"
+    ],
+    [
+     "1944-09-23",
+     "de-h-armee-17",
+     "de-h-hgr-a"
+    ],
+    [
+     "1945-01-25",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-372nd-infantry-division",
-   "label": "372. Infanteriedivision",
+   "label": "372. Infanterie-Division",
    "events": [
     [
      "1940-03-01",
@@ -8013,8 +12098,215 @@
    ]
   },
   {
+   "id": "de-373rd",
+   "label": "373. Infanterie-Division",
+   "events": [
+    [
+     "1943-02-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-376th-infantry-division",
+   "label": "376. Infanterie-Division",
+   "events": [
+    [
+     "1942-04-01",
+     null,
+     null
+    ],
+    [
+     "1942-06-01",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-04-01",
+     null,
+     null
+    ],
+    [
+     "1943-11-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-8",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-377th-infantry-division",
+   "label": "377. Infanterie-Division",
+   "events": [
+    [
+     "1942-04-01",
+     null,
+     null
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-2",
+     "de-h-hgr-b"
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-383rd-infantry-division",
+   "label": "383. Infanterie-Division",
+   "events": [
+    [
+     "1942-02-01",
+     null,
+     null
+    ],
+    [
+     "1942-07-01",
+     "de-h-armee-2",
+     "de-h-hgr-b"
+    ],
+    [
+     "1943-02-04",
+     null,
+     null
+    ],
+    [
+     "1943-07-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-07-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-385th-infantry-division",
+   "label": "385. Infanterie-Division",
+   "events": [
+    [
+     "1942-01-10",
+     null,
+     null
+    ],
+    [
+     "1942-04-16",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-05-21",
+     null,
+     null
+    ],
+    [
+     "1942-06-01",
+     "de-h-armee-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-06-06",
+     null,
+     null
+    ],
+    [
+     "1942-07-10",
+     "de-h-armee-2",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-12-01",
+     null,
+     "de-h-hgr-b"
+    ],
+    [
+     "1943-02-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-386th-infantry-division",
+   "label": "386. Infanterie-Division",
+   "events": [
+    [
+     "1940-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-387th-infantry-division",
+   "label": "387. Infanterie-Division",
+   "events": [
+    [
+     "1942-02-01",
+     null,
+     null
+    ],
+    [
+     "1942-06-01",
+     "de-h-armee-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-2",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-12-01",
+     null,
+     "de-h-hgr-b"
+    ],
+    [
+     "1943-02-01",
+     null,
+     null
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ]
+   ]
+  },
+  {
    "id": "de-38th-infantry-division",
-   "label": "38. Infanteriedivision",
+   "label": "38. Infanterie-Division",
    "events": [
     [
      "1942-08-01",
@@ -8033,6 +12325,304 @@
     ],
     [
      "1943-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-390th-security-division",
+   "label": "390. Sicherungs-Division",
+   "events": [
+    [
+     "1944-08-01",
+     null,
+     null
+    ],
+    [
+     "1944-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ]
+   ]
+  },
+  {
+   "id": "de-391st-security-division",
+   "label": "391. Sicherungs-Division",
+   "events": [
+    [
+     "1944-05-01",
+     null,
+     null
+    ],
+    [
+     "1944-11-01",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1945-01-01",
+     null,
+     null
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-9",
+     "de-h-hgr-weichsel"
+    ]
+   ]
+  },
+  {
+   "id": "de-392nd",
+   "label": "392. Infanterie-Division",
+   "events": [
+    [
+     "1943-11-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-39th-infantry-division",
+   "label": "39. Infanterie-Division",
+   "events": [
+    [
+     "1942-08-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1943-04-01",
+     null,
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ]
+   ]
+  },
+  {
+   "id": "de-3rd-cavalry-brigade",
+   "label": "3. Kavallerie-Division",
+   "events": [
+    [
+     "1945-03-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-3rd-infantry-division",
+   "label": "3. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1939-11-01",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-02",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1940-09-23",
+     null,
+     null
+    ],
+    [
+     "1940-11-01",
+     "de-h-armee-11",
+     null
+    ],
+    [
+     "1941-05-01",
+     "de-h-pzarmee-3",
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-pzarmee-4",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1941-09-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1941-10-01",
+     "de-h-pzarmee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-24",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-27",
+     "de-h-pzarmee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-11-07",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-12-12",
+     "de-h-pzarmee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-01-01",
+     null,
+     null
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-03-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-3rd-infantry-division",
+   "label": "3. Jäger-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-10",
+     "de-h-hgr-sued"
+    ]
+   ]
+  },
+  {
+   "id": "de-3rd-mountain-division",
+   "label": "3. Gebirgs-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-14",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-03-01",
+     null,
+     null
+    ],
+    [
+     "1942-04-01",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-05-01",
+     null,
+     null
+    ],
+    [
+     "1942-06-01",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-09-01",
+     null,
+     null
+    ],
+    [
+     "1942-10-01",
+     "de-h-armee-11",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1942-10-01",
+     "de-h-armee-6",
+     "de-h-hgr-a"
+    ],
+    [
+     "1942-11-01",
+     null,
+     null
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-06-01",
+     "de-h-armee-8",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1945-01-01",
      null,
      null
     ]
@@ -8291,8 +12881,112 @@
    ]
   },
   {
+   "id": "de-403rd-security-division",
+   "label": "403. Sicherungs-Division",
+   "events": [
+    [
+     "1941-04-01",
+     null,
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-444th-security-division",
+   "label": "444. Sicherungs-Division",
+   "events": [
+    [
+     "1941-04-01",
+     null,
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-07-01",
+     null,
+     null
+    ],
+    [
+     "1943-04-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-05-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-454th-security-division",
+   "label": "454. Sicherungs-Division",
+   "events": [
+    [
+     "1941-04-01",
+     null,
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-08-01",
+     null,
+     null
+    ],
+    [
+     "1942-02-01",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-06-01",
+     null,
+     null
+    ],
+    [
+     "1943-03-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1943-05-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-45th-infantry-division",
-   "label": "45. Infanteriedivision",
+   "label": "45. Grenadier-Division",
+   "events": [
+    [
+     "1944-09-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-45th-infantry-division",
+   "label": "45. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -8387,8 +13081,19 @@
    ]
   },
   {
+   "id": "de-462nd-infantry-division",
+   "label": "462. Infanterie-Division",
+   "events": [
+    [
+     "1944-09-01",
+     "de-h-armee-1",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-46th-infantry-division",
-   "label": "46. Infanteriedivision",
+   "label": "46. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -8487,6 +13192,258 @@
     ],
     [
      "1945-05-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-47th-infantry-division",
+   "label": "47. Infanterie-Division",
+   "events": [
+    [
+     "1944-02-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1944-05-01",
+     "de-h-armee-15",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-48th-infantry-division",
+   "label": "48. Infanterie-Division",
+   "events": [
+    [
+     "1944-02-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1944-05-01",
+     "de-h-armee-15",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-08-01",
+     null,
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-09-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1945-01-01",
+     null,
+     null
+    ],
+    [
+     "1945-05-01",
+     "de-h-armee-8",
+     "de-h-hgr-ostmark"
+    ]
+   ]
+  },
+  {
+   "id": "de-49th-infantry-division",
+   "label": "49. Infanterie-Division",
+   "events": [
+    [
+     "1944-02-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1944-05-01",
+     "de-h-armee-15",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-08-01",
+     null,
+     null
+    ],
+    [
+     "1944-09-01",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-11-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1944-12-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-4th-cavalry-division",
+   "label": "4. Kavallerie-Division",
+   "events": [
+    [
+     "1945-03-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-4th-infantry-division",
+   "label": "4. Infanterie-Division",
+   "events": [
+    [
+     "1939-08-24",
+     "de-h-armee-10",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-4th-infantry-division",
+   "label": "4. Jäger-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-14",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-12-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-4th-mountain-division",
+   "label": "4. Gebirgs-Division",
+   "events": [
+    [
+     "1940-10-01",
+     null,
+     null
+    ],
+    [
+     "1940-11-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-10-01",
+     "de-h-armee-11",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-11-01",
+     null,
+     null
+    ],
+    [
+     "1942-06-01",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-17",
+     "de-h-hgr-a"
+    ],
+    [
+     "1943-11-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-01-01",
+     null,
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-02-01",
+     null,
+     null
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-8",
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-8",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-09-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1945-01-01",
      null,
      null
     ]
@@ -8691,7 +13648,7 @@
   },
   {
    "id": "de-50th-infantry-division",
-   "label": "50. Infanteriedivision",
+   "label": "50. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -8776,6 +13733,67 @@
    ]
   },
   {
+   "id": "de-52nd-infantry-division",
+   "label": "52. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-02-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1941-06-25",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-27",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-08-01",
+     null,
+     null
+    ],
+    [
+     "1942-12-06",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-03-21",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
    "id": "de-52nd-security-division",
    "label": "52. Sicherungs-Division",
    "events": [
@@ -8823,8 +13841,223 @@
    ]
   },
   {
+   "id": "de-542nd-infantry-division",
+   "label": "542. Infanterie-Division",
+   "events": [
+    [
+     "1944-08-12",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-09-06",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-544th-volksgrenadier-division",
+   "label": "544. Grenadier-Division",
+   "events": [
+    [
+     "1944-08-01",
+     "de-h-armee-17",
+     "de-h-hgr-nordukraine"
+    ]
+   ]
+  },
+  {
+   "id": "de-545th-volksgrenadier-division",
+   "label": "545. Grenadier-Division",
+   "events": [
+    [
+     "1944-08-01",
+     "de-h-armee-17",
+     "de-h-hgr-nordukraine"
+    ]
+   ]
+  },
+  {
+   "id": "de-547th-volksgrenadier-division",
+   "label": "547. Grenadier-Division",
+   "events": [
+    [
+     "1944-08-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-551st-volksgrenadier-division",
+   "label": "551. Grenadier-Division",
+   "events": [
+    [
+     "1944-07-11",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-553rd-volksgrenadier-division",
+   "label": "553. Grenadier-Division",
+   "events": [
+    [
+     "1944-08-01",
+     null,
+     null
+    ],
+    [
+     "1944-09-01",
+     "de-h-armee-1",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-560th-infantry-division",
+   "label": "560. Infanterie-Division",
+   "events": [
+    [
+     "1944-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-560th-volksgrenadier-division",
+   "label": "560. Grenadier-Division",
+   "events": [
+    [
+     "1944-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-561st-volksgrenadier-division",
+   "label": "561. Grenadier-Division",
+   "events": [
+    [
+     "1944-08-01",
+     null,
+     null
+    ],
+    [
+     "1944-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-56th-infantry-division",
+   "label": "56. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     null,
+     null
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-06-01",
+     null,
+     null
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-08-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-12",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-01-01",
+     "de-h-armee-17",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-6",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-05-16",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-10-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-11-01",
+     null,
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-01-01",
+     null,
+     null
+    ],
+    [
+     "1943-08-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-10-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-11-01",
+     null,
+     null
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-4",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-57th-infantry-division",
-   "label": "57. Infanteriedivision",
+   "label": "57. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -8910,7 +14143,7 @@
   },
   {
    "id": "de-58th-infantry-division",
-   "label": "58. Infanteriedivision",
+   "label": "58. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -9011,7 +14244,7 @@
   },
   {
    "id": "de-59th-infantry-division",
-   "label": "59. Infanteriedivision",
+   "label": "59. Infanterie-Division",
    "events": [
     [
      "1944-08-01",
@@ -9027,6 +14260,129 @@
      "1945-01-01",
      "de-h-armee-15",
      "de-h-hgr-b"
+    ]
+   ]
+  },
+  {
+   "id": "de-5th-infantry-division",
+   "label": "5. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1939-11-01",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-18",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-04-19",
+     "de-h-armee-9",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-06-22",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-05",
+     "de-h-pzarmee-3",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-16",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-11-05",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-5th-jager-division",
+   "label": "5. Jäger-Division",
+   "events": [
+    [
+     "1941-12-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1942-02-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ]
+   ]
+  },
+  {
+   "id": "de-5th-mountain-division",
+   "label": "5. Gebirgs-Division",
+   "events": [
+    [
+     "1941-01-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1941-02-01",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1941-08-01",
+     null,
+     null
+    ],
+    [
+     "1942-03-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1942-10-01",
+     "de-h-armee-11",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1942-11-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1943-12-01",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1944-08-01",
+     null,
+     null
     ]
    ]
   },
@@ -9169,7 +14525,7 @@
   },
   {
    "id": "de-60th-infantry-division",
-   "label": "60. Infanteriedivision",
+   "label": "60. Infanterie-Division",
    "events": [
     [
      "1940-05-01",
@@ -9244,8 +14600,79 @@
    ]
   },
   {
+   "id": "de-61st-infantry-division",
+   "label": "61. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-3",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-06-01",
+     null,
+     null
+    ],
+    [
+     "1940-07-22",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-6",
+     null
+    ],
+    [
+     "1941-01-28",
+     "de-h-armee-18",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-04-03",
+     "de-h-armee-18",
+     null
+    ],
+    [
+     "1941-06-22",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1941-11-22",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1942-10-24",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-03-01",
+     null,
+     null
+    ],
+    [
+     "1944-07-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-18",
+     "de-h-hgr-nord"
+    ]
+   ]
+  },
+  {
    "id": "de-62nd-infantry-division",
-   "label": "62. Infanteriedivision",
+   "label": "62. Infanterie-Division",
    "events": [
     [
      "1939-09-13",
@@ -9356,7 +14783,7 @@
   },
   {
    "id": "de-65th-infantry-division",
-   "label": "65. Infanteriedivision",
+   "label": "65. Infanterie-Division",
    "events": [
     [
      "1942-08-01",
@@ -9407,7 +14834,7 @@
   },
   {
    "id": "de-68th-infantry-division",
-   "label": "68. Infanteriedivision",
+   "label": "68. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -9508,7 +14935,7 @@
   },
   {
    "id": "de-69th-infantry-division",
-   "label": "69. Infanteriedivision",
+   "label": "69. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -9542,6 +14969,139 @@
     ],
     [
      "1944-07-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-6th-infantry-division",
+   "label": "6. Grenadier-Division",
+   "events": [
+    [
+     "1944-08-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-6th-infantry-division",
+   "label": "6. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1940-01-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-05-28",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-6",
+     null
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-18",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-9",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-02",
+     "de-h-pzarmee-3",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-16",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-03-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-05-11",
+     null,
+     null
+    ],
+    [
+     "1943-06-10",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-12-03",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1945-04-01",
+     "de-h-armee-17",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-6th-mountain-division",
+   "label": "6. Gebirgs-Division",
+   "events": [
+    [
+     "1940-06-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1940-08-01",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-12-01",
+     "de-h-armee-12",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-01-01",
+     "de-h-armee-17",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-03-01",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1941-09-01",
      null,
      null
     ]
@@ -9680,8 +15240,29 @@
    ]
   },
   {
+   "id": "de-704th-infantry-division",
+   "label": "704. Infanterie-Division",
+   "events": [
+    [
+     "1941-05-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1941-07-01",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1943-03-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-707th-infantry-division",
-   "label": "707. Infanteriedivision",
+   "label": "707. Infanterie-Division",
    "events": [
     [
      "1941-05-01",
@@ -9702,7 +15283,7 @@
   },
   {
    "id": "de-708th-infantry-division",
-   "label": "708. Infanteriedivision",
+   "label": "708. Infanterie-Division",
    "events": [
     [
      "1941-05-01",
@@ -9727,8 +15308,24 @@
    ]
   },
   {
+   "id": "de-70th-infantry-division",
+   "label": "70. Infanterie-Division",
+   "events": [
+    [
+     "1944-08-01",
+     "de-h-armee-15",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-12-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-711th-infantry-division",
-   "label": "711. Infanteriedivision",
+   "label": "711. Infanterie-Division",
    "events": [
     [
      "1941-05-01",
@@ -9789,7 +15386,7 @@
   },
   {
    "id": "de-712th-infantry-division",
-   "label": "712. Infanteriedivision",
+   "label": "712. Infanterie-Division",
    "events": [
     [
      "1941-05-01",
@@ -9845,7 +15442,7 @@
   },
   {
    "id": "de-714th-infantry-division",
-   "label": "714. Infanteriedivision",
+   "label": "714. Infanterie-Division",
    "events": [
     [
      "1941-05-01",
@@ -9871,7 +15468,7 @@
   },
   {
    "id": "de-715th-infantry-division",
-   "label": "715. Infanteriedivision",
+   "label": "715. Infanterie-Division",
    "events": [
     [
      "1941-05-01",
@@ -9922,7 +15519,7 @@
   },
   {
    "id": "de-716th-infantry-division",
-   "label": "716. Infanteriedivision",
+   "label": "716. Infanterie-Division",
    "events": [
     [
      "1941-05-01",
@@ -9948,7 +15545,7 @@
   },
   {
    "id": "de-717th-infantry-division",
-   "label": "717. Infanteriedivision",
+   "label": "717. Infanterie-Division",
    "events": [
     [
      "1941-05-01",
@@ -9974,7 +15571,7 @@
   },
   {
    "id": "de-718th-infantry-division",
-   "label": "718. Infanteriedivision",
+   "label": "718. Infanterie-Division",
    "events": [
     [
      "1941-05-15",
@@ -9995,7 +15592,7 @@
   },
   {
    "id": "de-719th-infantry-division",
-   "label": "719. Infanteriedivision",
+   "label": "719. Infanterie-Division",
    "events": [
     [
      "1941-05-01",
@@ -10020,8 +15617,109 @@
    ]
   },
   {
+   "id": "de-72nd-infantry-division",
+   "label": "72. Infanterie-Division",
+   "events": [
+    [
+     "1939-10-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-03-14",
+     null,
+     null
+    ],
+    [
+     "1940-05-10",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-07-09",
+     null,
+     null
+    ],
+    [
+     "1940-07-14",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-6",
+     null
+    ],
+    [
+     "1940-09-28",
+     null,
+     null
+    ],
+    [
+     "1940-11-13",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1941-01-01",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1941-05-17",
+     "de-h-armee-12",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-06-09",
+     "de-h-armee-11",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-06-12",
+     null,
+     null
+    ],
+    [
+     "1941-07-06",
+     "de-h-armee-11",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-08-25",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-03-01",
+     null,
+     null
+    ],
+    [
+     "1943-07-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-10-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-03-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-73rd-infantry-division",
-   "label": "73. Infanteriedivision",
+   "label": "73. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -10132,7 +15830,7 @@
   },
   {
    "id": "de-75th-infantry-division",
-   "label": "75. Infanteriedivision",
+   "label": "75. Infanterie-Division",
    "events": [
     [
      "1939-09-11",
@@ -10212,8 +15910,99 @@
    ]
   },
   {
+   "id": "de-78th-infantry-division",
+   "label": "78. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1940-01-01",
+     null,
+     null
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-01",
+     null,
+     null
+    ],
+    [
+     "1941-08-17",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-10",
+     null,
+     null
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-09-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-02-01",
+     null,
+     null
+    ],
+    [
+     "1943-07-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-08-01",
+     null,
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-11-01",
+     null,
+     null
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1944-07-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-79th-infantry-division",
-   "label": "79. Infanteriedivision",
+   "label": "79. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -10302,6 +16091,102 @@
     ],
     [
      "1944-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-7th-infantry-division",
+   "label": "7. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-14",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-10-10",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1939-10-20",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-03-09",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-05-28",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-07-20",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-04-14",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-05-14",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-07-28",
+     "de-h-pzarmee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-08-28",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-10-05",
+     "de-h-pzarmee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1942-01-01",
+     null,
+     null
+    ],
+    [
+     "1943-02-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-03-14",
+     null,
+     null
+    ],
+    [
+     "1943-06-07",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-08-28",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1945-04-01",
      null,
      null
     ]
@@ -10471,7 +16356,7 @@
   },
   {
    "id": "de-81st-infantry-division",
-   "label": "81. Infanteriedivision",
+   "label": "81. Infanterie-Division",
    "events": [
     [
      "1939-12-01",
@@ -10566,8 +16451,59 @@
    ]
   },
   {
+   "id": "de-82nd-infantry-division",
+   "label": "82. Infanterie-Division",
+   "events": [
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-05-15",
+     "de-h-armee-9",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-05-18",
+     null,
+     null
+    ],
+    [
+     "1940-05-22",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-04",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-05",
+     null,
+     null
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-2",
+     "de-h-hgr-b"
+    ],
+    [
+     "1943-03-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-09-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-83rd-infantry-division",
-   "label": "83. Infanteriedivision",
+   "label": "83. Infanterie-Division",
    "events": [
     [
      "1939-12-22",
@@ -10673,7 +16609,7 @@
   },
   {
    "id": "de-84th-infantry-division",
-   "label": "84. Infanteriedivision",
+   "label": "84. Infanterie-Division",
    "events": [
     [
      "1944-02-01",
@@ -10704,7 +16640,7 @@
   },
   {
    "id": "de-85th-infantry-division",
-   "label": "85. Infanteriedivision",
+   "label": "85. Infanterie-Division",
    "events": [
     [
      "1944-02-01",
@@ -10739,8 +16675,74 @@
    ]
   },
   {
+   "id": "de-86th-infantry-division",
+   "label": "86. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-5",
+     null
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1940-11-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1941-06-01",
+     null,
+     null
+    ],
+    [
+     "1941-09-04",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-04-01",
+     null,
+     null
+    ],
+    [
+     "1943-08-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-2",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
    "id": "de-87th-infantry-division",
-   "label": "87. Infanteriedivision",
+   "label": "87. Infanterie-Division",
    "events": [
     [
      "1939-09-01",
@@ -10841,7 +16843,7 @@
   },
   {
    "id": "de-88th-infantry-division",
-   "label": "88. Infanteriedivision",
+   "label": "88. Infanterie-Division",
    "events": [
     [
      "1940-05-17",
@@ -10917,7 +16919,7 @@
   },
   {
    "id": "de-89th-infantry-division",
-   "label": "89. Infanteriedivision",
+   "label": "89. Infanterie-Division",
    "events": [
     [
      "1944-02-01",
@@ -10952,6 +16954,68 @@
     [
      "1945-02-01",
      null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-8th-infantry-division",
+   "label": "8. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-14",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-05-01",
+     "de-h-armee-4",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-01",
+     null,
+     null
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-08-01",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-9",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-9",
+     "de-h-hgr-mitte"
+    ],
+    [
+     "1941-11-01",
+     "de-h-armee-4",
+     "de-h-hgr-mitte"
+    ]
+   ]
+  },
+  {
+   "id": "de-8th-mountain-division",
+   "label": "8. Gebirgs-Division",
+   "events": [
+    [
+     "1945-03-01",
+     "de-h-armee-14",
      null
     ]
    ]
@@ -11093,8 +17157,44 @@
    ]
   },
   {
+   "id": "de-90th-panzergrenadier-division",
+   "label": "90. Panzergrenadier-Division",
+   "events": [
+    [
+     "1943-07-01",
+     null,
+     null
+    ],
+    [
+     "1943-12-01",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1944-05-01",
+     "de-h-armee-14",
+     null
+    ],
+    [
+     "1944-08-01",
+     null,
+     null
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1945-01-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-91st-infantry-division",
-   "label": "91. Infanteriedivision",
+   "label": "91. Infanterie-Division",
    "events": [
     [
      "1944-05-01",
@@ -11104,8 +17204,29 @@
    ]
   },
   {
+   "id": "de-92nd-infantry-division",
+   "label": "92. Infanterie-Division",
+   "events": [
+    [
+     "1944-04-01",
+     "de-h-armee-14",
+     null
+    ],
+    [
+     "1944-05-01",
+     null,
+     null
+    ],
+    [
+     "1944-06-01",
+     "de-h-armee-14",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-93rd-infantry-division",
-   "label": "93. Infanteriedivision",
+   "label": "93. Infanterie-Division",
    "events": [
     [
      "1939-09-17",
@@ -11165,8 +17286,149 @@
    ]
   },
   {
+   "id": "de-94th-infantry-division",
+   "label": "94. Infanterie-Division",
+   "events": [
+    [
+     "1939-10-28",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1940-05-14",
+     "de-h-armee-6",
+     null
+    ],
+    [
+     "1940-05-21",
+     "de-h-armee-17",
+     null
+    ],
+    [
+     "1940-05-27",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-07-07",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-07-12",
+     "de-h-armee-2",
+     null
+    ],
+    [
+     "1940-07-17",
+     "de-h-armee-6",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-28",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-28",
+     null,
+     null
+    ],
+    [
+     "1940-08-08",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-02-17",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1941-07-01",
+     null,
+     null
+    ],
+    [
+     "1941-07-11",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-09-22",
+     "de-h-armee-7",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-09-28",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-17",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-10-01",
+     null,
+     null
+    ],
+    [
+     "1942-10-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-01-01",
+     null,
+     null
+    ],
+    [
+     "1943-04-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1943-09-01",
+     null,
+     null
+    ],
+    [
+     "1943-12-01",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-14",
+     null
+    ],
+    [
+     "1944-11-01",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1945-03-01",
+     "de-h-armee-14",
+     null
+    ]
+   ]
+  },
+  {
    "id": "de-95th-infantry-division",
-   "label": "95. Infanteriedivision",
+   "label": "95. Infanterie-Division",
    "events": [
     [
      "1939-11-01",
@@ -11277,7 +17539,7 @@
   },
   {
    "id": "de-96th-infantry-division",
-   "label": "96. Infanteriedivision",
+   "label": "96. Infanterie-Division",
    "events": [
     [
      "1939-12-01",
@@ -11358,7 +17620,7 @@
   },
   {
    "id": "de-98th-infantry-division",
-   "label": "98. Infanteriedivision",
+   "label": "98. Infanterie-Division",
    "events": [
     [
      "1939-12-01",
@@ -11429,6 +17691,112 @@
      "1944-08-01",
      "de-h-armee-10",
      null
+    ]
+   ]
+  },
+  {
+   "id": "de-9th-infantry-division",
+   "label": "9. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-03-01",
+     "de-h-armee-12",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-08-16",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1941-03-18",
+     "de-h-armee-17",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-04-20",
+     "de-h-armee-6",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-05-04",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-09-04",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-12-15",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-01-01",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-07-07",
+     null,
+     null
+    ],
+    [
+     "1942-07-13",
+     "de-h-armee-17",
+     "de-h-hgr-a"
+    ],
+    [
+     "1943-10-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1943-11-01",
+     null,
+     null
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-07-01",
+     null,
+     "de-h-hgr-suedukraine"
     ]
    ]
   },
@@ -11565,7 +17933,7 @@
   },
   {
    "id": "de-h-id-113",
-   "label": "113. Infanteriedivision",
+   "label": "113. Infanterie-Division",
    "events": [
     [
      "1940-12-10",
@@ -11680,8 +18048,232 @@
    ]
   },
   {
+   "id": "de-h-id-29-mot",
+   "label": "29. Panzergrenadier-Division",
+   "events": [
+    [
+     "1943-06-01",
+     null,
+     null
+    ],
+    [
+     "1943-09-01",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1944-02-01",
+     "de-h-armee-14",
+     null
+    ],
+    [
+     "1944-05-01",
+     null,
+     null
+    ],
+    [
+     "1944-06-01",
+     "de-h-armee-14",
+     null
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1945-02-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-h-id-295",
+   "label": "295. Infanterie-Division",
+   "events": [
+    [
+     "1940-05-01",
+     null,
+     null
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-08-01",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-17",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-04-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-h-id-297",
+   "label": "297. Infanterie-Division",
+   "events": [
+    [
+     "1940-06-01",
+     null,
+     null
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-18",
+     null
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-12",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-01-01",
+     "de-h-armee-17",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-6",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-08-01",
+     null,
+     null
+    ],
+    [
+     "1941-09-01",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-11-01",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-09-01",
+     null,
+     null
+    ],
+    [
+     "1942-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-04-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1943-07-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-h-id-3-mot",
+   "label": "3. Panzergrenadier-Division",
+   "events": [
+    [
+     "1943-06-23",
+     null,
+     null
+    ],
+    [
+     "1943-10-10",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1943-11-17",
+     null,
+     null
+    ],
+    [
+     "1943-12-28",
+     "de-h-armee-14",
+     null
+    ],
+    [
+     "1944-08-01",
+     "de-h-armee-1",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1944-11-01",
+     null,
+     "de-h-hgr-b"
+    ],
+    [
+     "1945-03-01",
+     "de-h-armee-15",
+     "de-h-hgr-b"
+    ]
+   ]
+  },
+  {
    "id": "de-h-id-305",
-   "label": "305. Infanteriedivision",
+   "label": "305. Infanterie-Division",
    "events": [
     [
      "1940-12-01",
@@ -11756,6 +18348,466 @@
     [
      "1945-04-01",
      "de-h-armee-10",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-h-id-384",
+   "label": "384. Infanterie-Division",
+   "events": [
+    [
+     "1942-01-01",
+     null,
+     null
+    ],
+    [
+     "1942-05-01",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-06-01",
+     null,
+     null
+    ],
+    [
+     "1942-07-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-01-01",
+     null,
+     null
+    ],
+    [
+     "1943-04-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1943-07-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1943-10-01",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1943-11-01",
+     null,
+     null
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-02-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-08-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-h-id-389",
+   "label": "389. Infanterie-Division",
+   "events": [
+    [
+     "1942-02-01",
+     null,
+     null
+    ],
+    [
+     "1942-06-01",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-07-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-04-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1943-10-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-8",
+     null
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-04-01",
+     null,
+     null
+    ],
+    [
+     "1944-06-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1944-11-01",
+     null,
+     null
+    ],
+    [
+     "1944-12-01",
+     "de-h-armee-16",
+     "de-h-hgr-nord"
+    ],
+    [
+     "1945-02-01",
+     "de-h-armee-2",
+     "de-h-hgr-weichsel"
+    ]
+   ]
+  },
+  {
+   "id": "de-h-id-44",
+   "label": "44. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-14",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1939-12-01",
+     null,
+     null
+    ],
+    [
+     "1940-01-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-05-01",
+     "de-h-armee-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-06-01",
+     "de-h-armee-7",
+     "de-h-hgr-b"
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-17",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-05-01",
+     "de-h-armee-6",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-07-09",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-04-01",
+     "de-h-armee-15",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-h-id-71",
+   "label": "71. Infanterie-Division",
+   "events": [
+    [
+     "1939-08-26",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1939-11-08",
+     null,
+     null
+    ],
+    [
+     "1940-05-10",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-9",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-08-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-17",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-04-22",
+     "de-h-armee-17",
+     "de-h-hgr-a"
+    ],
+    [
+     "1941-06-22",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-07-12",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1941-10-15",
+     "de-h-armee-15",
+     null
+    ],
+    [
+     "1942-02-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1942-05-06",
+     "de-h-armee-6",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-07-09",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-10-01",
+     null,
+     null
+    ],
+    [
+     "1942-11-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-03-01",
+     null,
+     null
+    ],
+    [
+     "1943-12-01",
+     "de-h-armee-14",
+     null
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-10",
+     null
+    ],
+    [
+     "1944-10-01",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "de-h-id-76",
+   "label": "76. Infanterie-Division",
+   "events": [
+    [
+     "1939-09-01",
+     "de-h-armee-5",
+     null
+    ],
+    [
+     "1939-10-01",
+     "de-h-armee-1",
+     null
+    ],
+    [
+     "1939-12-01",
+     "de-h-armee-16",
+     "de-h-hgr-a"
+    ],
+    [
+     "1940-07-01",
+     "de-h-armee-18",
+     null
+    ],
+    [
+     "1940-09-01",
+     "de-h-armee-4",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-03-01",
+     "de-h-armee-12",
+     "de-h-hgr-b"
+    ],
+    [
+     "1941-04-01",
+     "de-h-armee-12",
+     null
+    ],
+    [
+     "1941-06-01",
+     "de-h-armee-11",
+     null
+    ],
+    [
+     "1941-09-01",
+     "de-h-armee-17",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1942-08-01",
+     "de-h-armee-6",
+     "de-h-hgr-b"
+    ],
+    [
+     "1942-12-01",
+     "de-h-armee-6",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-don"
+    ],
+    [
+     "1943-04-01",
+     "de-h-armee-7",
+     null
+    ],
+    [
+     "1943-08-01",
+     null,
+     null
+    ],
+    [
+     "1944-01-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-02-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1944-03-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-a"
+    ],
+    [
+     "1944-04-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-06-01",
+     "de-h-armee-8",
+     "de-h-hgr-suedukraine"
+    ],
+    [
+     "1944-10-01",
+     "de-h-armee-6-2",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1945-01-01",
+     "de-h-armee-8",
+     "de-h-hgr-sued"
+    ],
+    [
+     "1945-05-01",
+     null,
      null
     ]
    ]
