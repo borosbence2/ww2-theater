@@ -7906,6 +7906,13 @@
               47.42
             ]
           ]
+        },
+        {
+          "date": "1945-01-20",
+          "label": "Pest cleared; the garrison holds out in Buda west of the Danube",
+          "waypoints": [
+            [18.96, 47.54], [19.06, 47.53], [19.07, 47.46], [19.0, 47.42], [18.94, 47.47]
+          ]
         }
       ],
       "garrison": [
