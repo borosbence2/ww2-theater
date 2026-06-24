@@ -144,6 +144,14 @@
     { "name": "Szekesfehervar", "lon": 18.41, "lat": 47.19, "init": "axis", "changes": [{ "date": "1944-12-23", "side": "soviet" }, { "date": "1945-01-22", "side": "axis" }, { "date": "1945-03-22", "side": "soviet" }] },
     { "name": "Bratislava", "lon": 17.11, "lat": 48.15, "init": "axis", "changes": [{ "date": "1945-04-04", "side": "soviet" }] },
     { "name": "Vienna", "lon": 16.37, "lat": 48.21, "init": "axis", "changes": [{ "date": "1945-04-13", "side": "soviet" }] },
-    { "name": "Brno", "lon": 16.61, "lat": 49.2, "init": "axis", "changes": [{ "date": "1945-04-26", "side": "soviet" }] }
+    { "name": "Brno", "lon": 16.61, "lat": 49.2, "init": "axis", "changes": [{ "date": "1945-04-26", "side": "soviet" }] },
+    { "name": "Kaposvar", "lon": 17.79, "lat": 46.36, "init": "axis", "changes": [{ "date": "1944-12-02", "side": "soviet" }] },
+    { "name": "Nagykanizsa", "lon": 16.99, "lat": 46.46, "init": "axis", "changes": [{ "date": "1945-04-02", "side": "soviet" }] },
+    { "name": "Mohacs", "lon": 18.68, "lat": 45.99, "init": "axis", "changes": [{ "date": "1944-11-26", "side": "soviet" }] },
+    { "name": "Barcs", "lon": 17.46, "lat": 45.96, "init": "axis", "changes": [{ "date": "1945-04-03", "side": "soviet" }] },
+    { "name": "Osijek", "lon": 18.69, "lat": 45.56, "init": "axis", "changes": [{ "date": "1945-04-14", "side": "soviet" }] },
+    { "name": "Subotica", "lon": 19.67, "lat": 46.1, "init": "axis", "changes": [{ "date": "1944-10-10", "side": "soviet" }] },
+    { "name": "Sombor", "lon": 19.11, "lat": 45.77, "init": "axis", "changes": [{ "date": "1944-10-25", "side": "soviet" }] },
+    { "name": "Novi Sad", "lon": 19.84, "lat": 45.25, "init": "axis", "changes": [{ "date": "1944-10-23", "side": "soviet" }] }
   ]
 }
