@@ -15,7 +15,7 @@ import { coordsFor } from './lib/interpolate.mjs';
 const CONTROL = 'data/curated/city-control.json';
 const FRONT = 'public/data/front/eastern-keyframes.json';
 const NE = 'data/raw/ne_10m_populated_places.geojson';
-const POP_MIN = 100000;
+const POP_MIN = 50000;
 const DWELL = 6; // a side must hold this many days to count as a handover (anti-jitter)
 const DEDUP_DEG = 0.25; // skip a place this close to an already-listed city
 
