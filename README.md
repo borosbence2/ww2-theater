@@ -72,6 +72,11 @@ node data/pipeline/build-borders.mjs
 # Also validates every city in city-control.json against the front, daily.
 node data/pipeline/build-fronts.mjs
 
+# City-control display density (optional) — adds Natural Earth places (pop>=50k)
+# as `derived` control dots whose timeline is sampled from the built front, then
+# re-runs build-fronts to copy them out. Needs ne_10m_populated_places.geojson.
+node data/pipeline/densify-control.mjs && node data/pipeline/build-fronts.mjs
+
 # Division scaffolds (Phase 3) — Wikidata division items for DE + SU
 # (fetch both SPARQL results into data/raw/wikidata-divisions-{de,su}.json,
 #  same endpoint/UA as the battles query; see import-divisions.mjs header)
