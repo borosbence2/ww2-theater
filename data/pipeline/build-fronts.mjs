@@ -46,6 +46,10 @@ const CITIES_OUT = `${CITIES_OUT_DIR}/control.json`;
 
 const LINE_POINTS = 240;
 const RING_POINTS = 64;
+// Distribute open-front sample points by a latitude-weighted metric so keyframes
+// stay feature-aligned when interpolated (see resampleOpen). 0.2 = latitude
+// dominates; tuned against the city-validation worklist (1139 -> ~1055).
+const FRONT_LON_WEIGHT = 0.2;
 
 // ---------------------------------------------------------------------------
 // Build
@@ -71,7 +75,7 @@ const features = src.features.map((f) => {
       if (prev) coords = alignRing(prev, coords);
       prev = coords;
     } else {
-      coords = resampleOpen(k.waypoints, LINE_POINTS);
+      coords = resampleOpen(k.waypoints, LINE_POINTS, FRONT_LON_WEIGHT);
     }
     return { date: k.date, label: k.label, start: dateNum(k.date), coords };
   });

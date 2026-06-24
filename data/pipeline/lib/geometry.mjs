@@ -5,12 +5,19 @@
 /** Round coordinate pairs to 3 decimals (~100 m) for output size. */
 export const round3 = (pts) => pts.map(([x, y]) => [Number(x.toFixed(3)), Number(y.toFixed(3))]);
 
-/** Resample an open polyline to n evenly-spaced points (by planar arc length). */
-export function resampleOpen(pts, n) {
+/** Resample an open polyline to n points, preserving its shape exactly but
+ *  distributing the points by a latitude-weighted metric (lonWeight < 1 spaces
+ *  points by ~latitude). Keyframes interpolate index-by-index, so spacing the
+ *  points by latitude — which is stable across keyframes for a ~N→S front —
+ *  keeps features (salients) aligned between keyframes; equal arc-length spacing
+ *  drifts whenever the line's length changes elsewhere (e.g. the Caucasus tail),
+ *  which dips the morphed line between keyframes. lonWeight = 1 is plain arc
+ *  length (default, unchanged for other callers). */
+export function resampleOpen(pts, n, lonWeight = 1) {
   const seg = [];
   let total = 0;
   for (let i = 1; i < pts.length; i++) {
-    const len = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+    const len = Math.hypot((pts[i][0] - pts[i - 1][0]) * lonWeight, pts[i][1] - pts[i - 1][1]);
     seg.push(len);
     total += len;
   }
