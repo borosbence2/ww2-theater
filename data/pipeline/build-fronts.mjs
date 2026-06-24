@@ -158,6 +158,7 @@ for (let n = 0; n <= totalDays; n++) {
     .filter((p) => p.ring);
 
   for (const city of control.cities) {
+    if (city.derived) continue; // display-only dots, control derived from the front (densify-control.mjs)
     if (city.lat < latMin || city.lat > latMax) continue; // outside front coverage
     let got = null;
     for (const { f, ring } of pockets) {
