@@ -837,10 +837,25 @@ city-validation unchanged (1350 city-days), build clean.
       Wintergewitter gap), Nevel, Dnipropetrovsk, Rzhev. Each is an interpolated
       intermediate keyframe nudged only in a narrow latitude band, so no side
       effects elsewhere; each multi-week mismatch is now a 1–3 day transition
-      blip. Remaining worklist is the harder classes — the Voronezh salient loop
-      (shared across keyframes, needs form/collapse evolution), the
-      Voroshilovgrad/Orel sustained sags (dense-area re-trace), and the Caucasus
-      E-W segments (Mozdok — perpendicular convention) — left for a later pass.
+      blip. Then nine more clean timing-gap cities (Melitopol, Staraya Russa ×2,
+      Krivoy Rog, Kaluga, Kursk, a 2nd Kotelnikovo) took it to **1174**.
+- [x] **Hard-zone re-trace** (1174 → 1139): the sustained-sag class —
+      Voroshilovgrad's keyframes had the line past the city pre-capture / withdrawn
+      pre-liberation (−25, a real keyframe error, fixed by pushing those
+      keyframes); the Orel salient re-traced as the historical bulge; Vinnytsia.
+      **Cumulative 1350 → 1139 (−211, ~16%).**
+- [ ] **Structural limits** (need bigger work, not a re-trace):
+      - The **Voronezh salient + dense 1942 central front** are gated by the
+        `coordsFor` arc-length interpolation: every keyframe puts Voronezh on the
+        correct side, but blending adjacent keyframes that have different point
+        counts dips the line west *between* them. The fix is an interpolation
+        change (align by feature/latitude, not index) or ~15× denser keyframes —
+        the single highest-leverage accuracy lever left, since it would shrink
+        small artifacts everywhere.
+      - **Riga (1944)** and the **Caucasus (Mozdok)** lie beyond the main line's
+        drawn extent; they need the line extended into those theatres.
+      - The rest of the residual (~460 city-days) is 1–6 day transition blips,
+        inherent to monthly-granularity keyframes.
 
 ## Finnish / Arctic theatre ✅
 The theatre that was wholly absent (the main front stops at Leningrad) is now on
