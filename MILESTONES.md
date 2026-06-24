@@ -844,18 +844,24 @@ city-validation unchanged (1350 city-days), build clean.
       pre-liberation (−25, a real keyframe error, fixed by pushing those
       keyframes); the Orel salient re-traced as the historical bulge; Vinnytsia.
       **Cumulative 1350 → 1139 (−211, ~16%).**
-- [ ] **Structural limits** (need bigger work, not a re-trace):
-      - The **Voronezh salient + dense 1942 central front** are gated by the
-        `coordsFor` arc-length interpolation: every keyframe puts Voronezh on the
-        correct side, but blending adjacent keyframes that have different point
-        counts dips the line west *between* them. The fix is an interpolation
-        change (align by feature/latitude, not index) or ~15× denser keyframes —
-        the single highest-leverage accuracy lever left, since it would shrink
-        small artifacts everywhere.
-      - **Riga (1944)** and the **Caucasus (Mozdok)** lie beyond the main line's
-        drawn extent; they need the line extended into those theatres.
-      - The rest of the residual (~460 city-days) is 1–6 day transition blips,
-        inherent to monthly-granularity keyframes.
+- [x] **Interpolation alignment** (`resampleOpen` latitude weight, 1139 → 1059):
+      `coordsFor` morphs keyframes index-by-index over arc-length-spaced points,
+      so when the line's length changed in one region every index drifted and the
+      morphed line dipped off-side *between* keyframes (Voronezh: correct at every
+      keyframe, wrong between them). `resampleOpen` now spaces points by a
+      latitude-weighted metric (`FRONT_LON_WEIGHT` 0.2) — shape unchanged, but
+      features stay at a stable latitude-keyed index across keyframes. **−80
+      city-days** (Nevel −23, Velikiye Luki −15, Voronezh −7, Kotelnikovo −6…).
+      **Cumulative 1350 → 1059 (−291, ~22%).**
+- [x] **Classifier checked, already optimal**: tested winding-number (identical
+      to even-odd at all but 1 of thousands of grid points) and nearest-segment
+      (far worse, 7551). The `axisPolygon`/`inRing` side test is not the
+      bottleneck — it reports the correct side *given the line*.
+- [ ] **Remaining** (diminishing): the Caucasus/Baltic E-W termini have
+      interlocking capture-date geometry (fixing one city's trace shifts a
+      neighbor — a careful per-city hand-trace job, not a model gap); the rest
+      (~450 city-days) is ±1–3 day transition jitter inherent to monthly
+      keyframes (the line is in the right place, just crossing a day or two off).
 
 ## Finnish / Arctic theatre ✅
 The theatre that was wholly absent (the main front stops at Leningrad) is now on
