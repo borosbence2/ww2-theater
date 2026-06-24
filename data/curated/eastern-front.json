@@ -13562,6 +13562,7 @@
       "label": "Kuban bridgehead (17th Army)",
       "from": "1943-02-05",
       "to": "1943-10-10",
+      "garrison": ["de-h-armee-17"],
       "keyframes": [
         {
           "date": "1943-02-05",
@@ -13999,6 +14000,7 @@
       "label": "East Prussia pocket (Heiligenbeil / Königsberg / Samland)",
       "from": "1945-01-26",
       "to": "1945-04-10",
+      "garrison": ["de-h-armee-4"],
       "keyframes": [
         {
           "date": "1945-01-26",

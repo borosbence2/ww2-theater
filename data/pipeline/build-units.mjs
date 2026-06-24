@@ -936,10 +936,20 @@ if (sectors && monthlyRosters.length) {
   const pocketAbs = []; // { id, date, dNum, at:[lon,lat] }
   for (const pk of pockets) {
     if (!pk.garrison?.length && !pk.besiegers?.length) continue;
-    for (const month of monthlyRosters) {
-      const dNum = dateNum(month.date);
-      if (dNum < pk.fromNum || dNum >= pk.toNum) continue;
-      const ring = coordsFor(pk, month.date);
+    // Place the garrison across the WHOLE pocket window: its endpoints plus any
+    // monthly-roster snapshots inside it. Iterating only month-firsts left short
+    // pockets whose window holds no 1st-of-month (Bobruisk 27-30 Jun, Minsk
+    // 3-11 Jul, Halbe) empty, so the trapped units rode the line out instead.
+    const placeDates = new Set([pk.from]);
+    for (const m of monthlyRosters) {
+      const dn = dateNum(m.date);
+      if (dn >= pk.fromNum && dn < pk.toNum) placeDates.add(m.date);
+    }
+    const lastDay = addDays(pk.to, -1);
+    if (dateNum(lastDay) >= pk.fromNum) placeDates.add(lastDay);
+    for (const date of [...placeDates].sort()) {
+      const dNum = dateNum(date);
+      const ring = coordsFor(pk, date);
       if (!ring || ring.length < 3) continue;
       let cx = 0;
       let cy = 0;
@@ -976,11 +986,11 @@ if (sectors && monthlyRosters.length) {
         list.forEach((id, i) => {
           const ang = i * 2.399963229; // golden angle, even fill
           const rad = 0.55 * r * Math.sqrt((i + 0.5) / list.length);
-          inPocket.add(`${id}|${month.date}`);
-          postureAt.set(`${id}|${month.date}`, 'encircled');
+          inPocket.add(`${id}|${date}`);
+          postureAt.set(`${id}|${date}`, 'encircled');
           pocketAbs.push({
             id,
-            date: month.date,
+            date,
             dNum,
             at: [Number((cx + rad * Math.cos(ang)).toFixed(4)), Number((cy + rad * Math.sin(ang)).toFixed(4))],
           });
@@ -993,7 +1003,7 @@ if (sectors && monthlyRosters.length) {
       // and stay within the side-check's pocket tolerance (not "wrong side").
       // Entries are ids or {id, from?, to?} (default window = the pocket's).
       if (pk.besiegers?.length) {
-        const line = coordsFor(main, month.date);
+        const line = coordsFor(main, date);
         let bearing = Math.PI; // fallback: face west (toward the continent)
         if (line) {
           let best = Infinity;
@@ -1029,10 +1039,10 @@ if (sectors && monthlyRosters.length) {
         bz.forEach((b, i) => {
           const v = verts[Math.min(i, verts.length - 1)];
           const len = Math.hypot(v.x - cx, v.y - cy) || 1;
-          inPocket.add(`${b.id}|${month.date}`);
+          inPocket.add(`${b.id}|${date}`);
           pocketAbs.push({
             id: b.id,
-            date: month.date,
+            date,
             dNum,
             at: [
               Number((v.x + ((v.x - cx) / len) * OFF).toFixed(4)),
@@ -1521,9 +1531,17 @@ mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
       type: u.type,
       // A segment renders ~35 days past its last keyframe (to bridge to the next
       // monthly keyframe), but never past the unit's recorded existence — so a
-      // destroyed/withdrawn formation stops instead of lingering on the line.
-      segs: segs.map((s) => ({
-        end: Math.min(dateNum(addDays(s.lastDate, 35)), u._existTo),
+      // destroyed/withdrawn formation stops instead of lingering on the line —
+      // and never past the START of the next segment, so a line (fraction)
+      // segment can't stay active *through* an adjacent pocket segment and make
+      // the client (which takes the first active segment) draw an encircled unit
+      // back out on the moving line.
+      segs: segs.map((s, i) => ({
+        end: Math.min(
+          dateNum(addDays(s.lastDate, 35)),
+          u._existTo,
+          i + 1 < segs.length ? segs[i + 1].kfs[0][0] : Infinity,
+        ),
         kfs: s.kfs,
       })),
       // Which front line this unit's fractions resolve against (Finnish theatre);
