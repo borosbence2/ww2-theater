@@ -8198,45 +8198,6 @@
    "notes": "Auto-imported from Wikidata (air identity scaffold): lifecycle coarse/unverified, no mapped position yet. Curating means authoring a file under data/curated/units/ — it replaces this scaffold."
   },
   {
-   "id": "su-vvs-275-iad",
-   "country": "SU",
-   "branch": "vvs",
-   "echelon": "division",
-   "type": "fighter",
-   "air": true,
-   "aircraft": [
-    {
-     "id": "yak-9"
-    },
-    {
-     "id": "la-5"
-    }
-   ],
-   "short": "275 IAD",
-   "names": [
-    {
-     "from": "1942-12-01",
-     "name": "275th Fighter Aviation Division",
-     "aliases": [
-      "275-я истребительная авиационная дивизия"
-     ]
-    }
-   ],
-   "existence": [
-    {
-     "from": "1942-12-01",
-     "to": "1961-09-20"
-    }
-   ],
-   "parents": [],
-   "positions": [],
-   "links": {
-    "wikidata": "Q21195401"
-   },
-   "imported": true,
-   "notes": "Auto-imported from Wikidata (air identity scaffold): lifecycle coarse/unverified, no mapped position yet. Curating means authoring a file under data/curated/units/ — it replaces this scaffold."
-  },
-  {
    "id": "su-vvs-277-bap",
    "country": "SU",
    "branch": "vvs",

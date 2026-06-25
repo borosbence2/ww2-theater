@@ -235,6 +235,53 @@ try {
   console.log('No oob/air.json — air commands stay scaffold-only.');
 }
 
+// Air-battle showcases (oob/air-battles.json): per battle, create the army's key
+// formations as air units parented to it. They get no curated positions here —
+// the derivation pass below clusters them around the army's battle-month
+// position. A formation listed in several battles is created once (existence +
+// positionsTo widened to span them). Curated files win on id.
+let airBattles = null;
+try {
+  airBattles = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'air-battles.json'), 'utf8')).battles;
+  let created = 0;
+  for (const battle of airBattles) {
+    const country = battle.country ?? 'SU';
+    for (const bu of battle.units) {
+      if (units.has(bu.id)) {
+        const u = units.get(bu.id);
+        if (!u._airBattle) continue; // a curated file wins
+        if (!u.positionsTo || u.positionsTo < battle.to) u.positionsTo = battle.to;
+        continue;
+      }
+      if (!units.has(bu.parent)) err('air-battles', `${bu.id}: unknown parent "${bu.parent}"`);
+      units.set(bu.id, {
+        id: bu.id,
+        country,
+        branch: country === 'SU' ? 'vvs' : 'luftwaffe',
+        echelon: bu.echelon,
+        type: bu.type,
+        air: true,
+        short: bu.short,
+        names: [{ from: battle.from, name: bu.name, aliases: bu.aliases ?? [] }],
+        existence: [{ from: bu.from ?? battle.from }],
+        positionsTo: battle.to,
+        parents: [{ from: battle.from, to: bu.parentTo ?? null, unit: bu.parent }],
+        positions: [],
+        commanders: bu.commander ? [{ from: battle.from, name: bu.commander.name, link: bu.commander.link }] : [],
+        aircraft: (bu.aircraft ?? []).map((id) => ({ id })),
+        links: {},
+        summary: bu.summary ?? null,
+        notes: `${battle.name}: air-battle showcase formation (representative key OOB; approximate placement).`,
+        _airBattle: true,
+      });
+      created++;
+    }
+  }
+  console.log(`Air battles: created ${created} showcase formations across ${airBattles.length} battles`);
+} catch {
+  console.log('No oob/air-battles.json — no battle showcases.');
+}
+
 // ---------------------------------------------------------------------------
 // Reconciliation registry (SCALE_PLAN §4): fold curated `merge` duplicates
 // into their canonical id (names → aliases) and redirect every reference, so
@@ -1477,6 +1524,45 @@ if (sectors && monthlyRosters.length) {
       }
     }
     console.log(`Air commands: ${airPlaced} rear placements behind fronts/army groups`);
+  }
+
+  // --- Air-battle showcases: cluster each battle's formations around their air
+  // army's monthly position (golden-angle), for the battle window only.
+  if (airBattles) {
+    let battlePlaced = 0;
+    for (const battle of airBattles) {
+      const fromN = dateNum(battle.from);
+      const toN = dateNum(battle.to);
+      const akfs = derived.get(battle.army);
+      if (!akfs) continue;
+      // Place at the battle start + each roster month-first inside the window (so
+      // a battle shorter than a month still renders from its opening day), using
+      // the army's latest month-anchor at or before each placement date.
+      const dates = [
+        battle.from,
+        ...monthlyRosters.map((m) => m.date).filter((d) => dateNum(d) > fromN && dateNum(d) < toN),
+      ];
+      for (const date of dates) {
+        const dNum = dateNum(date);
+        let army = null;
+        for (const k of akfs) if (k.at && k.startNum <= dNum) army = k.at;
+        if (!army) continue;
+        battle.units.forEach((bu, i) => {
+          const u = units.get(bu.id);
+          if (!u || !existsAt(u, dNum) || isCuratedActive(u, dNum)) return;
+          const ang = i * 2.399963229; // golden angle
+          const rad = 0.2 + 0.06 * (i % 3);
+          const at = [
+            Number((army[0] + rad * Math.cos(ang)).toFixed(4)),
+            Number((army[1] + rad * Math.sin(ang) * 0.7).toFixed(4)),
+          ];
+          if (!derived.has(bu.id)) derived.set(bu.id, []);
+          derived.get(bu.id).push({ startNum: dNum, date, at });
+          battlePlaced++;
+        });
+      }
+    }
+    console.log(`Air battles: ${battlePlaced} formation placements clustered around their army`);
   }
 
   // Add pocket placements (absolute keyframes) — precedence over main line.

@@ -43,6 +43,21 @@ for (const dir of readdirSync(UNITS_DIR, { withFileTypes: true })) {
   }
 }
 
+// Air-battle showcase formations (oob/air-battles.json) are created by build-units,
+// not as curated files, so fold their names in here too — otherwise a matching
+// Wikidata scaffold would duplicate them.
+try {
+  for (const b of JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'air-battles.json'), 'utf8')).battles) {
+    for (const u of b.units) {
+      curatedNames.add(fold(u.name));
+      curatedNames.add(stripNick(u.name));
+      for (const a of u.aliases ?? []) curatedNames.add(fold(a));
+    }
+  }
+} catch {
+  /* no battle showcases */
+}
+
 // --- classification: name -> {echelon, type} or null (not a flying formation) ---
 
 function classifyDE(name) {

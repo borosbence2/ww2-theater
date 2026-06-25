@@ -610,6 +610,19 @@ check('2nd Air Army shows real corps at Kursk (not doctrinal)', kursk.hasRealCor
 const va2Panel = await page.locator('.detail-panel').textContent();
 check('air army panel shows a Typical composition section', /Typical composition/.test(va2Panel ?? ''));
 
+// Battle showcases (oob/air-battles.json): a battle formation is clickable with
+// its own aircraft, and selecting its army during the battle shows real corps.
+await page.goto(`${BASE}/?unit=su-bak-6&date=1945-04-25&z=6.6&lat=52.7&lng=14.3`, { waitUntil: 'domcontentloaded' });
+await page.waitForSelector('.detail-panel', { timeout: 12000 });
+await page.waitForTimeout(1200);
+const berlinCorps = await page.locator('.detail-panel').textContent();
+check('Berlin battle formation (6 BAK) is clickable with its aircraft', /Bomber Aviation Corps/.test(berlinCorps ?? '') && /Pe-2/.test(berlinCorps ?? ''));
+const battleAirCount = await page.evaluate(async () => {
+  const d = await (await fetch('/data/units/derived/eastern.json')).json();
+  return d.units.filter((u) => u.air && u.echelon === 'corps').length;
+});
+check(`battle air corps placed (${battleAirCount})`, battleAirCount >= 5);
+
 const realErrors = errors.filter((e) => !/WebGL|GPU|swiftshader|Failed to load resource/i.test(e));
 check(`no console/page errors (${errors.length} total, ${realErrors.length} relevant)`, realErrors.length === 0);
 if (realErrors.length) console.log(realErrors.join('\n'));

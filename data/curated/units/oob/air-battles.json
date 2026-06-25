@@ -1,0 +1,40 @@
+{
+  "note": "Air-battle showcases: per famous Eastern-Front battle, the supporting air army's key formations (representative headline OOB, not exhaustive). build-units creates each as an air:true unit parented to the army and clusters it (derived) around the army's monthly position for the battle window, so selecting the army at that battle shows real named formations with their own aircraft. Designations/aircraft are curated from references; placement is approximate. Unit names dedupe the matching Wikidata scaffolds. Stalingrad (8th/16th VA) and Kursk-south (2nd VA) are authored as full curated files instead.",
+  "battles": [
+    {
+      "name": "Operation Bagration",
+      "country": "SU",
+      "army": "su-vvs-1-va",
+      "from": "1944-06-23",
+      "to": "1944-08-29",
+      "units": [
+        { "id": "su-iak-1-gv", "name": "1st Guards Fighter Aviation Corps", "short": "1 Gv IAK", "echelon": "corps", "type": "fighter", "parent": "su-vvs-1-va", "aircraft": ["la-5", "yak-9"], "summary": "A Guards fighter corps of the 1st Air Army covering the 3rd Belorussian Front's breakthrough in Belorussia." },
+        { "id": "su-shak-3", "name": "3rd Assault Aviation Corps", "short": "3 ShAK", "echelon": "corps", "type": "ground-attack", "parent": "su-vvs-1-va", "aircraft": ["il-2"], "summary": "An Il-2 assault corps battering the retreating German columns during Bagration." },
+        { "id": "su-bak-2-gv", "name": "2nd Guards Bomber Aviation Corps", "short": "2 Gv BAK", "echelon": "corps", "type": "bomber", "parent": "su-vvs-1-va", "aircraft": ["pe-2"], "summary": "A Guards Pe-2 bomber corps of the 1st Air Army." }
+      ]
+    },
+    {
+      "name": "Leningrad–Novgorod offensive",
+      "country": "SU",
+      "army": "su-va-13",
+      "from": "1944-01-14",
+      "to": "1944-03-01",
+      "units": [
+        { "id": "su-iad-275", "name": "275th Fighter Aviation Division", "short": "275 IAD", "echelon": "division", "type": "fighter", "parent": "su-va-13", "aircraft": ["la-5", "yak-9"], "summary": "A 13th Air Army fighter division covering the offensive that finally lifted the siege of Leningrad." },
+        { "id": "su-shad-277", "name": "277th Assault Aviation Division", "short": "277 ShAD", "echelon": "division", "type": "ground-attack", "parent": "su-va-13", "aircraft": ["il-2"], "summary": "An Il-2 assault division supporting the Leningrad Front's breakout." }
+      ]
+    },
+    {
+      "name": "Battle of Berlin",
+      "country": "SU",
+      "army": "su-va-16",
+      "from": "1945-04-16",
+      "to": "1945-05-02",
+      "units": [
+        { "id": "su-iak-6", "name": "6th Fighter Aviation Corps", "short": "6 IAK", "echelon": "corps", "type": "fighter", "parent": "su-va-16", "aircraft": ["la-5", "yak-9"], "summary": "A fighter corps of Rudenko's 16th Air Army winning air supremacy over the Oder and Berlin." },
+        { "id": "su-shak-9", "name": "9th Assault Aviation Corps", "short": "9 ShAK", "echelon": "corps", "type": "ground-attack", "parent": "su-va-16", "aircraft": ["il-2"], "summary": "An Il-2 assault corps pounding the Seelow Heights and the Berlin defences." },
+        { "id": "su-bak-6", "name": "6th Bomber Aviation Corps", "short": "6 BAK", "echelon": "corps", "type": "bomber", "parent": "su-va-16", "aircraft": ["pe-2"], "summary": "A Pe-2 bomber corps of the 16th Air Army over Berlin." }
+      ]
+    }
+  ]
+}
