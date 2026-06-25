@@ -570,9 +570,9 @@ const adData = await page.evaluate(async () => {
 });
 check(`air commands in derived set (${adData})`, adData >= 8);
 
-// A placed air army shows its combat-radius ring + a doctrinal aviation-division
-// drill-down (representative composition), zoomed into its sector.
-await page.goto(`${BASE}/?unit=su-va-2&date=1943-07-08&z=6.4&lat=51&lng=36`, { waitUntil: 'domcontentloaded' });
+// A placed air army with no curated subordinates (3rd VA) shows its combat-radius
+// ring + a doctrinal aviation-division drill-down (representative composition).
+await page.goto(`${BASE}/?unit=su-vvs-3-va&date=1943-08-15&z=6.4&lat=56&lng=33`, { waitUntil: 'domcontentloaded' });
 await page.waitForSelector('.detail-panel', { timeout: 12000 });
 const airComplete = await page.evaluate(async () => {
   const m = window.__map;
@@ -588,6 +588,27 @@ const airComplete = await page.evaluate(async () => {
 });
 check('placed air army shows a range ring', airComplete.ring > 0);
 check(`air army shows doctrinal divisions (${airComplete.doc})`, airComplete.doc >= 4);
+
+// Kursk deepening: 2nd Air Army has real curated subordinate corps (not doctrinal),
+// clickable through to their own aircraft.
+await page.goto(`${BASE}/?unit=su-va-2&date=1943-07-08&z=6.6&lat=50.9&lng=38.4`, { waitUntil: 'domcontentloaded' });
+await page.waitForSelector('.detail-panel', { timeout: 12000 });
+const kursk = await page.evaluate(async () => {
+  const m = window.__map;
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  let real = [], doc = 1;
+  for (let i = 0; i < 20; i++) {
+    await sleep(500);
+    const fam = m.queryRenderedFeatures({ layers: ['air-family', 'air-corps'].filter((id) => m.getLayer(id)) });
+    real = [...new Set(fam.map((f) => f.properties.short).filter(Boolean))];
+    doc = m.getLayer('air-doctrinal-sym') ? m.queryRenderedFeatures({ layers: ['air-doctrinal-sym'] }).length : 0;
+    if (real.some((s) => /ShAK|IAK|BAK/.test(s))) break;
+  }
+  return { hasRealCorps: real.some((s) => /ShAK|IAK|BAK/.test(s)), doc };
+});
+check('2nd Air Army shows real corps at Kursk (not doctrinal)', kursk.hasRealCorps && kursk.doc === 0);
+const va2Panel = await page.locator('.detail-panel').textContent();
+check('air army panel shows a Typical composition section', /Typical composition/.test(va2Panel ?? ''));
 
 const realErrors = errors.filter((e) => !/WebGL|GPU|swiftshader|Failed to load resource/i.test(e));
 check(`no console/page errors (${errors.length} total, ${realErrors.length} relevant)`, realErrors.length === 0);

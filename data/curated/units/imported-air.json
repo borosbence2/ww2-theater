@@ -5766,44 +5766,6 @@
    "notes": "Auto-imported from Wikidata (air identity scaffold): lifecycle coarse/unverified, no mapped position yet. Curating means authoring a file under data/curated/units/ — it replaces this scaffold."
   },
   {
-   "id": "su-vvs-205-iad",
-   "country": "SU",
-   "branch": "vvs",
-   "echelon": "division",
-   "type": "fighter",
-   "air": true,
-   "aircraft": [
-    {
-     "id": "yak-9"
-    },
-    {
-     "id": "la-5"
-    }
-   ],
-   "short": "205 IAD",
-   "names": [
-    {
-     "from": "1942-05-12",
-     "name": "205th Fighter Aviation Division",
-     "aliases": [
-      "205-я истребительная авиационная дивизия"
-     ]
-    }
-   ],
-   "existence": [
-    {
-     "from": "1942-05-12"
-    }
-   ],
-   "parents": [],
-   "positions": [],
-   "links": {
-    "wikidata": "Q17749501"
-   },
-   "imported": true,
-   "notes": "Auto-imported from Wikidata (air identity scaffold): lifecycle coarse/unverified, no mapped position yet. Curating means authoring a file under data/curated/units/ — it replaces this scaffold."
-  },
-  {
    "id": "su-vvs-207-iad-q18634788",
    "country": "SU",
    "branch": "vvs",
@@ -11958,43 +11920,6 @@
    "links": {
     "wikidata": "Q4028689",
     "wikipedia.en": "https://en.wikipedia.org/wiki/76th_Air_Army"
-   },
-   "imported": true,
-   "notes": "Auto-imported from Wikidata (air identity scaffold): lifecycle coarse/unverified, no mapped position yet. Curating means authoring a file under data/curated/units/ — it replaces this scaffold."
-  },
-  {
-   "id": "su-vvs-8-gv-iad",
-   "country": "SU",
-   "branch": "vvs",
-   "echelon": "division",
-   "type": "fighter",
-   "air": true,
-   "aircraft": [
-    {
-     "id": "yak-9"
-    },
-    {
-     "id": "la-5"
-    }
-   ],
-   "short": "8 Gv IAD",
-   "names": [
-    {
-     "from": "1943-05-08",
-     "name": "8-я гвардейская истребительная авиационная дивизия",
-     "aliases": []
-    }
-   ],
-   "existence": [
-    {
-     "from": "1943-05-08",
-     "to": "1960-01-01"
-    }
-   ],
-   "parents": [],
-   "positions": [],
-   "links": {
-    "wikidata": "Q18543245"
    },
    "imported": true,
    "notes": "Auto-imported from Wikidata (air identity scaffold): lifecycle coarse/unverified, no mapped position yet. Curating means authoring a file under data/curated/units/ — it replaces this scaffold."

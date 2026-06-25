@@ -1,0 +1,28 @@
+{
+  "id": "su-shak-1",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "corps",
+  "type": "ground-attack",
+  "air": true,
+  "short": "1 ShAK",
+  "names": [
+    { "from": "1942-09-01", "name": "1st Assault Aviation Corps", "aliases": ["1 ShAK", "1-й штурмовой авиационный корпус"] }
+  ],
+  "existence": [{ "from": "1942-09-01" }],
+  "positionsTo": "1943-10-01",
+  "parents": [
+    { "from": "1943-06-01", "to": "1943-10-20", "unit": "su-va-2" }
+  ],
+  "positions": [
+    { "date": "1943-07-05", "at": [38.9, 50.5], "label": "Il-2 corps over the Kursk south face", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1943-08-03", "at": [38.2, 50.8], "label": "Supporting the Belgorod–Kharkov offensive", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [
+    { "from": "1942-09-01", "name": "Vasily Ryazanov", "link": "https://en.wikipedia.org/wiki/Vasily_Ryazanov" }
+  ],
+  "aircraft": [{ "id": "il-2" }],
+  "links": {},
+  "summary": "The 1st Assault Aviation Corps, under the celebrated ground-attack tactician Vasily Ryazanov, massed Il-2 Shturmoviks in close support of the 2nd Air Army at Kursk and through the liberation of Ukraine.",
+  "notes": "Kursk showcase: mapped for the 1943 battle window; identity-only outside it."
+}

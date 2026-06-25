@@ -1,0 +1,28 @@
+{
+  "id": "su-bak-1",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "corps",
+  "type": "bomber",
+  "air": true,
+  "short": "1 BAK",
+  "names": [
+    { "from": "1942-09-01", "name": "1st Bomber Aviation Corps", "aliases": ["1 BAK", "1-й бомбардировочный авиационный корпус"] }
+  ],
+  "existence": [{ "from": "1942-09-01" }],
+  "positionsTo": "1943-10-01",
+  "parents": [
+    { "from": "1943-06-01", "to": "1943-10-20", "unit": "su-va-2" }
+  ],
+  "positions": [
+    { "date": "1943-07-05", "at": [38.5, 51.05], "label": "Pe-2 corps striking the Kursk panzer concentrations", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1943-08-03", "at": [37.8, 51.35], "label": "Polbin's dive-bombers over Belgorod", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [
+    { "from": "1942-09-01", "name": "Ivan Polbin", "link": "https://en.wikipedia.org/wiki/Ivan_Polbin" }
+  ],
+  "aircraft": [{ "id": "pe-2" }],
+  "links": {},
+  "summary": "The 1st Bomber Aviation Corps, led by the dive-bombing pioneer Ivan Polbin, flew Petlyakov Pe-2s for the 2nd Air Army at Kursk, pioneering the 'vertushka' diving-circle attack on German armour and strongpoints.",
+  "notes": "Kursk showcase: mapped for the 1943 battle window; identity-only outside it."
+}

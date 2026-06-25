@@ -22,7 +22,7 @@ import {
   type ParentSpan,
   type UnitTrack,
 } from '../data/units';
-import { AIRCRAFT } from '../data/aircraft';
+import { AIRCRAFT, AIR_COMPOSITION } from '../data/aircraft';
 
 const SOURCE_ID = 'air-units';
 const LINKS_SOURCE_ID = 'air-links';
@@ -601,31 +601,19 @@ function selectionRingFor(dateISO: string): FeatureCollection {
 }
 
 // Doctrinal aviation-division composition shown around a selected air HQ that has
-// no curated subordinate divisions — the air analogue of the ground TO&E drill-
-// down. Representative (fighter/assault/bomber), clearly hollow + dashed, NOT hit
-// targets and NOT indexed units.
-const AIR_COMPOSITION: Record<'axis' | 'soviet', { role: string; label: string }[]> = {
-  soviet: [
-    { role: 'fighter', label: 'Fighter Aviation Division' },
-    { role: 'fighter', label: 'Fighter Aviation Division' },
-    { role: 'ground-attack', label: 'Assault Aviation Division' },
-    { role: 'ground-attack', label: 'Assault Aviation Division' },
-    { role: 'bomber', label: 'Bomber Aviation Division' },
-  ],
-  axis: [
-    { role: 'fighter', label: 'Jagdgeschwader' },
-    { role: 'fighter', label: 'Jagdgeschwader' },
-    { role: 'bomber', label: 'Kampfgeschwader' },
-    { role: 'dive-bomber', label: 'Stukageschwader' },
-    { role: 'ground-attack', label: 'Schlachtgeschwader' },
-  ],
-};
+// no curated subordinate divisions placed on the date — the air analogue of the
+// ground TO&E drill-down. Representative (fighter/assault/bomber), hollow +
+// dashed + labelled "(typical)", NOT hit targets and NOT indexed units. The
+// composition table itself lives in ../data/aircraft (shared with the panel).
 
-/** Does this air HQ have any curated/derived air subordinate active on the date? */
-function hasCuratedAirChildren(focus: string, d: number): boolean {
+/** Does this air HQ have a curated/derived air subordinate actually *placed* on
+ *  the date? (Parented AND positioned — so a showcase that maps real divisions
+ *  only for one battle still falls back to the doctrinal view on other dates.) */
+function hasPlacedAirChildren(focus: string, dateISO: string, d: number): boolean {
   for (const id of airIds) {
     if (id === focus) continue;
-    if (parentOnDate(parentsOf(id), d) === focus) return true;
+    if (parentOnDate(parentsOf(id), d) !== focus) continue;
+    if (positionForAirId(id, dateISO, d)) return true;
   }
   return false;
 }
@@ -633,17 +621,17 @@ function hasCuratedAirChildren(focus: string, d: number): boolean {
 function doctrinalAirFeatures(focus: string, dateISO: string, d: number): FeatureCollection {
   const u = trackById.get(focus) ?? derivedById.get(focus);
   if (!u || ECH_GROUP(u.echelon) !== 'army') return EMPTY;
-  if (hasCuratedAirChildren(focus, d)) return EMPTY; // real divisions render instead
+  if (hasPlacedAirChildren(focus, dateISO, d)) return EMPTY; // real divisions render instead
   const at = positionForAirId(focus, dateISO, d);
   if (!at) return EMPTY;
   const items = AIR_COMPOSITION[u.side];
-  const R = 0.9; // ring radius (degrees) around the HQ
+  const R = 0.42; // ring radius (degrees) — kept tight so they read as this HQ's
   const feats: Feature[] = items.map((it, i) => {
     const ang = -Math.PI / 2 + (i / items.length) * Math.PI * 2;
     return {
       type: 'Feature',
       properties: {
-        short: it.label,
+        short: `${it.label} (typical)`,
         icon: iconId(u.side, it.role, 'division', true, false),
         side: u.side,
         doctrinal: true,

@@ -1,0 +1,26 @@
+{
+  "id": "su-iad-205",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "division",
+  "type": "fighter",
+  "air": true,
+  "short": "205 IAD",
+  "names": [
+    { "from": "1942-05-01", "name": "205th Fighter Aviation Division", "aliases": ["205 IAD", "205-я истребительная авиационная дивизия"] }
+  ],
+  "existence": [{ "from": "1942-05-01" }],
+  "positionsTo": "1943-10-01",
+  "parents": [
+    { "from": "1943-06-01", "to": "1943-10-20", "unit": "su-iak-5" }
+  ],
+  "positions": [
+    { "date": "1943-07-05", "at": [38.25, 51.0], "label": "La-5 / Yak fighter division at Kursk", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1943-08-03", "at": [37.55, 51.3], "label": "Fighter cover over the Belgorod offensive", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [],
+  "aircraft": [{ "id": "la-5" }, { "id": "yak-9" }],
+  "links": {},
+  "summary": "The 205th Fighter Aviation Division was one of the 5th Fighter Aviation Corps' divisions at Kursk, flying Lavochkin and Yakovlev fighters over the southern face of the salient.",
+  "notes": "Kursk showcase (Tier-2 drill-down): renders when its corps or the division itself is selected."
+}

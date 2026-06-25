@@ -13,7 +13,7 @@ import {
 } from '../data/units';
 import { matchTemplate, type TemplateNode } from '../data/templates';
 import { groupedEquipment, EQUIP_CLASS_LABEL } from '../data/equipment';
-import { AIRCRAFT, ROLE_LABEL } from '../data/aircraft';
+import { AIRCRAFT, ROLE_LABEL, AIR_COMPOSITION } from '../data/aircraft';
 import { loadAirfields, type Airfield } from '../data/airfields';
 import { dateToNum, formatLong } from '../time/dates';
 import { useStore } from '../store';
@@ -674,6 +674,37 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
       )}
 
       <OrbatSection id={id} d={d} onSelect={(uid) => setSelection({ kind: 'unit', id: uid })} />
+
+      {isAir && (unit.echelon === 'army' || unit.echelon === 'corps') && (
+        <section className="detail-history">
+          <h3>Typical composition</h3>
+          <p className="detail-note">
+            Representative aviation divisions for {unit.echelon === 'army' ? 'an air army' : 'an aviation corps'} and the
+            aircraft they flew — actual subordinates appear above where they have been curated.
+          </p>
+          <ul className="orbat-tree">
+            {Array.from(
+              AIR_COMPOSITION[unit.side]
+                .reduce((m, it) => m.set(it.label, { it, n: (m.get(it.label)?.n ?? 0) + 1 }), new Map<string, { it: (typeof AIR_COMPOSITION)['soviet'][number]; n: number }>())
+                .values(),
+            ).map(({ it, n }) => (
+              <li key={it.label}>
+                <div className="orbat-row static">
+                  <span className="orbat-toggle" />
+                  <UnitGlyph side={unit.side} echelon="division" branch={it.role} />
+                  <span className="orbat-label">
+                    {it.label}
+                    {n > 1 && <span className="orbat-count"> ×{n}</span>}
+                  </span>
+                  <span className="omnibox-meta">
+                    {it.aircraft.map((aid) => AIRCRAFT[aid]?.name).filter(Boolean).join(', ')}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {template && (
         <section className="detail-history">

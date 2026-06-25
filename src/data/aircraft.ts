@@ -143,6 +143,32 @@ const ROLE_ORDER: AircraftRole[] = [
   'bomber', 'night-fighter', 'recon', 'transport',
 ];
 
+/** Representative aviation-division composition of an air army / Luftflotte, by
+ *  side — the doctrinal types each fielded, with the aircraft they typically flew.
+ *  Used for the map drill-down around a selected HQ and the panel's "typical
+ *  composition" (representative, not an exact order of battle). */
+export interface CompositionItem {
+  label: string;
+  role: AircraftRole;
+  aircraft: string[];
+}
+export const AIR_COMPOSITION: Record<'axis' | 'soviet', CompositionItem[]> = {
+  soviet: [
+    { label: 'Fighter Aviation Division', role: 'fighter', aircraft: ['yak-9', 'la-5'] },
+    { label: 'Fighter Aviation Division', role: 'fighter', aircraft: ['yak-9', 'la-5'] },
+    { label: 'Assault Aviation Division', role: 'ground-attack', aircraft: ['il-2'] },
+    { label: 'Assault Aviation Division', role: 'ground-attack', aircraft: ['il-2'] },
+    { label: 'Bomber Aviation Division', role: 'bomber', aircraft: ['pe-2'] },
+  ],
+  axis: [
+    { label: 'Jagdgeschwader', role: 'fighter', aircraft: ['bf-109g', 'fw-190a'] },
+    { label: 'Jagdgeschwader', role: 'fighter', aircraft: ['bf-109g', 'fw-190a'] },
+    { label: 'Kampfgeschwader', role: 'bomber', aircraft: ['he-111h', 'ju-88a'] },
+    { label: 'Stukageschwader', role: 'dive-bomber', aircraft: ['ju-87d'] },
+    { label: 'Schlachtgeschwader', role: 'ground-attack', aircraft: ['fw-190a', 'ju-87g'] },
+  ],
+};
+
 /** Resolve an air unit's aircraft ids into catalog entries grouped by role. */
 export function groupedAircraft(
   refs: string[] | undefined,

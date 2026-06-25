@@ -1,0 +1,26 @@
+{
+  "id": "su-iad-8-gv",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "division",
+  "type": "fighter",
+  "air": true,
+  "short": "8 Gv IAD",
+  "names": [
+    { "from": "1943-02-01", "name": "8th Guards Fighter Aviation Division", "aliases": ["8 GvIAD", "8-я гвардейская истребительная авиационная дивизия"] }
+  ],
+  "existence": [{ "from": "1943-02-01" }],
+  "positionsTo": "1943-10-01",
+  "parents": [
+    { "from": "1943-06-01", "to": "1943-10-20", "unit": "su-iak-5" }
+  ],
+  "positions": [
+    { "date": "1943-07-05", "at": [38.55, 50.8], "label": "Guards fighter division at Kursk", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1943-08-03", "at": [37.85, 51.1], "label": "Guards fighters over the Belgorod offensive", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [],
+  "aircraft": [{ "id": "la-5" }],
+  "links": {},
+  "summary": "The 8th Guards Fighter Aviation Division flew La-5 fighters in the 5th Fighter Aviation Corps, fighting for air superiority over the southern face of the Kursk salient.",
+  "notes": "Kursk showcase (Tier-2 drill-down): renders when its corps or the division itself is selected."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "su-iak-5",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "corps",
+  "type": "fighter",
+  "air": true,
+  "short": "5 IAK",
+  "names": [
+    { "from": "1942-08-01", "name": "5th Fighter Aviation Corps", "aliases": ["5 IAK", "5-й истребительный авиационный корпус"] }
+  ],
+  "existence": [{ "from": "1942-08-01" }],
+  "positionsTo": "1943-10-01",
+  "parents": [
+    { "from": "1943-06-01", "to": "1943-10-20", "unit": "su-va-2" }
+  ],
+  "positions": [
+    { "date": "1943-07-05", "at": [38.4, 50.9], "label": "Fighter cover for the 2nd Air Army at Kursk", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1943-08-03", "at": [37.7, 51.2], "label": "Escorting the Belgorod–Kharkov offensive", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [
+    { "from": "1943-03-01", "name": "Dmitry Galunov" }
+  ],
+  "aircraft": [{ "id": "la-5" }, { "id": "yak-9" }],
+  "links": {},
+  "summary": "The 5th Fighter Aviation Corps provided the 2nd Air Army's fighter cover at Kursk, flying La-5s and Yak-9s to contest air superiority over the southern face of the salient.",
+  "notes": "Kursk showcase: mapped for the 1943 battle window; identity-only outside it."
+}
