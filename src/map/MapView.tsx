@@ -15,11 +15,19 @@ import {
   setupUnitInteractions,
   updateUnitsFocus,
 } from '../layers/units';
+import {
+  AIR_HIT_LAYER_IDS,
+  getAirUnitPositionOn,
+  setupAirInteractions,
+  updateAirFocus,
+} from '../layers/air';
+import { AIRFIELD_DOT_LAYER_ID } from '../layers/airfields';
 import { BATTLES_HIT_LAYER_ID } from '../layers/battles';
 import { POCKET_FILL_LAYER_ID } from '../layers/front';
 import { addUnitPathLayers, updateUnitPath } from '../layers/unitPath';
 import { loadCities } from '../data/cities';
 import { loadBattles } from '../data/battles';
+import { airfieldById } from '../data/airfields';
 import { setMap } from './mapRef';
 import { EDIT_MODE } from '../edit/mode';
 import { addEditLayers } from '../edit/editLayer';
@@ -113,18 +121,21 @@ export function MapView() {
       // Path lines render beneath the unit symbols.
       addUnitPathLayers(map, UNITS_HIT_LAYER_IDS.find((id) => map.getLayer(id)));
       applyVisibility(map, state.hiddenLayers);
-      // Hover glow + tooltip on the unit counters (read-only; safe in edit mode).
+      // Hover glow + tooltip on the unit + air counters (read-only; safe in edit mode).
       setupUnitInteractions(map);
+      setupAirInteractions(map);
 
       if (EDIT_MODE) {
         addEditLayers(map);
       } else {
-        // Click priority: unit symbol > battle > city dot > pocket fill; empty
-        // map clears. (Pocket is last so a unit/city on top of it wins.)
+        // Click priority: air/unit counters > battle > city dot > airfield > pocket
+        // fill; empty map clears. (Pocket last so a counter/city/airfield wins.)
         const clickable = [
+          ...AIR_HIT_LAYER_IDS,
           ...UNITS_HIT_LAYER_IDS,
           BATTLES_HIT_LAYER_ID,
           CITY_DOT_LAYER_ID,
+          AIRFIELD_DOT_LAYER_ID,
           POCKET_FILL_LAYER_ID,
         ];
         map.on('click', (e) => {
@@ -132,22 +143,28 @@ export function MapView() {
             layers: clickable.filter((id) => map.getLayer(id)),
           });
           const rank = (lid: string) =>
-            UNITS_HIT_LAYER_IDS.includes(lid)
+            AIR_HIT_LAYER_IDS.includes(lid)
               ? 0
-              : lid === BATTLES_HIT_LAYER_ID
+              : UNITS_HIT_LAYER_IDS.includes(lid)
                 ? 1
-                : lid === CITY_DOT_LAYER_ID
+                : lid === BATTLES_HIT_LAYER_ID
                   ? 2
-                  : 3;
+                  : lid === CITY_DOT_LAYER_ID
+                    ? 3
+                    : lid === AIRFIELD_DOT_LAYER_ID
+                      ? 4
+                      : 5;
           const top = [...hits].sort((a, b) => rank(a.layer.id) - rank(b.layer.id))[0];
           const { setSelection } = useStore.getState();
           if (!top) setSelection(null);
-          else if (UNITS_HIT_LAYER_IDS.includes(top.layer.id)) {
+          else if (AIR_HIT_LAYER_IDS.includes(top.layer.id) || UNITS_HIT_LAYER_IDS.includes(top.layer.id)) {
             setSelection({ kind: 'unit', id: top.properties.id as string });
           } else if (top.layer.id === BATTLES_HIT_LAYER_ID) {
             setSelection({ kind: 'battle', id: top.properties.id as string });
           } else if (top.layer.id === CITY_DOT_LAYER_ID) {
             setSelection({ kind: 'city', id: top.properties.name as string });
+          } else if (top.layer.id === AIRFIELD_DOT_LAYER_ID) {
+            setSelection({ kind: 'airfield', id: top.properties.id as string });
           } else {
             setSelection({ kind: 'pocket', id: top.properties.id as string });
           }
@@ -171,14 +188,18 @@ export function MapView() {
           map.flyTo({ center: [city.lng, city.lat], zoom: Math.max(map.getZoom(), 5.5) });
         }
       } else if (sel?.kind === 'unit') {
-        // Curated or sector-derived (units layer holds this date's geometry).
-        const at = getUnitPositionOn(sel.id, useStore.getState().date);
+        // Curated, sector-derived (ground) or air — whichever layer holds it.
+        const when = useStore.getState().date;
+        const at = getUnitPositionOn(sel.id, when) ?? getAirUnitPositionOn(sel.id, when);
         if (at) map.flyTo({ center: at, zoom: Math.max(map.getZoom(), 6) });
       } else if (sel?.kind === 'battle') {
         const battle = (await loadBattles()).find((b) => b.id === sel.id);
         if (battle) {
           map.flyTo({ center: [battle.lon, battle.lat], zoom: Math.max(map.getZoom(), 5.5) });
         }
+      } else if (sel?.kind === 'airfield') {
+        const af = await airfieldById(sel.id);
+        if (af) map.flyTo({ center: [af.lon, af.lat], zoom: Math.max(map.getZoom(), 6) });
       }
     });
 
@@ -205,11 +226,15 @@ export function MapView() {
     if (map && readyRef.current) applyVisibility(map, hiddenLayers);
   }, [hiddenLayers]);
 
-  // Drill-down: sub-division units render only around the selected unit.
+  // Drill-down: sub-division units render only around the selected unit. Both
+  // layers get the focus; each ignores ids it doesn't own (so an air selection
+  // drives the air command tree + range ring, a ground one drives the ground tree).
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !readyRef.current) return;
-    updateUnitsFocus(map, selection?.kind === 'unit' ? selection.id : null, date);
+    const unitId = selection?.kind === 'unit' ? selection.id : null;
+    updateUnitsFocus(map, unitId, date);
+    updateAirFocus(map, unitId, date);
   }, [selection, date]);
 
   // Path mode: draw the selected unit's route while tracking is on.
@@ -226,7 +251,7 @@ export function MapView() {
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !readyRef.current || !follow || selection?.kind !== 'unit') return;
-    const at = getUnitPositionOn(selection.id, date);
+    const at = getUnitPositionOn(selection.id, date) ?? getAirUnitPositionOn(selection.id, date);
     if (at) map.easeTo({ center: at, duration: 180 });
   }, [follow, selection, date]);
 

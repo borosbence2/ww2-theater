@@ -1,0 +1,33 @@
+{
+  "id": "de-lw-fliegerkorps-8",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "corps",
+  "type": "air-hq",
+  "air": true,
+  "short": "VIII. Fliegerkorps",
+  "names": [
+    { "from": "1939-10-19", "name": "VIII. Fliegerkorps", "aliases": ["8th Air Corps", "VIII Fliegerkorps", "Fliegerkorps VIII"] }
+  ],
+  "existence": [
+    { "from": "1939-10-19" }
+  ],
+  "positionsTo": "1943-02-15",
+  "parents": [
+    { "from": "1942-07-20", "to": "1943-02-15", "unit": "de-lw-luftflotte-4" }
+  ],
+  "positions": [
+    { "date": "1942-08-15", "at": [42.05, 48.55], "label": "Close-support corps forward, Chir sector", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1942-12-20", "at": [41.4, 48.3], "label": "Covering the Don airlift fields", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [
+    { "from": "1939-10-19", "to": "1942-07-01", "name": "Wolfram von Richthofen", "link": "https://en.wikipedia.org/wiki/Wolfram_von_Richthofen" },
+    { "from": "1942-07-01", "to": "1943-09-01", "name": "Martin Fiebig", "link": "https://en.wikipedia.org/wiki/Martin_Fiebig" }
+  ],
+  "aircraft": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/VIII._Fliegerkorps_(Germany)"
+  },
+  "summary": "VIII. Fliegerkorps was the Luftwaffe's premier close-support (Nahkampf) corps, specialising in concentrated dive-bomber and ground-attack operations. At Stalingrad, under Generalleutnant Martin Fiebig, it controlled the bulk of Luftflotte 4's combat Geschwader and bore much of the responsibility for the airlift.",
+  "notes": "Pilot coverage: Stalingrad (Aug 1942 – Feb 1943). HQ positions inferred. Formation continued past the pilot window."
+}

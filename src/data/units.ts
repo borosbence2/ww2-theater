@@ -20,6 +20,8 @@ export interface UnitIndexEntry {
   hasPositions: boolean;
   /** Daily position derivable from front sector + monthly OOB. */
   hasDerived: boolean;
+  /** Air formation (Luftwaffe / VVS) — rendered by the air layer, not units. */
+  air?: boolean;
 }
 
 export interface UnitTrackKeyframe {
@@ -36,6 +38,10 @@ export interface UnitTrack {
   side: 'axis' | 'soviet';
   echelon: string;
   type: string;
+  /** Air formation (Luftwaffe / VVS) — the air layer renders these. */
+  air?: boolean;
+  /** Aircraft fielded over time (air units only) — sizes the range ring. */
+  aircraft?: { id: string; count?: number; serviceable?: number; from?: string; to?: string }[];
   /** Parent unit ids — sub-division units render only when one is in focus. */
   parentIds: string[];
   /** Temporal parent timeline [fromNum, toNum|null, unitId] for command links. */
@@ -65,6 +71,14 @@ export interface UnitDetail {
   echelon: string;
   type: string;
   short: string;
+  /** Air formation (Luftwaffe / VVS): drives the air-aware panel sections. */
+  air?: boolean;
+  /** Aircraft fielded over time (catalog ids in ../data/aircraft), with optional
+   *  authorized/serviceable counts and a validity span (re-equipment). */
+  aircraft?: { id: string; count?: number; serviceable?: number; from?: string; to?: string }[];
+  /** Airfield basing history — `airfield` is an id in the airfield catalog;
+   *  `label` is the resolved field name (baked by build-units). */
+  bases?: { from: string; to?: string | null; airfield: string; label?: string }[];
   names: { from: string; name: string; aliases?: string[] }[];
   existence: { from: string; to?: string; end?: string }[];
   parents: { from: string; to: string | null; unit: string; label: string }[];
@@ -140,6 +154,8 @@ export interface DerivedUnit {
   side: 'axis' | 'soviet';
   echelon: string;
   type: string;
+  /** Air formation — never sector-derived in practice, kept for symmetry. */
+  air?: boolean;
   segs: DerivedSeg[];
   /** Temporal parent timeline [fromNum, toNum|null, unitId] for command links. */
   parents?: ParentSpan[];

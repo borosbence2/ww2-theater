@@ -30,6 +30,11 @@ const OUT_DIR = 'public/data/units';
 
 const ECHELONS = ['army-group', 'front', 'army', 'corps', 'division', 'brigade', 'regiment', 'battalion'];
 const TYPES = ['infantry', 'armoured', 'motorized', 'cavalry', 'artillery', 'hq'];
+// Air-formation roles (units flagged `air:true`): map symbol + panel grouping.
+const AIR_TYPES = [
+  'fighter', 'heavy-fighter', 'dive-bomber', 'ground-attack',
+  'bomber', 'night-fighter', 'recon', 'transport', 'air-hq',
+];
 const CONFIDENCES = ['documented', 'inferred', 'approximate'];
 const MOVES = ['march', 'rail', 'sea', 'air', 'gap'];
 const AXIS_COUNTRIES = new Set(['DE', 'RO', 'HU', 'IT', 'FI']);
@@ -427,6 +432,34 @@ if (deOob && monthlyRosters.length) {
   );
 }
 
+// Air forces: resolve each air unit's keyframe `base` (airfield id) to coords +
+// label from the curated airfield catalog, and default the move to 'air' (a wing
+// relocating between fields holds, then jumps — it doesn't glide). Runs before
+// position validation so the resolved `at` is bounds-checked like any other.
+const airfields = new Map();
+try {
+  for (const a of JSON.parse(readFileSync('data/curated/airfields/eastern.json', 'utf8')).airfields ?? []) {
+    airfields.set(a.id, a);
+  }
+} catch {
+  console.log('No airfields/eastern.json — air-unit bases must use explicit coords.');
+}
+for (const u of units.values()) {
+  if (!u.air) continue;
+  for (const a of u.aircraft ?? []) if (!a.id) err(u.id, `aircraft entry missing id: ${JSON.stringify(a)}`);
+  for (const pos of u.positions ?? []) {
+    if (pos.base) {
+      const a = airfields.get(pos.base);
+      if (!a) err(u.id, `position ${pos.date} references unknown airfield "${pos.base}"`);
+      else {
+        pos.at = pos.at ?? [a.lon, a.lat];
+        pos.label = pos.label ?? a.name;
+      }
+    }
+    if (!pos.move) pos.move = 'air';
+  }
+}
+
 for (const u of units.values()) {
   const id = u.id;
   if (!u.names?.length || !u.existence?.length) {
@@ -434,7 +467,7 @@ for (const u of units.values()) {
     continue;
   }
   if (!ECHELONS.includes(u.echelon)) err(id, `bad echelon "${u.echelon}"`);
-  if (!TYPES.includes(u.type)) err(id, `bad type "${u.type}"`);
+  if (!TYPES.includes(u.type) && !(u.air && AIR_TYPES.includes(u.type))) err(id, `bad type "${u.type}"`);
   if (!u.short) err(id, 'missing short label');
   for (const n of u.names ?? []) if (!ISO.test(n.from) || !n.name) err(id, `bad names entry ${JSON.stringify(n)}`);
   for (const e of u.existence ?? []) {
@@ -748,7 +781,10 @@ const VAL_START = main.keyframes[0].date;
 const VAL_END = main.to ?? main.keyframes[main.keyframes.length - 1].date;
 
 const positioned = [...units.values()].filter((u) => u.positions?.length);
-console.log(`Validating ${positioned.length} positioned units vs front, ${VAL_START} -> ${VAL_END} ...`);
+// Air units are based behind their own lines but range freely over the front, so
+// the unit-vs-front side check doesn't apply — validate ground units only.
+const positionedGround = positioned.filter((u) => !u.air);
+console.log(`Validating ${positionedGround.length} positioned units vs front, ${VAL_START} -> ${VAL_END} ...`);
 
 const runs = new Map(); // unit -> merged mismatch runs
 let contestedDays = 0;
@@ -767,7 +803,7 @@ for (let n = 0; n <= totalDays; n++) {
     .map((f) => ({ f, ring: coordsFor(f, iso) }))
     .filter((p) => p.ring && p.ring.length > 2);
 
-  for (const u of positioned) {
+  for (const u of positionedGround) {
     const at = positionOn(u, iso);
     if (!at) continue;
     const [lon, lat] = at;
@@ -1606,6 +1642,7 @@ const index = [...units.values()]
     to: u.existence[u.existence.length - 1].to ?? null,
     hasPositions: Boolean(u.positions?.length),
     hasDerived: derived.has(u.id),
+    ...(u.air ? { air: true } : {}),
   }))
   .sort((a, b) => a.id.localeCompare(b.id));
 writeFileSync(join(OUT_DIR, 'index.json'), JSON.stringify({ units: index }));
@@ -1617,6 +1654,9 @@ const tracks = positioned
     side: u.side,
     echelon: u.echelon,
     type: u.type,
+    // Air units carry their aircraft inline so the air layer can size the range
+    // ring (combat radius) per date without fetching the detail shard.
+    ...(u.air ? { air: true, aircraft: u.aircraft ?? [] } : {}),
     // Sub-division units render only when a related unit is selected.
     parentIds: [...new Set((u.parents ?? []).map((p) => p.unit))],
     // Temporal parent timeline (see derived emit) for date-accurate command links.
@@ -1648,6 +1688,17 @@ for (const u of units.values()) {
   const waypoints = waypointsOf.has(u.id)
     ? waypointsOf.get(u.id).map((r) => ({ date: r.date, note: r.note ?? null, source: r.source ?? null }))
     : null;
+  // Air units: a basing history (airfield spans) baked from the keyframes that
+  // reference a field, each span open until the next based keyframe.
+  const basedKfs = u.air ? (u.positions ?? []).filter((p) => p.base) : [];
+  const bases = u.air
+    ? basedKfs.map((p, i) => ({
+        from: p.date,
+        to: basedKfs[i + 1]?.date ?? null,
+        airfield: p.base,
+        label: p.label ?? null,
+      }))
+    : undefined;
   const detail = {
     id: u.id,
     country: u.country,
@@ -1656,6 +1707,7 @@ for (const u of units.values()) {
     echelon: u.echelon,
     type: u.type,
     short: u.short,
+    ...(u.air ? { air: true, aircraft: u.aircraft ?? [], bases } : {}),
     names: u.names,
     existence: u.existence,
     parents: (u.parents ?? []).map((p) => ({ ...p, to: p.to ?? null, label: labelOf(p.unit) })),

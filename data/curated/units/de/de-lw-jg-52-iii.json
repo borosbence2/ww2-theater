@@ -1,0 +1,32 @@
+{
+  "id": "de-lw-jg-52-iii",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "regiment",
+  "type": "fighter",
+  "air": true,
+  "short": "III./JG 52",
+  "names": [
+    { "from": "1940-09-01", "name": "III. Gruppe / Jagdgeschwader 52", "aliases": ["III./JG 52", "3rd Group, JG 52"] }
+  ],
+  "existence": [
+    { "from": "1940-09-01", "to": "1945-05-08", "end": "surrendered at war's end" }
+  ],
+  "positionsTo": "1943-02-15",
+  "parents": [
+    { "from": "1940-09-01", "to": "1943-02-15", "unit": "de-lw-jg-52" }
+  ],
+  "positions": [
+    { "date": "1942-08-25", "base": "af-oblivskaya", "label": "Bf 109 group on the Stalingrad axis", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1942-11-25", "base": "af-morozovskaya", "label": "Covering the Don bomber and transport fields", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [],
+  "aircraft": [
+    { "id": "bf-109g", "count": 38, "serviceable": 22 }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Jagdgeschwader_52"
+  },
+  "summary": "III. Gruppe of JG 52 was one of the wing's three fighter groups, fielding around 30–40 Messerschmitt Bf 109s. Several of the Luftwaffe's leading aces served in its Staffeln during the fighting on the southern Eastern Front.",
+  "notes": "Tier-2 drill-down: renders on the map only when JG 52 or this group is selected. Pilot coverage: Stalingrad."
+}

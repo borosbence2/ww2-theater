@@ -778,13 +778,16 @@ function refresh(map: MapLibreMap, dateISO: string): void {
   lastDateISO = dateISO;
   const d = dateToNum(dateISO);
   const line = mainFrontLine(dateISO, d);
-  const family = focusId ? computeFamily(focusId, d) : null;
+  // A focus this layer doesn't own (e.g. a selected air unit) must be a no-op —
+  // otherwise computeFamily would dim every ground counter for a foreign id.
+  const known = focusId !== null && (trackById.has(focusId) || derivedById.has(focusId));
+  const family = known ? computeFamily(focusId!, d) : null;
   const usrc = map.getSource(SOURCE_ID) as GeoJSONSource | undefined;
   if (usrc) usrc.setData(collectionFor(dateISO, d, line, family));
   const lsrc = map.getSource(LINKS_SOURCE_ID) as GeoJSONSource | undefined;
   if (lsrc) lsrc.setData(family ? buildLinks(family, dateISO, d, line) : EMPTY);
   const dsrc = map.getSource(DOCTRINAL_SOURCE_ID) as GeoJSONSource | undefined;
-  if (dsrc) dsrc.setData(focusId ? doctrinalFeatures(focusId, dateISO, d, line) : EMPTY);
+  if (dsrc) dsrc.setData(known ? doctrinalFeatures(focusId!, dateISO, d, line) : EMPTY);
 }
 
 function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
@@ -863,7 +866,12 @@ function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
 }
 
 export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<void> {
-  [tracks, derivedUnits] = await Promise.all([loadUnitTracks(), loadDerivedUnits()]);
+  const [allTracks, allDerived] = await Promise.all([loadUnitTracks(), loadDerivedUnits()]);
+  // Air formations (Luftwaffe / VVS) are rendered by the dedicated air layer with
+  // their own disc counters; exclude them here entirely (rendering and the by-id
+  // maps used for ground command families) — air and ground chains never cross.
+  tracks = allTracks.filter((t) => !t.air);
+  derivedUnits = allDerived.filter((u) => !u.air);
   trackIds.clear();
   trackById.clear();
   derivedById.clear();

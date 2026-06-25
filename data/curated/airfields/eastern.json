@@ -1,0 +1,85 @@
+{
+  "airfields": [
+    {
+      "id": "af-pitomnik",
+      "name": "Pitomnik",
+      "lon": 44.05,
+      "lat": 48.73,
+      "country": "SU",
+      "names": [{ "from": "1942-09-01", "name": "Pitomnik" }],
+      "notes": "Main supply airfield inside the Stalingrad pocket; the airlift's lifeline. Captured by the Soviets on 16 January 1943, collapsing the resupply effort."
+    },
+    {
+      "id": "af-gumrak",
+      "name": "Gumrak",
+      "lon": 44.345,
+      "lat": 48.783,
+      "country": "SU",
+      "names": [{ "from": "1942-09-01", "name": "Gumrak" }],
+      "notes": "Secondary airfield inside the Stalingrad pocket and site of 6. Armee HQ. The last functioning strip after Pitomnik fell; abandoned 22 January 1943."
+    },
+    {
+      "id": "af-tatsinskaya",
+      "name": "Tatsinskaya",
+      "lon": 41.22,
+      "lat": 48.22,
+      "country": "SU",
+      "names": [{ "from": "1942-09-01", "name": "Tatsinskaya" }],
+      "notes": "Principal Ju 52 transport base for the Stalingrad airlift. Overrun by 24th Tank Corps in the Tatsinskaya Raid, 24 December 1942, with heavy aircraft losses."
+    },
+    {
+      "id": "af-morozovskaya",
+      "name": "Morozovskaya",
+      "lon": 41.81,
+      "lat": 48.36,
+      "country": "SU",
+      "names": [{ "from": "1942-09-01", "name": "Morozovskaya" }],
+      "notes": "He 111 bomber/transport base supporting the airlift, paired with Tatsinskaya. Evacuated under Soviet pressure in early January 1943."
+    },
+    {
+      "id": "af-oblivskaya",
+      "name": "Oblivskaya",
+      "lon": 42.05,
+      "lat": 48.55,
+      "country": "SU",
+      "names": [{ "from": "1942-09-01", "name": "Oblivskaya" }],
+      "notes": "Forward fighter and transport strip on the Chir, covering the approaches to the Don airlift fields."
+    },
+    {
+      "id": "af-karpovka",
+      "name": "Karpovka",
+      "lon": 43.78,
+      "lat": 48.68,
+      "country": "SU",
+      "names": [{ "from": "1942-09-01", "name": "Karpovka" }],
+      "notes": "Strip on the western edge of the pocket used in the early encirclement before the line contracted."
+    },
+    {
+      "id": "af-leninsk",
+      "name": "Leninsk",
+      "lon": 45.2,
+      "lat": 48.7,
+      "country": "SU",
+      "names": [{ "from": "1942-07-01", "name": "Leninsk" }],
+      "notes": "Soviet field east of the Volga, in the 8th Air Army's basing belt safely beyond German artillery range."
+    },
+    {
+      "id": "af-solodniki",
+      "name": "Solodniki",
+      "lon": 45.78,
+      "lat": 48.18,
+      "country": "SU",
+      "names": [{ "from": "1942-07-01", "name": "Solodniki" }],
+      "notes": "Soviet airfield on the east bank of the Volga south of Stalingrad, used by fighter and Shturmovik regiments."
+    },
+    {
+      "id": "af-srednyaya-akhtuba",
+      "name": "Srednyaya Akhtuba",
+      "lon": 44.86,
+      "lat": 48.82,
+      "country": "SU",
+      "names": [{ "from": "1942-07-01", "name": "Srednyaya Akhtuba" }],
+      "notes": "Forward Soviet field just east of the Volga opposite the city, within minutes' flying time of the Stalingrad battle zone."
+    }
+  ]
+}

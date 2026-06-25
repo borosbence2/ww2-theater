@@ -1,0 +1,31 @@
+{
+  "id": "de-lw-luftflotte-4",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "army",
+  "type": "air-hq",
+  "air": true,
+  "short": "Luftflotte 4",
+  "names": [
+    { "from": "1940-03-18", "name": "Luftflotte 4", "aliases": ["Air Fleet 4", "LF 4", "Luftflotte IV"] }
+  ],
+  "existence": [
+    { "from": "1940-03-18", "to": "1945-04-21", "end": "redesignated Luftwaffenkommando 4" }
+  ],
+  "positionsTo": "1943-02-15",
+  "parents": [],
+  "positions": [
+    { "date": "1942-08-01", "at": [39.72, 47.24], "label": "HQ Rostov-on-Don — supporting the drive on Stalingrad", "source": "hayward-stopped-at-stalingrad", "confidence": "inferred" },
+    { "date": "1942-11-23", "at": [40.5, 47.9], "label": "Directing the air effort over the encirclement", "source": "hayward-stopped-at-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [
+    { "from": "1940-03-18", "to": "1942-07-01", "name": "Alexander Löhr", "link": "https://en.wikipedia.org/wiki/Alexander_L%C3%B6hr" },
+    { "from": "1942-07-20", "to": "1943-09-04", "name": "Wolfram von Richthofen", "link": "https://en.wikipedia.org/wiki/Wolfram_von_Richthofen" }
+  ],
+  "aircraft": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Luftflotte_4"
+  },
+  "summary": "Luftflotte 4 was the German air fleet responsible for the southern sector of the Eastern Front. Under Generaloberst Wolfram von Richthofen it furnished the air support for the 1942 summer offensive into the Caucasus and toward Stalingrad, and directed the failed attempt to supply the encircled 6. Armee by air.",
+  "notes": "Pilot coverage: the Stalingrad air battle (Aug 1942 – Feb 1943). HQ positions are inferred command-post locations, not flying positions. The formation lived on past the pilot window."
+}

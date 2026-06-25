@@ -7,15 +7,23 @@ import { useEffect, useRef, useState } from 'react';
 import { foldText, loadCities, searchCities, type City } from '../data/cities';
 import { loadUnitIndex, searchUnits, type UnitIndexEntry } from '../data/units';
 import { loadBattles, searchBattles, type Battle } from '../data/battles';
-import { selectBattle, selectCity, selectUnit } from './actions';
+import { loadAirfields, searchAirfields, type Airfield } from '../data/airfields';
+import { selectAirfield, selectBattle, selectCity, selectUnit } from './actions';
 
 type Result =
   | { kind: 'city'; city: City }
   | { kind: 'unit'; unit: UnitIndexEntry }
-  | { kind: 'battle'; battle: Battle };
+  | { kind: 'battle'; battle: Battle }
+  | { kind: 'airfield'; airfield: Airfield };
 
 const labelOf = (r: Result) =>
-  r.kind === 'city' ? r.city.name : r.kind === 'unit' ? r.unit.label : r.battle.name;
+  r.kind === 'city'
+    ? r.city.name
+    : r.kind === 'unit'
+      ? r.unit.label
+      : r.kind === 'battle'
+        ? r.battle.name
+        : r.airfield.name;
 
 export function Omnibox() {
   const [query, setQuery] = useState('');
@@ -31,23 +39,26 @@ export function Omnibox() {
       setOpen(false);
       return;
     }
-    Promise.all([loadCities(), loadUnitIndex(), loadBattles()]).then(([cities, units, battles]) => {
+    Promise.all([loadCities(), loadUnitIndex(), loadBattles(), loadAirfields()]).then(
+      ([cities, units, battles, airfields]) => {
       if (!alive) return;
       // Rank across kinds: prefix matches first; on ties cities, then units,
       // then battles (typing "Stalingrad" finds the city above the Front HQ
       // above the battle).
       const q = foldText(query.trim());
       const prefix = (name: string) => (foldText(name).startsWith(q) ? 0 : 1);
-      const kindRank = { city: 0, unit: 1, battle: 2 } as const;
+      const kindRank = { city: 0, unit: 1, battle: 2, airfield: 3 } as const;
       const hits: Result[] = [
         ...searchUnits(units, query, 5).map((unit) => ({ kind: 'unit' as const, unit })),
         ...searchCities(cities, query, 4).map((city) => ({ kind: 'city' as const, city })),
         ...searchBattles(battles, query, 4).map((battle) => ({ kind: 'battle' as const, battle })),
+        ...searchAirfields(airfields, query, 3).map((airfield) => ({ kind: 'airfield' as const, airfield })),
       ].sort((a, b) => prefix(labelOf(a)) - prefix(labelOf(b)) || kindRank[a.kind] - kindRank[b.kind]);
       setResults(hits);
       setActive(0);
       setOpen(true); // open even with no hits, to show the "no matches" state
-    });
+      },
+    );
     return () => {
       alive = false;
     };
@@ -67,6 +78,7 @@ export function Omnibox() {
     setQuery(labelOf(r));
     if (r.kind === 'city') selectCity(r.city);
     else if (r.kind === 'battle') selectBattle(r.battle);
+    else if (r.kind === 'airfield') selectAirfield(r.airfield);
     else await selectUnit(r.unit);
   };
 
@@ -109,7 +121,9 @@ export function Omnibox() {
                 ? `c|${r.city.name}|${r.city.lng}`
                 : r.kind === 'unit'
                   ? `u|${r.unit.id}`
-                  : `b|${r.battle.id}`;
+                  : r.kind === 'battle'
+                    ? `b|${r.battle.id}`
+                    : `a|${r.airfield.id}`;
             return (
               <li
                 key={key}
@@ -133,6 +147,7 @@ export function Omnibox() {
                   <>
                     <span>
                       <span className={`unit-chip side-${r.unit.side}`}>{r.unit.echelon}</span>
+                      {r.unit.air && <span className="unit-chip air-chip">air</span>}
                       {r.unit.label}
                     </span>
                     <span className="omnibox-meta">
@@ -140,13 +155,21 @@ export function Omnibox() {
                       {r.unit.hasPositions || r.unit.hasDerived ? '' : ' · not mapped yet'}
                     </span>
                   </>
-                ) : (
+                ) : r.kind === 'battle' ? (
                   <>
                     <span>
                       <span className="unit-chip battle-chip">battle</span>
                       {r.battle.name}
                     </span>
                     <span className="omnibox-meta">{r.battle.start.slice(0, 4)}</span>
+                  </>
+                ) : (
+                  <>
+                    <span>
+                      <span className="unit-chip airfield-chip">airfield</span>
+                      {r.airfield.name}
+                    </span>
+                    <span className="omnibox-meta">{r.airfield.country}</span>
                   </>
                 )}
               </li>

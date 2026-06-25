@@ -1,0 +1,32 @@
+{
+  "id": "su-va-8",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "army",
+  "type": "air-hq",
+  "air": true,
+  "short": "8th Air Army",
+  "names": [
+    { "from": "1942-06-13", "name": "8th Air Army", "aliases": ["8 VA", "8-я воздушная армия", "8th Vozdushnaya Armiya"] }
+  ],
+  "existence": [
+    { "from": "1942-06-13" }
+  ],
+  "positionsTo": "1943-02-15",
+  "parents": [
+    { "from": "1942-08-01", "to": "1943-02-15", "unit": "su-front-stalingrad" }
+  ],
+  "positions": [
+    { "date": "1942-08-01", "base": "af-leninsk", "label": "Supporting Stalingrad Front from east of the Volga", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1942-11-19", "base": "af-leninsk", "label": "Air support for Operation Uranus", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [
+    { "from": "1942-06-13", "to": "1943-07-01", "name": "Timofei Khryukin", "link": "https://en.wikipedia.org/wiki/Timofey_Khryukin" }
+  ],
+  "aircraft": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/8th_Air_Army_(Soviet_Union)"
+  },
+  "summary": "The 8th Air Army was the Soviet air army supporting the Stalingrad Front. Commanded by Timofei Khryukin, it fought the Luftwaffe for control of the skies over Stalingrad and provided the air support for Operation Uranus, the counter-offensive that encircled 6. Armee.",
+  "notes": "Pilot coverage: Stalingrad (Aug 1942 – Feb 1943). HQ positions are inferred basing-belt locations east of the Volga. Formation lived on past the pilot window."
+}

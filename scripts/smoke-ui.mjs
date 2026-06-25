@@ -489,6 +489,57 @@ const formPanel = await page.locator('.detail-panel').textContent();
 check('16. Panzer-Division shows formation history', /Formations/.test(formPanel ?? '') && /formation/.test(formPanel ?? ''));
 check('formation history names the fate', /destroyed at Stalingrad/i.test(formPanel ?? ''));
 
+// Air forces: distinct disc counters render, an air unit opens an air-aware
+// panel (aircraft + combat radius + airfields), the range ring draws, and
+// airfields are clickable + searchable.
+await page.goto(`${BASE}/?date=1942-12-10&z=5.2&lat=48.6&lng=43.5`, { waitUntil: 'domcontentloaded' });
+await page.waitForSelector('.timebar', { timeout: 15000 });
+await page.waitForTimeout(4500);
+const airRender = await page.evaluate(() => {
+  const m = window.__map;
+  if (!m) return { ok: false };
+  const ids = ['air-army', 'air-corps', 'air-division', 'air-sub', 'air-family'].filter((id) => m.getLayer(id));
+  return { ok: true, n: m.queryRenderedFeatures({ layers: ids }).length };
+});
+check(`air disc counters render at Stalingrad (${airRender.n})`, airRender.ok && airRender.n > 0);
+check('Air forces + Airfields layers in the panel', (await page.locator('.layer-row', { hasText: 'Air forces' }).count()) === 1 && (await page.locator('.layer-row', { hasText: 'Airfields' }).count()) === 1);
+
+await page.fill('.omnibox input', 'StG 2');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1800);
+const airPanel = await page.locator('.detail-panel').textContent();
+check('air unit panel opens (StG 2)', /Stukageschwader 2|StG 2/.test(airPanel ?? ''));
+check('air panel shows Aircraft section + Ju 87', /Aircraft/.test(airPanel ?? '') && /Ju 87/.test(airPanel ?? ''));
+check('air panel shows combat radius', /Combat radius/.test(airPanel ?? ''));
+check('air panel shows airfields + a base', /Airfields/.test(airPanel ?? '') && /(Tatsinskaya|Oblivskaya)/.test(airPanel ?? ''));
+check('URL has ?unit=de-lw-stg-2', page.url().includes('unit=de-lw-stg-2'));
+const ring = await page.evaluate(() => {
+  const m = window.__map;
+  return m && m.getLayer('air-range-fill') ? m.queryRenderedFeatures({ layers: ['air-range-fill'] }).length : 0;
+});
+check(`range ring renders for the selected air unit (${ring})`, ring > 0);
+await page.screenshot({ path: `${SHOTS}/ww2-air-unit.png` });
+
+// Airfield deep link -> panel with the units based there.
+await page.goto(`${BASE}/?airfield=af-tatsinskaya&date=1942-12-10`, { waitUntil: 'domcontentloaded' });
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1500);
+const afPanel = await page.locator('.detail-panel').textContent();
+check('airfield panel opens (Tatsinskaya)', /Tatsinskaya/.test(afPanel ?? ''));
+check('airfield panel lists based-here section', /Based here/.test(afPanel ?? ''));
+
+// Soviet air side reachable + aircraft re-equipment modelled.
+await page.fill('.omnibox input', '8th Air Army');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+await page.keyboard.press('Enter');
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1500);
+const vvsPanel = await page.locator('.detail-panel').textContent();
+check('Soviet 8th Air Army panel opens', /8th Air Army/.test(vvsPanel ?? ''));
+check('8th Air Army shows Stalingrad Front in its chain', /Stalingrad Front/.test(vvsPanel ?? ''));
+
 const realErrors = errors.filter((e) => !/WebGL|GPU|swiftshader|Failed to load resource/i.test(e));
 check(`no console/page errors (${errors.length} total, ${realErrors.length} relevant)`, realErrors.length === 0);
 if (realErrors.length) console.log(realErrors.join('\n'));

@@ -16,6 +16,7 @@ import { formatLong, dateToNum } from '../time/dates';
 import { useStore } from '../store';
 import { UnitPanel } from './UnitPanel';
 import { BattlePanel } from './BattlePanel';
+import { AirfieldPanel } from './AirfieldPanel';
 
 const SIDE_LABEL = { axis: 'Axis', soviet: 'Soviet' } as const;
 
@@ -178,6 +179,8 @@ export function DetailPanel() {
         <CityDetail name={selection.id} />
       ) : selection.kind === 'pocket' ? (
         <PocketDetail id={selection.id} />
+      ) : selection.kind === 'airfield' ? (
+        <AirfieldPanel id={selection.id} />
       ) : (
         <BattlePanel id={selection.id} />
       )}

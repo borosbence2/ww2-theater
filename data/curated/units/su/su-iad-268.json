@@ -1,0 +1,31 @@
+{
+  "id": "su-iad-268",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "division",
+  "type": "fighter",
+  "air": true,
+  "short": "268 IAD",
+  "names": [
+    { "from": "1942-05-15", "name": "268th Fighter Aviation Division", "aliases": ["268 IAD", "268-я истребительная авиационная дивизия"] }
+  ],
+  "existence": [
+    { "from": "1942-05-15" }
+  ],
+  "positionsTo": "1943-02-15",
+  "parents": [
+    { "from": "1942-08-01", "to": "1943-02-15", "unit": "su-va-8" }
+  ],
+  "positions": [
+    { "date": "1942-08-10", "base": "af-solodniki", "label": "Fighter division covering the Stalingrad sector", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1942-11-19", "base": "af-solodniki", "label": "Escort and cover for Uranus", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [],
+  "aircraft": [
+    { "id": "lagg-3", "count": 60, "serviceable": 35, "to": "1942-10-01" },
+    { "id": "yak-1", "count": 70, "serviceable": 42, "from": "1942-09-01" }
+  ],
+  "links": {},
+  "summary": "The 268th Fighter Aviation Division was one of the 8th Air Army's fighter divisions at Stalingrad, flying LaGG-3 and increasingly Yak-1 fighters to contest the Luftwaffe over the city and the Volga crossings.",
+  "notes": "Pilot coverage: Stalingrad. Aircraft re-equipment from the LaGG-3 to the Yak-1 modelled over autumn 1942."
+}

@@ -5,6 +5,7 @@
 import { create } from 'zustand';
 import { DEFAULT_DATE, TIMELINE_END, addDays, clampDate, diffDays } from './time/dates';
 import { readUrl } from './time/url';
+import { DEFAULT_HIDDEN_LAYERS } from './layers/registry';
 
 export interface Viewport {
   lng: number;
@@ -13,7 +14,7 @@ export interface Viewport {
 }
 
 /** What is selected in the UI (detail panel + deep link). */
-export type Selection = { kind: 'city' | 'unit' | 'battle' | 'pocket'; id: string };
+export type Selection = { kind: 'city' | 'unit' | 'battle' | 'pocket' | 'airfield'; id: string };
 
 /** Default view: centered on central Europe, whole-theater zoom. */
 const DEFAULT_VIEWPORT: Viewport = { lng: 15, lat: 50, zoom: 4 };
@@ -59,7 +60,8 @@ export const useStore = create<AppState>((set, get) => ({
   playing: false,
   speed: SPEEDS[1],
   viewport: { ...DEFAULT_VIEWPORT, ...url.viewport },
-  hiddenLayers: url.hiddenLayers ?? [],
+  // A clean visit (no `layers=` in the URL) starts with the opt-in overlays hidden.
+  hiddenLayers: url.hiddenLayers ?? DEFAULT_HIDDEN_LAYERS,
   selection: url.selection ?? null,
   trackPath: (url.trackPath ?? false) && url.selection?.kind === 'unit',
   follow: false,

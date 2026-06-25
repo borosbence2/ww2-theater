@@ -1,0 +1,30 @@
+{
+  "id": "su-shap-505",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "regiment",
+  "type": "ground-attack",
+  "air": true,
+  "short": "505 ShAP",
+  "names": [
+    { "from": "1942-01-01", "name": "505th Assault Aviation Regiment", "aliases": ["505 ShAP", "505-й штурмовой авиационный полк"] }
+  ],
+  "existence": [
+    { "from": "1942-01-01" }
+  ],
+  "positionsTo": "1943-02-15",
+  "parents": [
+    { "from": "1942-08-01", "to": "1943-02-15", "unit": "su-shad-206" }
+  ],
+  "positions": [
+    { "date": "1942-08-15", "base": "af-solodniki", "label": "Il-2 regiment in continuous ground-attack sorties", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1942-11-19", "base": "af-solodniki", "label": "Low-level strikes ahead of the breakthrough", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [],
+  "aircraft": [
+    { "id": "il-2", "count": 20, "serviceable": 11 }
+  ],
+  "links": {},
+  "summary": "The 505th Assault Aviation Regiment was an Il-2 Shturmovik regiment of the 206th Assault Aviation Division. A Soviet assault regiment fielded roughly 20–32 Il-2s and flew punishing low-level attacks against German ground forces, taking heavy losses in return.",
+  "notes": "Tier-2 drill-down: renders on the map only when its division or the regiment itself is selected. Pilot coverage: Stalingrad."
+}

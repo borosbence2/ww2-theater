@@ -5,6 +5,7 @@
 import { loadUnitTracks, positionOn, type UnitIndexEntry } from '../data/units';
 import type { Battle } from '../data/battles';
 import type { City } from '../data/cities';
+import type { Airfield } from '../data/airfields';
 import { dateToNum } from '../time/dates';
 import { getMap } from '../map/mapRef';
 import { useStore } from '../store';
@@ -13,6 +14,12 @@ export function selectCity(city: City): void {
   useStore.getState().setSelection({ kind: 'city', id: city.name });
   const map = getMap();
   map?.flyTo({ center: [city.lng, city.lat], zoom: Math.max(map.getZoom(), 5.5) });
+}
+
+export function selectAirfield(airfield: Airfield): void {
+  useStore.getState().setSelection({ kind: 'airfield', id: airfield.id });
+  const map = getMap();
+  map?.flyTo({ center: [airfield.lon, airfield.lat], zoom: Math.max(map.getZoom(), 6) });
 }
 
 export function selectBattle(battle: Battle): void {

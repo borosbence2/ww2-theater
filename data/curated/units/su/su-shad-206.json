@@ -1,0 +1,30 @@
+{
+  "id": "su-shad-206",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "division",
+  "type": "ground-attack",
+  "air": true,
+  "short": "206 ShAD",
+  "names": [
+    { "from": "1942-05-20", "name": "206th Assault Aviation Division", "aliases": ["206 ShAD", "206-я штурмовая авиационная дивизия"] }
+  ],
+  "existence": [
+    { "from": "1942-05-20" }
+  ],
+  "positionsTo": "1943-02-15",
+  "parents": [
+    { "from": "1942-08-01", "to": "1943-02-15", "unit": "su-va-8" }
+  ],
+  "positions": [
+    { "date": "1942-08-10", "base": "af-leninsk", "label": "Il-2 division striking the German spearheads", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1942-11-19", "base": "af-leninsk", "label": "Ground-attack support for Uranus", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [],
+  "aircraft": [
+    { "id": "il-2", "count": 64, "serviceable": 38 }
+  ],
+  "links": {},
+  "summary": "The 206th Assault Aviation Division flew the Ilyushin Il-2 Shturmovik in the 8th Air Army, attacking German armour, artillery and supply columns around Stalingrad and supporting the Soviet counter-offensive.",
+  "notes": "Pilot coverage: Stalingrad. Base east of the Volga."
+}

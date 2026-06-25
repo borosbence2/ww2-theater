@@ -1,0 +1,32 @@
+{
+  "id": "su-va-16",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "army",
+  "type": "air-hq",
+  "air": true,
+  "short": "16th Air Army",
+  "names": [
+    { "from": "1942-08-08", "name": "16th Air Army", "aliases": ["16 VA", "16-я воздушная армия", "16th Vozdushnaya Armiya"] }
+  ],
+  "existence": [
+    { "from": "1942-08-08" }
+  ],
+  "positionsTo": "1943-02-15",
+  "parents": [
+    { "from": "1942-10-01", "to": "1943-02-15", "unit": "su-front-don" }
+  ],
+  "positions": [
+    { "date": "1942-09-15", "base": "af-srednyaya-akhtuba", "label": "Committed over the Stalingrad bridgehead", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1942-11-19", "base": "af-srednyaya-akhtuba", "label": "Don Front air support for Uranus", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [
+    { "from": "1942-10-01", "to": "1945-05-09", "name": "Sergei Rudenko", "link": "https://en.wikipedia.org/wiki/Sergei_Rudenko_(general)" }
+  ],
+  "aircraft": [],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/16th_Air_Army_(Soviet_Union)"
+  },
+  "summary": "The 16th Air Army was formed at Stalingrad in August 1942 and soon passed to the Don Front under Sergei Rudenko, who would lead it for the rest of the war to Berlin. At Stalingrad it shared the air battle with the 8th Air Army and helped seal the encirclement from the air.",
+  "notes": "Pilot coverage: Stalingrad (Sep 1942 – Feb 1943). HQ positions inferred. Formation lived on past the pilot window."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "de-lw-stg-2",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "division",
+  "type": "dive-bomber",
+  "air": true,
+  "short": "StG 2",
+  "names": [
+    { "from": "1939-05-01", "name": "Stukageschwader 2 \"Immelmann\"", "aliases": ["StG 2", "Sturzkampfgeschwader 2", "Immelmann"] }
+  ],
+  "existence": [
+    { "from": "1939-05-01", "to": "1943-10-18", "end": "redesignated Schlachtgeschwader 2" }
+  ],
+  "positionsTo": "1943-02-15",
+  "parents": [
+    { "from": "1942-07-20", "to": "1943-02-15", "unit": "de-lw-fliegerkorps-8" }
+  ],
+  "positions": [
+    { "date": "1942-08-20", "base": "af-oblivskaya", "label": "Dive-bombing in support of 6. Armee's approach", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1942-11-25", "base": "af-tatsinskaya", "label": "Operating against the Soviet bridgeheads", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1942-12-25", "base": "af-oblivskaya", "label": "Pulled back after the Tatsinskaya raid", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [],
+  "aircraft": [
+    { "id": "ju-87d", "count": 90, "serviceable": 55 }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Sturzkampfgeschwader_2"
+  },
+  "summary": "Stukageschwader 2 \"Immelmann\" was the most famous Luftwaffe dive-bomber wing, flying the Junkers Ju 87. Its most celebrated pilot, Hans-Ulrich Rudel, flew with I. Gruppe over the Eastern Front. At Stalingrad the Geschwader delivered concentrated dive-bombing in support of 6. Armee.",
+  "notes": "Pilot coverage: Stalingrad (Aug 1942 – Feb 1943). Base keyframes are representative forward fields, not a day-by-day record."
+}

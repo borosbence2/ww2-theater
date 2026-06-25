@@ -15,6 +15,15 @@ import { UNITS_LAYER_IDS, addUnitsLayer, updateUnitsDate } from './units';
 import { BATTLES_LAYER_IDS, addBattlesLayer, updateBattlesDate } from './battles';
 import { CONTROL_FILL_LAYER_IDS, addControlFillLayer, updateControlFillDate } from './controlFill';
 import { OPERATIONS_LAYER_IDS, addOperationsLayer, updateOperationsDate } from './operations';
+import { AIRFIELDS_LAYER_IDS, addAirfieldsLayer } from './airfields';
+import {
+  AIR_LAYER_IDS,
+  AIR_RANGES_LAYER_IDS,
+  addAirLayer,
+  addAirRangesLayer,
+  updateAirDate,
+  updateAirRangesDate,
+} from './air';
 
 export interface LegendItem {
   /** Swatch shape: line | dash | fill | dot. */
@@ -85,6 +94,17 @@ export const LAYERS: LayerDef[] = [
     mapLayerIds: OPERATIONS_LAYER_IDS,
   },
   {
+    id: 'air-ranges',
+    label: 'Air ranges (all)',
+    legend: [
+      { shape: 'fill', color: AXIS_COLOR, label: 'Luftwaffe combat radius' },
+      { shape: 'fill', color: SOVIET_COLOR, label: 'VVS combat radius' },
+    ],
+    add: addAirRangesLayer,
+    updateDate: updateAirRangesDate,
+    mapLayerIds: AIR_RANGES_LAYER_IDS,
+  },
+  {
     id: 'control',
     label: 'City control',
     legend: [
@@ -114,6 +134,13 @@ export const LAYERS: LayerDef[] = [
     mapLayerIds: BATTLES_LAYER_IDS,
   },
   {
+    id: 'airfields',
+    label: 'Airfields',
+    legend: [{ shape: 'dot', color: '#5a4a8a', label: 'Airfield (curated)' }],
+    add: addAirfieldsLayer,
+    mapLayerIds: AIRFIELDS_LAYER_IDS,
+  },
+  {
     id: 'units',
     label: 'Military units',
     legend: [
@@ -125,7 +152,24 @@ export const LAYERS: LayerDef[] = [
     updateDate: updateUnitsDate,
     mapLayerIds: UNITS_LAYER_IDS,
   },
+  {
+    id: 'air',
+    label: 'Air forces',
+    legend: [
+      { shape: 'dot', color: AXIS_COLOR, label: 'Luftwaffe formation (disc = air)' },
+      { shape: 'dot', color: SOVIET_COLOR, label: 'Soviet VVS formation' },
+      { shape: 'dash', color: SOVIET_COLOR, label: 'Combat-radius ring (select a unit)' },
+    ],
+    add: addAirLayer,
+    updateDate: updateAirDate,
+    mapLayerIds: AIR_LAYER_IDS,
+  },
 ];
+
+/** Registry ids hidden on a clean visit (no `layers=` in the URL). The all-ranges
+ *  overlay is opt-in so it doesn't blanket the map; per-unit rings still show on
+ *  selection via the always-on "Air forces" layer. */
+export const DEFAULT_HIDDEN_LAYERS = ['air-ranges'];
 
 /** Registry ids, for URL parsing without importing the full defs. */
 export const ALL_LAYER_IDS = LAYERS.map((d) => d.id);

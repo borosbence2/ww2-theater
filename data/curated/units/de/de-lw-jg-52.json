@@ -1,0 +1,35 @@
+{
+  "id": "de-lw-jg-52",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "division",
+  "type": "fighter",
+  "air": true,
+  "short": "JG 52",
+  "names": [
+    { "from": "1939-11-01", "name": "Jagdgeschwader 52", "aliases": ["JG 52", "Fighter Wing 52"] }
+  ],
+  "existence": [
+    { "from": "1939-11-01", "to": "1945-05-08", "end": "surrendered at war's end" }
+  ],
+  "positionsTo": "1943-02-15",
+  "parents": [
+    { "from": "1942-07-20", "to": "1943-02-15", "unit": "de-lw-fliegerkorps-8" }
+  ],
+  "positions": [
+    { "date": "1942-08-25", "base": "af-oblivskaya", "label": "Fighter cover over the Stalingrad approaches", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1942-11-25", "base": "af-morozovskaya", "label": "Escorting the airlift and the bombers", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [
+    { "from": "1942-10-01", "to": "1944-10-01", "name": "Dietrich Hrabak", "link": "https://en.wikipedia.org/wiki/Dietrich_Hrabak" }
+  ],
+  "aircraft": [
+    { "id": "bf-109f", "count": 110, "serviceable": 65, "to": "1942-10-01" },
+    { "id": "bf-109g", "count": 115, "serviceable": 70, "from": "1942-10-01" }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Jagdgeschwader_52"
+  },
+  "summary": "Jagdgeschwader 52 was the highest-scoring fighter wing in the history of aerial warfare, flying the Messerschmitt Bf 109 on the Eastern Front. Its ranks included Erich Hartmann, Gerhard Barkhorn and Günther Rall. At Stalingrad it provided fighter cover for the bombers and the airlift.",
+  "notes": "Pilot coverage: Stalingrad (Aug 1942 – Feb 1943). The wing re-equipped from the Bf 109 F to the G during late 1942. Formation lived on past the pilot window."
+}

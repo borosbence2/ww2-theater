@@ -40,6 +40,16 @@
       "citation": "Jentz, T. — Panzertruppen: The Complete Guide to the Creation & Combat Employment of Germany's Tank Force, 1933–45",
       "granularity": "dated tank strength returns",
       "license": "book (reference only)"
+    },
+    "bergstrom-stalingrad": {
+      "citation": "Bergström, C. — Stalingrad: The Air Battle, 1942 through January 1943 (2007)",
+      "granularity": "air-unit basing + operations, daily-to-weekly",
+      "license": "book (reference only, no geometry copied)"
+    },
+    "hayward-stopped-at-stalingrad": {
+      "citation": "Hayward, J. — Stopped at Stalingrad: The Luftwaffe and Hitler's Defeat in the East, 1942–1943 (1998)",
+      "granularity": "Luftflotte 4 operations + the airlift",
+      "license": "book (reference only)"
     }
   }
 }

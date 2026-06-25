@@ -48,10 +48,12 @@ export function readUrl(): UrlState {
   const city = p.get('city');
   const battle = p.get('battle');
   const pocket = p.get('pocket');
+  const airfield = p.get('airfield');
   if (unit) out.selection = { kind: 'unit', id: unit };
   else if (battle) out.selection = { kind: 'battle', id: battle };
   else if (city) out.selection = { kind: 'city', id: city };
   else if (pocket) out.selection = { kind: 'pocket', id: pocket };
+  else if (airfield) out.selection = { kind: 'airfield', id: airfield };
   if (p.get('track') === '1') out.trackPath = true;
 
   const person = p.get('person');
@@ -87,6 +89,7 @@ export function writeUrl(
   }
   if (selection?.kind === 'battle') p.set('battle', selection.id);
   if (selection?.kind === 'pocket') p.set('pocket', selection.id);
+  if (selection?.kind === 'airfield') p.set('airfield', selection.id);
   if (personQuery !== null) p.set('person', personQuery);
   window.history.replaceState(null, '', `?${p.toString()}`);
 }

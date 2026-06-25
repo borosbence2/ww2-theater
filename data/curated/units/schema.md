@@ -17,7 +17,31 @@ check needs the built front keyframes).
   regiment | battalion`.
 - `type` — `infantry | armoured | motorized | cavalry | artillery | hq`
   (map symbol; Jäger/rifle/guards-rifle count as `infantry`, field armies as `hq`).
-- `short` — map label, a few characters (`6. Armee`, `16. Pz`, `13 Gv`).
+  Air formations use the air roles below instead.
+- `short` — map label, a few characters (`6. Armee`, `16. Pz`, `13 Gv`, `StG 2`).
+
+### Air formations (Luftwaffe / VVS)
+
+Set `"air": true` and the unit is rendered by the dedicated **air layer** (distinct
+disc counters + combat-radius range rings), not the ground units layer. Air units
+otherwise use the same file format, so they get search / deep-links / command tree
+/ panel for free.
+
+- `branch` — `luftwaffe | vvs`.
+- `type` (air role, drives the disc silhouette) — `fighter | heavy-fighter |
+  dive-bomber | ground-attack | bomber | night-fighter | recon | transport |
+  air-hq`.
+- `echelon` — reuse the ground ladder: Luftflotte / Air Army → `army`,
+  Fliegerkorps / aviation corps → `corps`, Geschwader / aviation division →
+  `division`, Gruppe / aviation regiment → `regiment`, Staffel → `battalion`.
+- `aircraft[]` — `{id, count?, serviceable?, from?, to?}`. `id` is a key in
+  `src/data/aircraft.ts` (catalog of specs + combat radius). The max combat radius
+  among the aircraft active on a date sizes the range ring. `from`/`to` model
+  re-equipment (e.g. Bf 109 F → G, LaGG-3 → La-5).
+- `positions[]` keyframes may carry `"base": "<airfield-id>"` (an id in
+  `data/curated/airfields/eastern.json`) instead of/with `at`; the ETL resolves it
+  to the field's coords + name. `move` defaults to `air` for air units (hold then
+  jump between fields). Air units are exempt from the unit-vs-front side check.
 
 ## Temporal fields (all intervals are `from <= date < to`; `to` omitted = open)
 

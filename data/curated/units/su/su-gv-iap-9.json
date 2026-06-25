@@ -1,0 +1,33 @@
+{
+  "id": "su-gv-iap-9",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "regiment",
+  "type": "fighter",
+  "air": true,
+  "short": "9 GvIAP",
+  "names": [
+    { "from": "1942-03-07", "name": "9th Guards Fighter Aviation Regiment", "aliases": ["9 GvIAP", "9-й гвардейский истребительный авиационный полк", "ex-69th IAP"] }
+  ],
+  "existence": [
+    { "from": "1942-03-07" }
+  ],
+  "positionsTo": "1943-02-15",
+  "parents": [
+    { "from": "1942-08-01", "to": "1943-02-15", "unit": "su-iad-268" }
+  ],
+  "positions": [
+    { "date": "1942-08-10", "base": "af-srednyaya-akhtuba", "label": "Elite \"aces regiment\" over Stalingrad", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1942-11-19", "base": "af-srednyaya-akhtuba", "label": "Hand-picked pilots fly cover for Uranus", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [
+    { "from": "1942-09-01", "to": "1943-03-13", "name": "Lev Shestakov", "link": "https://en.wikipedia.org/wiki/Lev_Shestakov" }
+  ],
+  "aircraft": [
+    { "id": "lagg-3", "count": 22, "serviceable": 14, "to": "1942-10-01" },
+    { "id": "yak-1", "count": 28, "serviceable": 18, "from": "1942-09-15" }
+  ],
+  "links": {},
+  "summary": "The 9th Guards Fighter Aviation Regiment was one of the VVS's elite \"aces regiments\". Re-formed at Stalingrad under Lev Shestakov with hand-picked pilots — among them Amet-Khan Sultan and Alexei Alelyukhin — it flew Yak fighters in the battle for air superiority over the city.",
+  "notes": "Tier-2 drill-down: renders on the map only when its division or the regiment itself is selected. Pilot coverage: Stalingrad."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "de-lw-stg-2-i",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "regiment",
+  "type": "dive-bomber",
+  "air": true,
+  "short": "I./StG 2",
+  "names": [
+    { "from": "1939-05-01", "name": "I. Gruppe / Stukageschwader 2", "aliases": ["I./StG 2", "1st Group, StG 2", "I. Gruppe StG 2"] }
+  ],
+  "existence": [
+    { "from": "1939-05-01", "to": "1943-10-18", "end": "redesignated I./SG 2" }
+  ],
+  "positionsTo": "1943-02-15",
+  "parents": [
+    { "from": "1939-05-01", "to": "1943-02-15", "unit": "de-lw-stg-2" }
+  ],
+  "positions": [
+    { "date": "1942-08-20", "base": "af-oblivskaya", "label": "Rudel's Gruppe in the Stalingrad fighting", "source": "bergstrom-stalingrad", "confidence": "inferred" },
+    { "date": "1942-11-25", "base": "af-tatsinskaya", "label": "Sortie rate climbing as the pocket forms", "source": "bergstrom-stalingrad", "confidence": "inferred" }
+  ],
+  "commanders": [],
+  "aircraft": [
+    { "id": "ju-87d", "count": 32, "serviceable": 20 }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Sturzkampfgeschwader_2"
+  },
+  "summary": "I. Gruppe of StG 2 was the dive-bomber group in which Hans-Ulrich Rudel flew at Stalingrad. A Gruppe fielded roughly 30–40 Ju 87s across three Staffeln and was the basic operational building block of a Stuka Geschwader.",
+  "notes": "Tier-2 drill-down: renders on the map only when StG 2 or this group is selected. Pilot coverage: Stalingrad."
+}

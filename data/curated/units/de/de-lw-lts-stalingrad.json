@@ -1,0 +1,36 @@
+{
+  "id": "de-lw-lts-stalingrad",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "division",
+  "type": "transport",
+  "air": true,
+  "short": "Lufttransport (Stalingrad)",
+  "names": [
+    { "from": "1942-11-25", "name": "Lufttransportführer (Stalingrad)", "aliases": ["Air Transport Command (Stalingrad)", "Stalingrad airlift transport force", "KGr.z.b.V."] }
+  ],
+  "existence": [
+    { "from": "1942-11-25", "to": "1943-02-03", "end": "disbanded after the fall of Stalingrad" }
+  ],
+  "positionsTo": "1943-02-03",
+  "parents": [
+    { "from": "1942-11-25", "to": "1943-02-03", "unit": "de-lw-fliegerkorps-8" }
+  ],
+  "positions": [
+    { "date": "1942-11-25", "base": "af-tatsinskaya", "label": "Airlift begins — Ju 52s shuttle into the pocket", "source": "hayward-stopped-at-stalingrad", "confidence": "documented" },
+    { "date": "1942-12-24", "base": "af-morozovskaya", "label": "Tatsinskaya overrun — transports flee west", "source": "hayward-stopped-at-stalingrad", "confidence": "documented" },
+    { "date": "1943-01-05", "at": [41.55, 47.55], "label": "Falling back to Salsk and Novocherkassk", "source": "hayward-stopped-at-stalingrad", "confidence": "inferred", "move": "air" }
+  ],
+  "commanders": [
+    { "from": "1942-11-30", "to": "1943-02-03", "name": "Fritz Morzik", "link": "https://en.wikipedia.org/wiki/Fritz_Morzik" }
+  ],
+  "aircraft": [
+    { "id": "ju-52", "count": 320, "serviceable": 140 },
+    { "id": "he-111h", "count": 100, "serviceable": 45 }
+  ],
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Stalingrad#Airlift"
+  },
+  "summary": "The improvised air-transport force for the Stalingrad airlift, drawn from Junkers Ju 52 transport groups (KGr.z.b.V.) and He 111 bomber wings pressed into supply work. It never came close to the ~300 tons a day 6. Armee needed, and lost hundreds of aircraft; the loss of Tatsinskaya to a Soviet tank raid on 24 December 1942 crippled the effort.",
+  "notes": "A provisional command modelled to carry the airlift narrative. Existence is scoped to the airlift itself (Nov 1942 – Feb 1943)."
+}

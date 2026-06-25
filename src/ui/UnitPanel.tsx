@@ -13,6 +13,8 @@ import {
 } from '../data/units';
 import { matchTemplate, type TemplateNode } from '../data/templates';
 import { groupedEquipment, EQUIP_CLASS_LABEL } from '../data/equipment';
+import { AIRCRAFT, ROLE_LABEL } from '../data/aircraft';
+import { loadAirfields, type Airfield } from '../data/airfields';
 import { dateToNum, formatLong } from '../time/dates';
 import { useStore } from '../store';
 import { UnitGlyph } from './UnitGlyph';
@@ -38,6 +40,15 @@ const ordinal = (n: number): string => {
   const v = n % 100;
   return n + (s[(v - 20) % 10] ?? s[v] ?? s[0]);
 };
+
+/** Aircraft entries active on the date (YYYYMMDD num). */
+type AircraftEntryRef = { id: string; count?: number; serviceable?: number; from?: string; to?: string };
+function aircraftActiveOn(list: AircraftEntryRef[] | undefined, d: number): AircraftEntryRef[] {
+  if (!list) return [];
+  return list.filter((a) => (!a.from || dateToNum(a.from) <= d) && (!a.to || d < dateToNum(a.to)));
+}
+
+const AIR_FORCE_LABEL: Record<string, string> = { luftwaffe: 'Luftwaffe', vvs: 'Soviet VVS' };
 
 /** Tiny inline trend line of personnel strength over the curated returns. */
 function Sparkline({ points }: { points: number[] }) {
@@ -229,6 +240,7 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
   const [unit, setUnit] = useState<UnitDetail | null>(null);
   const [missing, setMissing] = useState(false);
   const [ancestors, setAncestors] = useState<ChainNode[]>([]);
+  const [airfields, setAirfields] = useState<Map<string, Airfield>>(new Map());
 
   useEffect(() => {
     let alive = true;
@@ -253,6 +265,16 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
     };
   }, [unit, date]);
 
+  // Airfield names for an air unit's base history (clickable in the panel).
+  useEffect(() => {
+    let alive = true;
+    if (!unit?.air) return;
+    loadAirfields().then((list) => alive && setAirfields(new Map(list.map((a) => [a.id, a]))));
+    return () => {
+      alive = false;
+    };
+  }, [unit]);
+
   if (missing) return <p className="detail-note">Unknown unit “{id}”.</p>;
   if (!unit)
     return (
@@ -275,7 +297,19 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
   const life = unit.existence[0];
   const lifeEnd = unit.existence[unit.existence.length - 1];
   const exists = activeOn(unit.existence, d) !== undefined;
-  const template = matchTemplate(unit.side, unit.echelon, unit.type, date);
+  // Air formations: doctrinal ground TO&E templates don't apply — the Aircraft
+  // section carries the structure instead.
+  const isAir = !!unit.air;
+  const template = isAir ? null : matchTemplate(unit.side, unit.echelon, unit.type, date);
+  const activeAir = isAir ? aircraftActiveOn(unit.aircraft, d) : [];
+  const radiusKm = (activeAir.length ? activeAir : isAir ? (unit.aircraft ?? []) : []).reduce(
+    (m, a) => Math.max(m, AIRCRAFT[a.id]?.radius ?? 0),
+    0,
+  );
+  const airForce = isAir ? (AIR_FORCE_LABEL[unit.branch] ?? null) : null;
+  const currentBase = isAir
+    ? unit.bases?.find((b) => dateToNum(b.from) <= d && (!b.to || d < dateToNum(b.to)))
+    : undefined;
   const firstMapped = unit.positions[0]?.date;
   const docCount = unit.positions.filter((p) => p.confidence === 'documented').length;
   // Posture on this date (precedence model Phase B): why the unit sits off the
@@ -292,6 +326,11 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
   const stats: { value: string; label: string }[] = [];
   if (template?.strength) stats.push({ value: template.strength.toLocaleString(), label: 'Establishment' });
   if (leadEquip) stats.push({ value: leadEquip.count.toLocaleString(), label: leadEquip.name });
+  if (isAir && radiusKm) stats.push({ value: `${radiusKm} km`, label: 'Combat radius' });
+  if (isAir && activeAir.length) {
+    const tot = activeAir.reduce((s, a) => s + (a.count ?? 0), 0);
+    if (tot) stats.push({ value: tot.toLocaleString(), label: 'Aircraft (est.)' });
+  }
   stats.push({ value: life.from.slice(0, 4), label: 'Raised' });
   if (lifeEnd.to) stats.push({ value: lifeEnd.to.slice(0, 4), label: selfFate ? 'Fate' : 'Last active' });
 
@@ -315,9 +354,11 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
             <h2>{name.name}</h2>
             <div className="unit-head-chips">
               <span className={`unit-chip side-${unit.side}`}>{unit.echelon}</span>
+              {isAir && <span className="unit-chip air-chip">air</span>}
               <span className="unit-head-sub">
-                {unit.type !== 'hq' && `${unit.type} · `}
-                {unit.country}
+                {isAir
+                  ? `${unit.type === 'air-hq' ? 'HQ' : unit.type.replace(/-/g, ' ')}${airForce ? ` · ${airForce}` : ''} · ${unit.country}`
+                  : `${unit.type !== 'hq' ? `${unit.type} · ` : ''}${unit.country}`}
               </span>
             </div>
           </div>
@@ -379,6 +420,109 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
           </div>
         )}
         {selfFate && <p className="stat-fate">{selfFate}</p>}
+
+      {isAir && (unit.aircraft?.length ?? 0) > 0 && (
+        <section className="detail-history">
+          <h3>Aircraft</h3>
+          {radiusKm > 0 && (
+            <p className="detail-note">
+              Combat radius ≈ <strong>{radiusKm} km</strong>
+              {currentBase && airfields.get(currentBase.airfield)
+                ? ` from ${airfields.get(currentBase.airfield)!.name}`
+                : ''}{' '}
+              — select the unit on the map to draw its range ring.
+            </p>
+          )}
+          <ul className="aircraft-list">
+            {unit.aircraft!.map((a, i) => {
+              const ac = AIRCRAFT[a.id];
+              if (!ac) return null;
+              const active = activeAir.includes(a);
+              return (
+                <li key={`${a.id}-${i}`} className={`aircraft-card${active ? ' aircraft-active' : ''}`}>
+                  <div className="aircraft-head">
+                    <a href={ac.wiki} target="_blank" rel="noreferrer">
+                      {ac.name}
+                    </a>
+                    <span className="aircraft-role">{ROLE_LABEL[ac.role]}</span>
+                    {active && <span className="aircraft-now">on strength</span>}
+                  </div>
+                  <div className="aircraft-spec">
+                    {ac.speed} km/h · {ac.radius} km radius · ceiling{' '}
+                    {ac.ceiling ? `${ac.ceiling.toLocaleString()} m` : '—'} · {ac.intro}
+                  </div>
+                  <div className="aircraft-arm">{ac.armament}</div>
+                  {(a.count != null || a.serviceable != null) && (
+                    <div className="aircraft-count">
+                      {a.count != null && (
+                        <span>
+                          <b>{a.count}</b> on strength
+                        </span>
+                      )}
+                      {a.serviceable != null && (
+                        <span>
+                          {' · '}
+                          <b>{a.serviceable}</b> serviceable
+                        </span>
+                      )}
+                      {(a.from || a.to) && (
+                        <span className="omnibox-meta">
+                          {' · '}
+                          {a.from ? formatLong(a.from) : '…'}
+                          {a.to ? ` – ${formatLong(a.to)}` : ''}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
+
+      {isAir && (unit.bases?.length ?? 0) > 0 && (
+        <section className="detail-history">
+          <h3>Airfields</h3>
+          {currentBase && (
+            <p className="detail-note">
+              Based at{' '}
+              <button
+                className="date-link"
+                onClick={() => setSelection({ kind: 'airfield', id: currentBase.airfield })}
+              >
+                {airfields.get(currentBase.airfield)?.name ?? currentBase.airfield}
+              </button>{' '}
+              on {formatLong(date)}.
+            </p>
+          )}
+          <ul>
+            {unit.bases!.map((b) => (
+              <li key={`${b.airfield}-${b.from}`} className={b === currentBase ? 'commander-active' : undefined}>
+                <button
+                  className="date-link"
+                  onClick={() => setSelection({ kind: 'airfield', id: b.airfield })}
+                >
+                  {airfields.get(b.airfield)?.name ?? b.airfield}
+                </button>{' '}
+                <span className="omnibox-meta">
+                  <button className="date-link muted" onClick={() => jump(b.from)}>
+                    {formatLong(b.from)}
+                  </button>
+                  {' — '}
+                  {b.to ? (
+                    <button className="date-link muted" onClick={() => jump(b.to!)}>
+                      {formatLong(b.to)}
+                    </button>
+                  ) : (
+                    'open'
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {(unit.positions.length > 0 || unit.derived) && (
         <div className="unit-controls">
