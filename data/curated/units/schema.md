@@ -42,6 +42,10 @@ otherwise use the same file format, so they get search / deep-links / command tr
   `data/curated/airfields/eastern.json`) instead of/with `at`; the ETL resolves it
   to the field's coords + name. `move` defaults to `air` for air units (hold then
   jump between fields). Air units are exempt from the unit-vs-front side check.
+- **Scaffolds:** `import-air.mjs` ingests Wikidata Luftwaffe/VVS flying formations
+  as identity-only `air:true` skeletons (no positions → searchable "not mapped yet",
+  like ground `import-divisions`). Curating one means authoring a file here — it wins
+  by id/QID/name and replaces the scaffold.
 
 ## Temporal fields (all intervals are `from <= date < to`; `to` omitted = open)
 

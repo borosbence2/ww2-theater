@@ -122,6 +122,15 @@ node data/pipeline/build-battles.mjs
 # (referenced by id), and the air layer draws combat-radius range rings from them.
 node data/pipeline/build-airfields.mjs   # before build-units (base referential check)
 # (build-units, above, then renders air discs via the separate "Air forces" layer)
+#
+# Air scaffolds (theater-wide breadth) — Wikidata Luftwaffe + Soviet VVS flying
+# formations -> identity-only `air:true` skeletons (searchable, "not mapped yet"),
+# the air analogue of import-divisions. Fetch both SPARQL results, then import;
+# build-units (above) merges them (curated air files win):
+#   DE: ?item wdt:P241 wd:Q2564009 (Luftwaffe) ; wdt:P31/wdt:P279* wd:Q176799
+#   SU: ?item wdt:P17 wd:Q15180 (USSR) ; wdt:P31/wdt:P279* wd:Q176799 ; class ~ aviation
+# (same endpoint/UA as the battles query; -> data/raw/wikidata-air-{de,su}.json)
+node data/pipeline/import-air.mjs
 
 # Cities (M3) — Natural Earth populated places
 curl -o data/raw/ne_10m_populated_places.geojson https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_populated_places.geojson

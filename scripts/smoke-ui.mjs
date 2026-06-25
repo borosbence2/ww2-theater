@@ -540,6 +540,18 @@ const vvsPanel = await page.locator('.detail-panel').textContent();
 check('Soviet 8th Air Army panel opens', /8th Air Army/.test(vvsPanel ?? ''));
 check('8th Air Army shows Stalingrad Front in its chain', /Stalingrad Front/.test(vvsPanel ?? ''));
 
+// Theater-wide air scaffolds (Track 1): a Wikidata-only air formation is
+// searchable with an air chip and an honest "not mapped yet" page.
+await page.fill('.omnibox input', 'Jagdgeschwader 54');
+await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
+check('air scaffold shows an air chip in search', (await page.locator('.omnibox-results li .air-chip').count()) > 0);
+await page.keyboard.press('Enter');
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1000);
+const scaffoldPanel = await page.locator('.detail-panel').textContent();
+check('air scaffold panel opens (JG 54) as air, not mapped', /Jagdgeschwader 54/.test(scaffoldPanel ?? '') && /not mapped yet/i.test(scaffoldPanel ?? ''));
+check('URL has ?unit=de-lw-jg-54', page.url().includes('unit=de-lw-jg-54'));
+
 const realErrors = errors.filter((e) => !/WebGL|GPU|swiftshader|Failed to load resource/i.test(e));
 check(`no console/page errors (${errors.length} total, ${realErrors.length} relevant)`, realErrors.length === 0);
 if (realErrors.length) console.log(realErrors.join('\n'));

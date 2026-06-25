@@ -193,6 +193,23 @@ try {
   console.log('No imported-divisions.json — building from curated files only.');
 }
 
+// Air scaffolds (import-air.mjs): Wikidata Luftwaffe/VVS flying formations,
+// identity-only, air:true. Curated air files win on id; import-air already
+// deduped against curated names/QIDs.
+let importedAirCount = 0;
+try {
+  const air = JSON.parse(readFileSync(join(UNITS_DIR, 'imported-air.json'), 'utf8'));
+  for (const u of air.units) {
+    if (units.has(u.id)) continue;
+    for (const e of u.existence ?? []) if (e.to && e.to <= e.from) delete e.to;
+    units.set(u.id, u);
+    importedAirCount++;
+  }
+  console.log(`Loaded ${importedAirCount} air scaffolds`);
+} catch {
+  console.log('No imported-air.json — air scaffolds skipped.');
+}
+
 // ---------------------------------------------------------------------------
 // Reconciliation registry (SCALE_PLAN §4): fold curated `merge` duplicates
 // into their canonical id (names → aliases) and redirect every reference, so
