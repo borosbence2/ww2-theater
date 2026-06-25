@@ -1,0 +1,24 @@
+{
+  "id": "de-lw-luftflotte-1",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "army",
+  "type": "air-hq",
+  "air": true,
+  "short": "Luftflotte 1",
+  "names": [
+    { "from": "1939-02-01", "name": "Luftflotte 1", "aliases": ["Air Fleet 1", "LF 1"] }
+  ],
+  "existence": [
+    { "from": "1939-02-01", "to": "1945-04-16", "end": "became Luftwaffenkommando" }
+  ],
+  "parents": [],
+  "positions": [],
+  "commanders": [
+    { "from": "1940-08-19", "to": "1943-06-12", "name": "Alfred Keller", "link": "https://en.wikipedia.org/wiki/Alfred_Keller" },
+    { "from": "1943-06-12", "to": "1945-04-16", "name": "Kurt Pflugbeil", "link": "https://en.wikipedia.org/wiki/Kurt_Pflugbeil" }
+  ],
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Luftflotte_1" },
+  "summary": "Luftflotte 1 supported Heeresgruppe Nord on the northern sector of the Eastern Front — the drive on Leningrad and the long siege, then the retreat through the Baltic into the Courland pocket.",
+  "notes": "Backbone command: placed (derived) in the rear behind Heeresgruppe Nord; no curated airfields yet."
+}

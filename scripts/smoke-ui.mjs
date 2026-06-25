@@ -552,6 +552,24 @@ const scaffoldPanel = await page.locator('.detail-panel').textContent();
 check('air scaffold panel opens (JG 54) as air, not mapped', /Jagdgeschwader 54/.test(scaffoldPanel ?? '') && /not mapped yet/i.test(scaffoldPanel ?? ''));
 check('URL has ?unit=de-lw-jg-54', page.url().includes('unit=de-lw-jg-54'));
 
+// Air commands placed (derived rear placement): air armies + Luftflotten dot the
+// theater rear at a mid-war date, as hollow derived discs.
+await page.goto(`${BASE}/?date=1943-08-15&z=4.6&lat=52&lng=33`, { waitUntil: 'domcontentloaded' });
+await page.waitForSelector('.timebar', { timeout: 15000 });
+await page.waitForTimeout(4500);
+const airDerived = await page.evaluate(() => {
+  const m = window.__map;
+  const ids = ['air-army', 'air-corps', 'air-division', 'air-sub', 'air-family'].filter((id) => m.getLayer(id));
+  const f = m.queryRenderedFeatures({ layers: ids });
+  return { total: f.length, derived: f.filter((x) => x.properties.derived).length };
+});
+check(`air commands placed in the rear (${airDerived.derived} derived discs)`, airDerived.derived >= 4);
+const adData = await page.evaluate(async () => {
+  const d = await (await fetch('/data/units/derived/eastern.json')).json();
+  return d.units.filter((u) => u.air).length;
+});
+check(`air commands in derived set (${adData})`, adData >= 8);
+
 const realErrors = errors.filter((e) => !/WebGL|GPU|swiftshader|Failed to load resource/i.test(e));
 check(`no console/page errors (${errors.length} total, ${realErrors.length} relevant)`, realErrors.length === 0);
 if (realErrors.length) console.log(realErrors.join('\n'));

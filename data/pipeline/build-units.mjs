@@ -210,6 +210,31 @@ try {
   console.log('No imported-air.json — air scaffolds skipped.');
 }
 
+// Air-command assignments (oob/air.json): give each assigned air command (Soviet
+// air army / German Luftflotte) a parent chain to its ground anchor (Front /
+// army group). The rear placement itself happens in the derivation pass below,
+// which reads the same `airAssign` map.
+let airAssign = null;
+try {
+  airAssign = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'air.json'), 'utf8')).assignments;
+  let n = 0;
+  for (const [id, spans] of Object.entries(airAssign)) {
+    const u = units.get(id);
+    if (!u) {
+      warn('air', `assignment references unknown air unit "${id}"`);
+      continue;
+    }
+    for (const a of spans) if (!units.has(a.anchor)) err('air', `${id}: unknown anchor "${a.anchor}"`);
+    if (!(u.parents ?? []).length) {
+      u.parents = spans.map((a) => ({ from: a.from, to: a.to ?? null, unit: a.anchor }));
+      n++;
+    }
+  }
+  console.log(`Air assignments: parent chains for ${n} air commands`);
+} catch {
+  console.log('No oob/air.json — air commands stay scaffold-only.');
+}
+
 // ---------------------------------------------------------------------------
 // Reconciliation registry (SCALE_PLAN §4): fold curated `merge` duplicates
 // into their canonical id (names → aliases) and redirect every reference, so
@@ -1415,6 +1440,45 @@ if (sectors && monthlyRosters.length) {
     }
   }
 
+  // --- Air commands: rear placement behind their ground anchor -------------
+  // Each assigned air command (oob/air.json) is placed each roster month as an
+  // ABSOLUTE keyframe offset into its own rear from its anchor's (Front /
+  // army-group HQ) monthly position — air sits behind the line, not on it.
+  if (airAssign) {
+    const jitter = (s) => {
+      let h = 2166136261;
+      for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
+      return ((h >>> 0) % 1000) / 1000 - 0.5;
+    };
+    const REAR = 1.7; // degrees behind the anchor (deeper rear than the HQ itself)
+    let airPlaced = 0;
+    for (const [id, spans] of Object.entries(airAssign)) {
+      const u = units.get(id);
+      if (!u) continue;
+      const jx = jitter(id + 'x');
+      const jy = jitter(id + 'y');
+      for (const month of monthlyRosters) {
+        const dNum = dateNum(month.date);
+        const span = spans.find((a) => dateNum(a.from) <= dNum && (!a.to || dNum < dateNum(a.to)));
+        if (!span) continue;
+        if (!existsAt(u, dNum) || isCuratedActive(u, dNum)) continue;
+        // Anchor monthly position: derived HQ (front / army group) or curated track.
+        let at = derived.get(span.anchor)?.find((k) => k.date === month.date && k.at)?.at;
+        if (!at) {
+          const au = units.get(span.anchor);
+          if (au?.positions?.length) at = positionOn(au, month.date);
+        }
+        if (!at) continue;
+        const dir = u.side === 'axis' ? -1 : 1; // axis rear = west, soviet rear = east
+        const pt = [Number((at[0] + dir * REAR + jx * 0.6).toFixed(4)), Number((at[1] + jy * 0.7).toFixed(4))];
+        if (!derived.has(id)) derived.set(id, []);
+        derived.get(id).push({ startNum: dNum, date: month.date, at: pt });
+        airPlaced++;
+      }
+    }
+    console.log(`Air commands: ${airPlaced} rear placements behind fronts/army groups`);
+  }
+
   // Add pocket placements (absolute keyframes) — precedence over main line.
   let pocketPlaced = 0;
   for (const p of pocketAbs) {
@@ -1485,6 +1549,7 @@ if (sectors && monthlyRosters.length) {
   for (const [id, kfs] of derived) {
     const u = units.get(id);
     if (finUnitIds.has(id)) continue; // Finnish theatre sits on a separate line
+    if (u.air) continue; // air commands are placed in their own rear by design
     const ech = echGroup(u.echelon);
     for (const kfv of kfs) {
       if (reserveDays.has(`${id}|${kfv.date}`)) continue;
@@ -1582,6 +1647,7 @@ mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
       side: u.side,
       echelon: u.echelon,
       type: u.type,
+      ...(u.air ? { air: true } : {}),
       // A segment renders ~35 days past its last keyframe (to bridge to the next
       // monthly keyframe), but never past the unit's recorded existence — so a
       // destroyed/withdrawn formation stops instead of lingering on the line —

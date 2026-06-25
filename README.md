@@ -131,6 +131,11 @@ node data/pipeline/build-airfields.mjs   # before build-units (base referential 
 #   SU: ?item wdt:P17 wd:Q15180 (USSR) ; wdt:P31/wdt:P279* wd:Q176799 ; class ~ aviation
 # (same endpoint/UA as the battles query; -> data/raw/wikidata-air-{de,su}.json)
 node data/pipeline/import-air.mjs
+# Operational air commands (Soviet air armies + German Luftflotten) are placed on
+# the map by build-units from data/curated/units/oob/air.json, which assigns each
+# to a ground anchor (Front / army group); they render as hollow "derived" discs
+# in the rear behind that anchor. Per-Geschwader/regiment scaffolds stay searchable
+# until individually curated. (No extra command — build-units reads air.json.)
 
 # Cities (M3) — Natural Earth populated places
 curl -o data/raw/ne_10m_populated_places.geojson https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_populated_places.geojson
@@ -181,7 +186,7 @@ between sparse keyframes — not literally sourced per day. See
 | **Eastern Front sim** ✅ | SCALE_PLAN S1–S3, *complete*: Boevoi sostav (22k assignments, full front→army→corps→division chains) + Lexikon der Wehrmacht (German divisions incl. Waffen-SS) + Romanian/Hungarian/Italian armies; 2,136 units, 1,569 at daily sector-derived positions (hollow icons), Barbarossa→Berlin. See EASTERN_SIM_PLAN.md for the definition of done. |
 | **Detail cards** ✅ | Two-sided territorial tide; on-select **command tree** (leader lines army→corps→divisions); rich unit cards — Wikipedia descriptions, commander successions (Wikidata + dated Lexikon der Wehrmacht), actual ORBAT, doctrinal TO&E templates drillable to squad with nominal strength/equipment |
 | **Phase 5** (in progress) | Establishment strength/equipment on templates ✅, actual strength-at-date ✅, equipment catalog ✅, unit imagery (Commons thumbnails, lazy-load) ✅, pocket↔unit links ✅, front graphics ✅ — FEBA line with forward-edge teeth, dynamic advance arrows (computed from front movement), encirclement pincers on pockets, and 10 curated operation arrows spanning the war (Barbarossa → Berlin) |
-| **Air forces** ✅ | Luftwaffe + Soviet VVS as a distinct layer: circular disc counters (role silhouettes), clickable curated airfields, aircraft-model catalog on the card, and HOI4-style combat-radius **range rings** (per-selection + an all-ranges toggle). Deep Stalingrad air-war pilot (LF 4 / VIII. Fliegerkorps + the airlift vs 8th/16th Air Armies, down to Gruppe/regiment); theater backbone authored iteratively. |
+| **Air forces** ✅ | Luftwaffe + Soviet VVS as a distinct layer: circular disc counters (role silhouettes), clickable curated airfields, aircraft-model catalog on the card, and HOI4-style combat-radius **range rings** (per-selection + an all-ranges toggle). Deep Stalingrad air-war pilot (LF 4 / VIII. Fliegerkorps + the airlift vs 8th/16th Air Armies, down to Gruppe/regiment). Theater backbone: 336 Wikidata Luftwaffe/VVS scaffolds (searchable), with the operational air commands (Soviet air armies + German Luftflotten) placed behind their fronts/army groups as hollow derived discs. |
 | Phase 6 | Perf (PMTiles), mobile, public deploy; community-contribution decision gate |
 
 Old M4 (railways/roads) is deprioritized below the unit work; old M5/M6 are

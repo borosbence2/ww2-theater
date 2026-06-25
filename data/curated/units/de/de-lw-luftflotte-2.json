@@ -1,0 +1,23 @@
+{
+  "id": "de-lw-luftflotte-2",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "army",
+  "type": "air-hq",
+  "air": true,
+  "short": "Luftflotte 2",
+  "names": [
+    { "from": "1939-02-01", "name": "Luftflotte 2", "aliases": ["Air Fleet 2", "LF 2"] }
+  ],
+  "existence": [
+    { "from": "1939-02-01", "to": "1945-04-27", "end": "disbanded" }
+  ],
+  "parents": [],
+  "positions": [],
+  "commanders": [
+    { "from": "1940-01-19", "to": "1943-06-12", "name": "Albert Kesselring", "link": "https://en.wikipedia.org/wiki/Albert_Kesselring" }
+  ],
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Luftflotte_2" },
+  "summary": "Luftflotte 2 supported Heeresgruppe Mitte during Operation Barbarossa and the 1941 drive on Moscow, before transferring to the Mediterranean theatre at the end of 1941.",
+  "notes": "Backbone command: placed (derived) behind Heeresgruppe Mitte for its 1941 Eastern-Front window; left the East in Dec 1941."
+}

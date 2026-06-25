@@ -12,7 +12,16 @@
 import maplibregl, { type GeoJSONSource, type Map as MapLibreMap } from 'maplibre-gl';
 import type { Feature, FeatureCollection } from 'geojson';
 import { dateToNum } from '../time/dates';
-import { loadUnitTracks, parentOnDate, positionOn, type ParentSpan, type UnitTrack } from '../data/units';
+import {
+  derivedPlacementOn,
+  loadDerivedUnits,
+  loadUnitTracks,
+  parentOnDate,
+  positionOn,
+  type DerivedUnit,
+  type ParentSpan,
+  type UnitTrack,
+} from '../data/units';
 import { AIRCRAFT } from '../data/aircraft';
 
 const SOURCE_ID = 'air-units';
@@ -123,7 +132,9 @@ function rgbaHex(hex: string, a: number): string {
 }
 
 let tracks: UnitTrack[] = [];
+let derivedAir: DerivedUnit[] = [];
 const trackById = new Map<string, UnitTrack>();
+const derivedById = new Map<string, DerivedUnit>();
 const airIds: string[] = [];
 let focusId: string | null = null;
 let lastDateISO = '';
@@ -222,10 +233,11 @@ function makeAirIcon(
   side: 'axis' | 'soviet',
   role: string,
   echelon: string,
-  opts: { selected?: boolean } = {},
+  opts: { selected?: boolean; derived?: boolean } = {},
 ): ImageData {
   const PR = 2.6;
   const selected = !!opts.selected;
+  const derived = !!opts.derived;
   const lv = LADDER[ICON_TIER[echelon] ?? 'division'] ?? LADDER.division;
   const pal = PAL[side];
   const mark = ECH_MARK[echelon] ?? '';
@@ -267,26 +279,32 @@ function makeAirIcon(
     ctx.restore();
   }
 
-  // disc body + depth shadow
+  // disc body + depth shadow (derived = flat wash, no gradient)
   ctx.save();
-  ctx.shadowColor = 'rgba(8,11,16,0.42)';
+  ctx.shadowColor = `rgba(8,11,16,${derived ? 0.28 : 0.42})`;
   ctx.shadowBlur = 3;
   ctx.shadowOffsetY = 2;
-  const grad = ctx.createLinearGradient(0, cy - lv.r, 0, cy + lv.r);
-  grad.addColorStop(0, mixHex(pal.fill, '#ffffff', 0.45));
-  grad.addColorStop(1, mixHex(pal.fill, pal.line, 0.14));
-  ctx.fillStyle = grad;
+  if (derived) {
+    ctx.fillStyle = rgbaHex(pal.line, 0.1);
+  } else {
+    const grad = ctx.createLinearGradient(0, cy - lv.r, 0, cy + lv.r);
+    grad.addColorStop(0, mixHex(pal.fill, '#ffffff', 0.45));
+    grad.addColorStop(1, mixHex(pal.fill, pal.line, 0.14));
+    ctx.fillStyle = grad;
+  }
   ctx.beginPath();
   ctx.arc(cx, cy, lv.r, 0, Math.PI * 2);
   ctx.fill();
   ctx.restore();
 
-  // rim
+  // rim (derived = dashed)
   ctx.strokeStyle = mixHex(pal.line, pal.ink, 0.25);
   ctx.lineWidth = lv.rim;
+  if (derived) ctx.setLineDash([lv.rim * 2, lv.rim * 1.3]);
   ctx.beginPath();
   ctx.arc(cx, cy, lv.r, 0, Math.PI * 2);
   ctx.stroke();
+  ctx.setLineDash([]);
 
   // selected brass ring
   if (selected) {
@@ -347,9 +365,9 @@ function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: numbe
   }
 }
 
-function iconId(side: string, role: string, echelon: string, selected = false): string {
+function iconId(side: string, role: string, echelon: string, derived = false, selected = false): string {
   const tier = ICON_TIER[echelon] ?? 'division';
-  return `air-${side}-${role}-${tier}${selected ? '-s' : ''}`;
+  return `air-${side}-${role}-${tier}${derived ? '-d' : ''}${selected ? '-s' : ''}`;
 }
 
 // --- combat radius + range rings -------------------------------------------
@@ -398,23 +416,48 @@ function primaryAircraftOn(track: UnitTrack, dateISO: string): string | null {
 
 // --- data + family ---------------------------------------------------------
 
-export function getAirUnitPositionOn(id: string, dateISO: string): [number, number] | null {
+const numToISO = (n: number): string => {
+  const s = String(n);
+  return `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}`;
+};
+
+/** Position of an air unit by id: curated track first, then a derived rear anchor. */
+function positionForAirId(id: string, dateISO: string, d: number): [number, number] | null {
   const t = trackById.get(id);
-  return t ? positionOn(t, dateISO, dateToNum(dateISO)) : null;
+  if (t) {
+    const at = positionOn(t, dateISO, d);
+    if (at) return at;
+  }
+  const du = derivedById.get(id);
+  if (du) {
+    const place = derivedPlacementOn(du, dateISO, d);
+    if (place && 'at' in place) return place.at; // air derived are always absolute
+  }
+  return null;
 }
 
-/** First mapped date of an air unit (search jump-in). */
+export function getAirUnitPositionOn(id: string, dateISO: string): [number, number] | null {
+  return positionForAirId(id, dateISO, dateToNum(dateISO));
+}
+
+/** First mapped date of an air unit (search jump-in) — curated or derived. */
 export function firstAirDate(id: string): string | null {
-  return trackById.get(id)?.keyframes[0]?.date ?? null;
+  const t = trackById.get(id);
+  if (t?.keyframes.length) return t.keyframes[0].date;
+  const du = derivedById.get(id);
+  if (du?.segs.length) return numToISO(du.segs[0].kfs[0][0]);
+  return null;
 }
 
-/** Is this an air unit this layer owns? */
+/** Is this an air unit this layer owns (curated or derived)? */
 export function isAirUnit(id: string): boolean {
-  return trackById.has(id);
+  return trackById.has(id) || derivedById.has(id);
 }
 
-const parentsOf = (id: string): ParentSpan[] | undefined => trackById.get(id)?.parents;
-const echelonOf = (id: string): string | null => trackById.get(id)?.echelon ?? null;
+const parentsOf = (id: string): ParentSpan[] | undefined =>
+  trackById.get(id)?.parents ?? derivedById.get(id)?.parents;
+const echelonOf = (id: string): string | null =>
+  trackById.get(id)?.echelon ?? derivedById.get(id)?.echelon ?? null;
 const SENIOR = new Set(['army', 'army-group', 'front']);
 
 function anchorOf(focus: string, d: number): string {
@@ -433,7 +476,7 @@ function buildChildrenIndex(d: number): Map<string, string[]> {
   const idx = new Map<string, string[]>();
   for (const id of airIds) {
     const p = parentOnDate(parentsOf(id), d);
-    if (!p || !trackById.has(p)) continue;
+    if (!p || !isAirUnit(p)) continue;
     (idx.get(p) ?? idx.set(p, []).get(p)!).push(id);
   }
   return idx;
@@ -483,7 +526,7 @@ function collectionFor(dateISO: string, d: number, family: Set<string> | null): 
       properties: {
         id: t.id,
         short: t.short,
-        icon: iconId(t.side, t.type, t.echelon, t.id === focusId),
+        icon: iconId(t.side, t.type, t.echelon, false, t.id === focusId),
         ech: group,
         echelon: t.echelon,
         type: t.type,
@@ -492,6 +535,32 @@ function collectionFor(dateISO: string, d: number, family: Set<string> | null): 
         dim: family ? !family.has(t.id) : false,
       },
       geometry: { type: 'Point', coordinates: at },
+    });
+  }
+
+  // Derived air commands (rear placements) — hollow discs. A curated track for
+  // the same id wins while active (e.g. Luftflotte 4's Stalingrad track).
+  for (const du of derivedAir) {
+    if (trackById.has(du.id) && positionOn(trackById.get(du.id)!, dateISO, d)) continue;
+    const group = ECH_GROUP(du.echelon);
+    if (group === 'sub' && !(focusId !== null && du.id === focusId)) continue;
+    const place = derivedPlacementOn(du, dateISO, d);
+    if (!place || !('at' in place)) continue;
+    out.push({
+      type: 'Feature',
+      properties: {
+        id: du.id,
+        short: du.short,
+        icon: iconId(du.side, du.type, du.echelon, true, du.id === focusId),
+        ech: group,
+        echelon: du.echelon,
+        type: du.type,
+        side: du.side,
+        derived: true,
+        fam: family ? family.has(du.id) : false,
+        dim: family ? !family.has(du.id) : false,
+      },
+      geometry: { type: 'Point', coordinates: place.at },
     });
   }
   return { type: 'FeatureCollection', features: out };
@@ -579,21 +648,32 @@ function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
 }
 
 export async function addAirLayer(map: MapLibreMap, date: string): Promise<void> {
-  tracks = (await loadUnitTracks()).filter((t) => t.air);
+  const [allTracks, allDerived] = await Promise.all([loadUnitTracks(), loadDerivedUnits()]);
+  tracks = allTracks.filter((t) => t.air);
+  derivedAir = allDerived.filter((u) => u.air);
   trackById.clear();
+  derivedById.clear();
   airIds.length = 0;
   for (const t of tracks) {
     trackById.set(t.id, t);
     airIds.push(t.id);
   }
+  for (const u of derivedAir) {
+    derivedById.set(u.id, u);
+    if (!trackById.has(u.id)) airIds.push(u.id);
+  }
 
-  // Generate one disc image per (side, role, tier) in use + a selected variant.
-  const combos = new Set(tracks.map((t) => `${t.side}|${t.type}|${t.echelon}`));
+  // Generate one disc image per (side, role, tier, derived) in use + a selected variant.
+  const combos = new Set([
+    ...tracks.map((t) => `${t.side}|${t.type}|${t.echelon}|0`),
+    ...derivedAir.map((u) => `${u.side}|${u.type}|${u.echelon}|1`),
+  ]);
   for (const combo of combos) {
-    const [side, role, echelon] = combo.split('|') as ['axis' | 'soviet', string, string];
+    const [side, role, echelon, der] = combo.split('|') as ['axis' | 'soviet', string, string, string];
+    const derived = der === '1';
     for (const selected of [false, true]) {
-      const id = iconId(side, role, echelon, selected);
-      if (!map.hasImage(id)) map.addImage(id, makeAirIcon(side, role, echelon, { selected }), { pixelRatio: 2.6 });
+      const id = iconId(side, role, echelon, derived, selected);
+      if (!map.hasImage(id)) map.addImage(id, makeAirIcon(side, role, echelon, { selected, derived }), { pixelRatio: 2.6 });
     }
   }
 

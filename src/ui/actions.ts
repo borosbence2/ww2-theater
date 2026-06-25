@@ -52,17 +52,21 @@ export async function selectUnit(unit: UnitIndexEntry): Promise<void> {
   }
 
   if (unit.hasDerived) {
-    // Sector-derived: resolve via the units layer's front-line state.
-    const { firstDerivedDate, getUnitPositionOn } = await import('../layers/units');
+    // Sector-derived (ground) or rear-placed air command — resolve via whichever
+    // layer owns this date's geometry.
+    const ground = await import('../layers/units');
+    const air = await import('../layers/air');
+    const posOn = (id: string, w: string) => ground.getUnitPositionOn(id, w) ?? air.getAirUnitPositionOn(id, w);
+    const firstOn = (id: string) => ground.firstDerivedDate(id) ?? air.firstAirDate(id);
     const { date, setDate } = useStore.getState();
     let when = date;
-    if (!getUnitPositionOn(unit.id, when)) {
-      const first = firstDerivedDate(unit.id);
+    if (!posOn(unit.id, when)) {
+      const first = firstOn(unit.id);
       if (!first) return;
       when = first;
       setDate(when);
     }
-    const at = getUnitPositionOn(unit.id, when);
+    const at = posOn(unit.id, when);
     if (at) map?.flyTo({ center: at, zoom: Math.max(map.getZoom(), 6) });
   }
 }

@@ -1,0 +1,23 @@
+{
+  "id": "de-lw-luftflotte-6",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "army",
+  "type": "air-hq",
+  "air": true,
+  "short": "Luftflotte 6",
+  "names": [
+    { "from": "1943-05-05", "name": "Luftflotte 6", "aliases": ["Air Fleet 6", "LF 6", "Luftwaffenkommando Ost"] }
+  ],
+  "existence": [
+    { "from": "1943-05-05", "to": "1945-04-27", "end": "disbanded" }
+  ],
+  "parents": [],
+  "positions": [],
+  "commanders": [
+    { "from": "1943-05-05", "to": "1945-04-27", "name": "Robert Ritter von Greim", "link": "https://en.wikipedia.org/wiki/Robert_Ritter_von_Greim" }
+  ],
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Luftflotte_6" },
+  "summary": "Luftflotte 6 was formed in May 1943 from Luftwaffenkommando Ost to support Heeresgruppe Mitte on the central Eastern Front, fighting from Kursk through Bagration to the defence of the Reich.",
+  "notes": "Backbone command: placed (derived) behind Heeresgruppe Mitte; no curated airfields yet."
+}

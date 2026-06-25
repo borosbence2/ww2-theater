@@ -1,0 +1,47 @@
+{
+  "note": "Curated air-command -> ground anchor (Front / army group) assignments. build-units uses these to (a) set the air command's parent chain and (b) place it as a derived 'hollow' disc in the rear behind the anchor's monthly position. Compact + documented: Soviet air armies (each supported one Front) and German Luftflotten (each behind one army group). Per-Geschwader/regiment placement is intentionally NOT here — those stay searchable scaffolds until individually curated. Anchors must be existing front/army-group unit ids.",
+  "assignments": {
+    "su-vvs-1-va": [
+      { "from": "1942-05-05", "to": "1944-04-24", "anchor": "su-front-western" },
+      { "from": "1944-04-24", "anchor": "su-front-3-belorussian" }
+    ],
+    "su-vvs-3-va": [
+      { "from": "1942-05-16", "to": "1943-10-20", "anchor": "su-front-kalinin" },
+      { "from": "1943-10-20", "anchor": "su-front-1-baltic" }
+    ],
+    "su-vvs-5-va": [
+      { "from": "1942-06-01", "to": "1943-07-09", "anchor": "su-front-north-caucasus" },
+      { "from": "1943-07-09", "to": "1943-10-20", "anchor": "su-front-steppe" },
+      { "from": "1943-10-20", "anchor": "su-front-2-ukrainian" }
+    ],
+    "su-vvs-6-va": [
+      { "from": "1942-06-29", "to": "1943-10-01", "anchor": "su-front-northwestern" },
+      { "from": "1944-04-01", "anchor": "su-front-1-belorussian" }
+    ],
+    "su-vvs-7-va": [
+      { "from": "1942-11-01", "anchor": "su-front-karelian" }
+    ],
+    "su-vvs-14-va": [
+      { "from": "1942-07-27", "to": "1944-04-21", "anchor": "su-front-volkhov" },
+      { "from": "1944-04-21", "anchor": "su-front-3-baltic" }
+    ],
+    "su-vvs-15-va": [
+      { "from": "1942-07-01", "to": "1943-10-20", "anchor": "su-front-bryansk" },
+      { "from": "1943-10-20", "anchor": "su-front-2-baltic" }
+    ],
+    "su-vvs-17-va": [
+      { "from": "1942-11-15", "to": "1943-10-20", "anchor": "su-front-southwestern" },
+      { "from": "1943-10-20", "anchor": "su-front-3-ukrainian" }
+    ],
+    "de-lw-luftflotte-1": [
+      { "from": "1941-06-22", "to": "1945-01-25", "anchor": "de-h-hgr-nord" },
+      { "from": "1945-01-25", "anchor": "de-h-hgr-kurland" }
+    ],
+    "de-lw-luftflotte-2": [
+      { "from": "1941-06-22", "to": "1941-12-01", "anchor": "de-h-hgr-mitte" }
+    ],
+    "de-lw-luftflotte-6": [
+      { "from": "1943-05-05", "anchor": "de-h-hgr-mitte" }
+    ]
+  }
+}
