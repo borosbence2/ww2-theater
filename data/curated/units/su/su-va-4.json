@@ -1,0 +1,22 @@
+{
+  "id": "su-va-4",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "army",
+  "type": "air-hq",
+  "air": true,
+  "short": "4 VA",
+  "names": [
+    { "from": "1942-05-22", "name": "4th Air Army", "aliases": ["4 VA", "4-я воздушная армия"] }
+  ],
+  "existence": [{ "from": "1942-05-22" }],
+  "parents": [],
+  "positions": [],
+  "aircraft": [{ "id": "yak-9" }, { "id": "p-39" }, { "id": "il-2" }],
+  "commanders": [
+    { "from": "1942-09-01", "name": "Konstantin Vershinin", "link": "https://en.wikipedia.org/wiki/Konstantin_Vershinin" }
+  ],
+  "links": {},
+  "summary": "The 4th Air Army supported the North Caucasus and 2nd Belorussian Fronts — the intense Kuban air battles of 1943 and the advance through Belorussia to the Baltic.",
+  "notes": "Backbone command: placed (derived) behind its assigned Front; subordinate aviation divisions not individually curated yet."
+}

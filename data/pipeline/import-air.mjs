@@ -157,6 +157,36 @@ function slugOf(country, short, name) {
   );
 }
 
+// Representative aircraft per role + nation (catalog ids in src/data/aircraft.ts).
+// Identity scaffolds carry no strength returns, so these are the *typical* types
+// flown by a formation of this role/era — enough for the range ring + an honest
+// "representative aircraft" panel, not an exact inventory.
+const REP_AIRCRAFT = {
+  SU: {
+    fighter: ['yak-9', 'la-5'],
+    'ground-attack': ['il-2'],
+    bomber: ['pe-2', 'il-4'],
+    'dive-bomber': ['pe-2'],
+    'heavy-fighter': ['yak-9'],
+    'night-fighter': ['po-2'],
+    recon: ['pe-2'],
+    transport: [],
+    'air-hq': ['yak-9', 'il-2'],
+  },
+  DE: {
+    fighter: ['bf-109g', 'fw-190a'],
+    'heavy-fighter': ['bf-110'],
+    'dive-bomber': ['ju-87d'],
+    'ground-attack': ['fw-190a', 'ju-87g', 'hs-129'],
+    bomber: ['he-111h', 'ju-88a'],
+    'night-fighter': ['bf-110'],
+    recon: ['fw-189'],
+    transport: ['ju-52'],
+    'air-hq': ['bf-109g', 'ju-87d'],
+  },
+};
+const repAircraft = (country, type) => (REP_AIRCRAFT[country]?.[type] ?? []).map((id) => ({ id }));
+
 const dateOf = (b) => (b && /^\d{4}-\d{2}-\d{2}/.test(b.value) ? b.value.slice(0, 10) : null);
 
 const skeletons = new Map();
@@ -223,6 +253,7 @@ for (const country of ['DE', 'SU']) {
       echelon: cls.echelon,
       type: cls.type,
       air: true,
+      aircraft: repAircraft(country, cls.type),
       short,
       names: [{ from, name, aliases }],
       existence: [existence],

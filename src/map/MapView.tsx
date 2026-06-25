@@ -201,6 +201,15 @@ export function MapView() {
         const af = await airfieldById(sel.id);
         if (af) map.flyTo({ center: [af.lon, af.lat], zoom: Math.max(map.getZoom(), 6) });
       }
+
+      // Apply the initial (deep-linked) focus + a full date pass now that every
+      // layer exists: the change-driven effects below don't fire for state that
+      // was set before the map finished loading, so a shared ?unit= / ?date= link
+      // would otherwise miss the command tree, range ring, and derived positions.
+      const unitId0 = sel?.kind === 'unit' ? sel.id : null;
+      updateUnitsFocus(map, unitId0, state.date);
+      updateAirFocus(map, unitId0, state.date);
+      for (const def of LAYERS) def.updateDate?.(map, state.date);
     });
 
     return () => {

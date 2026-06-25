@@ -22,7 +22,7 @@
     { "from": "1940-03-18", "to": "1942-07-01", "name": "Alexander Löhr", "link": "https://en.wikipedia.org/wiki/Alexander_L%C3%B6hr" },
     { "from": "1942-07-20", "to": "1943-09-04", "name": "Wolfram von Richthofen", "link": "https://en.wikipedia.org/wiki/Wolfram_von_Richthofen" }
   ],
-  "aircraft": [],
+  "aircraft": [{ "id": "bf-109g" }, { "id": "ju-87d" }],
   "links": {
     "wikipedia.en": "https://en.wikipedia.org/wiki/Luftflotte_4"
   },

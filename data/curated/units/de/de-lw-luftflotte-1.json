@@ -14,6 +14,7 @@
   ],
   "parents": [],
   "positions": [],
+  "aircraft": [{ "id": "bf-109g" }, { "id": "ju-87d" }],
   "commanders": [
     { "from": "1940-08-19", "to": "1943-06-12", "name": "Alfred Keller", "link": "https://en.wikipedia.org/wiki/Alfred_Keller" },
     { "from": "1943-06-12", "to": "1945-04-16", "name": "Kurt Pflugbeil", "link": "https://en.wikipedia.org/wiki/Kurt_Pflugbeil" }

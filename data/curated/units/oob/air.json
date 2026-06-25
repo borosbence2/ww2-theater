@@ -5,6 +5,17 @@
       { "from": "1942-05-05", "to": "1944-04-24", "anchor": "su-front-western" },
       { "from": "1944-04-24", "anchor": "su-front-3-belorussian" }
     ],
+    "su-va-2": [
+      { "from": "1942-07-09", "to": "1943-10-20", "anchor": "su-front-voronezh" },
+      { "from": "1943-10-20", "anchor": "su-front-1-ukrainian" }
+    ],
+    "su-va-4": [
+      { "from": "1942-05-22", "to": "1944-04-05", "anchor": "su-front-north-caucasus" },
+      { "from": "1944-04-05", "anchor": "su-front-2-belorussian" }
+    ],
+    "su-va-13": [
+      { "from": "1942-11-25", "anchor": "su-front-leningrad" }
+    ],
     "su-vvs-3-va": [
       { "from": "1942-05-16", "to": "1943-10-20", "anchor": "su-front-kalinin" },
       { "from": "1943-10-20", "anchor": "su-front-1-baltic" }

@@ -1,0 +1,22 @@
+{
+  "id": "su-va-2",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "army",
+  "type": "air-hq",
+  "air": true,
+  "short": "2 VA",
+  "names": [
+    { "from": "1942-05-05", "name": "2nd Air Army", "aliases": ["2 VA", "2-я воздушная армия"] }
+  ],
+  "existence": [{ "from": "1942-05-05" }],
+  "parents": [],
+  "positions": [],
+  "aircraft": [{ "id": "yak-9" }, { "id": "la-5" }, { "id": "il-2" }],
+  "commanders": [
+    { "from": "1943-03-26", "name": "Stepan Krasovsky", "link": "https://en.wikipedia.org/wiki/Stepan_Krasovsky" }
+  ],
+  "links": {},
+  "summary": "The 2nd Air Army supported the Voronezh and 1st Ukrainian Fronts — the air battles over Kursk, the Dnieper crossings, and the drive through Ukraine into Germany.",
+  "notes": "Backbone command: placed (derived) behind its assigned Front; subordinate aviation divisions not individually curated yet."
+}

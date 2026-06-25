@@ -23,7 +23,7 @@
   "commanders": [
     { "from": "1942-06-13", "to": "1943-07-01", "name": "Timofei Khryukin", "link": "https://en.wikipedia.org/wiki/Timofey_Khryukin" }
   ],
-  "aircraft": [],
+  "aircraft": [{ "id": "yak-1" }, { "id": "il-2" }],
   "links": {
     "wikipedia.en": "https://en.wikipedia.org/wiki/8th_Air_Army_(Soviet_Union)"
   },

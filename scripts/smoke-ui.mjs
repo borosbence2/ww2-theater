@@ -570,6 +570,25 @@ const adData = await page.evaluate(async () => {
 });
 check(`air commands in derived set (${adData})`, adData >= 8);
 
+// A placed air army shows its combat-radius ring + a doctrinal aviation-division
+// drill-down (representative composition), zoomed into its sector.
+await page.goto(`${BASE}/?unit=su-va-2&date=1943-07-08&z=6.4&lat=51&lng=36`, { waitUntil: 'domcontentloaded' });
+await page.waitForSelector('.detail-panel', { timeout: 12000 });
+const airComplete = await page.evaluate(async () => {
+  const m = window.__map;
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  let ring = 0, doc = 0;
+  for (let i = 0; i < 24; i++) {
+    await sleep(500);
+    ring = m.getLayer('air-range-fill') ? m.queryRenderedFeatures({ layers: ['air-range-fill'] }).length : 0;
+    doc = m.getLayer('air-doctrinal-sym') ? m.queryRenderedFeatures({ layers: ['air-doctrinal-sym'] }).length : 0;
+    if (ring > 0 && doc > 0) break;
+  }
+  return { ring, doc };
+});
+check('placed air army shows a range ring', airComplete.ring > 0);
+check(`air army shows doctrinal divisions (${airComplete.doc})`, airComplete.doc >= 4);
+
 const realErrors = errors.filter((e) => !/WebGL|GPU|swiftshader|Failed to load resource/i.test(e));
 check(`no console/page errors (${errors.length} total, ${realErrors.length} relevant)`, realErrors.length === 0);
 if (realErrors.length) console.log(realErrors.join('\n'));

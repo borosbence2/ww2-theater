@@ -154,8 +154,10 @@ export interface DerivedUnit {
   side: 'axis' | 'soviet';
   echelon: string;
   type: string;
-  /** Air formation — never sector-derived in practice, kept for symmetry. */
+  /** Air formation (rear-placed behind its anchor). */
   air?: boolean;
+  /** Aircraft (air units) — sizes the range ring; mirrors UnitTrack.aircraft. */
+  aircraft?: { id: string; count?: number; serviceable?: number; from?: string; to?: string }[];
   segs: DerivedSeg[];
   /** Temporal parent timeline [fromNum, toNum|null, unitId] for command links. */
   parents?: ParentSpan[];

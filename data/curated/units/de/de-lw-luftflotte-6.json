@@ -14,6 +14,7 @@
   ],
   "parents": [],
   "positions": [],
+  "aircraft": [{ "id": "bf-109g" }, { "id": "fw-190a" }],
   "commanders": [
     { "from": "1943-05-05", "to": "1945-04-27", "name": "Robert Ritter von Greim", "link": "https://en.wikipedia.org/wiki/Robert_Ritter_von_Greim" }
   ],

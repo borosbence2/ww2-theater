@@ -1,0 +1,22 @@
+{
+  "id": "su-va-13",
+  "country": "SU",
+  "branch": "vvs",
+  "echelon": "army",
+  "type": "air-hq",
+  "air": true,
+  "short": "13 VA",
+  "names": [
+    { "from": "1942-11-25", "name": "13th Air Army", "aliases": ["13 VA", "13-я воздушная армия"] }
+  ],
+  "existence": [{ "from": "1942-11-25" }],
+  "parents": [],
+  "positions": [],
+  "aircraft": [{ "id": "yak-9" }, { "id": "la-5" }, { "id": "il-2" }],
+  "commanders": [
+    { "from": "1942-11-25", "name": "Stepan Rybalchenko", "link": "https://en.wikipedia.org/wiki/Stepan_Rybalchenko" }
+  ],
+  "links": {},
+  "summary": "The 13th Air Army supported the Leningrad Front — the breaking of the siege of Leningrad and the subsequent Baltic offensives.",
+  "notes": "Backbone command: placed (derived) behind its assigned Front; subordinate aviation divisions not individually curated yet."
+}

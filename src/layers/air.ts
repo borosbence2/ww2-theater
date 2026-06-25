@@ -33,6 +33,8 @@ const RANGE_FILL_ID = 'air-range-fill';
 const RANGE_LINE_ID = 'air-range-line';
 const RANGE_LABEL_ID = 'air-range-label';
 const HOVER_GLOW_ID = 'air-hover-glow';
+const DOCTRINAL_SOURCE_ID = 'air-doctrinal';
+const DOCTRINAL_ID = 'air-doctrinal-sym';
 const ARMY_ID = 'air-army';
 const CORPS_ID = 'air-corps';
 const DIVISION_ID = 'air-division';
@@ -46,6 +48,7 @@ export const AIR_LAYER_IDS = [
   RANGE_LABEL_ID,
   LINKS_HALO_ID,
   LINKS_ID,
+  DOCTRINAL_ID,
   HOVER_GLOW_ID,
   ARMY_ID,
   CORPS_ID,
@@ -372,8 +375,10 @@ function iconId(side: string, role: string, echelon: string, derived = false, se
 
 // --- combat radius + range rings -------------------------------------------
 
+type WithAircraft = { aircraft?: { id: string; from?: string; to?: string }[] };
+
 /** Max combat radius (km) among the unit's aircraft active on the date, or null. */
-function combatRadiusOn(track: UnitTrack, dateISO: string): number | null {
+function combatRadiusOn(track: WithAircraft, dateISO: string): number | null {
   const d = dateToNum(dateISO);
   let best = 0;
   for (const a of track.aircraft ?? []) {
@@ -401,7 +406,7 @@ function rangeRing(center: [number, number], km: number, n = 72): [number, numbe
 }
 
 /** Best primary aircraft name on the date (for the ring label). */
-function primaryAircraftOn(track: UnitTrack, dateISO: string): string | null {
+function primaryAircraftOn(track: WithAircraft, dateISO: string): string | null {
   const d = dateToNum(dateISO);
   let best: { r: number; name: string } | null = null;
   for (const a of track.aircraft ?? []) {
@@ -569,30 +574,84 @@ function collectionFor(dateISO: string, d: number, family: Set<string> | null): 
 /** Range-ring feature collection for the focused unit (selection ring). */
 function selectionRingFor(dateISO: string): FeatureCollection {
   if (!focusId) return EMPTY;
-  const t = trackById.get(focusId);
-  if (!t) return EMPTY;
-  const at = positionOn(t, dateISO, dateToNum(dateISO));
-  const km = combatRadiusOn(t, dateISO);
+  const u = trackById.get(focusId) ?? derivedById.get(focusId);
+  if (!u) return EMPTY;
+  const at = positionForAirId(focusId, dateISO, dateToNum(dateISO));
+  const km = combatRadiusOn(u, dateISO);
   if (!at || !km) return EMPTY;
-  const plane = primaryAircraftOn(t, dateISO);
+  const plane = primaryAircraftOn(u, dateISO);
   return {
     type: 'FeatureCollection',
     features: [
       {
         type: 'Feature',
         properties: {
-          side: t.side,
+          side: u.side,
           label: `${plane ? plane + ' · ' : ''}~${Math.round(km)} km combat radius`,
         },
         geometry: { type: 'Polygon', coordinates: [rangeRing(at, km)] },
       },
       {
         type: 'Feature',
-        properties: { side: t.side, label: '' },
+        properties: { side: u.side, label: '' },
         geometry: { type: 'Point', coordinates: [at[0], at[1] + km / 111] },
       },
     ],
   };
+}
+
+// Doctrinal aviation-division composition shown around a selected air HQ that has
+// no curated subordinate divisions — the air analogue of the ground TO&E drill-
+// down. Representative (fighter/assault/bomber), clearly hollow + dashed, NOT hit
+// targets and NOT indexed units.
+const AIR_COMPOSITION: Record<'axis' | 'soviet', { role: string; label: string }[]> = {
+  soviet: [
+    { role: 'fighter', label: 'Fighter Aviation Division' },
+    { role: 'fighter', label: 'Fighter Aviation Division' },
+    { role: 'ground-attack', label: 'Assault Aviation Division' },
+    { role: 'ground-attack', label: 'Assault Aviation Division' },
+    { role: 'bomber', label: 'Bomber Aviation Division' },
+  ],
+  axis: [
+    { role: 'fighter', label: 'Jagdgeschwader' },
+    { role: 'fighter', label: 'Jagdgeschwader' },
+    { role: 'bomber', label: 'Kampfgeschwader' },
+    { role: 'dive-bomber', label: 'Stukageschwader' },
+    { role: 'ground-attack', label: 'Schlachtgeschwader' },
+  ],
+};
+
+/** Does this air HQ have any curated/derived air subordinate active on the date? */
+function hasCuratedAirChildren(focus: string, d: number): boolean {
+  for (const id of airIds) {
+    if (id === focus) continue;
+    if (parentOnDate(parentsOf(id), d) === focus) return true;
+  }
+  return false;
+}
+
+function doctrinalAirFeatures(focus: string, dateISO: string, d: number): FeatureCollection {
+  const u = trackById.get(focus) ?? derivedById.get(focus);
+  if (!u || ECH_GROUP(u.echelon) !== 'army') return EMPTY;
+  if (hasCuratedAirChildren(focus, d)) return EMPTY; // real divisions render instead
+  const at = positionForAirId(focus, dateISO, d);
+  if (!at) return EMPTY;
+  const items = AIR_COMPOSITION[u.side];
+  const R = 0.9; // ring radius (degrees) around the HQ
+  const feats: Feature[] = items.map((it, i) => {
+    const ang = -Math.PI / 2 + (i / items.length) * Math.PI * 2;
+    return {
+      type: 'Feature',
+      properties: {
+        short: it.label,
+        icon: iconId(u.side, it.role, 'division', true, false),
+        side: u.side,
+        doctrinal: true,
+      },
+      geometry: { type: 'Point', coordinates: [at[0] + R * Math.cos(ang), at[1] + R * Math.sin(ang) * 0.7] },
+    };
+  });
+  return { type: 'FeatureCollection', features: feats };
 }
 
 function refresh(map: MapLibreMap, dateISO: string): void {
@@ -604,6 +663,9 @@ function refresh(map: MapLibreMap, dateISO: string): void {
     family ? buildLinks(family, dateISO, d) : EMPTY,
   );
   (map.getSource(RANGE_SOURCE_ID) as GeoJSONSource | undefined)?.setData(selectionRingFor(dateISO));
+  (map.getSource(DOCTRINAL_SOURCE_ID) as GeoJSONSource | undefined)?.setData(
+    focusId ? doctrinalAirFeatures(focusId, dateISO, d) : EMPTY,
+  );
 }
 
 function addEchelonLayer(map: MapLibreMap, id: string, ech: EchGroup): void {
@@ -676,6 +738,13 @@ export async function addAirLayer(map: MapLibreMap, date: string): Promise<void>
       if (!map.hasImage(id)) map.addImage(id, makeAirIcon(side, role, echelon, { selected, derived }), { pixelRatio: 2.6 });
     }
   }
+  // Doctrinal aviation-division icons (hollow) for the air-army drill-down.
+  for (const side of ['axis', 'soviet'] as const) {
+    for (const role of ['fighter', 'ground-attack', 'bomber', 'dive-bomber']) {
+      const id = iconId(side, role, 'division', true, false);
+      if (!map.hasImage(id)) map.addImage(id, makeAirIcon(side, role, 'division', { derived: true }), { pixelRatio: 2.6 });
+    }
+  }
 
   const d0 = dateToNum(date);
   lastDateISO = date;
@@ -689,6 +758,7 @@ export async function addAirLayer(map: MapLibreMap, date: string): Promise<void>
   });
   map.addSource(LINKS_SOURCE_ID, { type: 'geojson', data: EMPTY });
   map.addSource(RANGE_SOURCE_ID, { type: 'geojson', data: EMPTY });
+  map.addSource(DOCTRINAL_SOURCE_ID, { type: 'geojson', data: EMPTY });
 
   // Range ring (selected unit) — drawn beneath the counters.
   map.addLayer({
@@ -763,6 +833,31 @@ export async function addAirLayer(map: MapLibreMap, date: string): Promise<void>
     },
   });
 
+  // Doctrinal divisions around a selected air HQ (representative; shown only when
+  // zoomed into a sector so the theater view isn't cluttered).
+  map.addLayer({
+    id: DOCTRINAL_ID,
+    type: 'symbol',
+    source: DOCTRINAL_SOURCE_ID,
+    minzoom: 5.5,
+    layout: {
+      'icon-image': ['get', 'icon'],
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 5, 0.5, 8, 0.66],
+      'icon-allow-overlap': true,
+      'text-field': ['step', ['zoom'], '', 6.4, ['get', 'short']],
+      'text-size': 9,
+      'text-offset': [0, 1.3],
+      'text-anchor': 'top',
+      'text-optional': true,
+    },
+    paint: {
+      'icon-opacity': 0.9,
+      'text-color': '#3a4756',
+      'text-halo-color': '#eaf2fb',
+      'text-halo-width': 1.2,
+    },
+  });
+
   addEchelonLayer(map, SUB_ID, 'sub');
   addEchelonLayer(map, DIVISION_ID, 'division');
   addEchelonLayer(map, CORPS_ID, 'corps');
@@ -801,7 +896,7 @@ export function updateAirDate(map: MapLibreMap, date: string): void {
 
 export function updateAirFocus(map: MapLibreMap, unitId: string | null, date: string): void {
   // Only air-unit focus matters; a ground/other selection clears the air focus.
-  const next = unitId && trackById.has(unitId) ? unitId : null;
+  const next = unitId && isAirUnit(unitId) ? unitId : null;
   if (focusId === next) return;
   focusId = next;
   refresh(map, date);
@@ -812,15 +907,20 @@ export function updateAirFocus(map: MapLibreMap, unitId: string | null, date: st
 function allRangesCollection(dateISO: string): FeatureCollection {
   const d = dateToNum(dateISO);
   const feats: Feature[] = [];
-  for (const t of tracks) {
-    const at = positionOn(t, dateISO, d);
-    const km = at && combatRadiusOn(t, dateISO);
-    if (!at || !km) continue;
+  const ring = (id: string, side: 'axis' | 'soviet', u: WithAircraft) => {
+    const at = positionForAirId(id, dateISO, d);
+    const km = at && combatRadiusOn(u, dateISO);
+    if (!at || !km) return;
     feats.push({
       type: 'Feature',
-      properties: { side: t.side },
+      properties: { side },
       geometry: { type: 'Polygon', coordinates: [rangeRing(at, km)] },
     });
+  };
+  for (const t of tracks) ring(t.id, t.side, t);
+  for (const du of derivedAir) {
+    if (trackById.has(du.id) && positionOn(trackById.get(du.id)!, dateISO, d)) continue;
+    ring(du.id, du.side, du);
   }
   return { type: 'FeatureCollection', features: feats };
 }

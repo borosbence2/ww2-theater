@@ -1647,7 +1647,7 @@ mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
       side: u.side,
       echelon: u.echelon,
       type: u.type,
-      ...(u.air ? { air: true } : {}),
+      ...(u.air ? { air: true, aircraft: u.aircraft ?? [] } : {}),
       // A segment renders ~35 days past its last keyframe (to bridge to the next
       // monthly keyframe), but never past the unit's recorded existence — so a
       // destroyed/withdrawn formation stops instead of lingering on the line —

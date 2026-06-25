@@ -8,6 +8,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "1. FlDiv",
    "names": [
     {
@@ -36,6 +44,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "1. FlDiv",
    "names": [
     {
@@ -64,6 +80,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "10. FlDiv",
    "names": [
     {
@@ -92,6 +116,14 @@
    "echelon": "corps",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "2. FK",
    "names": [
     {
@@ -120,6 +152,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "3. FlDiv",
    "names": [
     {
@@ -148,6 +188,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "3. FlDiv",
    "names": [
     {
@@ -177,6 +225,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "5. FlDiv",
    "names": [
     {
@@ -205,6 +261,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "9. FlDiv",
    "names": [
     {
@@ -233,6 +297,11 @@
    "echelon": "regiment",
    "type": "recon",
    "air": true,
+   "aircraft": [
+    {
+     "id": "fw-189"
+    }
+   ],
    "short": "Aufkl 13",
    "names": [
     {
@@ -261,6 +330,11 @@
    "echelon": "regiment",
    "type": "recon",
    "air": true,
+   "aircraft": [
+    {
+     "id": "fw-189"
+    }
+   ],
    "short": "Aufkl 21",
    "names": [
     {
@@ -289,6 +363,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -317,6 +399,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -345,6 +435,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -373,6 +471,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -401,6 +507,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -429,6 +543,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -457,6 +579,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -485,6 +615,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -513,6 +651,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -541,6 +687,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -569,6 +723,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -597,6 +759,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -625,6 +795,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -653,6 +831,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -681,6 +867,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -709,6 +903,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -737,6 +939,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -765,6 +975,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -793,6 +1011,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -821,6 +1047,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -849,6 +1083,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -877,6 +1119,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -905,6 +1155,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -933,6 +1191,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -961,6 +1227,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -989,6 +1263,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -1017,6 +1299,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -1045,6 +1335,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -1073,6 +1371,14 @@
    "echelon": "division",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "FlFü",
    "names": [
     {
@@ -1102,6 +1408,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "fw-190a"
+    }
+   ],
    "short": "JG 1",
    "names": [
     {
@@ -1134,6 +1448,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "fw-190a"
+    }
+   ],
    "short": "JG 2",
    "names": [
     {
@@ -1162,6 +1484,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "fw-190a"
+    }
+   ],
    "short": "JG 2",
    "names": [
     {
@@ -1192,6 +1522,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "fw-190a"
+    }
+   ],
    "short": "JG 27",
    "names": [
     {
@@ -1222,6 +1560,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "fw-190a"
+    }
+   ],
    "short": "JG 3",
    "names": [
     {
@@ -1252,6 +1598,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "fw-190a"
+    }
+   ],
    "short": "JG 5",
    "names": [
     {
@@ -1282,6 +1636,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "fw-190a"
+    }
+   ],
    "short": "JG 53",
    "names": [
     {
@@ -1312,6 +1674,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "fw-190a"
+    }
+   ],
    "short": "JG 54",
    "names": [
     {
@@ -1342,6 +1712,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "fw-190a"
+    }
+   ],
    "short": "JG 6",
    "names": [
     {
@@ -1372,6 +1750,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "fw-190a"
+    }
+   ],
    "short": "JG 7",
    "names": [
     {
@@ -1402,6 +1788,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "fw-190a"
+    }
+   ],
    "short": "JG 77",
    "names": [
     {
@@ -1432,6 +1826,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 1",
    "names": [
     {
@@ -1464,6 +1866,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 10",
    "names": [
     {
@@ -1494,6 +1904,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 100",
    "names": [
     {
@@ -1524,6 +1942,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 2",
    "names": [
     {
@@ -1554,6 +1980,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 200",
    "names": [
     {
@@ -1584,6 +2018,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 210",
    "names": [
     {
@@ -1614,6 +2056,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 25",
    "names": [
     {
@@ -1644,6 +2094,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 26",
    "names": [
     {
@@ -1674,6 +2132,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 27",
    "names": [
     {
@@ -1706,6 +2172,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 28",
    "names": [
     {
@@ -1735,6 +2209,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 3",
    "names": [
     {
@@ -1765,6 +2247,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 30",
    "names": [
     {
@@ -1795,6 +2285,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 4",
    "names": [
     {
@@ -1825,6 +2323,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 40",
    "names": [
     {
@@ -1855,6 +2361,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 51",
    "names": [
     {
@@ -1885,6 +2399,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 54",
    "names": [
     {
@@ -1915,6 +2437,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 6",
    "names": [
     {
@@ -1945,6 +2475,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 66",
    "names": [
     {
@@ -1974,6 +2512,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 76",
    "names": [
     {
@@ -2004,6 +2550,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "he-111h"
+    },
+    {
+     "id": "ju-88a"
+    }
+   ],
    "short": "KG 77",
    "names": [
     {
@@ -2034,6 +2588,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "fw-190a"
+    }
+   ],
    "short": "LG 1",
    "names": [
     {
@@ -2064,6 +2626,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-109g"
+    },
+    {
+     "id": "fw-190a"
+    }
+   ],
    "short": "LG 2",
    "names": [
     {
@@ -2094,6 +2664,11 @@
    "echelon": "division",
    "type": "night-fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-110"
+    }
+   ],
    "short": "NJG 1",
    "names": [
     {
@@ -2124,6 +2699,11 @@
    "echelon": "division",
    "type": "night-fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-110"
+    }
+   ],
    "short": "NJG 2",
    "names": [
     {
@@ -2154,6 +2734,11 @@
    "echelon": "division",
    "type": "night-fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-110"
+    }
+   ],
    "short": "NJG 3",
    "names": [
     {
@@ -2184,6 +2769,11 @@
    "echelon": "division",
    "type": "night-fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-110"
+    }
+   ],
    "short": "NJG 4",
    "names": [
     {
@@ -2214,6 +2804,11 @@
    "echelon": "division",
    "type": "night-fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-110"
+    }
+   ],
    "short": "NJG 5",
    "names": [
     {
@@ -2244,6 +2839,11 @@
    "echelon": "division",
    "type": "night-fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-110"
+    }
+   ],
    "short": "NJG 6",
    "names": [
     {
@@ -2274,6 +2874,11 @@
    "echelon": "division",
    "type": "night-fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-110"
+    }
+   ],
    "short": "NJG 7",
    "names": [
     {
@@ -2303,6 +2908,11 @@
    "echelon": "division",
    "type": "dive-bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "StG 1",
    "names": [
     {
@@ -2332,6 +2942,11 @@
    "echelon": "division",
    "type": "dive-bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "StG 3",
    "names": [
     {
@@ -2362,6 +2977,11 @@
    "echelon": "division",
    "type": "dive-bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "ju-87d"
+    }
+   ],
    "short": "StG 77",
    "names": [
     {
@@ -2392,6 +3012,11 @@
    "echelon": "division",
    "type": "heavy-fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-110"
+    }
+   ],
    "short": "ZG 2",
    "names": [
     {
@@ -2421,6 +3046,11 @@
    "echelon": "division",
    "type": "heavy-fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-110"
+    }
+   ],
    "short": "ZG 26",
    "names": [
     {
@@ -2453,6 +3083,11 @@
    "echelon": "division",
    "type": "heavy-fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "bf-110"
+    }
+   ],
    "short": "ZG 52",
    "names": [
     {
@@ -2481,6 +3116,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "1 BAD",
    "names": [
     {
@@ -2510,6 +3153,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "1 Gv BAD",
    "names": [
     {
@@ -2541,6 +3192,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "1 Gv BAD",
    "names": [
     {
@@ -2570,6 +3229,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "1 Gv IAD",
    "names": [
     {
@@ -2600,6 +3267,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "1 Gv IAD",
    "names": [
     {
@@ -2628,6 +3303,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "1 IAD",
    "names": [
     {
@@ -2659,6 +3342,14 @@
    "echelon": "army",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "1 VA",
    "names": [
     {
@@ -2691,6 +3382,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "10 IAD",
    "names": [
     {
@@ -2719,6 +3418,14 @@
    "echelon": "regiment",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "101 BAP",
    "names": [
     {
@@ -2750,6 +3457,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "101 IAD",
    "names": [
     {
@@ -2778,6 +3493,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "102 IAD",
    "names": [
     {
@@ -2806,6 +3529,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "103 IAD",
    "names": [
     {
@@ -2834,6 +3565,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "104 IAD",
    "names": [
     {
@@ -2862,6 +3601,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "105 Gv IAD",
    "names": [
     {
@@ -2893,6 +3640,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "105 Gv IAP",
    "names": [
     {
@@ -2922,6 +3677,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "105 IAD",
    "names": [
     {
@@ -2950,6 +3713,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "106 IAD",
    "names": [
     {
@@ -2978,6 +3749,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "11 Gv BAD",
    "names": [
     {
@@ -3007,6 +3786,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "11 IAD",
    "names": [
     {
@@ -3038,6 +3825,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "11 ShAD",
    "names": [
     {
@@ -3068,6 +3860,14 @@
    "echelon": "army",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "11 VA",
    "names": [
     {
@@ -3099,6 +3899,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "115 Gv IAP",
    "names": [
     {
@@ -3129,6 +3937,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "12 BAD",
    "names": [
     {
@@ -3157,6 +3973,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "12 IAD",
    "names": [
     {
@@ -3185,6 +4009,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "12 ShAD",
    "names": [
     {
@@ -3216,6 +4045,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "122 IAD",
    "names": [
     {
@@ -3244,6 +4081,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "123 IAD",
    "names": [
     {
@@ -3272,6 +4117,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "124 IAD",
    "names": [
     {
@@ -3302,6 +4155,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "124 IAP",
    "names": [
     {
@@ -3333,6 +4194,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "125 IAD",
    "names": [
     {
@@ -3363,6 +4232,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "126 IAD",
    "names": [
     {
@@ -3391,6 +4268,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "127 IAD",
    "names": [
     {
@@ -3419,6 +4304,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "128 IAD",
    "names": [
     {
@@ -3450,6 +4343,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "129 Gv IAP",
    "names": [
     {
@@ -3481,6 +4382,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "129 IAP",
    "names": [
     {
@@ -3512,6 +4421,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "13 BAD",
    "names": [
     {
@@ -3540,6 +4457,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "13 Gv BAD",
    "names": [
     {
@@ -3569,6 +4494,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "130 IAD",
    "names": [
     {
@@ -3597,6 +4530,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "135 IAD",
    "names": [
     {
@@ -3625,6 +4566,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "135 IAD",
    "names": [
     {
@@ -3653,6 +4602,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "136 ShAD",
    "names": [
     {
@@ -3681,6 +4635,14 @@
    "echelon": "army",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "14 VA",
    "names": [
     {
@@ -3713,6 +4675,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "141 IAD",
    "names": [
     {
@@ -3741,6 +4711,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "142 IAD",
    "names": [
     {
@@ -3771,6 +4749,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "144 IAD",
    "names": [
     {
@@ -3799,6 +4785,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "145 IAP",
    "names": [
     {
@@ -3829,6 +4823,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "147 IAD",
    "names": [
     {
@@ -3857,6 +4859,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "148 IAD",
    "names": [
     {
@@ -3885,6 +4895,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "15 IAD",
    "names": [
     {
@@ -3913,6 +4931,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "15 IAD",
    "names": [
     {
@@ -3943,6 +4969,14 @@
    "echelon": "army",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "15 VA",
    "names": [
     {
@@ -3975,6 +5009,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "159 IAP",
    "names": [
     {
@@ -4006,6 +5048,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "16 Gv IAD",
    "names": [
     {
@@ -4038,6 +5088,14 @@
    "echelon": "army",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "17 VA",
    "names": [
     {
@@ -4070,6 +5128,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "178 Gv IAP",
    "names": [
     {
@@ -4100,6 +5166,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "182 ShAD",
    "names": [
     {
@@ -4128,6 +5199,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "189 ShAD",
    "names": [
     {
@@ -4156,6 +5232,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "19 Gv IAP",
    "names": [
     {
@@ -4187,6 +5271,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "190 IAD",
    "names": [
     {
@@ -4215,6 +5307,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "194 IAD",
    "names": [
     {
@@ -4243,6 +5343,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "194 IAP",
    "names": [
     {
@@ -4274,6 +5382,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "196 IAP",
    "names": [
     {
@@ -4305,6 +5421,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "196 ShAD",
    "names": [
     {
@@ -4333,6 +5454,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "197 ShAD",
    "names": [
     {
@@ -4361,6 +5487,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "198 ShAD",
    "names": [
     {
@@ -4389,6 +5520,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "199 ShAD",
    "names": [
     {
@@ -4418,6 +5554,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "2 Gv BAD",
    "names": [
     {
@@ -4447,6 +5591,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "2 IAD",
    "names": [
     {
@@ -4475,6 +5627,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "20 IAD",
    "names": [
     {
@@ -4503,6 +5663,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "202 IAD",
    "names": [
     {
@@ -4531,6 +5699,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "203 IAD",
    "names": [
     {
@@ -4559,6 +5735,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "204 IAD",
    "names": [
     {
@@ -4588,6 +5772,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "205 IAD",
    "names": [
     {
@@ -4618,6 +5810,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "207 IAD",
    "names": [
     {
@@ -4646,6 +5846,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "207 IAD",
    "names": [
     {
@@ -4674,6 +5882,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "208 BAD",
    "names": [
     {
@@ -4702,6 +5918,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "208 IAD",
    "names": [
     {
@@ -4731,6 +5955,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "209 IAD",
    "names": [
     {
@@ -4760,6 +5992,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "21 IAD",
    "names": [
     {
@@ -4791,6 +6031,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "210 IAD",
    "names": [
     {
@@ -4820,6 +6068,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "210 IAD",
    "names": [
     {
@@ -4849,6 +6105,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "211 IAD",
    "names": [
     {
@@ -4877,6 +6141,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "211 ShAD",
    "names": [
     {
@@ -4905,6 +6174,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "212 IAD",
    "names": [
     {
@@ -4933,6 +6210,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "212 ShAD",
    "names": [
     {
@@ -4961,6 +6243,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "214 ShAD",
    "names": [
     {
@@ -4989,6 +6276,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "216 IAD",
    "names": [
     {
@@ -5017,6 +6312,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "217 IAD",
    "names": [
     {
@@ -5045,6 +6348,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "219 BAD",
    "names": [
     {
@@ -5074,6 +6385,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "223 BAD",
    "names": [
     {
@@ -5102,6 +6421,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "224 ShAD",
    "names": [
     {
@@ -5130,6 +6454,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "225 ShAD",
    "names": [
     {
@@ -5158,6 +6487,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "226 ShAD",
    "names": [
     {
@@ -5186,6 +6520,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "227 ShAD",
    "names": [
     {
@@ -5214,6 +6553,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "228 ShAD",
    "names": [
     {
@@ -5242,6 +6586,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "229 IAD",
    "names": [
     {
@@ -5270,6 +6622,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "23 BAD",
    "names": [
     {
@@ -5298,6 +6658,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "23 IAD",
    "names": [
     {
@@ -5326,6 +6694,14 @@
    "echelon": "army",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "23 VA",
    "names": [
     {
@@ -5358,6 +6734,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "230 ShAD",
    "names": [
     {
@@ -5388,6 +6769,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "231 ShAD",
    "names": [
     {
@@ -5416,6 +6802,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "232 ShAD",
    "names": [
     {
@@ -5445,6 +6836,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "233 ShAD",
    "names": [
     {
@@ -5473,6 +6869,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "234 IAD",
    "names": [
     {
@@ -5501,6 +6905,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "235 IAD",
    "names": [
     {
@@ -5532,6 +6944,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "236 IAD",
    "names": [
     {
@@ -5560,6 +6980,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "238 ShAD",
    "names": [
     {
@@ -5588,6 +7013,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "239 IAD",
    "names": [
     {
@@ -5619,6 +7052,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "240 IAD",
    "names": [
     {
@@ -5650,6 +7091,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "240 IAP",
    "names": [
     {
@@ -5681,6 +7130,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "242 BAD",
    "names": [
     {
@@ -5711,6 +7168,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "243 ShAD",
    "names": [
     {
@@ -5739,6 +7201,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "245 IAD",
    "names": [
     {
@@ -5770,6 +7240,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "246 IAD",
    "names": [
     {
@@ -5798,6 +7276,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "248 ShAD",
    "names": [
     {
@@ -5828,6 +7311,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "25 IAD",
    "names": [
     {
@@ -5856,6 +7347,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "251 ShAD",
    "names": [
     {
@@ -5884,6 +7380,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "252 ShAD",
    "names": [
     {
@@ -5912,6 +7413,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "253 ShAD",
    "names": [
     {
@@ -5940,6 +7446,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "255 IAD",
    "names": [
     {
@@ -5971,6 +7485,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "257 IAD",
    "names": [
     {
@@ -5999,6 +7521,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "258 IAD",
    "names": [
     {
@@ -6027,6 +7557,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "258 IAD",
    "names": [
     {
@@ -6057,6 +7595,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "259 IAD",
    "names": [
     {
@@ -6085,6 +7631,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "26 BAD",
    "names": [
     {
@@ -6114,6 +7668,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "26 IAP",
    "names": [
     {
@@ -6144,6 +7706,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "260 IAD",
    "names": [
     {
@@ -6172,6 +7742,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "260 ShAD",
    "names": [
     {
@@ -6200,6 +7775,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "261 ShAD",
    "names": [
     {
@@ -6228,6 +7808,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "263 BAD",
    "names": [
     {
@@ -6256,6 +7844,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "264 ShAD",
    "names": [
     {
@@ -6284,6 +7877,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "265 IAD",
    "names": [
     {
@@ -6313,6 +7914,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "266 ShAD",
    "names": [
     {
@@ -6341,6 +7947,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "267 IAP",
    "names": [
     {
@@ -6371,6 +7985,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "267 ShAD",
    "names": [
     {
@@ -6399,6 +8018,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "27 IAP",
    "names": [
     {
@@ -6430,6 +8057,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "270 BAD",
    "names": [
     {
@@ -6458,6 +8093,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "271 BAD",
    "names": [
     {
@@ -6486,6 +8129,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "273 IAD",
    "names": [
     {
@@ -6516,6 +8167,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "274 IAD",
    "names": [
     {
@@ -6545,6 +8204,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "274 IAP",
    "names": [
     {
@@ -6575,6 +8242,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "275 IAD",
    "names": [
     {
@@ -6606,6 +8281,14 @@
    "echelon": "regiment",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "277 BAP",
    "names": [
     {
@@ -6634,6 +8317,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "277 ShAD",
    "names": [
     {
@@ -6662,6 +8350,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "279 IAD",
    "names": [
     {
@@ -6690,6 +8386,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "28 Gv IAP",
    "names": [
     {
@@ -6721,6 +8425,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "28 IAD",
    "names": [
     {
@@ -6750,6 +8462,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "280 ShAD",
    "names": [
     {
@@ -6778,6 +8495,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "281 ShAD",
    "names": [
     {
@@ -6809,6 +8531,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "282 IAD",
    "names": [
     {
@@ -6837,6 +8567,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "283 IAD",
    "names": [
     {
@@ -6866,6 +8604,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "285 BAD",
    "names": [
     {
@@ -6894,6 +8640,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "286 IAD",
    "names": [
     {
@@ -6925,6 +8679,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "287 IAD",
    "names": [
     {
@@ -6954,6 +8716,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "288 IAD",
    "names": [
     {
@@ -6984,6 +8754,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "289 ShAD",
    "names": [
     {
@@ -7012,6 +8787,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "29 IAD",
    "names": [
     {
@@ -7040,6 +8823,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "290 ShAD",
    "names": [
     {
@@ -7068,6 +8856,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "291 ShAD",
    "names": [
     {
@@ -7098,6 +8891,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "292 ShAD",
    "names": [
     {
@@ -7128,6 +8926,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "293 BAD",
    "names": [
     {
@@ -7156,6 +8962,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "296 IAD",
    "names": [
     {
@@ -7184,6 +8998,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "296 IAP",
    "names": [
     {
@@ -7215,6 +9037,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "298 IAD",
    "names": [
     {
@@ -7243,6 +9073,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "299 ShAD",
    "names": [
     {
@@ -7271,6 +9106,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "3 Gv BAD",
    "names": [
     {
@@ -7300,6 +9143,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "3 Gv IAD",
    "names": [
     {
@@ -7328,6 +9179,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "3 IAD",
    "names": [
     {
@@ -7359,6 +9218,14 @@
    "echelon": "army",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "3 VA",
    "names": [
     {
@@ -7391,6 +9258,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "30 BAD",
    "names": [
     {
@@ -7419,6 +9294,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "300 IAP",
    "names": [
     {
@@ -7447,6 +9330,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "300 ShAD",
    "names": [
     {
@@ -7477,6 +9365,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "302 IAD",
    "names": [
     {
@@ -7505,6 +9401,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "303 IAD",
    "names": [
     {
@@ -7536,6 +9440,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "304 BAD",
    "names": [
     {
@@ -7564,6 +9476,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "305 ShAD",
    "names": [
     {
@@ -7595,6 +9512,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "306 ShAD",
    "names": [
     {
@@ -7623,6 +9545,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "307 ShAD",
    "names": [
     {
@@ -7651,6 +9578,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "308 ShAD",
    "names": [
     {
@@ -7679,6 +9611,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "31 IAD",
    "names": [
     {
@@ -7707,6 +9647,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "310 IAD",
    "names": [
     {
@@ -7735,6 +9683,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "311 ShAD",
    "names": [
     {
@@ -7763,6 +9716,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "315 IAD",
    "names": [
     {
@@ -7791,6 +9752,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "316 ShAD",
    "names": [
     {
@@ -7819,6 +9785,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "317 IAD",
    "names": [
     {
@@ -7847,6 +9821,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "318 IAD",
    "names": [
     {
@@ -7876,6 +9858,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "319 IAD",
    "names": [
     {
@@ -7905,6 +9895,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "32 IAD",
    "names": [
     {
@@ -7933,6 +9931,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "32 IAP",
    "names": [
     {
@@ -7964,6 +9970,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "320 IAD",
    "names": [
     {
@@ -7992,6 +10006,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "322 IAD",
    "names": [
     {
@@ -8020,6 +10042,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "326 BAD",
    "names": [
     {
@@ -8048,6 +10078,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "326 BAD",
    "names": [
     {
@@ -8076,6 +10114,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "326 BAD",
    "names": [
     {
@@ -8107,6 +10153,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "33 BAD",
    "names": [
     {
@@ -8135,6 +10189,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "332 ShAD",
    "names": [
     {
@@ -8163,6 +10222,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "335 ShAD",
    "names": [
     {
@@ -8192,6 +10256,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "34 BAD",
    "names": [
     {
@@ -8220,6 +10292,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "34 IAP",
    "names": [
     {
@@ -8249,6 +10329,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "35 BAD",
    "names": [
     {
@@ -8277,6 +10365,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "36 BAD",
    "names": [
     {
@@ -8306,6 +10402,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "36 IAD",
    "names": [
     {
@@ -8334,6 +10438,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "38 IAD",
    "names": [
     {
@@ -8363,6 +10475,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "4 Gv BAD",
    "names": [
     {
@@ -8392,6 +10512,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "4 IAD",
    "names": [
     {
@@ -8422,6 +10550,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "40 BAD",
    "names": [
     {
@@ -8450,6 +10586,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "41 IAD",
    "names": [
     {
@@ -8478,6 +10622,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "416 IAP",
    "names": [
     {
@@ -8507,6 +10659,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "42 BAD",
    "names": [
     {
@@ -8535,6 +10695,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "43 IAD",
    "names": [
     {
@@ -8564,6 +10732,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "44 IAD",
    "names": [
     {
@@ -8593,6 +10769,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "45 BAD",
    "names": [
     {
@@ -8622,6 +10806,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "45 IAD",
    "names": [
     {
@@ -8650,6 +10842,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "47 IAD",
    "names": [
     {
@@ -8679,6 +10879,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "48 BAD",
    "names": [
     {
@@ -8708,6 +10916,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "5 Gv BAD",
    "names": [
     {
@@ -8737,6 +10953,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "5 Gv IAP",
    "names": [
     {
@@ -8768,6 +10992,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "5 IAD",
    "names": [
     {
@@ -8796,6 +11028,14 @@
    "echelon": "army",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "5 VA",
    "names": [
     {
@@ -8828,6 +11068,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "50 BAD",
    "names": [
     {
@@ -8856,6 +11104,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "513 IAP",
    "names": [
     {
@@ -8886,6 +11142,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "516 IAP",
    "names": [
     {
@@ -8914,6 +11178,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "52 BAD",
    "names": [
     {
@@ -8943,6 +11215,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "54 BAD",
    "names": [
     {
@@ -8971,6 +11251,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "54 IAD",
    "names": [
     {
@@ -8999,6 +11287,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "55 IAD",
    "names": [
     {
@@ -9030,6 +11326,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "57 IAD",
    "names": [
     {
@@ -9058,6 +11362,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "59 IAD",
    "names": [
     {
@@ -9087,6 +11399,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "6 Gv IAD",
    "names": [
     {
@@ -9119,6 +11439,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "6 IAD",
    "names": [
     {
@@ -9147,6 +11475,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "6 IAD",
    "names": [
     {
@@ -9178,6 +11514,14 @@
    "echelon": "army",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "6 VA",
    "names": [
     {
@@ -9210,6 +11554,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "60 IAD",
    "names": [
     {
@@ -9238,6 +11590,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "611 IAP",
    "names": [
     {
@@ -9269,6 +11629,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "627 IAP",
    "names": [
     {
@@ -9299,6 +11667,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "65 IAD",
    "names": [
     {
@@ -9327,6 +11703,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "7 IAD",
    "names": [
     {
@@ -9355,6 +11739,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "7 IAP",
    "names": [
     {
@@ -9386,6 +11778,14 @@
    "echelon": "army",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "7 VA",
    "names": [
     {
@@ -9418,6 +11818,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "72 IAD",
    "names": [
     {
@@ -9446,6 +11854,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "721 IAP",
    "names": [
     {
@@ -9476,6 +11892,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "75 IAD",
    "names": [
     {
@@ -9505,6 +11929,14 @@
    "echelon": "army",
    "type": "air-hq",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "76 VA",
    "names": [
     {
@@ -9537,6 +11969,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "8 Gv IAD",
    "names": [
     {
@@ -9566,6 +12006,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "8 IAD",
    "names": [
     {
@@ -9595,6 +12043,14 @@
    "echelon": "division",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "81 BAD",
    "names": [
     {
@@ -9626,6 +12082,14 @@
    "echelon": "regiment",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "814 IAP",
    "names": [
     {
@@ -9657,6 +12121,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "9 IAD",
    "names": [
     {
@@ -9685,6 +12157,14 @@
    "echelon": "regiment",
    "type": "bomber",
    "air": true,
+   "aircraft": [
+    {
+     "id": "pe-2"
+    },
+    {
+     "id": "il-4"
+    }
+   ],
    "short": "911 BAP",
    "names": [
     {
@@ -9716,6 +12196,14 @@
    "echelon": "division",
    "type": "fighter",
    "air": true,
+   "aircraft": [
+    {
+     "id": "yak-9"
+    },
+    {
+     "id": "la-5"
+    }
+   ],
    "short": "92 IAD",
    "names": [
     {
@@ -9744,6 +12232,11 @@
    "echelon": "division",
    "type": "ground-attack",
    "air": true,
+   "aircraft": [
+    {
+     "id": "il-2"
+    }
+   ],
    "short": "96 ShAD",
    "names": [
     {

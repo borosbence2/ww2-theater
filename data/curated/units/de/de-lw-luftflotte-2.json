@@ -14,6 +14,7 @@
   ],
   "parents": [],
   "positions": [],
+  "aircraft": [{ "id": "bf-109f" }, { "id": "ju-87d" }],
   "commanders": [
     { "from": "1940-01-19", "to": "1943-06-12", "name": "Albert Kesselring", "link": "https://en.wikipedia.org/wiki/Albert_Kesselring" }
   ],
