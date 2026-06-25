@@ -1,0 +1,28 @@
+{
+  "id": "de-lw-luftflotte-5",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "army",
+  "type": "air-hq",
+  "air": true,
+  "short": "Luftflotte 5",
+  "names": [
+    { "from": "1940-04-12", "name": "Luftflotte 5", "aliases": ["Air Fleet 5", "LF 5"] }
+  ],
+  "existence": [
+    { "from": "1940-04-12", "to": "1944-09-28", "end": "redesignated Luftwaffenkommando Norwegen" }
+  ],
+  "parents": [],
+  "positionsTo": "1944-09-28",
+  "positions": [
+    { "date": "1941-06-22", "at": [25.7, 66.5], "label": "HQ in Lapland — supporting the Murmansk front", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1942-06-01", "at": [27.0, 68.4], "label": "Arctic operations against the Murmansk railway and the convoys", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "aircraft": [{ "id": "bf-109g" }, { "id": "ju-87d" }, { "id": "ju-88a" }],
+  "commanders": [
+    { "from": "1940-04-12", "to": "1943-11-01", "name": "Hans-Jürgen Stumpff", "link": "https://en.wikipedia.org/wiki/Hans-J%C3%BCrgen_Stumpff" }
+  ],
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Luftflotte_5" },
+  "summary": "Luftflotte 5 covered Norway and the Arctic front, supporting the German 20th Mountain Army's drive on Murmansk and attacking the Allied convoys to the Soviet Union.",
+  "notes": "Backbone command: placed (derived) behind the Arctic-front 20. Gebirgsarmee; the bulk of its strength sat in Norway, off the Eastern Front."
+}
