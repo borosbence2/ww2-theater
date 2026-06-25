@@ -25,6 +25,30 @@
       ]
     },
     {
+      "name": "East Prussian offensive",
+      "country": "SU",
+      "army": "su-vvs-1-va",
+      "from": "1945-01-13",
+      "to": "1945-04-25",
+      "units": [
+        { "id": "su-iak-1-gv", "name": "1st Guards Fighter Aviation Corps", "short": "1 Gv IAK", "echelon": "corps", "type": "fighter", "parent": "su-vvs-1-va", "aircraft": ["la-5", "yak-9"] },
+        { "id": "su-shak-3", "name": "3rd Assault Aviation Corps", "short": "3 ShAK", "echelon": "corps", "type": "ground-attack", "parent": "su-vvs-1-va", "aircraft": ["il-2"] },
+        { "id": "su-bak-2-gv", "name": "2nd Guards Bomber Aviation Corps", "short": "2 Gv BAK", "echelon": "corps", "type": "bomber", "parent": "su-vvs-1-va", "aircraft": ["pe-2"] }
+      ]
+    },
+    {
+      "name": "Vistula–Oder offensive",
+      "country": "SU",
+      "army": "su-va-16",
+      "from": "1945-01-12",
+      "to": "1945-02-03",
+      "units": [
+        { "id": "su-iak-6", "name": "6th Fighter Aviation Corps", "short": "6 IAK", "echelon": "corps", "type": "fighter", "parent": "su-va-16", "aircraft": ["la-5", "yak-9"] },
+        { "id": "su-shak-9", "name": "9th Assault Aviation Corps", "short": "9 ShAK", "echelon": "corps", "type": "ground-attack", "parent": "su-va-16", "aircraft": ["il-2"] },
+        { "id": "su-bak-6", "name": "6th Bomber Aviation Corps", "short": "6 BAK", "echelon": "corps", "type": "bomber", "parent": "su-va-16", "aircraft": ["pe-2"] }
+      ]
+    },
+    {
       "name": "Battle of Berlin",
       "country": "SU",
       "army": "su-va-16",
