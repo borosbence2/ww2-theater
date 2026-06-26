@@ -2,6 +2,19 @@
   "note": "Air-battle showcases: per famous Eastern-Front battle, the supporting air army's key formations (representative headline OOB, not exhaustive). build-units creates each as an air:true unit parented to the army and clusters it (derived) around the army's monthly position for the battle window, so selecting the army at that battle shows real named formations with their own aircraft. Designations/aircraft are curated from references; placement is approximate. Unit names dedupe the matching Wikidata scaffolds. Stalingrad (8th/16th VA) and Kursk-south (2nd VA) are authored as full curated files instead.",
   "battles": [
     {
+      "name": "Kursk — Luftflotte 6 (north)",
+      "country": "DE",
+      "army": "de-lw-luftflotte-6",
+      "from": "1943-07-05",
+      "to": "1943-07-16",
+      "units": [
+        { "id": "de-lw-jg-51", "name": "Jagdgeschwader 51 Mölders", "short": "JG 51", "echelon": "division", "type": "fighter", "parent": "de-lw-luftflotte-6", "aircraft": ["bf-109g", "fw-190a"], "commander": { "name": "Maj. Karl-Gottfried Nordmann" }, "summary": "Luftflotte 6's principal fighter wing over the northern Kursk pincer (9th Army from Orel), flying Bf 109 G and Fw 190 A." },
+        { "id": "de-lw-stg-1", "name": "Stukageschwader 1", "short": "StG 1", "echelon": "division", "type": "dive-bomber", "parent": "de-lw-luftflotte-6", "aircraft": ["ju-87d"], "summary": "The northern-sector Ju 87 dive-bomber wing supporting Model's 9th Army." },
+        { "id": "de-lw-kg-53", "name": "Kampfgeschwader 53 Legion Condor", "short": "KG 53", "echelon": "division", "type": "bomber", "parent": "de-lw-luftflotte-6", "aircraft": ["he-111h"], "summary": "He 111 medium-bomber wing of Luftflotte 6." },
+        { "id": "de-lw-pz-hs129", "name": "Panzerjägerstaffeln (Hs 129)", "short": "Pz Hs 129", "echelon": "division", "type": "ground-attack", "parent": "de-lw-luftflotte-6", "aircraft": ["hs-129"], "summary": "The cannon-armed Henschel Hs 129 tank-buster squadrons that knocked out Soviet armour during the Kursk offensive." }
+      ]
+    },
+    {
       "name": "Air battles over the Kuban",
       "country": "SU",
       "army": "su-va-4",
