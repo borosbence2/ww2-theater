@@ -1,0 +1,71 @@
+{
+  "id": "su-10th-nkvd-division",
+  "country": "SU",
+  "branch": "nkvd",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "10 NKVD",
+  "names": [
+    {
+      "from": "1942-02-01",
+      "name": "10th NKVD Rifle Division",
+      "aliases": [
+        "10-я стрелковая дивизия НКВД СССР (1-го формирования)",
+        "10th NKVD Division",
+        "10th Rifle Division NKVD"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-02-01",
+      "to": "1943-02-05",
+      "end": "to 181st Rifle Division (Order of Lenin for Stalingrad)"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1942-08-23",
+      "to": "1942-10-10",
+      "unit": "su-army-62"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-08-23",
+      "at": [44.5, 48.71],
+      "label": "Garrison of Stalingrad city as the Germans reach the Volga",
+      "source": "glantz-house-stalingrad",
+      "confidence": "documented"
+    },
+    {
+      "date": "1942-09-14",
+      "at": [44.53, 48.7],
+      "label": "Holding the city centre, station and Mamayev Kurgan in the first assault",
+      "source": "glantz-house-stalingrad",
+      "confidence": "documented"
+    },
+    {
+      "date": "1942-10-02",
+      "at": [44.58, 48.74],
+      "label": "Burned out (≈200 men left), withdrawn across the Volga",
+      "source": "glantz-house-stalingrad",
+      "confidence": "documented"
+    }
+  ],
+  "positionsTo": "1942-10-10",
+  "commanders": [
+    {
+      "from": "1942-02-01",
+      "to": "1943-02-05",
+      "name": "Col. Aleksandr Saraev",
+      "link": "https://en.wikipedia.org/wiki/Alexander_Sarayev"
+    }
+  ],
+  "links": {
+    "wikidata": "Q4028169",
+    "wikipedia.en": "https://en.wikipedia.org/wiki/10th_NKVD_Rifle_Division",
+    "pamyat-naroda": "https://pamyat-naroda.ru/"
+  },
+  "notes": "First formation. Raised in Stalingrad from NKVD troops; its five regiments (269th–272nd, 282nd) and Col. Saraev (also head of the Stalingrad garrison) held the burning city centre in the critical days of 23 Aug – early Oct 1942 before the rifle/guards divisions crossed the Volga, then was withdrawn nearly destroyed and made a Guards-equivalent (Order of Lenin). City positions are schematic west-bank points inside the drawn pocket strip, so side checks may report it as contested."
+}
