@@ -2,6 +2,19 @@
   "note": "Air-battle showcases: per famous Eastern-Front battle, the supporting air army's key formations (representative headline OOB, not exhaustive). build-units creates each as an air:true unit parented to the army and clusters it (derived) around the army's monthly position for the battle window, so selecting the army at that battle shows real named formations with their own aircraft. Designations/aircraft are curated from references; placement is approximate. Unit names dedupe the matching Wikidata scaffolds. Stalingrad (8th/16th VA) and Kursk-south (2nd VA) are authored as full curated files instead.",
   "battles": [
     {
+      "name": "Air battles over the Kuban",
+      "country": "SU",
+      "army": "su-va-4",
+      "from": "1943-04-17",
+      "to": "1943-06-07",
+      "units": [
+        { "id": "su-iak-3", "name": "3rd Fighter Aviation Corps", "short": "3 IAK", "echelon": "corps", "type": "fighter", "parent": "su-va-4", "aircraft": ["yak-1", "la-5"], "summary": "Savitsky's RVGK fighter corps thrown into the Kuban to wrest air superiority from Luftflotte 4 in the largest air battle of the Eastern Front to that point (April–June 1943)." },
+        { "id": "su-iad-216", "name": "216th Fighter Aviation Division (9th Guards from Apr 1943)", "short": "216 IAD", "echelon": "division", "type": "fighter", "parent": "su-va-4", "aircraft": ["p-39"], "summary": "The P-39 Airacobra division of the 4th Air Army — home of Aleksandr Pokryshkin's 16th Guards Regiment, where the 'altitude–speed–manoeuvre–fire' tactics were forged. Redesignated 9th Guards Fighter Aviation Division during the battle." },
+        { "id": "su-shad-230", "name": "230th Assault Aviation Division", "short": "230 ShAD", "echelon": "division", "type": "ground-attack", "parent": "su-va-4", "aircraft": ["il-2"], "summary": "An Il-2 Shturmovik division hammering the Wehrmacht's 'Blue Line' defences and the Novorossiysk front." },
+        { "id": "su-nbad-218", "name": "218th Night Bomber Aviation Division", "short": "218 NBAD", "echelon": "division", "type": "bomber", "parent": "su-va-4", "aircraft": ["po-2"], "summary": "A Po-2 night-bomber division of the 4th Air Army — including the 46th Guards 'Night Witches', the all-women regiment that flew harassing raids over the Kuban." }
+      ]
+    },
+    {
       "name": "Operation Bagration",
       "country": "SU",
       "army": "su-vvs-1-va",

@@ -1487,6 +1487,31 @@ if (sectors && monthlyRosters.length) {
     }
   }
 
+  // Merge pocket/reserve placements (absolute keyframes) into `derived` HERE,
+  // BEFORE the air commands below — an air command anchored to a Front that is
+  // placed as a pocket besieger (e.g. the North Caucasus Front sealing the Kuban
+  // bridgehead) or to a Reserve Front has no main-line sector slot, so without
+  // these its anchor has no position that month and the air command (e.g. the
+  // 4th Air Army over the Kuban) silently drops out. Pocket precedence over the
+  // main line; reserve for EF formations with no sector this month.
+  let pocketPlaced = 0;
+  for (const p of pocketAbs) {
+    const u = units.get(p.id);
+    if (!existsAt(u, p.dNum) || isCuratedActive(u, p.dNum)) continue;
+    if (!derived.has(p.id)) derived.set(p.id, []);
+    derived.get(p.id).push({ startNum: p.dNum, date: p.date, at: p.at });
+    pocketPlaced++;
+  }
+  let reservePlaced = 0;
+  for (const p of reserveAbs) {
+    const u = units.get(p.id);
+    if (!existsAt(u, p.dNum) || isCuratedActive(u, p.dNum)) continue;
+    if (inPocket.has(`${p.id}|${p.date}`)) continue;
+    if (!derived.has(p.id)) derived.set(p.id, []);
+    derived.get(p.id).push({ startNum: p.dNum, date: p.date, at: p.at });
+    reservePlaced++;
+  }
+
   // --- Air commands: rear placement behind their ground anchor -------------
   // Each assigned air command (oob/air.json) is placed each roster month as an
   // ABSOLUTE keyframe offset into its own rear from its anchor's (Front /
@@ -1565,25 +1590,6 @@ if (sectors && monthlyRosters.length) {
     console.log(`Air battles: ${battlePlaced} formation placements clustered around their army`);
   }
 
-  // Add pocket placements (absolute keyframes) — precedence over main line.
-  let pocketPlaced = 0;
-  for (const p of pocketAbs) {
-    const u = units.get(p.id);
-    if (!existsAt(u, p.dNum) || isCuratedActive(u, p.dNum)) continue;
-    if (!derived.has(p.id)) derived.set(p.id, []);
-    derived.get(p.id).push({ startNum: p.dNum, date: p.date, at: p.at });
-    pocketPlaced++;
-  }
-  // Add reserve placements (absolute keyframes in the rear reserve area).
-  let reservePlaced = 0;
-  for (const p of reserveAbs) {
-    const u = units.get(p.id);
-    if (!existsAt(u, p.dNum) || isCuratedActive(u, p.dNum)) continue;
-    if (inPocket.has(`${p.id}|${p.date}`)) continue;
-    if (!derived.has(p.id)) derived.set(p.id, []);
-    derived.get(p.id).push({ startNum: p.dNum, date: p.date, at: p.at });
-    reservePlaced++;
-  }
   console.log(
     `Derived fraction tracks for ${derived.size} units (${pocketPlaced} pocket, ${reservePlaced} reserve placements)`,
   );
