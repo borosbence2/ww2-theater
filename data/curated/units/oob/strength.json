@@ -12,6 +12,19 @@
     "su-gd-rd-13": [
       { "date": "1942-09-14", "personnel": 10000, "note": "crossed the Volga into Stalingrad", "source": "glantz-house-stalingrad" },
       { "date": "1942-10-02", "personnel": 5000, "note": "halved in two weeks of street fighting", "source": "glantz-house-stalingrad" }
+    ],
+    "su-10th-nkvd-division": [
+      { "date": "1942-08-23", "personnel": 7500, "note": "the Stalingrad garrison as the Germans reach the Volga", "source": "glantz-house-stalingrad" },
+      { "date": "1942-09-14", "personnel": 4000, "note": "bled white holding the city centre, station and Mamayev Kurgan", "source": "glantz-house-stalingrad" },
+      { "date": "1942-10-02", "personnel": 200, "note": "a remnant of ~200 men, withdrawn across the Volga (later Order of Lenin)", "source": "glantz-house-stalingrad" }
+    ],
+    "su-front-crimean": [
+      { "date": "1942-05-07", "personnel": 250000, "note": "44th/47th/51st Armies behind the Parpach narrows on the eve of Trappenjagd", "source": "wikipedia-en" },
+      { "date": "1942-05-20", "personnel": 80000, "note": "shattered in eleven days — about 170,000 lost, most taken prisoner", "source": "wikipedia-en" }
+    ],
+    "de-h-armee-17": [
+      { "date": "1943-02-15", "personnel": 400000, "note": "German and Romanian forces sealed into the Kuban bridgehead", "source": "wikipedia-en" },
+      { "date": "1943-10-09", "personnel": 230000, "note": "survivors evacuated across the Kerch strait to the Crimea (Op. Brunhild)", "source": "wikipedia-en" }
     ]
   }
 }
