@@ -276,7 +276,7 @@ function positionForId(
   const place = derivedPlacementOn(du, dateISO, d);
   if (!place) return null;
   if ('at' in place) return place.at; // inside a pocket ring
-  const ul = du.front ? frontLineById(du.front, dateISO, d) : line; // Finnish theatre rides its own line
+  const ul = place.front ? frontLineById(place.front, dateISO, d) : line; // detached theatre rides its own line
   return ul ? pointAt(ul, place.frac, du.side, ECH_GROUP(du.echelon), du.id) : null;
 }
 
@@ -473,7 +473,7 @@ export function getDerivedRoute(id: string): { date: string; at: [number, number
       if (kf.length === 3) {
         out.push({ date: iso, at: [kf[1], kf[2]], jump: si > 0 && ki === 0 });
       } else {
-        const line = du.front ? frontLineById(du.front, iso, startNum) : mainFrontLine(iso, startNum);
+        const line = seg.front ? frontLineById(seg.front, iso, startNum) : mainFrontLine(iso, startNum);
         if (line) out.push({ date: iso, at: pointAt(line, kf[1], du.side, ech, du.id), jump: si > 0 && ki === 0 });
       }
     });
@@ -747,7 +747,7 @@ function collectionFor(
     let at: [number, number];
     if ('at' in place) at = place.at;
     else {
-      const ul = du.front ? frontLineById(du.front, dateISO, d) : line; // Finnish theatre line
+      const ul = place.front ? frontLineById(place.front, dateISO, d) : line; // detached theatre line
       if (!ul) continue;
       at = pointAt(ul, place.frac, du.side, ech, du.id);
     }

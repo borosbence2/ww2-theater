@@ -15190,6 +15190,125 @@
           ]
         }
       ]
+    },
+    {
+      "id": "kerch-front-1942",
+      "kind": "front",
+      "label": "Crimean Front (Kerch 1942)",
+      "from": "1941-12-30",
+      "to": "1942-05-20",
+      "keyframes": [
+        {
+          "date": "1941-12-30",
+          "label": "Kerch–Feodosia landings: Soviet bridgeheads in the eastern Crimea",
+          "waypoints": [
+            [
+              35.4,
+              45.45
+            ],
+            [
+              35,
+              45.2
+            ],
+            [
+              35.1,
+              45
+            ],
+            [
+              35.5,
+              44.85
+            ]
+          ]
+        },
+        {
+          "date": "1942-01-18",
+          "label": "Front pulled back to the Parpach (Ak-Monai) narrows",
+          "waypoints": [
+            [
+              35.6,
+              45.45
+            ],
+            [
+              35.55,
+              45.2
+            ],
+            [
+              35.5,
+              45
+            ],
+            [
+              35.55,
+              44.85
+            ]
+          ]
+        },
+        {
+          "date": "1942-05-08",
+          "label": "Operation Trappenjagd begins",
+          "waypoints": [
+            [
+              35.65,
+              45.45
+            ],
+            [
+              35.6,
+              45.2
+            ],
+            [
+              35.55,
+              45
+            ],
+            [
+              35.6,
+              44.85
+            ]
+          ]
+        },
+        {
+          "date": "1942-05-15",
+          "label": "Kerch falls; the Crimean Front collapses east",
+          "waypoints": [
+            [
+              36.1,
+              45.42
+            ],
+            [
+              36.15,
+              45.25
+            ],
+            [
+              36.2,
+              45.1
+            ],
+            [
+              36.1,
+              44.95
+            ]
+          ]
+        },
+        {
+          "date": "1942-05-19",
+          "label": "The Kerch peninsula is cleared",
+          "waypoints": [
+            [
+              36.5,
+              45.4
+            ],
+            [
+              36.55,
+              45.25
+            ],
+            [
+              36.55,
+              45.1
+            ],
+            [
+              36.5,
+              44.95
+            ]
+          ]
+        }
+      ]
     }
   ]
 }

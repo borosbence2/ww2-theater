@@ -1,0 +1,18 @@
+{
+  "note": "Crimean Front (Kerch peninsula, winter–spring 1942), placed on the detached kerch-front-1942 line by build-units — the same boundary-anchor mechanism as sectors/finnish.json. The 51st / 47th / 44th Armies (N->S: Sea of Azov to the Feodosia gulf) held the eastern Crimea behind the Parpach narrows until Operation Trappenjagd destroyed the front in May 1942; their rifle/mountain divisions ride the line at fixed fractions. 11. Armee (the Axis side) is placed on the main line / at Sevastopol, so it is not listed here.",
+  "fronts": {
+    "kerch-front-1942": {
+      "top": { "su": "su-front-crimean" },
+      "keyframes": [
+        {
+          "date": "1942-01-18",
+          "su": [
+            { "unit": "su-army-51", "to": [35.6, 45.25] },
+            { "unit": "su-army-47", "to": [35.55, 45.08] },
+            { "unit": "su-army-44" }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -144,6 +144,10 @@ export type DerivedKf = [number, number] | [number, number, number];
 export interface DerivedSeg {
   /** YYYYMMDD after which the segment stops rendering. */
   end: number;
+  /** Front feature id this segment's fractions resolve against (detached
+   *  theatre: Finnish / Arctic / Kerch). Absent = the main front. Per-segment
+   *  so a unit can ride a detached line for one stint and the main line later. */
+  front?: string;
   /** Keyframes, ascending. All in one segment share a kind (length 2 vs 3). */
   kfs: DerivedKf[];
 }
@@ -166,9 +170,6 @@ export interface DerivedUnit {
    *  spearhead leading the line, a unit held in a rear strongpoint); outside it,
    *  the derived anchor resumes. */
   wp?: [number, number, number][];
-  /** Front feature id this unit's fractions resolve against (Finnish theatre:
-   *  'finnish-front' / 'arctic-front'). Absent = the main front. */
-  front?: string;
 }
 
 let indexPromise: Promise<UnitIndexEntry[]> | null = null;
@@ -300,7 +301,7 @@ export function derivedPlacementOn(
   unit: DerivedUnit,
   dateISO: string,
   d: number,
-): { frac: number } | { at: [number, number] } | null {
+): { frac: number; front?: string } | { at: [number, number] } | null {
   // Precedence: curated sparse waypoints override the derived anchor within
   // their span (the derived segments resume outside it).
   const wp = unit.wp;
@@ -334,8 +335,8 @@ export function derivedPlacementOn(
     }
     const f0 = k0[1];
     const f1 = k1[1];
-    if (k1[0] <= k0[0] || Math.abs(f1 - f0) > 0.12) return { frac: f0 }; // hold
-    return { frac: f0 + (f1 - f0) * t };
+    if (k1[0] <= k0[0] || Math.abs(f1 - f0) > 0.12) return { frac: f0, front: seg.front }; // hold
+    return { frac: f0 + (f1 - f0) * t, front: seg.front };
   }
   return null;
 }

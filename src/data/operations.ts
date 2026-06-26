@@ -157,6 +157,45 @@ export const OPERATIONS: Operation[] = [
     labelAt: [30.1, 47.9],
   },
   {
+    id: 'kerch-feodosia-landing',
+    name: 'Kerch–Feodosia landings',
+    side: 'soviet',
+    from: '1941-12-26',
+    to: '1942-01-02',
+    // Amphibious landings across the Kerch strait and onto Feodosia that retook
+    // the eastern Crimea and formed the Crimean Front.
+    arrows: [
+      [
+        [37.0, 45.28],
+        [36.6, 45.34],
+        [36.3, 45.36],
+      ],
+      [
+        [35.7, 44.65],
+        [35.5, 44.88],
+        [35.38, 45.0],
+      ],
+    ],
+    labelAt: [36.7, 45.0],
+  },
+  {
+    id: 'trappenjagd',
+    name: 'Operation Trappenjagd',
+    side: 'axis',
+    from: '1942-05-08',
+    to: '1942-05-19',
+    // Manstein's 11. Armee breaks the Parpach line and sweeps the peninsula to
+    // Kerch, destroying the Crimean Front in eleven days.
+    arrows: [
+      [
+        [35.5, 45.02],
+        [35.95, 45.12],
+        [36.45, 45.28],
+      ],
+    ],
+    labelAt: [35.55, 44.78],
+  },
+  {
     id: 'barbarossa',
     name: 'Operation Barbarossa',
     side: 'axis',

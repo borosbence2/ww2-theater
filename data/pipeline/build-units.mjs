@@ -161,6 +161,12 @@ try {
 // Arctic front lines via sectors/finnish.json.
 const finUnitIds = new Set();
 const finFrontOf = new Map(); // unit id -> front feature id (which line its fraction is on)
+// Per-unit-month detached-front tag `${id}|${date}` -> front feature id. Unlike
+// finFrontOf (whole unit), this is per keyframe, so a unit that rides a detached
+// line for one stint and the main line later (e.g. the Crimean Front's armies,
+// destroyed at Kerch in May 1942 then reformed on the main front) gets each
+// SEGMENT resolved against the right line.
+const finFrontAt = new Map();
 try {
   const fin = JSON.parse(readFileSync(join(UNITS_DIR, 'oob', 'finnish.json'), 'utf8'));
   for (const u of fin.units) {
@@ -1414,11 +1420,17 @@ if (sectors && monthlyRosters.length) {
   // placed here against finnish-front / arctic-front (sectors/finnish.json),
   // reusing the same span + cluster machinery. The lines are authored N->S with
   // the Axis side on the right, so the standard perpendicular offset holds.
+  // Detached fronts (off the main line): the Finnish/Arctic theatre and the 1942
+  // Crimean Front (Kerch). Each file contributes `fronts` keyed by a front-feature
+  // id; merge them so a unit rides whichever detached line its sector names.
   let finSectors = null;
-  try {
-    finSectors = JSON.parse(readFileSync('data/curated/sectors/finnish.json', 'utf8')).fronts;
-  } catch {
-    finSectors = null;
+  for (const file of ['finnish.json', 'crimea.json']) {
+    try {
+      const fronts = JSON.parse(readFileSync(`data/curated/sectors/${file}`, 'utf8')).fronts;
+      finSectors = { ...(finSectors ?? {}), ...fronts };
+    } catch {
+      /* optional file */
+    }
   }
   if (finSectors) {
     const sovietDivsOf = (month, armyId) => {
@@ -1468,6 +1480,7 @@ if (sectors && monthlyRosters.length) {
             const center = (span[0] + span[1]) / 2;
             push(e.unit, month.date, center);
             finFrontOf.set(e.unit, frontId);
+            finFrontAt.set(`${e.unit}|${month.date}`, frontId);
             armyPts.push(fracToPoint(line, center, offSide, 'army'));
             const divs =
               offSide === 'axis'
@@ -1476,11 +1489,13 @@ if (sectors && monthlyRosters.length) {
             for (const did of divs) {
               push(did, month.date, center);
               finFrontOf.set(did, frontId);
+              finFrontAt.set(`${did}|${month.date}`, frontId);
             }
           }
           if (tops[sideKey] && armyPts.length) {
             pushHqAt(tops[sideKey], month.date, armyPts);
             finFrontOf.set(tops[sideKey], frontId);
+            finFrontAt.set(`${tops[sideKey]}|${month.date}`, frontId);
           }
         }
       }
@@ -1645,6 +1660,7 @@ if (sectors && monthlyRosters.length) {
     const ech = echGroup(u.echelon);
     for (const kfv of kfs) {
       if (reserveDays.has(`${id}|${kfv.date}`)) continue;
+      if (finFrontAt.has(`${id}|${kfv.date}`)) continue; // on a detached line this month
       const line = coordsFor(main, kfv.date);
       if (!line) continue;
       const axisPoly = axisPolygon(line);
@@ -1726,8 +1742,11 @@ mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
       // a stale monthly anchor (the lesson from the baked-anchor detachment).
       // Pocket / reserve placements stay absolute.
       const abs = Boolean(kf.at);
-      if (!cur || diffDays(cur.lastDate, kf.date) > 40 || cur.abs !== abs) {
-        cur = { kfs: [], lastDate: kf.date, abs };
+      // Which line this keyframe's fraction resolves against (detached theatre);
+      // a change starts a new segment so each rides the correct line.
+      const kfFront = finFrontAt.get(`${id}|${kf.date}`) ?? null;
+      if (!cur || diffDays(cur.lastDate, kf.date) > 40 || cur.abs !== abs || cur.front !== kfFront) {
+        cur = { kfs: [], lastDate: kf.date, abs, front: kfFront };
         segs.push(cur);
       }
       cur.kfs.push(abs ? [kf.startNum, kf.at[0], kf.at[1]] : [kf.startNum, kf.f]);
@@ -1753,11 +1772,11 @@ mkdirSync(join(OUT_DIR, 'derived'), { recursive: true });
           u._existTo,
           i + 1 < segs.length ? segs[i + 1].kfs[0][0] : Infinity,
         ),
+        // Which front line this segment's fractions resolve against (detached
+        // theatre: Finnish/Arctic/Kerch); absent = the main front.
+        ...(s.front ? { front: s.front } : {}),
         kfs: s.kfs,
       })),
-      // Which front line this unit's fractions resolve against (Finnish theatre);
-      // absent = the main front.
-      ...(finFrontOf.has(id) ? { front: finFrontOf.get(id) } : {}),
       // Curated sparse waypoints (Phase C): override the derived anchor within
       // their span. [startNum, lon, lat], ascending.
       ...(waypointsOf.has(id)

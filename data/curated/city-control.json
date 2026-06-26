@@ -113,6 +113,7 @@
     { "name": "Kalach-na-Donu", "lon": 43.53, "lat": 48.69, "init": "soviet", "changes": [{ "date": "1942-08-25", "side": "axis" }, { "date": "1942-11-23", "side": "soviet" }] },
     { "name": "Millerovo", "lon": 40.39, "lat": 48.92, "init": "soviet", "changes": [{ "date": "1942-07-16", "side": "axis" }, { "date": "1943-01-17", "side": "soviet" }] },
     { "name": "Kerch", "lon": 36.45, "lat": 45.36, "init": "soviet", "changes": [{ "date": "1941-11-16", "side": "axis" }, { "date": "1941-12-30", "side": "soviet" }, { "date": "1942-05-15", "side": "axis" }, { "date": "1944-04-11", "side": "soviet" }] },
+    { "name": "Feodosia", "lon": 35.38, "lat": 45.03, "init": "soviet", "changes": [{ "date": "1941-11-03", "side": "axis" }, { "date": "1944-04-13", "side": "soviet" }] },
 
     { "name": "Poltava", "lon": 34.55, "lat": 49.59, "init": "soviet", "changes": [{ "date": "1941-09-18", "side": "axis" }, { "date": "1943-09-23", "side": "soviet" }] },
     { "name": "Sumy", "lon": 34.8, "lat": 50.91, "init": "soviet", "changes": [{ "date": "1941-10-10", "side": "axis" }, { "date": "1943-09-02", "side": "soviet" }] },
