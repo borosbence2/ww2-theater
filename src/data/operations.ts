@@ -18,6 +18,144 @@ export interface Operation {
 }
 
 export const OPERATIONS: Operation[] = [
+  // --- 1939-40: the war before Barbarossa -----------------------------------
+  {
+    id: 'fall-weiss',
+    name: 'Invasion of Poland',
+    side: 'axis',
+    from: '1939-09-01',
+    to: '1939-09-28',
+    // Concentric thrusts: Pomerania cuts the Corridor, Silesia drives on Łódź/
+    // Warsaw, East Prussia presses south, the south wing swings up from Kraków.
+    arrows: [
+      [
+        [16.6, 53.4],
+        [17.8, 53.5],
+        [18.8, 53.4],
+      ],
+      [
+        [18.4, 51.5],
+        [19.6, 51.9],
+        [20.8, 52.2],
+      ],
+      [
+        [21.2, 53.7],
+        [21.3, 53.0],
+        [21.1, 52.45],
+      ],
+      [
+        [19.9, 50.0],
+        [21.4, 50.3],
+        [22.5, 51.0],
+      ],
+    ],
+    labelAt: [17.6, 50.5],
+  },
+  {
+    id: 'soviet-poland-1939',
+    name: 'Soviet invasion of Poland',
+    side: 'soviet',
+    from: '1939-09-17',
+    to: '1939-09-29',
+    // The Red Army crosses the eastern border (17 Sep) onto Wilno, Brześć, Lwów.
+    arrows: [
+      [
+        [27.2, 54.6],
+        [25.2, 54.5],
+        [23.7, 53.9],
+      ],
+      [
+        [26.6, 52.4],
+        [24.8, 52.2],
+        [23.6, 52.1],
+      ],
+      [
+        [26.6, 49.9],
+        [25.0, 49.85],
+        [24.0, 49.84],
+      ],
+    ],
+    labelAt: [27.6, 53.1],
+  },
+  {
+    id: 'winter-war',
+    name: 'Winter War',
+    side: 'soviet',
+    from: '1939-11-30',
+    to: '1940-03-13',
+    // The Karelian Isthmus drive on Viipuri, Ladoga Karelia, and the failed
+    // thrusts toward Suomussalmi and Salla in the central/northern wilderness.
+    arrows: [
+      [
+        [30.2, 60.15],
+        [29.4, 60.45],
+        [28.2, 60.7],
+      ],
+      [
+        [31.9, 61.4],
+        [31.0, 61.9],
+        [30.4, 62.3],
+      ],
+      [
+        [30.6, 64.9],
+        [29.6, 64.9],
+        [28.9, 64.9],
+      ],
+      [
+        [30.2, 66.9],
+        [29.0, 66.85],
+        [28.5, 66.83],
+      ],
+    ],
+    labelAt: [31.8, 63.4],
+  },
+  {
+    id: 'baltic-occupation',
+    name: 'Occupation of the Baltic states',
+    side: 'soviet',
+    from: '1940-06-15',
+    to: '1940-08-06',
+    // Soviet armies move into Estonia, Latvia and Lithuania (annexed Aug 1940).
+    arrows: [
+      [
+        [28.8, 58.6],
+        [26.5, 58.9],
+        [24.9, 59.4],
+      ],
+      [
+        [28.2, 56.6],
+        [26.0, 56.85],
+        [24.2, 56.95],
+      ],
+      [
+        [26.6, 54.9],
+        [25.0, 54.95],
+        [23.95, 54.9],
+      ],
+    ],
+    labelAt: [28.2, 57.7],
+  },
+  {
+    id: 'bessarabia-1940',
+    name: 'Bessarabia & N. Bukovina',
+    side: 'soviet',
+    from: '1940-06-28',
+    to: '1940-07-04',
+    // The ultimatum to Romania: the USSR takes Bessarabia and northern Bukovina.
+    arrows: [
+      [
+        [29.6, 47.6],
+        [28.6, 47.2],
+        [27.6, 47.0],
+      ],
+      [
+        [27.6, 48.7],
+        [26.6, 48.45],
+        [25.95, 48.3],
+      ],
+    ],
+    labelAt: [30.1, 47.9],
+  },
   {
     id: 'barbarossa',
     name: 'Operation Barbarossa',

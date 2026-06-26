@@ -1,6 +1,6 @@
 {
   "theater": "Eastern Front",
-  "note": "Settlement control timeline: who held each city when, from documented capture/liberation dates. `init` is the holder on 1941-06-22; `changes` are subsequent handovers (ascending). Used as the correctness reference for the authored front: build-fronts.mjs checks every city sits on its documented side of the interpolated front every day, and the app colors per-city control dots from it. Coords approximate; dates from well-known events. Sides: axis | soviet.",
+  "note": "Settlement control timeline: who held each city when, from documented capture/liberation dates. `init` is the holder before the first listed change, i.e. at the start of the timeline (1 Sep 1939); for most cities that is unchanged through Barbarossa (22 Jun 1941). `changes` are subsequent handovers (ascending). Used as the correctness reference for the authored front: build-fronts.mjs checks every city sits on its documented side of the interpolated front every day, and the app colors per-city control dots from it. Coords approximate; dates from well-known events. Sides: axis | soviet.",
   "bbox": [14, 43, 50, 71],
   "cities": [
     { "name": "Moscow", "lon": 37.62, "lat": 55.75, "init": "soviet", "changes": [] },
@@ -20,7 +20,7 @@
     { "name": "Velikiye Luki", "lon": 30.5, "lat": 56.35, "init": "soviet", "changes": [{ "date": "1941-08-26", "side": "axis" }, { "date": "1943-01-17", "side": "soviet" }] },
     { "name": "Pskov", "lon": 28.33, "lat": 57.82, "init": "soviet", "changes": [{ "date": "1941-07-09", "side": "axis" }, { "date": "1944-07-23", "side": "soviet" }] },
     { "name": "Novgorod", "lon": 31.27, "lat": 58.52, "init": "soviet", "changes": [{ "date": "1941-08-19", "side": "axis" }, { "date": "1944-01-20", "side": "soviet" }] },
-    { "name": "Vyborg", "lon": 28.73, "lat": 60.7, "init": "soviet", "changes": [{ "date": "1941-08-29", "side": "axis" }, { "date": "1944-06-20", "side": "soviet" }] },
+    { "name": "Vyborg", "lon": 28.73, "lat": 60.7, "init": "axis", "changes": [{ "date": "1940-03-13", "side": "soviet" }, { "date": "1941-08-29", "side": "axis" }, { "date": "1944-06-20", "side": "soviet" }] },
     { "name": "Petrozavodsk", "lon": 34.35, "lat": 61.78, "init": "soviet", "changes": [{ "date": "1941-10-01", "side": "axis" }, { "date": "1944-06-28", "side": "soviet" }] },
 
     { "name": "Minsk", "lon": 27.56, "lat": 53.9, "init": "soviet", "changes": [{ "date": "1941-06-28", "side": "axis" }, { "date": "1944-07-03", "side": "soviet" }] },
@@ -63,18 +63,18 @@
 
     { "name": "Brest", "lon": 23.7, "lat": 52.1, "init": "soviet", "changes": [{ "date": "1941-06-22", "side": "axis" }, { "date": "1944-07-28", "side": "soviet" }] },
     { "name": "Bialystok", "lon": 23.16, "lat": 53.13, "init": "soviet", "changes": [{ "date": "1941-06-27", "side": "axis" }, { "date": "1944-07-27", "side": "soviet" }] },
-    { "name": "Chisinau", "lon": 28.86, "lat": 47.0, "init": "soviet", "changes": [{ "date": "1941-07-16", "side": "axis" }, { "date": "1944-08-24", "side": "soviet" }] },
+    { "name": "Chisinau", "lon": 28.86, "lat": 47.0, "init": "axis", "changes": [{ "date": "1940-06-28", "side": "soviet" }, { "date": "1941-07-16", "side": "axis" }, { "date": "1944-08-24", "side": "soviet" }] },
 
-    { "name": "Warsaw", "lon": 21.0, "lat": 52.23, "init": "axis", "changes": [{ "date": "1945-01-17", "side": "soviet" }] },
-    { "name": "Lublin", "lon": 22.57, "lat": 51.25, "init": "axis", "changes": [{ "date": "1944-07-24", "side": "soviet" }] },
-    { "name": "Krakow", "lon": 19.94, "lat": 50.06, "init": "axis", "changes": [{ "date": "1945-01-19", "side": "soviet" }] },
-    { "name": "Lodz", "lon": 19.46, "lat": 51.76, "init": "axis", "changes": [{ "date": "1945-01-19", "side": "soviet" }] },
-    { "name": "Poznan", "lon": 16.93, "lat": 52.41, "init": "axis", "changes": [{ "date": "1945-02-23", "side": "soviet" }] },
+    { "name": "Warsaw", "lon": 21.0, "lat": 52.23, "init": "soviet", "changes": [{ "date": "1939-09-28", "side": "axis" }, { "date": "1945-01-17", "side": "soviet" }] },
+    { "name": "Lublin", "lon": 22.57, "lat": 51.25, "init": "soviet", "changes": [{ "date": "1939-09-18", "side": "axis" }, { "date": "1944-07-24", "side": "soviet" }] },
+    { "name": "Krakow", "lon": 19.94, "lat": 50.06, "init": "soviet", "changes": [{ "date": "1939-09-06", "side": "axis" }, { "date": "1945-01-19", "side": "soviet" }] },
+    { "name": "Lodz", "lon": 19.46, "lat": 51.76, "init": "soviet", "changes": [{ "date": "1939-09-08", "side": "axis" }, { "date": "1945-01-19", "side": "soviet" }] },
+    { "name": "Poznan", "lon": 16.93, "lat": 52.41, "init": "soviet", "changes": [{ "date": "1939-09-10", "side": "axis" }, { "date": "1945-02-23", "side": "soviet" }] },
     { "name": "Konigsberg", "lon": 20.5, "lat": 54.71, "init": "axis", "changes": [{ "date": "1945-04-09", "side": "soviet" }] },
     { "name": "Danzig", "lon": 18.65, "lat": 54.35, "init": "axis", "changes": [{ "date": "1945-03-30", "side": "soviet" }] },
     { "name": "Breslau", "lon": 17.04, "lat": 51.11, "init": "axis", "changes": [{ "date": "1945-05-06", "side": "soviet" }] },
 
-    { "name": "Chernivtsi", "lon": 25.94, "lat": 48.29, "init": "soviet", "changes": [{ "date": "1941-07-05", "side": "axis" }, { "date": "1944-03-29", "side": "soviet" }] },
+    { "name": "Chernivtsi", "lon": 25.94, "lat": 48.29, "init": "axis", "changes": [{ "date": "1940-06-28", "side": "soviet" }, { "date": "1941-07-05", "side": "axis" }, { "date": "1944-03-29", "side": "soviet" }] },
     { "name": "Bucharest", "lon": 26.1, "lat": 44.43, "init": "axis", "changes": [{ "date": "1944-08-31", "side": "soviet" }] },
     { "name": "Ploiesti", "lon": 26.0, "lat": 44.94, "init": "axis", "changes": [{ "date": "1944-08-30", "side": "soviet" }] },
     { "name": "Budapest", "lon": 19.04, "lat": 47.5, "init": "axis", "changes": [{ "date": "1945-02-13", "side": "soviet" }] },

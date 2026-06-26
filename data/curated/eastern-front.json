@@ -13562,7 +13562,9 @@
       "label": "Kuban bridgehead (17th Army)",
       "from": "1943-02-05",
       "to": "1943-10-10",
-      "garrison": ["de-h-armee-17"],
+      "garrison": [
+        "de-h-armee-17"
+      ],
       "keyframes": [
         {
           "date": "1943-02-05",
@@ -14000,7 +14002,9 @@
       "label": "East Prussia pocket (Heiligenbeil / Königsberg / Samland)",
       "from": "1945-01-26",
       "to": "1945-04-10",
-      "garrison": ["de-h-armee-4"],
+      "garrison": [
+        "de-h-armee-4"
+      ],
       "keyframes": [
         {
           "date": "1945-01-26",
@@ -14438,6 +14442,747 @@
             [
               30.36,
               56.36
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poland-german-front",
+      "kind": "front",
+      "label": "German invasion of Poland",
+      "from": "1939-09-01",
+      "to": "1939-10-08",
+      "keyframes": [
+        {
+          "date": "1939-09-01",
+          "label": "Fall Weiss — German invasion begins",
+          "waypoints": [
+            [
+              19,
+              54.3
+            ],
+            [
+              17.8,
+              53.2
+            ],
+            [
+              17.2,
+              52.3
+            ],
+            [
+              18.3,
+              51.2
+            ],
+            [
+              19,
+              50.1
+            ],
+            [
+              19.6,
+              49.3
+            ]
+          ]
+        },
+        {
+          "date": "1939-09-06",
+          "label": "Across western Poland; Kraków falls",
+          "waypoints": [
+            [
+              20.2,
+              54.3
+            ],
+            [
+              19.3,
+              53.2
+            ],
+            [
+              19,
+              52.3
+            ],
+            [
+              19.6,
+              51.2
+            ],
+            [
+              20,
+              50.1
+            ],
+            [
+              20.4,
+              49.3
+            ]
+          ]
+        },
+        {
+          "date": "1939-09-10",
+          "label": "Vistula reached; the Bzura battle erupts in the rear",
+          "waypoints": [
+            [
+              21.2,
+              54.3
+            ],
+            [
+              20.6,
+              53.2
+            ],
+            [
+              20.4,
+              52.3
+            ],
+            [
+              20.8,
+              51.2
+            ],
+            [
+              21.2,
+              50.1
+            ],
+            [
+              21.4,
+              49.3
+            ]
+          ]
+        },
+        {
+          "date": "1939-09-17",
+          "label": "Encircling east of Warsaw",
+          "waypoints": [
+            [
+              22.2,
+              54.3
+            ],
+            [
+              21.8,
+              53.2
+            ],
+            [
+              22,
+              52.3
+            ],
+            [
+              22.6,
+              51.2
+            ],
+            [
+              22.4,
+              50.1
+            ],
+            [
+              22.2,
+              49.3
+            ]
+          ]
+        },
+        {
+          "date": "1939-09-28",
+          "label": "Warsaw capitulates",
+          "waypoints": [
+            [
+              22.85,
+              54.3
+            ],
+            [
+              22.6,
+              53.2
+            ],
+            [
+              22.6,
+              52.3
+            ],
+            [
+              23.55,
+              51.2
+            ],
+            [
+              22.85,
+              50.1
+            ],
+            [
+              22.7,
+              49.3
+            ]
+          ]
+        },
+        {
+          "date": "1939-10-06",
+          "label": "Demarcation line (Bug–San)",
+          "waypoints": [
+            [
+              22.8,
+              54.3
+            ],
+            [
+              22.6,
+              53.2
+            ],
+            [
+              22.6,
+              52.3
+            ],
+            [
+              23.5,
+              51.2
+            ],
+            [
+              22.7,
+              50.1
+            ],
+            [
+              22.7,
+              49.3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poland-soviet-front",
+      "kind": "front",
+      "label": "Soviet invasion of eastern Poland",
+      "from": "1939-09-17",
+      "to": "1939-10-08",
+      "keyframes": [
+        {
+          "date": "1939-09-17",
+          "label": "The Red Army crosses the Polish border",
+          "waypoints": [
+            [
+              26.8,
+              54.5
+            ],
+            [
+              26.2,
+              53.5
+            ],
+            [
+              26,
+              52.5
+            ],
+            [
+              25.6,
+              51.3
+            ],
+            [
+              26,
+              50.2
+            ],
+            [
+              26.5,
+              49.5
+            ]
+          ]
+        },
+        {
+          "date": "1939-09-22",
+          "label": "Wilno, Grodno, Brześć and Lwów reached",
+          "waypoints": [
+            [
+              24.5,
+              54.5
+            ],
+            [
+              24.3,
+              53.5
+            ],
+            [
+              24.5,
+              52.5
+            ],
+            [
+              24.6,
+              51.3
+            ],
+            [
+              24.8,
+              50.2
+            ],
+            [
+              25,
+              49.5
+            ]
+          ]
+        },
+        {
+          "date": "1939-09-28",
+          "label": "Meeting the Wehrmacht at the Bug",
+          "waypoints": [
+            [
+              23.2,
+              54.5
+            ],
+            [
+              23,
+              53.5
+            ],
+            [
+              23,
+              52.5
+            ],
+            [
+              23.8,
+              51.3
+            ],
+            [
+              23,
+              50.2
+            ],
+            [
+              23,
+              49.5
+            ]
+          ]
+        },
+        {
+          "date": "1939-10-06",
+          "label": "Demarcation line",
+          "waypoints": [
+            [
+              22.95,
+              54.5
+            ],
+            [
+              22.7,
+              53.5
+            ],
+            [
+              22.7,
+              52.5
+            ],
+            [
+              23.55,
+              51.3
+            ],
+            [
+              22.8,
+              50.2
+            ],
+            [
+              22.85,
+              49.5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bzura-pocket",
+      "kind": "pocket",
+      "label": "Battle of the Bzura (Kutno pocket)",
+      "encircled": "soviet",
+      "from": "1939-09-10",
+      "to": "1939-09-20",
+      "keyframes": [
+        {
+          "date": "1939-09-12",
+          "label": "Polish armies encircled on the Bzura",
+          "waypoints": [
+            [
+              18.9,
+              52.6
+            ],
+            [
+              19.7,
+              52.65
+            ],
+            [
+              20.4,
+              52.45
+            ],
+            [
+              20.2,
+              52
+            ],
+            [
+              19.4,
+              51.9
+            ],
+            [
+              18.85,
+              52.2
+            ]
+          ]
+        },
+        {
+          "date": "1939-09-18",
+          "label": "Compressed toward the Vistula",
+          "waypoints": [
+            [
+              19.4,
+              52.5
+            ],
+            [
+              19.9,
+              52.5
+            ],
+            [
+              20.3,
+              52.35
+            ],
+            [
+              20.1,
+              52.1
+            ],
+            [
+              19.6,
+              52.05
+            ],
+            [
+              19.35,
+              52.25
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "warsaw-siege-1939",
+      "kind": "siege",
+      "label": "Siege of Warsaw (1939)",
+      "encircled": "soviet",
+      "from": "1939-09-14",
+      "to": "1939-09-29",
+      "keyframes": [
+        {
+          "date": "1939-09-14",
+          "label": "Warsaw invested",
+          "waypoints": [
+            [
+              20.82,
+              52.37
+            ],
+            [
+              21.18,
+              52.35
+            ],
+            [
+              21.22,
+              52.13
+            ],
+            [
+              21,
+              52.07
+            ],
+            [
+              20.83,
+              52.16
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "modlin-siege-1939",
+      "kind": "siege",
+      "label": "Siege of Modlin (1939)",
+      "encircled": "soviet",
+      "from": "1939-09-16",
+      "to": "1939-09-30",
+      "keyframes": [
+        {
+          "date": "1939-09-16",
+          "label": "Modlin fortress besieged",
+          "waypoints": [
+            [
+              20.55,
+              52.5
+            ],
+            [
+              20.82,
+              52.49
+            ],
+            [
+              20.83,
+              52.37
+            ],
+            [
+              20.56,
+              52.37
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lwow-siege-1939",
+      "kind": "siege",
+      "label": "Siege of Lwów (1939)",
+      "encircled": "soviet",
+      "from": "1939-09-12",
+      "to": "1939-09-23",
+      "keyframes": [
+        {
+          "date": "1939-09-12",
+          "label": "Lwów besieged (surrenders to the Soviets, 22 Sep)",
+          "waypoints": [
+            [
+              23.9,
+              49.93
+            ],
+            [
+              24.16,
+              49.92
+            ],
+            [
+              24.18,
+              49.78
+            ],
+            [
+              23.95,
+              49.76
+            ],
+            [
+              23.88,
+              49.85
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "winter-war-front",
+      "kind": "front",
+      "label": "Winter War (Finland)",
+      "from": "1939-11-30",
+      "to": "1940-03-14",
+      "keyframes": [
+        {
+          "date": "1939-11-30",
+          "label": "Soviet offensive begins (1939 border)",
+          "waypoints": [
+            [
+              31,
+              69.6
+            ],
+            [
+              30,
+              66.8
+            ],
+            [
+              30.4,
+              65
+            ],
+            [
+              31,
+              64
+            ],
+            [
+              31.6,
+              62.3
+            ],
+            [
+              31.7,
+              61.2
+            ],
+            [
+              31.3,
+              60.7
+            ],
+            [
+              30.2,
+              60.4
+            ],
+            [
+              29.9,
+              60.15
+            ]
+          ]
+        },
+        {
+          "date": "1939-12-15",
+          "label": "Stalled at the Mannerheim Line; Petsamo & Salla taken",
+          "waypoints": [
+            [
+              30,
+              69.6
+            ],
+            [
+              29,
+              66.8
+            ],
+            [
+              30.4,
+              65
+            ],
+            [
+              31,
+              64
+            ],
+            [
+              31.4,
+              62.3
+            ],
+            [
+              31.3,
+              61.2
+            ],
+            [
+              30.5,
+              60.7
+            ],
+            [
+              29.6,
+              60.4
+            ],
+            [
+              29.5,
+              60.15
+            ]
+          ]
+        },
+        {
+          "date": "1940-02-11",
+          "label": "The Summa breakthrough begins",
+          "waypoints": [
+            [
+              30.2,
+              69.6
+            ],
+            [
+              28.9,
+              66.8
+            ],
+            [
+              30.3,
+              65
+            ],
+            [
+              31,
+              64
+            ],
+            [
+              31.2,
+              62.3
+            ],
+            [
+              31,
+              61.2
+            ],
+            [
+              29.8,
+              60.7
+            ],
+            [
+              28.9,
+              60.4
+            ],
+            [
+              28.7,
+              60.15
+            ]
+          ]
+        },
+        {
+          "date": "1940-03-13",
+          "label": "Moscow Peace line — Finland cedes Karelia",
+          "waypoints": [
+            [
+              31,
+              69.6
+            ],
+            [
+              28.7,
+              66.8
+            ],
+            [
+              30.2,
+              65
+            ],
+            [
+              31,
+              64
+            ],
+            [
+              30.8,
+              62.3
+            ],
+            [
+              30.3,
+              61.2
+            ],
+            [
+              28.6,
+              60.7
+            ],
+            [
+              27.9,
+              60.4
+            ],
+            [
+              27.6,
+              60.15
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suomussalmi-pocket",
+      "kind": "pocket",
+      "label": "Suomussalmi / Raate road motti",
+      "encircled": "soviet",
+      "from": "1939-12-27",
+      "to": "1940-01-09",
+      "keyframes": [
+        {
+          "date": "1939-12-30",
+          "label": "Soviet 163rd & 44th Divisions destroyed",
+          "waypoints": [
+            [
+              28.65,
+              65.02
+            ],
+            [
+              29.45,
+              65
+            ],
+            [
+              29.6,
+              64.83
+            ],
+            [
+              29.1,
+              64.74
+            ],
+            [
+              28.6,
+              64.82
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lemetti-pocket",
+      "kind": "pocket",
+      "label": "Lemetti mottis (north of Ladoga)",
+      "encircled": "soviet",
+      "from": "1940-01-05",
+      "to": "1940-03-01",
+      "keyframes": [
+        {
+          "date": "1940-01-10",
+          "label": "Soviet divisions trapped north of Lake Ladoga",
+          "waypoints": [
+            [
+              31.55,
+              61.95
+            ],
+            [
+              32.3,
+              61.93
+            ],
+            [
+              32.4,
+              61.68
+            ],
+            [
+              31.85,
+              61.6
+            ],
+            [
+              31.55,
+              61.75
             ]
           ]
         }
