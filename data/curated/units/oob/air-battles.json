@@ -26,6 +26,18 @@
       ]
     },
     {
+      "name": "Lower Dnieper — Luftflotte 4",
+      "country": "DE",
+      "army": "de-lw-luftflotte-4",
+      "from": "1943-08-26",
+      "to": "1943-12-23",
+      "units": [
+        { "id": "de-lw-jg-52", "name": "Jagdgeschwader 52", "short": "JG 52", "echelon": "division", "type": "fighter", "parent": "de-lw-luftflotte-4", "aircraft": ["bf-109g"], "summary": "Luftflotte 4's Bf 109 fighter wing — the highest-scoring fighter unit in history (Hartmann, Barkhorn, Rall) — covering Heeresgruppe Süd's long retreat to and across the Dnieper. (Promoted from a Wikidata scaffold.)" },
+        { "id": "de-lw-kg-27", "name": "Kampfgeschwader 27 Boelcke", "short": "KG 27", "echelon": "division", "type": "bomber", "parent": "de-lw-luftflotte-4", "aircraft": ["he-111h"], "summary": "An He 111 bomber wing of Luftflotte 4 over the Donbas and Dnieper. (Promoted from a Wikidata scaffold.)" },
+        { "id": "de-lw-kg-55", "name": "Kampfgeschwader 55 Greif", "short": "KG 55", "echelon": "division", "type": "bomber", "parent": "de-lw-luftflotte-4", "aircraft": ["he-111h"], "summary": "The 'Greif' He 111 wing of Luftflotte 4, worked to exhaustion supporting the southern front before its 1944 disbandment. (Promoted from a Wikidata scaffold.)" }
+      ]
+    },
+    {
       "name": "Air battles over the Kuban",
       "country": "SU",
       "army": "su-va-4",
