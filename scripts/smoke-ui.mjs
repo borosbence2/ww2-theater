@@ -541,16 +541,26 @@ check('Soviet 8th Air Army panel opens', /8th Air Army/.test(vvsPanel ?? ''));
 check('8th Air Army shows Stalingrad Front in its chain', /Stalingrad Front/.test(vvsPanel ?? ''));
 
 // Theater-wide air scaffolds (Track 1): a Wikidata-only air formation is
-// searchable with an air chip and an honest "not mapped yet" page.
-await page.fill('.omnibox input', 'Jagdgeschwader 54');
+// searchable with an air chip and an honest "not mapped yet" page. (JG 54 is now
+// a placed showcase formation — use JG 1 "Oesau", a Reich-defence wing that
+// never served on the Eastern Front, as the still-unmapped example.)
+await page.fill('.omnibox input', 'Jagdgeschwader 1');
 await page.waitForSelector('.omnibox-results li', { timeout: 10000 });
 check('air scaffold shows an air chip in search', (await page.locator('.omnibox-results li .air-chip').count()) > 0);
 await page.keyboard.press('Enter');
 await page.waitForSelector('.detail-panel', { timeout: 10000 });
 await page.waitForTimeout(1000);
 const scaffoldPanel = await page.locator('.detail-panel').textContent();
-check('air scaffold panel opens (JG 54) as air, not mapped', /Jagdgeschwader 54/.test(scaffoldPanel ?? '') && /not mapped yet/i.test(scaffoldPanel ?? ''));
-check('URL has ?unit=de-lw-jg-54', page.url().includes('unit=de-lw-jg-54'));
+check('air scaffold panel opens (JG 1) as air, not mapped', /Jagdgeschwader 1/.test(scaffoldPanel ?? '') && /not mapped yet/i.test(scaffoldPanel ?? ''));
+check('URL has ?unit=de-lw-jg-1', page.url().includes('unit=de-lw-jg-1'));
+
+// Scaffold promotion: an air-battle showcase can lift a searchable-only scaffold
+// to a placed formation with aircraft — JG 54 "Grünherz" over Leningrad in 1943.
+await page.goto(`${BASE}/?unit=de-lw-jg-54&date=1943-02-01&z=6&lat=58.6&lng=29.6`, { waitUntil: 'domcontentloaded' });
+await page.waitForSelector('.detail-panel', { timeout: 10000 });
+await page.waitForTimeout(1200);
+const jg54 = await page.locator('.detail-panel').textContent();
+check('JG 54 promoted: panel shows aircraft, not "not mapped"', /Jagdgeschwader 54/.test(jg54 ?? '') && /Fw 190|Bf 109/.test(jg54 ?? '') && !/not mapped yet/i.test(jg54 ?? ''));
 
 // Air commands placed (derived rear placement): air armies + Luftflotten dot the
 // theater rear at a mid-war date, as hollow derived discs.

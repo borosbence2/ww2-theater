@@ -2,6 +2,17 @@
   "note": "Air-battle showcases: per famous Eastern-Front battle, the supporting air army's key formations (representative headline OOB, not exhaustive). build-units creates each as an air:true unit parented to the army and clusters it (derived) around the army's monthly position for the battle window, so selecting the army at that battle shows real named formations with their own aircraft. Designations/aircraft are curated from references; placement is approximate. Unit names dedupe the matching Wikidata scaffolds. Stalingrad (8th/16th VA) and Kursk-south (2nd VA) are authored as full curated files instead.",
   "battles": [
     {
+      "name": "Leningrad — Luftflotte 1",
+      "country": "DE",
+      "army": "de-lw-luftflotte-1",
+      "from": "1943-01-12",
+      "to": "1943-04-01",
+      "units": [
+        { "id": "de-lw-jg-54", "name": "Jagdgeschwader 54 Grünherz", "short": "JG 54", "echelon": "division", "type": "fighter", "parent": "de-lw-luftflotte-1", "aircraft": ["bf-109g", "fw-190a"], "summary": "The 'Green Hearts' — Luftflotte 1's fighter wing over the Leningrad front for almost the whole siege, converting from the Bf 109 to the Fw 190 in 1943. (Promoted from a Wikidata scaffold.)" },
+        { "id": "de-lw-kg-1", "name": "Kampfgeschwader 1 Hindenburg", "short": "KG 1", "echelon": "division", "type": "bomber", "parent": "de-lw-luftflotte-1", "aircraft": ["ju-88a"], "summary": "A Ju 88 bomber wing of Luftflotte 1 supporting Heeresgruppe Nord around Leningrad. (Promoted from a Wikidata scaffold.)" }
+      ]
+    },
+    {
       "name": "Kursk — Luftflotte 6 (north)",
       "country": "DE",
       "army": "de-lw-luftflotte-6",

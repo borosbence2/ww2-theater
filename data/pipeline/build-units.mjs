@@ -208,6 +208,7 @@ try {
   for (const u of air.units) {
     if (units.has(u.id)) continue;
     for (const e of u.existence ?? []) if (e.to && e.to <= e.from) delete e.to;
+    u._scaffold = true; // searchable-only; an air-battle showcase may promote it
     units.set(u.id, u);
     importedAirCount++;
   }
@@ -255,6 +256,25 @@ try {
     for (const bu of battle.units) {
       if (units.has(bu.id)) {
         const u = units.get(bu.id);
+        if (u._scaffold) {
+          // Promote a searchable-only Wikidata scaffold to a placed showcase
+          // formation: attach this battle's aircraft / parent / summary so it
+          // gets a range ring + a command chain (and the placement pass below
+          // puts it on the map for the battle window).
+          if (bu.aircraft && !u.aircraft?.length) u.aircraft = bu.aircraft.map((id) => ({ id }));
+          if (bu.summary && !u.summary) u.summary = bu.summary;
+          if (bu.commander && !u.commanders?.length) {
+            u.commanders = [{ from: battle.from, name: bu.commander.name, link: bu.commander.link }];
+          }
+          if (bu.parent && !(u.parents ?? []).some((p) => p.unit === bu.parent && p.from === battle.from)) {
+            (u.parents ??= []).push({ from: battle.from, to: bu.parentTo ?? null, unit: bu.parent });
+          }
+          if (!u.positionsTo || u.positionsTo < battle.to) u.positionsTo = battle.to;
+          delete u._scaffold;
+          u._airBattle = true; // now placed like a showcase unit
+          created++;
+          continue;
+        }
         if (!u._airBattle) continue; // a curated file wins
         if (!u.positionsTo || u.positionsTo < battle.to) u.positionsTo = battle.to;
         continue;
