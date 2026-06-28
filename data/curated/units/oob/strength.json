@@ -24,7 +24,9 @@
     ],
     "de-h-armee-17": [
       { "date": "1943-02-15", "personnel": 400000, "note": "German and Romanian forces sealed into the Kuban bridgehead", "source": "wikipedia-en" },
-      { "date": "1943-10-09", "personnel": 230000, "note": "survivors evacuated across the Kerch strait to the Crimea (Op. Brunhild)", "source": "wikipedia-en" }
+      { "date": "1943-10-09", "personnel": 230000, "note": "survivors evacuated across the Kerch strait to the Crimea (Op. Brunhild)", "source": "wikipedia-en" },
+      { "date": "1944-04-08", "personnel": 200000, "note": "German and Romanian garrison of the Crimea as the Soviet offensive opens", "source": "wikipedia-en" },
+      { "date": "1944-05-12", "personnel": 30000, "note": "Sevastopol falls — the Crimea is lost; about 57,000 killed or captured, the rest lifted out by sea", "source": "wikipedia-en" }
     ]
   }
 }

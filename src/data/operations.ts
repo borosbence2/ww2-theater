@@ -327,6 +327,34 @@ export const OPERATIONS: Operation[] = [
     labelAt: [37.4, 51.7],
   },
   {
+    id: 'crimean-offensive-1944',
+    name: 'Crimean offensive',
+    side: 'soviet',
+    from: '1944-04-08',
+    to: '1944-05-12',
+    // 4th Ukrainian Front from the north (Perekop + the Sivash bridgehead) and
+    // the Separate Coastal Army from Kerch, converging on Sevastopol; 17. Armee
+    // is destroyed and the Crimea retaken in five weeks.
+    arrows: [
+      [
+        [33.7, 46.15],
+        [34.0, 45.3],
+        [33.6, 44.65],
+      ],
+      [
+        [34.5, 45.95],
+        [34.1, 45.0],
+        [33.7, 44.62],
+      ],
+      [
+        [36.4, 45.3],
+        [35.0, 45.0],
+        [33.8, 44.6],
+      ],
+    ],
+    labelAt: [35.2, 45.8],
+  },
+  {
     id: 'bagration',
     name: 'Operation Bagration',
     side: 'soviet',
