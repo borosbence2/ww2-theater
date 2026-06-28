@@ -397,6 +397,29 @@ export const OPERATIONS: Operation[] = [
     labelAt: [26.2, 49.6],
   },
   {
+    id: 'jassy-kishinev-1944',
+    name: 'Jassy–Kishinev offensive',
+    side: 'soviet',
+    from: '1944-08-20',
+    to: '1944-08-29',
+    // The 2nd and 3rd Ukrainian Fronts converge west of the Prut, encircling and
+    // destroying Army Group South Ukraine — and knocking Romania out of the war
+    // (King Michael's coup, 23 Aug; Romania then declares war on Germany).
+    arrows: [
+      [
+        [27.4, 47.6],
+        [27.6, 47.0],
+        [28.0, 46.4],
+      ],
+      [
+        [29.7, 46.8],
+        [28.8, 46.6],
+        [28.1, 46.5],
+      ],
+    ],
+    labelAt: [28.6, 47.6],
+  },
+  {
     id: 'debrecen-1944',
     name: 'Debrecen offensive',
     side: 'soviet',

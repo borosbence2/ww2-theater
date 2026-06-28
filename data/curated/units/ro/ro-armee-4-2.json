@@ -1,0 +1,41 @@
+{
+  "id": "ro-armee-4-2",
+  "country": "RO",
+  "side": "soviet",
+  "branch": "armata",
+  "echelon": "army",
+  "type": "hq",
+  "short": "Rom. 4th A",
+  "names": [
+    {
+      "from": "1944-09-01",
+      "name": "4th Romanian Army (Allied)",
+      "aliases": ["Armata a 4-a română", "Romanian Fourth Army", "4th Romanian Army"]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-09-01",
+      "to": "1945-05-12",
+      "end": "war's end in Czechoslovakia"
+    }
+  ],
+  "parents": [
+    { "from": "1944-09-01", "to": "1945-05-12", "unit": "su-front-2-ukrainian" }
+  ],
+  "commanders": [
+    { "from": "1944-09-01", "to": "1945-03-03", "name": "Gen. Gheorghe Avramescu" },
+    { "from": "1945-03-03", "name": "Gen. Nicolae Dăscălescu" }
+  ],
+  "positions": [
+    { "date": "1944-09-15", "at": [23.8, 46.55], "label": "Battle of Turda — Romania now fights Germany in Transylvania", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1944-10-25", "at": [22.5, 47.3], "label": "Driving the Axis out of northern Transylvania", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1944-12-20", "at": [20.2, 48.05], "label": "Into northern Hungary", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-03-25", "at": [19.0, 48.6], "label": "The Hron and the Slovak mountains", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1945-05-12",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Fourth_Army_(Romania)"
+  },
+  "notes": "Second incarnation: after King Michael's coup (23 Aug 1944) Romania switched to the Allies; the reconstituted 4th Army fought under the 2nd Ukrainian Front from Transylvania through Hungary into Slovakia. side=soviet overrides the country default. Route schematic (HQ centre-of-mass)."
+}

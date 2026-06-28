@@ -1,0 +1,41 @@
+{
+  "id": "ro-armee-1",
+  "country": "RO",
+  "side": "soviet",
+  "branch": "armata",
+  "echelon": "army",
+  "type": "hq",
+  "short": "Rom. 1st A",
+  "names": [
+    {
+      "from": "1944-09-01",
+      "name": "1st Romanian Army (Allied)",
+      "aliases": ["Armata 1 română", "Romanian First Army", "1st Romanian Army"]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-09-01",
+      "to": "1945-05-12",
+      "end": "war's end in Czechoslovakia"
+    }
+  ],
+  "parents": [
+    { "from": "1944-09-01", "to": "1945-05-12", "unit": "su-front-2-ukrainian" }
+  ],
+  "commanders": [
+    { "from": "1944-09-01", "to": "1945-02-01", "name": "Gen. Nicolae Macici" },
+    { "from": "1945-02-01", "name": "Gen. Vasile Atanasiu" }
+  ],
+  "positions": [
+    { "date": "1944-09-20", "at": [21.3, 46.25], "label": "Clearing the Banat and Arad of Axis forces", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1944-10-25", "at": [21.5, 47.4], "label": "Across the border into eastern Hungary (Debrecen sector)", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-01-20", "at": [19.8, 48.25], "label": "Northern Hungary, on the Slovak border", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-04-25", "at": [17.6, 49.1], "label": "Into Moravia to the war's end", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1945-05-12",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/First_Army_(Romania)"
+  },
+  "notes": "Romania switched to the Allies after King Michael's coup (23 Aug 1944); the 1st Army fought under the 2nd Ukrainian Front from western Romania through Hungary into Czechoslovakia. side=soviet overrides the country default. Route schematic (HQ centre-of-mass)."
+}

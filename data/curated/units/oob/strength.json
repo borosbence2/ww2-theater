@@ -31,6 +31,10 @@
     "de-8th-ss-cavalry-division-florian-geyer": [
       { "date": "1944-12-26", "personnel": 13000, "note": "encircled in Budapest with IX SS-Gebirgskorps", "source": "wikipedia-en" },
       { "date": "1945-02-11", "personnel": 800, "note": "annihilated in the breakout — only a handful reached German lines", "source": "wikipedia-en" }
+    ],
+    "de-h-armee-6-2": [
+      { "date": "1944-08-20", "personnel": 250000, "note": "the rebuilt 6. Armee holds the Prut as the Jassy–Kishinev offensive opens", "source": "wikipedia-en" },
+      { "date": "1944-09-03", "personnel": 20000, "note": "encircled and destroyed west of the Prut — a second annihilation of the 6. Armee, two years after Stalingrad", "source": "wikipedia-en" }
     ]
   }
 }
