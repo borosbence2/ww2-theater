@@ -397,6 +397,50 @@ export const OPERATIONS: Operation[] = [
     labelAt: [26.2, 49.6],
   },
   {
+    id: 'debrecen-1944',
+    name: 'Debrecen offensive',
+    side: 'soviet',
+    from: '1944-10-06',
+    to: '1944-10-28',
+    // 2nd Ukrainian Front into the Great Hungarian Plain — a tank drive on
+    // Debrecen that opens the way to Budapest (and a sharp armoured battle).
+    arrows: [
+      [
+        [21.5, 46.5],
+        [21.8, 47.3],
+        [21.6, 47.9],
+      ],
+      [
+        [20.5, 46.3],
+        [20.2, 47.0],
+        [20.1, 47.6],
+      ],
+    ],
+    labelAt: [21.4, 46.2],
+  },
+  {
+    id: 'spring-awakening-1945',
+    name: 'Operation Spring Awakening',
+    side: 'axis',
+    from: '1945-03-06',
+    to: '1945-03-16',
+    // The last German offensive of the war: 6. SS-Panzerarmee attacks from
+    // between Lakes Velence and Balaton to retake the Danube, and stalls.
+    arrows: [
+      [
+        [18.3, 47.0],
+        [19.2, 46.8],
+        [19.9, 46.6],
+      ],
+      [
+        [17.8, 46.6],
+        [18.6, 46.4],
+        [19.3, 46.2],
+      ],
+    ],
+    labelAt: [17.6, 47.0],
+  },
+  {
     id: 'vistula-oder',
     name: 'Vistula–Oder',
     side: 'soviet',

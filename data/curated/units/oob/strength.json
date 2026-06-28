@@ -27,6 +27,10 @@
       { "date": "1943-10-09", "personnel": 230000, "note": "survivors evacuated across the Kerch strait to the Crimea (Op. Brunhild)", "source": "wikipedia-en" },
       { "date": "1944-04-08", "personnel": 200000, "note": "German and Romanian garrison of the Crimea as the Soviet offensive opens", "source": "wikipedia-en" },
       { "date": "1944-05-12", "personnel": 30000, "note": "Sevastopol falls — the Crimea is lost; about 57,000 killed or captured, the rest lifted out by sea", "source": "wikipedia-en" }
+    ],
+    "de-8th-ss-cavalry-division-florian-geyer": [
+      { "date": "1944-12-26", "personnel": 13000, "note": "encircled in Budapest with IX SS-Gebirgskorps", "source": "wikipedia-en" },
+      { "date": "1945-02-11", "personnel": 800, "note": "annihilated in the breakout — only a handful reached German lines", "source": "wikipedia-en" }
     ]
   }
 }
