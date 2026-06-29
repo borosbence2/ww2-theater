@@ -27,10 +27,11 @@
     { "from": "1945-01-01", "name": "Gen. Peko Dapčević" }
   ],
   "positions": [
-    { "date": "1945-01-15", "at": [19.2, 45.05], "label": "Holding the Syrmian Front (Šid)", "source": "wikipedia-en", "confidence": "inferred" },
-    { "date": "1945-04-12", "at": [18.7, 45.05], "label": "The Syrmian Front breakthrough", "source": "wikipedia-en", "confidence": "inferred" },
-    { "date": "1945-05-02", "at": [17.0, 45.4], "label": "Across Slavonia", "source": "wikipedia-en", "confidence": "inferred" },
-    { "date": "1945-05-09", "at": [16.1, 45.7], "label": "Into Zagreb", "source": "wikipedia-en", "confidence": "inferred" }
+    { "date": "1945-01-15", "at": [19.45, 45.0], "label": "Holding the Syrmian Front (Šid)", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-03-30", "at": [19.45, 45.0], "label": "The static Syrmian Front through the winter", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-04-16", "at": [17.6, 45.1], "label": "The Syrmian Front breakthrough", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-05-02", "at": [17.0, 45.2], "label": "Across Slavonia", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-05-09", "at": [16.5, 45.6], "label": "Into Zagreb", "source": "wikipedia-en", "confidence": "inferred" }
   ],
   "positionsTo": "1945-05-15",
   "links": {
