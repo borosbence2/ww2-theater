@@ -1,0 +1,70 @@
+{
+  "id": "yu-div-5-kraj",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "ja",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "5 Kraj",
+  "names": [
+    {
+      "from": "1945-01-01",
+      "name": "5th Krajina Division",
+      "aliases": [
+        "5th Krajina Division",
+        "5th Krajina Division"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1945-01-01",
+      "to": "1945-05-15",
+      "end": "war's end"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1945-01-01",
+      "to": "1945-05-15",
+      "unit": "yu-army-1"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1945-01-20",
+      "at": [
+        19.4,
+        44.93
+      ],
+      "label": "Holding the Syrmian Front",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-16",
+      "at": [
+        17.7,
+        45.03
+      ],
+      "label": "The breakthrough toward Slavonia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-09",
+      "at": [
+        16.4,
+        45.551
+      ],
+      "label": "Into Zagreb",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-12",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/First_Army_(Yugoslav_Partisans)"
+  },
+  "notes": "Partisan division of the 1st Yugoslav Army on the Syrmian Front, 1945. Sector-level position (inferred), spread along the front and tracking the advance to Zagreb."
+}

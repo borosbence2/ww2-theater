@@ -1,0 +1,80 @@
+{
+  "id": "bg-div-3",
+  "country": "BG",
+  "side": "soviet",
+  "branch": "armia",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "3 Bg",
+  "names": [
+    {
+      "from": "1944-12-01",
+      "name": "3rd Bulgarian Infantry Division",
+      "aliases": [
+        "3rd Bulgarian Infantry Division",
+        "3rd Infantry Division"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-09-09",
+      "to": "1945-05-15",
+      "end": "war's end"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1944-12-01",
+      "to": "1945-05-15",
+      "unit": "bg-armee-1"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1944-12-01",
+      "at": [
+        17.09,
+        45.95
+      ],
+      "label": "On the Drava in southern Hungary",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-03-10",
+      "at": [
+        16.89,
+        46.05
+      ],
+      "label": "Holding the Drava against Spring Awakening",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-15",
+      "at": [
+        15.89,
+        46.55
+      ],
+      "label": "Advancing through western Hungary",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-08",
+      "at": [
+        14.643,
+        46.7
+      ],
+      "label": "Into Austria",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-12",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/First_Army_(Bulgaria)"
+  },
+  "notes": "Division of the 1st Bulgarian Army (Allied), Drava front -> Austria, 1945. Sector-level position (inferred)."
+}
