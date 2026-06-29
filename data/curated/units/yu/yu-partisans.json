@@ -1,0 +1,40 @@
+{
+  "id": "yu-partisans",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "novj",
+  "echelon": "front",
+  "type": "hq",
+  "short": "NOVJ (Tito)",
+  "names": [
+    {
+      "from": "1941-07-04",
+      "name": "Yugoslav People's Liberation Army (Partisans)",
+      "aliases": ["NOVJ", "Partisans", "Tito's Partisans", "People's Liberation Army of Yugoslavia", "Narodnooslobodilačka vojska Jugoslavije"]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-07-04",
+      "to": "1945-05-15",
+      "end": "becomes the Yugoslav Army"
+    }
+  ],
+  "commanders": [
+    { "from": "1941-07-04", "name": "Marshal Josip Broz Tito", "link": "https://en.wikipedia.org/wiki/Josip_Broz_Tito" }
+  ],
+  "positions": [
+    { "date": "1941-09-25", "at": [19.85, 43.86], "label": "The Užice Republic — the first liberated territory", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1943-03-01", "at": [17.8, 43.6], "label": "Surviving Fall Weiss on the Neretva", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1943-06-10", "at": [18.7, 43.35], "label": "Breaking the ring at the Sutjeska (Fall Schwarz)", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1943-11-29", "at": [17.27, 44.34], "label": "Jajce — the AVNOJ proclaims the new Yugoslavia", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1944-05-25", "at": [16.38, 44.37], "label": "Drvar — escaping the German airborne raid (Rösselsprung)", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1944-10-20", "at": [20.46, 44.82], "label": "Belgrade liberated — the seat of the new government", "source": "wikipedia-en", "confidence": "documented" },
+    { "date": "1945-05-09", "at": [15.98, 45.81], "label": "Zagreb — the country fully liberated", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1945-05-15",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Yugoslav_Partisans"
+  },
+  "notes": "The Communist-led resistance that grew into a regular army and liberated most of Yugoslavia largely by its own effort — the basis of the country's post-war independence. Modelled as a single moving supreme-HQ marker (Tito) through the uprising, the 1943 offensives, Belgrade and Zagreb. side=soviet (Allied). Route schematic."
+}

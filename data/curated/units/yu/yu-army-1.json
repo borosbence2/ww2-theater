@@ -1,0 +1,40 @@
+{
+  "id": "yu-army-1",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "ja",
+  "echelon": "army",
+  "type": "hq",
+  "short": "Yug. 1st A",
+  "names": [
+    {
+      "from": "1945-01-01",
+      "name": "1st Yugoslav Army",
+      "aliases": ["Prva armija JA", "First Yugoslav Army", "1st Army (Yugoslavia)"]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1945-01-01",
+      "to": "1945-05-15",
+      "end": "war's end"
+    }
+  ],
+  "parents": [
+    { "from": "1945-01-01", "to": "1945-05-15", "unit": "yu-partisans" }
+  ],
+  "commanders": [
+    { "from": "1945-01-01", "name": "Gen. Peko Dapčević" }
+  ],
+  "positions": [
+    { "date": "1945-01-15", "at": [19.2, 45.05], "label": "Holding the Syrmian Front (Šid)", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-04-12", "at": [18.7, 45.05], "label": "The Syrmian Front breakthrough", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-05-02", "at": [17.0, 45.4], "label": "Across Slavonia", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-05-09", "at": [16.1, 45.7], "label": "Into Zagreb", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1945-05-15",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/First_Army_(Yugoslav_Partisans)"
+  },
+  "notes": "Formed Jan 1945 from the Partisan corps; the main Yugoslav field army on the Syrmian Front, breaking it open in April 1945 and driving on Zagreb. side=soviet (Allied). Route schematic (HQ centre-of-mass)."
+}
