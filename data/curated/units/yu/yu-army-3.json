@@ -1,0 +1,76 @@
+{
+  "id": "yu-army-3",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "ja",
+  "echelon": "army",
+  "type": "hq",
+  "short": "Yug. 3rd A",
+  "names": [
+    {
+      "from": "1945-01-01",
+      "name": "3rd Yugoslav Army",
+      "aliases": [
+        "3rd Yugoslav Army",
+        "3rd Army (Yugoslavia)"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1945-01-01",
+      "to": "1945-05-15",
+      "end": "war's end"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1945-01-01",
+      "to": "1945-05-15",
+      "unit": "yu-partisans"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1945-01-01",
+      "name": "Gen. Kosta Nađ"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1945-01-15",
+      "at": [
+        17.8,
+        45.9
+      ],
+      "label": "The Virovitica bridgehead on the Drava",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-10",
+      "at": [
+        16.8,
+        46.2
+      ],
+      "label": "Across the Drava toward Varaždin",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-09",
+      "at": [
+        15.6,
+        46.5
+      ],
+      "label": "Into Slovenia and Austria (Maribor)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-12",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Third_Army_(Yugoslav_Partisans)"
+  },
+  "notes": "Yugoslav field army of the 1945 final offensive (anti-Axis/blue). Route schematic (HQ centre-of-mass)."
+}

@@ -1,0 +1,78 @@
+{
+  "id": "yu-div-26-dalm",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "ja",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "26 Dalm",
+  "names": [
+    {
+      "from": "1945-03-01",
+      "name": "26th Dalmatian Division",
+      "aliases": [
+        "26th Dalmatian Division",
+        "26th Dalmatian"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1945-03-01",
+      "to": "1945-05-15",
+      "end": "war's end"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1945-03-01",
+      "to": "1945-05-15",
+      "unit": "yu-army-4"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1945-03-20",
+      "at": [
+        15.5,
+        44.62
+      ],
+      "label": "The Lika and the Velebit",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-20",
+      "at": [
+        14.4,
+        45.22
+      ],
+      "label": "Taking Rijeka (Fiume)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-01",
+      "at": [
+        13.78,
+        45.57
+      ],
+      "label": "The race for Trieste",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-07",
+      "at": [
+        13.9,
+        45.27
+      ],
+      "label": "Securing Istria",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-09",
+  "links": {},
+  "notes": "Division of the 4th Yugoslav Army, 1945 (anti-Axis/blue). Sector-level position (inferred)."
+}

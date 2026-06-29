@@ -1,0 +1,76 @@
+{
+  "id": "yu-army-2",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "ja",
+  "echelon": "army",
+  "type": "hq",
+  "short": "Yug. 2nd A",
+  "names": [
+    {
+      "from": "1945-01-01",
+      "name": "2nd Yugoslav Army",
+      "aliases": [
+        "2nd Yugoslav Army",
+        "2nd Army (Yugoslavia)"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1945-01-01",
+      "to": "1945-05-15",
+      "end": "war's end"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1945-01-01",
+      "to": "1945-05-15",
+      "unit": "yu-partisans"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1945-01-01",
+      "name": "Gen. Koča Popović"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1945-01-15",
+      "at": [
+        17.5,
+        44.6
+      ],
+      "label": "The central front in Bosnia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-10",
+      "at": [
+        16.3,
+        45.3
+      ],
+      "label": "Driving on the Una and Kupa",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-08",
+      "at": [
+        15.9,
+        45.75
+      ],
+      "label": "Converging on Zagreb",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-12",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Second_Army_(Yugoslav_Partisans)"
+  },
+  "notes": "Yugoslav field army of the 1945 final offensive (anti-Axis/blue). Route schematic (HQ centre-of-mass)."
+}

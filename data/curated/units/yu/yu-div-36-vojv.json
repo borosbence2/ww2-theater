@@ -1,0 +1,68 @@
+{
+  "id": "yu-div-36-vojv",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "ja",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "36 Vojv",
+  "names": [
+    {
+      "from": "1945-01-01",
+      "name": "36th Vojvodina Division",
+      "aliases": [
+        "36th Vojvodina Division",
+        "36th Vojvodina"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1945-01-01",
+      "to": "1945-05-15",
+      "end": "war's end"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1945-01-01",
+      "to": "1945-05-15",
+      "unit": "yu-army-3"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1945-01-15",
+      "at": [
+        17.8,
+        45.82
+      ],
+      "label": "The Virovitica bridgehead on the Drava",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-10",
+      "at": [
+        16.8,
+        46.12
+      ],
+      "label": "Across the Drava toward Varaždin",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-09",
+      "at": [
+        15.6,
+        46.42
+      ],
+      "label": "Into Slovenia and Austria (Maribor)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-12",
+  "links": {},
+  "notes": "Division of the 3rd Yugoslav Army, 1945 (anti-Axis/blue). Sector-level position (inferred)."
+}

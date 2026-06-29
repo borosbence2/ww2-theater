@@ -1,0 +1,68 @@
+{
+  "id": "yu-div-17",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "ja",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "17 EBos",
+  "names": [
+    {
+      "from": "1945-01-01",
+      "name": "17th East Bosnian Division",
+      "aliases": [
+        "17th East Bosnian Division",
+        "17th East Bosnian"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1945-01-01",
+      "to": "1945-05-15",
+      "end": "war's end"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1945-01-01",
+      "to": "1945-05-15",
+      "unit": "yu-army-2"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1945-01-15",
+      "at": [
+        17.5,
+        44.7
+      ],
+      "label": "The central front in Bosnia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-10",
+      "at": [
+        16.3,
+        45.4
+      ],
+      "label": "Driving on the Una and Kupa",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-08",
+      "at": [
+        15.9,
+        45.85
+      ],
+      "label": "Converging on Zagreb",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-12",
+  "links": {},
+  "notes": "Division of the 2nd Yugoslav Army, 1945 (anti-Axis/blue). Sector-level position (inferred)."
+}

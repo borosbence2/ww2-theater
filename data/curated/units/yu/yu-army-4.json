@@ -1,0 +1,86 @@
+{
+  "id": "yu-army-4",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "ja",
+  "echelon": "army",
+  "type": "hq",
+  "short": "Yug. 4th A",
+  "names": [
+    {
+      "from": "1945-03-01",
+      "name": "4th Yugoslav Army",
+      "aliases": [
+        "4th Yugoslav Army",
+        "4th Army (Yugoslavia)"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1945-03-01",
+      "to": "1945-05-15",
+      "end": "war's end"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1945-03-01",
+      "to": "1945-05-15",
+      "unit": "yu-partisans"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1945-03-01",
+      "name": "Gen. Petar Drapšin"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1945-03-20",
+      "at": [
+        15.5,
+        44.7
+      ],
+      "label": "The Lika and the Velebit",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-20",
+      "at": [
+        14.4,
+        45.3
+      ],
+      "label": "Taking Rijeka (Fiume)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-01",
+      "at": [
+        13.78,
+        45.65
+      ],
+      "label": "The race for Trieste",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-07",
+      "at": [
+        13.9,
+        45.35
+      ],
+      "label": "Securing Istria",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-09",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Fourth_Army_(Yugoslav_Partisans)"
+  },
+  "notes": "Yugoslav field army of the 1945 final offensive (anti-Axis/blue). Route schematic (HQ centre-of-mass)."
+}
