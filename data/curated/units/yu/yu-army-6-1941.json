@@ -1,0 +1,76 @@
+{
+  "id": "yu-army-6-1941",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "vkj",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "6th Army",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "6th Yugoslav Army",
+      "aliases": [
+        "6th Yugoslav Army",
+        "6th Army"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "end": "capitulation"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "unit": "yu-ghq-1941"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1941-04-06",
+      "name": "Gen. Dimitrije Živković"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        20.8,
+        45.4
+      ],
+      "label": "The Banat, covering Belgrade from the north-east",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-12",
+      "at": [
+        20.4,
+        44.9
+      ],
+      "label": "The Axis closes on Belgrade",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-15",
+      "at": [
+        20.3,
+        44.8
+      ],
+      "label": "Belgrade falls",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-17",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Royal_Yugoslav_Army"
+  },
+  "notes": "Royal Yugoslav Army, April 1941. Defender on the anti-Axis/blue side. Route schematic."
+}

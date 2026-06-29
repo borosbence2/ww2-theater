@@ -1,0 +1,76 @@
+{
+  "id": "yu-army-4-1941",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "vkj",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "4th Army",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "4th Yugoslav Army",
+      "aliases": [
+        "4th Yugoslav Army",
+        "4th Army"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "end": "capitulation"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "unit": "yu-ghq-1941"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1941-04-06",
+      "name": "Gen. Petar Nedeljković"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        16.9,
+        45.9
+      ],
+      "label": "On the Drava in northern Croatia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-11",
+      "at": [
+        17.6,
+        45.4
+      ],
+      "label": "Pushed back toward the Sava",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-15",
+      "at": [
+        18.6,
+        45.2
+      ],
+      "label": "Falling apart in Slavonia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-17",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Royal_Yugoslav_Army"
+  },
+  "notes": "Royal Yugoslav Army, April 1941. Defender on the anti-Axis/blue side. Route schematic."
+}

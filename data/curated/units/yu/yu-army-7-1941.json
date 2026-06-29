@@ -1,0 +1,76 @@
+{
+  "id": "yu-army-7-1941",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "vkj",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "7th Army",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "7th Yugoslav Army",
+      "aliases": [
+        "7th Yugoslav Army",
+        "7th Army"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "end": "capitulation"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "unit": "yu-ghq-1941"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1941-04-06",
+      "name": "Gen. Dušan Trifunović"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        14.9,
+        46.05
+      ],
+      "label": "Slovenia, facing the German 2. Armee and Italy",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-10",
+      "at": [
+        15.9,
+        45.85
+      ],
+      "label": "Zagreb falls; the front disintegrates",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-14",
+      "at": [
+        16.6,
+        45.4
+      ],
+      "label": "Remnants in north-west Croatia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-17",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Royal_Yugoslav_Army"
+  },
+  "notes": "Royal Yugoslav Army, April 1941. Defender on the anti-Axis/blue side. Route schematic."
+}

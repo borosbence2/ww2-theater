@@ -1,0 +1,76 @@
+{
+  "id": "yu-army-3-1941",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "vkj",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "3rd Army",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "3rd Yugoslav Army",
+      "aliases": [
+        "3rd Yugoslav Army",
+        "3rd Army"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "end": "capitulation"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "unit": "yu-ghq-1941"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1941-04-06",
+      "name": "Gen. Milan Nedić"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        21.4,
+        42.5
+      ],
+      "label": "Macedonia, facing Bulgaria — poised against Italian Albania",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-09",
+      "at": [
+        20.9,
+        42.4
+      ],
+      "label": "Skopje lost; the southern front caves in",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-14",
+      "at": [
+        20,
+        42.6
+      ],
+      "label": "Driven back toward Albania and Greece",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-17",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Royal_Yugoslav_Army"
+  },
+  "notes": "Royal Yugoslav Army, April 1941. Defender on the anti-Axis/blue side. Route schematic."
+}

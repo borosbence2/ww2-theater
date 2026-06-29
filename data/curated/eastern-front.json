@@ -15312,6 +15312,81 @@
           ]
         }
       ]
+    },
+    {
+      "id": "yugoslavia-1941-front",
+      "kind": "front",
+      "label": "Invasion of Yugoslavia (1941)",
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "keyframes": [
+        {
+          "date": "1941-04-06",
+          "label": "The Yugoslav frontier defence",
+          "waypoints": [
+            [
+              15.4,
+              46.3
+            ],
+            [
+              16.6,
+              46.1
+            ],
+            [
+              18.5,
+              45.95
+            ],
+            [
+              20,
+              46
+            ],
+            [
+              20.9,
+              45.2
+            ]
+          ]
+        },
+        {
+          "date": "1941-04-11",
+          "label": "Zagreb falls; the cordon collapses inward",
+          "waypoints": [
+            [
+              15.9,
+              45.7
+            ],
+            [
+              17.3,
+              45.45
+            ],
+            [
+              19,
+              45.2
+            ],
+            [
+              20.4,
+              45
+            ]
+          ]
+        },
+        {
+          "date": "1941-04-15",
+          "label": "The Axis closes on Belgrade",
+          "waypoints": [
+            [
+              18,
+              45.1
+            ],
+            [
+              19.3,
+              44.95
+            ],
+            [
+              20.4,
+              44.8
+            ]
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,71 @@
+{
+  "id": "yu-ghq-1941",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "vkj",
+  "echelon": "front",
+  "type": "hq",
+  "short": "Yug. GHQ",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "Yugoslav Supreme Command (1941)",
+      "aliases": [
+        "Vrhovna komanda",
+        "Yugoslav GHQ",
+        "Royal Yugoslav Army HQ"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "end": "capitulation"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1941-04-06",
+      "name": "Gen. Dušan Simović",
+      "link": "https://en.wikipedia.org/wiki/Du%C5%A1an_Simovi%C4%87"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        20.46,
+        44.82
+      ],
+      "label": "Belgrade as the Axis invades from every side",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-13",
+      "at": [
+        18.4,
+        43.9
+      ],
+      "label": "Fled south as the army collapses",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-16",
+      "at": [
+        18,
+        43.3
+      ],
+      "label": "Toward the surrender",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-17",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Royal_Yugoslav_Army"
+  },
+  "notes": "Royal Yugoslav Army, April 1941 (distinct incarnation from the 1944-45 Partisan army). Defenders on the anti-Axis/blue side. Route schematic."
+}
