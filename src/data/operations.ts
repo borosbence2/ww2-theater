@@ -157,6 +157,126 @@ export const OPERATIONS: Operation[] = [
     labelAt: [30.1, 47.9],
   },
   {
+    id: 'invasion-yugoslavia-1941',
+    name: 'Invasion of Yugoslavia',
+    side: 'axis',
+    from: '1941-04-06',
+    to: '1941-04-18',
+    // Operation 25: a concentric Axis attack (Germany from Austria, Hungary and
+    // Bulgaria; Italy from Istria/Albania) that overruns Yugoslavia in 11 days.
+    arrows: [
+      [
+        [15.4, 46.6],
+        [15.9, 46.2],
+        [16.0, 45.9],
+      ],
+      [
+        [20.6, 46.0],
+        [20.5, 45.4],
+        [20.46, 44.86],
+      ],
+      [
+        [22.9, 43.3],
+        [22.0, 43.7],
+        [20.9, 44.5],
+      ],
+    ],
+    labelAt: [18.7, 45.7],
+  },
+  {
+    id: 'invasion-greece-1941',
+    name: 'Invasion of Greece',
+    side: 'axis',
+    from: '1941-04-06',
+    to: '1941-04-30',
+    // Operation Marita: the Germans break the Metaxas Line from Bulgaria, take
+    // Thessaloniki and drive on Athens; the Italians press from Albania.
+    arrows: [
+      [
+        [23.6, 41.5],
+        [23.2, 41.0],
+        [22.95, 40.65],
+      ],
+      [
+        [22.4, 40.0],
+        [22.8, 39.0],
+        [23.6, 38.1],
+      ],
+      [
+        [20.4, 40.2],
+        [21.0, 39.8],
+        [21.4, 39.6],
+      ],
+    ],
+    labelAt: [24.2, 40.6],
+  },
+  {
+    id: 'fall-weiss-neretva-1943',
+    name: 'Fall Weiss (Neretva)',
+    side: 'axis',
+    from: '1943-01-20',
+    to: '1943-03-20',
+    // The fourth anti-Partisan offensive: Axis columns drive the People's
+    // Liberation Army onto the Neretva in Bosnia-Herzegovina.
+    arrows: [
+      [
+        [16.4, 44.6],
+        [17.0, 44.0],
+        [17.5, 43.7],
+      ],
+      [
+        [18.6, 44.2],
+        [18.0, 43.9],
+        [17.6, 43.7],
+      ],
+    ],
+    labelAt: [16.2, 44.7],
+  },
+  {
+    id: 'fall-schwarz-sutjeska-1943',
+    name: 'Fall Schwarz (Sutjeska)',
+    side: 'axis',
+    from: '1943-05-15',
+    to: '1943-06-16',
+    // The fifth offensive: a ring closes on the Partisans' main force on the
+    // Sutjeska in Montenegro/eastern Bosnia; they break out at heavy cost.
+    arrows: [
+      [
+        [18.0, 43.75],
+        [18.4, 43.5],
+        [18.7, 43.35],
+      ],
+      [
+        [19.6, 43.0],
+        [19.0, 43.2],
+        [18.8, 43.35],
+      ],
+    ],
+    labelAt: [19.8, 42.95],
+  },
+  {
+    id: 'belgrade-offensive-1944',
+    name: 'Belgrade Offensive',
+    side: 'soviet',
+    from: '1944-09-28',
+    to: '1944-10-20',
+    // The 3rd Ukrainian Front, the Yugoslav Partisans and Bulgarian forces
+    // converge to liberate Belgrade and cut Army Group E's escape from Greece.
+    arrows: [
+      [
+        [22.6, 44.2],
+        [21.6, 44.5],
+        [20.6, 44.8],
+      ],
+      [
+        [21.2, 43.4],
+        [20.9, 44.1],
+        [20.5, 44.7],
+      ],
+    ],
+    labelAt: [22.8, 44.0],
+  },
+  {
     id: 'kerch-feodosia-landing',
     name: 'Kerch–Feodosia landings',
     side: 'soviet',
