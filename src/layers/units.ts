@@ -494,6 +494,50 @@ function roundRectPath(ctx: CanvasRenderingContext2D, x: number, y: number, w: n
   }
 }
 
+// Nationality accent: a small emblem-free national flag chip on the counters of
+// the MINOR belligerents, so a Romanian/Hungarian/Italian/Finnish/Bulgarian/
+// Yugoslav formation reads at a glance. The frame colour still carries the SIDE
+// (red Axis / blue anti-Axis); the flag adds *who*. Germany and the USSR — the
+// two principal sides — get no flag (they are the side archetypes, and this also
+// avoids their charged WWII emblems). Nationality comes from the unit id prefix.
+const FLAG_NATIONS = new Set(['ro', 'hu', 'it', 'fi', 'bg', 'yu']);
+const FLAGS: Record<string, { dir: 'v' | 'h' | 'cross'; bands: string[] }> = {
+  ro: { dir: 'v', bands: ['#002b7f', '#fcd116', '#ce1126'] }, // Romania
+  it: { dir: 'v', bands: ['#1a8a3a', '#f4f5f0', '#cd212a'] }, // Italy
+  hu: { dir: 'h', bands: ['#ce2939', '#ffffff', '#477050'] }, // Hungary
+  bg: { dir: 'h', bands: ['#ffffff', '#00966e', '#d62612'] }, // Bulgaria
+  yu: { dir: 'h', bands: ['#003893', '#ffffff', '#d7141a'] }, // Yugoslavia
+  fi: { dir: 'cross', bands: ['#ffffff', '#003580'] }, // Finland (white field, blue cross)
+};
+
+/** Draw a small national flag chip at (x,y,w,h) — band colours only, no emblems. */
+function drawFlag(ctx: CtxLS, nation: string, x: number, y: number, w: number, h: number): void {
+  const f = FLAGS[nation];
+  if (!f) return;
+  ctx.save();
+  roundRectPath(ctx, x, y, w, h, 1);
+  ctx.clip();
+  if (f.dir === 'cross') {
+    ctx.fillStyle = f.bands[0];
+    ctx.fillRect(x, y, w, h);
+    ctx.fillStyle = f.bands[1];
+    ctx.fillRect(x + w * 0.32, y, Math.max(1.4, w * 0.2), h); // vertical bar (offset hoist)
+    ctx.fillRect(x, y + h * 0.36, w, Math.max(1.4, h * 0.26)); // horizontal bar
+  } else {
+    const n = f.bands.length;
+    for (let i = 0; i < n; i++) {
+      ctx.fillStyle = f.bands[i];
+      if (f.dir === 'v') ctx.fillRect(x + (i * w) / n, y, w / n + 0.6, h);
+      else ctx.fillRect(x, y + (i * h) / n, w, h / n + 0.6);
+    }
+  }
+  ctx.restore();
+  ctx.strokeStyle = 'rgba(8,11,16,0.72)';
+  ctx.lineWidth = 0.8;
+  roundRectPath(ctx, x, y, w, h, 1);
+  ctx.stroke();
+}
+
 // Counter image — a canvas port of the "Unit System Spec" board (Counter.dc.html):
 // per-echelon footprint (LADDER) + intensity fill + a dark monospace badge chip,
 // branch symbol inset in the central 68%×60%, a single soft depth shadow with a
@@ -504,7 +548,7 @@ function makeIcon(
   type: string,
   mark: string,
   echelon: string,
-  opts: { derived?: boolean; selected?: boolean } = {},
+  opts: { derived?: boolean; selected?: boolean; nation?: string } = {},
 ): ImageData {
   const PR = 2.6; // higher pixel ratio for crisp symbols
   const derived = !!opts.derived;
@@ -678,6 +722,13 @@ function makeIcon(
   ctx.fillStyle = selected ? '#f6d278' : pal.bright;
   ctx.fillText(mark, fx + lv.w / 2 + 0.75, chipY + badgeH / 2 + 0.5); // +0.75 ≈ text-indent
 
+  // --- nationality flag chip (minor belligerents) — top-left inside the frame ---
+  if (opts.nation && FLAG_NATIONS.has(opts.nation)) {
+    const flagH = Math.max(5, lv.h * 0.32);
+    const flagW = Math.min(lv.w * 0.6, flagH * 1.5);
+    drawFlag(ctx, opts.nation, fx + 1.4, fy + 1.4, flagW, flagH);
+  }
+
   return ctx.getImageData(0, 0, W * PR, H * PR);
 }
 
@@ -691,10 +742,15 @@ function iconId(
   mark: string,
   derived = false,
   selected = false,
+  nation = '',
 ): string {
   const tier = ICON_TIER[echelon] ?? 'division';
-  return `u-${side}-${type}-${tier}-${mark}${derived ? '-d' : ''}${selected ? '-s' : ''}`;
+  const flag = FLAG_NATIONS.has(nation) ? `-${nation}` : ''; // DE/SU share the flagless image
+  return `u-${side}-${type}-${tier}-${mark}${flag}${derived ? '-d' : ''}${selected ? '-s' : ''}`;
 }
+
+/** Nationality = the unit id's country prefix (de/su/ro/hu/it/fi/bg/yu). */
+const nationOf = (id: string): string => id.slice(0, id.indexOf('-'));
 
 function collectionFor(
   dateISO: string,
@@ -718,7 +774,7 @@ function collectionFor(
       properties: {
         id: t.id,
         short: t.short,
-        icon: iconId(t.side, t.type, t.echelon, ECH_MARK[t.echelon] ?? 'XX', false, t.id === focusId),
+        icon: iconId(t.side, t.type, t.echelon, ECH_MARK[t.echelon] ?? 'XX', false, t.id === focusId, nationOf(t.id)),
         ech: ECH_GROUP(t.echelon),
         echelon: t.echelon,
         type: t.type,
@@ -756,7 +812,7 @@ function collectionFor(
       properties: {
         id: du.id,
         short: du.short,
-        icon: iconId(du.side, du.type, du.echelon, ECH_MARK[du.echelon] ?? 'XX', true, du.id === focusId),
+        icon: iconId(du.side, du.type, du.echelon, ECH_MARK[du.echelon] ?? 'XX', true, du.id === focusId, nationOf(du.id)),
         ech,
         echelon: du.echelon,
         type: du.type,
@@ -891,17 +947,17 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
   // The raw echelon is kept so the tier (size) and precise mark are both
   // available; iconId folds same-tier/same-mark echelons together.
   const combos = new Set([
-    ...tracks.map((t) => `${t.side}|${t.type}|${t.echelon}|0`),
-    ...derivedUnits.map((u) => `${u.side}|${u.type}|${u.echelon}|1`),
+    ...tracks.map((t) => `${nationOf(t.id)}|${t.side}|${t.type}|${t.echelon}|0`),
+    ...derivedUnits.map((u) => `${nationOf(u.id)}|${u.side}|${u.type}|${u.echelon}|1`),
   ]);
   for (const combo of combos) {
-    const [side, type, echelon, hollow] = combo.split('|') as ['axis' | 'soviet', string, string, string];
+    const [nation, side, type, echelon, hollow] = combo.split('|') as [string, 'axis' | 'soviet', string, string, string];
     const mark = ECH_MARK[echelon] ?? 'XX';
     const derived = hollow === '1';
     for (const selected of [false, true]) {
-      const id = iconId(side, type, echelon, mark, derived, selected);
+      const id = iconId(side, type, echelon, mark, derived, selected, nation);
       if (!map.hasImage(id)) {
-        map.addImage(id, makeIcon(side, type, mark, echelon, { derived, selected }), { pixelRatio: 2.6 });
+        map.addImage(id, makeIcon(side, type, mark, echelon, { derived, selected, nation }), { pixelRatio: 2.6 });
       }
     }
   }
