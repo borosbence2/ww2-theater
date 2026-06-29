@@ -29,12 +29,12 @@
     { "date": "1943-06-10", "at": [18.7, 43.35], "label": "Breaking the ring at the Sutjeska (Fall Schwarz)", "source": "wikipedia-en", "confidence": "inferred" },
     { "date": "1943-11-29", "at": [17.27, 44.34], "label": "Jajce — the AVNOJ proclaims the new Yugoslavia", "source": "wikipedia-en", "confidence": "inferred" },
     { "date": "1944-05-25", "at": [16.38, 44.37], "label": "Drvar — escaping the German airborne raid (Rösselsprung)", "source": "wikipedia-en", "confidence": "inferred" },
-    { "date": "1944-10-20", "at": [20.46, 44.82], "label": "Belgrade liberated — the seat of the new government", "source": "wikipedia-en", "confidence": "documented" },
-    { "date": "1945-05-09", "at": [15.98, 45.81], "label": "Zagreb — the country fully liberated", "source": "wikipedia-en", "confidence": "inferred" }
+    { "date": "1944-07-01", "at": [16.18, 43.04], "label": "Vis island — the supreme HQ under Allied protection", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1944-10-20", "at": [20.46, 44.82], "label": "Belgrade liberated — seat of the new government to war's end", "source": "wikipedia-en", "confidence": "documented" }
   ],
   "positionsTo": "1945-05-15",
   "links": {
     "wikipedia.en": "https://en.wikipedia.org/wiki/Yugoslav_Partisans"
   },
-  "notes": "The Communist-led resistance that grew into a regular army and liberated most of Yugoslavia largely by its own effort — the basis of the country's post-war independence. Modelled as a single moving supreme-HQ marker (Tito) through the uprising, the 1943 offensives, Belgrade and Zagreb. side=soviet (Allied). Route schematic."
+  "notes": "The Communist-led resistance that grew into a regular army and liberated most of Yugoslavia largely by its own effort — the basis of the country's post-war independence. Modelled as a single moving supreme-HQ marker (Tito) through the uprising, the 1943 offensives, Vis island (1944), and Belgrade — where the HQ and government stayed from Oct 1944 (the 1st Army carried the front on to Zagreb). side=soviet (Allied). Route schematic."
 }
