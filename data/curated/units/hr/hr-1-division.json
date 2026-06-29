@@ -1,0 +1,81 @@
+{
+  "id": "hr-1-division",
+  "country": "HR",
+  "side": "axis",
+  "branch": "ndh",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "1 NDH",
+  "names": [
+    {
+      "from": "1944-11-15",
+      "name": "1st Croatian (NDH) Division",
+      "aliases": [
+        "1st Croatian (NDH) Division",
+        "Domobran",
+        "Hrvatske oružane snage"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-11-01",
+      "to": "1945-05-12",
+      "end": "collapse of the NDH"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1944-11-01",
+      "to": "1945-05-12",
+      "unit": "de-h-hgr-e"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1944-11-15",
+      "at": [
+        19.3,
+        44.78
+      ],
+      "label": "The Syrmian Front forms",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-01-20",
+      "at": [
+        19.15,
+        44.78
+      ],
+      "label": "Holding the static winter line",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-13",
+      "at": [
+        17.4,
+        44.83
+      ],
+      "label": "Breakthrough — falling back",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-08",
+      "at": [
+        15.8,
+        45.18
+      ],
+      "label": "Retreating toward Zagreb/Austria",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-10",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Croatian_Armed_Forces_(Independent_State_of_Croatia)"
+  },
+  "notes": "Division of the NDH (Independent State of Croatia) on the Syrmian Front under German command. side=axis (HR is not in the Axis-default set, so set explicitly). Sector-level position (inferred)."
+}

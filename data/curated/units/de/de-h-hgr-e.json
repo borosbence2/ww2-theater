@@ -1,0 +1,79 @@
+{
+  "id": "de-h-hgr-e",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "front",
+  "type": "hq",
+  "short": "HGr E",
+  "names": [
+    {
+      "from": "1944-09-01",
+      "name": "Army Group E (Heeresgruppe E)",
+      "aliases": [
+        "Heeresgruppe E",
+        "Army Group E",
+        "von Löhr"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-09-01",
+      "to": "1945-05-15",
+      "end": "surrender in Slovenia/Austria"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1944-09-01",
+      "name": "Gen. Alexander Löhr"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1944-10-20",
+      "at": [
+        20.6,
+        45
+      ],
+      "label": "Organising the front after the Belgrade withdrawal",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-01-20",
+      "at": [
+        18.7,
+        45.1
+      ],
+      "label": "Rear of the Syrmian Front",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-13",
+      "at": [
+        17,
+        45.2
+      ],
+      "label": "Falling back across Slavonia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-09",
+      "at": [
+        15.5,
+        45.9
+      ],
+      "label": "Toward the surrender in Slovenia/Austria",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-12",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Army_Group_E"
+  },
+  "notes": "The German command opposing the Yugoslav Army on the Syrmian Front, 1944-45, after the long withdrawal from Greece. Route schematic."
+}

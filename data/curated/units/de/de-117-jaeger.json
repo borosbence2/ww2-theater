@@ -1,0 +1,77 @@
+{
+  "id": "de-117-jaeger",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "117 Jg",
+  "names": [
+    {
+      "from": "1944-11-15",
+      "name": "117th Jäger Division",
+      "aliases": [
+        "117th Jäger Division",
+        "117th"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-10-15",
+      "to": "1945-05-12",
+      "end": "surrender"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1944-10-15",
+      "to": "1945-05-12",
+      "unit": "de-h-hgr-e"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1944-11-15",
+      "at": [
+        19.3,
+        45.05
+      ],
+      "label": "The Syrmian Front forms",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-01-20",
+      "at": [
+        19.15,
+        45.05
+      ],
+      "label": "Holding the static winter line",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-13",
+      "at": [
+        17.4,
+        45.1
+      ],
+      "label": "Breakthrough — falling back",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-08",
+      "at": [
+        15.8,
+        45.45
+      ],
+      "label": "Retreating toward Zagreb/Austria",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-10",
+  "links": {},
+  "notes": "German division on the Syrmian Front, 1944-45 (Balkans-only; no Eastern-Front role here). Sector-level position (inferred)."
+}
