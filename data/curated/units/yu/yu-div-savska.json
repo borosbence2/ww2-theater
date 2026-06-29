@@ -1,0 +1,60 @@
+{
+  "id": "yu-div-savska",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "vkj",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "Savska",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "Savska Division",
+      "aliases": [
+        "Savska Division",
+        "Savska"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "end": "capitulation"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "unit": "yu-army-7-1941"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        16.2,
+        45.65
+      ],
+      "label": "Mobilised in its recruitment region",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-14",
+      "at": [
+        16.8,
+        45.4
+      ],
+      "label": "Falling back as the country collapses",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-17",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Royal_Yugoslav_Army"
+  },
+  "notes": "Royal Yugoslav division, April 1941, placed in its named recruitment region (anti-Axis/blue). Representative; positions inferred (the 11-day collapse)."
+}

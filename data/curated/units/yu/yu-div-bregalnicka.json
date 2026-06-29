@@ -1,0 +1,60 @@
+{
+  "id": "yu-div-bregalnicka",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "vkj",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "Bregalnica",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "Bregalnička Division",
+      "aliases": [
+        "Bregalnička Division",
+        "Bregalnička"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "end": "capitulation"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-18",
+      "unit": "yu-army-3-1941"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        22.5,
+        41.75
+      ],
+      "label": "Mobilised in its recruitment region",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-14",
+      "at": [
+        21.6,
+        42.2
+      ],
+      "label": "Falling back as the country collapses",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-17",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Royal_Yugoslav_Army"
+  },
+  "notes": "Royal Yugoslav division, April 1941, placed in its named recruitment region (anti-Axis/blue). Representative; positions inferred (the 11-day collapse)."
+}
