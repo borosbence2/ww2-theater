@@ -1,0 +1,51 @@
+{
+  "id": "gr-ghq",
+  "country": "GR",
+  "side": "soviet",
+  "branch": "es",
+  "echelon": "front",
+  "type": "hq",
+  "short": "Greek GHQ",
+  "names": [
+    {
+      "from": "1940-10-28",
+      "name": "Greek General Headquarters",
+      "aliases": [
+        "Greek GHQ",
+        "Hellenic Army HQ",
+        "Papagos"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1940-10-28",
+      "to": "1941-04-27",
+      "end": "the German invasion ends the campaign"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1940-10-28",
+      "name": "Gen. Alexandros Papagos",
+      "link": "https://en.wikipedia.org/wiki/Alexandros_Papagos"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1940-10-28",
+      "at": [
+        23.73,
+        37.98
+      ],
+      "label": "Athens — directing the defence and the Albanian counter-offensive",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-23",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Hellenic_Army"
+  },
+  "notes": "Greece, anti-Axis (blue). The Albanian counter-offensive was the first Allied land victory of the war."
+}

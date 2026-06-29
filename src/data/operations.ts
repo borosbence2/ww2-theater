@@ -157,6 +157,49 @@ export const OPERATIONS: Operation[] = [
     labelAt: [30.1, 47.9],
   },
   {
+    id: 'italo-greek-1940',
+    name: 'Italian invasion of Greece',
+    side: 'axis',
+    from: '1940-10-28',
+    to: '1940-11-13',
+    // Italy attacks Greece from Albania (Epirus + the Pindus) — and stalls.
+    arrows: [
+      [
+        [20.0, 40.25],
+        [20.3, 39.9],
+        [20.6, 39.6],
+      ],
+      [
+        [21.0, 40.6],
+        [21.2, 40.35],
+        [21.3, 40.15],
+      ],
+    ],
+    labelAt: [19.6, 40.35],
+  },
+  {
+    id: 'greek-counter-1940',
+    name: 'Greek counter-offensive',
+    side: 'soviet',
+    from: '1940-11-14',
+    to: '1941-01-15',
+    // The Greeks throw the Italians back deep into southern Albania (Korçë,
+    // Gjirokastër) — the first Axis defeat of the war.
+    arrows: [
+      [
+        [20.6, 39.8],
+        [20.3, 40.1],
+        [20.05, 40.35],
+      ],
+      [
+        [21.3, 40.5],
+        [21.0, 40.6],
+        [20.65, 40.7],
+      ],
+    ],
+    labelAt: [20.0, 39.55],
+  },
+  {
     id: 'invasion-yugoslavia-1941',
     name: 'Invasion of Yugoslavia',
     side: 'axis',

@@ -1,0 +1,75 @@
+{
+  "id": "gr-army-wmacedonia",
+  "country": "GR",
+  "side": "soviet",
+  "branch": "es",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "W. Macedonia",
+  "names": [
+    {
+      "from": "1940-10-28",
+      "name": "Army Section of Western Macedonia",
+      "aliases": [
+        "Army Section of Western Macedonia"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1940-10-28",
+      "to": "1941-04-27",
+      "end": "the German invasion ends the campaign"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1940-10-28",
+      "to": "1941-04-27",
+      "unit": "gr-ghq"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1940-10-28",
+      "name": "Gen. Ioannis Pitsikas"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1940-10-28",
+      "at": [
+        21.4,
+        40.6
+      ],
+      "label": "Concentrating in Western Macedonia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1940-11-22",
+      "at": [
+        20.8,
+        40.62
+      ],
+      "label": "Taking Korçë inside Albania",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-03-01",
+      "at": [
+        20.6,
+        40.55
+      ],
+      "label": "The static front in southern Albania",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-23",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Greco-Italian_War"
+  },
+  "notes": "Greco-Italian War, 1940-41. Anti-Axis (blue). Route schematic."
+}

@@ -1,0 +1,76 @@
+{
+  "id": "it-armee-11",
+  "country": "IT",
+  "branch": "regio-esercito",
+  "echelon": "army",
+  "type": "hq",
+  "short": "11. It",
+  "names": [
+    {
+      "from": "1940-10-28",
+      "name": "11th Italian Army",
+      "aliases": [
+        "11th Italian Army",
+        "11th Army"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1940-10-28",
+      "to": "1941-04-27",
+      "end": "the German invasion ends the campaign"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1940-10-28",
+      "name": "Gen. Carlo Geloso"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1940-10-28",
+      "at": [
+        20.15,
+        40.05
+      ],
+      "label": "Attacking from Albania toward Ioannina (Epirus)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1940-11-10",
+      "at": [
+        20.35,
+        39.78
+      ],
+      "label": "Italian high-water mark on the Kalamas",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1940-12-15",
+      "at": [
+        20.1,
+        40.3
+      ],
+      "label": "Thrown back into southern Albania",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-03-01",
+      "at": [
+        19.95,
+        40.25
+      ],
+      "label": "The static Albanian front",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-23",
+  "links": {},
+  "notes": "Greco-Italian War (Albanian front), Oct 1940 – Apr 1941. Distinct from the 8th Army (ARMIR) on the Don. Route schematic."
+}

@@ -1,0 +1,76 @@
+{
+  "id": "it-armee-9",
+  "country": "IT",
+  "branch": "regio-esercito",
+  "echelon": "army",
+  "type": "hq",
+  "short": "9. It",
+  "names": [
+    {
+      "from": "1940-10-28",
+      "name": "9th Italian Army",
+      "aliases": [
+        "9th Italian Army",
+        "9th Army"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1940-10-28",
+      "to": "1941-04-27",
+      "end": "the German invasion ends the campaign"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1940-10-28",
+      "name": "Gen. Mario Vercellino"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1940-10-28",
+      "at": [
+        20.85,
+        40.68
+      ],
+      "label": "The Korçë sector",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1940-11-20",
+      "at": [
+        20.95,
+        40.6
+      ],
+      "label": "Korçë under Greek attack",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1940-12-05",
+      "at": [
+        20.65,
+        40.6
+      ],
+      "label": "Pushed back after Korçë falls",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-03-01",
+      "at": [
+        20.55,
+        40.52
+      ],
+      "label": "The static Albanian front",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-23",
+  "links": {},
+  "notes": "Greco-Italian War (Albanian front), Oct 1940 – Apr 1941. Distinct from the 8th Army (ARMIR) on the Don. Route schematic."
+}

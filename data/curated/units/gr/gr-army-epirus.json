@@ -1,0 +1,75 @@
+{
+  "id": "gr-army-epirus",
+  "country": "GR",
+  "side": "soviet",
+  "branch": "es",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "Epirus",
+  "names": [
+    {
+      "from": "1940-10-28",
+      "name": "Army Section of Epirus",
+      "aliases": [
+        "Army Section of Epirus"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1940-10-28",
+      "to": "1941-04-27",
+      "end": "the German invasion ends the campaign"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1940-10-28",
+      "to": "1941-04-27",
+      "unit": "gr-ghq"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1940-10-28",
+      "name": "Gen. Ioannis Pitsikas"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1940-10-28",
+      "at": [
+        20.6,
+        39.7
+      ],
+      "label": "Holding Epirus against the Italian thrust",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1940-12-08",
+      "at": [
+        20.1,
+        40.1
+      ],
+      "label": "Advancing into Albania — Gjirokastër taken",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-03-01",
+      "at": [
+        20,
+        40.2
+      ],
+      "label": "The static front in southern Albania",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-23",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Greco-Italian_War"
+  },
+  "notes": "Greco-Italian War, 1940-41. Anti-Axis (blue). Route schematic."
+}
