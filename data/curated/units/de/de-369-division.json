@@ -1,0 +1,62 @@
+{
+  "id": "de-369-division",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "369",
+  "names": [
+    {
+      "from": "1943-01-01",
+      "name": "369th (Croatian) Infantry Division \"Devil's\"",
+      "aliases": [
+        "369th (Croatian) Infantry Division \"Devil's\"",
+        "369th (Croatian) Infantry"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-01-01",
+      "to": "1945-05-08",
+      "end": "campaign"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-06-01",
+      "at": [
+        17.4,
+        44
+      ],
+      "label": "Anti-partisan operations in central Bosnia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-06-01",
+      "at": [
+        17.8,
+        44.2
+      ],
+      "label": "Holding the Bosnian Krajina",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-01",
+      "at": [
+        16.6,
+        45.15
+      ],
+      "label": "On the Syrmian/NDH front",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-04-20",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/369th_(Croatian)_Infantry_Division_(Wehrmacht)"
+  },
+  "notes": "German division with Croatian rank-and-file (\"Devil's Division\"). Axis anti-partisan force in occupied Yugoslavia; Balkans-only (no Eastern-Front role here). Sector-level position (inferred)."
+}

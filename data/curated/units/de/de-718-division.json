@@ -1,0 +1,62 @@
+{
+  "id": "de-718-division",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "718",
+  "names": [
+    {
+      "from": "1942-04-01",
+      "name": "718th Infantry Division",
+      "aliases": [
+        "718th Infantry Division",
+        "718th Infantry"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-04-01",
+      "to": "1944-12-31",
+      "end": "campaign"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-01-20",
+      "at": [
+        18,
+        44.05
+      ],
+      "label": "Fall Weiss in central Bosnia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1943-06-10",
+      "at": [
+        18.7,
+        43.55
+      ],
+      "label": "The Sutjeska ring",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-01-01",
+      "at": [
+        18.4,
+        44.3
+      ],
+      "label": "Anti-partisan duty in eastern Bosnia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1944-06-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/118th_J%C3%A4ger_Division"
+  },
+  "notes": "Occupation/security division (redesignated 118th Jäger in 1943). Axis anti-partisan force in occupied Yugoslavia; Balkans-only (no Eastern-Front role here). Sector-level position (inferred)."
+}

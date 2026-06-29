@@ -1,0 +1,72 @@
+{
+  "id": "de-ss-prinz-eugen",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "7 SS",
+  "names": [
+    {
+      "from": "1942-10-01",
+      "name": "7th SS Volunteer Mountain Division \"Prinz Eugen\"",
+      "aliases": [
+        "7th SS Volunteer Mountain Division \"Prinz Eugen\"",
+        "7th SS Volunteer Mountain"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-10-01",
+      "to": "1945-05-08",
+      "end": "campaign"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-02-20",
+      "at": [
+        17.9,
+        43.5
+      ],
+      "label": "Fall Weiss — the Neretva offensive",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1943-06-10",
+      "at": [
+        18.5,
+        43.4
+      ],
+      "label": "Fall Schwarz — the Sutjeska",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-04-01",
+      "at": [
+        19.2,
+        43.85
+      ],
+      "label": "Anti-partisan sweeps in eastern Bosnia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-10-10",
+      "at": [
+        20.3,
+        44.55
+      ],
+      "label": "Covering the withdrawal through Serbia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1944-11-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/7th_SS_Volunteer_Mountain_Division_Prinz_Eugen"
+  },
+  "notes": "The principal German anti-partisan division in Yugoslavia. Axis anti-partisan force in occupied Yugoslavia; Balkans-only (no Eastern-Front role here). Sector-level position (inferred)."
+}

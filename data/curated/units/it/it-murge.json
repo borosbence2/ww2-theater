@@ -1,0 +1,52 @@
+{
+  "id": "it-murge",
+  "country": "IT",
+  "branch": "regio-esercito",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "Murge",
+  "names": [
+    {
+      "from": "1942-01-01",
+      "name": "Murge Division",
+      "aliases": [
+        "Murge Division",
+        "Murge"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-01-01",
+      "to": "1943-09-08",
+      "end": "campaign"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-09-01",
+      "at": [
+        17.8,
+        43.2
+      ],
+      "label": "Occupying Herzegovina",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1943-03-01",
+      "at": [
+        17.6,
+        43.45
+      ],
+      "label": "Backing Fall Weiss on the Neretva",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1943-09-08",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Italian_occupation_of_Yugoslavia"
+  },
+  "notes": "Italian occupation division until the armistice of 8 Sept 1943. Axis anti-partisan force in occupied Yugoslavia; Balkans-only (no Eastern-Front role here). Sector-level position (inferred)."
+}

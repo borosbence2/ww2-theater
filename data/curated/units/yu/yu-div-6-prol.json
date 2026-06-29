@@ -8,7 +8,7 @@
   "short": "6 Prol",
   "names": [
     {
-      "from": "1945-01-01",
+      "from": "1942-11-01",
       "name": "6th Proletarian Division \"Nikola Tesla\"",
       "aliases": [
         "6th Proletarian Division \"Nikola Tesla\"",
@@ -18,12 +18,17 @@
   ],
   "existence": [
     {
-      "from": "1945-01-01",
+      "from": "1942-11-01",
       "to": "1945-05-15",
       "end": "war's end"
     }
   ],
   "parents": [
+    {
+      "from": "1942-11-01",
+      "to": "1945-01-01",
+      "unit": "yu-partisans"
+    },
     {
       "from": "1945-01-01",
       "to": "1945-05-15",
@@ -31,6 +36,56 @@
     }
   ],
   "positions": [
+    {
+      "date": "1942-12-01",
+      "at": [
+        16,
+        44.55
+      ],
+      "label": "Raised in western Bosnia (the Bihać Republic)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1943-03-05",
+      "at": [
+        17.65,
+        43.55
+      ],
+      "label": "The Neretva — surviving Fall Weiss",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1943-06-10",
+      "at": [
+        18.7,
+        43.35
+      ],
+      "label": "The Sutjeska — breaking the ring (Fall Schwarz)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1943-11-29",
+      "at": [
+        18.5,
+        43.9
+      ],
+      "label": "Regrouping in eastern Bosnia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-09-25",
+      "at": [
+        20,
+        44.3
+      ],
+      "label": "The drive into Serbia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
     {
       "date": "1945-01-20",
       "at": [
@@ -66,5 +121,5 @@
   "links": {
     "wikipedia.en": "https://en.wikipedia.org/wiki/First_Army_(Yugoslav_Partisans)"
   },
-  "notes": "Partisan division of the 1st Yugoslav Army on the Syrmian Front, 1945. Sector-level position (inferred), spread along the front and tracking the advance to Zagreb."
+  "notes": "Iconic Partisan division: raised Nov 1942, survived the Neretva and Sutjeska, then joined the 1st Army on the Syrmian Front. Sector-level position (inferred); spread to read distinctly at division zoom."
 }
