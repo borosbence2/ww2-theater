@@ -1,0 +1,60 @@
+{
+  "id": "gr-div-15",
+  "country": "GR",
+  "side": "soviet",
+  "branch": "es",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "15 GR",
+  "names": [
+    {
+      "from": "1940-10-28",
+      "name": "15th Greek Infantry Division",
+      "aliases": [
+        "15th Greek Infantry Division",
+        "15th Infantry Division"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1940-10-28",
+      "to": "1941-04-27",
+      "end": "the German invasion ends the campaign"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1940-10-28",
+      "to": "1941-04-27",
+      "unit": "gr-army-wmacedonia"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1940-10-28",
+      "at": [
+        20.650000000000002,
+        40.67
+      ],
+      "label": "On the frontier as Italy attacks",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1940-12-20",
+      "at": [
+        20.6,
+        40.85
+      ],
+      "label": "Counter-attacked into Albania — Pogradec",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-23",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Greco-Italian_War"
+  },
+  "notes": "Greco-Italian War, Albanian front. Anti-Axis (blue). Sector-level position (inferred); schematic within its corps sector."
+}

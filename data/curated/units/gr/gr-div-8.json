@@ -1,0 +1,60 @@
+{
+  "id": "gr-div-8",
+  "country": "GR",
+  "side": "soviet",
+  "branch": "es",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "8 GR",
+  "names": [
+    {
+      "from": "1940-10-28",
+      "name": "8th Greek Infantry Division",
+      "aliases": [
+        "8th Greek Infantry Division",
+        "8th Infantry Division"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1940-10-28",
+      "to": "1941-04-27",
+      "end": "the German invasion ends the campaign"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1940-10-28",
+      "to": "1941-04-27",
+      "unit": "gr-army-epirus"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1940-10-28",
+      "at": [
+        19.93,
+        39.95
+      ],
+      "label": "On the frontier as Italy attacks",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1940-12-20",
+      "at": [
+        19.88,
+        40.13
+      ],
+      "label": "Counter-attacked into Albania — the coast toward Himarë",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-23",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Greco-Italian_War"
+  },
+  "notes": "Greco-Italian War, Albanian front. Anti-Axis (blue). Sector-level position (inferred); schematic within its corps sector."
+}

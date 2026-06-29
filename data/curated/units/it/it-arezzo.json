@@ -1,0 +1,57 @@
+{
+  "id": "it-arezzo",
+  "country": "IT",
+  "branch": "regio-esercito",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "Arezzo",
+  "names": [
+    {
+      "from": "1940-10-28",
+      "name": "Arezzo Division",
+      "aliases": [
+        "Arezzo Division",
+        "Arezzo"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1940-10-28",
+      "to": "1941-04-27",
+      "end": "the German invasion ends the campaign"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1940-10-28",
+      "to": "1941-04-27",
+      "unit": "it-armee-9"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1940-10-28",
+      "at": [
+        20.92,
+        40.67
+      ],
+      "label": "Attacking south from Albania",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1940-12-20",
+      "at": [
+        20.92,
+        40.72
+      ],
+      "label": "Holding the Albanian line",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-23",
+  "links": {},
+  "notes": "Greco-Italian War, Albanian front (distinct from the ARMIR divisions on the Don). Sector-level position (inferred)."
+}
