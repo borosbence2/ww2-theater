@@ -1,0 +1,57 @@
+{
+  "id": "it-bergamo",
+  "country": "IT",
+  "branch": "regio-esercito",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "Bergamo",
+  "names": [
+    {
+      "from": "1941-04-11",
+      "name": "Bergamo Division",
+      "aliases": [
+        "Bergamo Division",
+        "Bergamo"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-20",
+      "end": "campaign over"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-11",
+      "to": "1941-04-20",
+      "unit": "it-armee-2"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-11",
+      "at": [
+        15.2,
+        44.6
+      ],
+      "label": "Advancing from Istria",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-17",
+      "at": [
+        16.9,
+        43.4
+      ],
+      "label": "On the Dalmatian coast",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-18",
+  "links": {},
+  "notes": "Italian 2nd Army division, April 1941 invasion. Sector-level position (inferred)."
+}

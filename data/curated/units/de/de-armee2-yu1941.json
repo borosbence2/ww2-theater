@@ -1,0 +1,77 @@
+{
+  "id": "de-armee2-yu1941",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "hq",
+  "short": "2. Armee",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "2. Armee — Yugoslavia, April 1941",
+      "aliases": [
+        "2. Armee",
+        "2nd Army",
+        "von Weichs"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-20",
+      "end": "campaign over"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1941-04-06",
+      "name": "Gen. Maximilian von Weichs"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        15.8,
+        46.5
+      ],
+      "label": "Massing in Austria and south-west Hungary",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-10",
+      "at": [
+        16.05,
+        45.81
+      ],
+      "label": "Taking Zagreb",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-13",
+      "at": [
+        17.5,
+        45.2
+      ],
+      "label": "Driving for the Sava",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-16",
+      "at": [
+        18.3,
+        44.1
+      ],
+      "label": "Toward Sarajevo as resistance collapses",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-18",
+  "links": {},
+  "notes": "German 2nd Army in the April 1941 invasion (north-western thrust). Campaign-specific counter; no Eastern-Front link here. Route schematic."
+}

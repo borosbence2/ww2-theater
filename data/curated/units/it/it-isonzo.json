@@ -1,0 +1,57 @@
+{
+  "id": "it-isonzo",
+  "country": "IT",
+  "branch": "regio-esercito",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "Isonzo",
+  "names": [
+    {
+      "from": "1941-04-11",
+      "name": "Isonzo Division",
+      "aliases": [
+        "Isonzo Division",
+        "Isonzo"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-20",
+      "end": "campaign over"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-11",
+      "to": "1941-04-20",
+      "unit": "it-armee-2"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-11",
+      "at": [
+        14.4,
+        45.35
+      ],
+      "label": "Advancing from Istria",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-17",
+      "at": [
+        16.2,
+        44
+      ],
+      "label": "On the Dalmatian coast",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-18",
+  "links": {},
+  "notes": "Italian 2nd Army division, April 1941 invasion. Sector-level position (inferred)."
+}

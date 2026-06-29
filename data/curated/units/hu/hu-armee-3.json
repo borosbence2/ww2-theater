@@ -1,0 +1,50 @@
+{
+  "id": "hu-armee-3",
+  "country": "HU",
+  "branch": "honved",
+  "echelon": "army",
+  "type": "hq",
+  "short": "3. Hadsereg",
+  "names": [
+    {
+      "from": "1941-04-11",
+      "name": "Hungarian 3rd Army",
+      "aliases": [
+        "3. hadsereg",
+        "Hungarian Third Army"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-11",
+      "to": "1941-04-18",
+      "end": "occupation complete"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-11",
+      "at": [
+        19.35,
+        46.05
+      ],
+      "label": "Crossing into the Bačka",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-13",
+      "at": [
+        19.85,
+        45.27
+      ],
+      "label": "Novi Sad",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-15",
+  "links": {},
+  "notes": "Hungarian occupation of the Bačka after the Yugoslav collapse, April 1941. Route schematic."
+}

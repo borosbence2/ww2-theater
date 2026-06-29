@@ -1,0 +1,57 @@
+{
+  "id": "hu-mobile-corps",
+  "country": "HU",
+  "branch": "honved",
+  "echelon": "corps",
+  "type": "armoured",
+  "short": "Gyorshadtest",
+  "names": [
+    {
+      "from": "1941-04-11",
+      "name": "Hungarian Mobile (Rapid) Corps",
+      "aliases": [
+        "Gyorshadtest",
+        "Mobile Corps"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-11",
+      "to": "1941-04-18",
+      "end": "occupation complete"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-11",
+      "to": "1941-04-18",
+      "unit": "hu-armee-3"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-11",
+      "at": [
+        19.6,
+        45.85
+      ],
+      "label": "Spearheading into the Bačka",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-13",
+      "at": [
+        20.1,
+        45.3
+      ],
+      "label": "Toward Novi Sad",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-15",
+  "links": {},
+  "notes": "The Hungarian armoured/motorised spearhead in the Bačka, April 1941. Route schematic."
+}

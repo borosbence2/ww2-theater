@@ -1,0 +1,77 @@
+{
+  "id": "de-pzgr1-yu1941",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "armoured",
+  "short": "1. PzGr",
+  "names": [
+    {
+      "from": "1941-04-08",
+      "name": "1st Panzer Group — Yugoslavia, April 1941",
+      "aliases": [
+        "1. Panzergruppe",
+        "1st Panzer Group",
+        "von Kleist"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-08",
+      "to": "1941-04-20",
+      "end": "campaign over"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1941-04-08",
+      "name": "Gen. Ewald von Kleist"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-08",
+      "at": [
+        22.5,
+        43.1
+      ],
+      "label": "Breaking out of western Bulgaria",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-09",
+      "at": [
+        21.9,
+        43.32
+      ],
+      "label": "Niš taken",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-11",
+      "at": [
+        21,
+        44
+      ],
+      "label": "Up the Morava valley",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-12",
+      "at": [
+        20.46,
+        44.82
+      ],
+      "label": "Belgrade",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-14",
+  "links": {},
+  "notes": "The armoured spearhead (under 12th Army) that drove from Bulgaria to take Belgrade. Campaign-specific counter. Route schematic."
+}

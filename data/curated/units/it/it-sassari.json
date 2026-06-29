@@ -1,0 +1,57 @@
+{
+  "id": "it-sassari",
+  "country": "IT",
+  "branch": "regio-esercito",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "Sassari",
+  "names": [
+    {
+      "from": "1941-04-11",
+      "name": "Sassari Division",
+      "aliases": [
+        "Sassari Division",
+        "Sassari"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-20",
+      "end": "campaign over"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-11",
+      "to": "1941-04-20",
+      "unit": "it-armee-2"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-11",
+      "at": [
+        14.8,
+        45
+      ],
+      "label": "Advancing from Istria",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-17",
+      "at": [
+        16.6,
+        43.7
+      ],
+      "label": "On the Dalmatian coast",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-18",
+  "links": {},
+  "notes": "Italian 2nd Army division, April 1941 invasion. Sector-level position (inferred)."
+}

@@ -1,0 +1,67 @@
+{
+  "id": "it-armee-2",
+  "country": "IT",
+  "branch": "regio-esercito",
+  "echelon": "army",
+  "type": "hq",
+  "short": "2. Armata",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "Italian 2nd Army",
+      "aliases": [
+        "2ª Armata",
+        "Italian Second Army",
+        "Ambrosio"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-20",
+      "end": "campaign over"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1941-04-06",
+      "name": "Gen. Vittorio Ambrosio"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-11",
+      "at": [
+        14,
+        45.5
+      ],
+      "label": "Crossing from Istria",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-13",
+      "at": [
+        15.4,
+        44.6
+      ],
+      "label": "Down the Croatian littoral",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-17",
+      "at": [
+        16.9,
+        43.4
+      ],
+      "label": "Linking up on the Dalmatian coast",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-18",
+  "links": {},
+  "notes": "Italian thrust down the Adriatic coast in the April 1941 invasion. Route schematic."
+}
