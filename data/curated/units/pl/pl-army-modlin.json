@@ -1,0 +1,76 @@
+{
+  "id": "pl-army-modlin",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "Modlin",
+  "names": [
+    {
+      "from": "1939-09-01",
+      "name": "Army Modlin",
+      "aliases": [
+        "Armia Modlin",
+        "Army Modlin"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-09-28",
+      "end": "destroyed in the September campaign"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-09-28",
+      "unit": "pl-ghq"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1939-09-01",
+      "name": "Gen. Krukowicz-Przedrzymirski"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1939-09-01",
+      "at": [
+        20.9,
+        53.15
+      ],
+      "label": "The Mława line, facing East Prussia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-07",
+      "at": [
+        20.8,
+        52.5
+      ],
+      "label": "Fell back to the Vistula and Modlin",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-17",
+      "at": [
+        21.4,
+        52.4
+      ],
+      "label": "Holding Modlin north of Warsaw",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Army_Modlin_(Poland)"
+  },
+  "notes": "September 1939 defender (anti-Axis/blue). Route schematic (HQ centre-of-mass)."
+}

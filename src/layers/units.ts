@@ -500,7 +500,7 @@ function roundRectPath(ctx: CanvasRenderingContext2D, x: number, y: number, w: n
 // (red Axis / blue anti-Axis); the flag adds *who*. Germany and the USSR — the
 // two principal sides — get no flag (they are the side archetypes, and this also
 // avoids their charged WWII emblems). Nationality comes from the unit id prefix.
-const FLAG_NATIONS = new Set(['ro', 'hu', 'it', 'fi', 'bg', 'yu']);
+const FLAG_NATIONS = new Set(['ro', 'hu', 'it', 'fi', 'bg', 'yu', 'pl', 'gr']);
 const FLAGS: Record<string, { dir: 'v' | 'h' | 'cross'; bands: string[] }> = {
   ro: { dir: 'v', bands: ['#002b7f', '#fcd116', '#ce1126'] }, // Romania
   it: { dir: 'v', bands: ['#1a8a3a', '#f4f5f0', '#cd212a'] }, // Italy
@@ -508,6 +508,8 @@ const FLAGS: Record<string, { dir: 'v' | 'h' | 'cross'; bands: string[] }> = {
   bg: { dir: 'h', bands: ['#ffffff', '#00966e', '#d62612'] }, // Bulgaria
   yu: { dir: 'h', bands: ['#003893', '#ffffff', '#d7141a'] }, // Yugoslavia
   fi: { dir: 'cross', bands: ['#ffffff', '#003580'] }, // Finland (white field, blue cross)
+  pl: { dir: 'h', bands: ['#ffffff', '#dc143c'] }, // Poland (white over red)
+  gr: { dir: 'cross', bands: ['#0d5eaf', '#ffffff'] }, // Greece (blue field, white cross)
 };
 
 /** Draw a small national flag chip at (x,y,w,h) — band colours only, no emblems. */

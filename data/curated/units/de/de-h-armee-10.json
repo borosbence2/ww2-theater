@@ -1,0 +1,83 @@
+{
+  "id": "de-h-armee-10",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "hq",
+  "short": "10. Armee",
+  "names": [
+    {
+      "from": "1939-09-01",
+      "name": "10. Armee",
+      "aliases": [
+        "10. Armee",
+        "10th Army"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-10-15",
+      "end": "redeployed after the campaign"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-10-06",
+      "unit": "de-h-hgr-sued"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1939-09-01",
+      "name": "Gen. von Reichenau"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1939-09-01",
+      "at": [
+        18.8,
+        51
+      ],
+      "label": "The main thrust out of Silesia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-08",
+      "at": [
+        20.6,
+        52
+      ],
+      "label": "Spearheads reach Warsaw",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-17",
+      "at": [
+        21.2,
+        51.9
+      ],
+      "label": "Astride the Vistula at Warsaw/Radom",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-28",
+      "at": [
+        21.6,
+        51.8
+      ],
+      "label": "Warsaw taken",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1939-10-06",
+  "links": {},
+  "notes": "September 1939 invader. This army has no Eastern-Front (1941+) role in the model, so the Sept-1939 positions stand alone. Route schematic."
+}

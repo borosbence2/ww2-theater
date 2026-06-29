@@ -1,0 +1,83 @@
+{
+  "id": "de-h-armee-14",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "hq",
+  "short": "14. Armee",
+  "names": [
+    {
+      "from": "1939-09-01",
+      "name": "14. Armee",
+      "aliases": [
+        "14. Armee",
+        "14th Army"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-10-15",
+      "end": "redeployed after the campaign"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-10-06",
+      "unit": "de-h-hgr-sued"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1939-09-01",
+      "name": "Gen. List"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1939-09-01",
+      "at": [
+        19.4,
+        49.6
+      ],
+      "label": "Attacking from the Carpathians/Slovakia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-07",
+      "at": [
+        20.3,
+        50.05
+      ],
+      "label": "Kraków taken",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-17",
+      "at": [
+        22.6,
+        50
+      ],
+      "label": "Driving on Lwów",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-28",
+      "at": [
+        23.4,
+        50
+      ],
+      "label": "On the San demarcation line",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1939-10-06",
+  "links": {},
+  "notes": "September 1939 invader. This army has no Eastern-Front (1941+) role in the model, so the Sept-1939 positions stand alone. Route schematic."
+}

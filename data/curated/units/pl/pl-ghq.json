@@ -1,0 +1,81 @@
+{
+  "id": "pl-ghq",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "front",
+  "type": "hq",
+  "short": "Polish GHQ",
+  "names": [
+    {
+      "from": "1939-09-01",
+      "name": "Polish Supreme Command (Naczelne Dowództwo)",
+      "aliases": [
+        "Polish GHQ",
+        "Naczelne Dowództwo",
+        "Rydz-Śmigły"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-09-19",
+      "end": "evacuated to Romania (interned)"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1939-09-01",
+      "name": "Marshal Edward Rydz-Śmigły",
+      "link": "https://en.wikipedia.org/wiki/Edward_Rydz-%C5%9Amig%C5%82y"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1939-09-01",
+      "at": [
+        21,
+        52.23
+      ],
+      "label": "Warsaw — the high command as the invasion opens",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-07",
+      "at": [
+        23.7,
+        52.1
+      ],
+      "label": "Displaced to Brześć (Brest)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-13",
+      "at": [
+        24.3,
+        50.8
+      ],
+      "label": "Toward the Romanian bridgehead",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-17",
+      "at": [
+        25,
+        48.6
+      ],
+      "label": "Crossing into Romania as the Soviets invade",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1939-09-18",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Polish_Armed_Forces"
+  },
+  "notes": "The defenders are modelled on the anti-Axis (blue) side with a Polish flag. Route schematic (HQ centre-of-mass)."
+}

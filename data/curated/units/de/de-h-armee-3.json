@@ -1,0 +1,83 @@
+{
+  "id": "de-h-armee-3",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "hq",
+  "short": "3. Armee",
+  "names": [
+    {
+      "from": "1939-09-01",
+      "name": "3. Armee",
+      "aliases": [
+        "3. Armee",
+        "3th Army"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-10-15",
+      "end": "redeployed after the campaign"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-10-06",
+      "unit": "de-h-hgr-nord"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1939-09-01",
+      "name": "Gen. von Küchler"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1939-09-01",
+      "at": [
+        21,
+        53.8
+      ],
+      "label": "Striking south from East Prussia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-09",
+      "at": [
+        21.2,
+        53
+      ],
+      "label": "Across the Narew toward Warsaw",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-17",
+      "at": [
+        21.6,
+        52.4
+      ],
+      "label": "Closing on Warsaw from the north-east",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-28",
+      "at": [
+        22.6,
+        52.4
+      ],
+      "label": "On the Bug demarcation line",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1939-10-06",
+  "links": {},
+  "notes": "September 1939 invader. This army has no Eastern-Front (1941+) role in the model, so the Sept-1939 positions stand alone. Route schematic."
+}

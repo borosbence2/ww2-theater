@@ -1,0 +1,76 @@
+{
+  "id": "pl-army-pomorze",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "Pomorze",
+  "names": [
+    {
+      "from": "1939-09-01",
+      "name": "Army Pomorze",
+      "aliases": [
+        "Armia Pomorze",
+        "Army Pomorze"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-09-28",
+      "end": "destroyed in the September campaign"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-09-28",
+      "unit": "pl-ghq"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1939-09-01",
+      "name": "Gen. Władysław Bortnowski"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1939-09-01",
+      "at": [
+        18.3,
+        53.3
+      ],
+      "label": "In the Polish Corridor",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-10",
+      "at": [
+        19.4,
+        52.5
+      ],
+      "label": "Withdrawn south into the Bzura battle",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-18",
+      "at": [
+        20.1,
+        52.4
+      ],
+      "label": "Encircled on the Bzura",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Army_Pomorze_(Poland)"
+  },
+  "notes": "September 1939 defender (anti-Axis/blue). Route schematic (HQ centre-of-mass)."
+}

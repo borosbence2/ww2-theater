@@ -1,0 +1,76 @@
+{
+  "id": "pl-army-krakow",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "Kraków",
+  "names": [
+    {
+      "from": "1939-09-01",
+      "name": "Army Kraków",
+      "aliases": [
+        "Armia Kraków",
+        "Army Kraków"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-09-28",
+      "end": "destroyed in the September campaign"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-09-28",
+      "unit": "pl-ghq"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1939-09-01",
+      "name": "Gen. Antoni Szylling"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1939-09-01",
+      "at": [
+        19,
+        50.2
+      ],
+      "label": "The Silesian border",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-06",
+      "at": [
+        20.1,
+        50.05
+      ],
+      "label": "Kraków abandoned",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-17",
+      "at": [
+        22.6,
+        50.4
+      ],
+      "label": "Withdrawing toward Lwów",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Army_Kraków_(Poland)"
+  },
+  "notes": "September 1939 defender (anti-Axis/blue). Route schematic (HQ centre-of-mass)."
+}

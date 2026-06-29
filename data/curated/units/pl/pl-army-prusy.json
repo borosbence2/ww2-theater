@@ -1,0 +1,76 @@
+{
+  "id": "pl-army-prusy",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "Prusy",
+  "names": [
+    {
+      "from": "1939-09-01",
+      "name": "Army Prusy",
+      "aliases": [
+        "Armia Prusy",
+        "Army Prusy"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-09-28",
+      "end": "destroyed in the September campaign"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1939-09-01",
+      "to": "1939-09-28",
+      "unit": "pl-ghq"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1939-09-01",
+      "name": "Gen. Stefan Dąb-Biernacki"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1939-09-04",
+      "at": [
+        20,
+        51.3
+      ],
+      "label": "The central reserve about Piotrków",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-10",
+      "at": [
+        21.4,
+        51.5
+      ],
+      "label": "Shattered, falling back over the Vistula",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1939-09-18",
+      "at": [
+        22.6,
+        51.1
+      ],
+      "label": "Remnants in the south-east",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Army_Prusy_(Poland)"
+  },
+  "notes": "September 1939 defender (anti-Axis/blue). Route schematic (HQ centre-of-mass)."
+}
