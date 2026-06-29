@@ -1,0 +1,40 @@
+{
+  "id": "bg-armee-1",
+  "country": "BG",
+  "side": "soviet",
+  "branch": "armia",
+  "echelon": "army",
+  "type": "hq",
+  "short": "Bulg. 1st A",
+  "names": [
+    {
+      "from": "1944-09-09",
+      "name": "1st Bulgarian Army (Allied)",
+      "aliases": ["Първа българска армия", "Bulgarian First Army", "1st Bulgarian Army"]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-09-09",
+      "to": "1945-05-15",
+      "end": "war's end in Austria"
+    }
+  ],
+  "parents": [
+    { "from": "1944-09-09", "to": "1945-05-15", "unit": "su-front-3-ukrainian" }
+  ],
+  "commanders": [
+    { "from": "1944-09-09", "name": "Lt. Gen. Vladimir Stoychev" }
+  ],
+  "positions": [
+    { "date": "1944-12-01", "at": [17.6, 46.0], "label": "On the Drava in southern Hungary, now fighting Germany", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-03-10", "at": [17.4, 46.1], "label": "Holding the Drava against Operation Spring Awakening", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-04-15", "at": [16.4, 46.6], "label": "Advancing through western Hungary", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-05-08", "at": [15.0, 46.7], "label": "Into Austria — the Mur valley at war's end", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1945-05-15",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/First_Army_(Bulgaria)"
+  },
+  "notes": "After the Fatherland Front coup (9 Sep 1944) Bulgaria joined the Allies; the 1st Army fought under the 3rd Ukrainian Front from the Drava in southern Hungary into Austria — the only Bulgarian army to fight the whole way to war's end. side=soviet overrides the country default. Route schematic (HQ centre-of-mass)."
+}

@@ -1,0 +1,39 @@
+{
+  "id": "bg-armee-2",
+  "country": "BG",
+  "side": "soviet",
+  "branch": "armia",
+  "echelon": "army",
+  "type": "hq",
+  "short": "Bulg. 2nd A",
+  "names": [
+    {
+      "from": "1944-09-09",
+      "name": "2nd Bulgarian Army (Allied)",
+      "aliases": ["Втора българска армия", "Bulgarian Second Army", "2nd Bulgarian Army"]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-09-09",
+      "to": "1945-04-15",
+      "end": "withdrawn after the Serbia/Macedonia operations"
+    }
+  ],
+  "parents": [
+    { "from": "1944-09-09", "to": "1945-04-15", "unit": "su-front-3-ukrainian" }
+  ],
+  "commanders": [
+    { "from": "1944-09-09", "name": "Lt. Gen. Kiril Stanchev" }
+  ],
+  "positions": [
+    { "date": "1944-10-10", "at": [22.5, 43.2], "label": "Driving into south-east Serbia toward Niš", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1944-11-01", "at": [21.9, 43.32], "label": "The Niš operation — cutting the German withdrawal from Greece", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1944-12-15", "at": [21.1, 42.9], "label": "Into Kosovo and south-west Serbia", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1945-01-15",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Second_Army_(Bulgaria)"
+  },
+  "notes": "Allied-side from 9 Sep 1944; the 2nd Army fought alongside Soviet and Yugoslav forces in the Niš operation (Serbia, Oct 1944), cutting the German Army Group E's escape route from Greece. side=soviet overrides the country default. Route schematic."
+}

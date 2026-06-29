@@ -420,6 +420,29 @@ export const OPERATIONS: Operation[] = [
     labelAt: [28.6, 47.6],
   },
   {
+    id: 'bulgaria-1944',
+    name: 'Bulgaria changes sides',
+    side: 'soviet',
+    from: '1944-09-05',
+    to: '1944-09-16',
+    // The USSR declares war (5 Sep) and the 3rd Ukrainian Front enters Bulgaria
+    // from the Dobruja and across the Danube unopposed; the Fatherland Front coup
+    // (9 Sep) takes Bulgaria into the war on the Allied side.
+    arrows: [
+      [
+        [27.7, 44.0],
+        [27.3, 43.2],
+        [26.2, 42.9],
+      ],
+      [
+        [25.7, 43.9],
+        [24.9, 43.2],
+        [24.0, 42.9],
+      ],
+    ],
+    labelAt: [26.6, 43.5],
+  },
+  {
     id: 'debrecen-1944',
     name: 'Debrecen offensive',
     side: 'soviet',
