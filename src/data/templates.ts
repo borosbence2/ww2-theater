@@ -199,6 +199,10 @@ const ESTABLISHMENT: Record<string, { strength?: number; equipment?: EquipItem[]
   'Finnish Infantry Division': { strength: 14200 },
   'Finnish Cavalry Brigade': { strength: 3500 },
   'Bulgarian Infantry Division': { strength: 15000 },
+  'Royal Yugoslav Infantry Division': { strength: 26000 },
+  'Partisan Division (NOVJ)': { strength: 4000 },
+  'Greek Infantry Division': { strength: 18000 },
+  'British/Commonwealth Infantry Division': { strength: 18347 },
 };
 
 // Notable equipment a formation fielded, as equipment-catalog ids (equipment.ts).
@@ -431,6 +435,42 @@ const bgInfBn = (): TemplateNode =>
         children: [x(3, n('platoon', 'infantry', 'Взвод', { children: [x(3, n('squad', 'infantry', 'Отделение'))] }))],
       })),
       n('company', 'infantry', 'Картечна рота'),
+    ],
+  });
+// --- Allied minor powers ----------------------------------------------------
+const yuRoyalBn = (): TemplateNode =>
+  n('battalion', 'infantry', 'Bataljon', {
+    children: [
+      x(3, n('company', 'infantry', 'Četa', {
+        children: [x(3, n('platoon', 'infantry', 'Vod', { children: [x(3, n('squad', 'infantry', 'Odeljenje'))] }))],
+      })),
+      n('company', 'infantry', 'Mitraljeska četa'),
+    ],
+  });
+const yuPartisanBde = (): TemplateNode =>
+  n('brigade', 'infantry', 'Brigada', {
+    children: [
+      x(4, n('battalion', 'infantry', 'Bataljon', {
+        children: [x(3, n('company', 'infantry', 'Četa', { children: [x(3, n('platoon', 'infantry', 'Vod'))] }))],
+      })),
+    ],
+  });
+const grBn = (): TemplateNode =>
+  n('battalion', 'infantry', 'Τάγμα', {
+    children: [
+      x(3, n('company', 'infantry', 'Λόχος', {
+        children: [x(3, n('platoon', 'infantry', 'Διμοιρία', { children: [x(3, n('squad', 'infantry', 'Ομάδα'))] }))],
+      })),
+      n('company', 'infantry', 'Λόχος Πολυβόλων'),
+    ],
+  });
+const gbBn = (): TemplateNode =>
+  n('battalion', 'infantry', 'Infantry Battalion', {
+    children: [
+      x(4, n('company', 'infantry', 'Rifle Company', {
+        children: [x(3, n('platoon', 'infantry', 'Platoon', { children: [x(3, n('squad', 'infantry', 'Section · 1 Bren'))] }))],
+      })),
+      n('company', 'infantry', 'Support Company'),
     ],
   });
 
@@ -833,6 +873,53 @@ export const TEMPLATES: FormationTemplate[] = [
       n('regiment', 'artillery', 'Артилерийски полк', { children: [x(3, n('battalion', 'artillery', 'Дивизион'))] }),
       n('battalion', 'recon', 'Разузнавателен отряд'),
       n('battalion', 'engineer', 'Пионерна дружина'),
+    ],
+  },
+  // --- Yugoslavia ---------------------------------------------------------
+  {
+    side: 'soviet', nation: 'yu', echelon: 'division', types: ['infantry'], from: '1941-01-01', to: '1941-12-31',
+    name: 'Royal Yugoslav Infantry Division',
+    note: 'Large French-pattern division: three infantry regiments and an artillery regiment.',
+    components: [
+      x(3, n('regiment', 'infantry', 'Pešadijski puk', { children: [x(3, yuRoyalBn())] })),
+      n('regiment', 'artillery', 'Artiljerijski puk', { children: [x(2, n('battalion', 'artillery', 'Divizion'))] }),
+      n('battalion', 'cavalry', 'Konjički eskadron'),
+      n('battalion', 'engineer', 'Pionirski bataljon'),
+    ],
+  },
+  {
+    side: 'soviet', nation: 'yu', echelon: 'division', types: ['infantry'], from: '1942-01-01', to: '1945-12-31',
+    name: 'Partisan Division (NOVJ)',
+    note: 'The NOVJ division was brigade-based — three or four assault/proletarian brigades, not regiments.',
+    components: [
+      x(4, yuPartisanBde()),
+      n('battalion', 'artillery', 'Artiljerijski divizion'),
+      n('battalion', 'engineer', 'Inženjerijski bataljon'),
+    ],
+  },
+  // --- Greece -------------------------------------------------------------
+  {
+    side: 'soviet', nation: 'gr', echelon: 'division', types: ['infantry'], from: '1940-01-01', to: '1941-12-31',
+    name: 'Greek Infantry Division',
+    note: 'Three infantry regiments (with Evzone battalions) and an artillery regiment.',
+    components: [
+      x(3, n('regiment', 'infantry', 'Σύνταγμα Πεζικού', { children: [x(3, grBn())] })),
+      n('regiment', 'artillery', 'Σύνταγμα Πυροβολικού', { children: [x(2, n('battalion', 'artillery', 'Μοίρα'))] }),
+      n('battalion', 'recon', 'Απόσπασμα Αναγνωρίσεως'),
+      n('battalion', 'engineer', 'Τάγμα Μηχανικού'),
+    ],
+  },
+  // --- Britain / Commonwealth --------------------------------------------
+  {
+    side: 'soviet', nation: 'gb', echelon: 'division', types: ['infantry'], from: '1939-01-01', to: '1945-12-31',
+    name: 'British/Commonwealth Infantry Division',
+    note: 'Brigade-based: three infantry brigades of three battalions, with three field regiments Royal Artillery.',
+    components: [
+      x(3, n('brigade', 'infantry', 'Infantry Brigade', { children: [x(3, gbBn())] })),
+      x(3, n('regiment', 'artillery', 'Field Regiment RA', { children: [x(2, n('battalion', 'artillery', 'Battery group'))] })),
+      n('regiment', 'recon', 'Reconnaissance Regiment'),
+      n('regiment', 'antitank', 'Anti-Tank Regiment RA'),
+      n('battalion', 'engineer', 'Royal Engineers'),
     ],
   },
 ];
