@@ -223,6 +223,12 @@ const ESTABLISHMENT: Record<string, { strength?: number; equipment?: EquipItem[]
   'Alpine Division "Julia"': { strength: 16000 },
   'Alpine Division "Tridentina"': { strength: 16000 },
   'Alpine Division "Cuneense"': { strength: 15000 },
+  '1st SS-Panzer-Division "Leibstandarte"': { strength: 21000 },
+  '2nd SS-Panzer-Division "Das Reich"': { strength: 21000 },
+  '3rd SS-Panzer-Division "Totenkopf"': { strength: 21000 },
+  '5th SS-Panzer-Division "Wiking"': { strength: 19000 },
+  '12th SS-Panzer-Division "Hitlerjugend"': { strength: 20000 },
+  'Fallschirm-Panzer-Division "Hermann Göring"': { strength: 18000 },
 };
 
 // Notable equipment a formation fielded, as equipment-catalog ids (equipment.ts).
@@ -574,6 +580,17 @@ const alpBn = (name: string): TemplateNode =>
   n('battalion', 'mountain', `Btg. Alpini "${name}"`, { children: itAlpBn().children });
 const alpRgt = (num: string, bns: string[]): TemplateNode =>
   n('regiment', 'mountain', `${num} Reggimento Alpini`, { children: bns.map(alpBn) });
+// A named (Waffen-SS / elite) panzergrenadier regiment.
+const ssPzGrenRgt = (label: string): TemplateNode =>
+  n('regiment', 'motorized', label, { children: [x(3, ssPzGrenBn())] });
+// Common elite-panzer divisional tail (artillery + the divisional battalions).
+const elitePzTail = (prefix: string): TemplateNode[] => [
+  n('regiment', 'artillery', `${prefix}-Artillerie-Regiment`, { children: [x(3, deArtyBn())] }),
+  n('battalion', 'recon', `${prefix}-Aufklärungs-Abteilung`),
+  n('battalion', 'antitank', `${prefix}-Panzerjäger-Abteilung`),
+  n('battalion', 'antiair', `${prefix}-Flak-Abteilung`),
+  n('battalion', 'engineer', `${prefix}-Pionier-Bataillon`),
+];
 
 export const TEMPLATES: FormationTemplate[] = [
   // --- German -------------------------------------------------------------
@@ -1189,6 +1206,73 @@ export const TEMPLATES: FormationTemplate[] = [
       n('battalion', 'engineer', 'Battaglione genio alpino'),
     ],
   },
+  // --- Bespoke trees for the famous Waffen-SS / elite panzer divisions ----
+  {
+    side: 'axis', idMatch: '1st-ss-panzer', echelon: 'division', types: ['armoured'], from: '1942-01-01', to: '1945-12-31',
+    name: '1st SS-Panzer-Division "Leibstandarte"',
+    note: "Hitler's bodyguard — the first Waffen-SS division (LSSAH).",
+    components: [
+      n('regiment', 'armoured', 'SS-Panzer-Regiment 1', { children: [x(2, dePanzerBn())] }),
+      ssPzGrenRgt('1. SS-Panzergrenadier-Regiment LSSAH'),
+      ssPzGrenRgt('2. SS-Panzergrenadier-Regiment LSSAH'),
+      ...elitePzTail('SS'),
+    ],
+  },
+  {
+    side: 'axis', idMatch: '2nd-ss-panzer', echelon: 'division', types: ['armoured'], from: '1942-01-01', to: '1945-12-31',
+    name: '2nd SS-Panzer-Division "Das Reich"',
+    components: [
+      n('regiment', 'armoured', 'SS-Panzer-Regiment 2', { children: [x(2, dePanzerBn())] }),
+      ssPzGrenRgt('SS-Panzergrenadier-Regiment "Deutschland"'),
+      ssPzGrenRgt('SS-Panzergrenadier-Regiment "Der Führer"'),
+      ...elitePzTail('SS'),
+    ],
+  },
+  {
+    side: 'axis', idMatch: '3rd-ss-panzer', echelon: 'division', types: ['armoured'], from: '1942-01-01', to: '1945-12-31',
+    name: '3rd SS-Panzer-Division "Totenkopf"',
+    components: [
+      n('regiment', 'armoured', 'SS-Panzer-Regiment 3', { children: [x(2, dePanzerBn())] }),
+      ssPzGrenRgt('SS-Panzergrenadier-Regiment "Thule"'),
+      ssPzGrenRgt('SS-Panzergrenadier-Regiment "Theodor Eicke"'),
+      ...elitePzTail('SS'),
+    ],
+  },
+  {
+    side: 'axis', idMatch: '5th-ss-panzer', echelon: 'division', types: ['armoured'], from: '1942-01-01', to: '1945-12-31',
+    name: '5th SS-Panzer-Division "Wiking"',
+    note: 'The volunteer division — Germanic regiments; "Nordland" left in 1943 to form the 11th SS.',
+    components: [
+      n('regiment', 'armoured', 'SS-Panzer-Regiment 5', { children: [x(2, dePanzerBn())] }),
+      ssPzGrenRgt('SS-Panzergrenadier-Regiment "Germania"'),
+      ssPzGrenRgt('SS-Panzergrenadier-Regiment "Westland"'),
+      ssPzGrenRgt('SS-Panzergrenadier-Regiment "Nordland" (to 1943)'),
+      ...elitePzTail('SS'),
+    ],
+  },
+  {
+    side: 'axis', idMatch: '12th-ss-panzer', echelon: 'division', types: ['armoured'], from: '1943-01-01', to: '1945-12-31',
+    name: '12th SS-Panzer-Division "Hitlerjugend"',
+    components: [
+      n('regiment', 'armoured', 'SS-Panzer-Regiment 12', { children: [x(2, dePanzerBn())] }),
+      ssPzGrenRgt('25. SS-Panzergrenadier-Regiment'),
+      ssPzGrenRgt('26. SS-Panzergrenadier-Regiment'),
+      ...elitePzTail('SS'),
+    ],
+  },
+  {
+    side: 'axis', idMatch: 'hermann-goring', echelon: 'division', types: ['armoured'], from: '1942-01-01', to: '1945-12-31',
+    name: 'Fallschirm-Panzer-Division "Hermann Göring"',
+    note: "Göring's elite Luftwaffe armoured division.",
+    components: [
+      n('regiment', 'armoured', 'Panzer-Regiment HG', { children: [x(2, dePanzerBn())] }),
+      x(2, n('regiment', 'motorized', 'Panzergrenadier-Regiment HG', { children: [x(3, dePzGrenBn())] })),
+      n('regiment', 'artillery', 'Panzer-Artillerie-Regiment HG', { children: [x(3, deArtyBn())] }),
+      n('battalion', 'recon', 'Panzer-Aufklärungs-Abteilung HG'),
+      n('battalion', 'antiair', 'Flak-Regiment HG'),
+      n('battalion', 'engineer', 'Pionier-Bataillon HG'),
+    ],
+  },
 ];
 
 /** Best-matching template for a unit, or null. A nation-specific template (e.g.
@@ -1217,7 +1301,12 @@ export function matchTemplate(
     const inWindow = usable.filter((t) => dateISO >= t.from && dateISO <= t.to);
     const set = inWindow.length ? inWindow : usable; // else nearest era
     const variants = set.filter((t) => t.idMatch);
-    const chosen = (variants.length ? variants : set).sort((a, b) => b.from.localeCompare(a.from))[0];
+    // Prefer the most specific id-variant (longest idMatch — a per-division
+    // template beats a per-branch one like '-ss-'); then the latest era.
+    const chosen = (variants.length ? variants : set).sort((a, b) => {
+      const spec = (b.idMatch?.length ?? 0) - (a.idMatch?.length ?? 0);
+      return spec !== 0 ? spec : b.from.localeCompare(a.from);
+    })[0];
     return withEstablishment(chosen);
   };
   // 1) nation-specific (matched by nation, regardless of the axis/soviet side).
