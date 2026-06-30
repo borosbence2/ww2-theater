@@ -1,0 +1,54 @@
+{
+  "id": "su-isu152-regt",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "regiment",
+  "type": "antitank",
+  "short": "ISU-152",
+  "names": [
+    {
+      "from": "1943-07-08",
+      "name": "Heavy SP Regiment (SU/ISU-152 'Zveroboy')",
+      "aliases": [
+        "SU-152",
+        "ISU-152",
+        "Zveroboy (beast-killer)",
+        "heavy self-propelled regiment"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-07-08",
+      "to": "1945-05-09",
+      "end": "war's end"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-07-08",
+      "at": [
+        36.4,
+        51
+      ],
+      "label": "SU-152 'beast-killers' vs Tigers and Panthers at Kursk",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-25",
+      "at": [
+        13.5,
+        52.5
+      ],
+      "label": "Bunker-busting in Berlin",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-09",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/ISU-152"
+  },
+  "notes": "Soviet heavy self-propelled (SU/ISU-152) regiment — tank-destroyer/assault role. Anchored to its battles (inferred)."
+}

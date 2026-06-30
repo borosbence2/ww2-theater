@@ -1,0 +1,62 @@
+{
+  "id": "de-spzabt-503",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "battalion",
+  "type": "armoured",
+  "short": "sPz 503",
+  "names": [
+    {
+      "from": "1943-07-05",
+      "name": "schwere Panzer-Abteilung 503",
+      "aliases": [
+        "schwere Panzer-Abteilung 503",
+        "s.Panzer-Abt 503"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-07-05",
+      "to": "1945-04-01",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-07-05",
+      "at": [
+        36.5,
+        50.85
+      ],
+      "label": "Kursk — the southern pincer (Belgorod)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1943-08-20",
+      "at": [
+        35.2,
+        49.4
+      ],
+      "label": "Fighting back across Ukraine",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-10-15",
+      "at": [
+        21.6,
+        47.53
+      ],
+      "label": "Debrecen, Hungary (as Tiger-Abteilung Feldherrnhalle)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-04-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/503rd_Heavy_Panzer_Battalion"
+  },
+  "notes": "German heavy tank (Tiger/Tiger II) battalion, placed at its Eastern-Front engagements (inferred positions)."
+}

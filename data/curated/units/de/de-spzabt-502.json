@@ -1,0 +1,62 @@
+{
+  "id": "de-spzabt-502",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "battalion",
+  "type": "armoured",
+  "short": "sPz 502",
+  "names": [
+    {
+      "from": "1942-09-16",
+      "name": "schwere Panzer-Abteilung 502",
+      "aliases": [
+        "schwere Panzer-Abteilung 502",
+        "s.Panzer-Abt 502"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-09-16",
+      "to": "1944-09-01",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-09-16",
+      "at": [
+        31,
+        59.65
+      ],
+      "label": "First Tiger action south of Lake Ladoga (Leningrad)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1943-07-22",
+      "at": [
+        31.1,
+        59.55
+      ],
+      "label": "Holding the Mga–Sinyavino sector",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-02-15",
+      "at": [
+        28.1,
+        59.37
+      ],
+      "label": "The Narva front",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1944-09-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/502nd_Heavy_Panzer_Battalion"
+  },
+  "notes": "German heavy tank (Tiger/Tiger II) battalion, placed at its Eastern-Front engagements (inferred positions)."
+}

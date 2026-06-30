@@ -1,0 +1,52 @@
+{
+  "id": "de-spzabt-507",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "battalion",
+  "type": "armoured",
+  "short": "sPz 507",
+  "names": [
+    {
+      "from": "1944-04-10",
+      "name": "schwere Panzer-Abteilung 507",
+      "aliases": [
+        "schwere Panzer-Abteilung 507",
+        "s.Panzer-Abt 507"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-04-10",
+      "to": "1945-01-01",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1944-04-10",
+      "at": [
+        25.6,
+        49.55
+      ],
+      "label": "The relief of Tarnopol",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-08-01",
+      "at": [
+        21.7,
+        50.5
+      ],
+      "label": "The Baranów bridgehead fighting",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-01-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/507th_Heavy_Panzer_Battalion"
+  },
+  "notes": "German heavy tank (Tiger/Tiger II) battalion, placed at its Eastern-Front engagements (inferred positions)."
+}

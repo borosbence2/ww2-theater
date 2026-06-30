@@ -775,8 +775,13 @@ function collectionFor(
   if (!tracks.length) return EMPTY;
   const out: Feature[] = [];
   for (const t of tracks) {
+    // 'sub' (battalion/regiment) units: organic sub-units that belong to a parent
+    // are drill-down only (shown when that parent is the focus). Independent units
+    // with no parent (e.g. heavy-tank/tank-destroyer/super-heavy-artillery
+    // battalions, SP regiments) render freely, gated by the 'sub' zoom window.
     if (
       ECH_GROUP(t.echelon) === 'sub' &&
+      (t.parentIds?.length ?? 0) > 0 &&
       !(focusId !== null && (t.id === focusId || t.parentIds.includes(focusId)))
     ) {
       continue;

@@ -1,0 +1,52 @@
+{
+  "id": "de-spzabt-501",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "battalion",
+  "type": "armoured",
+  "short": "sPz 501",
+  "names": [
+    {
+      "from": "1944-08-10",
+      "name": "schwere Panzer-Abteilung 501 (Tiger II)",
+      "aliases": [
+        "schwere Panzer-Abteilung 501 (Tiger II)",
+        "s.Panzer-Abt 501 (Tiger II)"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-08-10",
+      "to": "1945-02-01",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1944-08-10",
+      "at": [
+        25.3,
+        54.68
+      ],
+      "label": "Tiger IIs at Vilnius",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-01-13",
+      "at": [
+        20.6,
+        50.6
+      ],
+      "label": "Destroyed at Lisów/Kielce in the Vistula–Oder offensive",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-02-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/501st_Heavy_Panzer_Battalion"
+  },
+  "notes": "German heavy tank (Tiger/Tiger II) battalion, placed at its Eastern-Front engagements (inferred positions)."
+}

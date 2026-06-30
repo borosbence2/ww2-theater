@@ -1,0 +1,62 @@
+{
+  "id": "de-spzabt-509",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "battalion",
+  "type": "armoured",
+  "short": "sPz 509",
+  "names": [
+    {
+      "from": "1943-12-20",
+      "name": "schwere Panzer-Abteilung 509",
+      "aliases": [
+        "schwere Panzer-Abteilung 509",
+        "s.Panzer-Abt 509"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-12-20",
+      "to": "1945-03-01",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-12-20",
+      "at": [
+        28.6,
+        50
+      ],
+      "label": "Zhitomir–Berdichev",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-03-25",
+      "at": [
+        26.3,
+        48.68
+      ],
+      "label": "The Kamenets-Podolsky pocket",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-01-10",
+      "at": [
+        18.7,
+        47.3
+      ],
+      "label": "Operation Konrad — the relief of Budapest",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-03-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/509th_Heavy_Panzer_Battalion"
+  },
+  "notes": "German heavy tank (Tiger/Tiger II) battalion, placed at its Eastern-Front engagements (inferred positions)."
+}

@@ -1,0 +1,43 @@
+{
+  "id": "de-gustav",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "battalion",
+  "type": "artillery",
+  "short": "Dora",
+  "names": [
+    {
+      "from": "1942-06-05",
+      "name": "80cm Railway Gun \"Schwerer Gustav\"",
+      "aliases": [
+        "Schwerer Gustav",
+        "Dora",
+        "80 cm K(E) railway gun"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-06-05",
+      "to": "1942-07-10",
+      "end": "withdrawn after the siege"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-06-05",
+      "at": [
+        33.6,
+        44.62
+      ],
+      "label": "The heaviest gun ever fired in war — bombarding Sevastopol",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1942-07-10",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Schwerer_Gustav"
+  },
+  "notes": "The 80cm Krupp railway gun at the siege of Sevastopol, June 1942."
+}

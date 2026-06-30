@@ -1,0 +1,53 @@
+{
+  "id": "su-b4-howitzer",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "brigade",
+  "type": "artillery",
+  "short": "B-4",
+  "names": [
+    {
+      "from": "1945-01-13",
+      "name": "B-4 203mm Howitzer Brigade ('Stalin's Sledgehammer')",
+      "aliases": [
+        "B-4 203mm howitzer",
+        "Stalin's Sledgehammer",
+        "high-power artillery brigade"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1945-01-13",
+      "to": "1945-05-09",
+      "end": "war's end"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1945-01-13",
+      "at": [
+        21,
+        52
+      ],
+      "label": "Smashing the Vistula defences",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-25",
+      "at": [
+        13.45,
+        52.52
+      ],
+      "label": "Direct fire on Berlin strongpoints",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-09",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/203_mm_howitzer_M1931_(B-4)"
+  },
+  "notes": "Soviet super-heavy howitzer brigade used for direct fire on fortified positions (inferred)."
+}

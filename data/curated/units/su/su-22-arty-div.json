@@ -1,0 +1,51 @@
+{
+  "id": "su-22-arty-div",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "division",
+  "type": "artillery",
+  "short": "22 Art",
+  "names": [
+    {
+      "from": "1944-06-23",
+      "name": "22nd Breakthrough Artillery Division",
+      "aliases": [
+        "22-я артиллерийская дивизия прорыва"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-06-23",
+      "to": "1945-05-09",
+      "end": "war's end"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1944-06-23",
+      "at": [
+        29.3,
+        54
+      ],
+      "label": "Massed fires for Operation Bagration",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-16",
+      "at": [
+        14.3,
+        52.55
+      ],
+      "label": "The Berlin operation",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-09",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/22nd_Breakthrough_Artillery_Division"
+  },
+  "notes": "Soviet breakthrough-artillery division, anchored to its major offensives (inferred)."
+}

@@ -1,0 +1,52 @@
+{
+  "id": "de-sspzabt-101",
+  "country": "DE",
+  "branch": "waffen-ss",
+  "echelon": "battalion",
+  "type": "armoured",
+  "short": "sSS-Pz 101",
+  "names": [
+    {
+      "from": "1943-07-05",
+      "name": "schwere SS-Panzer-Abteilung 101/501",
+      "aliases": [
+        "schwere SS-Panzer-Abteilung 101/501",
+        "s.SS-Panzer-Abt 101/501"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-07-05",
+      "to": "1945-05-01",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-07-05",
+      "at": [
+        36.3,
+        50.95
+      ],
+      "label": "SS Tiger companies at Kursk (southern face)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-03-06",
+      "at": [
+        18.1,
+        46.85
+      ],
+      "label": "Operation Spring Awakening (Lake Balaton)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/101st_SS_Heavy_Panzer_Battalion"
+  },
+  "notes": "German heavy tank (Tiger/Tiger II) battalion, placed at its Eastern-Front engagements (inferred positions)."
+}

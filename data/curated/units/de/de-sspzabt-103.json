@@ -1,0 +1,52 @@
+{
+  "id": "de-sspzabt-103",
+  "country": "DE",
+  "branch": "waffen-ss",
+  "echelon": "battalion",
+  "type": "armoured",
+  "short": "sSS-Pz 103",
+  "names": [
+    {
+      "from": "1944-03-01",
+      "name": "schwere SS-Panzer-Abteilung 103/503",
+      "aliases": [
+        "schwere SS-Panzer-Abteilung 103/503",
+        "s.SS-Panzer-Abt 103/503"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-03-01",
+      "to": "1945-05-02",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1944-03-01",
+      "at": [
+        28,
+        59.4
+      ],
+      "label": "The Narva bridgehead",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-20",
+      "at": [
+        13.7,
+        52.6
+      ],
+      "label": "The defence of Berlin (Oder/Seelow)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-02",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/503rd_SS_Heavy_Panzer_Battalion"
+  },
+  "notes": "German heavy tank (Tiger/Tiger II) battalion, placed at its Eastern-Front engagements (inferred positions)."
+}

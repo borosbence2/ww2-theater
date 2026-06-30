@@ -1,0 +1,52 @@
+{
+  "id": "su-su85-regt",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "regiment",
+  "type": "antitank",
+  "short": "SU-85",
+  "names": [
+    {
+      "from": "1944-03-01",
+      "name": "SU-85 Tank-Destroyer Regiment",
+      "aliases": [
+        "SU-85",
+        "self-propelled tank destroyer"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-03-01",
+      "to": "1945-05-09",
+      "end": "war's end"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1944-03-01",
+      "at": [
+        28.5,
+        49
+      ],
+      "label": "Tank hunting in the Ukraine offensives",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-06-23",
+      "at": [
+        29.5,
+        54.1
+      ],
+      "label": "Operation Bagration",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-09",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/SU-85"
+  },
+  "notes": "Soviet SU-85 tank-destroyer regiment. Anchored to its battles (inferred)."
+}

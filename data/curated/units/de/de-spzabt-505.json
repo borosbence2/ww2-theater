@@ -1,0 +1,62 @@
+{
+  "id": "de-spzabt-505",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "battalion",
+  "type": "armoured",
+  "short": "sPz 505",
+  "names": [
+    {
+      "from": "1943-07-05",
+      "name": "schwere Panzer-Abteilung 505",
+      "aliases": [
+        "schwere Panzer-Abteilung 505",
+        "s.Panzer-Abt 505"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-07-05",
+      "to": "1945-04-01",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-07-05",
+      "at": [
+        35.7,
+        52.5
+      ],
+      "label": "Kursk — the northern pincer (Ponyri)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-06-25",
+      "at": [
+        30.4,
+        54.5
+      ],
+      "label": "Bagration — the Orsha sector",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-01-20",
+      "at": [
+        21.2,
+        54.2
+      ],
+      "label": "The defence of East Prussia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-04-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/505th_Heavy_Panzer_Battalion"
+  },
+  "notes": "German heavy tank (Tiger/Tiger II) battalion, placed at its Eastern-Front engagements (inferred positions)."
+}

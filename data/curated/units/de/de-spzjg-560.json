@@ -1,0 +1,53 @@
+{
+  "id": "de-spzjg-560",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "battalion",
+  "type": "antitank",
+  "short": "sPzJg 560",
+  "names": [
+    {
+      "from": "1943-10-01",
+      "name": "Heavy Tank-Destroyer Battalion 560",
+      "aliases": [
+        "schwere Panzerjäger-Abteilung 560",
+        "Jagdpanzer",
+        "Jagdpanther"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-10-01",
+      "to": "1945-04-01",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-10-01",
+      "at": [
+        34,
+        48.4
+      ],
+      "label": "Tank hunting on the Dnieper",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-02-01",
+      "at": [
+        16.5,
+        47.6
+      ],
+      "label": "Defensive battles in Hungary",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-04-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Jagdpanther"
+  },
+  "notes": "German tank-destroyer battalion (Marder/Jagdpanther). Anchored to its battles (inferred)."
+}

@@ -1,0 +1,54 @@
+{
+  "id": "de-karl-geraet",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "battalion",
+  "type": "artillery",
+  "short": "Karl",
+  "names": [
+    {
+      "from": "1942-06-02",
+      "name": "Karl-Gerät 60cm Mortars (Thor/Odin)",
+      "aliases": [
+        "Karl-Gerät",
+        "60 cm self-propelled mortar",
+        "Thor",
+        "Odin"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-06-02",
+      "to": "1945-04-01",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-06-02",
+      "at": [
+        33.5,
+        44.6
+      ],
+      "label": "Super-heavy mortars at Sevastopol",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-08-15",
+      "at": [
+        21,
+        52.23
+      ],
+      "label": "Bombarding the Warsaw Uprising",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-04-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Karl-Ger%C3%A4t"
+  },
+  "notes": "German super-heavy self-propelled siege mortars (Sevastopol 1942, Warsaw 1944)."
+}
