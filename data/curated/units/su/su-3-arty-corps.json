@@ -1,0 +1,62 @@
+{
+  "id": "su-3-arty-corps",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "corps",
+  "type": "artillery",
+  "short": "3 AKP",
+  "names": [
+    {
+      "from": "1943-07-10",
+      "name": "3rd Artillery Breakthrough Corps",
+      "aliases": [
+        "3-й артиллерийский корпус прорыва",
+        "RVGK breakthrough artillery"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-07-10",
+      "to": "1945-05-09",
+      "end": "war's end"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-07-10",
+      "at": [
+        35.6,
+        52
+      ],
+      "label": "Massed fires at Kursk",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-06-25",
+      "at": [
+        29.2,
+        53.9
+      ],
+      "label": "Opening Operation Bagration",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-16",
+      "at": [
+        14.4,
+        52.6
+      ],
+      "label": "The Berlin bombardment (Oder)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-09",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Artillery_of_the_Red_Army"
+  },
+  "notes": "Reserve (RVGK) breakthrough-artillery corps — the massed-gun fist of Soviet offensives. Anchored to its major battles (inferred)."
+}

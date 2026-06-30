@@ -1,0 +1,52 @@
+{
+  "id": "de-volks-arty-korps",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "corps",
+  "type": "artillery",
+  "short": "V.Art.K",
+  "names": [
+    {
+      "from": "1945-01-12",
+      "name": "Volks-Artillerie-Korps",
+      "aliases": [
+        "Volks-Artillerie-Korps",
+        "People's Artillery Corps"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1945-01-12",
+      "to": "1945-05-08",
+      "end": "destroyed"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1945-01-12",
+      "at": [
+        20.5,
+        50.9
+      ],
+      "label": "Defending the Vistula front",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-16",
+      "at": [
+        14.4,
+        52.6
+      ],
+      "label": "The last barrages on the Oder",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-08",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Volks-Artillerie-Korps"
+  },
+  "notes": "German massed reserve-artillery corps of 1944-45. Anchored to its battles (inferred)."
+}

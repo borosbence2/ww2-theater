@@ -1,0 +1,52 @@
+{
+  "id": "de-gd-aufklarung",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "battalion",
+  "type": "recon",
+  "short": "GD Aufkl",
+  "names": [
+    {
+      "from": "1943-07-05",
+      "name": "Großdeutschland Reconnaissance Battalion",
+      "aliases": [
+        "Panzer-Aufklärungs-Abteilung Großdeutschland",
+        "armoured reconnaissance"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-07-05",
+      "to": "1945-01-01",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-07-05",
+      "at": [
+        36.2,
+        50.95
+      ],
+      "label": "Screening the Großdeutschland thrust at Kursk",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-08-01",
+      "at": [
+        23.5,
+        54.9
+      ],
+      "label": "Covering the retreat to East Prussia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-01-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Grossdeutschland_(military_unit)"
+  },
+  "notes": "Armoured reconnaissance battalion of the Großdeutschland Division. Anchored to its battles (inferred)."
+}

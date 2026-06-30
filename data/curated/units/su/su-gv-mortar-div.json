@@ -1,0 +1,62 @@
+{
+  "id": "su-gv-mortar-div",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "division",
+  "type": "artillery",
+  "short": "Gv Mort",
+  "names": [
+    {
+      "from": "1943-07-10",
+      "name": "Guards Mortar Division (Katyusha)",
+      "aliases": [
+        "гвардейская миномётная дивизия",
+        "Katyusha rockets"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-07-10",
+      "to": "1945-05-09",
+      "end": "war's end"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-07-10",
+      "at": [
+        36,
+        51.1
+      ],
+      "label": "Katyusha salvoes at Kursk",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-06-25",
+      "at": [
+        28.6,
+        53.9
+      ],
+      "label": "Bagration",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-16",
+      "at": [
+        13.7,
+        52.55
+      ],
+      "label": "Berlin",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-09",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+  },
+  "notes": "Guards mortar (Katyusha rocket) division. Anchored to its major battles (inferred)."
+}

@@ -1,0 +1,52 @@
+{
+  "id": "de-werfer-brigade",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "brigade",
+  "type": "artillery",
+  "short": "Werfer",
+  "names": [
+    {
+      "from": "1943-07-05",
+      "name": "Werfer (Nebelwerfer) Brigade",
+      "aliases": [
+        "Werfer-Brigade",
+        "Nebelwerfer rocket artillery"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-07-05",
+      "to": "1944-09-01",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-07-05",
+      "at": [
+        35.7,
+        52.3
+      ],
+      "label": "Rocket barrages on the north face at Kursk",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-01-15",
+      "at": [
+        30,
+        50
+      ],
+      "label": "Ukraine",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1944-09-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Nebelwerfer"
+  },
+  "notes": "German rocket-artillery (Nebelwerfer) brigade. Anchored to its battles (inferred)."
+}

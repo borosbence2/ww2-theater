@@ -1,0 +1,53 @@
+{
+  "id": "de-spzjg-654",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "battalion",
+  "type": "antitank",
+  "short": "sPzJg 654",
+  "names": [
+    {
+      "from": "1943-07-05",
+      "name": "Heavy Tank-Destroyer Battalion 654",
+      "aliases": [
+        "schwere Panzerjäger-Abteilung 654",
+        "Ferdinand",
+        "Jagdpanther"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-07-05",
+      "to": "1945-04-01",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-07-05",
+      "at": [
+        35.6,
+        52.45
+      ],
+      "label": "Ferdinands at Kursk (north face)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-06-01",
+      "at": [
+        26,
+        49.3
+      ],
+      "label": "Jagdpanthers in the east",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-04-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Jagdpanther"
+  },
+  "notes": "German heavy tank-destroyer battalion (Ferdinand, later Jagdpanther). Anchored to its battles (inferred)."
+}

@@ -1,0 +1,62 @@
+{
+  "id": "su-1-gv-iptabr",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "brigade",
+  "type": "antitank",
+  "short": "1 IPTA",
+  "names": [
+    {
+      "from": "1943-07-06",
+      "name": "1st Guards Tank Destroyer Artillery Brigade",
+      "aliases": [
+        "1-я гвардейская истребительно-противотанковая бригада",
+        "IPTABr"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-07-06",
+      "to": "1945-05-09",
+      "end": "war's end"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-07-06",
+      "at": [
+        35.9,
+        52.3
+      ],
+      "label": "The anti-tank gun line at Ponyri (Kursk)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-07-01",
+      "at": [
+        27,
+        53.6
+      ],
+      "label": "Bagration",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-16",
+      "at": [
+        14.6,
+        52.5
+      ],
+      "label": "Berlin",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-09",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Anti-tank_warfare"
+  },
+  "notes": "Soviet anti-tank (IPTAP) brigade — the dense AT-gun screens that broke German armour. Anchored to its battles (inferred)."
+}

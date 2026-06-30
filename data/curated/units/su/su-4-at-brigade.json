@@ -1,0 +1,51 @@
+{
+  "id": "su-4-at-brigade",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "brigade",
+  "type": "antitank",
+  "short": "4 IPTA",
+  "names": [
+    {
+      "from": "1943-07-11",
+      "name": "4th Tank Destroyer Brigade",
+      "aliases": [
+        "истребительно-противотанковая бригада"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-07-11",
+      "to": "1945-05-09",
+      "end": "war's end"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-07-11",
+      "at": [
+        36.6,
+        51
+      ],
+      "label": "The Prokhorovka anti-tank defence",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-08-01",
+      "at": [
+        22.5,
+        52.2
+      ],
+      "label": "The Vistula bridgeheads",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-09",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Anti-tank_warfare"
+  },
+  "notes": "Soviet tank-destroyer brigade. Anchored to its battles (inferred)."
+}

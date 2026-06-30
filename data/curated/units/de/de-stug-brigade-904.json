@@ -1,0 +1,52 @@
+{
+  "id": "de-stug-brigade-904",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "brigade",
+  "type": "artillery",
+  "short": "StuG 904",
+  "names": [
+    {
+      "from": "1943-07-05",
+      "name": "Assault Gun Brigade 904",
+      "aliases": [
+        "Sturmgeschütz-Brigade 904",
+        "StuG assault guns"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-07-05",
+      "to": "1945-04-01",
+      "end": "attrition"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-07-05",
+      "at": [
+        36.2,
+        51.1
+      ],
+      "label": "Assault-gun support at Kursk",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-03-01",
+      "at": [
+        29.5,
+        48.4
+      ],
+      "label": "Defensive fighting in Ukraine",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-04-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Sturmgesch%C3%BCtz"
+  },
+  "notes": "German assault-gun (Sturmgeschütz) brigade — mobile direct-fire artillery. Anchored to its battles (inferred)."
+}
