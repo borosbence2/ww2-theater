@@ -29,7 +29,7 @@ const FRONT = 'public/data/front/eastern-keyframes.json';
 const OUT_DIR = 'public/data/units';
 
 const ECHELONS = ['army-group', 'front', 'army', 'corps', 'division', 'brigade', 'regiment', 'battalion'];
-const TYPES = ['infantry', 'armoured', 'motorized', 'cavalry', 'artillery', 'hq'];
+const TYPES = ['infantry', 'armoured', 'motorized', 'mechanized', 'cavalry', 'recon', 'artillery', 'antitank', 'airborne', 'hq'];
 // Air-formation roles (units flagged `air:true`): map symbol + panel grouping.
 const AIR_TYPES = [
   'fighter', 'heavy-fighter', 'dive-bomber', 'ground-attack',
@@ -577,6 +577,13 @@ for (const u of units.values()) {
 
 for (const u of units.values()) {
   const id = u.id;
+  // Normalize special-arm types from the id (the roster/import predates these
+  // ground types, so airborne divisions arrived as 'infantry' and mechanized
+  // corps/brigades as 'motorized').
+  if (!u.air) {
+    if (/airborne/.test(id)) u.type = 'airborne';
+    else if (/mechanized-(corps|brigade|division)/.test(id)) u.type = 'mechanized';
+  }
   if (!u.names?.length || !u.existence?.length) {
     err(id, `missing names/existence (echelon=${u.echelon}, keys=${Object.keys(u).join(',')})`);
     continue;

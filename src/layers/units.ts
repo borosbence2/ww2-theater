@@ -698,6 +698,18 @@ function makeIcon(
     ctx.lineTo(ix + iw, iy + ih);
     ctx.stroke();
   }
+  if (type === 'airborne') {
+    // parachute: a canopy dome with shroud lines down to the payload
+    const r = iw * 0.38;
+    const topY = iy + ih * 0.34;
+    const payY = iy + ih * 0.88;
+    ctx.beginPath();
+    ctx.arc(cx, topY, r, Math.PI, 0); // upper dome
+    ctx.stroke();
+    diag(cx - r, topY, cx, payY);
+    diag(cx + r, topY, cx, payY);
+    diag(cx, topY, cx, payY);
+  }
   // type === 'hq' -> empty frame (no symbol)
 
   // --- echelon badge: dark monospace chip above the frame ---
