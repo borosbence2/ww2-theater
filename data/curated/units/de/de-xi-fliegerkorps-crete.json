@@ -1,0 +1,59 @@
+{
+  "id": "de-xi-fliegerkorps-crete",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "corps",
+  "type": "airborne",
+  "short": "XI Flieger",
+  "names": [
+    {
+      "from": "1941-05-20",
+      "name": "XI Air Corps (Student)",
+      "aliases": [
+        "XI. Fliegerkorps",
+        "Student",
+        "airborne command"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-05-20",
+      "to": "1941-06-05",
+      "end": "Crete taken"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1941-05-20",
+      "name": "Gen. Kurt Student"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-05-20",
+      "at": [
+        24,
+        35.55
+      ],
+      "label": "Directing the airborne assault on Crete",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-06-01",
+      "at": [
+        24.9,
+        35.4
+      ],
+      "label": "Crete secured",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-06-03",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Crete"
+  },
+  "notes": "The German airborne command for Operation Mercury, the first mainly airborne invasion in history. Campaign-specific id. Route schematic."
+}

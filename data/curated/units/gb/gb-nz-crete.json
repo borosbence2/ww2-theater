@@ -1,0 +1,68 @@
+{
+  "id": "gb-nz-crete",
+  "country": "GB",
+  "side": "soviet",
+  "branch": "british",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "NZ Div",
+  "names": [
+    {
+      "from": "1941-05-20",
+      "name": "New Zealand Division (Crete)",
+      "aliases": [
+        "2nd New Zealand Division",
+        "Maleme sector"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-05-20",
+      "to": "1941-06-01",
+      "end": "evacuated"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-05-20",
+      "to": "1941-06-01",
+      "unit": "gb-creforce"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-05-20",
+      "at": [
+        23.93,
+        35.53
+      ],
+      "label": "Holding Maleme airfield",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-05-27",
+      "at": [
+        24.1,
+        35.35
+      ],
+      "label": "Withdrawing south",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-05-31",
+      "at": [
+        24.15,
+        35.21
+      ],
+      "label": "Evacuated from Sphakia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-06-01",
+  "links": {},
+  "notes": "New Zealand Division on Crete, Maleme/Chania sector, May 1941 (anti-Axis/blue). Sector-level position (inferred)."
+}

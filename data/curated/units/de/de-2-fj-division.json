@@ -1,0 +1,51 @@
+{
+  "id": "de-2-fj-division",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "division",
+  "type": "airborne",
+  "short": "2. FJ",
+  "names": [
+    {
+      "from": "1943-11-01",
+      "name": "2nd Parachute Division",
+      "aliases": [
+        "2. Fallschirmjäger-Division"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-11-01",
+      "to": "1944-05-01",
+      "end": "withdrawn to refit"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-11-20",
+      "at": [
+        28.7,
+        50.25
+      ],
+      "label": "Ground fighting around Zhitomir",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-01-10",
+      "at": [
+        29.6,
+        48.5
+      ],
+      "label": "The Kirovograd sector",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1944-04-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/2nd_Parachute_Division_(Germany)"
+  },
+  "notes": "German parachute division committed as ground infantry on the Eastern Front, winter 1943-44. Route schematic."
+}

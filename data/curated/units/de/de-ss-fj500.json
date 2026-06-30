@@ -1,0 +1,52 @@
+{
+  "id": "de-ss-fj500",
+  "country": "DE",
+  "branch": "waffen-ss",
+  "echelon": "battalion",
+  "type": "airborne",
+  "short": "SS-FJ 500",
+  "names": [
+    {
+      "from": "1944-05-20",
+      "name": "SS Parachute Battalion 500",
+      "aliases": [
+        "SS-Fallschirmjäger-Bataillon 500",
+        "Rösselsprung"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-05-20",
+      "to": "1944-06-15",
+      "end": "withdrawn after the raid"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1944-05-25",
+      "at": [
+        16.38,
+        44.37
+      ],
+      "label": "Glider/parachute raid on Tito's HQ at Drvar",
+      "source": "wikipedia-en",
+      "confidence": "documented"
+    },
+    {
+      "date": "1944-06-03",
+      "at": [
+        16.7,
+        44.3
+      ],
+      "label": "Withdrawn — Tito escaped",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1944-06-05",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Operation_R%C3%B6sselsprung_(1944)"
+  },
+  "notes": "The SS airborne raid that nearly captured Tito at Drvar, May 1944. Tito escaped. Route schematic."
+}

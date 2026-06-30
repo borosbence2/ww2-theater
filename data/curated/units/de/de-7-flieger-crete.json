@@ -1,0 +1,70 @@
+{
+  "id": "de-7-flieger-crete",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "division",
+  "type": "airborne",
+  "short": "7. Flieger",
+  "names": [
+    {
+      "from": "1941-05-20",
+      "name": "7th Air Division (Fallschirmjäger)",
+      "aliases": [
+        "7. Flieger-Division",
+        "Fallschirmjäger",
+        "paratroopers"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-05-20",
+      "to": "1941-06-05",
+      "end": "Crete taken"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-05-20",
+      "to": "1941-06-05",
+      "unit": "de-xi-fliegerkorps-crete"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-05-20",
+      "at": [
+        23.99,
+        35.53
+      ],
+      "label": "Parachute drops on Maleme and Chania",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-05-25",
+      "at": [
+        24.5,
+        35.45
+      ],
+      "label": "Securing Maleme, driving on Chania",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-06-01",
+      "at": [
+        25.3,
+        35.32
+      ],
+      "label": "Rethymno and Heraklion fall",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-06-03",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/7th_Flieger_Division"
+  },
+  "notes": "German Fallschirmjäger (parachute) division that took Crete from the air at heavy cost. Campaign-specific id. Route schematic."
+}

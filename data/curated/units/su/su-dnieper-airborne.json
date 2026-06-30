@@ -1,0 +1,52 @@
+{
+  "id": "su-dnieper-airborne",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "brigade",
+  "type": "airborne",
+  "short": "Dnieper Abn",
+  "names": [
+    {
+      "from": "1943-09-24",
+      "name": "Dnieper Airborne Force",
+      "aliases": [
+        "1st/3rd/5th Guards Airborne Brigades",
+        "Dnieper airborne operation"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-09-24",
+      "to": "1943-11-30",
+      "end": "absorbed by the advancing front"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-09-24",
+      "at": [
+        31.15,
+        49.78
+      ],
+      "label": "Dropped at the Bukrin bend on the Dnieper",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1943-11-15",
+      "at": [
+        31,
+        49.6
+      ],
+      "label": "Partisan-style operations behind the lines",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1943-11-20",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Dnieper_airborne_operation"
+  },
+  "notes": "Soviet airborne brigades dropped across the Dnieper at the Bukrin bend, Sept 1943. Anti-Axis (blue). Route schematic."
+}

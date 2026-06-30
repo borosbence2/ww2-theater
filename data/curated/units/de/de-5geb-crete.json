@@ -1,0 +1,57 @@
+{
+  "id": "de-5geb-crete",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "5. Geb.",
+  "names": [
+    {
+      "from": "1941-05-21",
+      "name": "5th Mountain Division",
+      "aliases": [
+        "5. Gebirgs-Division",
+        "air-landed reinforcement"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-05-21",
+      "to": "1941-06-05",
+      "end": "Crete taken"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-05-21",
+      "to": "1941-06-05",
+      "unit": "de-xi-fliegerkorps-crete"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-05-22",
+      "at": [
+        23.95,
+        35.52
+      ],
+      "label": "Air-landed at Maleme airfield",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-05-30",
+      "at": [
+        24.7,
+        35.4
+      ],
+      "label": "Pushing east across Crete",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-06-03",
+  "links": {},
+  "notes": "Air-landed at Maleme to reinforce the paratroopers on Crete, May 1941. Campaign-specific id. Route schematic."
+}

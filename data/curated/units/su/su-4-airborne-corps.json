@@ -1,0 +1,62 @@
+{
+  "id": "su-4-airborne-corps",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "corps",
+  "type": "airborne",
+  "short": "4 VDK",
+  "names": [
+    {
+      "from": "1942-01-18",
+      "name": "4th Airborne Corps",
+      "aliases": [
+        "4-й воздушно-десантный корпус",
+        "Vyazma drop"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-01-18",
+      "to": "1942-06-30",
+      "end": "broke out from behind the lines"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-01-27",
+      "at": [
+        34,
+        54.7
+      ],
+      "label": "Dropped behind German lines south of Vyazma",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1942-04-01",
+      "at": [
+        34.3,
+        54.9
+      ],
+      "label": "Fighting on in the German rear",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1942-06-20",
+      "at": [
+        34.8,
+        54.6
+      ],
+      "label": "Breaking back to Soviet lines",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1942-06-25",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Vyazma_airborne_operation"
+  },
+  "notes": "Soviet airborne corps dropped behind German lines in the Vyazma operation, Jan–Jun 1942. Anti-Axis (blue). Route schematic."
+}

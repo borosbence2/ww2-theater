@@ -1,0 +1,70 @@
+{
+  "id": "gb-creforce",
+  "country": "GB",
+  "side": "soviet",
+  "branch": "british",
+  "echelon": "army",
+  "type": "hq",
+  "short": "Creforce",
+  "names": [
+    {
+      "from": "1941-05-20",
+      "name": "Creforce (Freyberg)",
+      "aliases": [
+        "Creforce",
+        "Crete garrison",
+        "Freyberg"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-05-20",
+      "to": "1941-06-01",
+      "end": "evacuated from Crete"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1941-05-20",
+      "name": "Maj.Gen. Bernard Freyberg"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-05-20",
+      "at": [
+        24.02,
+        35.51
+      ],
+      "label": "Defending Crete (Chania)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-05-28",
+      "at": [
+        24.1,
+        35.3
+      ],
+      "label": "Falling back over the mountains",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-05-31",
+      "at": [
+        24.13,
+        35.2
+      ],
+      "label": "Evacuation from Sphakia",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-06-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Crete"
+  },
+  "notes": "The British/Commonwealth/Greek garrison of Crete under Freyberg. Anti-Axis (blue, Allied archetype, no flag). Route schematic."
+}

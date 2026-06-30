@@ -1,0 +1,61 @@
+{
+  "id": "de-9-fj-division",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "division",
+  "type": "airborne",
+  "short": "9. FJ",
+  "names": [
+    {
+      "from": "1945-01-01",
+      "name": "9th Parachute Division",
+      "aliases": [
+        "9. Fallschirmjäger-Division"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1945-01-01",
+      "to": "1945-05-02",
+      "end": "destroyed at Berlin"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1945-03-01",
+      "at": [
+        14.35,
+        52.62
+      ],
+      "label": "Holding the Oder at the Seelow Heights",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-20",
+      "at": [
+        13.6,
+        52.6
+      ],
+      "label": "Falling back into Berlin",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-05-01",
+      "at": [
+        13.4,
+        52.52
+      ],
+      "label": "Destroyed in Berlin",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-02",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/9th_Parachute_Division_(Germany)"
+  },
+  "notes": "German parachute division fighting as ground infantry on the Oder and in Berlin, 1945. Route schematic."
+}
