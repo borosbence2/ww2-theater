@@ -229,6 +229,7 @@ const ESTABLISHMENT: Record<string, { strength?: number; equipment?: EquipItem[]
   '5th SS-Panzer-Division "Wiking"': { strength: 19000 },
   '12th SS-Panzer-Division "Hitlerjugend"': { strength: 20000 },
   'Fallschirm-Panzer-Division "Hermann Göring"': { strength: 18000 },
+  'Panzergrenadier-Division "Großdeutschland"': { strength: 22000 },
 };
 
 // Notable equipment a formation fielded, as equipment-catalog ids (equipment.ts).
@@ -1258,6 +1259,22 @@ export const TEMPLATES: FormationTemplate[] = [
       ssPzGrenRgt('25. SS-Panzergrenadier-Regiment'),
       ssPzGrenRgt('26. SS-Panzergrenadier-Regiment'),
       ...elitePzTail('SS'),
+    ],
+  },
+  {
+    side: 'axis', idMatch: 'grossdeutschland', echelon: 'division', types: ['motorized', 'mechanized', 'armoured'], from: '1942-01-01', to: '1945-12-31',
+    name: 'Panzergrenadier-Division "Großdeutschland"',
+    note: 'The army\'s elite — uniquely a Grenadier and a Füsilier regiment around a full panzer regiment with Tigers.',
+    components: [
+      n('regiment', 'armoured', 'Panzer-Regiment GD', { children: [x(2, dePanzerBn()), n('battalion', 'armoured', 'III. (Tiger) Abteilung')] }),
+      n('regiment', 'motorized', 'Panzergrenadier-Regiment GD', { children: [x(3, dePzGrenBn())] }),
+      n('regiment', 'motorized', 'Füsilier-Regiment GD', { children: [x(3, dePzGrenBn())] }),
+      n('battalion', 'artillery', 'Sturmgeschütz-Abteilung GD'),
+      n('regiment', 'artillery', 'Panzer-Artillerie-Regiment GD', { children: [x(3, deArtyBn())] }),
+      n('battalion', 'recon', 'Panzer-Aufklärungs-Abteilung GD'),
+      n('battalion', 'antitank', 'Panzerjäger-Abteilung GD'),
+      n('battalion', 'antiair', 'Heeres-Flak-Abteilung GD'),
+      n('battalion', 'engineer', 'Panzer-Pionier-Bataillon GD'),
     ],
   },
   {

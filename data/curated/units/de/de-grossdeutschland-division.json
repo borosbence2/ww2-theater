@@ -1,0 +1,31 @@
+{
+  "id": "de-grossdeutschland-division",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "motorized",
+  "short": "GD",
+  "names": [
+    {
+      "from": "1942-04-01",
+      "name": "Panzergrenadier-Division \"Großdeutschland\"",
+      "aliases": ["Großdeutschland", "Grossdeutschland", "GD", "Panzergrenadier-Division Großdeutschland"]
+    }
+  ],
+  "existence": [
+    { "from": "1942-04-01", "to": "1945-05-08", "end": "destroyed in East Prussia" }
+  ],
+  "positions": [
+    { "date": "1942-09-01", "at": [34.3, 56.3], "label": "Defensive battles in the Rzhev salient", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1943-03-01", "at": [36.0, 50.1], "label": "The recapture of Kharkov", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1943-07-06", "at": [36.0, 50.9], "label": "Kursk — the drive on Oboyan (XLVIII Panzer Corps)", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1944-01-10", "at": [32.3, 48.6], "label": "The retreat across Ukraine", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1944-05-02", "at": [27.0, 47.2], "label": "The defensive victory at Târgu Frumos (Romania)", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1944-08-10", "at": [22.8, 54.6], "label": "Rushed to the East Prussian border (Vilkaviškis)", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1944-10-10", "at": [21.3, 55.6], "label": "Holding the Memel bridgehead", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-04-25", "at": [19.9, 54.4], "label": "Destroyed on the Samland/Pillau (East Prussia)", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1945-04-27",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Panzergrenadier_Division_Gro%C3%9Fdeutschland" },
+  "notes": "The German Army's premier formation: a Grenadier and a Füsilier regiment around a full panzer regiment (with a Tiger battalion). Route schematic (HQ centre-of-mass), inferred positions."
+}
