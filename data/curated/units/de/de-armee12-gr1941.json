@@ -1,0 +1,79 @@
+{
+  "id": "de-armee12-gr1941",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "hq",
+  "short": "12. Armee",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "12. Armee — Greece, April 1941",
+      "aliases": [
+        "12. Armee",
+        "12th Army",
+        "List"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-05-01",
+      "end": "campaign over"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1941-04-06",
+      "name": "Field Marshal Wilhelm List"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        24.5,
+        41.6
+      ],
+      "label": "Invading from Bulgaria (Operation Marita)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-09",
+      "at": [
+        22.95,
+        40.64
+      ],
+      "label": "Thessaloniki taken",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-19",
+      "at": [
+        22.42,
+        39.64
+      ],
+      "label": "Larissa — past the Olympus line",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-27",
+      "at": [
+        23.73,
+        37.98
+      ],
+      "label": "Athens",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-30",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Greece"
+  },
+  "notes": "German command for the invasion of Greece. Campaign-specific id (no Eastern-Front link here). Route schematic."
+}

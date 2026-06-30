@@ -1,0 +1,80 @@
+{
+  "id": "gb-w-force",
+  "country": "GB",
+  "side": "soviet",
+  "branch": "british",
+  "echelon": "army",
+  "type": "hq",
+  "short": "W Force",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "W Force (British & Commonwealth)",
+      "aliases": [
+        "W Force",
+        "British Expeditionary Force",
+        "Maitland Wilson"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-30",
+      "end": "evacuated from Greece"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1941-04-06",
+      "name": "Lt.Gen. Henry Maitland Wilson"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        22.3,
+        40.45
+      ],
+      "label": "The Vermion–Aliakmon line",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-12",
+      "at": [
+        22.55,
+        40.05
+      ],
+      "label": "Falling back to the Olympus–Servia line",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-20",
+      "at": [
+        22.6,
+        38.8
+      ],
+      "label": "The stand at Thermopylae",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-27",
+      "at": [
+        23.1,
+        37.85
+      ],
+      "label": "Evacuation from Attica and the Peloponnese",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-28",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Greece"
+  },
+  "notes": "The British and Commonwealth expeditionary force in Greece. Anti-Axis (blue); modelled as an Allied archetype (no flag chip, like the Soviets). Route schematic."
+}

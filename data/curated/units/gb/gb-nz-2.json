@@ -1,0 +1,68 @@
+{
+  "id": "gb-nz-2",
+  "country": "GB",
+  "side": "soviet",
+  "branch": "british",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "2 NZ",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "2nd New Zealand Division",
+      "aliases": [
+        "2nd New Zealand Division",
+        "2nd New Zealand"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-30",
+      "end": "evacuated"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-30",
+      "unit": "gb-w-force"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-08",
+      "at": [
+        22.45,
+        40.05
+      ],
+      "label": "The Olympus–Platamon line",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-20",
+      "at": [
+        22.7,
+        38.82
+      ],
+      "label": "Thermopylae",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-27",
+      "at": [
+        23,
+        37.85
+      ],
+      "label": "Evacuated",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-28",
+  "links": {},
+  "notes": "Commonwealth division with W Force in Greece, April 1941 (anti-Axis/blue, no flag chip). Sector-level position (inferred)."
+}

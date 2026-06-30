@@ -1,0 +1,77 @@
+{
+  "id": "de-lah-gr1941",
+  "country": "DE",
+  "branch": "waffen-ss",
+  "echelon": "division",
+  "type": "motorized",
+  "short": "LAH",
+  "names": [
+    {
+      "from": "1941-04-11",
+      "name": "SS \"Leibstandarte\" Division",
+      "aliases": [
+        "SS \"Leibstandarte\" Division",
+        "SS \"Leibstandarte\""
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-05-01",
+      "end": "campaign over"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-05-01",
+      "unit": "de-armee12-gr1941"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-11",
+      "at": [
+        21.27,
+        40.52
+      ],
+      "label": "Kastoria",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-14",
+      "at": [
+        20.99,
+        39.77
+      ],
+      "label": "The Metsovon pass — trapping the Epirus army",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-21",
+      "at": [
+        20.85,
+        39.66
+      ],
+      "label": "Ioannina — the Epirus army capitulates",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-27",
+      "at": [
+        21.74,
+        38.25
+      ],
+      "label": "Patras and the Peloponnese",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-30",
+  "links": {},
+  "notes": "German thrust in the invasion of Greece, April 1941. Campaign-specific id (its Eastern-Front self is a separate unit). Route schematic."
+}

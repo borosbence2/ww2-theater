@@ -1,0 +1,68 @@
+{
+  "id": "gb-au-6",
+  "country": "GB",
+  "side": "soviet",
+  "branch": "british",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "6 Aus",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "6th Australian Division",
+      "aliases": [
+        "6th Australian Division",
+        "6th Australian"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-30",
+      "end": "evacuated"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-30",
+      "unit": "gb-w-force"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-08",
+      "at": [
+        22.1,
+        40.42
+      ],
+      "label": "The Vermion line",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-20",
+      "at": [
+        22.5,
+        38.85
+      ],
+      "label": "Thermopylae",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-27",
+      "at": [
+        22.8,
+        37.85
+      ],
+      "label": "Evacuated",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-28",
+  "links": {},
+  "notes": "Commonwealth division with W Force in Greece, April 1941 (anti-Axis/blue, no flag chip). Sector-level position (inferred)."
+}

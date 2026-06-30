@@ -1,0 +1,77 @@
+{
+  "id": "de-pz2-gr1941",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "armoured",
+  "short": "2 Pz",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "2nd Panzer Division",
+      "aliases": [
+        "2nd Panzer Division",
+        "2nd"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-05-01",
+      "end": "campaign over"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-05-01",
+      "unit": "de-armee12-gr1941"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        22.95,
+        41.3
+      ],
+      "label": "Through the Vardar toward Thessaloniki",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-09",
+      "at": [
+        22.98,
+        40.62
+      ],
+      "label": "Thessaloniki",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-20",
+      "at": [
+        22.55,
+        39.7
+      ],
+      "label": "Driving south past Olympus",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-27",
+      "at": [
+        23.55,
+        38.1
+      ],
+      "label": "On Athens",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-30",
+  "links": {},
+  "notes": "German thrust in the invasion of Greece, April 1941. Campaign-specific id (its Eastern-Front self is a separate unit). Route schematic."
+}

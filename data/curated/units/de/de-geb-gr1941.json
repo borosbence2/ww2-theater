@@ -1,0 +1,77 @@
+{
+  "id": "de-geb-gr1941",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "corps",
+  "type": "infantry",
+  "short": "XVIII Geb",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "XVIII Mountain Corps",
+      "aliases": [
+        "XVIII Mountain Corps",
+        "XVIII Mountain"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-05-01",
+      "end": "campaign over"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-05-01",
+      "unit": "de-armee12-gr1941"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        23.6,
+        41.4
+      ],
+      "label": "Storming the Metaxas Line (Fort Rupel)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-10",
+      "at": [
+        22.9,
+        40.25
+      ],
+      "label": "Past Thessaloniki to the Olympus line",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-16",
+      "at": [
+        22.5,
+        39.95
+      ],
+      "label": "Mount Olympus and the Platamon tunnel",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-24",
+      "at": [
+        22.95,
+        38.8
+      ],
+      "label": "Thermopylae",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-30",
+  "links": {},
+  "notes": "German thrust in the invasion of Greece, April 1941. Campaign-specific id (its Eastern-Front self is a separate unit). Route schematic."
+}

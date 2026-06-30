@@ -1,0 +1,67 @@
+{
+  "id": "de-pz9-gr1941",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "armoured",
+  "short": "9 Pz",
+  "names": [
+    {
+      "from": "1941-04-09",
+      "name": "9th Panzer Division",
+      "aliases": [
+        "9th Panzer Division",
+        "9th"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-05-01",
+      "end": "campaign over"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-05-01",
+      "unit": "de-armee12-gr1941"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-09",
+      "at": [
+        21.34,
+        41.03
+      ],
+      "label": "The Monastir (Bitola) gap",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-12",
+      "at": [
+        21.41,
+        40.78
+      ],
+      "label": "Florina — linking with the Italians",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-15",
+      "at": [
+        21.79,
+        40.3
+      ],
+      "label": "Kozani — cutting off the Greek armies",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-30",
+  "links": {},
+  "notes": "German thrust in the invasion of Greece, April 1941. Campaign-specific id (its Eastern-Front self is a separate unit). Route schematic."
+}

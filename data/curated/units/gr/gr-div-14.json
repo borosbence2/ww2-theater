@@ -1,0 +1,58 @@
+{
+  "id": "gr-div-14",
+  "country": "GR",
+  "side": "soviet",
+  "branch": "es",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "14 GR",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "14th Greek Infantry Division",
+      "aliases": [
+        "14th Greek Infantry Division",
+        "14th Infantry Division"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-10",
+      "end": "capitulation"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-10",
+      "unit": "gr-army-emac"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        23.8,
+        41.2
+      ],
+      "label": "Holding the Metaxas Line forts",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-09",
+      "at": [
+        23.5,
+        41.1
+      ],
+      "label": "Overrun",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-09",
+  "links": {},
+  "notes": "Greek division on the Metaxas Line, April 1941 (anti-Axis/blue). Sector-level position (inferred)."
+}

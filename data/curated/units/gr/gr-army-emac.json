@@ -1,0 +1,67 @@
+{
+  "id": "gr-army-emac",
+  "country": "GR",
+  "side": "soviet",
+  "branch": "es",
+  "echelon": "army",
+  "type": "hq",
+  "short": "E. Macedonia",
+  "names": [
+    {
+      "from": "1941-04-06",
+      "name": "Eastern Macedonia Army Section (TSAM)",
+      "aliases": [
+        "TSAM",
+        "Eastern Macedonia Army Section",
+        "Bakopoulos"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-10",
+      "end": "capitulated when Thessaloniki fell"
+    }
+  ],
+  "parents": [
+    {
+      "from": "1941-04-06",
+      "to": "1941-04-10",
+      "unit": "gr-ghq"
+    }
+  ],
+  "commanders": [
+    {
+      "from": "1941-04-06",
+      "name": "Lt.Gen. Konstantinos Bakopoulos"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-04-06",
+      "at": [
+        24.1,
+        41.25
+      ],
+      "label": "Manning the Metaxas Line on the Bulgarian frontier",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-04-09",
+      "at": [
+        23.5,
+        41.05
+      ],
+      "label": "Cut off as Thessaloniki falls",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-04-09",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Metaxas_Line"
+  },
+  "notes": "The Greek army section holding the Metaxas Line; surrendered 9 April 1941 when Thessaloniki fell behind it. Anti-Axis (blue, Greek flag). Route schematic."
+}
