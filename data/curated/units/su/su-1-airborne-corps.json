@@ -1,0 +1,51 @@
+{
+  "id": "su-1-airborne-corps",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "corps",
+  "type": "airborne",
+  "short": "1 VDK",
+  "names": [
+    {
+      "from": "1941-08-10",
+      "name": "1st Airborne Corps",
+      "aliases": [
+        "1-й воздушно-десантный корпус"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-08-10",
+      "to": "1941-09-26",
+      "end": "destroyed/reorganised"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-08-10",
+      "at": [
+        30.6,
+        50.45
+      ],
+      "label": "Fighting as infantry in the defence of Kiev",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1941-09-18",
+      "at": [
+        32.2,
+        50.1
+      ],
+      "label": "Caught in the Kiev encirclement",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1941-09-26",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Soviet_Airborne_Forces"
+  },
+  "notes": "Soviet airborne corps committed as infantry in 1941 (anti-Axis/blue). Route schematic."
+}

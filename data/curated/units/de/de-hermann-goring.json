@@ -1,0 +1,63 @@
+{
+  "id": "de-hermann-goring",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "division",
+  "type": "armoured",
+  "short": "HG",
+  "names": [
+    {
+      "from": "1944-07-27",
+      "name": "Fallschirm-Panzer Division \"Hermann Göring\"",
+      "aliases": [
+        "Hermann Göring",
+        "Fallschirm-Panzer-Division Hermann Göring",
+        "HG"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1944-07-27",
+      "to": "1945-05-08",
+      "end": "war's end"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1944-07-27",
+      "at": [
+        21.1,
+        52.35
+      ],
+      "label": "Counterattacking the Soviet drive on Warsaw (Radzymin)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-01-25",
+      "at": [
+        20,
+        54.2
+      ],
+      "label": "The defence of East Prussia (Heiligenbeil)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1945-04-25",
+      "at": [
+        14.6,
+        51.15
+      ],
+      "label": "The last battles around Bautzen",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-08",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/1st_Fallschirm-Panzer_Division_Hermann_G%C3%B6ring"
+  },
+  "notes": "Elite Luftwaffe armoured division on the Eastern Front, 1944-45. Route schematic."
+}

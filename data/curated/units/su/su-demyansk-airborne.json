@@ -1,0 +1,52 @@
+{
+  "id": "su-demyansk-airborne",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "brigade",
+  "type": "airborne",
+  "short": "Demyansk Abn",
+  "names": [
+    {
+      "from": "1942-02-18",
+      "name": "Maneuver Airborne Brigades (Demyansk)",
+      "aliases": [
+        "1st/2nd Maneuver Airborne Brigades",
+        "Demyansk raids"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-02-18",
+      "to": "1942-04-30",
+      "end": "absorbed"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-02-18",
+      "at": [
+        32.5,
+        57.65
+      ],
+      "label": "Airborne raids into the Demyansk pocket",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1942-04-01",
+      "at": [
+        32,
+        57.5
+      ],
+      "label": "Fighting in the German rear",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1942-04-30",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Demyansk_Pocket"
+  },
+  "notes": "Soviet airborne brigades raiding the Demyansk pocket, winter 1942 (anti-Axis/blue). Route schematic."
+}

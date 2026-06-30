@@ -1,0 +1,52 @@
+{
+  "id": "de-1-fj-division",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "division",
+  "type": "airborne",
+  "short": "1. FJ",
+  "names": [
+    {
+      "from": "1941-09-20",
+      "name": "1st Parachute Division",
+      "aliases": [
+        "1. Fallschirmjäger-Division",
+        "7. Flieger-Division"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1941-09-20",
+      "to": "1942-11-01",
+      "end": "transferred to the Mediterranean"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1941-09-20",
+      "at": [
+        31,
+        59.7
+      ],
+      "label": "Committed as ground infantry on the Neva (Leningrad)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1942-03-01",
+      "at": [
+        32.5,
+        54.9
+      ],
+      "label": "Anti-partisan operations near Smolensk",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1942-11-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/1st_Parachute_Division_(Germany)"
+  },
+  "notes": "German parachute division fighting as ground infantry on the northern Eastern Front, 1941-42. Route schematic."
+}

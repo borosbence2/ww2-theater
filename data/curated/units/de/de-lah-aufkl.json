@@ -1,0 +1,52 @@
+{
+  "id": "de-lah-aufkl",
+  "country": "DE",
+  "branch": "waffen-ss",
+  "echelon": "battalion",
+  "type": "recon",
+  "short": "LAH Aufkl",
+  "names": [
+    {
+      "from": "1943-02-20",
+      "name": "Leibstandarte Reconnaissance Battalion",
+      "aliases": [
+        "SS-Panzer-Aufklärungs-Abteilung 1 LSSAH",
+        "armoured reconnaissance"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1943-02-20",
+      "to": "1943-08-01",
+      "end": "transferred to Italy"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1943-02-20",
+      "at": [
+        36.2,
+        49.95
+      ],
+      "label": "Screening the recapture of Kharkov",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1943-07-08",
+      "at": [
+        36.4,
+        50.9
+      ],
+      "label": "Reconnaissance toward Prokhorovka (Kursk)",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1943-08-01",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/1st_SS_Panzer_Division_Leibstandarte_SS_Adolf_Hitler"
+  },
+  "notes": "Armoured reconnaissance battalion of the LSSAH (Kharkov, Kursk 1943). Route schematic."
+}

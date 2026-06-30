@@ -1,0 +1,62 @@
+{
+  "id": "su-razved-2",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "regiment",
+  "type": "recon",
+  "short": "Razved",
+  "names": [
+    {
+      "from": "1942-09-15",
+      "name": "Separate Reconnaissance Regiment (Stalingrad)",
+      "aliases": [
+        "отдельный разведывательный полк",
+        "forward reconnaissance"
+      ]
+    }
+  ],
+  "existence": [
+    {
+      "from": "1942-09-15",
+      "to": "1945-05-09",
+      "end": "war's end"
+    }
+  ],
+  "positions": [
+    {
+      "date": "1942-09-15",
+      "at": [
+        44.5,
+        48.72
+      ],
+      "label": "Reconnaissance in the Stalingrad fighting",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1943-08-01",
+      "at": [
+        38.5,
+        49.5
+      ],
+      "label": "Scouting the Donbas offensive",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    },
+    {
+      "date": "1944-08-20",
+      "at": [
+        27.5,
+        47.5
+      ],
+      "label": "Leading the Jassy–Kishinev breakthrough",
+      "source": "wikipedia-en",
+      "confidence": "inferred"
+    }
+  ],
+  "positionsTo": "1945-05-09",
+  "links": {
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Reconnaissance"
+  },
+  "notes": "Soviet forward reconnaissance regiment (Stalingrad onward, anti-Axis/blue). Route schematic."
+}
