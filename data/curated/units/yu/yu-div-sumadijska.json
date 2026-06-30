@@ -9,10 +9,11 @@
   "names": [
     {
       "from": "1941-04-06",
-      "name": "Šumadijska Division",
+      "name": "5th Infantry Division (Šumadijska)",
       "aliases": [
-        "Šumadijska Division",
-        "Šumadijska"
+        "5th Infantry Division (Šumadijska)",
+        "Šumadijska",
+        "Šumadijska Division"
       ]
     }
   ],
@@ -27,7 +28,7 @@
     {
       "from": "1941-04-06",
       "to": "1941-04-18",
-      "unit": "yu-army-6-1941"
+      "unit": "yu-army-3terr-1941"
     }
   ],
   "positions": [
@@ -44,7 +45,7 @@
     {
       "date": "1941-04-14",
       "at": [
-        19.6,
+        19.8,
         44
       ],
       "label": "Falling back as the country collapses",
@@ -54,7 +55,7 @@
   ],
   "positionsTo": "1941-04-17",
   "links": {
-    "wikipedia.en": "https://en.wikipedia.org/wiki/Royal_Yugoslav_Army"
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Yugoslav_order_of_battle_prior_to_the_invasion_of_Yugoslavia"
   },
-  "notes": "Royal Yugoslav division, April 1941, placed in its named recruitment region (anti-Axis/blue). Representative; positions inferred (the 11-day collapse)."
+  "notes": "Royal Yugoslav division, April 1941 (anti-Axis/blue), in its named recruitment region under the 3terr Army. Sector-level position (inferred)."
 }

@@ -1,0 +1,30 @@
+{
+  "id": "de-11-luftwaffe-field",
+  "country": "DE",
+  "branch": "luftwaffe",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "11 LwFD",
+  "names": [
+    {
+      "from": "1944-11-15",
+      "name": "11th Luftwaffe Field Division",
+      "aliases": ["11th Luftwaffe Field Division", "11. Luftwaffen-Felddivision"]
+    }
+  ],
+  "existence": [
+    { "from": "1944-11-01", "to": "1945-05-12", "end": "surrender" }
+  ],
+  "parents": [
+    { "from": "1944-11-01", "to": "1945-05-12", "unit": "de-h-hgr-e" }
+  ],
+  "positions": [
+    { "date": "1944-11-15", "at": [19.3, 44.75], "label": "Taking position on the southern Syrmian Front", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-01-20", "at": [19.15, 44.75], "label": "Holding the static winter line", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-04-13", "at": [17.4, 44.8], "label": "Breakthrough — falling back", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-05-08", "at": [15.8, 45.15], "label": "Retreating toward Zagreb/Austria", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1945-05-10",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Luftwaffe_Field_Divisions" },
+  "notes": "German division on the southern Syrmian Front, 1944-45 (one of the confirmed Army Group E divisions there). Sector-level position (inferred)."
+}

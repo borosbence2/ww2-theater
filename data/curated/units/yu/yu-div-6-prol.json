@@ -5,27 +5,28 @@
   "branch": "ja",
   "echelon": "division",
   "type": "infantry",
-  "short": "6 Prol",
+  "short": "6 Lika",
   "names": [
     {
-      "from": "1942-11-01",
-      "name": "6th Proletarian Division \"Nikola Tesla\"",
+      "from": "1942-11-22",
+      "name": "6th Lika Proletarian Division \"Nikola Tesla\"",
       "aliases": [
-        "6th Proletarian Division \"Nikola Tesla\"",
+        "6th Lika Proletarian Division \"Nikola Tesla\"",
+        "6th Lika Division",
         "6th Proletarian Division"
       ]
     }
   ],
   "existence": [
     {
-      "from": "1942-11-01",
+      "from": "1942-11-22",
       "to": "1945-05-15",
       "end": "war's end"
     }
   ],
   "parents": [
     {
-      "from": "1942-11-01",
+      "from": "1942-11-22",
       "to": "1945-01-01",
       "unit": "yu-partisans"
     },

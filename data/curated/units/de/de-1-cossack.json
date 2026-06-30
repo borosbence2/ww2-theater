@@ -31,32 +31,32 @@
   ],
   "positions": [
     {
-      "date": "1944-11-15",
+      "date": "1944-12-01",
       "at": [
-        19.3,
-        44.9
+        18.0,
+        45.85
       ],
-      "label": "The Syrmian Front forms",
+      "label": "On the Drava in southern Hungary",
       "source": "wikipedia-en",
       "confidence": "inferred"
     },
     {
-      "date": "1945-01-20",
+      "date": "1945-03-08",
       "at": [
-        19.15,
-        44.9
+        17.7,
+        45.95
       ],
-      "label": "Holding the static winter line",
+      "label": "Counter-attacking across the Drava (Spring Awakening)",
       "source": "wikipedia-en",
       "confidence": "inferred"
     },
     {
-      "date": "1945-04-13",
+      "date": "1945-04-15",
       "at": [
-        17.4,
-        44.95
+        16.8,
+        46.0
       ],
-      "label": "Breakthrough — falling back",
+      "label": "Falling back through Croatia",
       "source": "wikipedia-en",
       "confidence": "inferred"
     },
@@ -64,14 +64,14 @@
       "date": "1945-05-08",
       "at": [
         15.8,
-        45.3
+        45.75
       ],
-      "label": "Retreating toward Zagreb/Austria",
+      "label": "Toward the surrender",
       "source": "wikipedia-en",
       "confidence": "inferred"
     }
   ],
   "positionsTo": "1945-05-10",
-  "links": {},
-  "notes": "German division on the Syrmian Front, 1944-45 (Balkans-only; no Eastern-Front role here). Sector-level position (inferred)."
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/1st_Cossack_Cavalry_Division_(Germany)" },
+  "notes": "1st Cossack Cavalry Division (von Pannwitz) — fought on the Drava front in Croatia against the Bulgarian 1st Army, 1945. Balkans front (no Eastern-Front role here). Sector-level position (inferred)."
 }

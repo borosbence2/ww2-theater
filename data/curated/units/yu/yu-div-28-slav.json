@@ -1,0 +1,30 @@
+{
+  "id": "yu-div-28-slav",
+  "country": "YU",
+  "side": "soviet",
+  "branch": "ja",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "28 Slav",
+  "names": [
+    {
+      "from": "1945-01-01",
+      "name": "28th Slavonian Division",
+      "aliases": ["28th Slavonian Division", "28th Division"]
+    }
+  ],
+  "existence": [
+    { "from": "1945-01-01", "to": "1945-05-15", "end": "war's end" }
+  ],
+  "parents": [
+    { "from": "1945-01-01", "to": "1945-05-15", "unit": "yu-army-2" }
+  ],
+  "positions": [
+    { "date": "1945-01-15", "at": [17.5, 44.7], "label": "The central front in Bosnia", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-04-10", "at": [16.3, 45.4], "label": "Driving on the Una and Kupa", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1945-05-08", "at": [15.9, 45.85], "label": "Converging on Zagreb", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1945-05-12",
+  "links": {},
+  "notes": "Division of the 2nd Yugoslav Army (1st Army Group), 1945 (anti-Axis/blue). Sector-level position (inferred)."
+}

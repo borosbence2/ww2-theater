@@ -9,10 +9,11 @@
   "names": [
     {
       "from": "1941-04-06",
-      "name": "Vardarska Division",
+      "name": "25th Infantry Division (Vardarska)",
       "aliases": [
-        "Vardarska Division",
-        "Vardarska"
+        "25th Infantry Division (Vardarska)",
+        "Vardarska",
+        "Vardarska Division"
       ]
     }
   ],
@@ -34,7 +35,7 @@
     {
       "date": "1941-04-06",
       "at": [
-        21.55,
+        21.6,
         41.95
       ],
       "label": "Mobilised in its recruitment region",
@@ -44,7 +45,7 @@
     {
       "date": "1941-04-14",
       "at": [
-        20.6,
+        21.2,
         42.3
       ],
       "label": "Falling back as the country collapses",
@@ -54,7 +55,7 @@
   ],
   "positionsTo": "1941-04-17",
   "links": {
-    "wikipedia.en": "https://en.wikipedia.org/wiki/Royal_Yugoslav_Army"
+    "wikipedia.en": "https://en.wikipedia.org/wiki/Yugoslav_order_of_battle_prior_to_the_invasion_of_Yugoslavia"
   },
-  "notes": "Royal Yugoslav division, April 1941, placed in its named recruitment region (anti-Axis/blue). Representative; positions inferred (the 11-day collapse)."
+  "notes": "Royal Yugoslav division, April 1941 (anti-Axis/blue), in its named recruitment region under the 3 Army. Sector-level position (inferred)."
 }

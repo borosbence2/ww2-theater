@@ -1,19 +1,18 @@
 {
-  "id": "yu-div-bregalnicka",
+  "id": "yu-army-3terr-1941",
   "country": "YU",
   "side": "soviet",
   "branch": "vkj",
-  "echelon": "division",
-  "type": "infantry",
-  "short": "Bregalnica",
+  "echelon": "army",
+  "type": "hq",
+  "short": "3rd Terr.",
   "names": [
     {
       "from": "1941-04-06",
-      "name": "20th Infantry Division (Bregalnička)",
+      "name": "3rd Territorial Army",
       "aliases": [
-        "20th Infantry Division (Bregalnička)",
-        "Bregalnička",
-        "Bregalnička Division"
+        "3rd Territorial Army",
+        "3. armijska oblast"
       ]
     }
   ],
@@ -28,27 +27,27 @@
     {
       "from": "1941-04-06",
       "to": "1941-04-18",
-      "unit": "yu-army-3terr-1941"
+      "unit": "yu-ghq-1941"
     }
   ],
   "positions": [
     {
       "date": "1941-04-06",
       "at": [
-        22.5,
-        41.75
+        21.5,
+        43.2
       ],
-      "label": "Mobilised in its recruitment region",
+      "label": "Second-line army of the 3rd Army Group",
       "source": "wikipedia-en",
       "confidence": "inferred"
     },
     {
       "date": "1941-04-14",
       "at": [
-        21.8,
-        42.1
+        21,
+        43
       ],
-      "label": "Falling back as the country collapses",
+      "label": "Disintegrating as the country collapses",
       "source": "wikipedia-en",
       "confidence": "inferred"
     }
@@ -57,5 +56,5 @@
   "links": {
     "wikipedia.en": "https://en.wikipedia.org/wiki/Yugoslav_order_of_battle_prior_to_the_invasion_of_Yugoslavia"
   },
-  "notes": "Royal Yugoslav division, April 1941 (anti-Axis/blue), in its named recruitment region under the 3terr Army. Sector-level position (inferred)."
+  "notes": "Royal Yugoslav 3rd Territorial Army (3rd Army Group), April 1941 (anti-Axis/blue). Route schematic."
 }

@@ -32,7 +32,11 @@
   "commanders": [
     {
       "from": "1940-10-28",
-      "name": "Gen. Ioannis Pitsikas"
+      "name": "Lt.Gen. Ioannis Pitsikas"
+    },
+    {
+      "from": "1941-02-15",
+      "name": "Lt.Gen. Georgios Tsolakoglou"
     }
   ],
   "positions": [
