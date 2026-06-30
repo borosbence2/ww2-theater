@@ -9,7 +9,7 @@ export type EquipClass = 'tank' | 'spg' | 'recon' | 'artillery' | 'at' | 'aa' | 
 export interface EquipEntry {
   name: string;
   cls: EquipClass;
-  nation: 'DE' | 'SU';
+  nation: 'DE' | 'SU' | 'IT' | 'HU' | 'RO' | 'FI' | 'GB' | 'GR' | 'YU' | 'BG';
   spec: string;
   wiki: string;
 }
@@ -51,6 +51,48 @@ export const EQUIPMENT: Record<string, EquipEntry> = {
   mosin: { name: 'Mosin–Nagant', cls: 'infantry', nation: 'SU', spec: 'Bolt-action rifle', wiki: W('Mosin%E2%80%93Nagant') },
   'dp-28': { name: 'DP-27', cls: 'infantry', nation: 'SU', spec: 'Light machine gun', wiki: W('Degtyaryov_machine_gun') },
   ptrd: { name: 'PTRD-41', cls: 'at', nation: 'SU', spec: 'Anti-tank rifle', wiki: W('PTRD-41') },
+  // --- Italian (Regio Esercito) ---
+  carcano: { name: 'Carcano M91', cls: 'infantry', nation: 'IT', spec: 'Bolt-action rifle · 6.5 mm', wiki: W('Carcano') },
+  'breda-30': { name: 'Breda 30', cls: 'infantry', nation: 'IT', spec: 'Light machine gun', wiki: W('Breda_30') },
+  'beretta-38': { name: 'Beretta M38', cls: 'infantry', nation: 'IT', spec: 'Submachine gun', wiki: W('Beretta_Model_38') },
+  'mortaio-81': { name: 'Mortaio 81/14', cls: 'infantry', nation: 'IT', spec: '81 mm mortar', wiki: W('Mortaio_da_81/14_Modello_35') },
+  'm13-40': { name: 'M13/40', cls: 'tank', nation: 'IT', spec: 'Medium tank · 47 mm', wiki: W('Fiat_M13/40') },
+  'l3-35': { name: 'L3/35', cls: 'tank', nation: 'IT', spec: 'Tankette · 2× MG', wiki: W('L3/35') },
+  'semovente-75-18': { name: 'Semovente 75/18', cls: 'spg', nation: 'IT', spec: 'Assault gun · 75 mm', wiki: W('Semovente_da_75/18') },
+  'cannone-47-32': { name: 'Cannone 47/32', cls: 'at', nation: 'IT', spec: 'Anti-tank / infantry gun', wiki: W('Cannone_da_47/32') },
+  'obice-75-18': { name: 'Obice 75/18', cls: 'artillery', nation: 'IT', spec: 'Pack howitzer', wiki: W('Obice_da_75/18_modello_34') },
+  'obice-100-17': { name: 'Obice 100/17', cls: 'artillery', nation: 'IT', spec: 'Field howitzer', wiki: W('Obice_da_100/17') },
+  // --- Hungarian (Honvédség) ---
+  'hu-mannlicher': { name: '35M Mannlicher', cls: 'infantry', nation: 'HU', spec: 'Bolt-action rifle · 8 mm', wiki: W('Mannlicher_M1895') },
+  'hu-schwarzlose': { name: 'Schwarzlose MG', cls: 'infantry', nation: 'HU', spec: 'Heavy machine gun', wiki: W('Schwarzlose_machine_gun') },
+  turan: { name: 'Turán', cls: 'tank', nation: 'HU', spec: 'Medium tank · 40/75 mm', wiki: W('Tur%C3%A1n_(tank)') },
+  toldi: { name: 'Toldi', cls: 'tank', nation: 'HU', spec: 'Light tank · 20 mm', wiki: W('Toldi_(tank)') },
+  nimrod: { name: 'Nimród', cls: 'aa', nation: 'HU', spec: 'SP AA / anti-tank · 40 mm', wiki: W('40M_Nimr%C3%B3d') },
+  zrinyi: { name: 'Zrínyi', cls: 'spg', nation: 'HU', spec: 'Assault howitzer · 105 mm', wiki: W('43M_Zr%C3%ADnyi') },
+  // --- Romanian (Armata Română) ---
+  'ro-vz24': { name: 'md. 1924 (vz. 24)', cls: 'infantry', nation: 'RO', spec: 'Mauser rifle · 7.92 mm', wiki: W('Vz._24') },
+  'zb-30': { name: 'ZB vz. 30', cls: 'infantry', nation: 'RO', spec: 'Light machine gun', wiki: W('ZB_vz._30') },
+  'r-2-tank': { name: 'R-2', cls: 'tank', nation: 'RO', spec: 'Light tank (LT vz. 35)', wiki: W('LT_vz._35') },
+  'tacam-r2': { name: 'TACAM R-2', cls: 'spg', nation: 'RO', spec: 'Tank destroyer · 76 mm', wiki: W('TACAM_R-2') },
+  'bofors-37': { name: 'Bofors 37 mm', cls: 'at', nation: 'RO', spec: 'Anti-tank gun', wiki: W('Bofors_37_mm') },
+  'skoda-100': { name: 'Škoda 100 mm', cls: 'artillery', nation: 'RO', spec: 'Mountain/field howitzer', wiki: W('%C5%A0koda_100_mm_Model_1914') },
+  // --- Finnish (Maavoimat) ---
+  'fi-m39': { name: 'Rifle M/39', cls: 'infantry', nation: 'FI', spec: 'Finnish Mosin–Nagant', wiki: W('Mosin%E2%80%93Nagant') },
+  suomi: { name: 'Suomi KP/-31', cls: 'infantry', nation: 'FI', spec: 'Submachine gun', wiki: W('Suomi_KP/-31') },
+  'lahti-saloranta': { name: 'Lahti-Saloranta M/26', cls: 'infantry', nation: 'FI', spec: 'Light machine gun', wiki: W('Lahti-Saloranta_M/26') },
+  'lahti-l39': { name: 'Lahti L-39', cls: 'at', nation: 'FI', spec: '20 mm anti-tank rifle', wiki: W('Lahti_L-39') },
+  // --- British / Commonwealth ---
+  'lee-enfield': { name: 'Lee–Enfield', cls: 'infantry', nation: 'GB', spec: 'Bolt-action rifle · .303', wiki: W('Lee%E2%80%93Enfield') },
+  bren: { name: 'Bren', cls: 'infantry', nation: 'GB', spec: 'Light machine gun', wiki: W('Bren_light_machine_gun') },
+  sten: { name: 'Sten', cls: 'infantry', nation: 'GB', spec: 'Submachine gun', wiki: W('STEN') },
+  'qf-2pdr': { name: 'QF 2-pounder', cls: 'at', nation: 'GB', spec: 'Anti-tank gun', wiki: W('Ordnance_QF_2-pounder') },
+  'qf-25pdr': { name: 'QF 25-pounder', cls: 'artillery', nation: 'GB', spec: 'Field gun-howitzer', wiki: W('Ordnance_QF_25-pounder') },
+  // --- Greek / Yugoslav / Bulgarian ---
+  'gr-ms': { name: 'Mannlicher–Schönauer', cls: 'infantry', nation: 'GR', spec: 'Bolt-action rifle · 6.5 mm', wiki: W('Mannlicher%E2%80%93Sch%C3%B6nauer') },
+  'hotchkiss-mg': { name: 'Hotchkiss M1914', cls: 'infantry', nation: 'GR', spec: 'Heavy machine gun', wiki: W('Hotchkiss_M1914_machine_gun') },
+  'yu-m24': { name: 'M1924 Mauser', cls: 'infantry', nation: 'YU', spec: 'Bolt-action rifle · 7.92 mm', wiki: W('Zastava_M24') },
+  'zb-26': { name: 'ZB vz. 26', cls: 'infantry', nation: 'YU', spec: 'Light machine gun', wiki: W('ZB_vz._26') },
+  'bg-m95': { name: 'Mannlicher M95', cls: 'infantry', nation: 'BG', spec: 'Bolt-action rifle', wiki: W('Mannlicher_M1895') },
 };
 
 export const EQUIP_CLASS_LABEL: Record<EquipClass, string> = {
