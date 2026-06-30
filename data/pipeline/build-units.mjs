@@ -29,7 +29,7 @@ const FRONT = 'public/data/front/eastern-keyframes.json';
 const OUT_DIR = 'public/data/units';
 
 const ECHELONS = ['army-group', 'front', 'army', 'corps', 'division', 'brigade', 'regiment', 'battalion'];
-const TYPES = ['infantry', 'armoured', 'motorized', 'mechanized', 'cavalry', 'recon', 'artillery', 'antitank', 'airborne', 'hq'];
+const TYPES = ['infantry', 'armoured', 'motorized', 'mechanized', 'cavalry', 'recon', 'artillery', 'antitank', 'airborne', 'mountain', 'hq'];
 // Air-formation roles (units flagged `air:true`): map symbol + panel grouping.
 const AIR_TYPES = [
   'fighter', 'heavy-fighter', 'dive-bomber', 'ground-attack',
@@ -583,6 +583,9 @@ for (const u of units.values()) {
   if (!u.air) {
     if (/airborne/.test(id)) u.type = 'airborne';
     else if (/mechanized-(corps|brigade|division)/.test(id)) u.type = 'mechanized';
+    // Mountain troops: Gebirgs / mountain-rifle divisions (but NOT mountain
+    // cavalry, which stays cavalry) and the Italian Alpine divisions.
+    else if (/mountain-(rifle-)?division$/.test(id) || /^it-(julia|tridentina|cuneense|pusteria|taurinense)-division$/.test(id)) u.type = 'mountain';
   }
   if (!u.names?.length || !u.existence?.length) {
     err(id, `missing names/existence (echelon=${u.echelon}, keys=${Object.keys(u).join(',')})`);

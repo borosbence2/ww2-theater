@@ -14,6 +14,7 @@
 export type Branch =
   | 'hq'
   | 'infantry'
+  | 'mountain'
   | 'motorized'
   | 'mechanized'
   | 'armoured'
@@ -203,6 +204,10 @@ const ESTABLISHMENT: Record<string, { strength?: number; equipment?: EquipItem[]
   'Partisan Division (NOVJ)': { strength: 4000 },
   'Greek Infantry Division': { strength: 18000 },
   'British/Commonwealth Infantry Division': { strength: 18347 },
+  'Gebirgs-Division (mountain)': { strength: 13000 },
+  'Italian Alpine Division': { strength: 14000 },
+  'Romanian Mountain Division (vânători de munte)': { strength: 12000 },
+  'Soviet Mountain Rifle Division': { strength: 9000 },
 };
 
 // Notable equipment a formation fielded, as equipment-catalog ids (equipment.ts).
@@ -471,6 +476,41 @@ const gbBn = (): TemplateNode =>
         children: [x(3, n('platoon', 'infantry', 'Platoon', { children: [x(3, n('squad', 'infantry', 'Section · 1 Bren'))] }))],
       })),
       n('company', 'infantry', 'Support Company'),
+    ],
+  });
+// --- Mountain troops (Gebirgsjäger / Alpini / vânători de munte / горнострелки) ---
+const deGebJgBn = (): TemplateNode =>
+  n('battalion', 'mountain', 'Gebirgsjäger-Bataillon', {
+    children: [
+      x(3, n('company', 'mountain', 'Gebirgsjäger-Kompanie', {
+        children: [x(3, n('platoon', 'mountain', 'Zug', { children: [x(3, n('squad', 'mountain', 'Gruppe · 1 le.MG'))] }))],
+      })),
+      n('company', 'infantry', 'MG-Kompanie (schwere)'),
+    ],
+  });
+const itAlpBn = (): TemplateNode =>
+  n('battalion', 'mountain', 'Battaglione Alpini', {
+    children: [
+      x(3, n('company', 'mountain', 'Compagnia Alpini', {
+        children: [x(3, n('platoon', 'mountain', 'Plotone', { children: [x(2, n('squad', 'mountain', 'Squadra'))] }))],
+      })),
+      n('company', 'infantry', 'Compagnia armi (mortai)'),
+    ],
+  });
+const roVmBn = (): TemplateNode =>
+  n('battalion', 'mountain', 'Batalion de vânători de munte', {
+    children: [
+      x(3, n('company', 'mountain', 'Companie de vânători de munte', {
+        children: [x(3, n('platoon', 'mountain', 'Pluton', { children: [x(3, n('squad', 'mountain', 'Grupă'))] }))],
+      })),
+    ],
+  });
+const suMtnBn = (): TemplateNode =>
+  n('battalion', 'mountain', 'Mountain Rifle Battalion', {
+    children: [
+      x(3, n('company', 'mountain', 'Mountain Rifle Company', {
+        children: [x(3, n('platoon', 'mountain', 'Platoon', { children: [x(3, n('squad', 'mountain', 'Squad'))] }))],
+      })),
     ],
   });
 
@@ -920,6 +960,52 @@ export const TEMPLATES: FormationTemplate[] = [
       n('regiment', 'recon', 'Reconnaissance Regiment'),
       n('regiment', 'antitank', 'Anti-Tank Regiment RA'),
       n('battalion', 'engineer', 'Royal Engineers'),
+    ],
+  },
+  // --- Mountain divisions (sub-variant: mountain troops) ------------------
+  {
+    side: 'axis', echelon: 'division', types: ['mountain'], from: '1940-01-01', to: '1945-12-31',
+    name: 'Gebirgs-Division (mountain)',
+    note: 'German mountain division: two Gebirgsjäger regiments and a pack-artillery regiment.',
+    components: [
+      x(2, n('regiment', 'mountain', 'Gebirgsjäger-Regiment', { children: [x(3, deGebJgBn())] })),
+      n('regiment', 'artillery', 'Gebirgs-Artillerie-Regiment', { children: [x(3, n('battalion', 'artillery', 'Gebirgs-Artillerie-Abteilung'))] }),
+      n('battalion', 'recon', 'Gebirgs-Aufklärungs-Abteilung'),
+      n('battalion', 'antitank', 'Panzerjäger-Abteilung'),
+      n('battalion', 'engineer', 'Gebirgs-Pionier-Bataillon'),
+      n('battalion', 'signals', 'Gebirgs-Nachrichten-Abteilung'),
+    ],
+  },
+  {
+    side: 'axis', nation: 'it', echelon: 'division', types: ['mountain'], from: '1940-01-01', to: '1943-12-31',
+    name: 'Italian Alpine Division',
+    note: 'Two Alpini regiments — battalions bear their home-valley names (e.g. Tolmezzo, Edolo, Ceva) — with a pack (someggiata) artillery regiment.',
+    components: [
+      x(2, n('regiment', 'mountain', 'Reggimento Alpini', { children: [x(3, itAlpBn())] })),
+      n('regiment', 'artillery', 'Reggimento Artiglieria Alpina', { children: [x(3, n('battalion', 'artillery', 'Gruppo someggiato'))] }),
+      n('battalion', 'engineer', 'Battaglione genio alpino'),
+    ],
+  },
+  {
+    side: 'axis', nation: 'ro', echelon: 'division', types: ['mountain'], from: '1941-01-01', to: '1945-12-31',
+    name: 'Romanian Mountain Division (vânători de munte)',
+    note: 'Mountain-hunter groups, each of several battalions, with mountain (pack) artillery.',
+    components: [
+      x(2, n('brigade', 'mountain', 'Grup de Vânători de Munte', { children: [x(3, roVmBn())] })),
+      n('regiment', 'artillery', 'Regiment de Artilerie de Munte', { children: [x(2, n('battalion', 'artillery', 'Divizion de munte'))] }),
+      n('battalion', 'recon', 'Escadron de cercetare'),
+      n('battalion', 'engineer', 'Companie de pionieri'),
+    ],
+  },
+  {
+    side: 'soviet', echelon: 'division', types: ['mountain'], from: '1941-01-01', to: '1945-12-31',
+    name: 'Soviet Mountain Rifle Division',
+    note: 'Four small mountain rifle regiments with pack artillery — for the Caucasus and Crimea.',
+    components: [
+      x(4, n('regiment', 'mountain', 'Mountain Rifle Regiment', { children: [x(3, suMtnBn())] })),
+      n('regiment', 'artillery', 'Mountain Artillery Regiment', { children: [x(2, n('battalion', 'artillery', 'Pack Artillery Battalion'))] }),
+      n('company', 'recon', 'Reconnaissance Company'),
+      n('battalion', 'engineer', 'Sapper Battalion'),
     ],
   },
 ];

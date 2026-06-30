@@ -430,7 +430,7 @@ function doctrinalFeatures(
 }
 
 const DOCTRINAL_BRANCHES = [
-  'infantry', 'armoured', 'motorized', 'mechanized', 'cavalry', 'recon',
+  'infantry', 'mountain', 'armoured', 'motorized', 'mechanized', 'cavalry', 'recon',
   'artillery', 'antitank', 'engineer', 'signals', 'support', 'hq',
 ];
 
@@ -709,6 +709,19 @@ function makeIcon(
     diag(cx - r, topY, cx, payY);
     diag(cx + r, topY, cx, payY);
     diag(cx, topY, cx, payY);
+  }
+  if (type === 'mountain') {
+    // mountain range: two peaks (/\/\) — distinct from the antitank chevron
+    const baseY = iy + ih * 0.74;
+    const topY = iy + ih * 0.26;
+    const midY = iy + ih * 0.52;
+    ctx.beginPath();
+    ctx.moveTo(ix + iw * 0.08, baseY);
+    ctx.lineTo(ix + iw * 0.3, topY);
+    ctx.lineTo(ix + iw * 0.5, midY);
+    ctx.lineTo(ix + iw * 0.7, topY);
+    ctx.lineTo(ix + iw * 0.92, baseY);
+    ctx.stroke();
   }
   // type === 'hq' -> empty frame (no symbol)
 
