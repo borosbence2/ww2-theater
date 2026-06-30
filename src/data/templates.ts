@@ -43,6 +43,10 @@ export interface EquipItem {
 
 export interface FormationTemplate {
   side: 'axis' | 'soviet';
+  /** Nation (id prefix: ro/hu/it/fi/bg/yu/gr/gb…). Omitted = the side default
+   *  (German for axis, Soviet for soviet), used as the fallback when no
+   *  nation-specific template matches. */
+  nation?: string;
   echelon: string;
   types: string[];
   from: string;
@@ -183,6 +187,18 @@ const ESTABLISHMENT: Record<string, { strength?: number; equipment?: EquipItem[]
       { name: 'Guns & mortars', count: 36 },
     ],
   },
+  // Minor powers — nominal establishment (paper) strengths.
+  'Romanian Infantry Division': { strength: 17500 },
+  'Romanian Cavalry Division': { strength: 6500 },
+  'Hungarian Infantry Division (honvéd)': { strength: 13000 },
+  'Hungarian Cavalry Division (huszár)': { strength: 6000 },
+  'Hungarian Armoured Division (páncéloshadosztály)': { strength: 12000 },
+  'Italian Infantry Division (binary)': { strength: 13000 },
+  'Italian Armoured Division': { strength: 8600 },
+  'Italian Motorized Division': { strength: 10500 },
+  'Finnish Infantry Division': { strength: 14200 },
+  'Finnish Cavalry Brigade': { strength: 3500 },
+  'Bulgarian Infantry Division': { strength: 15000 },
 };
 
 // Notable equipment a formation fielded, as equipment-catalog ids (equipment.ts).
@@ -368,6 +384,53 @@ const suMotorRifleBn = (): TemplateNode =>
         }),
       ),
       n('company', 'infantry', 'Machine-Gun Company'),
+    ],
+  });
+
+// --- Minor-power rifle battalions (native terminology) ----------------------
+const roInfBn = (): TemplateNode =>
+  n('battalion', 'infantry', 'Batalion de infanterie', {
+    children: [
+      x(3, n('company', 'infantry', 'Companie de infanterie', {
+        children: [x(3, n('platoon', 'infantry', 'Pluton', { children: [x(3, n('squad', 'infantry', 'Grupă · 1 ZB-30'))] }))],
+      })),
+      n('company', 'infantry', 'Companie de mitraliere'),
+    ],
+  });
+const huInfBn = (): TemplateNode =>
+  n('battalion', 'infantry', 'Zászlóalj', {
+    children: [
+      x(3, n('company', 'infantry', 'Század', {
+        children: [x(3, n('platoon', 'infantry', 'Szakasz', { children: [x(3, n('squad', 'infantry', 'Raj · 1 golyószóró'))] }))],
+      })),
+      n('company', 'infantry', 'Géppuskás század'),
+    ],
+  });
+const itInfBn = (): TemplateNode =>
+  n('battalion', 'infantry', 'Battaglione', {
+    children: [
+      x(3, n('company', 'infantry', 'Compagnia', {
+        children: [x(3, n('platoon', 'infantry', 'Plotone', { children: [x(2, n('squad', 'infantry', 'Squadra · 1 Breda 30'))] }))],
+      })),
+      n('company', 'infantry', 'Compagnia mitraglieri'),
+    ],
+  });
+const fiInfBn = (): TemplateNode =>
+  n('battalion', 'infantry', 'Pataljoona', {
+    children: [
+      x(3, n('company', 'infantry', 'Komppania', {
+        children: [x(3, n('platoon', 'infantry', 'Joukkue', { children: [x(4, n('squad', 'infantry', 'Ryhmä · 1 pikakivääri'))] }))],
+      })),
+      n('company', 'infantry', 'Konekiväärikomppania'),
+    ],
+  });
+const bgInfBn = (): TemplateNode =>
+  n('battalion', 'infantry', 'Дружина', {
+    children: [
+      x(3, n('company', 'infantry', 'Рота', {
+        children: [x(3, n('platoon', 'infantry', 'Взвод', { children: [x(3, n('squad', 'infantry', 'Отделение'))] }))],
+      })),
+      n('company', 'infantry', 'Картечна рота'),
     ],
   });
 
@@ -638,33 +701,167 @@ export const TEMPLATES: FormationTemplate[] = [
       n('battalion', 'artillery', 'Artillery Battalion'),
     ],
   },
+  // --- Romania (Armata Română) -------------------------------------------
+  {
+    side: 'axis', nation: 'ro', echelon: 'division', types: ['infantry'], from: '1941-01-01', to: '1945-12-31',
+    name: 'Romanian Infantry Division',
+    note: 'Three infantry regiments (some "Dorobanți" territorial) and two artillery regiments — French-pattern.',
+    components: [
+      x(3, n('regiment', 'infantry', 'Regiment de Infanterie', {
+        children: [x(3, roInfBn()), n('company', 'artillery', 'Companie de artilerie'), n('company', 'antitank', 'Companie anticar')],
+      })),
+      x(2, n('regiment', 'artillery', 'Regiment de Artilerie', { children: [x(3, n('battalion', 'artillery', 'Divizion'))] })),
+      n('battalion', 'recon', 'Escadron de cercetare'),
+      n('battalion', 'antitank', 'Divizion anticar'),
+      n('battalion', 'engineer', 'Batalion de pionieri'),
+      n('battalion', 'signals', 'Companie de transmisiuni'),
+    ],
+  },
+  {
+    side: 'axis', nation: 'ro', echelon: 'division', types: ['cavalry'], from: '1941-01-01', to: '1945-12-31',
+    name: 'Romanian Cavalry Division',
+    note: 'Roșiori (line) and Călărași (territorial) cavalry regiments with horse artillery.',
+    components: [
+      x(3, n('regiment', 'cavalry', 'Regiment de Roșiori / Călărași', {
+        children: [x(4, n('squad', 'cavalry', 'Escadron', { children: [x(3, n('platoon', 'cavalry', 'Pluton'))] }))],
+      })),
+      n('regiment', 'artillery', 'Regiment de Artilerie Călăreață', { children: [x(2, n('battalion', 'artillery', 'Divizion'))] }),
+      n('battalion', 'recon', 'Escadron blindat (care de luptă)'),
+      n('battalion', 'antitank', 'Divizion anticar'),
+    ],
+  },
+  // --- Hungary (Honvédség) ------------------------------------------------
+  {
+    side: 'axis', nation: 'hu', echelon: 'division', types: ['infantry'], from: '1941-01-01', to: '1945-12-31',
+    name: 'Hungarian Infantry Division (honvéd)',
+    note: 'Honvéd division: three infantry regiments (two in the early "light divisions") around an artillery regiment.',
+    components: [
+      x(3, n('regiment', 'infantry', 'Gyalogezred', {
+        children: [x(3, huInfBn()), n('company', 'artillery', 'Ágyús üteg'), n('company', 'antitank', 'Páncéltörő század')],
+      })),
+      n('regiment', 'artillery', 'Tüzérezred', { children: [x(3, n('battalion', 'artillery', 'Osztály'))] }),
+      n('battalion', 'recon', 'Felderítő-zászlóalj'),
+      n('battalion', 'antitank', 'Páncéltörő-osztály'),
+      n('battalion', 'engineer', 'Utászzászlóalj'),
+      n('battalion', 'signals', 'Híradó-század'),
+    ],
+  },
+  {
+    side: 'axis', nation: 'hu', echelon: 'division', types: ['cavalry'], from: '1941-01-01', to: '1945-12-31',
+    name: 'Hungarian Cavalry Division (huszár)',
+    components: [
+      x(3, n('regiment', 'cavalry', 'Huszárezred', { children: [x(4, n('squad', 'cavalry', 'Lovasszázad'))] })),
+      n('battalion', 'armoured', 'Harckocsi-zászlóalj'),
+      n('regiment', 'artillery', 'Lovastüzér-osztály'),
+      n('battalion', 'recon', 'Kerékpáros-zászlóalj'),
+    ],
+  },
+  {
+    side: 'axis', nation: 'hu', echelon: 'division', types: ['armoured'], from: '1941-01-01', to: '1945-12-31',
+    name: 'Hungarian Armoured Division (páncéloshadosztály)',
+    components: [
+      n('regiment', 'armoured', 'Harckocsiezred', { children: [x(2, n('battalion', 'armoured', 'Harckocsizászlóalj'))] }),
+      x(2, n('regiment', 'motorized', 'Gépkocsizó lövészezred', { children: [x(3, huInfBn())] })),
+      n('regiment', 'artillery', 'Gépvontatású tüzérezred', { children: [x(3, n('battalion', 'artillery', 'Osztály'))] }),
+      n('battalion', 'recon', 'Felderítő-zászlóalj'),
+      n('battalion', 'antiair', 'Légvédelmi gépágyús osztály'),
+    ],
+  },
+  // --- Italy (Regio Esercito) --------------------------------------------
+  {
+    side: 'axis', nation: 'it', echelon: 'division', types: ['infantry'], from: '1940-01-01', to: '1945-12-31',
+    name: 'Italian Infantry Division (binary)',
+    note: 'The 1938 "binary" division — only TWO infantry regiments, plus an attached Blackshirt (CC.NN.) legion.',
+    components: [
+      x(2, n('regiment', 'infantry', 'Reggimento di Fanteria', {
+        children: [x(3, itInfBn()), n('company', 'artillery', 'Compagnia cannoni (65/17)'), n('company', 'antitank', 'Compagnia controcarri (47/32)')],
+      })),
+      n('regiment', 'artillery', 'Reggimento di Artiglieria', { children: [x(3, n('battalion', 'artillery', 'Gruppo'))] }),
+      n('regiment', 'infantry', 'Legione CC.NN. (Camicie Nere)', { children: [x(2, n('battalion', 'infantry', 'Battaglione CC.NN.'))] }),
+      n('battalion', 'infantry', 'Battaglione mortai (81)'),
+      n('battalion', 'engineer', 'Battaglione genio'),
+    ],
+  },
+  {
+    side: 'axis', nation: 'it', echelon: 'division', types: ['armoured'], from: '1940-01-01', to: '1945-12-31',
+    name: 'Italian Armoured Division',
+    components: [
+      n('regiment', 'armoured', 'Reggimento Fanteria Carrista', { children: [x(3, n('battalion', 'armoured', 'Battaglione carri'))] }),
+      n('regiment', 'motorized', 'Reggimento Bersaglieri', { children: [x(3, n('battalion', 'motorized', 'Battaglione bersaglieri'))] }),
+      n('regiment', 'artillery', 'Reggimento Artiglieria', { children: [x(3, n('battalion', 'artillery', 'Gruppo'))] }),
+      n('battalion', 'recon', 'Gruppo esplorante (autoblindo)'),
+    ],
+  },
+  {
+    side: 'axis', nation: 'it', echelon: 'division', types: ['motorized'], from: '1940-01-01', to: '1945-12-31',
+    name: 'Italian Motorized Division',
+    components: [
+      x(2, n('regiment', 'infantry', 'Reggimento di Fanteria (autotrasportabile)', { children: [x(3, itInfBn())] })),
+      n('regiment', 'infantry', 'Reggimento Bersaglieri'),
+      n('regiment', 'artillery', 'Reggimento di Artiglieria', { children: [x(3, n('battalion', 'artillery', 'Gruppo'))] }),
+      n('battalion', 'engineer', 'Battaglione genio'),
+    ],
+  },
+  // --- Finland (Maavoimat) -----------------------------------------------
+  {
+    side: 'axis', nation: 'fi', echelon: 'division', types: ['infantry'], from: '1941-01-01', to: '1945-12-31',
+    name: 'Finnish Infantry Division',
+    note: 'Three infantry regiments (JR) and a field artillery regiment.',
+    components: [
+      x(3, n('regiment', 'infantry', 'Jalkaväkirykmentti (JR)', { children: [x(3, fiInfBn())] })),
+      n('regiment', 'artillery', 'Kenttätykistörykmentti', { children: [x(3, n('battalion', 'artillery', 'Patteristo'))] }),
+      n('battalion', 'recon', 'Erillinen pataljoona (jääkäri)'),
+      n('battalion', 'antitank', 'Panssarintorjuntakomppania'),
+      n('battalion', 'engineer', 'Pioneeripataljoona'),
+    ],
+  },
+  {
+    side: 'axis', nation: 'fi', echelon: 'brigade', types: ['cavalry'], from: '1941-01-01', to: '1945-12-31',
+    name: 'Finnish Cavalry Brigade',
+    components: [
+      x(2, n('regiment', 'cavalry', 'Ratsuväkirykmentti', { children: [x(4, n('squad', 'cavalry', 'Eskadroona'))] })),
+      n('battalion', 'artillery', 'Ratsastava patteristo'),
+    ],
+  },
+  // --- Bulgaria -----------------------------------------------------------
+  {
+    side: 'soviet', nation: 'bg', echelon: 'division', types: ['infantry'], from: '1941-01-01', to: '1945-12-31',
+    name: 'Bulgarian Infantry Division',
+    note: 'Three infantry regiments and an artillery regiment.',
+    components: [
+      x(3, n('regiment', 'infantry', 'Пехотен полк', { children: [x(3, bgInfBn())] })),
+      n('regiment', 'artillery', 'Артилерийски полк', { children: [x(3, n('battalion', 'artillery', 'Дивизион'))] }),
+      n('battalion', 'recon', 'Разузнавателен отряд'),
+      n('battalion', 'engineer', 'Пионерна дружина'),
+    ],
+  },
 ];
 
-/** Best-matching template for a unit, or null. Type match beats wildcard; among
- *  date-valid candidates the latest `from` wins (closest preceding era). */
+/** Best-matching template for a unit, or null. A nation-specific template (e.g.
+ *  Romanian, Hungarian, Italian) is preferred; failing that, the side default
+ *  (German for axis, Soviet for soviet — templates with no `nation`) is used, so
+ *  minor-power divisions show their own order of battle, not a German/Soviet one.
+ *  Type match beats wildcard; among date-valid candidates the latest `from` wins. */
 export function matchTemplate(
+  nation: string,
   side: 'axis' | 'soviet',
   echelon: string,
   type: string,
   dateISO: string,
 ): FormationTemplate | null {
-  const inWindow = TEMPLATES.filter(
-    (t) =>
-      t.side === side &&
-      t.echelon === echelon &&
-      (t.types.includes(type) || t.types.includes('*')) &&
-      dateISO >= t.from &&
-      dateISO <= t.to,
-  );
   const withEstablishment = (t: FormationTemplate | undefined): FormationTemplate | null =>
     t ? { ...t, ...ESTABLISHMENT[t.name], equipmentRefs: EQUIP_REFS[t.name] } : null;
-  if (inWindow.length) {
-    return withEstablishment(inWindow.sort((a, b) => b.from.localeCompare(a.from))[0]);
-  }
-  // No date-valid template: fall back to the nearest era for this type so a
-  // unit selected outside the curated windows still shows a sensible structure.
-  const anyEra = TEMPLATES.filter(
-    (t) => t.side === side && t.echelon === echelon && (t.types.includes(type) || t.types.includes('*')),
-  );
-  return withEstablishment(anyEra.sort((a, b) => b.from.localeCompare(a.from))[0]);
+  const echType = (t: FormationTemplate): boolean =>
+    t.echelon === echelon && (t.types.includes(type) || t.types.includes('*'));
+  const pick = (pool: FormationTemplate[]): FormationTemplate | null => {
+    if (!pool.length) return null;
+    const inWindow = pool.filter((t) => dateISO >= t.from && dateISO <= t.to);
+    const set = inWindow.length ? inWindow : pool; // else nearest era
+    return withEstablishment(set.sort((a, b) => b.from.localeCompare(a.from))[0]);
+  };
+  // 1) nation-specific (matched by nation, regardless of the axis/soviet side).
+  const nat = pick(TEMPLATES.filter((t) => t.nation === nation && echType(t)));
+  if (nat) return nat;
+  // 2) side default: the un-tagged German (axis) / Soviet (soviet) templates.
+  return pick(TEMPLATES.filter((t) => !t.nation && t.side === side && echType(t)));
 }

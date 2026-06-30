@@ -300,7 +300,8 @@ export function UnitPanel({ id, onClose }: { id: string; onClose?: () => void })
   // Air formations: doctrinal ground TO&E templates don't apply — the Aircraft
   // section carries the structure instead.
   const isAir = !!unit.air;
-  const template = isAir ? null : matchTemplate(unit.side, unit.echelon, unit.type, date);
+  const nation = unit.id.slice(0, unit.id.indexOf('-'));
+  const template = isAir ? null : matchTemplate(nation, unit.side, unit.echelon, unit.type, date);
   const activeAir = isAir ? aircraftActiveOn(unit.aircraft, d) : [];
   const radiusKm = (activeAir.length ? activeAir : isAir ? (unit.aircraft ?? []) : []).reduce(
     (m, a) => Math.max(m, AIRCRAFT[a.id]?.radius ?? 0),
