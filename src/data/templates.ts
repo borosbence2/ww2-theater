@@ -220,6 +220,9 @@ const ESTABLISHMENT: Record<string, { strength?: number; equipment?: EquipItem[]
   'Hungarian Light Division (könnyű hadosztály)': { strength: 10000 },
   'Fallschirmjäger-Division': { strength: 16000 },
   'Airborne / Guards Airborne Division': { strength: 10000 },
+  'Alpine Division "Julia"': { strength: 16000 },
+  'Alpine Division "Tridentina"': { strength: 16000 },
+  'Alpine Division "Cuneense"': { strength: 15000 },
 };
 
 // Notable equipment a formation fielded, as equipment-catalog ids (equipment.ts).
@@ -566,6 +569,11 @@ const suAbnBn = (): TemplateNode =>
       n('company', 'infantry', 'Machine-Gun Company'),
     ],
   });
+// A named Alpini battalion (battalions carry their home-valley/town name).
+const alpBn = (name: string): TemplateNode =>
+  n('battalion', 'mountain', `Btg. Alpini "${name}"`, { children: itAlpBn().children });
+const alpRgt = (num: string, bns: string[]): TemplateNode =>
+  n('regiment', 'mountain', `${num} Reggimento Alpini`, { children: bns.map(alpBn) });
 
 export const TEMPLATES: FormationTemplate[] = [
   // --- German -------------------------------------------------------------
@@ -1145,6 +1153,40 @@ export const TEMPLATES: FormationTemplate[] = [
       n('regiment', 'artillery', 'Artillery Regiment', { children: [x(2, n('battalion', 'artillery', 'Battalion'))] }),
       n('battalion', 'antitank', 'Anti-Tank Battalion'),
       n('battalion', 'engineer', 'Sapper Battalion'),
+    ],
+  },
+  // --- The three Alpine divisions of the Don (ARMIR), with named battalions ---
+  {
+    side: 'axis', nation: 'it', idMatch: 'julia', echelon: 'division', types: ['mountain'], from: '1940-01-01', to: '1943-12-31',
+    name: 'Alpine Division "Julia"',
+    note: 'The 8th and 9th Alpini, lost on the Don in January 1943. Battalions named for their home valleys.',
+    components: [
+      alpRgt('8°', ['Tolmezzo', 'Gemona', 'Cividale']),
+      alpRgt('9°', ['Vicenza', "L'Aquila", 'Val Cismon']),
+      n('regiment', 'artillery', '3° Reggimento Artiglieria Alpina', { children: [n('battalion', 'artillery', 'Gr. "Conegliano"'), n('battalion', 'artillery', 'Gr. "Udine"'), n('battalion', 'artillery', 'Gr. "Val Piave"')] }),
+      n('battalion', 'engineer', 'Battaglione genio alpino'),
+    ],
+  },
+  {
+    side: 'axis', nation: 'it', idMatch: 'tridentina', echelon: 'division', types: ['mountain'], from: '1940-01-01', to: '1943-12-31',
+    name: 'Alpine Division "Tridentina"',
+    note: 'The 5th and 6th Alpini — "Tridentina avanti!" — which led the breakout from the Don, January 1943.',
+    components: [
+      alpRgt('5°', ['Morbegno', 'Tirano', 'Edolo']),
+      alpRgt('6°', ['Vestone', 'Verona', 'Val Chiese']),
+      n('regiment', 'artillery', '2° Reggimento Artiglieria Alpina', { children: [n('battalion', 'artillery', 'Gr. "Bergamo"'), n('battalion', 'artillery', 'Gr. "Vicenza"'), n('battalion', 'artillery', 'Gr. "Val Camonica"')] }),
+      n('battalion', 'engineer', 'Battaglione genio alpino'),
+    ],
+  },
+  {
+    side: 'axis', nation: 'it', idMatch: 'cuneense', echelon: 'division', types: ['mountain'], from: '1940-01-01', to: '1943-12-31',
+    name: 'Alpine Division "Cuneense"',
+    note: 'The 1st and 2nd Alpini, destroyed on the Don retreat, January 1943.',
+    components: [
+      alpRgt('1°', ['Ceva', 'Pieve di Teco', 'Mondovì']),
+      alpRgt('2°', ['Borgo San Dalmazzo', 'Dronero', 'Saluzzo']),
+      n('regiment', 'artillery', '4° Reggimento Artiglieria Alpina', { children: [n('battalion', 'artillery', 'Gr. "Pinerolo"'), n('battalion', 'artillery', 'Gr. "Mondovì"'), n('battalion', 'artillery', 'Gr. "Val Po"')] }),
+      n('battalion', 'engineer', 'Battaglione genio alpino'),
     ],
   },
 ];
