@@ -398,7 +398,7 @@ function doctrinalFeatures(
   if (hasCurated) return EMPTY;
   const at = positionForId(focus, dateISO, d, line);
   if (!at) return EMPTY;
-  const tmpl = matchTemplate(nationOf(focus), fu.side, fu.echelon, fu.type, dateISO);
+  const tmpl = matchTemplate(nationOf(focus), focus, fu.side, fu.echelon, fu.type, dateISO);
   if (!tmpl) return EMPTY;
   // Top-level organic components, expanded by count (capped to keep it legible).
   const items: { label: string; branch: string; ech: string }[] = [];
@@ -430,7 +430,7 @@ function doctrinalFeatures(
 }
 
 const DOCTRINAL_BRANCHES = [
-  'infantry', 'mountain', 'armoured', 'motorized', 'mechanized', 'cavalry', 'recon',
+  'infantry', 'mountain', 'airborne', 'armoured', 'motorized', 'mechanized', 'cavalry', 'recon',
   'artillery', 'antitank', 'engineer', 'signals', 'support', 'hq',
 ];
 
@@ -1139,8 +1139,8 @@ function tipHTML(p: Record<string, unknown>): string {
   const echelon = String(p.echelon ?? '');
   const type = String(p.type ?? '');
   const meta = [ECH_MARK[echelon] ?? '', type.toUpperCase()].filter(Boolean);
-  const nation = nationOf(String(p.id ?? ''));
-  const tmpl = echelon && type ? matchTemplate(nation, side, echelon, type, lastDateISO) : null;
+  const pid = String(p.id ?? '');
+  const tmpl = echelon && type ? matchTemplate(nationOf(pid), pid, side, echelon, type, lastDateISO) : null;
   if (tmpl?.strength) meta.push(`~${tmpl.strength.toLocaleString()} est.`);
   if (p.derived === true) meta.push('derived');
   return (

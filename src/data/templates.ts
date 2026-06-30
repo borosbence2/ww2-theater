@@ -15,6 +15,7 @@ export type Branch =
   | 'hq'
   | 'infantry'
   | 'mountain'
+  | 'airborne'
   | 'motorized'
   | 'mechanized'
   | 'armoured'
@@ -48,6 +49,10 @@ export interface FormationTemplate {
    *  (German for axis, Soviet for soviet), used as the fallback when no
    *  nation-specific template matches. */
   nation?: string;
+  /** Optional sub-variant gate: a regex (as a string) the unit id must match for
+   *  this template to apply (e.g. 'guards', '-ss-', 'ja[e]?ger'). A variant
+   *  template is preferred over the generic one of the same nation/side. */
+  idMatch?: string;
   echelon: string;
   types: string[];
   from: string;
@@ -208,6 +213,13 @@ const ESTABLISHMENT: Record<string, { strength?: number; equipment?: EquipItem[]
   'Italian Alpine Division': { strength: 14000 },
   'Romanian Mountain Division (vânători de munte)': { strength: 12000 },
   'Soviet Mountain Rifle Division': { strength: 9000 },
+  'Guards Rifle Division': { strength: 10500 },
+  'SS-Panzer-Division': { strength: 19000 },
+  'SS-Panzergrenadier-Division': { strength: 15000 },
+  'Jäger-Division (light)': { strength: 12700 },
+  'Hungarian Light Division (könnyű hadosztály)': { strength: 10000 },
+  'Fallschirmjäger-Division': { strength: 16000 },
+  'Airborne / Guards Airborne Division': { strength: 10000 },
 };
 
 // Notable equipment a formation fielded, as equipment-catalog ids (equipment.ts).
@@ -511,6 +523,47 @@ const suMtnBn = (): TemplateNode =>
       x(3, n('company', 'mountain', 'Mountain Rifle Company', {
         children: [x(3, n('platoon', 'mountain', 'Platoon', { children: [x(3, n('squad', 'mountain', 'Squad'))] }))],
       })),
+    ],
+  });
+// --- Sub-variant building blocks (Guards / Waffen-SS / Jäger / airborne) -----
+const suGdRifleBn = (): TemplateNode =>
+  n('battalion', 'infantry', 'Guards Rifle Battalion', {
+    children: [
+      x(3, n('company', 'infantry', 'Guards Rifle Company', {
+        children: [
+          x(3, n('platoon', 'infantry', 'Rifle Platoon', { children: [x(4, n('squad', 'infantry', 'Rifle Squad'))] })),
+          n('platoon', 'infantry', 'SMG Platoon (PPSh)'),
+        ],
+      })),
+      n('company', 'infantry', 'Machine-Gun Company'),
+      n('company', 'artillery', 'Mortar Company (82 mm)'),
+    ],
+  });
+const ssPzGrenBn = (): TemplateNode =>
+  n('battalion', 'motorized', 'SS-Panzergrenadier-Bataillon', {
+    children: [
+      x(3, n('company', 'motorized', 'SS-Panzergrenadier-Kompanie', {
+        children: [x(3, n('platoon', 'motorized', 'Zug', { children: [x(4, n('squad', 'motorized', 'Gruppe (SPW) · 2 MG'))] }))],
+      })),
+      n('company', 'motorized', 'schwere Kompanie'),
+    ],
+  });
+const deFJBn = (): TemplateNode =>
+  n('battalion', 'airborne', 'Fallschirmjäger-Bataillon', {
+    children: [
+      x(3, n('company', 'airborne', 'Fallschirmjäger-Kompanie', {
+        children: [x(3, n('platoon', 'airborne', 'Zug', { children: [x(3, n('squad', 'airborne', 'Gruppe · 2 MG42'))] }))],
+      })),
+      n('company', 'airborne', 'schwere Kompanie'),
+    ],
+  });
+const suAbnBn = (): TemplateNode =>
+  n('battalion', 'airborne', 'Airborne Battalion', {
+    children: [
+      x(3, n('company', 'airborne', 'Airborne Company', {
+        children: [x(3, n('platoon', 'airborne', 'Platoon', { children: [x(3, n('squad', 'airborne', 'Squad'))] }))],
+      })),
+      n('company', 'infantry', 'Machine-Gun Company'),
     ],
   });
 
@@ -1008,6 +1061,92 @@ export const TEMPLATES: FormationTemplate[] = [
       n('battalion', 'engineer', 'Sapper Battalion'),
     ],
   },
+  // --- Sub-variants gated by unit id --------------------------------------
+  {
+    side: 'soviet', idMatch: 'guards', echelon: 'division', types: ['infantry'], from: '1942-01-01', to: '1945-12-31',
+    name: 'Guards Rifle Division',
+    note: 'Uprated establishment: more submachine guns and artillery than a line rifle division.',
+    components: [
+      x(3, n('regiment', 'infantry', 'Guards Rifle Regiment', { children: [x(3, suGdRifleBn())] })),
+      n('regiment', 'artillery', 'Guards Artillery Regiment', { children: [x(3, n('battalion', 'artillery', 'Battalion'))] }),
+      n('battalion', 'antitank', 'Anti-Tank Battalion'),
+      n('battalion', 'recon', 'Reconnaissance Company'),
+      n('battalion', 'engineer', 'Sapper Battalion'),
+      n('battalion', 'signals', 'Signal Battalion'),
+    ],
+  },
+  {
+    side: 'axis', idMatch: '-ss-', echelon: 'division', types: ['armoured'], from: '1942-01-01', to: '1945-12-31',
+    name: 'SS-Panzer-Division',
+    note: 'Waffen-SS armoured division — the elite ones were oversized, with two strong panzergrenadier regiments.',
+    components: [
+      n('regiment', 'armoured', 'SS-Panzer-Regiment', { children: [x(2, dePanzerBn())] }),
+      x(2, n('regiment', 'motorized', 'SS-Panzergrenadier-Regiment', { children: [x(3, ssPzGrenBn())] })),
+      n('regiment', 'artillery', 'SS-Panzer-Artillerie-Regiment', { children: [x(3, deArtyBn())] }),
+      n('battalion', 'recon', 'SS-Panzer-Aufklärungs-Abteilung'),
+      n('battalion', 'antitank', 'SS-Panzerjäger-Abteilung'),
+      n('battalion', 'antiair', 'SS-Flak-Abteilung'),
+      n('battalion', 'engineer', 'SS-Pionier-Bataillon'),
+    ],
+  },
+  {
+    side: 'axis', idMatch: '-ss-', echelon: 'division', types: ['motorized', 'mechanized'], from: '1942-01-01', to: '1945-12-31',
+    name: 'SS-Panzergrenadier-Division',
+    components: [
+      x(2, n('regiment', 'motorized', 'SS-Panzergrenadier-Regiment', { children: [x(3, ssPzGrenBn())] })),
+      n('battalion', 'armoured', 'SS-Panzer-Abteilung', { children: dePanzerBn().children }),
+      n('regiment', 'artillery', 'SS-Artillerie-Regiment', { children: [x(3, deArtyBn())] }),
+      n('battalion', 'recon', 'SS-Aufklärungs-Abteilung'),
+      n('battalion', 'antitank', 'SS-Panzerjäger-Abteilung'),
+      n('battalion', 'engineer', 'SS-Pionier-Bataillon'),
+    ],
+  },
+  {
+    side: 'axis', idMatch: 'ja[e]?ger', echelon: 'division', types: ['infantry'], from: '1942-01-01', to: '1945-12-31',
+    name: 'Jäger-Division (light)',
+    note: 'Light infantry division: two Jäger regiments instead of three, for forest, mountain and anti-partisan work.',
+    components: [
+      x(2, n('regiment', 'infantry', 'Jäger-Regiment', { children: [x(3, deGrenadierBn1944())] })),
+      n('regiment', 'artillery', 'Artillerie-Regiment', { children: [x(3, deArtyBn())] }),
+      n('battalion', 'recon', 'Aufklärungs-Abteilung'),
+      n('battalion', 'antitank', 'Panzerjäger-Abteilung'),
+      n('battalion', 'engineer', 'Pionier-Bataillon'),
+    ],
+  },
+  {
+    side: 'axis', nation: 'hu', idMatch: 'light', echelon: 'division', types: ['infantry'], from: '1941-01-01', to: '1943-12-31',
+    name: 'Hungarian Light Division (könnyű hadosztály)',
+    note: 'Early-war binary division: only two infantry regiments.',
+    components: [
+      x(2, n('regiment', 'infantry', 'Gyalogezred', { children: [x(3, huInfBn())] })),
+      n('regiment', 'artillery', 'Tüzérezred', { children: [x(2, n('battalion', 'artillery', 'Osztály'))] }),
+      n('battalion', 'recon', 'Felderítő-zászlóalj'),
+      n('battalion', 'engineer', 'Utászzászlóalj'),
+    ],
+  },
+  // --- Airborne divisions (type-gated TO&E) ------------------------------
+  {
+    side: 'axis', echelon: 'division', types: ['airborne'], from: '1940-01-01', to: '1945-12-31',
+    name: 'Fallschirmjäger-Division',
+    note: 'German parachute division: three Fallschirmjäger regiments (Luftwaffe).',
+    components: [
+      x(3, n('regiment', 'airborne', 'Fallschirmjäger-Regiment', { children: [x(3, deFJBn())] })),
+      n('regiment', 'artillery', 'Fallschirm-Artillerie-Regiment', { children: [x(3, deArtyBn())] }),
+      n('battalion', 'antitank', 'Fallschirm-Panzerjäger-Abteilung'),
+      n('battalion', 'engineer', 'Fallschirm-Pionier-Bataillon'),
+    ],
+  },
+  {
+    side: 'soviet', echelon: 'division', types: ['airborne'], from: '1941-01-01', to: '1945-12-31',
+    name: 'Airborne / Guards Airborne Division',
+    note: 'Soviet airborne division — three airborne regiments; mostly committed as elite guards rifle.',
+    components: [
+      x(3, n('regiment', 'airborne', 'Airborne Regiment', { children: [x(3, suAbnBn())] })),
+      n('regiment', 'artillery', 'Artillery Regiment', { children: [x(2, n('battalion', 'artillery', 'Battalion'))] }),
+      n('battalion', 'antitank', 'Anti-Tank Battalion'),
+      n('battalion', 'engineer', 'Sapper Battalion'),
+    ],
+  },
 ];
 
 /** Best-matching template for a unit, or null. A nation-specific template (e.g.
@@ -1017,6 +1156,7 @@ export const TEMPLATES: FormationTemplate[] = [
  *  Type match beats wildcard; among date-valid candidates the latest `from` wins. */
 export function matchTemplate(
   nation: string,
+  id: string,
   side: 'axis' | 'soviet',
   echelon: string,
   type: string,
@@ -1026,15 +1166,21 @@ export function matchTemplate(
     t ? { ...t, ...ESTABLISHMENT[t.name], equipmentRefs: EQUIP_REFS[t.name] } : null;
   const echType = (t: FormationTemplate): boolean =>
     t.echelon === echelon && (t.types.includes(type) || t.types.includes('*'));
+  const idOk = (t: FormationTemplate): boolean => !t.idMatch || new RegExp(t.idMatch).test(id);
+  // Within a pool, prefer a date-valid, id-matching sub-variant over the generic;
+  // fall back to nearest era if nothing is date-valid.
   const pick = (pool: FormationTemplate[]): FormationTemplate | null => {
-    if (!pool.length) return null;
-    const inWindow = pool.filter((t) => dateISO >= t.from && dateISO <= t.to);
-    const set = inWindow.length ? inWindow : pool; // else nearest era
-    return withEstablishment(set.sort((a, b) => b.from.localeCompare(a.from))[0]);
+    const usable = pool.filter((t) => echType(t) && idOk(t));
+    if (!usable.length) return null;
+    const inWindow = usable.filter((t) => dateISO >= t.from && dateISO <= t.to);
+    const set = inWindow.length ? inWindow : usable; // else nearest era
+    const variants = set.filter((t) => t.idMatch);
+    const chosen = (variants.length ? variants : set).sort((a, b) => b.from.localeCompare(a.from))[0];
+    return withEstablishment(chosen);
   };
   // 1) nation-specific (matched by nation, regardless of the axis/soviet side).
-  const nat = pick(TEMPLATES.filter((t) => t.nation === nation && echType(t)));
+  const nat = pick(TEMPLATES.filter((t) => t.nation === nation));
   if (nat) return nat;
   // 2) side default: the un-tagged German (axis) / Soviet (soviet) templates.
-  return pick(TEMPLATES.filter((t) => !t.nation && t.side === side && echType(t)));
+  return pick(TEMPLATES.filter((t) => !t.nation && t.side === side));
 }
