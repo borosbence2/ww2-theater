@@ -5,8 +5,12 @@
 // front into two spheres: the Axis-controlled west and the Soviet-controlled
 // east. Because the split uses `mainFrontLineOn` — the SAME interpolated,
 // evidence-deformed line the front layer draws — the colour boundary always sits
-// exactly under the front line. Pockets are painted as enclaves in the encircled
-// side's colour (Stalingrad = a red island inside the blue, and so on).
+// exactly under the front line.
+//
+// Each sphere is shaded in TWO tones: the home nations (Germany/Italy/co-
+// belligerents; the USSR) read a touch darker, while occupied/held ground reads
+// lighter — a subtle historical-atlas look. Pockets are painted as enclaves in
+// the encircled side's colour (Stalingrad = a red island inside the blue).
 //
 // The clip runs client-side (polygon-clipping) so it tracks the daily line with
 // no keyframe lag; it is coalesced to one recompute per frame for scrubbing.
@@ -21,22 +25,46 @@ const SPHERE_ID = 'control-fill-sphere';
 const POCKET_ID = 'control-fill-pocket';
 export const CONTROL_FILL_LAYER_IDS = [SPHERE_ID, POCKET_ID];
 
-// Match the front palette (Axis red, Soviet/Allied blue).
-const AXIS_COLOR = '#b5402f';
-const SOVIET_COLOR = '#2f6fb0';
+// Softened, atlas-like palette: home nations a shade deeper, occupied/held
+// ground lighter. Kept muted so the counters and labels read over it.
+const AXIS_CORE = '#b0503a'; // Axis home soil (warm brick red)
+const AXIS_OCC = '#d7a794'; // Axis-occupied (soft rose)
+const SOVIET_CORE = '#3f6ea6'; // the USSR (muted steel blue)
+const SOVIET_OCC = '#9fbad6'; // Soviet-held beyond the USSR (soft periwinkle)
 
 type Ring = [number, number][];
 type MultiPoly = Ring[][];
+const clip = polygonClipping as unknown as {
+  intersection: (a: MultiPoly | Ring[], ...b: (MultiPoly | Ring[])[]) => MultiPoly;
+};
 
+// The land is pre-split offline into four home/occupied partitions (see the ETL)
+// so each frame is just four ring-intersections — no boolean differences.
 let LAND: MultiPoly = [];
+let AXIS_CORE_LAND: MultiPoly = [];
+let AXIS_OCC_LAND: MultiPoly = [];
+let SOV_CORE_LAND: MultiPoly = [];
+let SOV_OCC_LAND: MultiPoly = [];
 let BBOX: [number, number, number, number] = [-11, 34, 60, 72];
 let landPromise: Promise<void> | null = null;
+interface LandData {
+  land: MultiPoly;
+  coreAxis: MultiPoly;
+  notCoreAxis: MultiPoly;
+  coreSoviet: MultiPoly;
+  notCoreSoviet: MultiPoly;
+  bbox: [number, number, number, number];
+}
 function loadLand(): Promise<void> {
   if (!landPromise) {
     landPromise = fetch(`${import.meta.env.BASE_URL}data/control-tide/land.json`)
       .then((r) => r.json())
-      .then((d: { land: MultiPoly; bbox: [number, number, number, number] }) => {
+      .then((d: LandData) => {
         LAND = d.land;
+        AXIS_CORE_LAND = d.coreAxis ?? [];
+        AXIS_OCC_LAND = d.notCoreAxis ?? d.land;
+        SOV_CORE_LAND = d.coreSoviet ?? [];
+        SOV_OCC_LAND = d.notCoreSoviet ?? [];
         BBOX = d.bbox;
       });
   }
@@ -54,8 +82,8 @@ function mpFeature(mp: MultiPoly, props: Record<string, unknown>): Feature | nul
   };
 }
 
-/** The belligerent land split along the front on `date` (Axis + Soviet spheres,
- *  plus pocket enclaves). */
+/** The belligerent land split along the front on `date`, in four tones (Axis
+ *  home / occupied, Soviet home / held) plus pocket enclaves. */
 function controlFill(dateISO: string): FeatureCollection {
   const line = mainFrontLineOn(dateISO) as Ring | null;
   if (!line || line.length < 2 || !LAND.length) return EMPTY;
@@ -72,27 +100,49 @@ function controlFill(dateISO: string): FeatureCollection {
   const westRing: Ring = [...divide, [W, B], [W, T], [N[0], T]];
   const eastRing: Ring = [...divide, [E, B], [E, T], [N[0], T]];
 
-  const axis = polygonClipping.intersection(LAND as never, [westRing] as never) as MultiPoly;
-  const soviet = polygonClipping.intersection(LAND as never, [eastRing] as never) as MultiPoly;
+  // Four home/occupied partitions clipped to their side of the front. The
+  // regions are disjoint, so they can share one fill layer with no overlap.
+  const axisCore = clip.intersection(AXIS_CORE_LAND, [westRing]);
+  const axisOcc = clip.intersection(AXIS_OCC_LAND, [westRing]);
+  const sovCore = clip.intersection(SOV_CORE_LAND, [eastRing]);
+  const sovOcc = clip.intersection(SOV_OCC_LAND, [eastRing]);
 
   const features: Feature[] = [];
-  const a = mpFeature(axis, { side: 'axis', kind: 'sphere' });
-  if (a) features.push(a);
-  const s = mpFeature(soviet, { side: 'soviet', kind: 'sphere' });
-  if (s) features.push(s);
+  const add = (mp: MultiPoly, t: string) => {
+    const f = mpFeature(mp, { t, kind: 'sphere' });
+    if (f) features.push(f);
+  };
+  add(axisOcc, 'axis-occ');
+  add(axisCore, 'axis-core');
+  add(sovOcc, 'sov-occ');
+  add(sovCore, 'sov-core');
 
-  // Pockets: an enclave in the encircled side's colour, clipped to land so
+  // Pockets: an enclave in the encircled side's home colour, clipped to land so
   // coastal pockets (Sevastopol, Odessa) don't bleed into the sea.
   for (const p of pocketRingsOn(dateISO)) {
-    const enc = polygonClipping.intersection(LAND as never, [p.ring] as never) as MultiPoly;
-    const f = mpFeature(enc, { side: p.encircled, kind: 'pocket' });
+    const enc = clip.intersection(LAND, [p.ring]);
+    const f = mpFeature(enc, { t: p.encircled === 'axis' ? 'axis-core' : 'sov-core', kind: 'pocket' });
     if (f) features.push(f);
   }
   return { type: 'FeatureCollection', features };
 }
 
-const bySide = [
-  'match', ['get', 'side'], 'axis', AXIS_COLOR, 'soviet', SOVIET_COLOR, '#888888',
+const byTone = [
+  'match', ['get', 't'],
+  'axis-core', AXIS_CORE,
+  'axis-occ', AXIS_OCC,
+  'sov-core', SOVIET_CORE,
+  'sov-occ', SOVIET_OCC,
+  '#888888',
+] as const;
+// Home soil a little stronger; occupied/held ground lighter — keep it subtle.
+const opacityByTone = [
+  'match', ['get', 't'],
+  'axis-core', 0.4,
+  'sov-core', 0.4,
+  'axis-occ', 0.3,
+  'sov-occ', 0.3,
+  0.34,
 ] as const;
 
 let lastDate = '';
@@ -113,7 +163,7 @@ export async function addControlFillLayer(map: MapLibreMap, date: string): Promi
       type: 'fill',
       source: SOURCE_ID,
       filter: ['==', ['get', 'kind'], 'sphere'],
-      paint: { 'fill-color': bySide as never, 'fill-opacity': 0.42, 'fill-antialias': true },
+      paint: { 'fill-color': byTone as never, 'fill-opacity': opacityByTone as never, 'fill-antialias': true },
     },
     before,
   );
@@ -123,7 +173,7 @@ export async function addControlFillLayer(map: MapLibreMap, date: string): Promi
       type: 'fill',
       source: SOURCE_ID,
       filter: ['==', ['get', 'kind'], 'pocket'],
-      paint: { 'fill-color': bySide as never, 'fill-opacity': 0.5, 'fill-antialias': true },
+      paint: { 'fill-color': byTone as never, 'fill-opacity': 0.44, 'fill-antialias': true },
     },
     before,
   );

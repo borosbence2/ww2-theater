@@ -53,8 +53,10 @@ export const LAYERS: LayerDef[] = [
     id: 'control-fill',
     label: 'Territorial control (tide)',
     legend: [
-      { shape: 'fill', color: AXIS_COLOR, label: 'Axis-controlled' },
-      { shape: 'fill', color: SOVIET_COLOR, label: 'Soviet-controlled' },
+      { shape: 'fill', color: '#b0503a', label: 'Axis home nations' },
+      { shape: 'fill', color: '#d7a794', label: 'Axis-occupied' },
+      { shape: 'fill', color: '#3f6ea6', label: 'Soviet Union' },
+      { shape: 'fill', color: '#9fbad6', label: 'Soviet-held' },
     ],
     add: addControlFillLayer,
     updateDate: updateControlFillDate,
