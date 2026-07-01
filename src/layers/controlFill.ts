@@ -1,34 +1,36 @@
-// Territorial control fill (the "tide") — two-sided. A fixed Soviet-blue
-// "theatre" base (the contestable European-USSR / eastern-Europe landmass, with
-// the Black Sea cut out) underlies a red Axis polygon closed between the daily
-// front and a fixed rear boundary. Red shows where the Axis holds; the blue
-// base shows through everywhere else (and through pocket holes), so red meets
-// blue at the front. No polygon-clipping library — coasts are authored
-// polylines and the front endpoints join the coast at their nearest point.
+// Territorial control fill (the "tide") — two-sided, as a staff-map occupation
+// overlay rather than a flat wash. The daily front line splits a fixed "theatre"
+// landmass into two complementary (non-overlapping) regions: the Axis-held west,
+// closed front→rear, and the Soviet-held east, closed front→eastern boundary.
+// Each region is drawn with a faint flat tint plus a diagonal HATCH (Axis "\"
+// red, Soviet "/" blue), so the basemap breathes through and the two sides read
+// at a glance by colour AND hatch direction, meeting cleanly at the front.
 //
-// Honest scope: schematic. Best 1941–44 when the front runs coast-to-coast;
-// the southern closure switches to the rear boundary once the front goes inland
-// (1945). Soviet pockets behind Axis lines are holes (show blue); Axis pockets
+// Honest scope: schematic. Best 1941–44 when the front runs coast-to-coast; the
+// closures fall back to the nearest theatre-boundary point once the front goes
+// inland (1945). Soviet pockets behind Axis lines are blue islands; Axis pockets
 // behind Soviet lines are red islands.
 
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 import type { FeatureCollection, Position } from 'geojson';
-import { mainFrontLineOn, pocketRingsOn } from './front';
+import { mainFrontLineOn, pocketRingsOn, loadFrontFeatures } from './front';
 
 const SOURCE_ID = 'control-fill';
-const FILL_SOVIET_ID = 'control-fill-soviet';
-const FILL_ID = 'control-fill-axis';
-export const CONTROL_FILL_LAYER_IDS = [FILL_SOVIET_ID, FILL_ID];
+const SOVIET_TINT_ID = 'control-fill-soviet';
+const SOVIET_HATCH_ID = 'control-fill-soviet-hatch';
+const AXIS_TINT_ID = 'control-fill-axis';
+const AXIS_HATCH_ID = 'control-fill-axis-hatch';
+export const CONTROL_FILL_LAYER_IDS = [SOVIET_TINT_ID, AXIS_TINT_ID, SOVIET_HATCH_ID, AXIS_HATCH_ID];
 
-// Desaturated toward grey so the tide reads as held territory, not as ink —
-// the front line and the unit counters stay the loudest marks on the map.
-const AXIS_COLOR = '#ab6356';
-const SOVIET_COLOR = '#5c83ae';
+// Clean (not greyed) so the hatch reads as held territory; the front line and
+// unit counters stay the loudest marks.
+const AXIS_COLOR = '#8a2f1c';
+const SOVIET_COLOR = '#3c5f8c';
 
-// Fixed "theatre" landmass that can be Axis- or Soviet-held: west edge = rear
-// boundary, north = Baltic coast then NE across the USSR, east = a deep arc,
-// south = back along the Black Sea's north shore. Filled blue beneath the Axis
-// red; the Black Sea is cut out as a hole so open water is never painted.
+// Fixed "theatre" landmass boundary, ordered: SW Black-Sea corner → up the WEST
+// (rear) → Baltic → across the NORTH → down the deep EAST → SW along the
+// Caucasus/Black-Sea coast. The daily front cuts it into west (Axis) and east
+// (Soviet) halves that share the front as their common edge.
 const THEATER_MASK: [number, number][] = [
   [27.9, 43.2], [28.5, 44.8], [27.0, 45.6], [25.0, 47.0], [22.8, 48.2],
   [22.0, 49.2], [20.5, 49.5], [19.2, 50.2], [18.5, 51.5], [18.3, 52.8],
@@ -38,11 +40,6 @@ const THEATER_MASK: [number, number][] = [
   [38.0, 44.6], [35.0, 45.6], [33.6, 46.2], [32.5, 46.1], [31.6, 46.6],
   [30.8, 46.5], [30.5, 46.0], [29.7, 45.2], [28.6, 43.9],
 ];
-const BLACK_SEA_HOLE: [number, number][] = [
-  [28.8, 44.2], [31.5, 43.2], [35.0, 42.4], [39.0, 42.6], [41.2, 43.2],
-  [40.5, 44.6], [37.0, 45.0], [33.5, 45.4], [30.5, 45.0], [28.8, 44.6],
-];
-
 // Southern Baltic + Gulf of Finland coast, WEST→EAST (Danzig → Leningrad).
 const BALTIC: [number, number][] = [
   [18.7, 54.4], [19.7, 54.4], [21.0, 55.3], [21.1, 56.2], [21.1, 57.0],
@@ -50,13 +47,11 @@ const BALTIC: [number, number][] = [
   [28.2, 59.4], [29.6, 59.9], [30.4, 59.95],
 ];
 // North-west Black Sea coast, WEST→EAST (Bulgaria → Danube → Odessa → Perekop).
-// Stops at the Perekop neck: Crimea (a peninsula, its own pocket) is excluded.
 const BLACKSEA: [number, number][] = [
   [27.9, 43.2], [28.6, 43.9], [29.7, 45.2], [30.5, 46.0], [30.8, 46.5],
   [31.6, 46.6], [32.5, 46.1], [33.6, 46.2],
 ];
-// Fixed rear boundary, Black Sea terminus → Baltic terminus (S→N): roughly the
-// 1937 Reich eastern edge through the General Government and the Carpathians.
+// Fixed rear boundary, Black Sea terminus → Baltic terminus (S→N).
 const REAR: [number, number][] = [
   [27.9, 43.2], [28.5, 44.8], [27.0, 45.6], [25.0, 47.0], [22.8, 48.2],
   [22.0, 49.2], [20.5, 49.5], [19.2, 50.2], [18.5, 51.5], [18.3, 52.8],
@@ -82,96 +77,118 @@ function nearestIndex(coast: [number, number][], pt: [number, number]): number {
 
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
-function axisPolygon(dateISO: string): FeatureCollection {
+function controlGeoms(dateISO: string): FeatureCollection {
   const line = mainFrontLineOn(dateISO);
   if (!line || line.length < 2) return EMPTY;
   const north = line[0];
   const south = line[line.length - 1];
 
-  // Ring: front (N→S) → close the south → rear (S→N) → Baltic coast → close.
-  const ring: [number, number][] = [...line];
-
-  // South closure. If the front still reaches the Black Sea, follow the coast
-  // to the west terminus then up the rear. If the southern end has gone inland
-  // (1945, Balkans/Hungary), skip the coast — joining it would wrongly enclose
-  // now-Soviet Romania — and close straight onto the nearest rear point.
+  // --- Axis (west) ring: front (N→S) → south closure → rear (S→N) → Baltic. ---
+  const axisRing: [number, number][] = [...line];
   const bsIdx = nearestIndex(BLACKSEA, south);
   const bs = BLACKSEA[bsIdx];
   const reachesSea = Math.hypot(bs[0] - south[0], bs[1] - south[1]) < 1.5;
-  let rearStart = 1; // default: from the Black Sea terminus (REAR[0]) upward
+  let rearStart = 1;
   if (reachesSea) {
-    for (let i = bsIdx; i >= 0; i--) ring.push(BLACKSEA[i]);
+    for (let i = bsIdx; i >= 0; i--) axisRing.push(BLACKSEA[i]);
   } else {
     rearStart = nearestIndex(REAR, south);
   }
-  for (let i = rearStart; i < REAR.length; i++) ring.push(REAR[i]); // S→N
-
+  for (let i = rearStart; i < REAR.length; i++) axisRing.push(REAR[i]);
   const balIdx = nearestIndex(BALTIC, north);
-  for (let i = 1; i <= balIdx; i++) ring.push(BALTIC[i]); // west → nearest north
-  ring.push(north);
+  for (let i = 1; i <= balIdx; i++) axisRing.push(BALTIC[i]);
+  axisRing.push(north);
 
-  // Pockets: Soviet pockets behind Axis lines (Leningrad, Sevastopol, Odessa…)
-  // are holes punched in the Axis area; Axis pockets behind Soviet lines
-  // (Stalingrad, Demyansk, Korsun, Crimea, Courland…) are red islands.
+  // --- Soviet (east) ring: front (N→S) → back up the EASTERN theatre boundary
+  // (mask, from the front's south point around to its north point). ---
+  const sovietRing: [number, number][] = [...line];
+  const sIdx = nearestIndex(THEATER_MASK, south);
+  const nIdx = nearestIndex(THEATER_MASK, north);
+  const N = THEATER_MASK.length;
+  // Walk the mask from sIdx toward nIdx the way that traces the deep east
+  // (decreasing index; the array runs east-side high→low between N and S).
+  for (let i = sIdx; i !== nIdx; i = (i - 1 + N) % N) sovietRing.push(THEATER_MASK[i]);
+  sovietRing.push(THEATER_MASK[nIdx]);
+
+  // Pockets. Soviet pockets are blue islands (and holes in the Axis red);
+  // Axis pockets are red islands (and holes in the Soviet blue).
   const pockets = pocketRingsOn(dateISO);
-  const holes: Position[][] = pockets.filter((p) => p.encircled === 'soviet').map((p) => p.ring);
-  const islands: Position[][][] = pockets
-    .filter((p) => p.encircled === 'axis')
-    .map((p) => [p.ring]);
+  const sovietPocketRings: Position[][] = pockets.filter((p) => p.encircled === 'soviet').map((p) => p.ring);
+  const axisPocketRings: Position[][] = pockets.filter((p) => p.encircled === 'axis').map((p) => p.ring);
 
   return {
     type: 'FeatureCollection',
     features: [
-      // Soviet-blue base: the whole theatre mask, Black Sea cut out.
       {
         type: 'Feature',
         properties: { side: 'soviet' },
-        geometry: { type: 'Polygon', coordinates: [THEATER_MASK, BLACK_SEA_HOLE] },
+        geometry: {
+          type: 'MultiPolygon',
+          coordinates: [[sovietRing, ...axisPocketRings], ...sovietPocketRings.map((r) => [r])],
+        },
       },
-      // Axis red on top: front-closed area + pocket islands, Soviet pockets cut out.
       {
         type: 'Feature',
         properties: { side: 'axis' },
-        geometry: { type: 'MultiPolygon', coordinates: [[ring, ...holes], ...islands] },
+        geometry: {
+          type: 'MultiPolygon',
+          coordinates: [[axisRing, ...sovietPocketRings], ...axisPocketRings.map((r) => [r])],
+        },
       },
     ],
   };
 }
 
+/** Build a small repeating diagonal-hatch image (screen-space, DPR-aware). */
+function hatchImage(color: string, back: boolean): { id: string; image: { width: number; height: number; data: Uint8ClampedArray }; pixelRatio: number } {
+  const pr = Math.max(1, Math.round((typeof window !== 'undefined' ? window.devicePixelRatio : 1) || 1));
+  const T = 11;
+  const cv = document.createElement('canvas');
+  cv.width = T * pr;
+  cv.height = T * pr;
+  const ctx = cv.getContext('2d')!;
+  ctx.scale(pr, pr);
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.15;
+  ctx.lineCap = 'square';
+  ctx.beginPath();
+  if (back) {
+    ctx.moveTo(0, 0);
+    ctx.lineTo(T, T);
+  } else {
+    ctx.moveTo(0, T);
+    ctx.lineTo(T, 0);
+  }
+  ctx.stroke();
+  const img = ctx.getImageData(0, 0, T * pr, T * pr);
+  return { id: back ? 'ctrl-hatch-axis' : 'ctrl-hatch-soviet', image: { width: img.width, height: img.height, data: img.data }, pixelRatio: pr };
+}
+
 export async function addControlFillLayer(map: MapLibreMap, date: string): Promise<void> {
+  // The tide is derived from the front line; ensure the front data is loaded
+  // before building it (this layer is added before the front layer).
+  await loadFrontFeatures();
   lastDate = date;
   map.addSource(SOURCE_ID, {
     type: 'geojson',
-    data: axisPolygon(date),
+    data: controlGeoms(date),
     attribution: 'Territorial control: derived from the curated front (schematic)',
   });
-  // Beneath every other historical layer (just above the basemap land).
+  for (const back of [false, true]) {
+    const h = hatchImage(back ? AXIS_COLOR : SOVIET_COLOR, back);
+    if (!map.hasImage(h.id)) map.addImage(h.id, h.image, { pixelRatio: h.pixelRatio });
+  }
   const firstLayer = map.getStyle().layers?.find((l) => l.id.startsWith('borders'))?.id;
-  map.addLayer(
-    {
-      id: FILL_SOVIET_ID,
-      type: 'fill',
-      source: SOURCE_ID,
-      filter: ['==', ['get', 'side'], 'soviet'],
-      paint: { 'fill-color': SOVIET_COLOR, 'fill-opacity': 0.1 },
-    },
-    firstLayer,
-  );
-  map.addLayer(
-    {
-      id: FILL_ID,
-      type: 'fill',
-      source: SOURCE_ID,
-      filter: ['==', ['get', 'side'], 'axis'],
-      paint: { 'fill-color': AXIS_COLOR, 'fill-opacity': 0.11 },
-    },
-    firstLayer,
-  );
+  // Faint flat tints first (under the hatch); then the hatches.
+  map.addLayer({ id: SOVIET_TINT_ID, type: 'fill', source: SOURCE_ID, filter: ['==', ['get', 'side'], 'soviet'], paint: { 'fill-color': SOVIET_COLOR, 'fill-opacity': 0.13 } }, firstLayer);
+  map.addLayer({ id: AXIS_TINT_ID, type: 'fill', source: SOURCE_ID, filter: ['==', ['get', 'side'], 'axis'], paint: { 'fill-color': AXIS_COLOR, 'fill-opacity': 0.17 } }, firstLayer);
+  map.addLayer({ id: SOVIET_HATCH_ID, type: 'fill', source: SOURCE_ID, filter: ['==', ['get', 'side'], 'soviet'], paint: { 'fill-pattern': 'ctrl-hatch-soviet', 'fill-opacity': 0.4 } }, firstLayer);
+  map.addLayer({ id: AXIS_HATCH_ID, type: 'fill', source: SOURCE_ID, filter: ['==', ['get', 'side'], 'axis'], paint: { 'fill-pattern': 'ctrl-hatch-axis', 'fill-opacity': 0.5 } }, firstLayer);
 }
 
 export function updateControlFillDate(map: MapLibreMap, date: string): void {
   if (date === lastDate) return;
   lastDate = date;
   const src = map.getSource(SOURCE_ID) as GeoJSONSource | undefined;
-  if (src) src.setData(axisPolygon(date));
+  if (src) src.setData(controlGeoms(date));
 }
