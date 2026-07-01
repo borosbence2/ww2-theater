@@ -23,7 +23,9 @@ import { mainFrontLineOn, pocketRingsOn, loadFrontFeatures } from './front';
 const SOURCE_ID = 'control-fill';
 const SPHERE_ID = 'control-fill-sphere';
 const POCKET_ID = 'control-fill-pocket';
-export const CONTROL_FILL_LAYER_IDS = [SPHERE_ID, POCKET_ID];
+const NEUTRAL_SOURCE_ID = 'control-neutral';
+const NEUTRAL_ID = 'control-fill-neutral';
+export const CONTROL_FILL_LAYER_IDS = [NEUTRAL_ID, SPHERE_ID, POCKET_ID];
 
 // Softened, atlas-like palette: home nations a shade deeper, occupied/held
 // ground lighter. Kept muted so the counters and labels read over it.
@@ -31,6 +33,7 @@ const AXIS_CORE = '#b0503a'; // Axis home soil (warm brick red)
 const AXIS_OCC = '#d7a794'; // Axis-occupied (soft rose)
 const SOVIET_CORE = '#3f6ea6'; // the USSR (muted steel blue)
 const SOVIET_OCC = '#9fbad6'; // Soviet-held beyond the USSR (soft periwinkle)
+const NEUTRAL_COLOR = '#8d9198'; // the neutrals (faint desaturated grey)
 
 type Ring = [number, number][];
 type MultiPoly = Ring[][];
@@ -45,6 +48,7 @@ let AXIS_CORE_LAND: MultiPoly = [];
 let AXIS_OCC_LAND: MultiPoly = [];
 let SOV_CORE_LAND: MultiPoly = [];
 let SOV_OCC_LAND: MultiPoly = [];
+let NEUTRAL_LAND: MultiPoly = [];
 let BBOX: [number, number, number, number] = [-11, 34, 60, 72];
 let landPromise: Promise<void> | null = null;
 interface LandData {
@@ -53,6 +57,7 @@ interface LandData {
   notCoreAxis: MultiPoly;
   coreSoviet: MultiPoly;
   notCoreSoviet: MultiPoly;
+  neutral: MultiPoly;
   bbox: [number, number, number, number];
 }
 function loadLand(): Promise<void> {
@@ -65,6 +70,7 @@ function loadLand(): Promise<void> {
         AXIS_OCC_LAND = d.notCoreAxis ?? d.land;
         SOV_CORE_LAND = d.coreSoviet ?? [];
         SOV_OCC_LAND = d.notCoreSoviet ?? [];
+        NEUTRAL_LAND = d.neutral ?? [];
         BBOX = d.bbox;
       });
   }
@@ -157,6 +163,21 @@ export async function addControlFillLayer(map: MapLibreMap, date: string): Promi
     attribution: 'Territorial control: the belligerent land split along the operational front',
   });
   const before = map.getStyle().layers?.find((l) => l.id.startsWith('borders'))?.id;
+  // Neutrals: a faint static grey underlay (never front-split) so the map reads
+  // as a complete atlas. Added first, so it sits below the spheres.
+  const neutralFC: FeatureCollection = NEUTRAL_LAND.length
+    ? { type: 'FeatureCollection', features: [mpFeature(NEUTRAL_LAND, { t: 'neutral' })].filter(Boolean) as Feature[] }
+    : EMPTY;
+  map.addSource(NEUTRAL_SOURCE_ID, { type: 'geojson', data: neutralFC });
+  map.addLayer(
+    {
+      id: NEUTRAL_ID,
+      type: 'fill',
+      source: NEUTRAL_SOURCE_ID,
+      paint: { 'fill-color': NEUTRAL_COLOR, 'fill-opacity': 0.22, 'fill-antialias': true },
+    },
+    before,
+  );
   map.addLayer(
     {
       id: SPHERE_ID,

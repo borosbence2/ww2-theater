@@ -57,6 +57,7 @@ export const LAYERS: LayerDef[] = [
       { shape: 'fill', color: '#d7a794', label: 'Axis-occupied' },
       { shape: 'fill', color: '#3f6ea6', label: 'Soviet Union' },
       { shape: 'fill', color: '#9fbad6', label: 'Soviet-held' },
+      { shape: 'fill', color: '#8d9198', label: 'Neutral' },
     ],
     add: addControlFillLayer,
     updateDate: updateControlFillDate,

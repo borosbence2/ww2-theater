@@ -46,6 +46,10 @@ const DROP = [
   'syria', 'lebanon', 'jordan', 'palestine', // North Africa + Middle East
 ];
 
+// The European neutrals — painted a faint static grey (never front-split) so the
+// map reads as a complete control atlas rather than leaving them as blank gaps.
+const NEUTRAL = ['sweden', 'switzerland', 'spain', 'portugal', 'ireland', 'turkey', 'ottoman'];
+
 // The Axis HOME nations (their own soil reads full-strength; everything else in
 // the Axis sphere is occupied and reads lighter). Matched as name substrings.
 const CORE_AXIS = ['germany', 'austria', 'italy', 'hungary', 'rumania', 'bulgaria', 'finland', 'slovakia'];
@@ -69,12 +73,17 @@ const has = (name, list) => list.some((d) => name.toLowerCase().includes(d));
 const geoms = [];
 const coreAxisGeoms = [];
 const coreSovietGeoms = [];
+const neutralGeoms = [];
 let kept = 0;
 for (const f of fc.features) {
   const name = f.properties?.name ?? '';
-  if (has(name, DROP)) continue;
   const clipped = polygonClipping.intersection(f.geometry.coordinates, THEATRE);
   if (!clipped.length) continue; // wholly outside the theatre window
+  if (has(name, NEUTRAL)) { // neutral: its own static grey layer, not belligerent land
+    for (const poly of clipped) neutralGeoms.push(poly);
+    continue;
+  }
+  if (has(name, DROP)) continue;
   kept++;
   for (const poly of clipped) {
     geoms.push(poly); // each is a Polygon (Ring[])
@@ -123,6 +132,9 @@ const simplify = (mp) => mp
 const land = simplify(landRaw);
 const coreAxis = simplify(coreAxisRaw);
 const coreSoviet = simplify(coreSovietRaw);
+const neutral = neutralGeoms.length
+  ? simplify(polygonClipping.union(neutralGeoms[0], ...neutralGeoms.slice(1)))
+  : [];
 // Pre-split the land into home vs occupied/held partitions so the client only
 // has to run four plain ring-intersections per frame (no costly boolean
 // differences at runtime): occupied = land MINUS the home nations.
@@ -153,6 +165,7 @@ writeFileSync(OUT, JSON.stringify({
   notCoreAxis, // land minus the Axis home nations (→ Axis-occupied)
   coreSoviet, // the USSR
   notCoreSoviet, // land minus the USSR (→ Soviet-held)
+  neutral, // the European neutrals (static grey)
 }));
 
 const kb = (Buffer.byteLength(readFileSync(OUT)) / 1024).toFixed(0);
