@@ -1,0 +1,20 @@
+{
+  "id": "de-4pz-pl1939",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "armoured",
+  "short": "4. Pz",
+  "names": [
+    { "from": "1939-09-01", "name": "4. Panzer-Division", "aliases": ["4. Panzer-Division", "4th Panzer Division"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-10-06", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-10-06", "unit": "de-h-armee-10" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [18.7, 51.1], "label": "Drives north-east through Łódź toward Warsaw", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-08", "at": [20.9, 52.2], "label": "Repulsed in the Warsaw suburbs (Wola)", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/4th_Panzer_Division_(Wehrmacht)" },
+  "notes": "10. Armee (Army Group South) — first into the Warsaw suburbs, 8 Sept 1939, and thrown back. Sector-level position, inferred."
+}

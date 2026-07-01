@@ -1,0 +1,20 @@
+{
+  "id": "de-14pz-yu1941",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "armoured",
+  "short": "14. Pz",
+  "names": [
+    { "from": "1941-04-06", "name": "14. Panzer-Division", "aliases": ["14. Panzer-Division", "14th Panzer Division"] }
+  ],
+  "existence": [ { "from": "1941-04-06", "to": "1941-04-18", "end": "Yugoslav capitulation" } ],
+  "parents": [ { "from": "1941-04-06", "to": "1941-04-18", "unit": "de-armee2-yu1941" } ],
+  "positions": [
+    { "date": "1941-04-08", "at": [15.9, 46.4], "label": "Attacks toward Zagreb from Styria", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1941-04-10", "at": [16.0, 45.8], "label": "Enters Zagreb", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1941-04-17",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/14th_Panzer_Division_(Wehrmacht)" },
+  "notes": "2. Armee (Army Group South) — first into Zagreb, 10 April 1941. Sector-level position, inferred."
+}

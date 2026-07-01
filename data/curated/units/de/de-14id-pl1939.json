@@ -1,0 +1,20 @@
+{
+  "id": "de-14id-pl1939",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "14. ID",
+  "names": [
+    { "from": "1939-09-01", "name": "14. Infanterie-Division", "aliases": ["14. Infanterie-Division", "14th Infantry Division"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-10-06", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-10-06", "unit": "de-h-armee-10" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [18.9, 51.0], "label": "Follows the panzers out of Silesia", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-09", "at": [21.1, 51.4], "label": "Fights toward Radom and the Vistula", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/14th_Infantry_Division_(Wehrmacht)" },
+  "notes": "10. Armee (Army Group South) — the Radom encirclement, September 1939. Sector-level position, inferred."
+}

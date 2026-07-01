@@ -1,0 +1,21 @@
+{
+  "id": "pl-10id",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "10. DP",
+  "names": [
+    { "from": "1939-09-01", "name": "10th Infantry Division", "aliases": ["10th Infantry Division", "10 Dywizja Piechoty"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-09-20", "end": "capitulated after Tomaszów Lubelski" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-09-20", "unit": "pl-army-lodz" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [18.9, 51.6], "label": "Holds the Warta line west of Łódź", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-08", "at": [19.7, 51.9], "label": "Withdraws toward the Vistula", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-19",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/10th_Infantry_Division_(Poland)" },
+  "notes": "Army Łódź, September 1939 defender (anti-Axis/blue). Sector-level position, inferred."
+}

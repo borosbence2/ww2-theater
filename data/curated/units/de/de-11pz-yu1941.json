@@ -1,0 +1,20 @@
+{
+  "id": "de-11pz-yu1941",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "armoured",
+  "short": "11. Pz",
+  "names": [
+    { "from": "1941-04-06", "name": "11. Panzer-Division", "aliases": ["11. Panzer-Division", "11th Panzer Division"] }
+  ],
+  "existence": [ { "from": "1941-04-06", "to": "1941-04-18", "end": "Yugoslav capitulation" } ],
+  "parents": [ { "from": "1941-04-06", "to": "1941-04-18", "unit": "de-pzgr1-yu1941" } ],
+  "positions": [
+    { "date": "1941-04-08", "at": [22.6, 43.2], "label": "1. Panzergruppe breaks out of Bulgaria toward Niš", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1941-04-12", "at": [20.5, 44.8], "label": "First into Belgrade from the south-east", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1941-04-17",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/11th_Panzer_Division_(Wehrmacht)" },
+  "notes": "1. Panzergruppe (Kleist), invasion of Yugoslavia — reached Belgrade 12 April 1941. Sector-level position, inferred."
+}

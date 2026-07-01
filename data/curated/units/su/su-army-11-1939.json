@@ -1,0 +1,28 @@
+{
+  "id": "su-army-11-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "11-я A",
+  "names": [
+    { "from": "1939-09-17", "name": "11th Army", "aliases": ["11th Army", "11-я армия"] }
+  ],
+  "existence": [
+    { "from": "1939-09-17", "to": "1939-11-14", "end": "campaign over" }
+  ],
+  "parents": [
+    { "from": "1939-09-17", "to": "1939-11-14", "unit": "su-front-belorussian-1939" }
+  ],
+  "commanders": [
+    { "from": "1939-09-17", "name": "Komdiv Nikifor Medvedev" }
+  ],
+  "positions": [
+    { "date": "1939-09-17", "at": [26.7, 54.0], "label": "Advances toward Lida and Grodno", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-21", "at": [23.9, 53.7], "label": "Takes Grodno after two days' fighting", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-10-06",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Belorussian_Front_(Soviet_Union)" },
+  "notes": "Belorussian Front, centre, Sept 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}

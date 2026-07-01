@@ -1,0 +1,20 @@
+{
+  "id": "de-8pz-yu1941",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "armoured",
+  "short": "8. Pz",
+  "names": [
+    { "from": "1941-04-06", "name": "8. Panzer-Division", "aliases": ["8. Panzer-Division", "8th Panzer Division"] }
+  ],
+  "existence": [ { "from": "1941-04-06", "to": "1941-04-18", "end": "Yugoslav capitulation" } ],
+  "parents": [ { "from": "1941-04-06", "to": "1941-04-18", "unit": "de-armee2-yu1941" } ],
+  "positions": [
+    { "date": "1941-04-08", "at": [16.4, 46.2], "label": "XLVI Corps drives on Zagreb from the north-west", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1941-04-12", "at": [19.6, 45.3], "label": "Races down the Sava toward Belgrade", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1941-04-17",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/8th_Panzer_Division_(Wehrmacht)" },
+  "notes": "2. Armee (Army Group South), invasion of Yugoslavia, April 1941. Sector-level position, inferred."
+}

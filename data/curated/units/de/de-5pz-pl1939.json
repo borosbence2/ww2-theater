@@ -1,0 +1,20 @@
+{
+  "id": "de-5pz-pl1939",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "armoured",
+  "short": "5. Pz",
+  "names": [
+    { "from": "1939-09-01", "name": "5. Panzer-Division", "aliases": ["5. Panzer-Division", "5th Panzer Division"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-10-06", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-10-06", "unit": "de-h-armee-14" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [19.1, 49.8], "label": "Breaks out of the Moravian Gate toward Kraków", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-12", "at": [22.0, 49.9], "label": "Drives east past Przemyśl", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/5th_Panzer_Division_(Wehrmacht)" },
+  "notes": "14. Armee (Army Group South) — the southern pincer through Galicia, September 1939. Sector-level position, inferred."
+}

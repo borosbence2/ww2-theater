@@ -1,0 +1,28 @@
+{
+  "id": "su-army-4-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "4-я A",
+  "names": [
+    { "from": "1939-09-17", "name": "4th Army", "aliases": ["4th Army", "4-я армия"] }
+  ],
+  "existence": [
+    { "from": "1939-09-17", "to": "1939-11-14", "end": "campaign over" }
+  ],
+  "parents": [
+    { "from": "1939-09-17", "to": "1939-11-14", "unit": "su-front-belorussian-1939" }
+  ],
+  "commanders": [
+    { "from": "1939-09-17", "name": "Komdiv Vasily Chuikov" }
+  ],
+  "positions": [
+    { "date": "1939-09-17", "at": [27.2, 52.7], "label": "Advances via Baranovichi", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-22", "at": [23.7, 52.1], "label": "Meets the Germans at Brest-Litovsk", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-10-06",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Belorussian_Front_(Soviet_Union)" },
+  "notes": "Belorussian Front, southern flank (future Stalingrad defender Chuikov), Sept 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}

@@ -1,0 +1,20 @@
+{
+  "id": "de-11id-pl1939",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "11. ID",
+  "names": [
+    { "from": "1939-09-01", "name": "11. Infanterie-Division", "aliases": ["11. Infanterie-Division", "11th Infantry Division"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-10-06", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-10-06", "unit": "de-h-armee-3" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [21.4, 53.5], "label": "Attacks south from East Prussia over the Narew", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-14", "at": [21.6, 52.6], "label": "Closing on Warsaw from the north-east", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/11th_Infantry_Division_(Wehrmacht)" },
+  "notes": "3. Armee (Army Group North), September 1939. Sector-level position, inferred."
+}

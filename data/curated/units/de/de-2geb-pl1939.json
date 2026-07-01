@@ -1,0 +1,20 @@
+{
+  "id": "de-2geb-pl1939",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "mountain",
+  "short": "2. Geb",
+  "names": [
+    { "from": "1939-09-01", "name": "2. Gebirgs-Division", "aliases": ["2. Gebirgs-Division", "2nd Mountain Division"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-10-06", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-10-06", "unit": "de-h-armee-14" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [19.6, 49.4], "label": "Crosses the Carpathians from Slovakia", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-14", "at": [23.4, 49.8], "label": "Fights toward Lwów", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/2nd_Mountain_Division_(Wehrmacht)" },
+  "notes": "14. Armee (Army Group South) — the mountain thrust on Lwów, September 1939. Sector-level position, inferred."
+}

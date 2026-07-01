@@ -1,0 +1,28 @@
+{
+  "id": "su-army-5-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "5-я A",
+  "names": [
+    { "from": "1939-09-17", "name": "5th Army", "aliases": ["5th Army", "5-я армия"] }
+  ],
+  "existence": [
+    { "from": "1939-09-17", "to": "1939-11-14", "end": "campaign over" }
+  ],
+  "parents": [
+    { "from": "1939-09-17", "to": "1939-11-14", "unit": "su-front-ukrainian-1939" }
+  ],
+  "commanders": [
+    { "from": "1939-09-17", "name": "Komdiv Ivan Sovetnikov" }
+  ],
+  "positions": [
+    { "date": "1939-09-17", "at": [27.0, 50.8], "label": "Advances through Volhynia toward Rovno and Lutsk", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-20", "at": [25.3, 50.7], "label": "Rovno and Lutsk secured", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-10-06",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Ukrainian_Front_(1939)" },
+  "notes": "Ukrainian Front, northern flank, Sept 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}

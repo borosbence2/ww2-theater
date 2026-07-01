@@ -54,7 +54,10 @@ export const OPERATIONS: Operation[] = [
   {
     id: 'soviet-poland-1939',
     name: 'Soviet invasion of Poland',
-    side: 'soviet',
+    // Red, not blue: in Sept 1939 the USSR invaded as Germany's co-belligerent
+    // (Molotov–Ribbentrop), so it reads as an Axis-aligned thrust — and stays
+    // distinct from the blue Polish defenders. Matches the SU 1939 unit counters.
+    side: 'axis',
     from: '1939-09-17',
     to: '1939-09-29',
     // The Red Army crosses the eastern border (17 Sep) onto Wilno, Brześć, Lwów.

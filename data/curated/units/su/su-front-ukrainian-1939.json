@@ -1,0 +1,26 @@
+{
+  "id": "su-front-ukrainian-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "front",
+  "type": "infantry",
+  "short": "Ukrainian F.",
+  "names": [
+    { "from": "1939-09-17", "name": "Ukrainian Front", "aliases": ["Ukrainian Front", "Украинский фронт"] }
+  ],
+  "existence": [
+    { "from": "1939-09-17", "to": "1939-11-14", "end": "eastern Poland annexed; reverted to Kiev Special Military District" }
+  ],
+  "commanders": [
+    { "from": "1939-09-17", "name": "Komandarm 1st rank Semyon Timoshenko" }
+  ],
+  "positions": [
+    { "date": "1939-09-17", "at": [26.5, 50.2], "label": "Crosses the border to seize eastern Galicia and Volhynia", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-22", "at": [24.4, 49.9], "label": "Lwów surrenders to the Red Army", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-28", "at": [23.0, 49.7], "label": "On the San demarcation line", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-10-06",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Ukrainian_Front_(1939)" },
+  "notes": "The southern pincer of the Soviet invasion of eastern Poland, 17 Sept 1939 (co-belligerent with Germany — red). Route schematic (HQ centre-of-mass), inferred."
+}

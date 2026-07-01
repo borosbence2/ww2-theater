@@ -1,0 +1,26 @@
+{
+  "id": "su-front-belorussian-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "front",
+  "type": "infantry",
+  "short": "Belorussian F.",
+  "names": [
+    { "from": "1939-09-17", "name": "Belorussian Front", "aliases": ["Belorussian Front", "Белорусский фронт", "Byelorussian Front"] }
+  ],
+  "existence": [
+    { "from": "1939-09-17", "to": "1939-11-14", "end": "eastern Poland annexed; reverted to Belorussian Special Military District" }
+  ],
+  "commanders": [
+    { "from": "1939-09-17", "name": "Komandarm 2nd rank Mikhail Kovalyov" }
+  ],
+  "positions": [
+    { "date": "1939-09-17", "at": [27.6, 53.6], "label": "Crosses the border to seize western Belorussia", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-22", "at": [25.0, 53.4], "label": "Grodno–Vilnius–Białystok taken", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-28", "at": [23.5, 53.0], "label": "On the Bug demarcation line", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-10-06",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Belorussian_Front_(Soviet_Union)" },
+  "notes": "The northern pincer of the Soviet invasion of eastern Poland, 17 Sept 1939 (co-belligerent with Germany under the Molotov–Ribbentrop pact — hence red). Route schematic (HQ centre-of-mass), inferred."
+}

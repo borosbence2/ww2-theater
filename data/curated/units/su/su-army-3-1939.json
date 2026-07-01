@@ -1,0 +1,28 @@
+{
+  "id": "su-army-3-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "3-я A",
+  "names": [
+    { "from": "1939-09-17", "name": "3rd Army", "aliases": ["3rd Army", "3-я армия"] }
+  ],
+  "existence": [
+    { "from": "1939-09-17", "to": "1939-11-14", "end": "campaign over" }
+  ],
+  "parents": [
+    { "from": "1939-09-17", "to": "1939-11-14", "unit": "su-front-belorussian-1939" }
+  ],
+  "commanders": [
+    { "from": "1939-09-17", "name": "Komkor Vasily Kuznetsov" }
+  ],
+  "positions": [
+    { "date": "1939-09-17", "at": [28.0, 55.0], "label": "Drives on Vilnius from Polotsk", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-19", "at": [25.3, 54.7], "label": "Takes Vilnius", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-10-06",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Belorussian_Front_(Soviet_Union)" },
+  "notes": "Belorussian Front, northern flank, Sept 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "su-army-6-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "6-я A",
+  "names": [
+    { "from": "1939-09-17", "name": "6th Army", "aliases": ["6th Army", "6-я армия"] }
+  ],
+  "existence": [
+    { "from": "1939-09-17", "to": "1939-11-14", "end": "campaign over" }
+  ],
+  "parents": [
+    { "from": "1939-09-17", "to": "1939-11-14", "unit": "su-front-ukrainian-1939" }
+  ],
+  "commanders": [
+    { "from": "1939-09-17", "name": "Komkor Filipp Golikov" }
+  ],
+  "positions": [
+    { "date": "1939-09-17", "at": [26.2, 49.6], "label": "Drives on Tarnopol and Lwów", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-22", "at": [24.0, 49.84], "label": "Accepts the surrender of Lwów", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-10-06",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Ukrainian_Front_(1939)" },
+  "notes": "Ukrainian Front, centre, Sept 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}

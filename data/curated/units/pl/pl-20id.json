@@ -1,0 +1,21 @@
+{
+  "id": "pl-20id",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "20. DP",
+  "names": [
+    { "from": "1939-09-01", "name": "20th Infantry Division", "aliases": ["20th Infantry Division", "20 Dywizja Piechoty"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-09-29", "end": "capitulated at Modlin" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-09-29", "unit": "pl-army-modlin" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [20.2, 53.1], "label": "Fights the Mława defensive battle", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-13", "at": [20.9, 52.5], "label": "Withdraws toward Warsaw", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/20th_Infantry_Division_(Poland)" },
+  "notes": "Army Modlin, September 1939 defender (anti-Axis/blue). Sector-level position, inferred."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "pl-cav-pomorska",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "brigade",
+  "type": "cavalry",
+  "short": "Pom. BK",
+  "names": [
+    { "from": "1939-09-01", "name": "Pomorska Cavalry Brigade", "aliases": ["Pomorska Cavalry Brigade", "Pomorska Brygada Kawalerii"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-09-19", "end": "destroyed in the Bzura pocket" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-09-19", "unit": "pl-army-pomorze" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [18.3, 53.7], "label": "The charge at Krojanty covers the corridor", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-10", "at": [19.1, 52.5], "label": "Fights in the Bzura counter-offensive", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-18",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Pomorska_Cavalry_Brigade" },
+  "notes": "Army Pomorze, September 1939 — the Krojanty charge (anti-Axis/blue). Sector-level position, inferred."
+}

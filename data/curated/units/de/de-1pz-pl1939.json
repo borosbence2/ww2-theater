@@ -1,0 +1,20 @@
+{
+  "id": "de-1pz-pl1939",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "armoured",
+  "short": "1. Pz",
+  "names": [
+    { "from": "1939-09-01", "name": "1. Panzer-Division", "aliases": ["1. Panzer-Division", "1st Panzer Division"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-10-06", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-10-06", "unit": "de-h-armee-10" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [18.9, 50.9], "label": "Spearheads 10. Armee out of Upper Silesia", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-08", "at": [20.6, 51.9], "label": "Reaches the Vistula near Warsaw (XVI Corps)", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/1st_Panzer_Division_(Wehrmacht)" },
+  "notes": "10. Armee (Army Group South) — the Schwerpunkt drive on Warsaw, September 1939. Sector-level position, inferred."
+}

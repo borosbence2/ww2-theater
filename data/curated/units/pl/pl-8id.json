@@ -1,0 +1,21 @@
+{
+  "id": "pl-8id",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "8. DP",
+  "names": [
+    { "from": "1939-09-01", "name": "8th Infantry Division", "aliases": ["8th Infantry Division", "8 Dywizja Piechoty"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-09-29", "end": "capitulated at Modlin" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-09-29", "unit": "pl-army-modlin" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [20.4, 53.0], "label": "Holds the Mława line against 3. Armee", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-13", "at": [20.7, 52.4], "label": "Falls back into the Modlin fortress", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/8th_Infantry_Division_(Poland)" },
+  "notes": "Army Modlin, September 1939 defender (anti-Axis/blue). Sector-level position, inferred."
+}

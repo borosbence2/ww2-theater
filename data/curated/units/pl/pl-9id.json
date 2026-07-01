@@ -1,0 +1,21 @@
+{
+  "id": "pl-9id",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "9. DP",
+  "names": [
+    { "from": "1939-09-01", "name": "9th Infantry Division", "aliases": ["9th Infantry Division", "9 Dywizja Piechoty"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-09-19", "end": "destroyed in the Bydgoszcz–Bzura fighting" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-09-19", "unit": "pl-army-pomorze" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [18.2, 53.4], "label": "Defends the Polish Corridor south of Bydgoszcz", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-09", "at": [18.9, 52.6], "label": "Retreats south into the Bzura battle", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-18",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/9th_Infantry_Division_(Poland)" },
+  "notes": "Army Pomorze, September 1939 defender (anti-Axis/blue). Sector-level position, inferred."
+}

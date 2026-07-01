@@ -1,0 +1,20 @@
+{
+  "id": "de-pzkempf-pl1939",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "armoured",
+  "short": "Pz. Kempf",
+  "names": [
+    { "from": "1939-09-01", "name": "Panzer-Division \"Kempf\"", "aliases": ["Panzer-Division Kempf", "Panzerverband Ostpreußen", "Division Kempf"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-10-06", "end": "disbanded after the campaign" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-10-06", "unit": "de-h-armee-3" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [20.4, 53.1], "label": "Army-detachment armour drives on Mława", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-14", "at": [21.2, 52.5], "label": "Envelops Warsaw from the north-east", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Panzer_Division_Kempf" },
+  "notes": "3. Armee (Army Group North), September 1939 — the scratch army/SS panzer detachment. Sector-level position, inferred."
+}

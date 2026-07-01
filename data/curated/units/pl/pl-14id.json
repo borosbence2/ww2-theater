@@ -1,0 +1,21 @@
+{
+  "id": "pl-14id",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "14. DP",
+  "names": [
+    { "from": "1939-09-01", "name": "14th Infantry Division", "aliases": ["14th Infantry Division", "14 Wielkopolska Dywizja Piechoty"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-09-19", "end": "destroyed in the Bzura pocket" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-09-19", "unit": "pl-army-poznan" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [16.9, 52.4], "label": "Holds the Poznań region in the west", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-11", "at": [19.3, 52.3], "label": "Leads the Bzura counter-attack toward Łowicz", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-18",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/14th_Infantry_Division_(Poland)" },
+  "notes": "Army Poznań, September 1939 — the Battle of the Bzura (anti-Axis/blue). Sector-level position, inferred."
+}

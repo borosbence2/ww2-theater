@@ -1,0 +1,21 @@
+{
+  "id": "pl-19id",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "19. DP",
+  "names": [
+    { "from": "1939-09-01", "name": "19th Infantry Division", "aliases": ["19th Infantry Division", "19 Dywizja Piechoty"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-09-13", "end": "destroyed at Piotrków" } ],
+  "parents": [ { "from": "1939-09-04", "to": "1939-09-13", "unit": "pl-army-prusy" } ],
+  "positions": [
+    { "date": "1939-09-04", "at": [19.9, 51.4], "label": "Meets the panzers at Piotrków Trybunalski", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-09", "at": [21.3, 51.6], "label": "Broken; remnants stream toward the Vistula", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-12",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/19th_Infantry_Division_(Poland)" },
+  "notes": "Army Prusy, September 1939 defender (anti-Axis/blue). Sector-level position, inferred."
+}

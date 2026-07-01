@@ -1,0 +1,21 @@
+{
+  "id": "pl-cav-wolynska",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "brigade",
+  "type": "cavalry",
+  "short": "Woł. BK",
+  "names": [
+    { "from": "1939-09-01", "name": "Wołyńska Cavalry Brigade", "aliases": ["Wołyńska Cavalry Brigade", "Wołyńska Brygada Kawalerii"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-09-23", "end": "destroyed after Tomaszów Lubelski" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-09-23", "unit": "pl-army-lodz" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [18.9, 51.1], "label": "Stands off 4. Panzer at Mokra", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-09", "at": [19.9, 51.5], "label": "Fighting withdrawal to the Vistula", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-22",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Wo%C5%82y%C5%84ska_Cavalry_Brigade" },
+  "notes": "Army Łódź, September 1939 — the stand at Mokra (anti-Axis/blue). Sector-level position, inferred."
+}

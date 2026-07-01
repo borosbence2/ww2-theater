@@ -1,0 +1,21 @@
+{
+  "id": "pl-13id",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "13. DP",
+  "names": [
+    { "from": "1939-09-01", "name": "13th Infantry Division", "aliases": ["13th Infantry Division", "13 Dywizja Piechoty"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-09-23", "end": "destroyed near Tomaszów Lubelski" } ],
+  "parents": [ { "from": "1939-09-04", "to": "1939-09-23", "unit": "pl-army-prusy" } ],
+  "positions": [
+    { "date": "1939-09-04", "at": [20.5, 51.4], "label": "Deploys as Army Prusy's reserve near Piotrków", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-12", "at": [21.7, 51.5], "label": "Falls back over the Vistula toward Lublin", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-22",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/13th_Infantry_Division_(Poland)" },
+  "notes": "Army Prusy, September 1939 defender (anti-Axis/blue). Sector-level position, inferred."
+}

@@ -1,0 +1,20 @@
+{
+  "id": "de-294id-yu1941",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "294. ID",
+  "names": [
+    { "from": "1941-04-06", "name": "294. Infanterie-Division", "aliases": ["294. Infanterie-Division", "294th Infantry Division"] }
+  ],
+  "existence": [ { "from": "1941-04-06", "to": "1941-04-18", "end": "Yugoslav capitulation" } ],
+  "parents": [ { "from": "1941-04-06", "to": "1941-04-18", "unit": "de-pzgr1-yu1941" } ],
+  "positions": [
+    { "date": "1941-04-08", "at": [22.7, 43.1], "label": "Follows the panzers out of Bulgaria", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1941-04-11", "at": [21.9, 43.3], "label": "Secures Niš and the Morava valley", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1941-04-17",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/294th_Infantry_Division_(Wehrmacht)" },
+  "notes": "1. Panzergruppe (Kleist), invasion of Yugoslavia, April 1941. Sector-level position, inferred."
+}

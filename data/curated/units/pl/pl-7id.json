@@ -1,0 +1,21 @@
+{
+  "id": "pl-7id",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "7. DP",
+  "names": [
+    { "from": "1939-09-01", "name": "7th Infantry Division", "aliases": ["7th Infantry Division", "7 Dywizja Piechoty"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-09-08", "end": "destroyed near Częstochowa" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-09-08", "unit": "pl-army-krakow" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [19.1, 50.8], "label": "Covers the Częstochowa axis", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-04", "at": [19.6, 50.7], "label": "Encircled and destroyed", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-08",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/7th_Infantry_Division_(Poland)" },
+  "notes": "Army Kraków, September 1939 defender (anti-Axis/blue). Sector-level position, inferred."
+}

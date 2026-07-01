@@ -1,0 +1,21 @@
+{
+  "id": "pl-cav-krakowska",
+  "country": "PL",
+  "side": "soviet",
+  "branch": "wp",
+  "echelon": "brigade",
+  "type": "cavalry",
+  "short": "Krak. BK",
+  "names": [
+    { "from": "1939-09-01", "name": "Kraków Cavalry Brigade", "aliases": ["Kraków Cavalry Brigade", "Krakowska Brygada Kawalerii"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-09-20", "end": "destroyed in the Tomaszów Lubelski battles" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-09-20", "unit": "pl-army-krakow" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [19.0, 50.3], "label": "Screens the Silesian border", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-12", "at": [21.6, 50.4], "label": "Falls back toward the San", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-19",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Krak%C3%B3w_Cavalry_Brigade" },
+  "notes": "Army Kraków, September 1939 defender (anti-Axis/blue). Sector-level position, inferred."
+}
