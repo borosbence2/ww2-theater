@@ -1,0 +1,13 @@
+{
+  "id": "su-div-18-1939", "country": "SU", "branch": "rkka", "echelon": "division", "type": "infantry", "short": "18-я SD",
+  "names": [ { "from": "1939-11-30", "name": "18th Rifle Division", "aliases": ["18th Rifle Division", "18-я стрелковая дивизия"] } ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "destroyed in the Lemetti mottis" } ],
+  "parents": [ { "from": "1939-11-30", "to": "1940-03-13", "unit": "su-army-8-1939" } ],
+  "positions": [
+    { "date": "1939-12-05", "at": [32.0, 62.05], "label": "Advances south-east of Lake Ladoga", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-02-01", "at": [31.85, 61.98], "label": "Encircled and destroyed in the Lemetti mottis", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Lemetti" },
+  "notes": "8th Army — annihilated with the 34th Tank Brigade in the Lemetti mottis, Ladoga Karelia. Sector-level position, inferred."
+}

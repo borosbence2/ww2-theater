@@ -1,0 +1,14 @@
+{
+  "id": "su-div-163-1939", "country": "SU", "branch": "rkka", "echelon": "division", "type": "infantry", "short": "163-я SD",
+  "names": [ { "from": "1939-11-30", "name": "163rd Rifle Division", "aliases": ["163rd Rifle Division", "163-я стрелковая дивизия"] } ],
+  "existence": [ { "from": "1939-11-30", "to": "1939-12-30", "end": "mauled and encircled at Suomussalmi" } ],
+  "parents": [ { "from": "1939-11-30", "to": "1939-12-30", "unit": "su-army-9-1939" } ],
+  "commanders": [ { "from": "1939-11-30", "name": "Brig.Cdr Andrei Zelentsov" } ],
+  "positions": [
+    { "date": "1939-12-07", "at": [29.2, 65.0], "label": "Pushes into Suomussalmi", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-12-27", "at": [29.1, 64.95], "label": "Cut off and driven back by Siilasvuo", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-12-30",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Suomussalmi" },
+  "notes": "9th Army — routed at Suomussalmi, Winter War. Sector-level position, inferred."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "su-div-44-1939", "country": "SU", "branch": "rkka", "echelon": "division", "type": "infantry", "short": "44-я SD",
+  "names": [ { "from": "1939-12-20", "name": "44th Rifle Division", "aliases": ["44th Rifle Division", "44-я стрелковая дивизия"] } ],
+  "existence": [ { "from": "1939-12-20", "to": "1940-01-08", "end": "annihilated on the Raate road" } ],
+  "parents": [ { "from": "1939-12-20", "to": "1940-01-08", "unit": "su-army-9-1939" } ],
+  "commanders": [ { "from": "1939-12-20", "name": "Cdr Alexei Vinogradov (shot after the defeat)" } ],
+  "positions": [
+    { "date": "1939-12-24", "at": [30.3, 64.83], "label": "Advances up the Raate road to relieve the 163rd", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-01-05", "at": [29.9, 64.85], "label": "Strung out and destroyed in the Raate-road mottis", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-01-08",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Raate_Road" },
+  "notes": "9th Army — the Raate-road catastrophe, the Winter War's most famous motti. Sector-level position, inferred."
+}

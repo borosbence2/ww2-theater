@@ -1,0 +1,14 @@
+{
+  "id": "su-div-123-1939", "country": "SU", "branch": "rkka", "echelon": "division", "type": "infantry", "short": "123-я SD",
+  "names": [ { "from": "1939-11-30", "name": "123rd Rifle Division", "aliases": ["123rd Rifle Division", "123-я стрелковая дивизия"] } ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "parents": [ { "from": "1939-11-30", "to": "1940-03-13", "unit": "su-army-7-1939" } ],
+  "commanders": [ { "from": "1939-11-30", "name": "Cdr Filipp Alyabushev" } ],
+  "positions": [
+    { "date": "1939-12-06", "at": [29.05, 60.52], "label": "Batters the Summa strongpoint of the Mannerheim Line", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-02-13", "at": [28.85, 60.62], "label": "Breaks through at Summa — the decisive penetration", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/123rd_Rifle_Division_(Soviet_Union)" },
+  "notes": "7th Army — the division that finally broke the Mannerheim Line at Summa, Feb 1940. Sector-level position, inferred."
+}
