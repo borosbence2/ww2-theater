@@ -1,0 +1,21 @@
+{
+  "id": "su-cav-div-5-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "division",
+  "type": "cavalry",
+  "short": "5 KD",
+  "names": [
+    { "from": "1939-09-17", "name": "5th Cavalry Division", "aliases": ["5th Cavalry Division", "5-я кавалерийская дивизия"] }
+  ],
+  "existence": [ { "from": "1939-09-17", "to": "1939-10-01", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-17", "to": "1939-10-01", "unit": "su-cav-corps-2-1939" } ],
+  "positions": [
+    { "date": "1939-09-17", "at": [26.0, 49.5], "label": "Screens the drive on Tarnopol", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-22", "at": [24.2, 49.8], "label": "Reaches the approaches to Lwów", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Soviet_invasion_of_Poland" },
+  "notes": "Ukrainian Front, 2nd Cavalry Corps, September 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}

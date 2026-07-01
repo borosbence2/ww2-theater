@@ -1,0 +1,21 @@
+{
+  "id": "su-cav-div-32-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "division",
+  "type": "cavalry",
+  "short": "32 KD",
+  "names": [
+    { "from": "1939-09-17", "name": "32nd Cavalry Division", "aliases": ["32nd Cavalry Division", "32-я кавалерийская дивизия"] }
+  ],
+  "existence": [ { "from": "1939-09-17", "to": "1939-10-01", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-17", "to": "1939-10-01", "unit": "su-cav-corps-4-1939" } ],
+  "positions": [
+    { "date": "1939-09-17", "at": [26.5, 49.0], "label": "Rides for Stanisławów with 4th Cavalry Corps", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-24", "at": [24.8, 49.0], "label": "Enters Stanisławów", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Soviet_invasion_of_Poland" },
+  "notes": "Ukrainian Front, 4th Cavalry Corps, September 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}

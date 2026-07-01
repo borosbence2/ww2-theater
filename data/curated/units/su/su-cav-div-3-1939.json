@@ -1,0 +1,21 @@
+{
+  "id": "su-cav-div-3-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "division",
+  "type": "cavalry",
+  "short": "3 KD",
+  "names": [
+    { "from": "1939-09-17", "name": "3rd Cavalry Division", "aliases": ["3rd Cavalry Division", "3-я кавалерийская дивизия"] }
+  ],
+  "existence": [ { "from": "1939-09-17", "to": "1939-10-01", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-17", "to": "1939-10-01", "unit": "su-cav-corps-2-1939" } ],
+  "positions": [
+    { "date": "1939-09-17", "at": [26.3, 49.7], "label": "Rides for Lwów with 2nd Cavalry Corps", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-22", "at": [24.4, 49.9], "label": "On the outskirts of Lwów", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Soviet_invasion_of_Poland" },
+  "notes": "Ukrainian Front, 2nd Cavalry Corps, September 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "su-cav-div-34-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "division",
+  "type": "cavalry",
+  "short": "34 KD",
+  "names": [
+    { "from": "1939-09-17", "name": "34th Cavalry Division", "aliases": ["34th Cavalry Division", "34-я кавалерийская дивизия"] }
+  ],
+  "existence": [ { "from": "1939-09-17", "to": "1939-10-01", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-17", "to": "1939-10-01", "unit": "su-cav-corps-4-1939" } ],
+  "positions": [
+    { "date": "1939-09-17", "at": [26.3, 48.8], "label": "Advances on the Carpathian foothills", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-24", "at": [24.6, 48.85], "label": "Screens the approach to Sambor", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Soviet_invasion_of_Poland" },
+  "notes": "Ukrainian Front, 4th Cavalry Corps, September 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}
