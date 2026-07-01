@@ -1,0 +1,21 @@
+{
+  "id": "su-rifle-corps-15-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "corps",
+  "type": "infantry",
+  "short": "15 SK",
+  "names": [
+    { "from": "1939-09-17", "name": "15th Rifle Corps", "aliases": ["15th Rifle Corps", "15-й стрелковый корпус"] }
+  ],
+  "existence": [ { "from": "1939-09-17", "to": "1939-10-01", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-17", "to": "1939-10-01", "unit": "su-army-5-1939" } ],
+  "positions": [
+    { "date": "1939-09-17", "at": [27.0, 50.85], "label": "Advances through Volhynia on Rovno and Lutsk", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-20", "at": [25.3, 50.7], "label": "Secures Rovno", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Soviet_invasion_of_Poland" },
+  "notes": "Ukrainian Front / 5th Army, September 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}

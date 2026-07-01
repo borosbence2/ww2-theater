@@ -1,0 +1,22 @@
+{
+  "id": "su-tank-bde-29-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "brigade",
+  "type": "armoured",
+  "short": "29 TBr",
+  "names": [
+    { "from": "1939-09-17", "name": "29th Light Tank Brigade", "aliases": ["29th Light Tank Brigade", "29-я лёгкотанковая бригада"] }
+  ],
+  "existence": [ { "from": "1939-09-17", "to": "1939-10-01", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-17", "to": "1939-10-01", "unit": "su-army-4-1939" } ],
+  "commanders": [ { "from": "1939-09-17", "name": "Brig.Cdr Semyon Krivoshein" } ],
+  "positions": [
+    { "date": "1939-09-17", "at": [26.3, 52.4], "label": "Advances through Baranovichi", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-22", "at": [23.66, 52.08], "label": "Enters Brest for the joint German–Soviet parade", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/German%E2%80%93Soviet_military_parade_in_Brest-Litovsk" },
+  "notes": "Belorussian Front / 4th Army — Krivoshein's brigade held the Brest handover parade with Guderian, 22 Sept 1939 (co-belligerent — red). Sector-level position, inferred."
+}

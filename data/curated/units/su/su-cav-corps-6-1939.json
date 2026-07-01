@@ -1,0 +1,22 @@
+{
+  "id": "su-cav-corps-6-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "corps",
+  "type": "cavalry",
+  "short": "6 KK",
+  "names": [
+    { "from": "1939-09-17", "name": "6th Cavalry Corps", "aliases": ["6th Cavalry Corps", "6-й кавалерийский корпус"] }
+  ],
+  "existence": [ { "from": "1939-09-17", "to": "1939-10-01", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-17", "to": "1939-10-01", "unit": "su-army-11-1939" } ],
+  "commanders": [ { "from": "1939-09-17", "name": "Komdiv Andrei Yeremenko" } ],
+  "positions": [
+    { "date": "1939-09-17", "at": [26.2, 53.95], "label": "Yeremenko's cavalry drives on Grodno and Białystok", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-22", "at": [23.9, 53.7], "label": "Takes Grodno", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Soviet_invasion_of_Poland" },
+  "notes": "Belorussian Front / 11th Army, September 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}

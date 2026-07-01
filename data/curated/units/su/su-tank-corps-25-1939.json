@@ -1,0 +1,21 @@
+{
+  "id": "su-tank-corps-25-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "corps",
+  "type": "armoured",
+  "short": "25 TK",
+  "names": [
+    { "from": "1939-09-17", "name": "25th Tank Corps", "aliases": ["25th Tank Corps", "25-й танковый корпус"] }
+  ],
+  "existence": [ { "from": "1939-09-17", "to": "1939-10-01", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-17", "to": "1939-10-01", "unit": "su-army-6-1939" } ],
+  "positions": [
+    { "date": "1939-09-17", "at": [26.6, 49.75], "label": "Armour spearheads the drive on Lwów", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-21", "at": [24.2, 49.84], "label": "Confronts the Germans outside Lwów", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Soviet_invasion_of_Poland" },
+  "notes": "Ukrainian Front / 6th Army — the race with the Wehrmacht for Lwów, September 1939 (co-belligerent — red). Sector-level position, inferred."
+}

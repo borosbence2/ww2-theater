@@ -1,0 +1,21 @@
+{
+  "id": "su-cav-corps-2-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "corps",
+  "type": "cavalry",
+  "short": "2 KK",
+  "names": [
+    { "from": "1939-09-17", "name": "2nd Cavalry Corps", "aliases": ["2nd Cavalry Corps", "2-й кавалерийский корпус"] }
+  ],
+  "existence": [ { "from": "1939-09-17", "to": "1939-10-01", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-17", "to": "1939-10-01", "unit": "su-army-6-1939" } ],
+  "positions": [
+    { "date": "1939-09-17", "at": [26.2, 49.6], "label": "Drives on Tarnopol and Lwów", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-22", "at": [24.3, 49.85], "label": "Reaches Lwów", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Soviet_invasion_of_Poland" },
+  "notes": "Ukrainian Front / 6th Army, September 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}

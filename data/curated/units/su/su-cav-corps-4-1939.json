@@ -1,0 +1,21 @@
+{
+  "id": "su-cav-corps-4-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "corps",
+  "type": "cavalry",
+  "short": "4 KK",
+  "names": [
+    { "from": "1939-09-17", "name": "4th Cavalry Corps", "aliases": ["4th Cavalry Corps", "4-й кавалерийский корпус"] }
+  ],
+  "existence": [ { "from": "1939-09-17", "to": "1939-10-01", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-17", "to": "1939-10-01", "unit": "su-army-12-1939" } ],
+  "positions": [
+    { "date": "1939-09-17", "at": [26.4, 48.9], "label": "Advances on Stanisławów and the Carpathian foothills", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-24", "at": [24.7, 48.92], "label": "Takes Stanisławów", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Soviet_invasion_of_Poland" },
+  "notes": "Ukrainian Front / 12th Army, September 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}

@@ -1,0 +1,22 @@
+{
+  "id": "su-cmg-dzerzhinsky-1939",
+  "country": "SU",
+  "side": "axis",
+  "branch": "rkka",
+  "echelon": "corps",
+  "type": "mechanized",
+  "short": "KMG Dzerzhinsky",
+  "names": [
+    { "from": "1939-09-17", "name": "Dzerzhinsky Cavalry-Mechanized Group", "aliases": ["Dzerzhinsky Cavalry-Mechanized Group", "Конно-механизированная группа"] }
+  ],
+  "existence": [ { "from": "1939-09-17", "to": "1939-10-01", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-17", "to": "1939-10-01", "unit": "su-army-3-1939" } ],
+  "commanders": [ { "from": "1939-09-17", "name": "Komkor Ivan Boldin" } ],
+  "positions": [
+    { "date": "1939-09-17", "at": [27.4, 54.75], "label": "Boldin's fast group races for Vilnius", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-19", "at": [25.3, 54.72], "label": "Seizes Vilnius", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Soviet_invasion_of_Poland" },
+  "notes": "Belorussian Front / 3rd Army, September 1939 (co-belligerent with Germany — red). Sector-level position, inferred."
+}
