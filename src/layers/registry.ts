@@ -14,6 +14,7 @@ import { CONTROL_DOTS_LAYER_IDS, addControlDotsLayer, updateControlDotsDate } fr
 import { UNITS_LAYER_IDS, addUnitsLayer, updateUnitsDate } from './units';
 import { BATTLES_LAYER_IDS, addBattlesLayer, updateBattlesDate } from './battles';
 import { CONTROL_FILL_LAYER_IDS, addControlFillLayer, updateControlFillDate } from './controlFill';
+import { POCKET_LABELS_LAYER_IDS, addPocketLabelsLayer } from './pocketLabels';
 import { OPERATIONS_LAYER_IDS, addOperationsLayer, updateOperationsDate } from './operations';
 import { AIRFIELDS_LAYER_IDS, addAirfieldsLayer } from './airfields';
 import {
@@ -166,6 +167,14 @@ export const LAYERS: LayerDef[] = [
     add: addAirLayer,
     updateDate: updateAirDate,
     mapLayerIds: AIR_LAYER_IDS,
+  },
+  {
+    // Last, so pocket names sit above the unit counters clustered inside them.
+    id: 'pocket-labels',
+    label: 'Pocket names',
+    legend: [{ shape: 'dot', color: '#7a2f1f', label: 'Encirclement / siege name' }],
+    add: addPocketLabelsLayer,
+    mapLayerIds: POCKET_LABELS_LAYER_IDS,
   },
 ];
 

@@ -130,6 +130,28 @@ export function pocketRingsOn(
   return out;
 }
 
+/** Active pockets/sieges with a short name + a centroid, for on-map labels. The
+ *  parenthetical "(formation)" is trimmed off so the label stays compact. */
+export function pocketLabelsOn(
+  dateISO: string,
+): { label: string; encircled: 'axis' | 'soviet'; at: [number, number] }[] {
+  const d = dateToNum(dateISO);
+  const out: { label: string; encircled: 'axis' | 'soviet'; at: [number, number] }[] = [];
+  for (const f of features) {
+    if (!f.closed || !f.encircled || !f.label) continue;
+    const coords = coordsFor(f, dateISO, d);
+    if (!coords || coords.length < 3) continue;
+    let sx = 0, sy = 0;
+    for (const [x, y] of coords) { sx += x; sy += y; }
+    out.push({
+      label: f.label.replace(/\s*\([^)]*\)\s*$/, ''),
+      encircled: f.encircled,
+      at: [sx / coords.length, sy / coords.length],
+    });
+  }
+  return out;
+}
+
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
 // --- Evidence-driven line feedback ------------------------------------------

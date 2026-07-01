@@ -18,7 +18,7 @@
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 import type { Feature, FeatureCollection } from 'geojson';
 import polygonClipping from 'polygon-clipping';
-import { mainFrontLineOn, pocketRingsOn, loadFrontFeatures } from './front';
+import { mainFrontLineOn, pocketRingsOn, pocketLabelsOn, loadFrontFeatures } from './front';
 
 const SOURCE_ID = 'control-fill';
 const SPHERE_ID = 'control-fill-sphere';
@@ -132,6 +132,14 @@ function controlFill(dateISO: string): FeatureCollection {
     const enc = clip.intersection(LAND, [p.ring]);
     const f = mpFeature(enc, { t: p.encircled === 'axis' ? 'axis-core' : 'sov-core', kind: 'pocket' });
     if (f) features.push(f);
+  }
+  // Pocket/siege name anchors (a top-of-stack layer draws these — see pocketLabels).
+  for (const p of pocketLabelsOn(dateISO)) {
+    features.push({
+      type: 'Feature',
+      properties: { kind: 'pocket-label', label: p.label, side: p.encircled },
+      geometry: { type: 'Point', coordinates: p.at },
+    });
   }
   return { type: 'FeatureCollection', features };
 }
