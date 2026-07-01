@@ -23,9 +23,7 @@ import { mainFrontLineOn, pocketRingsOn, loadFrontFeatures } from './front';
 const SOURCE_ID = 'control-fill';
 const SPHERE_ID = 'control-fill-sphere';
 const POCKET_ID = 'control-fill-pocket';
-const NEUTRAL_SOURCE_ID = 'control-neutral';
-const NEUTRAL_ID = 'control-fill-neutral';
-export const CONTROL_FILL_LAYER_IDS = [NEUTRAL_ID, SPHERE_ID, POCKET_ID];
+export const CONTROL_FILL_LAYER_IDS = [SPHERE_ID, POCKET_ID];
 
 // Softened, atlas-like palette: home nations a shade deeper, occupied/held
 // ground lighter. Kept muted so the counters and labels read over it.
@@ -122,6 +120,11 @@ function controlFill(dateISO: string): FeatureCollection {
   add(axisCore, 'axis-core');
   add(sovOcc, 'sov-occ');
   add(sovCore, 'sov-core');
+  // Neutrals — folded into the same front-gated fill so ALL country colouring
+  // appears together, i.e. only once Barbarossa opens the front (before that
+  // `line` is null and we return EMPTY above, leaving the pre-1941 campaigns
+  // on the bare basemap).
+  add(NEUTRAL_LAND, 'neutral');
 
   // Pockets: an enclave in the encircled side's home colour, clipped to land so
   // coastal pockets (Sevastopol, Odessa) don't bleed into the sea.
@@ -139,15 +142,17 @@ const byTone = [
   'axis-occ', AXIS_OCC,
   'sov-core', SOVIET_CORE,
   'sov-occ', SOVIET_OCC,
+  'neutral', NEUTRAL_COLOR,
   '#888888',
 ] as const;
-// Home soil a little stronger; occupied/held ground lighter — keep it subtle.
+// Home soil a little stronger; occupied/held ground lighter; neutrals faintest.
 const opacityByTone = [
   'match', ['get', 't'],
   'axis-core', 0.4,
   'sov-core', 0.4,
   'axis-occ', 0.3,
   'sov-occ', 0.3,
+  'neutral', 0.22,
   0.34,
 ] as const;
 
@@ -163,21 +168,6 @@ export async function addControlFillLayer(map: MapLibreMap, date: string): Promi
     attribution: 'Territorial control: the belligerent land split along the operational front',
   });
   const before = map.getStyle().layers?.find((l) => l.id.startsWith('borders'))?.id;
-  // Neutrals: a faint static grey underlay (never front-split) so the map reads
-  // as a complete atlas. Added first, so it sits below the spheres.
-  const neutralFC: FeatureCollection = NEUTRAL_LAND.length
-    ? { type: 'FeatureCollection', features: [mpFeature(NEUTRAL_LAND, { t: 'neutral' })].filter(Boolean) as Feature[] }
-    : EMPTY;
-  map.addSource(NEUTRAL_SOURCE_ID, { type: 'geojson', data: neutralFC });
-  map.addLayer(
-    {
-      id: NEUTRAL_ID,
-      type: 'fill',
-      source: NEUTRAL_SOURCE_ID,
-      paint: { 'fill-color': NEUTRAL_COLOR, 'fill-opacity': 0.22, 'fill-antialias': true },
-    },
-    before,
-  );
   map.addLayer(
     {
       id: SPHERE_ID,
