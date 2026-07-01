@@ -844,7 +844,12 @@ function collectionFor(
       properties: {
         id: du.id,
         short: du.short,
-        icon: iconId(du.side, du.type, du.echelon, ECH_MARK[du.echelon] ?? 'XX', true, du.id === focusId, nationOf(du.id)),
+        // One counter style for every real unit: sector-derived units render with
+        // the same solid frame as curated ones (the hollow/dashed "derived" frame
+        // read as unfinished). The `derived` flag below stays truthful — it still
+        // tags the hover tooltip and drives the panel's "approximate position"
+        // note; only the doctrinal drill-down markers keep the dashed frame.
+        icon: iconId(du.side, du.type, du.echelon, ECH_MARK[du.echelon] ?? 'XX', false, du.id === focusId, nationOf(du.id)),
         ech,
         echelon: du.echelon,
         type: du.type,
@@ -978,9 +983,11 @@ export async function addUnitsLayer(map: MapLibreMap, date: string): Promise<voi
   // selected (brass-ring) variant for each, since any unit can become the focus.
   // The raw echelon is kept so the tier (size) and precise mark are both
   // available; iconId folds same-tier/same-mark echelons together.
+  // Both curated and sector-derived units now render with the solid (|0) frame
+  // (the dashed frame is reserved for the doctrinal drill-down icons below).
   const combos = new Set([
     ...tracks.map((t) => `${nationOf(t.id)}|${t.side}|${t.type}|${t.echelon}|0`),
-    ...derivedUnits.map((u) => `${nationOf(u.id)}|${u.side}|${u.type}|${u.echelon}|1`),
+    ...derivedUnits.map((u) => `${nationOf(u.id)}|${u.side}|${u.type}|${u.echelon}|0`),
   ]);
   for (const combo of combos) {
     const [nation, side, type, echelon, hollow] = combo.split('|') as [string, 'axis' | 'soviet', string, string, string];
