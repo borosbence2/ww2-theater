@@ -29,21 +29,33 @@ const ROW = [
   ['de-h-armee-20', '20th Mountain Army (Lapland)', '20. Geb', 'army', 'hq', 'DE', 'German', null, null, ARC_FROM, ARC_TO],
 ];
 
-// Finnish divisions — Karelian Army (East Karelia / Svir) + Isthmus.
+// Finnish corps + divisions. The events are [from, parent, grandparent], so a
+// corps parents to its army (grandparent GHQ) and a division parents to its
+// corps (grandparent army) — giving the full GHQ -> army -> corps -> division
+// chain the roster/derivation builds. Corps assignments (1941 East Karelia /
+// Isthmus) are representative.
 const DIV = [
-  ['fi-1st-division', '1st Finnish Division', '1 D', 'fi-karelian-army', GHQ, FROM, TO],
-  ['fi-5th-division', '5th Finnish Division', '5 D', 'fi-karelian-army', GHQ, FROM, TO],
-  ['fi-7th-division', '7th Finnish Division', '7 D', 'fi-karelian-army', GHQ, FROM, TO],
-  ['fi-11th-division', '11th Finnish Division', '11 D', 'fi-karelian-army', GHQ, FROM, TO],
-  ['fi-17th-division', '17th Finnish Division', '17 D', 'fi-karelian-army', GHQ, FROM, TO],
-  ['fi-cavalry-brigade', 'Finnish Cavalry Brigade', 'Cav Bde', 'fi-karelian-army', GHQ, FROM, TO],
-  ['fi-2nd-division', '2nd Finnish Division', '2 D', 'fi-isthmus', GHQ, FROM, TO],
-  ['fi-3rd-division', '3rd Finnish Division', '3 D', 'fi-isthmus', GHQ, FROM, TO],
-  ['fi-4th-division', '4th Finnish Division', '4 D', 'fi-isthmus', GHQ, FROM, TO],
-  ['fi-10th-division', '10th Finnish Division', '10 D', 'fi-isthmus', GHQ, FROM, TO],
-  ['fi-15th-division', '15th Finnish Division', '15 D', 'fi-isthmus', GHQ, FROM, TO],
-  ['fi-18th-division', '18th Finnish Division', '18 D', 'fi-isthmus', GHQ, FROM, TO],
-  // German mountain divisions (Arctic, under 20th Mountain Army).
+  // Karelian Army corps (East Karelia / Svir).
+  ['fi-6th-corps', 'Finnish VI Corps', 'VI AK', 'fi-karelian-army', GHQ, FROM, TO],
+  ['fi-7th-corps', 'Finnish VII Corps', 'VII AK', 'fi-karelian-army', GHQ, FROM, TO],
+  // Isthmus corps (Karelian Isthmus).
+  ['fi-2nd-corps', 'Finnish II Corps', 'II AK', 'fi-isthmus', GHQ, FROM, TO],
+  ['fi-4th-corps', 'Finnish IV Corps', 'IV AK', 'fi-isthmus', GHQ, FROM, TO],
+  // Karelian Army divisions under VI / VII Corps.
+  ['fi-5th-division', '5th Finnish Division', '5 D', 'fi-6th-corps', 'fi-karelian-army', FROM, TO],
+  ['fi-17th-division', '17th Finnish Division', '17 D', 'fi-6th-corps', 'fi-karelian-army', FROM, TO],
+  ['fi-cavalry-brigade', 'Finnish Cavalry Brigade', 'Cav Bde', 'fi-6th-corps', 'fi-karelian-army', FROM, TO],
+  ['fi-1st-division', '1st Finnish Division', '1 D', 'fi-7th-corps', 'fi-karelian-army', FROM, TO],
+  ['fi-7th-division', '7th Finnish Division', '7 D', 'fi-7th-corps', 'fi-karelian-army', FROM, TO],
+  ['fi-11th-division', '11th Finnish Division', '11 D', 'fi-7th-corps', 'fi-karelian-army', FROM, TO],
+  // Isthmus divisions under II / IV Corps.
+  ['fi-2nd-division', '2nd Finnish Division', '2 D', 'fi-2nd-corps', 'fi-isthmus', FROM, TO],
+  ['fi-15th-division', '15th Finnish Division', '15 D', 'fi-2nd-corps', 'fi-isthmus', FROM, TO],
+  ['fi-18th-division', '18th Finnish Division', '18 D', 'fi-2nd-corps', 'fi-isthmus', FROM, TO],
+  ['fi-3rd-division', '3rd Finnish Division', '3 D', 'fi-4th-corps', 'fi-isthmus', FROM, TO],
+  ['fi-4th-division', '4th Finnish Division', '4 D', 'fi-4th-corps', 'fi-isthmus', FROM, TO],
+  ['fi-10th-division', '10th Finnish Division', '10 D', 'fi-4th-corps', 'fi-isthmus', FROM, TO],
+  // German mountain divisions (Arctic, directly under 20th Mountain Army).
   ['de-2nd-mountain-division', '2nd Mountain Division', '2 Geb', 'de-h-armee-20', null, ARC_FROM, ARC_TO],
   ['de-6th-mountain-division', '6th Mountain Division', '6 Geb', 'de-h-armee-20', null, ARC_FROM, ARC_TO],
   ['de-7th-mountain-division', '7th Mountain Division', '7 Geb', 'de-h-armee-20', null, ARC_FROM, ARC_TO],
@@ -51,7 +63,8 @@ const DIV = [
 
 // Mountain/Jäger ride the infantry branch glyph (no separate "mountain" type).
 const ECH_TYPE = (id) => (id.includes('cavalry') ? 'cavalry' : 'infantry');
-const ECH = (id) => (id.includes('brigade') ? 'brigade' : 'division');
+const ECH = (id) =>
+  id.includes('corps') ? 'corps' : id.includes('brigade') ? 'brigade' : 'division';
 
 const units = [];
 const divisions = [];

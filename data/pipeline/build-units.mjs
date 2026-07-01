@@ -1512,10 +1512,18 @@ if (sectors && monthlyRosters.length) {
             finFrontOf.set(e.unit, frontId);
             finFrontAt.set(`${e.unit}|${month.date}`, frontId);
             armyPts.push(fracToPoint(line, center, offSide, 'army'));
-            const divs =
-              offSide === 'axis'
-                ? (deRoster.get(month.date)?.get(e.unit) ?? []).map((x) => x.id)
-                : sovietDivsOf(month, e.unit);
+            // Cluster the anchored army's whole subtree at its sector centre: on
+            // the axis side that is corps + their divisions (recurse one level
+            // through the roster), on the Soviet side sovietDivsOf already does.
+            const axisSubtree = (armyId) => {
+              const out = [];
+              for (const c of deRoster.get(month.date)?.get(armyId) ?? []) {
+                out.push(c.id);
+                for (const d of deRoster.get(month.date)?.get(c.id) ?? []) out.push(d.id);
+              }
+              return out;
+            };
+            const divs = offSide === 'axis' ? axisSubtree(e.unit) : sovietDivsOf(month, e.unit);
             for (const did of divs) {
               push(did, month.date, center);
               finFrontOf.set(did, frontId);

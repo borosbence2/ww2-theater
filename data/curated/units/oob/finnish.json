@@ -102,16 +102,91 @@
    "imported": true
   },
   {
-   "id": "fi-1st-division",
+   "id": "fi-6th-corps",
    "country": "FI",
    "branch": "Finnish",
-   "echelon": "division",
+   "echelon": "corps",
    "type": "infantry",
-   "short": "1 D",
+   "short": "VI AK",
    "names": [
     {
      "from": "1941-06-25",
-     "name": "1st Finnish Division",
+     "name": "Finnish VI Corps",
+     "aliases": []
+    }
+   ],
+   "existence": [
+    {
+     "from": "1941-06-25",
+     "to": "1944-09-19"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "imported": true
+  },
+  {
+   "id": "fi-7th-corps",
+   "country": "FI",
+   "branch": "Finnish",
+   "echelon": "corps",
+   "type": "infantry",
+   "short": "VII AK",
+   "names": [
+    {
+     "from": "1941-06-25",
+     "name": "Finnish VII Corps",
+     "aliases": []
+    }
+   ],
+   "existence": [
+    {
+     "from": "1941-06-25",
+     "to": "1944-09-19"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "imported": true
+  },
+  {
+   "id": "fi-2nd-corps",
+   "country": "FI",
+   "branch": "Finnish",
+   "echelon": "corps",
+   "type": "infantry",
+   "short": "II AK",
+   "names": [
+    {
+     "from": "1941-06-25",
+     "name": "Finnish II Corps",
+     "aliases": []
+    }
+   ],
+   "existence": [
+    {
+     "from": "1941-06-25",
+     "to": "1944-09-19"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "imported": true
+  },
+  {
+   "id": "fi-4th-corps",
+   "country": "FI",
+   "branch": "Finnish",
+   "echelon": "corps",
+   "type": "infantry",
+   "short": "IV AK",
+   "names": [
+    {
+     "from": "1941-06-25",
+     "name": "Finnish IV Corps",
      "aliases": []
     }
    ],
@@ -137,56 +212,6 @@
     {
      "from": "1941-06-25",
      "name": "5th Finnish Division",
-     "aliases": []
-    }
-   ],
-   "existence": [
-    {
-     "from": "1941-06-25",
-     "to": "1944-09-19"
-    }
-   ],
-   "parents": [],
-   "positions": [],
-   "links": {},
-   "imported": true
-  },
-  {
-   "id": "fi-7th-division",
-   "country": "FI",
-   "branch": "Finnish",
-   "echelon": "division",
-   "type": "infantry",
-   "short": "7 D",
-   "names": [
-    {
-     "from": "1941-06-25",
-     "name": "7th Finnish Division",
-     "aliases": []
-    }
-   ],
-   "existence": [
-    {
-     "from": "1941-06-25",
-     "to": "1944-09-19"
-    }
-   ],
-   "parents": [],
-   "positions": [],
-   "links": {},
-   "imported": true
-  },
-  {
-   "id": "fi-11th-division",
-   "country": "FI",
-   "branch": "Finnish",
-   "echelon": "division",
-   "type": "infantry",
-   "short": "11 D",
-   "names": [
-    {
-     "from": "1941-06-25",
-     "name": "11th Finnish Division",
      "aliases": []
     }
    ],
@@ -252,6 +277,81 @@
    "imported": true
   },
   {
+   "id": "fi-1st-division",
+   "country": "FI",
+   "branch": "Finnish",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "1 D",
+   "names": [
+    {
+     "from": "1941-06-25",
+     "name": "1st Finnish Division",
+     "aliases": []
+    }
+   ],
+   "existence": [
+    {
+     "from": "1941-06-25",
+     "to": "1944-09-19"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "imported": true
+  },
+  {
+   "id": "fi-7th-division",
+   "country": "FI",
+   "branch": "Finnish",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "7 D",
+   "names": [
+    {
+     "from": "1941-06-25",
+     "name": "7th Finnish Division",
+     "aliases": []
+    }
+   ],
+   "existence": [
+    {
+     "from": "1941-06-25",
+     "to": "1944-09-19"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "imported": true
+  },
+  {
+   "id": "fi-11th-division",
+   "country": "FI",
+   "branch": "Finnish",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "11 D",
+   "names": [
+    {
+     "from": "1941-06-25",
+     "name": "11th Finnish Division",
+     "aliases": []
+    }
+   ],
+   "existence": [
+    {
+     "from": "1941-06-25",
+     "to": "1944-09-19"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "imported": true
+  },
+  {
    "id": "fi-2nd-division",
    "country": "FI",
    "branch": "Finnish",
@@ -262,6 +362,56 @@
     {
      "from": "1941-06-25",
      "name": "2nd Finnish Division",
+     "aliases": []
+    }
+   ],
+   "existence": [
+    {
+     "from": "1941-06-25",
+     "to": "1944-09-19"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "imported": true
+  },
+  {
+   "id": "fi-15th-division",
+   "country": "FI",
+   "branch": "Finnish",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "15 D",
+   "names": [
+    {
+     "from": "1941-06-25",
+     "name": "15th Finnish Division",
+     "aliases": []
+    }
+   ],
+   "existence": [
+    {
+     "from": "1941-06-25",
+     "to": "1944-09-19"
+    }
+   ],
+   "parents": [],
+   "positions": [],
+   "links": {},
+   "imported": true
+  },
+  {
+   "id": "fi-18th-division",
+   "country": "FI",
+   "branch": "Finnish",
+   "echelon": "division",
+   "type": "infantry",
+   "short": "18 D",
+   "names": [
+    {
+     "from": "1941-06-25",
+     "name": "18th Finnish Division",
      "aliases": []
     }
    ],
@@ -337,56 +487,6 @@
     {
      "from": "1941-06-25",
      "name": "10th Finnish Division",
-     "aliases": []
-    }
-   ],
-   "existence": [
-    {
-     "from": "1941-06-25",
-     "to": "1944-09-19"
-    }
-   ],
-   "parents": [],
-   "positions": [],
-   "links": {},
-   "imported": true
-  },
-  {
-   "id": "fi-15th-division",
-   "country": "FI",
-   "branch": "Finnish",
-   "echelon": "division",
-   "type": "infantry",
-   "short": "15 D",
-   "names": [
-    {
-     "from": "1941-06-25",
-     "name": "15th Finnish Division",
-     "aliases": []
-    }
-   ],
-   "existence": [
-    {
-     "from": "1941-06-25",
-     "to": "1944-09-19"
-    }
-   ],
-   "parents": [],
-   "positions": [],
-   "links": {},
-   "imported": true
-  },
-  {
-   "id": "fi-18th-division",
-   "country": "FI",
-   "branch": "Finnish",
-   "echelon": "division",
-   "type": "infantry",
-   "short": "18 D",
-   "names": [
-    {
-     "from": "1941-06-25",
-     "name": "18th Finnish Division",
      "aliases": []
     }
    ],
@@ -479,12 +579,45 @@
  ],
  "divisions": [
   {
-   "id": "fi-1st-division",
-   "label": "1st Finnish Division",
+   "id": "fi-6th-corps",
+   "label": "Finnish VI Corps",
    "events": [
     [
      "1941-06-25",
      "fi-karelian-army",
+     "fi-ghq"
+    ]
+   ]
+  },
+  {
+   "id": "fi-7th-corps",
+   "label": "Finnish VII Corps",
+   "events": [
+    [
+     "1941-06-25",
+     "fi-karelian-army",
+     "fi-ghq"
+    ]
+   ]
+  },
+  {
+   "id": "fi-2nd-corps",
+   "label": "Finnish II Corps",
+   "events": [
+    [
+     "1941-06-25",
+     "fi-isthmus",
+     "fi-ghq"
+    ]
+   ]
+  },
+  {
+   "id": "fi-4th-corps",
+   "label": "Finnish IV Corps",
+   "events": [
+    [
+     "1941-06-25",
+     "fi-isthmus",
      "fi-ghq"
     ]
    ]
@@ -495,30 +628,8 @@
    "events": [
     [
      "1941-06-25",
-     "fi-karelian-army",
-     "fi-ghq"
-    ]
-   ]
-  },
-  {
-   "id": "fi-7th-division",
-   "label": "7th Finnish Division",
-   "events": [
-    [
-     "1941-06-25",
-     "fi-karelian-army",
-     "fi-ghq"
-    ]
-   ]
-  },
-  {
-   "id": "fi-11th-division",
-   "label": "11th Finnish Division",
-   "events": [
-    [
-     "1941-06-25",
-     "fi-karelian-army",
-     "fi-ghq"
+     "fi-6th-corps",
+     "fi-karelian-army"
     ]
    ]
   },
@@ -528,8 +639,8 @@
    "events": [
     [
      "1941-06-25",
-     "fi-karelian-army",
-     "fi-ghq"
+     "fi-6th-corps",
+     "fi-karelian-army"
     ]
    ]
   },
@@ -539,8 +650,41 @@
    "events": [
     [
      "1941-06-25",
-     "fi-karelian-army",
-     "fi-ghq"
+     "fi-6th-corps",
+     "fi-karelian-army"
+    ]
+   ]
+  },
+  {
+   "id": "fi-1st-division",
+   "label": "1st Finnish Division",
+   "events": [
+    [
+     "1941-06-25",
+     "fi-7th-corps",
+     "fi-karelian-army"
+    ]
+   ]
+  },
+  {
+   "id": "fi-7th-division",
+   "label": "7th Finnish Division",
+   "events": [
+    [
+     "1941-06-25",
+     "fi-7th-corps",
+     "fi-karelian-army"
+    ]
+   ]
+  },
+  {
+   "id": "fi-11th-division",
+   "label": "11th Finnish Division",
+   "events": [
+    [
+     "1941-06-25",
+     "fi-7th-corps",
+     "fi-karelian-army"
     ]
    ]
   },
@@ -550,41 +694,8 @@
    "events": [
     [
      "1941-06-25",
-     "fi-isthmus",
-     "fi-ghq"
-    ]
-   ]
-  },
-  {
-   "id": "fi-3rd-division",
-   "label": "3rd Finnish Division",
-   "events": [
-    [
-     "1941-06-25",
-     "fi-isthmus",
-     "fi-ghq"
-    ]
-   ]
-  },
-  {
-   "id": "fi-4th-division",
-   "label": "4th Finnish Division",
-   "events": [
-    [
-     "1941-06-25",
-     "fi-isthmus",
-     "fi-ghq"
-    ]
-   ]
-  },
-  {
-   "id": "fi-10th-division",
-   "label": "10th Finnish Division",
-   "events": [
-    [
-     "1941-06-25",
-     "fi-isthmus",
-     "fi-ghq"
+     "fi-2nd-corps",
+     "fi-isthmus"
     ]
    ]
   },
@@ -594,8 +705,8 @@
    "events": [
     [
      "1941-06-25",
-     "fi-isthmus",
-     "fi-ghq"
+     "fi-2nd-corps",
+     "fi-isthmus"
     ]
    ]
   },
@@ -605,8 +716,41 @@
    "events": [
     [
      "1941-06-25",
-     "fi-isthmus",
-     "fi-ghq"
+     "fi-2nd-corps",
+     "fi-isthmus"
+    ]
+   ]
+  },
+  {
+   "id": "fi-3rd-division",
+   "label": "3rd Finnish Division",
+   "events": [
+    [
+     "1941-06-25",
+     "fi-4th-corps",
+     "fi-isthmus"
+    ]
+   ]
+  },
+  {
+   "id": "fi-4th-division",
+   "label": "4th Finnish Division",
+   "events": [
+    [
+     "1941-06-25",
+     "fi-4th-corps",
+     "fi-isthmus"
+    ]
+   ]
+  },
+  {
+   "id": "fi-10th-division",
+   "label": "10th Finnish Division",
+   "events": [
+    [
+     "1941-06-25",
+     "fi-4th-corps",
+     "fi-isthmus"
     ]
    ]
   },
