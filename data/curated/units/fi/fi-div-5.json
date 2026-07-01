@@ -1,0 +1,13 @@
+{
+  "id": "fi-div-5", "country": "FI", "branch": "maavoimat", "echelon": "division", "type": "infantry", "short": "5. D",
+  "names": [ { "from": "1939-11-30", "name": "5th Division", "aliases": ["5th Division", "5. Divisioona"] } ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "parents": [ { "from": "1939-11-30", "to": "1940-03-13", "unit": "fi-corps-2" } ],
+  "positions": [
+    { "date": "1939-12-06", "at": [29.25, 60.52], "label": "Defends the central isthmus front", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-03-05", "at": [28.6, 60.72], "label": "Falls back toward Viipuri", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Winter_War" },
+  "notes": "Finnish II Corps, western Karelian Isthmus, Winter War. Sector-level position, inferred."
+}

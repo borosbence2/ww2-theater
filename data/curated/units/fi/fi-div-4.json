@@ -1,0 +1,13 @@
+{
+  "id": "fi-div-4", "country": "FI", "branch": "maavoimat", "echelon": "division", "type": "infantry", "short": "4. D",
+  "names": [ { "from": "1939-11-30", "name": "4th Division", "aliases": ["4th Division", "4. Divisioona"] } ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "parents": [ { "from": "1939-11-30", "to": "1940-03-13", "unit": "fi-corps-2" } ],
+  "positions": [
+    { "date": "1939-12-06", "at": [29.05, 60.5], "label": "Holds the Summa strongpoint of the Mannerheim Line", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-02-15", "at": [28.7, 60.65], "label": "Gives ground after the Summa breakthrough", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Summa" },
+  "notes": "Finnish II Corps, western Karelian Isthmus (Summa/Lähde), Winter War. Sector-level position, inferred."
+}

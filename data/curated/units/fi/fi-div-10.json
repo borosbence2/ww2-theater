@@ -1,0 +1,13 @@
+{
+  "id": "fi-div-10", "country": "FI", "branch": "maavoimat", "echelon": "division", "type": "infantry", "short": "10. D",
+  "names": [ { "from": "1939-11-30", "name": "10th Division", "aliases": ["10th Division", "10. Divisioona"] } ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "parents": [ { "from": "1939-11-30", "to": "1940-03-13", "unit": "fi-corps-3" } ],
+  "positions": [
+    { "date": "1939-12-06", "at": [30.2, 60.85], "label": "Defends the Vuoksi water line east of Taipale", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-03-05", "at": [29.9, 60.95], "label": "Holds the eastern isthmus to the armistice", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Taipale" },
+  "notes": "Finnish III Corps, eastern Karelian Isthmus, Winter War. Sector-level position, inferred."
+}

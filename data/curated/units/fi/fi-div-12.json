@@ -1,0 +1,13 @@
+{
+  "id": "fi-div-12", "country": "FI", "branch": "maavoimat", "echelon": "division", "type": "infantry", "short": "12. D",
+  "names": [ { "from": "1939-11-30", "name": "12th Division", "aliases": ["12th Division", "12. Divisioona"] } ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "parents": [ { "from": "1939-11-30", "to": "1940-03-13", "unit": "fi-corps-4" } ],
+  "positions": [
+    { "date": "1939-12-12", "at": [31.6, 62.1], "label": "\"Kollaa holds\" — the epic stand north of Ladoga", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-02-15", "at": [31.7, 62.05], "label": "Still holding the Kollaa line", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Kollaa" },
+  "notes": "Finnish IV Corps, Ladoga Karelia — the Battle of Kollaa (Simo Häyhä's sector). Sector-level position, inferred."
+}

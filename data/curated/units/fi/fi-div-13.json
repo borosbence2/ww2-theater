@@ -1,0 +1,13 @@
+{
+  "id": "fi-div-13", "country": "FI", "branch": "maavoimat", "echelon": "division", "type": "infantry", "short": "13. D",
+  "names": [ { "from": "1939-11-30", "name": "13th Division", "aliases": ["13th Division", "13. Divisioona"] } ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "parents": [ { "from": "1939-11-30", "to": "1940-03-13", "unit": "fi-corps-4" } ],
+  "positions": [
+    { "date": "1939-12-12", "at": [31.4, 62.45], "label": "Counter-attacks at Tolvajärvi", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-01-15", "at": [31.9, 62.2], "label": "Reduces the Soviet mottis with IV Corps", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Tolvaj%C3%A4rvi" },
+  "notes": "Finnish IV Corps, Ladoga Karelia — Tolvajärvi and the motti battles. Sector-level position, inferred."
+}
