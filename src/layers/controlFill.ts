@@ -18,7 +18,8 @@
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 import type { Feature, FeatureCollection } from 'geojson';
 import polygonClipping from 'polygon-clipping';
-import { mainFrontLineOn, pocketRingsOn, pocketLabelsOn, loadFrontFeatures } from './front';
+import { mainFrontLineOn, frontLineById, pocketRingsOn, pocketLabelsOn, loadFrontFeatures } from './front';
+import { dateToNum } from '../time/dates';
 
 const SOURCE_ID = 'control-fill';
 const SPHERE_ID = 'control-fill-sphere';
@@ -89,8 +90,19 @@ function mpFeature(mp: MultiPoly, props: Record<string, unknown>): Feature | nul
 /** The belligerent land split along the front on `date`, in four tones (Axis
  *  home / occupied, Soviet home / held) plus pocket enclaves. */
 function controlFill(dateISO: string): FeatureCollection {
-  const line = mainFrontLineOn(dateISO) as Ring | null;
-  if (!line || line.length < 2 || !LAND.length) return EMPTY;
+  const main = mainFrontLineOn(dateISO) as Ring | null;
+  if (!main || main.length < 2 || !LAND.length) return EMPTY;
+
+  // Splice the northern-theatre fronts (Arctic + Finnish, when active) onto the
+  // main line so the Axis/Soviet boundary follows the REAL front all the way to
+  // the Arctic — Finland's eastern edge tracks the Finnish front and the divide
+  // reaches the coast, instead of a straight vertical extension of the main
+  // line's Baltic endpoint slicing across the Karelian Isthmus. All three lines
+  // are authored N→S, so concatenating them keeps the divide monotonic.
+  const d = dateToNum(dateISO);
+  const arctic = frontLineById('arctic-front', dateISO, d) as Ring | null;
+  const finnish = frontLineById('finnish-front', dateISO, d) as Ring | null;
+  const line: Ring = [...(arctic ?? []), ...(finnish ?? []), ...main];
 
   // Close each side of the front against a box beyond the land, then intersect
   // with the real land so only actual territory is painted (no sea, no box
