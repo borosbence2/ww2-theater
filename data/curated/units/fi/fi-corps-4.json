@@ -1,0 +1,21 @@
+{
+  "id": "fi-corps-4",
+  "country": "FI",
+  "branch": "maavoimat",
+  "echelon": "corps",
+  "type": "infantry",
+  "short": "IV AK",
+  "names": [
+    { "from": "1939-11-30", "name": "IV Corps", "aliases": ["IV Corps", "IV Armeijakunta"] }
+  ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "parents": [ { "from": "1939-11-30", "to": "1940-03-13", "unit": "fi-ghq-1939" } ],
+  "commanders": [ { "from": "1939-11-30", "name": "Maj.Gen. Woldemar Hägglund" } ],
+  "positions": [
+    { "date": "1939-12-12", "at": [31.4, 62.5], "label": "Wins at Tolvajärvi, north of Lake Ladoga", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-01-15", "at": [31.8, 61.9], "label": "Destroys the encircled Soviet divisions in the Ladoga mottis", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Tolvaj%C3%A4rvi" },
+  "notes": "Finnish IV Corps in Ladoga Karelia — Tolvajärvi and the motti battles. Sector-level position, inferred."
+}

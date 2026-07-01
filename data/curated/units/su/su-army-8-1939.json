@@ -1,0 +1,20 @@
+{
+  "id": "su-army-8-1939",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "8-я A",
+  "names": [
+    { "from": "1939-11-30", "name": "8th Army", "aliases": ["8th Army", "8-я армия"] }
+  ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "commanders": [ { "from": "1939-12-13", "name": "Army Cdr 2nd rank Grigory Shtern" } ],
+  "positions": [
+    { "date": "1939-11-30", "at": [32.2, 62.2], "label": "Advances north of Lake Ladoga toward Tolvajärvi", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-01-15", "at": [31.9, 62.05], "label": "Divisions surrounded and destroyed in the Ladoga mottis", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/8th_Army_(Soviet_Union)" },
+  "notes": "Soviet Ladoga Karelia — caught in Hägglund's motti encirclements, Winter War. Sector-level position, inferred."
+}

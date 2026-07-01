@@ -1,0 +1,20 @@
+{
+  "id": "su-army-14-1939",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "14-я A",
+  "names": [
+    { "from": "1939-11-30", "name": "14th Army", "aliases": ["14th Army", "14-я армия"] }
+  ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "commanders": [ { "from": "1939-11-30", "name": "Div Cdr Valerian Frolov" } ],
+  "positions": [
+    { "date": "1939-11-30", "at": [30.6, 69.35], "label": "Seizes Petsamo and the Arctic coast", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-12-15", "at": [30.4, 69.0], "label": "Holds the Arctic sector", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/14th_Army_(Soviet_Union)" },
+  "notes": "Soviet Arctic flank — took Petsamo in the Winter War. Sector-level position, inferred."
+}

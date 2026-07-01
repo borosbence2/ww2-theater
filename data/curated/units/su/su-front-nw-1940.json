@@ -1,0 +1,19 @@
+{
+  "id": "su-front-nw-1940",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "front",
+  "type": "infantry",
+  "short": "NW Front",
+  "names": [
+    { "from": "1940-01-07", "name": "North-Western Front", "aliases": ["North-Western Front", "Северо-Западный фронт"] }
+  ],
+  "existence": [ { "from": "1940-01-07", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "commanders": [ { "from": "1940-01-07", "name": "Army Cdr 1st rank Semyon Timoshenko" } ],
+  "positions": [
+    { "date": "1940-01-07", "at": [30.3, 59.95], "label": "Timoshenko takes over the Isthmus offensive from Leningrad", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Winter_War" },
+  "notes": "Soviet front command for the decisive February 1940 offensive on the Karelian Isthmus. Static HQ, inferred."
+}

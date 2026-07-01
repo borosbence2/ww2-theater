@@ -1,0 +1,21 @@
+{
+  "id": "fi-div-9",
+  "country": "FI",
+  "branch": "maavoimat",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "9. D",
+  "names": [
+    { "from": "1939-12-07", "name": "9th Division", "aliases": ["9th Division", "9. Divisioona"] }
+  ],
+  "existence": [ { "from": "1939-12-07", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "parents": [ { "from": "1939-12-07", "to": "1940-03-13", "unit": "fi-ghq-1939" } ],
+  "commanders": [ { "from": "1939-12-07", "name": "Col. Hjalmar Siilasvuo" } ],
+  "positions": [
+    { "date": "1939-12-11", "at": [28.9, 64.88], "label": "Retakes Suomussalmi", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-01-07", "at": [29.6, 64.85], "label": "Annihilates the 44th Division on the Raate road", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Suomussalmi" },
+  "notes": "Siilasvuo's division — the Suomussalmi and Raate road victory in central Finland. Sector-level position, inferred."
+}

@@ -1,0 +1,20 @@
+{
+  "id": "su-army-9-1939",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "9-я A",
+  "names": [
+    { "from": "1939-11-30", "name": "9th Army", "aliases": ["9th Army", "9-я армия"] }
+  ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "commanders": [ { "from": "1939-12-22", "name": "Corps Cdr Vasily Chuikov" } ],
+  "positions": [
+    { "date": "1939-11-30", "at": [30.4, 64.6], "label": "Drives for the Gulf of Bothnia to cut Finland in two", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-01-07", "at": [29.4, 64.9], "label": "Loses the 44th and 163rd Divisions at Suomussalmi", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/9th_Army_(Soviet_Union)" },
+  "notes": "Soviet central Finland — the Suomussalmi/Raate-road disaster (later commanded by Chuikov, who had led 4th Army in Poland). Sector-level position, inferred."
+}

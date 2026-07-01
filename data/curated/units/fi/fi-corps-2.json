@@ -1,0 +1,21 @@
+{
+  "id": "fi-corps-2",
+  "country": "FI",
+  "branch": "maavoimat",
+  "echelon": "corps",
+  "type": "infantry",
+  "short": "II AK",
+  "names": [
+    { "from": "1939-11-30", "name": "II Corps", "aliases": ["II Corps", "II Armeijakunta"] }
+  ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "parents": [ { "from": "1939-11-30", "to": "1940-03-13", "unit": "fi-army-isthmus" } ],
+  "commanders": [ { "from": "1939-11-30", "name": "Lt.Gen. Harald Öhquist" } ],
+  "positions": [
+    { "date": "1939-11-30", "at": [29.0, 60.55], "label": "Defends the western isthmus at Summa", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-03-05", "at": [28.5, 60.75], "label": "Gives ground toward Viipuri after the Summa breakthrough", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Summa" },
+  "notes": "Finnish western Karelian Isthmus, the Summa/Lähde battles of the Mannerheim Line. Sector-level position, inferred."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "su-army-13-1939",
+  "country": "SU",
+  "branch": "rkka",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "13-я A",
+  "names": [
+    { "from": "1939-12-26", "name": "13th Army", "aliases": ["13th Army", "13-я армия"] }
+  ],
+  "existence": [ { "from": "1939-12-26", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "parents": [ { "from": "1940-01-07", "to": "1940-03-13", "unit": "su-front-nw-1940" } ],
+  "commanders": [ { "from": "1939-12-26", "name": "Corps Cdr Vladimir Grendal" } ],
+  "positions": [
+    { "date": "1939-12-26", "at": [30.4, 60.5], "label": "Formed to assault the eastern Isthmus at Taipale", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-03-05", "at": [29.8, 60.95], "label": "Grinds forward across the Vuoksi", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Winter_War" },
+  "notes": "Soviet eastern Karelian Isthmus (Taipale), formed December 1939. Sector-level position, inferred."
+}

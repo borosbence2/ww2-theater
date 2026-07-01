@@ -1,0 +1,24 @@
+{
+  "id": "fi-army-isthmus",
+  "country": "FI",
+  "branch": "maavoimat",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "Kannaksen A.",
+  "names": [
+    { "from": "1939-11-30", "name": "Army of the Isthmus", "aliases": ["Army of the Isthmus", "Kannaksen Armeija"] }
+  ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "parents": [ { "from": "1939-11-30", "to": "1940-03-13", "unit": "fi-ghq-1939" } ],
+  "commanders": [
+    { "from": "1939-11-30", "name": "Lt.Gen. Hugo Österman" },
+    { "from": "1940-02-19", "name": "Lt.Gen. Erik Heinrichs" }
+  ],
+  "positions": [
+    { "date": "1939-11-30", "at": [29.2, 60.75], "label": "Holds the Mannerheim Line across the Karelian Isthmus", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-03-05", "at": [28.0, 60.9], "label": "Falls back toward Viipuri as the line is breached", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Army_of_the_Isthmus" },
+  "notes": "The main Finnish field army on the Karelian Isthmus in the Winter War. Sector-level position, inferred."
+}

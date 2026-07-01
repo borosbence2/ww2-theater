@@ -1,0 +1,21 @@
+{
+  "id": "fi-corps-3",
+  "country": "FI",
+  "branch": "maavoimat",
+  "echelon": "corps",
+  "type": "infantry",
+  "short": "III AK",
+  "names": [
+    { "from": "1939-11-30", "name": "III Corps", "aliases": ["III Corps", "III Armeijakunta"] }
+  ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "parents": [ { "from": "1939-11-30", "to": "1940-03-13", "unit": "fi-army-isthmus" } ],
+  "commanders": [ { "from": "1939-11-30", "name": "Maj.Gen. Erik Heinrichs" } ],
+  "positions": [
+    { "date": "1939-11-30", "at": [30.05, 60.9], "label": "Holds the eastern isthmus at Taipale on the Vuoksi", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1940-03-05", "at": [29.6, 61.0], "label": "Holds firm as the west is turned", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Battle_of_Taipale" },
+  "notes": "Finnish eastern Karelian Isthmus, the Taipale sector on the Vuoksi. Sector-level position, inferred."
+}

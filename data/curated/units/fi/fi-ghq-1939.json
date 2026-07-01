@@ -1,0 +1,19 @@
+{
+  "id": "fi-ghq-1939",
+  "country": "FI",
+  "branch": "maavoimat",
+  "echelon": "front",
+  "type": "infantry",
+  "short": "Päämaja",
+  "names": [
+    { "from": "1939-11-30", "name": "Finnish General Headquarters", "aliases": ["Finnish General Headquarters", "Päämaja", "Finnish GHQ (Mannerheim)"] }
+  ],
+  "existence": [ { "from": "1939-11-30", "to": "1940-03-13", "end": "Moscow Peace Treaty" } ],
+  "commanders": [ { "from": "1939-11-30", "name": "Field Marshal C. G. E. Mannerheim" } ],
+  "positions": [
+    { "date": "1939-11-30", "at": [27.27, 61.69], "label": "Mannerheim directs the defence from Mikkeli", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1940-03-13",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/Winter_War" },
+  "notes": "Finnish supreme command in the Winter War (defending against the Soviet invasion — Finland reads red, as in 1941-44). Static HQ, inferred."
+}
