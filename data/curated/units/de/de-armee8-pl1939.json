@@ -1,0 +1,22 @@
+{
+  "id": "de-armee8-pl1939",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "8. Armee",
+  "names": [
+    { "from": "1939-09-01", "name": "8. Armee", "aliases": ["8. Armee", "8th Army"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-10-15", "end": "redeployed after the campaign" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-10-06", "unit": "de-h-hgr-sued" } ],
+  "commanders": [ { "from": "1939-09-01", "name": "Gen. der Infanterie Johannes Blaskowitz" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [17.1, 51.3], "label": "Guards 10. Armee's north flank on the Łódź axis", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-10", "at": [19.1, 51.9], "label": "Struck in the flank by the Polish Bzura counter-offensive", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-18", "at": [20.0, 52.2], "label": "Grinds down the encircled armies west of Warsaw", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/8th_Army_(Wehrmacht)" },
+  "notes": "Army Group South, September 1939 — the flank guard that absorbed the Battle of the Bzura, the campaign's largest battle. Route schematic (HQ centre-of-mass), inferred."
+}

@@ -1,0 +1,20 @@
+{
+  "id": "de-2mot-pl1939",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "motorized",
+  "short": "2. ID (mot)",
+  "names": [
+    { "from": "1939-09-01", "name": "2. Infanterie-Division (mot.)", "aliases": ["2. Infanterie-Division (mot.)", "2nd Motorized Division"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-10-06", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-10-06", "unit": "de-armee4-pl1939" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [17.6, 53.4], "label": "Motorised infantry of XIX Corps in the corridor", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-15", "at": [21.6, 52.6], "label": "Follows the panzers south-east past the Bug", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/2nd_Motorised_Infantry_Division_(Wehrmacht)" },
+  "notes": "4. Armee, Guderian's XIX Panzer Corps, September 1939. Sector-level position, inferred."
+}

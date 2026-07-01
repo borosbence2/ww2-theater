@@ -1,0 +1,20 @@
+{
+  "id": "de-17id-pl1939",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "17. ID",
+  "names": [
+    { "from": "1939-09-01", "name": "17. Infanterie-Division", "aliases": ["17. Infanterie-Division", "17th Infantry Division"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-10-06", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-10-06", "unit": "de-armee8-pl1939" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [17.1, 51.2], "label": "Advances north-east from Silesia", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-13", "at": [19.6, 52.0], "label": "Contains the Bzura counter-offensive toward Łowicz", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/17th_Infantry_Division_(Wehrmacht)" },
+  "notes": "8. Armee, September 1939 — the Battle of the Bzura. Sector-level position, inferred."
+}

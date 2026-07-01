@@ -1,0 +1,22 @@
+{
+  "id": "de-armee4-pl1939",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "army",
+  "type": "infantry",
+  "short": "4. Armee",
+  "names": [
+    { "from": "1939-09-01", "name": "4. Armee", "aliases": ["4. Armee", "4th Army"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-10-15", "end": "redeployed after the campaign" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-10-06", "unit": "de-h-hgr-nord" } ],
+  "commanders": [ { "from": "1939-09-01", "name": "Gen. der Artillerie Günther von Kluge" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [16.6, 53.4], "label": "Attacks east from Pomerania to close the Polish Corridor", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-05", "at": [18.5, 53.3], "label": "Corridor severed; links up with East Prussia", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-14", "at": [22.2, 52.5], "label": "XIX Panzer Corps drives south-east on Brest", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/4th_Army_(Wehrmacht)" },
+  "notes": "Army Group North, September 1939 — closed the Corridor, then Guderian's panzer thrust on Brest-Litovsk. Route schematic (HQ centre-of-mass), inferred."
+}

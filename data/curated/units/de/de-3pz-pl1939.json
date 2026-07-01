@@ -1,0 +1,20 @@
+{
+  "id": "de-3pz-pl1939",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "armoured",
+  "short": "3. Pz",
+  "names": [
+    { "from": "1939-09-01", "name": "3. Panzer-Division", "aliases": ["3. Panzer-Division", "3rd Panzer Division"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-10-06", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-10-06", "unit": "de-armee4-pl1939" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [17.9, 53.5], "label": "Leads XIX Corps into the Polish Corridor (Guderian)", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-15", "at": [22.6, 52.3], "label": "Drives on Brest-Litovsk from the north", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/3rd_Panzer_Division_(Wehrmacht)" },
+  "notes": "4. Armee, Guderian's XIX Panzer Corps, September 1939 — the corridor and the drive on Brest. Sector-level position, inferred."
+}

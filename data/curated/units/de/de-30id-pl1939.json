@@ -1,0 +1,20 @@
+{
+  "id": "de-30id-pl1939",
+  "country": "DE",
+  "branch": "heer",
+  "echelon": "division",
+  "type": "infantry",
+  "short": "30. ID",
+  "names": [
+    { "from": "1939-09-01", "name": "30. Infanterie-Division", "aliases": ["30. Infanterie-Division", "30th Infantry Division"] }
+  ],
+  "existence": [ { "from": "1939-09-01", "to": "1939-10-06", "end": "campaign over" } ],
+  "parents": [ { "from": "1939-09-01", "to": "1939-10-06", "unit": "de-armee8-pl1939" } ],
+  "positions": [
+    { "date": "1939-09-01", "at": [17.3, 51.5], "label": "Advances on the Łódź axis", "source": "wikipedia-en", "confidence": "inferred" },
+    { "date": "1939-09-10", "at": [19.3, 52.1], "label": "Hit hardest by the Polish attack across the Bzura", "source": "wikipedia-en", "confidence": "inferred" }
+  ],
+  "positionsTo": "1939-09-28",
+  "links": { "wikipedia.en": "https://en.wikipedia.org/wiki/30th_Infantry_Division_(Wehrmacht)" },
+  "notes": "8. Armee, September 1939 — the division the Poznań Army struck first on the Bzura. Sector-level position, inferred."
+}
