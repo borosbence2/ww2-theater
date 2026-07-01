@@ -56,6 +56,12 @@ function muteBasemap(map: maplibregl.Map): void {
         } else if (/boundary|admin/i.test(id)) {
           map.setPaintProperty(id, 'line-opacity', 0.35);
         }
+      } else if (l.type === 'fill') {
+        // Give the sea a soft, cool tint so coastlines read against the painted
+        // land (positron's near-white water otherwise blends into the fills).
+        if (/water|ocean|sea|lake/i.test(id)) {
+          map.setPaintProperty(id, 'fill-color', '#aec4d2');
+        }
       }
     } catch {
       // This layer lacks the prop in the current style; leave it untouched.
